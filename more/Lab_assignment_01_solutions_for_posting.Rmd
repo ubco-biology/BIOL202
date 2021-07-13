@@ -1,0 +1,232 @@
+---
+title: "Lab Assignment 01 solutions"
+author: "Jason Pither"
+output:
+  html_document: default
+  pdf_document: default
+  word_document:
+    fig_caption: yes
+    reference_docx: assignment_style_template.docx
+---
+
+
+```{r setup, include=FALSE}
+# DO NOT ALTER CODE IN THIS CHUNK
+knitr::opts_chunk$set(echo = TRUE)
+library(tigerstats)
+lattice.options(default.theme = standard.theme(color = FALSE))
+```
+
+This page was last updated on `r format(Sys.time(), '%B %d, %Y')`.
+
+## Load required datasets
+
+```{r}
+titanic <- read.csv(url("https://people.ok.ubc.ca/jpither/datasets/titanic.csv"), header = TRUE)
+tiger <- read.csv(url("https://people.ok.ubc.ca/jpither/datasets/tiger.csv"), header = TRUE)
+```
+
+* * *
+
+## Question 1 (1 mark)
+
+How many variables are in the `titanic` dataframe?  
+
+Use `str()` to examine the `titanic` dataframe and determine how many variables it contains. 
+
+As shown by the output below, there are 7 variables in the `titanic` dataframe.
+
+```{r}
+str(titanic)
+```
+
+One could also use the `inspect` function, which is __preferred__ because it highlights missing values: 
+```{r}
+inspect(titanic)
+```
+
+Although it'll do the trick, one should not use the `names` function for this purpose, as you should get into the habit of exploring the structure of the entire data frame at the outset of any project / study. However, marks will __NOT__ be deducted this time for using `names`.
+
+* * *
+
+## Question 2 (1 mark)
+
+How many categories or “levels” does the `passenger_class` variable have in the `titanic` dataset?  
+
+As shown in the `str()` and `inspect` output above, there are three levels in the `passenger_class` variable: 1st, 2nd, and 3rd.  
+
+* * *
+
+## Question 3 (1 mark)
+
+Calculate the mean and standard deviation for the age of passengers on the titanic.  
+
+The mean and standard deviation of the age of passengers is provided by the `inspect` function, as shown above.
+
+It can also be calculated using the `favstats` function:
+```{r}
+favstats(~ age, data = titanic)
+```
+
+The mean age is 31.2 years and the standard deviation is 14.75 years.  
+
+One could also use the `mean` and `sd` functions, ensuring that we take care of missing values:
+
+```{r}
+
+meanAge <- mean(~ age, data = titanic, na.rm = TRUE)
+
+sdAge <- sd(~ age, data = titanic, na.rm = TRUE)
+
+```
+
+The mean age on the titanic is `r round(meanAge, 1)` years, with a standard deviation of `r round(sdAge, 2)` years.
+
+* * *
+
+## Question 4 (1 mark)
+
+Calculate the median and IQR for the age of all passengers on the titanic.    
+
+The median age of passengers is provided by the `inspect` function or the `favstats` function, as shown above.
+
+The median and IQR can each be calculated using the `median` and `IQR` functions:
+
+```{r}
+
+medianAge <- median(~ age, data = titanic, na.rm = TRUE)
+
+IQRAge <- IQR(~ age, data = titanic, na.rm = TRUE)
+
+```
+
+The median age on the titanic is `r round(medianAge, 1)` years, with an IQR of `r IQRAge` years.
+
+__NOTE__: It is __not__ advisable to calcualate the IQR by hand (Q3 minus Q1) using the values provided by `favstats` or `inspect` functions. You should always have R do any calculations for you, and typically store the result in an object. In future assignments you will lose marks for manual calculations.  
+
+* * *
+
+## Question 5. (1 mark)
+
+Which measures of centre and spread should be preferred to describe the age of all titanic passengers? Justify your response with the help of an appropriate graph.  
+
+Visualize the data with a __histogram__, as this informs us as to which measures of centre and spread are appropriate:
+
+```{r Age histogram, fig.cap = "Histogram of passenger ages on the Titanic.", fig.width = 4, fig.height = 4}
+histogram(~ age, data = titanic, 
+          xlab = "Age (yrs)",
+          type = "count",
+          nint = 20)
+```
+
+Since the passenger age data is asymmetric (Figure 1), the median and IQR are better descriptors of the distribution.  
+
+* this distribution is not especially asymmetric (in other words, it is approaching symetrical), so the mean and sd would be acceptable, but median and IQR preferred
+
+* * *
+
+## Question 6 (1 mark)
+
+Create a contingency table to display the association between survival and gender (the `survive` and `sex` variables) among passengers of the titanic.  
+
+Use the `addmargins()` and `xtabs()` functions to generate a contigency table for survival and sex categories among passengers of the titanic.
+
+```{r}
+addmargins(xtabs(~ survive + sex, data = titanic))
+```
+
+* * *
+
+## Question 7 (1 mark)
+
+Graphically display the association between survival and gender (`survive` and `sex` variables) among passengers of the titanic. Describe what you see.  
+
+Because both variables are categorical, we use a grouped bar chart (mosaic plot acceptable) to examine the association between sex and survival among passengers of the titanic.  
+
+Here's a grouped bar chart:
+
+```{r fig.cap = "Barplot of male and female passenger survival of the sinking of the Titanic.", fig.width = 4, fig.height = 4}
+barchartGC(~ sex + survive, data = titanic, type = "perc")
+```
+
+And a mosaic plot:  
+```{r fig.cap = "Mosaic plot of male and female passenger survival of the sinking of the Titanic.", fig.width = 4, fig.height = 4}
+mosaicplot(xtabs(~ sex + survive, data = titanic), 
+           col = c("firebrick", "goldenrod1"),
+           xlab = "Gender",
+           ylab = "Survived",
+           main = "") # don't show main title because we have a proper figure caption
+```
+
+Proportionally, more female passengers survived the sinking of the titanic than did male passengers (Figures 2 and 3). Roughly 35% of female passengers and over 80% of male passengers died.  
+
+* * *
+
+## Question 8. (1 mark)
+
+Graphically display the association between `age` and `passenger_class` among titanic passengers. Justify your choice of graph type. Describe what you see.
+
+First, look at how many observations are in each group using `xtabs()` (or also the `table` function in the base R package would work):
+
+```{r}
+xtabs(~ passenger_class, data = titanic)
+```
+
+There are >> 20 observations in each group, so use `boxplot()` to create a boxplot.
+
+```{r fig.cap = "Boxplot of passenger age distribution per passenger class on the Titanic.", fig.width = 4, fig.height = 4}
+boxplot(age ~ passenger_class, data = titanic,
+        ylab = "Age (yrs)",
+        xlab = "Passenger class")
+```
+
+The median age of 1st class passengers was higher than the median age for both 2nd and 3rd class passengers (Figure 4). The interquartile range for 1st class passengers was also larger than for either 2nd or 3rd class passengers.
+
+* * *
+
+## Question 9 (1 mark)
+
+Calculate the mean and standard deviation of age for passengers in each category of `passenger_class`.  
+
+`favstats()` can calculate descriptive statistics for associations between variables. Use that function to return all the needed statistics for the associations between passenger class and age.
+
+```{r}
+ageClass <- favstats(age ~ passenger_class, data = titanic)
+ageClass
+```
+
+* not advisable to use the `mean` and `sd` functions, because one needs to subset and use the `na.rm = TRUE` argument
+
+* * *
+
+## Question 10 (1 mark) 
+
+Graphically display the frequency distribution of the `activity` variable in the `tiger` dataset. Describe what you see.  
+
+First, look at the data structure in the `tiger` dataset, using either `str` or `inspect`.
+
+```{r}
+str(tiger)
+```
+
+Since it is a factor (categorical) variable, a barchart is the appropriate graph. However, the data must be sorted before it is displayed.
+
+1. Create a frequency table with `xtabs()`
+2. Sort the frequency table with `sort()`
+
+
+```{r}
+actFreq <- xtabs(~ activity, data = tiger)
+
+actFreqSort <- sort(actFreq, decreasing = FALSE)
+
+```
+
+use the `barchartGC()` function to display the new dataframe. Activity names are long, so display horizontally.
+
+```{r fig.cap = "Frequency distribution of activities in the tiger dataset.", fig.width = 5, fig.height = 3}
+barchartGC(actFreqSort, horizontal = TRUE, xlab = "Frequency")
+```
+
+The "Grass/fodder" was by far the most frequent activity in the tiger dataset (Figure 5); there were over 40 observations of this activity. All other categories had frequencies less than 15, and the "Walking," "Sleeping in house," and "Toilet" activities each had frequencies less than 5.
+

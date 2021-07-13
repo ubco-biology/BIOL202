@@ -1,0 +1,186 @@
+---
+title: "Lab exam preparation"
+output:
+  html_document:
+    css: tutorial.css
+    fig_caption: yes
+    highlight: pygments
+    theme: simplex
+    toc: yes
+    toc_float: yes
+---
+
+```{r global_options, include = FALSE}
+# DO NOT ALTER THIS CHUNK
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, cache = TRUE)
+```
+
+* * *
+
+### Exam format
+
+**Don't forget your Student ID**: You will be required to show this.  
+
+* The exam will consist of 5-7 multi-part questions, approximately 17-20 marks total.  
+
+* You will have 1 hour and 15 minutes to complete your exam, at which point you **MUST** begin the submission process on Canvas  
+
+* The submission process will be the same as you've used to submit assignments: the folder from which you downloaded the exam materials will include an assignment submission link, where you'll upload your completed exam **PDF** document.  
+
+* Canvas will accept PDF and RMD submissions, but the latter will only be accepted in the event of unforeseen technical difficulties.  
+
+* Each lab section will receive a different version of the exam, i.e. questions will differ.    
+
+* Any exam submitted after the 1 hour and 20 minute mark will be marked as LATE, and will automatically lose 25% from the total grade. Exams submitted after the 1 hour and 25 minutes will receive a zero.  No exceptions.    
+
+* * *
+
+### Permitted materials
+
+You are permitted to use a web browser.  
+
+You are permitted to access any study material. This includes, for example, any assignment, quiz, and tutorial material you have stored, including this document!  
+
+* * *
+
+### Forbidden materials
+
+You are NOT permitted to use any form of communication software during the exam, such as email or messaging.  
+
+TAs will be checking computer screens throughout the exam, and any student who is caught using such software will immediately be asked to log off and leave the room, and will be reported for academic misconduct. 
+
+If you use your own laptop, the TA has the right to ask you to show what software is open on your laptop. If you refuse, you will be reported to the Dean's office.  If you use the lab computer, the TA has the right to check what software is running.
+
+**WARNING**: Any evidence of cheating, including messaging or using files supplied by other students, will result in a zero and disciplinary action on all students involved.   
+
+* * *
+
+### Procedure
+
+The procedure for your lab exam will be identical to what you have done for lab assignments.  
+
+If you forget these procedures, they are detailed [here](https://people.ok.ubc.ca/jpither/modules/Preparing_formatting_assignments.html).
+
+* Under the "assignments" section on Canvas, you will see a "Lab exam section XX" where the "XX" is your lab section number. There you will find your section's RMD file for download; this RMD file is your section's unique version of the exam. You must ensure that you attend the lab section that you are enrolled in.    
+
+* * *
+
+## Material covered on lab exam
+
+The goal of the lab exam is to ensure you can perform the tasks that you are most likely to use in upper-year courses:  
+
+* Basic data manipulation, such as subsetting data frames using the `filter` or `subset` commands (Tutorials 04 and 14)  
+* Exploring the structure of datasets, e.g. using `str` or `inspect`
+* Transforming numerical variables to meet assumptions ("Extra tutorial" [Checking assumptions and data transformations](https://people.ok.ubc.ca/jpither/modules/assumptions_transformations.html))  
+* Visualizing and describing categorical and numerical data (Tutorials 01 through 03)  
+* Confidence interval for a proportion (Tutorial 07)  
+* Conducting Goodness of Fit tests (Tutorial 09)  
+* Calculating the Odds Ratio (Tutorial 10)  
+* Conducting Contingency analysis (Tutorial 11)  
+* Calculating a confidence interval for $\mu$ (Tutorial 13)  
+* Comparing a mean to a hypothesized value (Tutorial 13: 1-sample *t*-test)  
+* Comparing means among 2 categories or groups (Tutorial 14)  
+* Comparing means among more than 2 categories: Analysis of Variance (ANOVA) (including post-hoc Tukey-Kramer test) (Tutorial 15)  
+* Testing associations between 2 numeric variables: Correlation (Tutorial 16)  
+* Predicting _Y_ from _X_: Least-squares regression (Tutorial 17)  
+
+Due to time constraints, you will only be tested on the core parts of the material. That is, if you are required to conduct a hypothesis test, you will not need to conduct all the steps you learned in the tutorials. The exam question will be clear about what is required.  
+
+* * *
+
+## Graphs to know
+
+* Bar chart (`barchartGC`)   
+* Grouped bar chart (`barchartGC`)   
+* Mosaic plot (`mosaicplot`)  
+* Histogram (**NOTE**: use the `hist` function rather than the `histogram` function; see [this part](https://people.ok.ubc.ca/jpither/modules/Visualizing_describing_single_variable.html#creating_a_histogram) of Tutorial 01)  
+* Boxplot (`boxplot`)
+* Strip chart (`stripchart` for no error bars, `ggstripchart` with error bars, in the `ggpubr` package)  
+* Scatter plot (`xyplot` or `plot`, the latter preferred)
+* Normal quantile plot (`qqnorm` with `qqline`)  
+* Scatter plot with regression line and confidence bands (`visreg` function from the `visreg` package)
+
+* * *
+
+## Material NOT covered on lab exam
+
+* Complicated data and object manipulation in R  
+* Generating formatted tables in R Markdown  
+* Using symbols and notation in R Markdown    
+* Sampling (Tutorials 04 & 05)  
+* Simulation (Tutorials 04 & 05)  
+* Binomial test (Tutorial 08)  
+* Generating formatted ANOVA table (Tutorial 15)  
+* Generating a figure showing results of Tukey-Kramer test (Tutorial 15)  
+* Non-parametric tests (except Spearman correlation)  
+
+* * *
+
+## Key tasks to know 
+
+The following are **VERY** representative tasks:
+
+* Produce a good scatterplot, perhaps of log-transformed variables 
+
+* Compare the means of two groups (either paired or two sample *t*-test)  
+  + show how you evaluate the normality assumption, e.g. normal quantile plots and Shaprio-Wilk test if required    
+  + show how you evaluate the equal variance test using Levene's test (the `leveneTest` function from the `car` package)
+  + provide a concluding statement with everything that is required (e.g. including confidence interval)  
+
+* Compare the means of more than two categories or groups (ANOVA)  
+  + show how you test assumptions (see above)  
+  + provide a good graph (e.g. strip chart with error bars)  
+  + provide a concluding statement with everything that is required (including R^2^ value)
+
+* A correlation analysis, including a scatter plot  
+
+* A simple regression analysis, including a `visreg` plot that includes best-fit line and confidence bands  
+
+* Calculate the confidence interval for the mean of a numeric variable   
+
+* Calculate the confidence interval for a proportion 
+
+* * *
+
+## Final instructions  
+
+* Don't worry if the graphs use strange default colours    
+* If for some reason you are unable to properly knit your document, you may submit an RMD file to Canvas, but this will incur a 15% pentalty  
+* Unless otherwise stated, you do not need to provide any text outside of the R-chunks.    
+* Unless otherwise stated, you can assume that all test assumptions are met  
+* Unless specifically requested, **do not** provide a figure caption.  
+* You **DO** need to format figures properly (e.g. include appropriate axis labels)
+* Use alpha = 0.05 throughout, and no need to state alpha level throughout  
+* Feel free to add R chunks if you deem it helpful or necessary  
+
+**Reminder**: Make sure you have a copy of the file "assignment_style_template.docx" (which you've used for each assignment, downloadable [here](https://people.ok.ubc.ca/jpither/more/assignment_style_template.docx)) in your working directory for this exam!  
+
+**Reminder**: Save your RMD file with an appropriate file name, save your work frequently, and occassionally check that your Markdown file knits to Word properly!   
+
+* * *
+
+## Required packages
+
+**NOTE**: Only install these packages IF you are using a lab computer, OR have not yet installed these packages on your own laptop.  
+
+You will know if you need to install a package if you are unable to load it using the `library` command (further below).  
+
+If you must install the package(s), copy and paste the following lines **into the command console**: 
+
+```
+install.packages("tigerstats", dependencies = TRUE, type = "binary", repos = "http://cran.r-project.org")
+install.packages("car", dependencies = TRUE, type = "binary", repos = "http://cran.r-project.org")
+install.packages("ggpubr", dependencies = TRUE, type = "binary", repos = "http://cran.r-project.org")
+install.packages("binom", dependencies = TRUE, type = "binary", repos = "http://cran.r-project.org")
+```
+
+**EVERYONE** remember to load the packages in an R chunk:  
+
+```{r warning = FALSE, message = FALSE}
+library(tigerstats, warn.conflicts = FALSE, quietly = TRUE)
+library(car, warn.conflicts = FALSE, quietly = TRUE)
+library(ggpubr, warn.conflicts = FALSE, quietly = TRUE)
+library(binom, warn.conflicts = FALSE, quietly = TRUE)
+```
+
+* * *

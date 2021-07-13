@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.4 Visualizing and describing categorical data | BIOL202: Intro to Biostats</title>
+  <meta name="description" content="All tutorials associated with BIOL202" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.4 Visualizing and describing categorical data | BIOL202: Intro to Biostats" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="All tutorials associated with BIOL202" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.4 Visualizing and describing categorical data | BIOL202: Intro to Biostats" />
+  
+  <meta name="twitter:description" content="All tutorials associated with BIOL202" />
+  
+
+<meta name="author" content="Jason Pither" />
+
+
+<meta name="date" content="2021-07-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="frequency-distributions.html"/>
+<link rel="next" href="visualizing-and-describing-a-single-numeric-variable.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">YourTitleHere</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="copyright.html"><a href="copyright.html"><i class="fa fa-check"></i>Copyright</a></li>
+<li class="chapter" data-level="" data-path="conventions.html"><a href="conventions.html"><i class="fa fa-check"></i>Conventions</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>1</b> Importing Data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1.1</b> Getting started</a></li>
+<li class="chapter" data-level="1.2" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>1.2</b> Packages</a></li>
+<li class="chapter" data-level="1.3" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>1.3</b> Tidy data</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="tidy-data.html"><a href="tidy-data.html#naming-variables"><i class="fa fa-check"></i><b>1.3.1</b> Naming variables</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="preparing-the-data-for-import.html"><a href="preparing-the-data-for-import.html"><i class="fa fa-check"></i><b>1.4</b> Preparing the data for import</a></li>
+<li class="chapter" data-level="1.5" data-path="importing-data-from-a-csv-file.html"><a href="importing-data-from-a-csv-file.html"><i class="fa fa-check"></i><b>1.5</b> Importing data from a CSV file</a></li>
+<li class="chapter" data-level="1.6" data-path="exporting-or-writing-data-to-a-csv-file.html"><a href="exporting-or-writing-data-to-a-csv-file.html"><i class="fa fa-check"></i><b>1.6</b> Exporting or “writing” data to a CSV file</a></li>
+<li class="chapter" data-level="1.7" data-path="converting-from-wide-to-long-format.html"><a href="converting-from-wide-to-long-format.html"><i class="fa fa-check"></i><b>1.7</b> Converting from wide to long format</a></li>
+<li class="chapter" data-level="1.8" data-path="example-analyses-on-long-format-data.html"><a href="example-analyses-on-long-format-data.html"><i class="fa fa-check"></i><b>1.8</b> Example analyses on long format data</a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="example-analyses-on-long-format-data.html"><a href="example-analyses-on-long-format-data.html#standard-error-by-group"><i class="fa fa-check"></i><b>1.8.1</b> Standard error by group</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="converting-from-long-to-wide-format.html"><a href="converting-from-long-to-wide-format.html"><i class="fa fa-check"></i><b>1.9</b> Converting from long to wide format</a></li>
+<li class="chapter" data-level="1.10" data-path="the-expand-grid-function.html"><a href="the-expand-grid-function.html"><i class="fa fa-check"></i><b>1.10</b> The “expand.grid” function</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="vis-describe.html"><a href="vis-describe.html"><i class="fa fa-check"></i><b>2</b> Visualizing and describing a single variable</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>2.1</b> Background</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-1.html"><a href="getting-started-1.html"><i class="fa fa-check"></i><b>2.2</b> Getting started</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-1.html"><a href="getting-started-1.html#load-the-required-packages"><i class="fa fa-check"></i><b>2.2.1</b> Load the required packages</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-started-1.html"><a href="getting-started-1.html#import-the-data"><i class="fa fa-check"></i><b>2.2.2</b> Import the data</a></li>
+<li class="chapter" data-level="2.2.3" data-path="getting-started-1.html"><a href="getting-started-1.html#get-an-overview-of-the-data"><i class="fa fa-check"></i><b>2.2.3</b> Get an overview of the data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="frequency-distributions.html"><a href="frequency-distributions.html"><i class="fa fa-check"></i><b>2.3</b> Frequency distributions</a></li>
+<li class="chapter" data-level="2.4" data-path="visualizing-and-describing-categorical-data.html"><a href="visualizing-and-describing-categorical-data.html"><i class="fa fa-check"></i><b>2.4</b> Visualizing and describing categorical data</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="visualizing-and-describing-categorical-data.html"><a href="visualizing-and-describing-categorical-data.html#creating-a-frequency-table-for-one-categorical-variable"><i class="fa fa-check"></i><b>2.4.1</b> Creating a frequency table for one categorical variable</a></li>
+<li class="chapter" data-level="2.4.2" data-path="visualizing-and-describing-categorical-data.html"><a href="visualizing-and-describing-categorical-data.html#create-a-sorted-frequency-table"><i class="fa fa-check"></i><b>2.4.2</b> Create a sorted frequency table</a></li>
+<li class="chapter" data-level="2.4.3" data-path="visualizing-and-describing-categorical-data.html"><a href="visualizing-and-describing-categorical-data.html#creating-a-bar-chart"><i class="fa fa-check"></i><b>2.4.3</b> Creating a bar chart</a></li>
+<li class="chapter" data-level="2.4.4" data-path="visualizing-and-describing-categorical-data.html"><a href="visualizing-and-describing-categorical-data.html#calculating-descriptive-statistics-for-a-categorical-variable"><i class="fa fa-check"></i><b>2.4.4</b> Calculating descriptive statistics for a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="visualizing-and-describing-a-single-numeric-variable.html"><a href="visualizing-and-describing-a-single-numeric-variable.html"><i class="fa fa-check"></i><b>2.5</b> Visualizing and describing a single numeric variable</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="visualizing-and-describing-a-single-numeric-variable.html"><a href="visualizing-and-describing-a-single-numeric-variable.html#displaying-the-frequency-distribution-for-one-numerical-variable"><i class="fa fa-check"></i><b>2.5.1</b> Displaying the frequency distribution for one numerical variable</a></li>
+<li class="chapter" data-level="2.5.2" data-path="visualizing-and-describing-a-single-numeric-variable.html"><a href="visualizing-and-describing-a-single-numeric-variable.html#creating-a-histogram"><i class="fa fa-check"></i><b>2.5.2</b> Creating a histogram</a></li>
+<li class="chapter" data-level="2.5.3" data-path="visualizing-and-describing-a-single-numeric-variable.html"><a href="visualizing-and-describing-a-single-numeric-variable.html#interpreting-and-describing-histograms"><i class="fa fa-check"></i><b>2.5.3</b> Interpreting and describing histograms</a></li>
+<li class="chapter" data-level="2.5.4" data-path="visualizing-and-describing-a-single-numeric-variable.html"><a href="visualizing-and-describing-a-single-numeric-variable.html#calculating-descriptive-statistics-for-a-numerical-variable"><i class="fa fa-check"></i><b>2.5.4</b> Calculating descriptive statistics for a numerical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="list-of-functions-and-the-source-packages-used-in-tutorial.html"><a href="list-of-functions-and-the-source-packages-used-in-tutorial.html"><i class="fa fa-check"></i><b>2.6</b> List of functions (and the source packages) used in tutorial</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BIOL202: Intro to Biostats</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="visualizing-and-describing-categorical-data" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Visualizing and describing categorical data</h2>
+<div id="creating-a-frequency-table-for-one-categorical-variable" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Creating a frequency table for one categorical variable</h3>
+<p>Use the <code>xtabs</code> command (from the base <code>stats</code> package) to produce a <em>frequency table</em>, which shows the frequency distribution for a <strong>categorical variable</strong> in tabular format. We’ll assign the output of the <code>xtabs</code> function to an object called <code>dom.eye.freq</code>.</p>
+<p>Here we show the frequency of observations in each of the two categories contained in the <code>dominant_eye</code> variable within the <code>students</code> dataframe. We first run the function and assign the output to an object <code>dom.eye.freq</code>, then type the name of the object to show its contents:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="visualizing-and-describing-categorical-data.html#cb41-1" aria-hidden="true" tabindex="-1"></a>dom.eye.freq <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span> dominant_eye, <span class="at">data =</span> students)</span>
+<span id="cb41-2"><a href="visualizing-and-describing-categorical-data.html#cb41-2" aria-hidden="true" tabindex="-1"></a>dom.eye.freq</span></code></pre></div>
+<pre><code>## dominant_eye
+##   l   r 
+##  48 106</code></pre>
+<p><strong>TIP</strong>: Take note of the syntax in the arguments provided to the <code>xtabs</code> function. We’ll return to this later.</p>
+<p>We see that there are 2 categories (or “levels”) “l” and “r” representing left and right; this was also shown by the <code>skim</code> function earlier. There are 48 and 106 observations (students) in those respective categories.</p>
+<p>To show the <em>relative frequency distribution</em> for the <code>dominant_eye</code> variable, use the <code>prop.table</code> function on the <code>dom.eye.freq</code> object. Again, we’ll assign the output to an object, here called <code>dom.eye.prop</code>:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="visualizing-and-describing-categorical-data.html#cb43-1" aria-hidden="true" tabindex="-1"></a>dom.eye.prop <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(dom.eye.freq)</span>
+<span id="cb43-2"><a href="visualizing-and-describing-categorical-data.html#cb43-2" aria-hidden="true" tabindex="-1"></a>dom.eye.prop</span></code></pre></div>
+<pre><code>## dominant_eye
+##         l         r 
+## 0.3116883 0.6883117</code></pre>
+<p>You can convert these relative frequencies to percentages by multiplying them by 100:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="visualizing-and-describing-categorical-data.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="sc">*</span> dom.eye.prop</span></code></pre></div>
+<pre><code>## dominant_eye
+##        l        r 
+## 31.16883 68.83117</code></pre>
+<div id="optional" class="section level4" number="2.4.1.1">
+<h4><span class="header-section-number">2.4.1.1</span> <strong>OPTIONAL</strong></h4>
+<p>Or for those that are able to use the <code>tigerstats</code> package, you can use the <code>rowPerc</code> function to convert the raw frequencies to percentages:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="visualizing-and-describing-categorical-data.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowPerc</span>(dom.eye.prop)</span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="create-a-sorted-frequency-table" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Create a sorted frequency table</h3>
+<p>When there are more than 2 categories in the variable of interest, you will need to <strong>sort</strong> the frequencies in decreasing order.</p>
+<p>There are several steps to this, which we’ll demonstrate using the <code>birds</code> dataset.</p>
+<ul>
+<li>use the <code>xtabs</code> function to create a frequency table</li>
+<li>use the <code>sort</code> function to sort the resulting frequencies across categories</li>
+<li>use the <code>data.frame</code> function to create a data frame that stores the properly sorted frequencies</li>
+<li>rename the variables in the data frame</li>
+<li>show the resulting table</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="visualizing-and-describing-categorical-data.html#cb48-1" aria-hidden="true" tabindex="-1"></a>bird.table <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span> type, <span class="at">data =</span> birds)  <span class="co"># create frequency table</span></span>
+<span id="cb48-2"><a href="visualizing-and-describing-categorical-data.html#cb48-2" aria-hidden="true" tabindex="-1"></a>bird.table.sort <span class="ot">&lt;-</span> <span class="fu">sort</span>(bird.table, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)  <span class="co"># sort the frequencies in decreasing order</span></span>
+<span id="cb48-3"><a href="visualizing-and-describing-categorical-data.html#cb48-3" aria-hidden="true" tabindex="-1"></a>bird.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(bird.table.sort)  <span class="co"># create a data frame</span></span>
+<span id="cb48-4"><a href="visualizing-and-describing-categorical-data.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bird.df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Birdtype&quot;</span>, <span class="st">&quot;Frequency&quot;</span>)  <span class="co"># rename variables</span></span>
+<span id="cb48-5"><a href="visualizing-and-describing-categorical-data.html#cb48-5" aria-hidden="true" tabindex="-1"></a>bird.df  <span class="co"># show the final table</span></span></code></pre></div>
+<pre><code>##    Birdtype Frequency
+## 1 Waterfowl        43
+## 2 Predatory        29
+## 3 Shorebird         8
+## 4  Songbird         6</code></pre>
+<p>There we go! A frequency table that is appropriately sorted. We’ll use the <code>bird.table.sort</code> object later for graphing too.</p>
+<div id="alternative-approach" class="section level4" number="2.4.2.1">
+<h4><span class="header-section-number">2.4.2.1</span> <strong>Alternative approach</strong></h4>
+<p>An alternative and more efficient way to create a sorted frequency table uses the <code>tabyl</code> function from the <code>janitor</code> package, along with the <code>%&gt;%</code> or “pipe” operator, which is loaded with the <code>dplyr</code> package. This operator allows you to string together a series of commands, without having to create intermediate output objects.</p>
+<p>We also make use of the <code>arrange</code> and <code>desc</code> functions from the <code>dplyr</code> package.</p>
+<p>Let’s see the code, and explain after:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="visualizing-and-describing-categorical-data.html#cb50-1" aria-hidden="true" tabindex="-1"></a>birds <span class="sc">%&gt;%</span> </span>
+<span id="cb50-2"><a href="visualizing-and-describing-categorical-data.html#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(type)</span></code></pre></div>
+<pre><code>##       type  n    percent
+##  Predatory 29 0.33720930
+##  Shorebird  8 0.09302326
+##   Songbird  6 0.06976744
+##  Waterfowl 43 0.50000000</code></pre>
+<p>We first tell R which object we’re going to use for our subsequent operations. Here, the <code>birds</code> dataframe object. We then use the <code>%&gt;%</code> operator to tell it that we have further functions to come!</p>
+<p>The next line of code uses the <code>tabyl</code> function from the <code>janitor</code> package, and tells R which categorical variable (<code>type</code>) to tabulate frequencies for.</p>
+<p>What we get is a table with 3 columns. The first column contains the unique categories for the <code>type</code> variable. The second column provides the frequency of observations in each category, and the last column is the proportion of observations in the categories (contrary to what is indicated by the “percent” heading!).</p>
+<p>If there had been missing values in the <code>type</code> variable, you would see another row in the table indicating the frequency of “NA” values.</p>
+<p>But note that the table isn’t sorted! To sort the table in decreasing order of frequency, we add another line of code after another <code>%&gt;%</code>, and use the <code>arrange</code> function in conjunction with the <code>desc</code> function as follows:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="visualizing-and-describing-categorical-data.html#cb52-1" aria-hidden="true" tabindex="-1"></a>birds <span class="sc">%&gt;%</span> </span>
+<span id="cb52-2"><a href="visualizing-and-describing-categorical-data.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(type) <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href="visualizing-and-describing-categorical-data.html#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code></pre></div>
+<pre><code>##       type  n    percent
+##  Waterfowl 43 0.50000000
+##  Predatory 29 0.33720930
+##  Shorebird  8 0.09302326
+##   Songbird  6 0.06976744</code></pre>
+<p>The <code>desc</code> function is operating on the “n” column in the output table from the preceding <code>tabyl</code>, and suffice it to say it works with the <code>arrange</code> function to sort the frequencies.</p>
+<hr />
+</div>
+</div>
+<div id="creating-a-bar-chart" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Creating a bar chart</h3>
+<p>We use a <em>bar chart</em> to visualize the frequency distribution for a single categorical variable.</p>
+<p>Here we’ll use the <code>ggplot</code> approach with its <code>geom_bar</code> function to create a bar chart.</p>
+<p>To produce the bar chart, we need to produce a summary frequency table first. So let’s get this from our <code>tabyl</code> script above. Here we’ll assign the sorted frequency table to a dataframe called “bird.type.sort”:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="visualizing-and-describing-categorical-data.html#cb54-1" aria-hidden="true" tabindex="-1"></a>bird.type.sort <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span> </span>
+<span id="cb54-2"><a href="visualizing-and-describing-categorical-data.html#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(type) <span class="sc">%&gt;%</span></span>
+<span id="cb54-3"><a href="visualizing-and-describing-categorical-data.html#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code></pre></div>
+<p>Now we can use this to create a barchart. Let’s provide the code first, and explain after.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="visualizing-and-describing-categorical-data.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bird.type.sort, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(type, n), <span class="at">y =</span> n)) <span class="sc">+</span> </span>
+<span id="cb55-2"><a href="visualizing-and-describing-categorical-data.html#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb55-3"><a href="visualizing-and-describing-categorical-data.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-4"><a href="visualizing-and-describing-categorical-data.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Bird type&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-5"><a href="visualizing-and-describing-categorical-data.html#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb55-6"><a href="visualizing-and-describing-categorical-data.html#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p><img src="BIOL202-github_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>All figures produced using the <code>ggplot2</code> package start with the <code>ggplot</code> function. Then the following arguments:</p>
+<ul>
+<li>the data frame or tibble that holds the data (“data = students”)</li>
+<li>an “aes” argument, within which one specifies the variables to be plotted; here we’re plotting the frequencies from the “n” variable as the “y” variable, and the “type” variable as the “x” variable. To ensure the proper sorting of the bars, we use the <code>reorder</code> function, telling R to reorder the <code>type</code> categories according to the frequencies in the <code>n</code> variable</li>
+<li>then there’s a plus sign to tell ggplot we’re not done yet with our graph - there are more functions coming</li>
+<li>then the type of graph, which uses a function starting with “geom”; here we want a bar chart, hence <code>geom_bar</code></li>
+<li>the <code>geom_bar</code> function has its own argument: “stat = ‘identity’” tells it just to make the height of the bars equal to the values provided in the “y” variable, here <code>n</code>.</li>
+<li>the x-axis label</li>
+<li>the y-axis label</li>
+<li>the “coord_flip()” function tells it to rotate the graph horizontally</li>
+<li>then the “theme_bw” function indicates we want a simple black-and-white theme</li>
+</ul>
+<p>There you have it: a ggplot version of a bar chart!</p>
+</div>
+<div id="calculating-descriptive-statistics-for-a-categorical-variable" class="section level3" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Calculating descriptive statistics for a categorical variable</h3>
+<p>The <em>proportion</em> is the most important descriptive statistic for a categorical variable. It measures the fraction of observations in a given category within a categorical variable. For example: what proportion of the BIOL202 class has a left dominant eye?</p>
+<p>The <em>proportion</em> of students that have a left dominant eye is the same as the <em>relative frequency</em> of students in the class that have a left dominant eye. Earlier, using the <code>students</code> dataset, we learned how to show the relative frequencies of students with left versus right dominant eyes in the class using the <code>prop.table</code> function:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="visualizing-and-describing-categorical-data.html#cb56-1" aria-hidden="true" tabindex="-1"></a>dom.eye.freq <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span> dominant_eye, <span class="at">data =</span> students)</span>
+<span id="cb56-2"><a href="visualizing-and-describing-categorical-data.html#cb56-2" aria-hidden="true" tabindex="-1"></a>dom.eye.prop <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(dom.eye.freq)</span>
+<span id="cb56-3"><a href="visualizing-and-describing-categorical-data.html#cb56-3" aria-hidden="true" tabindex="-1"></a>dom.eye.prop</span></code></pre></div>
+<pre><code>## dominant_eye
+##         l         r 
+## 0.3116883 0.6883117</code></pre>
+<p>As shown above, the proportion of students that have left dominant eye is 0.3116883. <em>Proportions always fall between 0 and 1</em>.</p>
+<p>We can also get this from our table we produced with the <code>tabyl</code> function; the last column of the table provides the relative frequencies, a.k.a. proportions, within each category (even though it says “percent”):</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="visualizing-and-describing-categorical-data.html#cb58-1" aria-hidden="true" tabindex="-1"></a>bird.type.sort</span></code></pre></div>
+<pre><code>##       type  n    percent
+##  Waterfowl 43 0.50000000
+##  Predatory 29 0.33720930
+##  Shorebird  8 0.09302326
+##   Songbird  6 0.06976744</code></pre>
+<hr />
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="frequency-distributions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualizing-and-describing-a-single-numeric-variable.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+</body>
+
+</html>

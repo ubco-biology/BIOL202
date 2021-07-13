@@ -1,0 +1,304 @@
+---
+title: "Practice Lab exam solutions"
+author: "Jason Pither"
+output:
+  html_document:
+    df_print: paged
+  word_document:
+    fig_caption: yes
+    reference_docx: assignment_style_template.docx
+---
+
+```{r setup, include=FALSE}
+# DO NOT ALTER CODE IN THIS CHUNK
+knitr::opts_chunk$set(echo = TRUE)
+library(tigerstats)
+lattice.options(default.theme = standard.theme(color = FALSE))
+```
+
+This page was last updated on `r format(Sys.time(), '%B %d, %Y')`.  
+
+* * *
+
+**NOTE**: For this practice exam, you are required to submit **at least 3 completed questions of your choice** to Canvas before the **45 minute mark**. [NOTE: For the REAL final lab exam (next week), you will have 1 hour and 20 minutes to complete **and submit** the exam]. For this practice exam, if you submit 3 completed questions (the full questions, not parts of questions) before the 45-minute cutoff, you will receive 1% towards your final lab grade, and this 1% will be shifted from the lab final exam.  If you do not submit 3 complete questions by the 45-minute cutoff, you will not get the 1%, and your final lab exam will be worth the original 20%.  Questions will NOT be graded for accuracy, just for completeness.
+
+This practice exam includes 8 questions, and a total of 17 marks. Even though you must submit only 3 completed questions (to get the 1%), you are STRONGLY encouraged to attempt all the questions (preferably during the lab period) in order to prepare yourself for the final lab exam. I especially encourage you to practice **Question 7**!
+
+The real lab exam will include 6 questions, some of which will be multi-part.  
+
+### Instructions for real lab exam
+
+* You have 1 hour and 20 minutes to complete **and submit** the exam  
+* The TA will tell you when the 1 hour and 10 min mark is reached  
+* Canvas will **not** accept submissions after the 1 hour 20min mark  
+* Don't worry if the graphs use strange default colours    
+* If for some reason you are unable to properly knit your document, you may submit an RMD file to Canvas, but this will incur a 15% pentalty  
+* Unless otherwise stated, you do not need to provide any text outside of the R-chunks.    
+* Unless otherwise stated, you can assume that all test assumptions are met  
+* Unless specifically requested, **do not** provide a figure caption.  
+* You **DO** need to format figures properly (e.g. include appropriate axis labels)
+* Use alpha = 0.05 throughout, and no need to state alpha level throughout  
+* Feel free to add R chunks if you deem it helpful or necessary  
+
+**Reminder**: Make sure you have a copy of the file "assignment_style_template.docx" (which you've used for each assignment, downloadable [here](https://people.ok.ubc.ca/jpither/more/assignment_style_template.docx)) in your working directory for this exam!  
+
+**Reminder**: Save your RMD file with an appropriate file name, save your work frequently, and occassionally check that your Markdown file knits to Word properly!   
+
+* * *
+
+### Required packages
+
+**NOTE**: Only install these packages IF you are using a lab computer, OR have not yet installed these packages on your own laptop.  
+
+You will know if you need to install a package if you are unable to load it using the `library` command (further below).  
+
+If you must install the package(s), copy and paste the following lines **into the command console**: 
+
+```
+install.packages("tigerstats", dependencies = TRUE, type = "binary", repos = "http://cran.r-project.org")
+install.packages("car", dependencies = TRUE, type = "binary", repos = "http://cran.r-project.org")
+install.packages("ggpubr", dependencies = TRUE, type = "binary", repos = "http://cran.r-project.org")
+install.packages("binom", dependencies = TRUE, type = "binary", repos = "http://cran.r-project.org")
+```
+
+**EVERYONE** remember to load the packages in an R chunk:  
+
+```{r warning = FALSE, message = FALSE}
+library(tigerstats, warn.conflicts = FALSE, quietly = TRUE)
+library(car, warn.conflicts = FALSE, quietly = TRUE)
+library(ggpubr, warn.conflicts = FALSE, quietly = TRUE)
+library(binom, warn.conflicts = FALSE, quietly = TRUE)
+```
+
+* * *
+
+### Required data
+
+For the real lab exam, all lab sections will access the same datasets, but only a subset of datasets will be used by each section, and these will be randomized.  
+
+For this practice lab exam the following datasets must be imported.  
+
+* `cowfood` - describes weight gain (kg) (numerical variable `weight`) in cow calves raised on different feed types (categorical variable `feed`)  
+* `beaksize` - describes beak lengths (mm) (numerical variable `length`) of randomly sampled birds belonging to one of two species of chickadee (categorical variable `species`)  
+* `wings` - left and right wing lengths (cm) of sparrows randomly sampled from a population
+
+Download them using the following code:  
+
+```{r}
+cowfood <- read.csv(url("https://people.ok.ubc.ca/jpither/more/cowfood.csv"), header = TRUE)
+beaksize <- read.csv(url("https://people.ok.ubc.ca/jpither/datasets/beaksize.csv"), header = TRUE)
+wings <- read.csv(url("https://people.ok.ubc.ca/jpither/more/wings.csv"), header = TRUE)
+```
+
+The following dataset is available by default in R, and thus does not require downloading:
+
+* `esoph` - data from a case-control study of oesophageal cancer in France
+
+* * *
+
+### Question 1 (1 mark)
+
+Produce a single histogram of all *weight* measurements in the `cowfood` dataset. Don't worry about units in axis labels. (**1 mark**).  
+
+```{r}
+hist(cowfood$weight, las = 1, ylab = "Frequency", xlab = "Weight", main = "")
+```
+
+OR
+
+```{r}
+histogram(~ weight, data = cowfood, type = "count", xlab = "Weight")
+```
+
+**Test knitting your file now**  (did you remember to download the Word style document into your working directory?)
+
+* * *
+
+### Question 2 (1 marks)
+
+Using the `cowfood` data frame, calculate the mean and standard deviation for the `weight` variable, grouped by feed type (**1 mark**).  
+
+```{r}
+favstats(weight ~ feed, data = cowfood)
+```
+
+OR
+
+```{r}
+mean(weight ~ feed, data = cowfood)
+sd(weight ~ feed, data = cowfood)
+```
+
+* * *
+
+**Save your work!!**
+
+### Question 3 (2 marks)
+
+(a) Create a new dataframe (call it "corncow") that includes only the "Corn" fed calves in the `cowfood` dataset (**1 mark**)
+
+Insert your code in chunk below: 
+```{r}
+corncow <- subset(cowfood, feed == "Corn")
+```
+
+OR
+
+Load the `dplyr` package and use:
+```{r}
+corncow <- filter(cowfood, feed == "Corn")
+```
+
+(b) Produce a normal quantile plot of the raw weight measurements from your new "corncow" dataframe created above (**1 mark**).  
+
+Insert your code in chunk below: 
+```{r}
+qqnorm(corncow$weight, main = "",
+       las = 1,
+       xlab = "Normal quantile",
+       ylab = "Weight")
+```
+
+* * *
+
+### Question 4 (3 marks)
+
+Using the `beaksize` dataset:  
+
+(a) Conduct an appropriate statistical test to test whether the mean beak length differs among the two bird species (assume all assumptions are met) (**1 mark**)  
+
+Do the statistical test here:  
+
+Because we assume equal variances, we be sure to set the argument "var.equal" to TRUE (which is not the default in R):
+```{r}
+t.test(length ~ species, beaksize, var.equal = T)
+```
+
+(b) Provide a concluding statement with all appropriate information included (**2 marks**)
+
+Type your concluding statement in this area:  
+
+
+>Mean beak length differed significantly among the two bird species (2-sample t-test; t = -4.33, df = 44, P < 0.001; 95% confidence limits for the difference = -1.098, -0.400).  
+
+OR
+
+>Mean beak length was significantly longer in the Boreal species compared to the Black species (2-sample t-test; t = 4.33, df = 44, P < 0.001; 95% confidence limits for the difference = 0.400, 1.098).  
+
+
+* * *
+
+### Question 5 (1 mark)
+
+Using the `esoph` dataset and its variable `agegp` (which stands for "age group"), tabulate the frequency of observations (subjects) within each age group (**1 mark**).  
+
+```{r}
+table(esoph$agegp)
+```
+
+* * *
+
+### Question 6 (1 mark)
+
+Using the `esoph` dataset and its variable `alcgp` (which stands for "alcohol consumption") , provide a 95% confidence interval for the proportion of subjects who consumed 40-79g/day (**1 mark**).  
+
+
+```{r}
+table(esoph$alcgp)
+num.success <- 23
+total.sampsize <- sum(table(esoph$alcgp))
+binom.confint(x = num.success, n = total.sampsize, conf.level = 0.95, methods = "ac")
+```
+
+* * *
+
+### Question 7 (4 marks)
+
+Using the `cowfood` dataset, is there an effect of food type on mean calf weight?   
+
+* Assume that all assumptions for the test are met (but see next point)
+* Test whether the variance of the weight measurements is equal among food types (**1 mark**)
+* Provide an appropriate graph showing mass in relation to treatment, with standard error bars (**1 mark**)
+* Conduct an appropriate statistical test to answer the question; only show the R code (**1 mark**).  
+* No need to provide a "post-hoc" test  
+* Provide a concluding statement that includes all the appropriate information, including R^2^ (but no need to refer to a Table) (**1 mark**)  
+
+My R chunk for test of equal variance:
+
+```{r}
+leveneTest(weight ~ feed, cowfood)
+```
+
+My R chunk for the figure (no figure caption necessary):  
+
+```{r}
+ggstripchart(cowfood,
+          x = "feed",
+          y = "weight",
+          xlab = "Feed type", 
+          ylab = "Weight",
+          shape = 1, # hollow circles for points
+          color = "firebrick", # color for points
+          add = "mean_se", # adds +/- one standard error
+          add.params = list(color = "black")) # colour for error bars
+```
+
+My R chunk for statistical test, and any additional commands required:  
+
+```{r}
+cow.lm <- lm(weight ~ feed, data = cowfood) 
+cow.aov <- anova(cow.lm)
+cow.aov
+```
+
+And now get the coefficient of determination (R^2):
+```{r}
+summary(cow.lm)$r.squared
+```
+
+Concluding statement:
+
+Average calf weight differed significantly among food types (ANOVA; F = 17.04; df = 2, 27; R-square = 0.56; P < 0.001).
+
+* * *
+
+### Question 8 (4 marks)
+
+Using the `wings` dataset, test whether there is a significant linear association between left and right wing length.   
+
+* Assume that all assumptions for the test are met (see next point)
+* Conduct a formal statistical test of normality for **left wing lengths** (**1 mark**)
+* Provide an appropriate graph to visualize the association (**1 mark**)  
+* Conduct an appropriate test to test the strength of the linear association (**1 mark**)  
+* Provide a concluding statement that includes all the appropriate information (**1 mark**)  
+
+My R chunk for the test of normality:  
+
+```{r}
+shapiro.test(wings$leftlength)
+```
+
+My R chunk for the figure with figure caption:  
+
+```{r fig.cap = "Scatterplot of the association between left and right wing lengths (N = 26)"}
+plot(rightlength ~ leftlength, wings, las = 1, pch = 1, xlab = "Left wing length", ylab = "Right wing length")
+```
+
+My R chunk for statistical test:  
+
+```{r}
+cor.test(wings$rightlength, wings$leftlength)
+```
+
+Concluding statement:
+
+There is a significant correlation between left and right wing lengths (Pearson correlation; r = 0.965; df = 24; P < 0.001; 95% confidence interval for the correlation coefficient: 0.923 - 0.984)
+
+* * *
+
+### Submit your exam
+
+Knit your document to Word, save the word file as a PDF, double-check that the PDF looks the way you want it to, then submit it to Connect **before** the 1 hour 20 minute mark.  
+
+**DO NOT** share any of this material with your classmates. **Cheating will result in a zero for all parties involved**.  
+
