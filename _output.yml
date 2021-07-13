@@ -4,7 +4,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">YourTitleHere</a></li>
+        <li><a href="./">BIOL202 Tutorials</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
       download: ["pdf", "epub"]

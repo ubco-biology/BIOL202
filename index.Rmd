@@ -35,8 +35,8 @@ This work is licenced under the Creative Commons [Attribution-NonCommercial-Shar
 
 Please use the following for citing this document
 
-Pither, J. (2021). *Tutorials for BIOL202: Introduction to Biostatistics*. [https://github.com/ubco-biology/BIOL202](https://github.com/ubco-biology/BIOL202)
+Pither, J. (2021). *Tutorials for BIOL202: Introduction to Biostatistics*. [https://ubco-biology.github.io/BIOL202/index.html](https://ubco-biology.github.io/BIOL202/index.html)
 
-All source files are available [url]().
+All source files are available at this website:  [https://github.com/ubco-biology/BIOL202](https://github.com/ubco-biology/BIOL202).
 
 ## Conventions {-}
