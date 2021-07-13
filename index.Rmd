@@ -1,5 +1,5 @@
 --- 
-title: "BIOL202: Intro to Biostats"
+title: "Tutorials for BIOL202: Introduction to Biostatistics"
 author: "Jason Pither"
 date: "`r Sys.Date()`"
 documentclass: book
@@ -11,15 +11,31 @@ link-citations: yes
 
 # Welcome {-}
 
-Write any prefatory content here.
+This is an open source online book that includes all tutorials and other resources for the "lab" portion of the course BIOL202: Introduction to Biostatistics, at the University of British Columbia, Okanagan campus.
+
+This book is continually being updated, so be sure to refresh your browser each time you visit.
+
+## Author {-}
+
+Jason Pither is an Associate Professor in the Department of Biology at the Okanagan campus of the University of British Columbia. He is an ecologist with interests in biogeography, community ecology, and landscape ecology. He has been using "R" (and its [predecessor, "S"](https://en.wikipedia.org/wiki/R_(programming_language)#History)) in his research for over two decades, and has been teaching Introductory Biostatistics using R since 2014.  
+
+## Acknowledgments{-}
+
+This online book borrows materials generously made openly available by the following keen educators:  
+
++ Yaniv Brandvain ([Applied Biostats online book](https://www.bookdown.org/ybrandvain/Applied-Biostats/))
++ Chester Ismay and Albert Y. Kim ([Statistical Inference via Data Science online book](https://moderndive.com/))
++ Mike Whitlock and Dolph Schluter ([resources accompanying the text "Analysis of Biological Data"](https://whitlockschluter3e.zoology.ubc.ca/index.html))
 
 ## Copyright {-}
 
 This work is licenced under the Creative Commons [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
+![](./more/creative-commons-783531_1280.png)
+
 Please use the following for citing this document
 
-Author (Date). *Title*. [url]()
+Pither, J. (2021). *Tutorials for BIOL202: Introduction to Biostatistics*. [https://github.com/ubco-biology/BIOL202](https://github.com/ubco-biology/BIOL202)
 
 All source files are available [url]().
 
