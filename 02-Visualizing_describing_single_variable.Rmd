@@ -91,7 +91,7 @@ We should now get an idea of how many cases are there in this data set, how many
 Use the `skim` function from the `skimr` package to do this:
 
 ```{r show_structure}
-skim(students)
+skim_without_charts(students)
 ```
 
 
@@ -345,7 +345,7 @@ height.hist.bw
 
 Frequency distributions for numerical variables can take on a variety of shapes, as shown in the following display of histograms:
 
-![](./more/histogram_shapes.png)
+**NEED NEW IMAGE**
 
 * * *
   
