@@ -139,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">BIOL202 Tutorials</a></li>
 
 <li class="divider"></li>
+<li class="part"><span><b>Preface</b></span></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
 <ul>
 <li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>Author</a></li>
@@ -146,6 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="copyright.html"><a href="copyright.html"><i class="fa fa-check"></i>Copyright</a></li>
 <li class="chapter" data-level="" data-path="conventions.html"><a href="conventions.html"><i class="fa fa-check"></i>Conventions</a></li>
 </ul></li>
+<li class="part"><span><b>Setting up workspace</b></span></li>
 <li class="chapter" data-level="1" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>1</b> Importing Data</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1.1</b> Getting started</a></li>
@@ -230,16 +232,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now lets create the stripchart , and we’ll use the function above in the <code>stat_summary</code> function.</p>
 <p>We’ll create a ggplot object for each step, then show the graph when all pieces are done.</p>
 <p>First, the basic stripchart:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="stripchart-with-ci-bars.html#cb78-1" aria-hidden="true" tabindex="-1"></a>penguins.stripchart <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb78-2"><a href="stripchart-with-ci-bars.html#cb78-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">color =</span> <span class="st">&quot;firebrick&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="stripchart-with-ci-bars.html#cb78-1" aria-hidden="true" tabindex="-1"></a>penguins.stripchart <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb78-2"><a href="stripchart-with-ci-bars.html#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb78-3"><a href="stripchart-with-ci-bars.html#cb78-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">color =</span> <span class="st">&quot;firebrick&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>)</span></code></pre></div>
 <p>Now let’s add the confidence interval error bars:</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="stripchart-with-ci-bars.html#cb79-1" aria-hidden="true" tabindex="-1"></a>penguins.stripchart.bars <span class="ot">&lt;-</span> penguins.stripchart <span class="sc">+</span> </span>
 <span id="cb79-2"><a href="stripchart-with-ci-bars.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stat_summary</span>(<span class="at">fun.data =</span> confint.fun.ttest, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, </span>
-<span id="cb79-3"><a href="stripchart-with-ci-bars.html#cb79-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">width =</span> <span class="fl">0.07</span>, <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> <span class="fl">0.15</span>))</span></code></pre></div>
+<span id="cb79-3"><a href="stripchart-with-ci-bars.html#cb79-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">width =</span> <span class="fl">0.07</span>, </span>
+<span id="cb79-4"><a href="stripchart-with-ci-bars.html#cb79-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> <span class="fl">0.15</span>))</span></code></pre></div>
 <p>Now let’s add a point for each group mean:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="stripchart-with-ci-bars.html#cb80-1" aria-hidden="true" tabindex="-1"></a>penguins.stripchart.bars.mean <span class="ot">&lt;-</span> penguins.stripchart.bars <span class="sc">+</span> <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">16</span>, <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> <span class="fl">0.15</span>)) <span class="sc">+</span> </span>
-<span id="cb80-2"><a href="stripchart-with-ci-bars.html#cb80-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb80-3"><a href="stripchart-with-ci-bars.html#cb80-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="stripchart-with-ci-bars.html#cb80-1" aria-hidden="true" tabindex="-1"></a>penguins.stripchart.bars.mean <span class="ot">&lt;-</span> penguins.stripchart.bars <span class="sc">+</span> </span>
+<span id="cb80-2"><a href="stripchart-with-ci-bars.html#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">16</span>, </span>
+<span id="cb80-3"><a href="stripchart-with-ci-bars.html#cb80-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> <span class="fl">0.15</span>)) <span class="sc">+</span> </span>
+<span id="cb80-4"><a href="stripchart-with-ci-bars.html#cb80-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb80-5"><a href="stripchart-with-ci-bars.html#cb80-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p>Now let’s see the plot</p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="stripchart-with-ci-bars.html#cb81-1" aria-hidden="true" tabindex="-1"></a>penguins.stripchart.bars.mean</span></code></pre></div>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (stat_summary).

@@ -9,6 +9,8 @@ biblio-style: apalike
 link-citations: yes
 ---
 
+# (PART\*) Preface {-}
+
 # Welcome {-}
 
 This is an open source online book that includes all tutorials and other resources for the "lab" portion of the course BIOL202: Introduction to Biostatistics, at the University of British Columbia, Okanagan campus.

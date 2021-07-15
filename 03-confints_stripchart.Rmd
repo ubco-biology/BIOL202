@@ -51,8 +51,10 @@ We use the `t.test` function to calculate the appropriate lower and upper 95% co
 penguin.stats <- penguins %>% 
   group_by(species) %>% 
   summarise(mean.bill.depth = mean(bill_depth_mm, na.rm = T), 
-            confint.low.bill.depth = t.test(bill_depth_mm, na.rm = T, conf.level = 0.95)$conf.int[1],
-            confint.hi.bill.depth = t.test(bill_depth_mm, na.rm = T, conf.level = 0.95)$conf.int[2],
+            confint.low.bill.depth = t.test(bill_depth_mm, na.rm = T, 
+                                            conf.level = 0.95)$conf.int[1],
+            confint.hi.bill.depth = t.test(bill_depth_mm, na.rm = T, 
+                                           conf.level = 0.95)$conf.int[2],
             count.bill.depth = sum(!is.na(bill_depth_mm)))
 ```
 
@@ -85,7 +87,8 @@ We'll create a ggplot object for each step, then show the graph when all pieces 
 
 First, the basic stripchart:
 ```{r stripchart, warning = F}
-penguins.stripchart <- penguins %>% ggplot(aes(x = species, y = bill_depth_mm)) +
+penguins.stripchart <- penguins %>% 
+  ggplot(aes(x = species, y = bill_depth_mm)) +
     geom_jitter(color = "firebrick", size = 3, shape = 1, width = 0.1)
 ```
 
@@ -93,12 +96,15 @@ Now let's add the confidence interval error bars:
 ```{r add_bars}
 penguins.stripchart.bars <- penguins.stripchart + 
 stat_summary(fun.data = confint.fun.ttest, geom = "errorbar", 
-                 colour = "black", width = 0.07, position = position_nudge(x = 0.15))
+                 colour = "black", width = 0.07, 
+             position = position_nudge(x = 0.15))
 ```
 
 Now let's add a point for each group mean:
 ```{r add_means}
-penguins.stripchart.bars.mean <- penguins.stripchart.bars + stat_summary(fun = mean, geom = "point", size = 2, shape = 16, position = position_nudge(x = 0.15)) + 
+penguins.stripchart.bars.mean <- penguins.stripchart.bars + 
+  stat_summary(fun = mean, geom = "point", size = 2, shape = 16, 
+               position = position_nudge(x = 0.15)) + 
     labs(x = "Species", y = "Bill depth (mm)") + 
     theme_classic()
 ```
