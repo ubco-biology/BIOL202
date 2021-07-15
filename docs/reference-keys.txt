@@ -33,3 +33,9 @@ interpreting-and-describing-histograms
 calculating-descriptive-statistics-for-a-numerical-variable
 introducing-the-summarise-function
 list-of-functions-and-the-source-packages-used-in-tutorial
+confint_stripchart
+background-1
+session-info
+libraries
+summary-stats
+stripchart-with-ci-bars

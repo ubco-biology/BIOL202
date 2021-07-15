@@ -1,6 +1,6 @@
 # Importing Data {#data_import}
 
-Minor updates on `r format(Sys.time(), '%B %d, %Y')` concerning `read_csv` versus `read.csv`. 
+Last updated on`r format(Sys.time(), '%B %d, %Y')`. 
 
 * * *
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.4 Summary stats | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>3.1 Background | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.4 Summary stats | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="3.1 Background | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.4 Summary stats | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="3.1 Background | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="libraries.html"/>
-<link rel="next" href="stripchart-with-ci-bars.html"/>
+<link rel="prev" href="confint-stripchart.html"/>
+<link rel="next" href="session-info.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -219,108 +219,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="summary-stats" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Summary stats</h2>
-<p>Let’s get summary stats for groups, and present in nice table.</p>
-<p>We use the <code>t.test</code> function to calculate the appropriate lower and upper 95% confidence limits based on the <em>t</em> distribution.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="summary-stats.html#cb77-1" aria-hidden="true" tabindex="-1"></a>penguin.stats <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb77-2"><a href="summary-stats.html#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
-<span id="cb77-3"><a href="summary-stats.html#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean.bill.depth =</span> <span class="fu">mean</span>(bill_depth_mm, <span class="at">na.rm =</span> T), </span>
-<span id="cb77-4"><a href="summary-stats.html#cb77-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">confint.low.bill.depth =</span> <span class="fu">t.test</span>(bill_depth_mm, <span class="at">na.rm =</span> T, <span class="at">conf.level =</span> <span class="fl">0.95</span>)<span class="sc">$</span>conf.int[<span class="dv">1</span>],</span>
-<span id="cb77-5"><a href="summary-stats.html#cb77-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">confint.hi.bill.depth =</span> <span class="fu">t.test</span>(bill_depth_mm, <span class="at">na.rm =</span> T, <span class="at">conf.level =</span> <span class="fl">0.95</span>)<span class="sc">$</span>conf.int[<span class="dv">2</span>],</span>
-<span id="cb77-6"><a href="summary-stats.html#cb77-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">count.bill.depth =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(bill_depth_mm)))</span></code></pre></div>
-<p>Present in table using the <code>kableExtra</code> package, as shown in this <a href="https://people.ok.ubc.ca/jpither/modules/Comparing_more_than_2_means.html#Descriptive_statistics_by_group">tutorial</a>.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="summary-stats.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> <span class="st">&#39;&#39;</span>) <span class="co"># suppress showing NA values in table</span></span>
-<span id="cb78-2"><a href="summary-stats.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(penguin.stats, <span class="at">format =</span> <span class="st">&quot;html&quot;</span>, </span>
-<span id="cb78-3"><a href="summary-stats.html#cb78-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">&quot;Table 1: Summary statistics for the penguin species.&quot;</span>, </span>
-<span id="cb78-4"><a href="summary-stats.html#cb78-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">0</span>), </span>
-<span id="cb78-5"><a href="summary-stats.html#cb78-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="st">&quot;rrrrr&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb78-6"><a href="summary-stats.html#cb78-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">position =</span> <span class="st">&quot;left&quot;</span>)</span></code></pre></div>
-<table class="table" style>
-<caption>
-(#tab:stats_table)Table 1: Summary statistics for the penguin species.
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-species
-</th>
-<th style="text-align:right;">
-mean.bill.depth
-</th>
-<th style="text-align:right;">
-confint.low.bill.depth
-</th>
-<th style="text-align:right;">
-confint.hi.bill.depth
-</th>
-<th style="text-align:right;">
-count.bill.depth
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-Adelie
-</td>
-<td style="text-align:right;">
-18.35
-</td>
-<td style="text-align:right;">
-18.151
-</td>
-<td style="text-align:right;">
-18.542
-</td>
-<td style="text-align:right;">
-151
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Chinstrap
-</td>
-<td style="text-align:right;">
-18.42
-</td>
-<td style="text-align:right;">
-18.146
-</td>
-<td style="text-align:right;">
-18.695
-</td>
-<td style="text-align:right;">
-68
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-Gentoo
-</td>
-<td style="text-align:right;">
-14.98
-</td>
-<td style="text-align:right;">
-14.807
-</td>
-<td style="text-align:right;">
-15.157
-</td>
-<td style="text-align:right;">
-123
-</td>
-</tr>
-</tbody>
-</table>
+<div id="background-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Background</h2>
+<p>This brief demo shows how to add confidence intervals around group means within stripcharts, which are used to visualize a numeric dependent variable (y) in relation to a categorical independent variable (x), as shown in this <a href="https://people.ok.ubc.ca/jpither/modules/Visualizing_association_two_variables.html#Visualizing_association_between_a_numeric_and_a_categorical_variable">tutorial</a>.</p>
+<p>It also calculates some descriptive stats for grouped data, as shown in this <a href="https://people.ok.ubc.ca/jpither/modules/Describe_by_group.html">tutorial</a>.</p>
+<p>We use the <code>penguins</code> dataset within the <code>palmerpenguins</code> package for the demo. This is a good dataset to use for practicing data wrangling / visualization / stats.</p>
+<p>See info about the dataset using this:</p>
+<pre><code>?palmerpenguins</code></pre>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="libraries.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="stripchart-with-ci-bars.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="confint-stripchart.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="session-info.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
