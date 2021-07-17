@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-07-15" />
+<meta name="date" content="2021-07-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,7 +257,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In other tutorials we’ll also use “tibbles,” which are better versions of data frames, and are part of the “tidyverse.” But that’s for later.</p>
 <p>To view the names of the variables in the data frame, use the <code>names</code> command as follows:</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="getting-started-1.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(students)</span></code></pre></div>
-<pre><code>## [1] &quot;height_cm&quot;       &quot;head_circum_cm&quot;  &quot;number_siblings&quot; &quot;dominant_hand&quot;   &quot;dominant_foot&quot;   &quot;dominant_eye&quot;</code></pre>
+<pre><code>## [1] &quot;height_cm&quot;       &quot;head_circum_cm&quot;  &quot;number_siblings&quot; &quot;dominant_hand&quot;   &quot;dominant_foot&quot;  
+## [6] &quot;dominant_eye&quot;</code></pre>
 <p>This returns the names <code>height_cm</code>, <code>head_circum_cm</code>, <code>number_siblings</code>, <code>dominant_hand</code>, <code>dominant_foot</code>, and <code>dominant_eye</code>.</p>
 <p>We can get a glimpse of the first handful of cases (rows) of our data with the <code>head</code> function:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="getting-started-1.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(students)</span></code></pre></div>
@@ -272,12 +273,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="getting-started-1.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(students)</span></code></pre></div>
 <pre><code>## Rows: 154
 ## Columns: 6
-## $ height_cm       &lt;dbl&gt; 160.02, 180.00, 192.00, 165.00, 182.00, 165.00, 165.10, 163.00, 155.00, 176.00, 162.30, 1…
-## $ head_circum_cm  &lt;dbl&gt; 55.0, 56.0, 56.0, 61.0, 61.0, 53.0, 53.5, 54.0, 54.0, 54.0, 54.0, 54.3, 54.5, 54.5, 54.5,…
-## $ number_siblings &lt;int&gt; 1, 1, 5, 2, 1, 1, 1, 0, 3, 1, 2, 1, 1, 1, 1, 3, 0, 1, 2, 1, 1, 0, 2, 3, 2, 1, 2, 2, 1, 1,…
-## $ dominant_hand   &lt;chr&gt; &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;,…
-## $ dominant_foot   &lt;chr&gt; &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;,…
-## $ dominant_eye    &lt;chr&gt; &quot;l&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;,…</code></pre>
+## $ height_cm       &lt;dbl&gt; 160.02, 180.00, 192.00, 165.00, 182.00, 165.00, 165.10, 163.00, 155.00, 176.00, 162…
+## $ head_circum_cm  &lt;dbl&gt; 55.0, 56.0, 56.0, 61.0, 61.0, 53.0, 53.5, 54.0, 54.0, 54.0, 54.0, 54.3, 54.5, 54.5,…
+## $ number_siblings &lt;int&gt; 1, 1, 5, 2, 1, 1, 1, 0, 3, 1, 2, 1, 1, 1, 1, 3, 0, 1, 2, 1, 1, 0, 2, 3, 2, 1, 2, 2,…
+## $ dominant_hand   &lt;chr&gt; &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;…
+## $ dominant_foot   &lt;chr&gt; &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;…
+## $ dominant_eye    &lt;chr&gt; &quot;l&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quot;l&quot;, &quot;r&quot;, &quot;r&quot;…</code></pre>
 <p>You could also look at <em>all</em> of the data frame at once by typing its name into the console and pressing return, but that is not advisable, as you could get reams of output thrown at you if you’re dealing with a large dataset! It’s better to take a small peek at the data with <code>head</code> or <code>glimpse</code>.</p>
 <p>We should now get an idea of how many cases are there in this data set, how many variables it contains, and what type of data comprise each variable (e.g. numeric, integer, character, factor, logical, etc…).</p>
 <p>Use the <code>skim</code> function from the <code>skimr</code> package to do this:</p>

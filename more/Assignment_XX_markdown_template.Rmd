@@ -1,0 +1,65 @@
+---
+title: "Lab_XX Assignment"
+author: "Firstname Lastname, Section YY"
+date: 'Due date'
+output: 
+  word_document:
+    fig_caption: yes
+    reference_docx: assignment_style_template.docx
+---
+
+```{r setup, include = FALSE}
+# DO NOT ALTER CODE IN THIS CHUNK
+knitr::opts_chunk$set(echo = TRUE)
+library(tigerstats)
+lattice.options(default.theme = standard.theme(color = FALSE))
+```
+
+
+~ START 
+
+Be sure to install and load the `tigerstats` library. Type the following code 
+into the command console (if you haven't installed `tigerstats` already):
+
+```
+install.packages("tigerstats")
+```  
+
+Once `tigerstats` has been installed, delete this text block 
+(from "~ START" to "~ END")
+
+~ END
+
+
+This template includes some settings:
+
+* the header at the top includes a line that ensures figure captions are enabled
+* the "reference_docx" line in the header at the top refers to the name of a Word document that provides the formatting style we wish to use; this file must be located in your working directory.  
+
+You can replace all text below if you wish, but I would use the example R-chunks provided as a guide.
+
+
+## Load required datasets
+
+Use this R chunk to load any datasets that you will be analyzing
+
+```{r}
+
+```
+
+
+Remember to use 2 number signs to precede question numbers, as follows:
+
+## Question 1
+
+You can also embed plots with figure captions, and with the output size specified, for example:
+
+```{r fig.cap = "Figure 1: Scatterplot of sepal length vs sepal width for 150 iris plants from 3 species.", fig.width = 4, fig.height = 4}
+plot(iris$Sepal.Length, iris$Sepal.Width)
+```
+
+You can play with the width and height settings to get a figure size that you like.
+
+## Question 2
+
+In Figure 1 we see a positive association between sepal length and width.

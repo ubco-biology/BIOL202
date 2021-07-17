@@ -1,0 +1,267 @@
+---
+title: "Lab Assignment 02 solutions"
+author: "Jason Pither"
+output:
+  html_document:
+    df_print: paged
+  word_document:
+    fig_caption: yes
+    reference_docx: assignment_style_template.docx
+---
+
+```{r setup, include=FALSE}
+# DO NOT ALTER CODE IN THIS CHUNK
+knitr::opts_chunk$set(echo = TRUE)
+library(tigerstats)
+lattice.options(default.theme = standard.theme(color = FALSE))
+```
+
+This page was last updated on `r format(Sys.time(), '%B %d, %Y')`.
+
+## Required packages
+
+* `tigerstats`
+* `binom`
+
+```{r}
+library(tigerstats)
+library(binom)
+```
+
+* * *
+
+## Required data
+
+Load required datasets:  
+
+```{r}
+hostplant <- read.csv(url("https://people.ok.ubc.ca/jpither/datasets/hostplant.csv"), header = TRUE)
+perfume <- read.csv(url("https://people.ok.ubc.ca/jpither/datasets/perfume.csv"), header = TRUE)
+plumage <- read.csv(url("https://people.ok.ubc.ca/jpither/datasets/plumage.csv"), header = TRUE)
+```
+
+* * *
+
+Load packages: 
+
+```{r}
+library(tigerstats)
+library(binom)
+```
+
+## Question 1 (1 mark)
+
+Among 38 students randomly sampled from a school, 9 had red hair. What is your best estimate of the
+proportion of red-haired students at the school? Provide an appropriate 95% confidence interval with your estimate.
+
+### Answer 
+
+```{r}
+propRed <- 9/38
+round(propRed, 2)
+redConf <- binom.confint(x = 9,
+                         n = 38, 
+                         conf.level = 0.95, 
+                         methods = "ac")
+lower.cl <- round(redConf$lower,3)
+upper.cl <- round(redConf$upper,3)
+c(lower.cl, upper.cl)
+```
+
+The proportion of students with red hair is `r round(propRed, 2)`, with a 95% confidence interval of `r round(lower.cl,3)` $\le$ *p* $\le$ `r round(upper.cl,3)`. 
+
+**OR**:
+
+```{r}
+binom.result <- binom.test(x = 9, n = 38, p = 0.5, alternative = "two.sided", ci.method = "Agresti-Coull")
+binom.result$conf.int
+```
+
+The proportion of students with red hair is `r round(propRed, 2)`, with a 95% confidence interval of `r round(binom.result$conf.int[1],3)` $\le$ *p* $\le$ `r round(binom.result$conf.int[2],3)`.  
+
+* * *
+
+## Question 2 (2 marks)
+
+Use the "hostplant.csv" dataset for this question.  
+
+A researcher suspected that planthoppers (a type of insect) detect their preferred host plant species by sensing volatile compounds produced by the plant. First she needed to establish whether the planthoppers do indeed exhibited a preference for one host plant species (species "A") over another host plant species (species "B").  She conducted a well-designed experiment involving 23 independent trials in which the insect chose either host species "A" (in the dataset, represented by category `A` in the variable `hostchoice`) or the other host plant species (category `B` in the same variable `hostchoice`). Does this evidence suggest a preference for one host plant species over the another? 
+
+Conduct an appropriate hypothesis test, and include the following in your answer:  
+
+* Appropriately worded null and alternative hypothesis statements
+* Your chosen level of $\alpha$
+* an appropriate statistical test, and justification for your choice
+* a concluding statement that includes your observed test statistic, an associated *P*-value, and an appropriate 95% confidence interval  
+* you do **NOT** need to provide a graph of any sort  
+
+### Answer 
+
+I chose to use a binomial test because we are dealing with a categorical variable with 2 categories, i.e. success and failure (or choice "A" and "B").  
+
+**H~0~**: Planthoppers choose each plant species with equal frequency **OR** in equal proportions (*p* = 0.5).
+
+**H~A~**: Planthoppers do not choose each plant species with equal frequency **OR** in equal proportions (*p* $\ne$ 0.5).
+
+$\alpha$: 0.05  
+
+Have a look at the data:
+
+```{r}
+inspect(hostplant)
+```
+
+No real need to visualize these data graphically...  
+
+Now conduct the test:
+
+```{r}
+binomResult <- binom.test(~ hostchoice, data = hostplant, p = 0.5, success = 'A', 
+                          alternative = 'two.sided', ci.method = 'Agresti-Coull')
+binomResult
+```
+
+Planthoppers chose the preferred plant significantly more often than the alternative plant (n = 23; observed proportion of preferred choice = 0.78; Binomial test; *P*-value = `r round(binomResult$p.value,3)`; Agresti-Coull 95% confidence interval: `r round(binomResult$conf.int[1],3)` $\le$ *p* $\le$ `r round(binomResult$conf.int[2],3)`).  
+
+* * *
+
+## Question 3 (3 marks)
+
+In a follow-up study to the one described in Question 2, the researcher suspected that perfume affected the ability of the planthoppers to detect their preferred host plant species. She conducted a well-designed experiment in which 23 independent planthoppers were randomly assigned to a “control” group, and 23 were randomly assigned to a “perfume” group. The control group underwent the trials as described in Question 2, whereas the perfume group had perfume introduced to the experimental apparatus.
+
+The “perfume” dataset includes the same hostchoice variable as seen before, but additionally includes a treatment variable, denoting which treatment was applied.
+
+Is the evidence consistent with the researcher’s suspicions?  
+
+Conduct an appropriate hypothesis test, and include the following in your answer:
+* Appropriately worded null and alternative hypothesis statements
+* Your chosen level of $\alpha$
+* an appropriate graph including figure caption, and one or two lines describing what you see
+* an appropriate statistical test
+* a concluding statement that includes your observed test statistic, an associated P-value, and an appropriate 95% confidence interval
+
+### Answer 
+
+I chose to use a Fisher's Exact test because it is the most powerful test for a 2x2 contingency table.  
+
+**H~0~**: The choice of plant did not depend on the presence of perfume.  
+**H~A~**: The choice of plant did depend on the presence of perfume.
+
+**OR**
+
+**H~0~**: The choice of plant was not contingent on the presence of perfume.  
+**H~A~**: The choice of plant was contingent on on the presence of perfume.  
+
+$\alpha$: 0.05
+
+First have a look at the data, then create contingency table:  
+
+```{r}
+inspect(perfume)
+```
+
+Create contingency table:  
+
+```{r}
+perfumeTable <- xtabs (~ hostchoice + treatment, data = perfume)
+perfumeTable
+```
+
+Visualize the data with a mosaic plot:  
+
+```{r fig.cap = 'Figure 1: Plant choice by planthoppers (n = 23 in each group) was significantly contingent on the presence of perfume .', fig.width = 4, fig.height = 4.5}
+mosaicplot( t(perfumeTable), 
+            col = c("darkturquoise", "darkviolet"), 
+            cex.axis = 0.9, 
+            xlab = "Treatment", 
+            ylab = "Choice", 
+            main = "") 
+```
+
+Figure 1 shows that in the control group, which did not have perfume applied, planthoppers selected the preferred plant more often than in the perfume-treated group.  
+
+I will conduct a Fisher's exact test because this is the most powerful for a 2 x 2 contingency table:  
+
+```{r}
+
+perfumeFisher <- fisher.test(perfumeTable)
+perfumeFisher
+```
+
+### Concluding statement: 
+
+The probability of planthoppers detecting their preferred host plants was significantly higher in the absence of the perfume (Fisher's Exact Test; *P*-value = `r round(perfumeFisher$p.value, 3)`; odds ratio = `r round(perfumeFisher$estimate, 2)`; 95% CI = `r round(perfumeFisher$conf.int[1], 3)` - `r round(perfumeFisher$conf.int[2], 3)`).  
+
+* * *
+
+## Question 4 (4 marks)
+
+A researcher suspected that plumage colour (i.e. the colour of the feathers) in a bird species she studied depended on the habitat in which the bird nested. The species exhibits three different colour morphs, blue, 2 brown, and red. She randomly sampled 30 birds in each of 2 habitat types, forest and grassland, and recorded the plumage colour of each bird. Is there evidence to support her suspicions?  
+
+Conduct an appropriate hypothesis test, and include the following in your answer:
+
+* Appropriately worded null and alternative hypothesis statements
+* Your chosen level of $\alpha$
+* an appropriate graph including figure caption, and one or two lines describing what you see
+* an appropriate statistical test
+* a check of any assumptions of the test
+* a concluding statement that includes your observed test statistic, an associated P-value
+* you do NOT need to include a confidence interval in your concluding statement
+
+### Answer 
+
+I chose a $\chi$^2^ Contingency Test because we are analyzing the association between two categorical variables, and the contingency table is larger than 2 x 2 in dimension (one categorical variable has more than 2 categories).  
+
+**H~0~**: The frequency (or proportion) of bird colour morphs is equal among habitat types.  
+**H~A~**: The frequency (or proportion) of bird colour morphs is not equal among habitat types.  
+
+**OR**: 
+
+**H~0~**: Plumage colour is not associated with habitat type.  
+**H~A~**: Plumage colour is associated with habitat type.  
+
+$\alpha$: 0.05
+
+The appropriate test, if assumptions are met, is a $\chi$^2^ contingency test.  
+
+Create contingency table:  
+```{r}
+plumageTable <- xtabs(~ colour + habitat, data = plumage)
+plumageTable
+```
+
+Visualize with a mosaic plot:  
+
+```{r fig.cap = 'Figure 2: The relative proportion of bird colour morphs among grassland and forest habitat types (n = 30 for each habitat)', fig.width = 4, fig.height = 4.5}
+mosaicplot(t(plumageTable), 
+            col = c("darkturquoise", "darkviolet", "midnightblue"), 
+            cex.axis = 0.9, 
+            xlab = "Habitat", 
+            ylab = "Plumage Colour", 
+            main = "")  
+```
+
+Figure 2 shows that, in general, the frequency of the three colour morphs is similar among the grassland and forest habitat types, though there were slighly more blue and fewer red morphs in the forest than in the grassland.  
+
+Check assumptions:
+
+We see from the table of expected frequencies that the assumptions are met: no frequencies less than 1, and not more than 20% of frequencies less than 5.  
+
+Conduct a $\chi$^2^ test and get the expected frequencies to test the assumptions:  
+
+```{r}
+plumageChisq <- chisq.test(plumageTable)
+plumageChisq$expected
+```
+
+We found that the different colour morphs occurred with similar frequency among the grassland and forest habitats ($\chi$^2^ contingency Test; $\chi$^2^ = `r round(plumageChisq$statistic, 2)`; df = `r plumageChisq$parameter`; *P*-value = `r round(plumageChisq$p.value,3)`).  
+
+**OR**
+
+We found that the different colour morphs occurred with in similar proportions among the grassland and forest habitats ($\chi$^2^ contingency Test; $\chi$^2^ = `r round(plumageChisq$statistic, 2)`; df = `r plumageChisq$parameter`; *P*-value = `r round(plumageChisq$p.value,3)`).  
+
+**OR**
+
+We found no association between plumage colour and habitat type ($\chi$^2^ contingency Test; $\chi$^2^ = `r round(plumageChisq$statistic, 2)`; df = `r plumageChisq$parameter`; *P*-value = `r round(plumageChisq$p.value,3)`).  
+
+
