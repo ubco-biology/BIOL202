@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-07-17" />
+<meta name="date" content="2021-08-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="background-1.html"/>
 <link rel="next" href="libraries.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -227,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="session-info.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.1.0 (2021-05-18)
 ## Platform: x86_64-apple-darwin17.0 (64-bit)
-## Running under: macOS Big Sur 11.4
+## Running under: macOS Big Sur 11.5.1
 ## 
 ## Matrix products: default
 ## LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
@@ -239,33 +239,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] naniar_0.6.1    skimr_2.1.3     janitor_2.1.0   dlookr_0.4.5    forcats_0.5.1   stringr_1.4.0  
-##  [7] dplyr_1.0.7     purrr_0.3.4     readr_1.4.0     tidyr_1.1.3     tibble_3.1.2    ggplot2_3.3.5  
-## [13] tidyverse_1.3.1
+##  [1] naniar_0.6.1    skimr_2.1.3     janitor_2.1.0   dlookr_0.4.5    forcats_0.5.1  
+##  [6] stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4     readr_1.4.0     tidyr_1.1.3    
+## [11] tibble_3.1.2    ggplot2_3.3.5   tidyverse_1.3.1
 ## 
 ## loaded via a namespace (and not attached):
-##   [1] colorspace_2.0-2    ellipsis_0.3.2      class_7.3-19        rio_0.5.27          visdat_0.5.3       
-##   [6] snakecase_0.11.0    htmlTable_2.2.1     base64enc_0.1-3     fs_1.5.0            rstudioapi_0.13    
-##  [11] proxy_0.4-26        farver_2.1.0        fansi_0.5.0         mvtnorm_1.1-2       lubridate_1.7.10   
-##  [16] xml2_1.3.2          splines_4.1.0       extrafont_0.17      libcoin_1.0-8       knitr_1.33         
-##  [21] Formula_1.2-4       jsonlite_1.7.2      broom_0.7.8         Rttf2pt1_1.3.8      cluster_2.1.2      
-##  [26] dbplyr_2.1.1        png_0.1-7           compiler_4.1.0      httr_1.4.2          backports_1.2.1    
-##  [31] assertthat_0.2.1    Matrix_1.3-3        cli_3.0.0           hrbrthemes_0.8.0    htmltools_0.5.1.1  
-##  [36] tools_4.1.0         partykit_1.2-13     gtable_0.3.0        glue_1.4.2          Rcpp_1.0.7         
-##  [41] carData_3.0-4       cellranger_1.1.0    vctrs_0.3.8         svglite_2.0.0       extrafontdb_1.0    
-##  [46] inum_1.0-4          xfun_0.24           openxlsx_4.2.4      rvest_1.0.0         lifecycle_1.0.0    
-##  [51] RcmdrMisc_2.7-1     MASS_7.3-54         zoo_1.8-9           scales_1.1.1        hms_1.1.0          
-##  [56] sandwich_3.0-1      RColorBrewer_1.1-2  yaml_2.2.1          curl_4.3.2          gridExtra_2.3      
-##  [61] gdtools_0.2.3       rpart_4.1-15        latticeExtra_0.6-29 stringi_1.7.2       highr_0.9          
-##  [66] corrplot_0.90       nortest_1.0-4       e1071_1.7-7         checkmate_2.0.0     zip_2.2.0          
-##  [71] repr_1.1.3          rlang_0.4.11        pkgconfig_2.0.3     systemfonts_1.0.2   evaluate_0.14      
-##  [76] lattice_0.20-44     labeling_0.4.2      htmlwidgets_1.5.3   tidyselect_1.1.1    magrittr_2.0.1     
-##  [81] bookdown_0.22       R6_2.5.0            generics_0.1.0      Hmisc_4.5-0         DBI_1.1.1          
-##  [86] pillar_1.6.1        haven_2.4.1         foreign_0.8-81      withr_2.4.2         prettydoc_0.4.1    
-##  [91] survival_3.2-11     abind_1.4-5         nnet_7.3-16         modelr_0.1.8        crayon_1.4.1       
-##  [96] car_3.0-11          utf8_1.2.1          rmarkdown_2.9       jpeg_0.1-8.1        grid_4.1.0         
-## [101] readxl_1.3.1        data.table_1.14.0   reprex_2.0.0        digest_0.6.27       webshot_0.5.2      
-## [106] munsell_0.5.0       viridisLite_0.4.0   kableExtra_1.3.4</code></pre>
+##   [1] colorspace_2.0-2    ellipsis_0.3.2      class_7.3-19        rio_0.5.27         
+##   [5] visdat_0.5.3        snakecase_0.11.0    htmlTable_2.2.1     base64enc_0.1-3    
+##   [9] fs_1.5.0            rstudioapi_0.13     proxy_0.4-26        farver_2.1.0       
+##  [13] fansi_0.5.0         mvtnorm_1.1-2       lubridate_1.7.10    xml2_1.3.2         
+##  [17] splines_4.1.0       extrafont_0.17      libcoin_1.0-8       knitr_1.33         
+##  [21] Formula_1.2-4       jsonlite_1.7.2      broom_0.7.8         Rttf2pt1_1.3.8     
+##  [25] cluster_2.1.2       dbplyr_2.1.1        png_0.1-7           compiler_4.1.0     
+##  [29] httr_1.4.2          backports_1.2.1     assertthat_0.2.1    Matrix_1.3-3       
+##  [33] cli_3.0.0           hrbrthemes_0.8.0    htmltools_0.5.1.1   tools_4.1.0        
+##  [37] partykit_1.2-13     gtable_0.3.0        glue_1.4.2          Rcpp_1.0.7         
+##  [41] carData_3.0-4       cellranger_1.1.0    vctrs_0.3.8         svglite_2.0.0      
+##  [45] extrafontdb_1.0     inum_1.0-4          xfun_0.25           openxlsx_4.2.4     
+##  [49] rvest_1.0.0         lifecycle_1.0.0     RcmdrMisc_2.7-1     MASS_7.3-54        
+##  [53] zoo_1.8-9           scales_1.1.1        hms_1.1.0           sandwich_3.0-1     
+##  [57] RColorBrewer_1.1-2  yaml_2.2.1          curl_4.3.2          gridExtra_2.3      
+##  [61] gdtools_0.2.3       rpart_4.1-15        latticeExtra_0.6-29 stringi_1.7.3      
+##  [65] highr_0.9           corrplot_0.90       nortest_1.0-4       e1071_1.7-7        
+##  [69] checkmate_2.0.0     zip_2.2.0           repr_1.1.3          rlang_0.4.11       
+##  [73] pkgconfig_2.0.3     systemfonts_1.0.2   evaluate_0.14       lattice_0.20-44    
+##  [77] labeling_0.4.2      htmlwidgets_1.5.3   tidyselect_1.1.1    magrittr_2.0.1     
+##  [81] bookdown_0.22       R6_2.5.1            generics_0.1.0      Hmisc_4.5-0        
+##  [85] DBI_1.1.1           pillar_1.6.1        haven_2.4.1         foreign_0.8-81     
+##  [89] withr_2.4.2         prettydoc_0.4.1     survival_3.2-11     abind_1.4-5        
+##  [93] nnet_7.3-16         modelr_0.1.8        crayon_1.4.1        car_3.0-11         
+##  [97] utf8_1.2.1          rmarkdown_2.10      jpeg_0.1-8.1        grid_4.1.0         
+## [101] readxl_1.3.1        data.table_1.14.0   reprex_2.0.0        digest_0.6.27      
+## [105] webshot_0.5.2       munsell_0.5.0       viridisLite_0.4.0   kableExtra_1.3.4</code></pre>
 </div>
             </section>
 

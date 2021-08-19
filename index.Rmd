@@ -15,7 +15,7 @@ link-citations: yes
 
 This is an open source online book that includes all tutorials and other resources for the "lab" portion of the course BIOL202: Introduction to Biostatistics, at the University of British Columbia, Okanagan campus.
 
-This book is continually being updated, so **be sure to refresh your browser each time you visit a chapter / sub-chapter**.
+This book is **currently under development, and will be complete by the first week of September 2021**.
 
 ## Author {-}
 
