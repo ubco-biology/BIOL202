@@ -120,7 +120,10 @@ remember that this likely comes from you trying to use a function in a package t
 
 # Setting up R Markdown {#setup_markdown}
 
-For a primer on what "markdown" is, consult chapter 6 of the [Biology Procedures and Guidelines ](https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html) resource, but **skip over section 6.2**. 
+<div class="note">
+**Note**
+R Markdown is just one flavour of what's called a markup language.  What's a "markup" language you ask? You can find out in section 6 of the [Biology Procedures and Guidelines ](https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html). But do **NOT** install anything! You already have a markdown editor installed: RStudio! So please skip over section 6.2, which talks about installing markdown editors. 
+</div>
 
 We'll learn more about R Markdown in another tutorial, but for now, let's make sure it runs properly, and in particular, "knits" to PDF successfully. For this, we need to install a package.  
 
