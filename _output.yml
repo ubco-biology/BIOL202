@@ -1,7 +1,7 @@
 bookdown::gitbook:
   split_by: section
   css: styles.css
-  config:
+  config: 
     toc:
       collapse: section
       scroll_highight: yes
