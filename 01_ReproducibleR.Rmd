@@ -27,7 +27,7 @@ A *workflow* refers to the the steps you take when conducting your day-to-day wo
 
 Following best practices for naming and organizing your files and directories on your computer will help ensure that you can spend more time doing the important work, and less time fiddling and trying to remember what you did and where you saved your work. It will also help your future self, when labs and assignments in upper year courses request that you use R and R Markdown for analyses and reports.
 
-1. Review the Biology department's [Procedures and Guidelines webpage](https://ubco-biology.github.io/Procedures-and-Guidelines/) description of how to [manage files and directories](https://ubco-biology.github.io/Procedures-and-Guidelines/file-and-data-management.html). 
+1. Review the Biology department's [Procedures and Guidelines webpage](https://ubco-biology.github.io/Procedures-and-Guidelines/) description of how to [manage files and directories](https://ubco-biology.github.io/Procedures-and-Guidelines/file-and-data-management.html). This should take about **20 minutes**
 
 # An example BIOL202 workflow {#biol202_workflow}
 
@@ -105,7 +105,11 @@ Your tutorial work may involve creating and saving outputs like figures or files
 
 Let's illustrate the procedure by creating a subdirectory called "figures", and this time we'll use R to create the directory.  
 
+### The `here` package{#here_package}
+
 First, let's install and load an R package called `here` that will help with file and directory management and navigation. 
+
+This is a helpful [blog post](http://jenrichmond.rbind.io/post/how-to-use-the-here-package/) about the utility of the `here` package.
 
 The necessary code lines are as follows:
 
@@ -115,8 +119,6 @@ library(here)
 ```
 
 When you load the library, the `here` function takes stock of where your RStudio project file is located, and establishes that directory as the "working directory". It should return a file path for you. In future tutorials we'll make use of the `here` package when saving files.  
-
-This is a helpful [post](http://jenrichmond.rbind.io/post/how-to-use-the-here-package/) about the utility of the `here` package.
 
 ## Edit an R markdown file {#edit_markdown}
 
@@ -137,17 +139,17 @@ Here we will save the RMD file in your "working directory", which is the "BIOL20
 This is the R Markdown file that you'll edit/add to throughout the term.  It has some starting instructions / example text already, and you're welcome to delete / change that.  
 
 * Change the "author" information at the top of the document (in the header) to your name.
-* Save your file again by clicking the save icon in the top left
+* Save your file by clicking the save icon in the top left, and be sure to give it an appropriate name as per previous file-naming instructions
 
 For the basics on formatting in R Markdown, consult the R Markdown [reference guide ](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
-## Components of an R Markdown file
+## Components of an R Markdown file {#md_components}
 
 At this point, you should familiarize yourself with the components of a markdown file.  
  
 1. Read through section 4.2 of this online [tutorial](https://rbasics.netlify.app/4-rmarkdown.html#the-components-of-an-r-markdown-file) and watch the videos there too
 
-## Interacting with Tutorial material
+## Interacting with Tutorial material {#interact_tutorial}
 
 Students have typically worked through tutorials by reading the material, typing helpful notes in their markdown document, and copying and pasting any R code into "chunks" within their R Markdown document, then running those chunks.  
 

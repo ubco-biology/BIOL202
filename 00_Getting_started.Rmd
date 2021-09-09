@@ -56,7 +56,7 @@ Note the four panes which are four panels dividing the screen: the source pane (
 
 ## Coding basics {#coding_basics}
 
-Please go through section [1.2 of the ModernDive online text](https://moderndive.com/1-getting-started.html#code) called "How do I code in R?". This should take about 15 minutes.
+Please go through section [1.2 of the ModernDive online text](https://moderndive.com/1-getting-started.html#code) called "How do I code in R?". This should take about **15 minutes**.
 
 # R packages {#packages}
 
@@ -143,11 +143,12 @@ For an example of an HTML (webpage) document that illustrates the effectiveness 
 
 2. View the following youtube video on creating an R Markdown document:
 
-[webpage](https://www.earthdatascience.org/courses/earth-analytics/document-your-science/intro-to-the-rmarkdown-format-and-knitr/). 
+[webpage](https://youtu.be/DNS7i2m4sB0). 
 
-3. If you'd like additional introductory tutorials on R Markdown, see this one from RStudio: 
-
-[demo](https://rmarkdown.rstudio.com/lesson-1.html), or this [one](https://rbasics.netlify.app/4-rmarkdown.html). 
+<div class="note">
+**Optional**
+If you'd like additional introductory tutorials on R Markdown, see this [one from RStudio](https://rmarkdown.rstudio.com/lesson-1.html), or this [one](https://rbasics.netlify.app/4-rmarkdown.html). 
+</div>
 
 ## Making sure R Markdown knits to PDF {#veryify_knit}
 
