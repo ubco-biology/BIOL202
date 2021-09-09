@@ -175,7 +175,7 @@ This will open an R Markdown document in the top left panel.  Don't worry about 
 * Select the "Knit" drop-down icon near the top left of the RStudio window, and select "Knit to PDF". RStudio will ask you to first save the markdown file (save it anywhere with any name for now), then it will process the markdown file and render it to PDF.  
 
 In a future [tutorial](#repro_research) we'll discuss how to use R Markdown as part of a reproducible workflow.
-
+ 
 # Extra online resources {#r_resources}
 
 <div class="note">

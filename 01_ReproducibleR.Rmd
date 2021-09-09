@@ -144,7 +144,7 @@ For the basics on formatting in R Markdown, consult the R Markdown [reference gu
 ## Components of an R Markdown file
 
 At this point, you should familiarize yourself with the components of a markdown file.  
-
+ 
 1. Read through section 4.2 of this online [tutorial](https://rbasics.netlify.app/4-rmarkdown.html#the-components-of-an-r-markdown-file) and watch the videos there too
 
 ## Interacting with Tutorial material
