@@ -22,20 +22,19 @@ The latest version of R is 4.1.1 ("Kick Things").  It is strongly recommended th
 
 Follow the instructions below, and optionally you can view this YouTube video [here](https://youtu.be/2Sovzf6lVRo) _prior_ to starting the steps.
 
-1. Download and install both R and RStudio (Desktop version) on your computer. 
+* Download and install both R and RStudio (Desktop version) on your computer. 
 
 <div class="note">
 **Note**
 R needs to be installed successfully >prior< to installing RStudio (because the latter depends on the former)  
 </div>
 
-2. Figure out what operating system (and version) you have on your computer (e.g. Windows 10; Mac OS X 10.15 "Big Sur")  
-
-3. Go to this [website](https://cran.r-project.org/) and click on the appropriate download link at the top of the page (depending on your operating system, Windows / MacOS / Linux)  
+* Figure out what operating system (and version) you have on your computer (e.g. Windows 10; Mac OS X 10.15 "Big Sur")  
+* Go to this [website](https://cran.r-project.org/) and click on the appropriate download link at the top of the page (depending on your operating system, Windows / MacOS / Linux)  
     - For *Windows* users, download the "base" version; this file will be called something like R-4.1.1-win.exe. Executing this file launches a familiar Windows Setup Wizard that will install R on your computer.  
     - For *Mac* users, download the "pkg" file that is appropriate for your version of MacOS; the file will be called something like R-4.1.1.pkg. Download and run this installation package—just accept the default options and you will be ready to go.  
 
-4. Now to install RStudio: once you have installed "R", go to this [website](https://rstudio.com/products/rstudio/download/) and click on the  "download" button in the top right corner, then select the blue button underneath the "RStudio Desktop FREE" column.  Then, click on the appropriate link under the "Installers for Supported Platforms" heading; this again depends on what platform / operating system you're using. It will likely be one of the first two options.  
+* Now to install RStudio: once you have installed "R", go to this [website](https://rstudio.com/products/rstudio/download/) and click on the  "download" button in the top right corner, then select the blue button underneath the "RStudio Desktop FREE" column.  Then, click on the appropriate link under the "Installers for Supported Platforms" heading; this again depends on what platform / operating system you're using. It will likely be one of the first two options.  
 
 # Start using R & RStudio {#start_r}
 
@@ -118,41 +117,71 @@ Error: could not find function
 remember that this likely comes from you trying to use a function in a package that has not been loaded.  Remember to run the `library()` function with the appropriate package to fix this error.
 </div>
 
-# Setting up R Markdown {#setup_markdown}
+# Intro to R Markdown {#intro_markdown}
+
+As you may have learned already from section 6 of the [Biology Procedures and Guidelines resource ](https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html), R Markdown is a markup language that provides an easy way to produce a rich, fully-documented reproducible analysis.  It allows its user to share a single file that contains all of the commentary, R code, and metadata needed to reproduce the analysis from beginning to end.  R Markdown allows for "chunks" of R code to be included along with Markdown text to produce a nicely formatted HTML, PDF, or Word file without having to know any complicated programming languages or having to fuss with getting the formatting just right in a Microsoft Word DOCX file.  
+
+One R Markdown file can generate a variety of different formats and all of this is done in a single text file with a few bits of formatting.  You'll be pleasantly surprised at how easy it is to write an R Markdown document after your first few attempts.  
+
+We will be using R Markdown to create reproducible lab reports. 
 
 <div class="note">
 **Note**
-R Markdown is just one flavour of what's called a markup language.  What's a "markup" language you ask? You can find out in section 6 of the [Biology Procedures and Guidelines ](https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html). But do **NOT** install anything! You already have a markdown editor installed: RStudio! So please skip over section 6.2, which talks about installing markdown editors. 
+R Markdown is just one flavour of a markup language. RStudio can be used to edit R Markdown. There are many other markdown editors out there, but using RStudio is good for our purposes.  
 </div>
 
-We'll learn more about R Markdown in another tutorial, but for now, let's make sure it runs properly, and in particular, "knits" to PDF successfully. For this, we need to install a package.  
+## Literate programming with R Markdown {#lit_programming}
 
-If you're keen to get a head start on learning R Markdown, consult this [DataCarpentry Tutorial](https://datacarpentry.org/r-socialsci/05-rmarkdown/index.html). 
+1. View the following short video:
 
-## Install `tinytex` package {#install_tinytex}
+[**Why use R Markdown for Lab Reports?**](https://youtu.be/lNWVQ2oxNho)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lNWVQ2oxNho" frameborder="0" allowfullscreen></iframe>
 
-To ensure you have no problems creating PDF documents using R Markdown, you need to install the `tintex` R package.  
+The preceding video described what can be referred to as **literate programming**: authoring a single document that integrates data analysis (executable code) with textual documentation, linking data, code, and text. In R Markdown, the executable R code is placed in "chunks", and these are embedded throughout sections of regular text.   
 
-* In the command console of RStudio (the bottom left window panel), type in the following two lines of code, pressing return after each line:  
+For an example of an HTML (webpage) document that illustrates the effectiveness of literate programming, take a look at [this HTML output - a webpage](https://ubco-biology.github.io/BIOL202/Manning_et_al_full_script.html) that accompanied a lab-based experiment examining the potential for freshwater diatoms to be successfully dispersed over long distances adhered to duck feathers.
+
+2. View the following youtube video on creating an R Markdown document:
+
+[webpage](https://www.earthdatascience.org/courses/earth-analytics/document-your-science/intro-to-the-rmarkdown-format-and-knitr/). 
+
+3. If you'd like additional introductory tutorials on R Markdown, see this one from RStudio: 
+
+[demo](https://rmarkdown.rstudio.com/lesson-1.html), or this [one](https://rbasics.netlify.app/4-rmarkdown.html). 
+
+## Making sure R Markdown knits to PDF {#veryify_knit}
+
+Now we're going to ensure R Markdown works the way we want.  A key functionality we need is being able to "knit" our report to PDF format. For this, we need to install the `tinytex` package {#install_tinytex}.  
+
+* Copy and paste the following two lines of code into the command console of RStudio (the bottom left window panel), then press return:  
 
 ```
 install.packages("tinytex")
 tinytex::install_tinytex()
 ```
 
-RStudio will take a moment to install a bunch of things. Once it's done, we're ready to try knitting to PDF!
+RStudio will take a minute or two to install a bunch of things. Once it's done, we're ready to try knitting to PDF!
 
-## Verifying R Markdown knits successfully to PDF {#check_knit_pdf}
+<div class="note">
+**Reminder**
+Recall you only need to install a package once!  And this should be the last time you need to deal with the `tinytex` package (you won't need to "load" it in future), because now that it's installed, its functionality works in the background with RStudio.  
+</div>
 
-While in RStudio, select the "+" dropdown icon at top left of RStudio window, and select R Markdown. RStudio may at this point install a bunch of things, and if so that's ok.  A window will then appear and you can replace the "Untitled" with something like "Test", then select OK.  
+* While in RStudio, select the "+" dropdown icon at top left of RStudio window, and select R Markdown. RStudio may at this point install a bunch of things, and if so that's ok.  
+* A window will then appear and you can replace the "Untitled" with something like "Test", then select OK.  
 
-This will open an R Markdown document in the top left panel.  Don't worry about all the text in there at this point. What we want to do is test whether it will "knit" or render the document to PDF format.  To do this, select the "Knit" drop-down icon near the top left of the RStudio window, and select "Knit to PDF". RStudio will ask you to first save the markdown file (save it anywhere with any name for now), then it will process the markdown file and render it to PDF.  
+This will open an R Markdown document in the top left panel.  Don't worry about all the text in there at this point. What we want to do is test whether it will "knit" (render) the document to PDF format.  To do this: 
 
-If this procedure does not work, first try troubleshooting the usual way: in Google, type "R-help tinytex" and also paste any error message you get. If that fails, post your issue in the course Piazza.
+* Select the "Knit" drop-down icon near the top left of the RStudio window, and select "Knit to PDF". RStudio will ask you to first save the markdown file (save it anywhere with any name for now), then it will process the markdown file and render it to PDF.  
+
+In a future [tutorial](#repro_research) we'll discuss how to use R Markdown as part of a reproducible workflow.
 
 # Extra online resources {#r_resources}
 
->**NOTE** This page is still under development (Sept 8, 2021)
+<div class="note">
+**Note**
+This page is still under development (Sept 8, 2021)
+</div>
 
 Below we provide tables with various online resources, including ones that will help you troubleshoot.
 
