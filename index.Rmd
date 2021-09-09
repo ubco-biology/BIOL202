@@ -2,6 +2,7 @@
 title: "Tutorials for BIOL202: Introduction to Biostatistics"
 author: "Jason Pither"
 date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
 documentclass: book
 description: "All tutorials associated with BIOL202"
 bibliography: [biol202.bib, packages.bib]
@@ -13,20 +14,21 @@ link-citations: yes
 
 # Welcome {-}
 
-This is an open source online book that includes all tutorials and other resources for the "lab" portion of the course BIOL202: Introduction to Biostatistics, at the University of British Columbia, Okanagan campus.
+This is an open source online book that includes all tutorials and other resources for the "lab" portion of the course BIOL202: Introduction to Biostatistics, at the University of British Columbia, Okanagan campus. 
 
-This book is **currently under development, and will be complete by the first week of September 2021**.
+This book is **currently under development, with sections being added weekly**.
 
 ## Author {-}
 
-Jason Pither is an Associate Professor in the Department of Biology at the Okanagan campus of the University of British Columbia. He is an ecologist with interests in biogeography, community ecology, and landscape ecology. He has been using "R" (and its [predecessor, "S"](https://en.wikipedia.org/wiki/R_(programming_language)#History)) in his research for over two decades, and has been teaching Introductory Biostatistics using R since 2014.  
+I (Jason Pither) am an Associate Professor in the Department of Biology at the Okanagan campus of the University of British Columbia. I am an ecologist with interests in biogeography, community ecology, and landscape ecology. I have been using "R" (and its [predecessor, "S"](https://en.wikipedia.org/wiki/R_(programming_language)#History)) in my  research for over two decades, and has been teaching Introductory Biostatistics using R since 2014.  
 
-## Acknowledgments{-}
+## Acknowledgments {-}
+
+I am grateful to be able to live, work, and play on the traditional, ancestral, and unceded territory of the Syilx (Okanagan) people. To find out more about Indigenous territories where you live, consult [https://native-land.ca](https://native-land.ca).
 
 This online book borrows materials generously made openly available by the following keen educators:  
 
-+ Yaniv Brandvain ([Applied Biostats online book](https://www.bookdown.org/ybrandvain/Applied-Biostats/))
-+ Chester Ismay and Albert Y. Kim ([Statistical Inference via Data Science online book](https://moderndive.com/))
++ Chester Ismay and Albert Y. Kim ([Statistical Inference via Data Science online book](https://moderndive.com/)). This resource is licensed under a [Creative Commons Attribution - NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 + Mike Whitlock and Dolph Schluter ([resources accompanying the text "Analysis of Biological Data"](https://whitlockschluter3e.zoology.ubc.ca/index.html))
 
 ## Copyright {-}
@@ -39,6 +41,4 @@ Please use the following for citing this document
 
 Pither, J. (2021). *Tutorials for BIOL202: Introduction to Biostatistics*. [https://ubco-biology.github.io/BIOL202/index.html](https://ubco-biology.github.io/BIOL202/index.html)
 
-All source files are available at this website:  [https://github.com/ubco-biology/BIOL202](https://github.com/ubco-biology/BIOL202).
-
-## Conventions {-}
+All source files are available on [github](https://github.com/ubco-biology/BIOL202).

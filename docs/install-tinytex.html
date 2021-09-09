@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>5.1 Install tinytex package | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="5.1 Install tinytex package | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="5.1 Install tinytex package | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="author.html"/>
+<link rel="prev" href="setup-markdown.html"/>
+<link rel="next" href="check-knit-pdf.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -186,23 +186,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Tutorials for BIOL202: Introduction to Biostatistics</h1>
-<p class="author"><em>Jason Pither</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-09-08</em></p>
-</div>
-<div id="welcome" class="section level1 unnumbered">
-<h1>Welcome</h1>
-<p>This is an open source online book that includes all tutorials and other resources for the “lab” portion of the course BIOL202: Introduction to Biostatistics, at the University of British Columbia, Okanagan campus.</p>
-<p>This book is <strong>currently under development, with sections being added weekly</strong>.</p>
+<div id="install_tinytex" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Install <code>tinytex</code> package</h2>
+<p>To ensure you have no problems creating PDF documents using R Markdown, you need to install the <code>tintex</code> R package.</p>
+<ul>
+<li>In the command console of RStudio (the bottom left window panel), type in the following two lines of code, pressing return after each line:</li>
+</ul>
+<pre><code>install.packages(&quot;tinytex&quot;)
+tinytex::install_tinytex()</code></pre>
+<p>RStudio will take a moment to install a bunch of things. Once it’s done, we’re ready to try knitting to PDF!</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="author.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="setup-markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="check-knit-pdf.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
