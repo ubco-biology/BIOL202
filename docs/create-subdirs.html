@@ -188,10 +188,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="lecture-workflow.html"><a href="lecture-workflow.html"><i class="fa fa-check"></i><b>8.4</b> Lecture workflow</a></li>
 <li class="chapter" data-level="8.5" data-path="tutorial-workflow.html"><a href="tutorial-workflow.html"><i class="fa fa-check"></i><b>8.5</b> Tutorial workflow</a></li>
 <li class="chapter" data-level="8.6" data-path="create-project.html"><a href="create-project.html"><i class="fa fa-check"></i><b>8.6</b> Create an RStudio Project</a></li>
-<li class="chapter" data-level="8.7" data-path="create-subdirs.html"><a href="create-subdirs.html"><i class="fa fa-check"></i><b>8.7</b> Create subdirectories</a></li>
+<li class="chapter" data-level="8.7" data-path="create-subdirs.html"><a href="create-subdirs.html"><i class="fa fa-check"></i><b>8.7</b> Create subdirectories</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="create-subdirs.html"><a href="create-subdirs.html#here_package"><i class="fa fa-check"></i><b>8.7.1</b> The <code>here</code> package</a></li>
+</ul></li>
 <li class="chapter" data-level="8.8" data-path="edit-markdown.html"><a href="edit-markdown.html"><i class="fa fa-check"></i><b>8.8</b> Edit an R markdown file</a></li>
-<li class="chapter" data-level="8.9" data-path="components-of-an-r-markdown-file.html"><a href="components-of-an-r-markdown-file.html"><i class="fa fa-check"></i><b>8.9</b> Components of an R Markdown file</a></li>
-<li class="chapter" data-level="8.10" data-path="interacting-with-tutorial-material.html"><a href="interacting-with-tutorial-material.html"><i class="fa fa-check"></i><b>8.10</b> Interacting with Tutorial material</a></li>
+<li class="chapter" data-level="8.9" data-path="md-components.html"><a href="md-components.html"><i class="fa fa-check"></i><b>8.9</b> Components of an R Markdown file</a></li>
+<li class="chapter" data-level="8.10" data-path="interact-tutorial.html"><a href="interact-tutorial.html"><i class="fa fa-check"></i><b>8.10</b> Interacting with Tutorial material</a></li>
 <li class="chapter" data-level="8.11" data-path="assign-workflow.html"><a href="assign-workflow.html"><i class="fa fa-check"></i><b>8.11</b> Lab assignments workflow</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -218,12 +221,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.7</span> Create subdirectories</h2>
 <p>Your tutorial work may involve creating and saving outputs like figures or files, in which case you should have sub-directories for these purposes in your root directory. See the example provided in the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/example-biol-116.html#screenshot">Procedures and Guidelines document</a>.</p>
 <p>Let’s illustrate the procedure by creating a subdirectory called “figures,” and this time we’ll use R to create the directory.</p>
+<div id="here_package" class="section level3" number="8.7.1">
+<h3><span class="header-section-number">8.7.1</span> The <code>here</code> package</h3>
 <p>First, let’s install and load an R package called <code>here</code> that will help with file and directory management and navigation.</p>
+<p>This is a helpful <a href="http://jenrichmond.rbind.io/post/how-to-use-the-here-package/">blog post</a> about the utility of the <code>here</code> package.</p>
 <p>The necessary code lines are as follows:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="create-subdirs.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;here&quot;</span>)</span>
 <span id="cb5-2"><a href="create-subdirs.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
 <p>When you load the library, the <code>here</code> function takes stock of where your RStudio project file is located, and establishes that directory as the “working directory.” It should return a file path for you. In future tutorials we’ll make use of the <code>here</code> package when saving files.</p>
-<p>This is a helpful <a href="http://jenrichmond.rbind.io/post/how-to-use-the-here-package/">post</a> about the utility of the <code>here</code> package.</p>
+</div>
 </div>
             </section>
 

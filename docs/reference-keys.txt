@@ -21,7 +21,8 @@ lecture_workflow
 tutorial_workflow
 create_project
 create_subdirs
+here_package
 edit_markdown
-components-of-an-r-markdown-file
-interacting-with-tutorial-material
+md_components
+interact_tutorial
 assign_workflow
