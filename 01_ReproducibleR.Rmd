@@ -103,11 +103,25 @@ RStudio has now created an RStudio project file that has an "Rproj" extension at
 
 Your tutorial work may involve creating and saving outputs like figures or files, in which case you should have sub-directories for these purposes in your root directory. See the example provided in the [Procedures and Guidelines document](https://ubco-biology.github.io/Procedures-and-Guidelines/example-biol-116.html#screenshot).
 
-Let's illustrate the procedure by creating a subdirectory called "figures", and this time we'll use R to create the directory.  
+Let's illustrate the procedure by creating a subdirectory called "figures", and this time we'll use R to create the directory.
+
+> Updated 7:15pm Sept 9
+
+The following code will create a directory called "figures" in your working directory
+
+```
+dir.create("figures")
+```
+
+You should see the new folder appear in the files panel on the bottom right of RStudio.
+
+Whenever you wish to generate figures then export them as an image file, for example, you can write the file to this folder.  We'll learn about this later.
+
+Writing and reading files to directories requires that we can tell R exactly where to find those directories.  That's where the handy package called `here` comes in. 
 
 ### The `here` package{#here_package}
 
-First, let's install and load an R package called `here` that will help with file and directory management and navigation. 
+Now we'll install and load an R package called `here` that will help with file and directory management and navigation. 
 
 This is a helpful [blog post](http://jenrichmond.rbind.io/post/how-to-use-the-here-package/) about the utility of the `here` package.
 
