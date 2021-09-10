@@ -70,11 +70,17 @@ Each of these categories of work should have their own directory, and all three 
 * Having successfully installed OneDrive, you should see a "OneDrive" folder on your computer
 * In your OneDrive folder, create a root directory "BIOL202" to host all of your BIOL202 work
 * Create a "_README.txt file for the root BIOL202 directory, as per instructions in the [Biology Procedures and Guidelines webpage](https://ubco-biology.github.io/Procedures-and-Guidelines/readme-files-and-data-dictionaries.html).
+
+<div class="note">
+**TIP**
+You can create and edit your "_README.txt" file in RStudio! Just click on the "+" drop down at the top left, and select "Text file". Then type in the information you need, and name it "_README.txt" and save it in the appropriate directory.
+</dir>
+
 * Within the BIOL202 root directory, create three (sub)directories: 
   - "BIOL202_lecture"
   - "BIOL202_tutorials"
   - "BIOL202_assignments"
-* Create a "_README.txt" file in each of the three sub-directories
+* Create a "_README.txt" file in each of the three sub-directories (again, you can use RStudio to create these!)
 
 The BIOL202 directory, and all its contents, will now sync regularly to your online OneDrive account, so that you can access your up-to-date files from any device upon which OneDrive is installed.
 
