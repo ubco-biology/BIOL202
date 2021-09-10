@@ -74,7 +74,7 @@ Each of these categories of work should have their own directory, and all three 
 <div class="note">
 **TIP**
 You can create and edit your "_README.txt" file in RStudio! Just click on the "+" drop down at the top left, and select "Text file". Then type in the information you need, and name it "_README.txt" and save it in the appropriate directory.
-</dir>
+</div>
 
 * Within the BIOL202 root directory, create three (sub)directories: 
   - "BIOL202_lecture"
