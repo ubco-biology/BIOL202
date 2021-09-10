@@ -115,9 +115,9 @@ dir.create("figures")
 
 You should see the new folder appear in the files panel on the bottom right of RStudio.
 
-Whenever you wish to generate figures then export them as an image file, for example, you can write the file to this folder.  We'll learn about this later.
+Whenever you wish to generate figures in R, then export them as image files, for example, you can save them to this folder.  We'll learn about this later.
 
-Writing and reading files to directories requires that we can tell R exactly where to find those directories.  That's where the handy package called `here` comes in. 
+Reading and writing files from / to directories requires that we can tell R exactly where to find those directories.  That's where the handy package called `here` comes in. 
 
 ### The `here` package{#here_package}
 
