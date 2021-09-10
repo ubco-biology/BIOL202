@@ -17,7 +17,7 @@ More precisely, R is a programming language that runs computations while RStudio
 
 <div class="note">
 **Note**
-The latest version of R is 4.1.1 ("Kick Things").  It is strongly recommended that you install this latest version, even if you have older versions already installed. 
+The latest version of R is 4.1.1 ("Kick Things").  It is strongly recommended that you install this latest version, even if you have older versions already installed.  **However** If you have an older operating system on your computer, you'll want to check compatibility of both R and RStudio.  The website with older versions of R is [here](https://cran.r-project.org/bin/macosx/), and older versions of RStudio is [here](https://www.rstudio.com/products/rstudio/older-versions/).  
 </div>
 
 Follow the instructions below, and optionally you can view this YouTube video [here](https://youtu.be/2Sovzf6lVRo) _prior_ to starting the steps.
