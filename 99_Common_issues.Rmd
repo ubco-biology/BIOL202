@@ -1,0 +1,127 @@
+# Common errors and their solutions {-}
+
+## Google can help {-}
+
+* R will tell you specifically which line in your code (e.g. in your R Markdown document) the error is coming from. Make sure you read the error and take a look at the line where the error is if indicated
+* Try googling the specific error to see if you can find a solution online; use the search phrase "R-help error statement" (where "error statement" is what R told you)
+
+## Rtools required during install {-}
+
+![](./more/rtools.png)
+
+**Solution:** Head to [this website](https://cran.rstudio.com/bin/windows/Rtools/) and follow the instructions to download `Rtools` onto your computer. Then try re-installing the package again. 
+
+## Could not find function {-}
+
+![](./more/no-function1.png)
+
+**Solution:** This error arises when you are trying to run a package, but you haven’t loaded the package yet. Therefore, R can’t find the function you are trying to use. To fix this error, load the package in an R chunk near the top of your RMarkdown document and then re-run your code. Do not load packages in the console! See a screenshot below.
+
+![](./more/no-function2.png)
+
+## There is no package {-}
+
+![](./more/no-pckg.png)
+
+**Solution:** This error happens because the package has not yet been installed. To fix this error run the `install.packages()` function in the R console (NOT in the RMarkdown document!!). Then re-load the package using the `library()` function in the RMarkdown document (NOT in the console!!).
+
+## Trying to use CRAN without setting a mirror {-}
+
+![](./more/CRAN-without-mirror1.png)
+
+**Solution:** When we install packages in R, we need to do it in the console and not in the RMarkdown document because it causes this error when knitting. To fix this problem:
+
+* Remove the `install.packages()` code from the RMarkdown document
+
+* Install the package in the console
+
+![](./more/CRAN-without-mirror2.png)
+
+* Try re-knitting the RMarkdown document
+
+## PDF Latex is not found {-}
+
+`Error: LaTeX failed to compile Practice_assignment.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips.`
+ `In addition: Warning message:`
+ `In system2(..., stdout = if (use_file_stdout()) f1 else FALSE, stderr = f2) :`
+  `'"pdflatex"' not found`
+ `Execution halted`
+
+`No LaTeX installation detected (LaTeX is required to create PDF output). You should install a LaTeX distribution for your platform: https://www.latex-project.org/get/`
+
+ `If you are not sure, you may install TinyTeX in R: tinytex::install_tinytex()`
+
+ `Otherwise consider MiKTeX on Windows - http://miktex.org`
+
+ `MacTeX on macOS - https://tug.org/mactex/`
+  `(NOTE: Download with Safari rather than Chrome _strongly_ recommended)`
+
+ `Linux: Use system package manager`
+
+**Solutions:**
+
+*Option 1:* Run these commands in the R console (in this specific order!):
+
+* `install.packages("tinytex", dependencies = TRUE)`
+* `library("tinytex")`
+* `install_tinytex()`
+
+*Option 2:* If you are using a Windows computer and option 1 didn’t work, try downloading[ MikTeX](http://miktex.org). Then try knitting again.
+
+*Option 3:* If you are using a Mac computer and option 1 didn’t work, try downloading [MacTeX](https://tug.org/mactex/). Then try knitting again.
+
+*Option 4:* If none of the above options work, knit your RMarkdown file to a Word document and then save it as a pdf.
+
+## Error in parse {-}
+
+![](./more/parse.png)
+
+**Solution:** This type of error usually occurs when there is an unexpected symbol or character (ie. comma, semicolon, colon, bracket, etc.) in your code. In this case, I erroneously included a greater than sign (>) at the end of line. To fix this error, simply remove the unexpected symbol.
+
+## No such file or directory exists {-}
+
+![](./more/no-file1.png)
+
+This error happens because in your RMarkdown document you refer to a file/folder, but that file/folder but R can’t find the file.
+
+**Solution:** TBD
+
+## Messy output when loading packages {-} 
+
+![](./more/messy-output1.png)
+
+**Solution:** When you load packages in R, the knitted document will automatically show associated messages as output in your knitted document. This can make your assignment look messy when you are loading a bunch of packages. To hide these messages, add `messages=FALSE` into the R chunk where you load packages. See the example below.
+
+![](./more/messy-output2.png)
+
+## Unused argument {-} 
+
+![](./more/unused-arg1.png)
+
+**Solution:** This error sometimes happens because the `library() function` is located below the line of code where a function is called on from that package. To fix this error, the `library()` function needs to be moved above the chunk where you use functions from that package. Best practice is to put it an R chunk at the top of your assignment (below the header) where you load all of the required packages for your assignment. See below for an example screenshot.
+
+![](./more/unused-arg2.png)
+
+## Object not found {-}
+
+![](./more/object-error1.png)
+
+**Solution:** This error occurs when you’re ‘calling’ on an object in your code, but you haven’t actually created that object yet. As such, your computer can’t find the object. To fix this error, you should insert a line of code creating your object. Make sure the object is created BEFORE (on an earlier line of code) you try to use the function. See screenshot below.
+
+![](./more/object-error2.png)
+
+## Figure caption doesn’t show up below figure in knitted document {-}
+
+![](./more/fig-cap-error1.png)
+
+**Solution:** This error happens when you knit to PDF and your figure caption doesn’t show up despite having the correct code within your Rchunk. One potential cause for this error, is that you have text immediately below your Rchunk. To fix this error, make sure there is a blank line between the end of your Rchunk with the code for the figure and any subsequent text. See the screenshot below for the corrected error. 
+
+![](./more/fig-cap-error2.png)
+
+## Filename, directory name, or volume label syntax is incorrect {-}
+
+![im](/images/fig-cap-no-space1.png)
+
+**Solution:** This error occurs because there is a mistake in the code for the figure caption. Specifically, there needs to be a space between the "r" and "fig." in the RChunk header. See the screenshot below for the correct figure caption code. 
+
+![](./more/fig-cap-no-space2.png)

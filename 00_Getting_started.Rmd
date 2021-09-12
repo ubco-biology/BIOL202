@@ -84,7 +84,7 @@ There are two ways to install an R package:
     + Type the name of the package under "Packages (separate multiple with space or comma):" In this case, type `tidyverse`
     + Click "Install"  
     
-- Alternatively, in the Console pane type the following:
+- Alternatively, in the Console pane type the following (**NOTE** never include this code within your R Markdown document; only install packages by typing directly in the Console):
 
 ```{r, eval=FALSE}
 install.packages("tidyverse")
@@ -100,7 +100,6 @@ When working on your own computer, you only have to install a package once, unle
 Let's load the `tidyverse` package.
 
 After you've installed a package, you can now load it using the `library()` command. For example, to load the `tidyverse` package, run the following code in the Console pane:
-
 
 ```{r, eval=FALSE}
 library(tidyverse)
