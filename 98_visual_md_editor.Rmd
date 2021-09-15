@@ -6,9 +6,10 @@ This is an optional tutorial describing a new feature included in the latest ver
 
 Markdown documents can be edited either in **source** mode (what we're looking at right now) or in **visual** mode. To switch between these modes, click on the button at the top right of the toolbar on the Source panel in RStudio (when viewing a .Rmd file), or use the shortcut [`Command`/`Control`]+`Shift`+`F4`.  
 
-```{r, fig.cap = "Toolbar above the editor pane", echo = F, fig.width = 3}
+```{r, echo = F, fig.width = 3}
 knitr::include_graphics("./more/toolbar.png")
 ```
+**Toolbar above the editing pane in RStudio.**
 
 The tool you want is the one on the far-right in the picture above.
 
