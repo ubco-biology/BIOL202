@@ -28,16 +28,16 @@ Once you have opened the document, you'll see the following text at the top:
 
 Do the following steps: 
 
-* keeping the quotation marks, replace the "Practice assignment" text with the current assignment name (e.g. "Assignment 1") 
+* keeping the quotation marks, replace the "Practice assignment" text with the current assignment name (unless you're doing the practice assignment, in which case do not change anything!) 
 * keeping the quotation marks, replace the "Firstname Lastname, Section YY" with your own Firstname Lastname and section number (e.g. " Jason Pither, Section 04") 
-* keeping the quotation marks, replace the "Due date" with the due date of the current assignment, e.g. "October 12, 2021"  
+* keeping the quotation marks, replace the "Due date" with the due date of the current assignment, e.g. "November 3, 2021"  
 
 <div class="note">
 **NOTE**
 Don't alter anything else at the top of the document, including the R Chunk that you see below the header.  
 </div>
 
-* save the Rmd file using a new name (so select file > "save as"), according to appropriate [file naming conventions](https://ubco-biology.github.io/Procedures-and-Guidelines/file-and-data-management.html), such as "Pither_BIOL202_Assign01.Rmd". Recall that if you're saving this on OneDrive, or in your local directory that is synced to OneDrive, then your file will be [version controlled](#onedrive).  
+* save the Rmd file using a new name (so select file > "save as"), according to appropriate [file naming conventions](https://ubco-biology.github.io/Procedures-and-Guidelines/file-and-data-management.html), such as "Pither_BIOL202_practice.Rmd". Recall that if you're saving this on OneDrive, or in your local directory that is synced to OneDrive, then your file will be [version controlled](#onedrive).  
 
 You're now ready to start working on your assignment, and doing [literate programming](https://ubco-biology.github.io/Procedures-and-Guidelines/glossary.html) using R Markdown. 
 
@@ -66,12 +66,9 @@ Here's an example code chunk in which the `tidyverse` package is being loaded. Y
 
 ![Install packges R Chunk header](./more/install_package_header.png)
 
-The "load_packages" text is simply giving a name or "tag" to this R chunk. It is good practice to provide a unique name to each R chunk.  
+The "load_packages" text is simply giving a name or "tag" to this R chunk. It is good practice to provide a _unique_ name to each R chunk.  
 
 After the comma is `message = F`.  This tells R markdown to NOT display any messages associated with the R commands in this chunk when knitting the R Markdown document. For example, when loading some libraries R will provide a long list of messages in the process. When you "knit" the R Markdown document, R will run each R chunk in your document. By including the `message = F` heading argument, you can avoid including this extra output in your knitted document.  
-
-For some packages, such as the `tidyverse` package, the preceding approach doesn't suppress all the messages that occur when loading the package. The 
-
 
 There will be routine steps to take for each question. 
 
@@ -84,6 +81,8 @@ Here's an example of code for importing data. It uses the `read_csv` function fr
 ```
 example_data <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv")
 ```
+
+The `read_csv` function will take as an argument a URL address for a data file. Here we've provided a ULR for the location of a CSV file (comma-separated values file), which is typically what we'll use.  
 
 **Load packages**
 
@@ -115,7 +114,7 @@ The way to test out your code once it's inserted in the R chunk is to press the 
 
 Here's what you need to include in your answers: 
 
-- You **must** answer each question clearly and in full sentences. Make sure you answer specifically the question asked.
+- Answer each question clearly and in full sentences. Make sure you answer specifically the question asked.
 
 - Verify that the code you used to answer the question is included in an R chunk and appears in the knitted document (this should happen automatically)
 
@@ -195,10 +194,6 @@ Once you have knitted your assignment to PDF, open up the PDF document, and veri
 
 If you need to fix something, close your PDF file, go back to your R Markdown document and do the edits there. Save, then knit again!
 
-Submit your PDF document to the appropriate place in Canvas. 
-
-Verify afterwards that your PDF document did indeed upload correctly.
-
 ### Setting up R Markdown for graphing {- #rmd_graphing}
 
 There are some special code chunk header arguments that need to be set in your Markdown document in order to:
@@ -237,3 +232,8 @@ This feature - automatic figure numbering - was set within the header of the ass
 
 The line "fig_caption = TRUE" tells R Markdown and the knitting process to automatically include this part of a figure caption, "Figure X", underneath each figure you produce. Where "X" will automatically be replaced with the appropriate number.  For example, it will use "Figure 1:" for your first figure, "Figure 2" for your second, and so on.
 
+### Submit your assignment {- #submit_rmd}
+
+Once you're happy with the PDF you created, it's time to submit your PDF document to the appropriate place in Canvas. 
+
+It's a good idea also to verify afterwards that your PDF document did indeed upload correctly.

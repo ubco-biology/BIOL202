@@ -208,6 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#example_answer"><i class="fa fa-check"></i>Example question / answer</a></li>
 <li class="chapter" data-level="" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#knit_assign"><i class="fa fa-check"></i>Knitting your assignment to PDF</a></li>
 <li class="chapter" data-level="" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#rmd_graphing"><i class="fa fa-check"></i>Setting up R Markdown for graphing</a></li>
+<li class="chapter" data-level="" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#submit_rmd"><i class="fa fa-check"></i>Submit your assignment</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
@@ -273,16 +274,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Do the following steps:</p>
 <ul>
-<li>keeping the quotation marks, replace the “Practice assignment” text with the current assignment name (e.g. “Assignment 1”)</li>
+<li>keeping the quotation marks, replace the “Practice assignment” text with the current assignment name (unless you’re doing the practice assignment, in which case do not change anything!)</li>
 <li>keeping the quotation marks, replace the “Firstname Lastname, Section YY” with your own Firstname Lastname and section number (e.g. " Jason Pither, Section 04")</li>
-<li>keeping the quotation marks, replace the “Due date” with the due date of the current assignment, e.g. “October 12, 2021”</li>
+<li>keeping the quotation marks, replace the “Due date” with the due date of the current assignment, e.g. “November 3, 2021”</li>
 </ul>
 <div class="note">
 <p><strong>NOTE</strong>
 Don’t alter anything else at the top of the document, including the R Chunk that you see below the header.</p>
 </div>
 <ul>
-<li>save the Rmd file using a new name (so select file &gt; “save as”), according to appropriate <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/file-and-data-management.html">file naming conventions</a>, such as “Pither_BIOL202_Assign01.Rmd.” Recall that if you’re saving this on OneDrive, or in your local directory that is synced to OneDrive, then your file will be <a href="onedrive.html#onedrive">version controlled</a>.</li>
+<li>save the Rmd file using a new name (so select file &gt; “save as”), according to appropriate <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/file-and-data-management.html">file naming conventions</a>, such as “Pither_BIOL202_practice.Rmd.” Recall that if you’re saving this on OneDrive, or in your local directory that is synced to OneDrive, then your file will be <a href="onedrive.html#onedrive">version controlled</a>.</li>
 </ul>
 <p>You’re now ready to start working on your assignment, and doing <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary.html">literate programming</a> using R Markdown.</p>
 <div class="note">
@@ -308,14 +309,14 @@ To insert a new code chunk, you can either: * Use the shortcut: Mac = <code>Comm
 <img src="more/install_package_header.png" alt="" />
 <p class="caption">Install packges R Chunk header</p>
 </div>
-<p>The “load_packages” text is simply giving a name or “tag” to this R chunk. It is good practice to provide a unique name to each R chunk.</p>
+<p>The “load_packages” text is simply giving a name or “tag” to this R chunk. It is good practice to provide a <em>unique</em> name to each R chunk.</p>
 <p>After the comma is <code>message = F</code>. This tells R markdown to NOT display any messages associated with the R commands in this chunk when knitting the R Markdown document. For example, when loading some libraries R will provide a long list of messages in the process. When you “knit” the R Markdown document, R will run each R chunk in your document. By including the <code>message = F</code> heading argument, you can avoid including this extra output in your knitted document.</p>
-<p>For some packages, such as the <code>tidyverse</code> package, the preceding approach doesn’t suppress all the messages that occur when loading the package. The</p>
 <p>There will be routine steps to take for each question.</p>
 <p><strong>Import data</strong></p>
 <p>Each assignment question will indicate which dataset(s) you’ll need to answer the question, and where to locate / download these. In many instances multiple questions will use the same dataset, in which case you don’t need to load data for each question; just load it once.</p>
 <p>Here’s an example of code for importing data. It uses the <code>read_csv</code> function from the <code>readr</code> package, which is bundled with the <code>tidyverse</code> package:</p>
 <pre><code>example_data &lt;- read_csv(&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv&quot;)</code></pre>
+<p>The <code>read_csv</code> function will take as an argument a URL address for a data file. Here we’ve provided a ULR for the location of a CSV file (comma-separated values file), which is typically what we’ll use.</p>
 <p><strong>Load packages</strong></p>
 <p>Once you’ve loaded the data, you’ll now need to figure out how to answer the question by looking through the tutorials for the answer. And typically, to answer the question you’ll need to make sure you’ve loaded some packages.</p>
 <p>If you’ve forgotten what “packages” are, refresh your memory at this <a href="packages.html#packages">tutorial</a>.</p>
@@ -334,7 +335,7 @@ The way to test out your code once it’s inserted in the R chunk is to press th
 </div>
 <p>Here’s what you need to include in your answers:</p>
 <ul>
-<li><p>You <strong>must</strong> answer each question clearly and in full sentences. Make sure you answer specifically the question asked.</p></li>
+<li><p>Answer each question clearly and in full sentences. Make sure you answer specifically the question asked.</p></li>
 <li><p>Verify that the code you used to answer the question is included in an R chunk and appears in the knitted document (this should happen automatically)</p></li>
 <li><p>Verify that the output from each R chunk is included in your knitted document (this should happen automatically)</p></li>
 <li><p>For any figures (graphs) that you produce, you must include a figure caption. A future tutorial will show you how.</p></li>
@@ -421,8 +422,6 @@ There are almost <em>always</em> multiple coding approaches to get the right ans
 <p>As you learned in a previous <a href="veryify-knit.html#veryify_knit">tutorial</a>, simply click on the “knit” button and select PDF. Your PDF file will adopt the same name as your markdown file, but it will have a “pdf” extension rather than an “Rmd” extension.</p>
 <p>Once you have knitted your assignment to PDF, open up the PDF document, and verify that it looks correct, and be sure to check all your spelling, and that figures / tables are appropriately formatted etc…</p>
 <p>If you need to fix something, close your PDF file, go back to your R Markdown document and do the edits there. Save, then knit again!</p>
-<p>Submit your PDF document to the appropriate place in Canvas.</p>
-<p>Verify afterwards that your PDF document did indeed upload correctly.</p>
 </div>
 <div id="rmd_graphing" class="section level3 unnumbered">
 <h3>Setting up R Markdown for graphing</h3>
@@ -453,6 +452,11 @@ penguins %&gt;%
 <p class="caption">Assignment header</p>
 </div>
 <p>The line “fig_caption = TRUE” tells R Markdown and the knitting process to automatically include this part of a figure caption, “Figure X,” underneath each figure you produce. Where “X” will automatically be replaced with the appropriate number. For example, it will use “Figure 1:” for your first figure, “Figure 2” for your second, and so on.</p>
+</div>
+<div id="submit_rmd" class="section level3 unnumbered">
+<h3>Submit your assignment</h3>
+<p>Once you’re happy with the PDF you created, it’s time to submit your PDF document to the appropriate place in Canvas.</p>
+<p>It’s a good idea also to verify afterwards that your PDF document did indeed upload correctly.</p>
 
 </div>
 </div>

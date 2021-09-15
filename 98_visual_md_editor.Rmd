@@ -1,15 +1,15 @@
 # Visual Markdown Editor {-}
 
+This is an optional tutorial describing a new feature included in the latest version (1.4) of RStudio: a ["Visual Markdown Editor"](https://rstudio.github.io/visual-markdown-editing/?_ga=2.43936998.2146903537.1631712539-1654786890.1631712539). 
+
 ## A more familiar editing environment {-}
 
-[Visual markdown editing](https://rstudio.github.io/visual-markdown-editing/?_ga=2.43936998.2146903537.1631712539-1654786890.1631712539) is now available in RStudio version 1.4 and later. 
+Markdown documents can be edited either in **source** mode (what we're looking at right now) or in **visual** mode. To switch between these modes, click on the button at the top right of the toolbar on the Source panel in RStudio (when viewing a .Rmd file), or use the shortcut [`Command`/`Control`]+`Shift`+`F4`.  
 
 <div class="note">
 **NOTE**
 The visual editor with reformat your source code using Pandoc's default markdown writer, so it may look slightly different when you toggle back to source view. 
 </div>
-
-Markdown documents can be edited either in **source** mode (what we're looking at right now) or in **visual** mode. To switch between these modes, click on the button at the top right of the toolbar on the Source panel in RStudio (when viewing a .Rmd file), or use the shortcut [`Command`/`Control`]+`Shift`+`F4`.  
 
 For many, the VME will feel much more familiar and use-friendly the the 'traditional' Markdown source editing. Highlights of this new feature include:  
 - Real-time spell-checking and outline navigation.
