@@ -153,7 +153,7 @@ https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv
 
 I'll first download and import the dataset:
 
-```{r import_students1}
+```{r import_students1, echo = F, message = F}
 students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv")
 ```
 
@@ -170,7 +170,7 @@ As shown in the output above, the minimum height was 150.0 cm and the maximum st
 
 I'll first download and import the dataset:
 
-```{r import_students2}
+```{r import_students2, echo = F, message = F}
 students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv")
 ```
  
@@ -212,7 +212,7 @@ penguins %>%
   geom_histogram(color = "lightgrey")
 ```
 
-```{r bill_fig, echo = F, warning = F, fig.cap = "Histogram of bill depth among 151 Adelie penguins", fig.width = 4, fig.height = 4}
+```{r bill_fig, echo = F, warning = F, fig.cap = "Figure 1: Histogram of bill depth among 151 Adelie penguins", fig.width = 4, fig.height = 4}
 
 penguins %>% 
   filter(species == "Adelie") %>%

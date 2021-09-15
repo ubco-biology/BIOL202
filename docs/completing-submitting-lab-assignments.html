@@ -362,54 +362,23 @@ There are almost <em>always</em> multiple coding approaches to get the right ans
 <pre><code>https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv</code></pre>
 <p><strong>Example Answer 1</strong></p>
 <p>I’ll first download and import the dataset:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="completing-submitting-lab-assignments.html#cb11-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
-## cols(
-##   height_cm = col_double(),
-##   head_circum_cm = col_double(),
-##   Sex = col_character(),
-##   Number_of_siblings = col_double(),
-##   Dominant_hand = col_character(),
-##   Dominant_foot = col_character(),
-##   Dominant_eye = col_character()
-## )</code></pre>
 <p>As we learned in the [fictitious] “importing and exploring data” tutorial, we can use the <code>summary</code> function to get some basic descriptive statistics, including the minimum and maximum of numeric variables. The <code>summary</code> function is part of the base R package, so no additional packages need to be loaded.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="completing-submitting-lab-assignments.html#cb13-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="completing-submitting-lab-assignments.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  summary</span></code></pre></div>
-<pre><code>##    height_cm     head_circum_cm      Sex            Number_of_siblings Dominant_hand      Dominant_foot     
-##  Min.   :150.0   Min.   :21.00   Length:154         Min.   :0.000      Length:154         Length:154        
-##  1st Qu.:165.0   1st Qu.:55.52   Class :character   1st Qu.:1.000      Class :character   Class :character  
-##  Median :171.5   Median :57.00   Mode  :character   Median :2.000      Mode  :character   Mode  :character  
-##  Mean   :172.0   Mean   :56.04                      Mean   :1.708                                           
-##  3rd Qu.:180.0   3rd Qu.:58.50                      3rd Qu.:2.000                                           
-##  Max.   :210.8   Max.   :63.00                      Max.   :6.000                                           
-##  Dominant_eye      
-##  Length:154        
-##  Class :character  
-##  Mode  :character  
-##                    
-##                    
-## </code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="completing-submitting-lab-assignments.html#cb11-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="completing-submitting-lab-assignments.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  summary</span></code></pre></div>
+<pre><code>##    height_cm     head_circum_cm      Sex            Number_of_siblings Dominant_hand      Dominant_foot      Dominant_eye      
+##  Min.   :150.0   Min.   :21.00   Length:154         Min.   :0.000      Length:154         Length:154         Length:154        
+##  1st Qu.:165.0   1st Qu.:55.52   Class :character   1st Qu.:1.000      Class :character   Class :character   Class :character  
+##  Median :171.5   Median :57.00   Mode  :character   Median :2.000      Mode  :character   Mode  :character   Mode  :character  
+##  Mean   :172.0   Mean   :56.04                      Mean   :1.708                                                              
+##  3rd Qu.:180.0   3rd Qu.:58.50                      3rd Qu.:2.000                                                              
+##  Max.   :210.8   Max.   :63.00                      Max.   :6.000</code></pre>
 <p>As shown in the output above, the minimum height was 150.0 cm and the maximum student height was 210.8 cm.</p>
 <p><strong>Example Answer 2</strong></p>
 <p>I’ll first download and import the dataset:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="completing-submitting-lab-assignments.html#cb15-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────
-## cols(
-##   height_cm = col_double(),
-##   head_circum_cm = col_double(),
-##   Sex = col_character(),
-##   Number_of_siblings = col_double(),
-##   Dominant_hand = col_character(),
-##   Dominant_foot = col_character(),
-##   Dominant_eye = col_character()
-## )</code></pre>
 <p>As we learned in the [fictitious] “describing data” tutorial, we can use the <code>summarise</code> function from the <code>dplyr</code> package (which comes with the <code>tidyverse</code> package) to get basic descriptive statistics for numeric variables in a dataset.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="completing-submitting-lab-assignments.html#cb17-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="completing-submitting-lab-assignments.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min.height=</span> <span class="fu">min</span>(height_cm, <span class="at">na.rm =</span> T), </span>
-<span id="cb17-3"><a href="completing-submitting-lab-assignments.html#cb17-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.height =</span> <span class="fu">max</span>(height_cm, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="completing-submitting-lab-assignments.html#cb13-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="completing-submitting-lab-assignments.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min.height=</span> <span class="fu">min</span>(height_cm, <span class="at">na.rm =</span> T), </span>
+<span id="cb13-3"><a href="completing-submitting-lab-assignments.html#cb13-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.height =</span> <span class="fu">max</span>(height_cm, <span class="at">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 2
 ##   min.height max.height
 ##        &lt;dbl&gt;      &lt;dbl&gt;
@@ -438,9 +407,9 @@ penguins %&gt;%
   ggplot(aes(bill_depth_mm)) +
   geom_histogram(color = &quot;lightgrey&quot;)</code></pre>
 <div class="figure">
-<img src="BIOL202-github_files/figure-html/bill_fig-1.png" alt="Histogram of bill depth among 151 Adelie penguins" width="384" />
+<img src="BIOL202-github_files/figure-html/bill_fig-1.png" alt="Figure 1: Histogram of bill depth among 151 Adelie penguins" width="384" />
 <p class="caption">
-(#fig:bill_fig)Histogram of bill depth among 151 Adelie penguins
+(#fig:bill_fig)Figure 1: Histogram of bill depth among 151 Adelie penguins
 </p>
 </div>
 <p>The key parts are the “fig.cap =” argument, to which you provide the text you want to use as the figure caption. Then there’s the “fig.width =” and “fig.height =” arguments, which indicate the size of the figure when knitted. This will likely require some trial-and-error to get a good size, but start with the values in this example (4 for each).</p>
