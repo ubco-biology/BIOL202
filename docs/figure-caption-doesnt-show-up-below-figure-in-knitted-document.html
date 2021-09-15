@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-09-12" />
+<meta name="date" content="2021-09-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -197,6 +197,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.10" data-path="interact-tutorial.html"><a href="interact-tutorial.html"><i class="fa fa-check"></i><b>8.10</b> Interacting with Tutorial material</a></li>
 <li class="chapter" data-level="8.11" data-path="assign-workflow.html"><a href="assign-workflow.html"><i class="fa fa-check"></i><b>8.11</b> Lab assignments workflow</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
+<ul>
+<li class="chapter" data-level="" data-path="a-more-familiar-editing-environment.html"><a href="a-more-familiar-editing-environment.html"><i class="fa fa-check"></i>A more familiar editing environment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="preparing-and-formatting-assignments.html"><a href="preparing-and-formatting-assignments.html"><i class="fa fa-check"></i>Preparing and formatting assignments</a>
+<ul>
+<li class="chapter" data-level="8.12" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html"><i class="fa fa-check"></i><b>8.12</b> Completing &amp; Submitting Lab Assignments</a>
+<ul>
+<li class="chapter" data-level="8.12.1" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#open_assign_project1"><i class="fa fa-check"></i><b>8.12.1</b> Open your assignment RStudio project</a></li>
+<li class="chapter" data-level="8.12.2" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#download_assign_rmd"><i class="fa fa-check"></i><b>8.12.2</b> Download the assignment Rmd file</a></li>
+<li class="chapter" data-level="8.12.3" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#open_rmd_file"><i class="fa fa-check"></i><b>8.12.3</b> Open the assignment Rmd file</a></li>
+<li class="chapter" data-level="8.12.4" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#what_include_answer"><i class="fa fa-check"></i><b>8.12.4</b> What to include in your answers</a></li>
+<li class="chapter" data-level="8.12.5" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#example_answer"><i class="fa fa-check"></i><b>8.12.5</b> Example question / answer</a></li>
+<li class="chapter" data-level="8.12.6" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#knit_assign"><i class="fa fa-check"></i><b>8.12.6</b> Knitting your assignment to PDF</a></li>
+<li class="chapter" data-level="8.12.7" data-path="completing-submitting-lab-assignments.html"><a href="completing-submitting-lab-assignments.html#rmd_graphing"><i class="fa fa-check"></i><b>8.12.7</b> Setting up R Markdown for graphing</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
@@ -237,7 +254,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Figure caption doesn’t show up below figure in knitted document</h2>
 <p><img src="more/fig-cap-error1.png" /></p>
 <p><strong>Solution:</strong> This error happens when you knit to PDF and your figure caption doesn’t show up despite having the correct code within your Rchunk. One potential cause for this error, is that you have text immediately below your Rchunk. To fix this error, make sure there is a blank line between the end of your Rchunk with the code for the figure and any subsequent text. See the screenshot below for the corrected error.</p>
-<p><img src="more/fig-cap-error2.png" /></p>
+<p><img src="more/fig-cap-error2.png" />
+## Figures are placed in weird spots in knitted PDF {-}</p>
+<p>This has to do with out the conversion process works, and can’t easily be helped. And nor does it really matter - you won’t lose marks for this. If you’re curious as to why this happens, consult this <a href="https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html">webpage</a>.</p>
 </div>
             </section>
 
