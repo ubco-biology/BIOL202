@@ -1,12 +1,12 @@
-# Preparing and formatting assignments {-}
+# Preparing and formatting assignments {#prepare_assignments}
 
 This material provides instructions on how to prepare and format R Markdown documents for assignments. 
 
-## Open your assignment RStudio project {- #open_assign_project1}
+## Open your assignment RStudio project {#open_assign_project1}
 
-In a previous [tutorial](#assign_workflow) it was suggested you set up a working root directory called "BIOL202_assignments" to host all your assignment work.  You may have also created sub-directories, one for each of the three assignments.  Regardless, in your root "BIOL202_assignments" directory locate the RStudio project file (it has a "Rproj" extension in the filename), and open it by double-clicking it.   
+In a previous [tutorial](#assign_workflow) it was suggested you set up a working root directory called "BIOL202_assignments" to host all your assignment work.  You may have also created sub-directories, one for each of the three assignments.  Regardless, in your root "BIOL202_assignments" directory locate the RStudio project file (it has a "Rproj" extension in the filename), and open it by double-clicking it.
 
-## Download the assignment Rmd file {- #download_assign_rmd}
+## Download the assignment Rmd file {#download_assign_rmd}
 
 The assignment file will be available to you for download from Canvas.  Locate the assignment there. The file is actually an R Markdown file, and therefore has an "Rmd" extension.  It is simply a text document (meaning it contains only text), but the syntax used therein is "markdown" syntax, and the file extension (Rmd) specifies it as an R Markdown file. You might recall reading about Markdown in the [Biology Procedures and Guidelines document](https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html).
 
@@ -14,7 +14,7 @@ Make sure you save the Rmd file into your root "BIOL202_assignments" directory, 
 
 A practice assignment has been set up on Canvas, so that you can get used to this procedure. It is located under "Lab_materials" module. Download the file, and make sure it's saved into your root directory (where your RStudio project is). 
 
-## Open the assignment Rmd file {- #open_rmd_file}
+## Open the assignment Rmd file {#open_rmd_file}
 
 In RStudio, look in the "files" pane (bottom right) and locate your downloaded assignment Rmd file. Then click it to open.
 
@@ -44,7 +44,7 @@ You're now ready to start working on your assignment, and doing [literate progra
 In RStudio, under the "Help" menu, you'll find "Cheat Sheets" > R Markdown Cheat Sheet and R Markdown Reference Guide.  Have a look at those!
 </div>
 
-## What to include in your answers {- #what_include_answer}
+## What to include in your answers {#what_include_answer}
 
 The general approach is to enter your text answers and associated R chunks with code underneath each question. 
 
@@ -58,7 +58,7 @@ It is almost always the case that you'll need to load the `tidyverse` package, s
 To insert a new code chunk, you can either: \* Use the shortcut: Mac = `Command+Option+I`; Windows = `Ctrl+Alt+I`. \* Click on the **Insert a new code chunk** icon. You can also change specify the coding language of the chunk using the drop-down menu. 
 </div>
 
-### Code chunk headers {- #chunk_headers}
+### Code chunk headers {#chunk_headers}
 
 Here's an example code chunk in which the `tidyverse` package is being loaded. You'll notice some extra text in the header of the chunk. 
 
@@ -132,7 +132,7 @@ As you work on your document, save frequently, and also knit your document frequ
 You will often need/want to preview the document you are working on to ensure that everything is being formatted as you expected in the knitting process. The default setting is for the preview to open in a new pop-up window outside of RStudio, although you may find it useful to have it open in the Viewer panel within RStudio itself (particularly if you're only working with one screen!). To change the preview location, click the **Settings** icon in the toolbar and select the option to "Preview in Viewer Pane".
 </div>
 
-## Setting up R Markdown for graphing {- #rmd_graphing}
+## Setting up R Markdown for graphing {#rmd_graphing}
 
 There are some special code chunk header arguments that need to be set in your Markdown document in order to:
 
@@ -168,7 +168,7 @@ This feature - automatic figure numbering - was set within the header of the ass
 
 The line "fig_caption = TRUE" tells R Markdown and the knitting process to automatically include this part of a figure caption, "Figure X", underneath each figure you produce. Where "X" will automatically be replaced with the appropriate number.  For example, it will use "Figure 1:" for your first figure, "Figure 2" for your second, and so on.
 
-## Example question / answer {- #example_answer}
+## Example question / answer {#example_answer}
 
 Below is an example of how to answer a question. 
 
@@ -209,7 +209,7 @@ As shown in the output above, the minimum height was 150.0 cm and the maximum st
 You'll note that functions and package names above are highlighted in grey. When writing in markdown, it's good practice to encompass function names and package names in single backticks, i.e.`` `tidyverse` ``. Backticks are typically located with the tilden ("~") key on your keyboard. 
 </div>
 
-## Knitting your assignment to PDF {- #knit_assign}
+## Knitting your assignment to PDF {#knit_assign}
 
 All assignments are to be submitted to Canvas as **PDF documents**. 
 
@@ -219,7 +219,7 @@ Once you have knitted your assignment to PDF, open up the PDF document, and veri
 
 If you need to fix something, close your PDF file, go back to your R Markdown document and do the edits there. Save, then knit again!
 
-## Submit your assignment {- #submit_rmd}
+## Submit your assignment {#submit_rmd}
 
 Once you're happy with the PDF you created, it's time to submit your PDF document to the appropriate place in Canvas. 
 
