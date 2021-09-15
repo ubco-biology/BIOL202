@@ -117,6 +117,9 @@ This error happens because in your RMarkdown document you refer to a file/folder
 **Solution:** This error happens when you knit to PDF and your figure caption doesn’t show up despite having the correct code within your Rchunk. One potential cause for this error, is that you have text immediately below your Rchunk. To fix this error, make sure there is a blank line between the end of your Rchunk with the code for the figure and any subsequent text. See the screenshot below for the corrected error. 
 
 ![](./more/fig-cap-error2.png)
+## Figures are placed in weird spots in knitted PDF {-}
+
+This has to do with out the conversion process works, and can't easily be helped. And nor does it really matter - you won't lose marks for this. If you're curious as to why this happens, consult this [webpage](https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html).
 
 ## Filename, directory name, or volume label syntax is incorrect {-}
 

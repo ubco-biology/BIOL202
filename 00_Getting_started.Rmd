@@ -92,7 +92,7 @@ install.packages("tidyverse")
 
 <div class="note">
 **Note**
-When working on your own computer, you only have to install a package once, unless you want to update an already installed package to the latest version. If you want to update a package to the latest version, then re-install it by repeating the above steps. **HOWEVER**: If you're working on a school computer (in a lab), you may need to install packages each session. Packages that are listed in the "packages" pane when you start up RStudio are pre-installed, and therefore don't need to be re-installed each time.  
+When working on your own computer, you only need to install a package once, unless you want to update an already installed package to the latest version (something you might do every 6 months or so). **HOWEVER**: If you're working on a school computer (in a computer lab or in the library), you may need to install packages each session, because local files are deleted daily. If you're unsure what packages are already installed, consult the "packages" tab in the lower-right RStudio pane when you start up RStudio; installed packages are listed there.  
 </div>
 
 ## Package loading {#package_load}
