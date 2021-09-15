@@ -26,11 +26,3 @@ edit_markdown
 md_components
 interact_tutorial
 assign_workflow
-open_assign_project1
-download_assign_rmd
-open_rmd_file
-what_include_answer
-chunk_headers
-example_answer
-knit_assign
-rmd_graphing
