@@ -132,6 +132,42 @@ As you work on your document, save frequently, and also knit your document frequ
 You will often need/want to preview the document you are working on to ensure that everything is being formatted as you expected in the knitting process. The default setting is for the preview to open in a new pop-up window outside of RStudio, although you may find it useful to have it open in the Viewer panel within RStudio itself (particularly if you're only working with one screen!). To change the preview location, click the **Settings** icon in the toolbar and select the option to "Preview in Viewer Pane".
 </div>
 
+## Setting up R Markdown for graphing {- #rmd_graphing}
+
+There are some special code chunk header arguments that need to be set in your Markdown document in order to:
+
+* include proper __Figure captions__ with your figures (a necessity!)
+* set the dimensions of your figures
+
+In each code chunk that includes code to construct a graph, your chunk header options should look like this in the top of the chunk, and there should be one blank line underneath before the main code starts.  The following chunk produced the figure below. And recall that in the example below, the "bill_fig" text is simply the name I've given to this code chunk. 
+
+```
+{r bill_fig, fig.cap = "Histogram of bill depth among 151 Adelie penguins", fig.width = 4, fig.height = 4}
+
+penguins %>% 
+  filter(species == "Adelie") %>%
+  ggplot(aes(bill_depth_mm)) +
+  geom_histogram(color = "lightgrey")
+```
+
+```{r, echo = F, fig.width = 4, fig.height = 4}
+knitr::include_graphics("./more/example_histogram_practice.png")
+```
+
+**Figure 1:** Histogram of bill depth among 151 Adelie penguins
+
+The key parts are the "fig.cap = " argument, to which you provide the text you want to use as the figure caption. Then there's the "fig.width = " and "fig.height = " arguments, which indicate the size of the figure when knitted.  This will likely require some trial-and-error to get a good size, but start with the values in this example (4 for each). 
+
+**Automated figure numbering** 
+
+When you knit the document to PDF, you'll see the "Figure X:" (with a number in place of the "X") text was appended at the beginning of the caption phrase that was included in the chunk header, "Histogram of bill depth among 151 Adelie penguins".
+
+This feature - automatic figure numbering - was set within the header of the assignment markdown document:
+
+![Assignment header](./more/assign_header.png)
+
+The line "fig_caption = TRUE" tells R Markdown and the knitting process to automatically include this part of a figure caption, "Figure X", underneath each figure you produce. Where "X" will automatically be replaced with the appropriate number.  For example, it will use "Figure 1:" for your first figure, "Figure 2" for your second, and so on.
+
 ## Example question / answer {- #example_answer}
 
 Below is an example of how to answer a question. 
@@ -191,42 +227,6 @@ As you learned in a previous [tutorial](#veryify_knit), simply click on the "kni
 Once you have knitted your assignment to PDF, open up the PDF document, and verify that it looks correct, and be sure to check all your spelling, and that figures / tables are appropriately formatted etc...  
 
 If you need to fix something, close your PDF file, go back to your R Markdown document and do the edits there. Save, then knit again!
-
-## Setting up R Markdown for graphing {- #rmd_graphing}
-
-There are some special code chunk header arguments that need to be set in your Markdown document in order to:
-
-* include proper __Figure captions__ with your figures (a necessity!)
-* set the dimensions of your figures
-
-In each code chunk that includes code to construct a graph, your chunk header options should look like this in the top of the chunk, and there should be one blank line underneath before the main code starts.  The following chunk produced the figure below. And recall that in the example below, the "bill_fig" text is simply the name I've given to this code chunk. 
-
-```
-{r bill_fig, fig.cap = "Histogram of bill depth among 151 Adelie penguins", fig.width = 4, fig.height = 4}
-
-penguins %>% 
-  filter(species == "Adelie") %>%
-  ggplot(aes(bill_depth_mm)) +
-  geom_histogram(color = "lightgrey")
-```
-
-```{r, echo = F, fig.width = 4, fig.height = 4}
-knitr::include_graphics("./more/example_histogram_practice.png")
-```
-
-**Figure 1:** Histogram of bill depth among 151 Adelie penguins
-
-The key parts are the "fig.cap = " argument, to which you provide the text you want to use as the figure caption. Then there's the "fig.width = " and "fig.height = " arguments, which indicate the size of the figure when knitted.  This will likely require some trial-and-error to get a good size, but start with the values in this example (4 for each). 
-
-**Automated figure numbering** 
-
-When you knit the document to PDF, you'll see the "Figure X:" (with a number in place of the "X") text was appended at the beginning of the caption phrase that was included in the chunk header, "Histogram of bill depth among 151 Adelie penguins".
-
-This feature - automatic figure numbering - was set within the header of the assignment markdown document:
-
-![Assignment header](./more/assign_header.png)
-
-The line "fig_caption = TRUE" tells R Markdown and the knitting process to automatically include this part of a figure caption, "Figure X", underneath each figure you produce. Where "X" will automatically be replaced with the appropriate number.  For example, it will use "Figure 1:" for your first figure, "Figure 2" for your second, and so on.
 
 ## Submit your assignment {- #submit_rmd}
 

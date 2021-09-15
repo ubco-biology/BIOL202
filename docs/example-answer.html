@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="what-include-answer.html"/>
+<link rel="prev" href="rmd-graphing.html"/>
 <link rel="next" href="knit-assign.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -206,9 +206,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="what-include-answer.html"><a href="what-include-answer.html#chunk_headers"><i class="fa fa-check"></i>Code chunk headers</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="rmd-graphing.html"><a href="rmd-graphing.html"><i class="fa fa-check"></i>Setting up R Markdown for graphing</a></li>
 <li class="chapter" data-level="" data-path="example-answer.html"><a href="example-answer.html"><i class="fa fa-check"></i>Example question / answer</a></li>
 <li class="chapter" data-level="" data-path="knit-assign.html"><a href="knit-assign.html"><i class="fa fa-check"></i>Knitting your assignment to PDF</a></li>
-<li class="chapter" data-level="" data-path="rmd-graphing.html"><a href="rmd-graphing.html"><i class="fa fa-check"></i>Setting up R Markdown for graphing</a></li>
 <li class="chapter" data-level="" data-path="submit-rmd.html"><a href="submit-rmd.html"><i class="fa fa-check"></i>Submit your assignment</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
@@ -263,8 +263,8 @@ There are almost <em>always</em> multiple coding approaches to get the right ans
 <p><strong>Example Answer 1</strong></p>
 <p>I’ll first download and import the dataset:</p>
 <p>As we learned in the [fictitious] “importing and exploring data” tutorial, we can use the <code>summary</code> function to get some basic descriptive statistics, including the minimum and maximum of numeric variables. The <code>summary</code> function is part of the base R package, so no additional packages need to be loaded.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="example-answer.html#cb11-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="example-answer.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  summary</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="example-answer.html#cb12-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="example-answer.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  summary</span></code></pre></div>
 <pre><code>##    height_cm     head_circum_cm      Sex            Number_of_siblings Dominant_hand      Dominant_foot      Dominant_eye      
 ##  Min.   :150.0   Min.   :21.00   Length:154         Min.   :0.000      Length:154         Length:154         Length:154        
 ##  1st Qu.:165.0   1st Qu.:55.52   Class :character   1st Qu.:1.000      Class :character   Class :character   Class :character  
@@ -276,9 +276,9 @@ There are almost <em>always</em> multiple coding approaches to get the right ans
 <p><strong>Example Answer 2</strong></p>
 <p>I’ll first download and import the dataset:</p>
 <p>As we learned in the [fictitious] “describing data” tutorial, we can use the <code>summarise</code> function from the <code>dplyr</code> package (which comes with the <code>tidyverse</code> package) to get basic descriptive statistics for numeric variables in a dataset.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="example-answer.html#cb13-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="example-answer.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min.height=</span> <span class="fu">min</span>(height_cm, <span class="at">na.rm =</span> T), </span>
-<span id="cb13-3"><a href="example-answer.html#cb13-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.height =</span> <span class="fu">max</span>(height_cm, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="example-answer.html#cb14-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="example-answer.html#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min.height=</span> <span class="fu">min</span>(height_cm, <span class="at">na.rm =</span> T), </span>
+<span id="cb14-3"><a href="example-answer.html#cb14-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">max.height =</span> <span class="fu">max</span>(height_cm, <span class="at">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## # A tibble: 1 x 2
 ##   min.height max.height
 ##        &lt;dbl&gt;      &lt;dbl&gt;
@@ -290,7 +290,7 @@ There are almost <em>always</em> multiple coding approaches to get the right ans
           </div>
         </div>
       </div>
-<a href="what-include-answer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rmd-graphing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="knit-assign.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
