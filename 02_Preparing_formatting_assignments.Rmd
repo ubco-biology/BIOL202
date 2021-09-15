@@ -212,7 +212,7 @@ penguins %>%
   geom_histogram(color = "lightgrey")
 ```
 
-![Figure 1: Histogram of bill depth among 151 Adelie penguins](./more/example_histogram_practice.png)
+![Figure 1: Histogram of bill depth among 151 Adelie penguins](./more/example_histogram_practice.png){width = 40%}
 
 The key parts are the "fig.cap = " argument, to which you provide the text you want to use as the figure caption. Then there's the "fig.width = " and "fig.height = " arguments, which indicate the size of the figure when knitted.  This will likely require some trial-and-error to get a good size, but start with the values in this example (4 for each). 
 
