@@ -9,6 +9,7 @@ Markdown documents can be edited either in **source** mode (what we're looking a
 ```{r, echo = F, fig.width = 3}
 knitr::include_graphics("./more/toolbar.png")
 ```
+
 **Toolbar above the editing pane in RStudio.**
 
 The tool you want is the one on the far-right in the picture above.
