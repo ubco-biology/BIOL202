@@ -22,7 +22,9 @@ This Markdown document includes the assignment questions, and serves as a starte
 
 Once you have opened the document, you'll see the following text at the top: 
 
-![Assignment header](./more/assign_header.png)
+```{r, fig.cap = "Assignment markdown file header", echo = F, fig.width = 2.5, fig.height = 2.5}
+knitr::include_graphics("./more/assign_header.png")
+```
 
 Do the following steps: 
 
@@ -62,7 +64,9 @@ To insert a new code chunk, you can either: \* Use the shortcut: Mac = `Command+
 
 Here's an example code chunk in which the `tidyverse` package is being loaded. You'll notice some extra text in the header of the chunk. 
 
-![Install packges R Chunk header](./more/install_package_header.png)
+```{r, fig.cap = "Code chunk header with message suppression", echo = F, fig.width = 3}
+knitr::include_graphics("./more/install_package_header.png")
+```
 
 The "load_packages" text is simply giving a name or "tag" to this R chunk. It is good practice to provide a _unique_ name to each R chunk.  
 
@@ -164,7 +168,9 @@ When you knit the document to PDF, you'll see the "Figure X:" (with a number in 
 
 This feature - automatic figure numbering - was set within the header of the assignment markdown document:
 
-![Assignment header](./more/assign_header.png)
+```{r, fig.cap = "Assignment markdown file header with figure caption option", echo = F, fig.width = 3}
+knitr::include_graphics("./more/assign_header.png")
+```
 
 The line "fig_caption = TRUE" tells R Markdown and the knitting process to automatically include this part of a figure caption, "Figure X", underneath each figure you produce. Where "X" will automatically be replaced with the appropriate number.  For example, it will use "Figure 1:" for your first figure, "Figure 2" for your second, and so on.
 
