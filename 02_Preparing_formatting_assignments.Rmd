@@ -2,7 +2,7 @@
 
 This material provides instructions on how to prepare and format R Markdown documents for assignments. 
 
-## Completing & Submitting Lab Assignments
+## Completing & Submitting Lab Assignments {-}
 
 ### Open your assignment RStudio project {#open_assign_project1}
 

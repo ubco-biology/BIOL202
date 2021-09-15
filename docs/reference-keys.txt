@@ -26,7 +26,6 @@ edit_markdown
 md_components
 interact_tutorial
 assign_workflow
-completing-submitting-lab-assignments
 open_assign_project1
 download_assign_rmd
 open_rmd_file
