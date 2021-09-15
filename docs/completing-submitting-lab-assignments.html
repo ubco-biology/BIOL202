@@ -406,10 +406,10 @@ penguins %&gt;%
   filter(species == &quot;Adelie&quot;) %&gt;%
   ggplot(aes(bill_depth_mm)) +
   geom_histogram(color = &quot;lightgrey&quot;)</code></pre>
-<div class="figure">
-<img src="BIOL202-github_files/figure-html/bill_fig-1.png" alt="Figure 1: Histogram of bill depth among 151 Adelie penguins" width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-4-1.png" alt="Figure 1: Histogram of bill depth among 151 Adelie penguins" width="384" />
 <p class="caption">
-(#fig:bill_fig)Figure 1: Histogram of bill depth among 151 Adelie penguins
+Figure 8.1: Figure 1: Histogram of bill depth among 151 Adelie penguins
 </p>
 </div>
 <p>The key parts are the “fig.cap =” argument, to which you provide the text you want to use as the figure caption. Then there’s the “fig.width =” and “fig.height =” arguments, which indicate the size of the figure when knitted. This will likely require some trial-and-error to get a good size, but start with the values in this example (4 for each).</p>

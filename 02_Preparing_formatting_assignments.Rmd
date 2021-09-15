@@ -212,7 +212,7 @@ penguins %>%
   geom_histogram(color = "lightgrey")
 ```
 
-```{r bill_fig, echo = F, warning = F, fig.cap = "Figure 1: Histogram of bill depth among 151 Adelie penguins", fig.width = 4, fig.height = 4}
+```{r echo = F, warning = F, fig.cap = "Figure 1: Histogram of bill depth among 151 Adelie penguins", fig.width = 4, fig.height = 4}
 
 penguins %>% 
   filter(species == "Adelie") %>%
