@@ -204,6 +204,11 @@ summary.height
 
 As shown in the output above, the minimum height was 150.0 cm and the maximum student height was 210.8 cm.
 
+<div class="note">
+**TIP** 
+You'll note that functions and package names above are highlighted in grey. When writing in markdown, it's good practice to encompass function names and package names in single backticks, i.e.`` `tidyverse` ``. Backticks are typically located with the tilden ("~") key on your keyboard. 
+</div>
+
 ## Knitting your assignment to PDF {- #knit_assign}
 
 All assignments are to be submitted to Canvas as **PDF documents**. 
