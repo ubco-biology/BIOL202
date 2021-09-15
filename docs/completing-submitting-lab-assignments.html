@@ -406,7 +406,8 @@ penguins %&gt;%
   filter(species == &quot;Adelie&quot;) %&gt;%
   ggplot(aes(bill_depth_mm)) +
   geom_histogram(color = &quot;lightgrey&quot;)</code></pre>
-<p><img src="more/example_histogram_practice.png" alt="Figure 1: Histogram of bill depth among 151 Adelie penguins" />{width = 40%}</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="completing-submitting-lab-assignments.html#cb16-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;./more/example_histogram_practice.png&quot;</span>)</span></code></pre></div>
+<p><img src="more/example_histogram_practice.png" width="389" /></p>
 <p>The key parts are the “fig.cap =” argument, to which you provide the text you want to use as the figure caption. Then there’s the “fig.width =” and “fig.height =” arguments, which indicate the size of the figure when knitted. This will likely require some trial-and-error to get a good size, but start with the values in this example (4 for each).</p>
 <p><strong>Automated figure numbering</strong></p>
 <p>When you knit the document to PDF, you’ll see the “Figure X:” (with a number in place of the “X”) text was appended at the beginning of the caption phrase that was included in the chunk header, “Histogram of bill depth among 151 Adelie penguins.”</p>
