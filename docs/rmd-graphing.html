@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.4 Lecture workflow | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>Setting up R Markdown for graphing | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.4 Lecture workflow | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="Setting up R Markdown for graphing | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.4 Lecture workflow | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="Setting up R Markdown for graphing | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="setup-dirs.html"/>
-<link rel="next" href="tutorial-workflow.html"/>
+<link rel="prev" href="knit-assign.html"/>
+<link rel="next" href="submit-rmd.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -251,17 +251,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lecture_workflow" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Lecture workflow</h2>
-<p>The directory for your lecture work is now ready to house any lecture-related work that you do. For instance, if you wish to type up study notes in a Word document, you could call that file “Pither_BIOL202_lecture-notes.docx.” Each time you add/edit/update it, OneDrive will keep old versions for you!</p>
+<div id="rmd_graphing" class="section level2 unnumbered">
+<h2>Setting up R Markdown for graphing</h2>
+<p>There are some special code chunk header arguments that need to be set in your Markdown document in order to:</p>
+<ul>
+<li>include proper <strong>Figure captions</strong> with your figures (a necessity!)</li>
+<li>set the dimensions of your figures</li>
+</ul>
+<p>In each code chunk that includes code to construct a graph, your chunk header options should look like this in the top of the chunk, and there should be one blank line underneath before the main code starts. The following chunk produced the figure below. And recall that in the example below, the “bill_fig” text is simply the name I’ve given to this code chunk.</p>
+<pre><code>{r bill_fig, fig.cap = &quot;Histogram of bill depth among 151 Adelie penguins&quot;, fig.width = 4, fig.height = 4}
+
+penguins %&gt;% 
+  filter(species == &quot;Adelie&quot;) %&gt;%
+  ggplot(aes(bill_depth_mm)) +
+  geom_histogram(color = &quot;lightgrey&quot;)</code></pre>
+<p><img src="more/example_histogram_practice.png" width="389" /></p>
+<p><strong>Figure 1:</strong> Histogram of bill depth among 151 Adelie penguins</p>
+<p>The key parts are the “fig.cap =” argument, to which you provide the text you want to use as the figure caption. Then there’s the “fig.width =” and “fig.height =” arguments, which indicate the size of the figure when knitted. This will likely require some trial-and-error to get a good size, but start with the values in this example (4 for each).</p>
+<p><strong>Automated figure numbering</strong></p>
+<p>When you knit the document to PDF, you’ll see the “Figure X:” (with a number in place of the “X”) text was appended at the beginning of the caption phrase that was included in the chunk header, “Histogram of bill depth among 151 Adelie penguins.”</p>
+<p>This feature - automatic figure numbering - was set within the header of the assignment markdown document:</p>
+<div class="figure">
+<img src="more/assign_header.png" alt="" />
+<p class="caption">Assignment header</p>
+</div>
+<p>The line “fig_caption = TRUE” tells R Markdown and the knitting process to automatically include this part of a figure caption, “Figure X,” underneath each figure you produce. Where “X” will automatically be replaced with the appropriate number. For example, it will use “Figure 1:” for your first figure, “Figure 2” for your second, and so on.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="setup-dirs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tutorial-workflow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="knit-assign.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="submit-rmd.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
