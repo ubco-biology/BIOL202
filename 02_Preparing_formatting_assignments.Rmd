@@ -1,4 +1,4 @@
-# Preparing and formatting assignments
+# Preparing and formatting assignments {-}
 
 This material provides instructions on how to prepare and format R Markdown documents for assignments. 
 
