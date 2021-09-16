@@ -261,364 +261,169 @@ There are almost <em>always</em> multiple coding approaches to get the right ans
 <p><strong>Question 1.</strong> What are the minimum and maximum heights (variable name is “height_cm”) of students in the “students” dataset, which is available at this URL:</p>
 <pre><code>https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv</code></pre>
 <p>As we learned in the [fictitious] “importing and exploring data” tutorial, I can use the <code>read_csv</code> function from the <code>readr</code> package (loaded with <code>tidyverse</code>) to download and import the dataset. It creates a “tibble” object, which here I name “students”:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="example-answer.html#cb12-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.2     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="example-answer.html#cb15-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <p>I also learned that it’s a good idea to get an overview of the dataset as a first step after importing data. To do this, use the <code>skim_without_charts</code> function from the <code>skimr</code> package. I need to load that package first:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="example-answer.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="example-answer.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
 <p>Now skim:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="example-answer.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim_without_charts</span>(students)</span></code></pre></div>
-<table style="width: auto;" class="table table-condensed">
-<caption>
-(#tab:skim_data)Data summary
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-</th>
-</tr>
-</thead>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="example-answer.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim_without_charts</span>(students)</span></code></pre></div>
+<table>
+<caption>(#tab:skim_data)Data summary</caption>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Name
-</td>
-<td style="text-align:left;">
-students
-</td>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">students</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Number of rows
-</td>
-<td style="text-align:left;">
-154
-</td>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">154</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Number of columns
-</td>
-<td style="text-align:left;">
-7
-</td>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">7</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-_______________________
-</td>
-<td style="text-align:left;">
-</td>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Column type frequency:
-</td>
-<td style="text-align:left;">
-</td>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
 </tr>
-<tr>
-<td style="text-align:left;">
-character
-</td>
-<td style="text-align:left;">
-4
-</td>
+<tr class="even">
+<td align="left">character</td>
+<td align="left">4</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-numeric
-</td>
-<td style="text-align:left;">
-3
-</td>
+<tr class="odd">
+<td align="left">numeric</td>
+<td align="left">3</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-________________________
-</td>
-<td style="text-align:left;">
-</td>
+<tr class="even">
+<td align="left">________________________</td>
+<td align="left"></td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Group variables
-</td>
-<td style="text-align:left;">
-None
-</td>
+<tr class="odd">
+<td align="left">Group variables</td>
+<td align="left">None</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Variable type: character</strong></p>
 <table>
 <thead>
-<tr>
-<th style="text-align:left;">
-skim_variable
-</th>
-<th style="text-align:right;">
-n_missing
-</th>
-<th style="text-align:right;">
-complete_rate
-</th>
-<th style="text-align:right;">
-min
-</th>
-<th style="text-align:right;">
-max
-</th>
-<th style="text-align:right;">
-empty
-</th>
-<th style="text-align:right;">
-n_unique
-</th>
-<th style="text-align:right;">
-whitespace
-</th>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">min</th>
+<th align="right">max</th>
+<th align="right">empty</th>
+<th align="right">n_unique</th>
+<th align="right">whitespace</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Sex
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="odd">
+<td align="left">Sex</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Dominant_hand
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="even">
+<td align="left">Dominant_hand</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Dominant_foot
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="odd">
+<td align="left">Dominant_foot</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Dominant_eye
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="even">
+<td align="left">Dominant_eye</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">0</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Variable type: numeric</strong></p>
 <table>
 <thead>
-<tr>
-<th style="text-align:left;">
-skim_variable
-</th>
-<th style="text-align:right;">
-n_missing
-</th>
-<th style="text-align:right;">
-complete_rate
-</th>
-<th style="text-align:right;">
-mean
-</th>
-<th style="text-align:right;">
-sd
-</th>
-<th style="text-align:right;">
-p0
-</th>
-<th style="text-align:right;">
-p25
-</th>
-<th style="text-align:right;">
-p50
-</th>
-<th style="text-align:right;">
-p75
-</th>
-<th style="text-align:right;">
-p100
-</th>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-height_cm
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-171.97
-</td>
-<td style="text-align:right;">
-10.03
-</td>
-<td style="text-align:right;">
-150
-</td>
-<td style="text-align:right;">
-165.00
-</td>
-<td style="text-align:right;">
-171.48
-</td>
-<td style="text-align:right;">
-180.0
-</td>
-<td style="text-align:right;">
-210.8
-</td>
+<tr class="odd">
+<td align="left">height_cm</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">171.97</td>
+<td align="right">10.03</td>
+<td align="right">150</td>
+<td align="right">165.00</td>
+<td align="right">171.48</td>
+<td align="right">180.0</td>
+<td align="right">210.8</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-head_circum_cm
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-56.04
-</td>
-<td style="text-align:right;">
-6.41
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-55.52
-</td>
-<td style="text-align:right;">
-57.00
-</td>
-<td style="text-align:right;">
-58.5
-</td>
-<td style="text-align:right;">
-63.0
-</td>
+<tr class="even">
+<td align="left">head_circum_cm</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">56.04</td>
+<td align="right">6.41</td>
+<td align="right">21</td>
+<td align="right">55.52</td>
+<td align="right">57.00</td>
+<td align="right">58.5</td>
+<td align="right">63.0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Number_of_siblings
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1.71
-</td>
-<td style="text-align:right;">
-1.05
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1.00
-</td>
-<td style="text-align:right;">
-2.00
-</td>
-<td style="text-align:right;">
-2.0
-</td>
-<td style="text-align:right;">
-6.0
-</td>
+<tr class="odd">
+<td align="left">Number_of_siblings</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.71</td>
+<td align="right">1.05</td>
+<td align="right">0</td>
+<td align="right">1.00</td>
+<td align="right">2.00</td>
+<td align="right">2.0</td>
+<td align="right">6.0</td>
 </tr>
 </tbody>
 </table>
@@ -626,10 +431,10 @@ Number_of_siblings
 <p>We can use the <code>summary</code> function to get some basic descriptive statistics, including the minimum and maximum of numeric variables. The <code>summary</code> function is part of the base R package, so no additional packages need to be loaded.</p>
 <p>We also use the <code>select</code> function from the <code>dplyr</code> package (which is loaded with <code>tidyverse</code>) to select which variable in the <code>students</code> tibble we wish to summarize.</p>
 <p>The use of the “%&gt;%” syntax is described in another tutorial (yet to be posted!).</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="example-answer.html#cb15-1" aria-hidden="true" tabindex="-1"></a>summary.height <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="example-answer.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(height_cm) <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="example-answer.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  summary</span>
-<span id="cb15-4"><a href="example-answer.html#cb15-4" aria-hidden="true" tabindex="-1"></a>summary.height</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="example-answer.html#cb18-1" aria-hidden="true" tabindex="-1"></a>summary.height <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="example-answer.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(height_cm) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="example-answer.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  summary</span>
+<span id="cb18-4"><a href="example-answer.html#cb18-4" aria-hidden="true" tabindex="-1"></a>summary.height</span></code></pre></div>
 <pre><code>##    height_cm    
 ##  Min.   :150.0  
 ##  1st Qu.:165.0  
