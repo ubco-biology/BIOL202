@@ -26,7 +26,7 @@ Once you have opened the document, you'll see the following text at the top:
 knitr::include_graphics("./more/assign_header.png")
 ```
 
-Do the following steps: 
+Complete the following steps: 
 
 * keeping the quotation marks, replace the "Practice assignment" text with the current assignment name (unless you're doing the practice assignment, in which case do not change anything!) 
 * keeping the quotation marks, replace the "Firstname Lastname, Section YY" with your own Firstname Lastname and section number (e.g. " Jason Pither, Section 04") 
@@ -57,7 +57,7 @@ It is almost always the case that you'll need to load the `tidyverse` package, s
 
 <div class="note">
 **Tip**
-To insert a new code chunk, you can either: \* Use the shortcut: Mac = `Command+Option+I`; Windows = `Ctrl+Alt+I`. \* Click on the **Insert a new code chunk** icon. You can also change specify the coding language of the chunk using the drop-down menu. 
+To insert a new code chunk, you can either: Use the shortcut: Mac = `Command+Option+I`; Windows = `Ctrl+Alt+I`. Click on the **Insert a new code chunk** icon. You can also specify the coding language of the chunk using the drop-down menu. 
 </div>
 
 ### Code chunk headers {#chunk_headers}
@@ -122,7 +122,7 @@ Here's what you need to include in your answers:
 
 - Verify that the output from each R chunk is included in your knitted document (this should happen automatically)
 
-- For any figures (graphs) that you produce, you must include a figure caption. A future tutorial will show you how. 
+- For any figures (graphs) that you produce, you must include a figure caption. See the next [section](#rmd_graphing) for instructions. 
  
  - If you use a graph to answer a question, refer to that graph in your answer
  
@@ -172,7 +172,7 @@ This feature - automatic figure numbering - was set within the header of the ass
 knitr::include_graphics("./more/assign_header.png")
 ```
 
-The line "fig_caption = TRUE" tells R Markdown and the knitting process to automatically include this part of a figure caption, "Figure X", underneath each figure you produce. Where "X" will automatically be replaced with the appropriate number.  For example, it will use "Figure 1:" for your first figure, "Figure 2" for your second, and so on.
+The line "fig_caption = true" tells R Markdown and the knitting process to automatically include this part of a figure caption, "Figure X", underneath each figure you produce. Where "X" will automatically be replaced with the appropriate number.  For example, it will use "Figure 1:" for your first figure, "Figure 2" for your second, and so on.
 
 ## Example question / answer {#example_answer}
 
@@ -192,8 +192,22 @@ https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv
 As we learned in the [fictitious] "importing and exploring data" tutorial, I can use the `read_csv` function from the `readr` package (loaded with `tidyverse`) to download and import the dataset.  It creates a "tibble" object, which here I name "students":
 
 ```{r import_students1, message = F}
-students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv")
+students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv")
 ```
+
+I also learned that it's a good idea to get an overview of the dataset as a first step after importing data.  To do this, use the `skim_without_charts` function from the `skimr` package.  I need to load that package first:
+
+```{r load_skimr, message = F}
+library(skimr)
+```
+
+Now skim:
+
+```{r skim_data, eval = TRUE}
+skim_without_charts(students)
+```
+
+This shows we have four character and three numeric variables, with 154 rows (observations) and 7 columns (variables) total. 
 
 We can use the `summary` function to get some basic descriptive statistics, including the minimum and maximum of numeric variables. The `summary` function is part of the base R package, so no additional packages need to be loaded. 
 
