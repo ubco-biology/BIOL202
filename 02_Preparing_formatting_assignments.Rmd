@@ -8,7 +8,7 @@ In a previous [tutorial](#assign_workflow) it was suggested you set up a working
 
 ## Download the assignment Rmd file {#download_assign_rmd}
 
-The assignment file will be available to you for download from Canvas.  Locate the assignment there. The file is actually an R Markdown file, and therefore has an "Rmd" extension.  It is simply a text document (meaning it contains only text), but the syntax used therein is "markdown" syntax, and the file extension (Rmd) specifies it as an R Markdown file. You might recall reading about Markdown in the [Biology Procedures and Guidelines document](https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html).
+The assignment file will be available to you for download from Canvas under the "Assignments" section. The file is actually an R Markdown file, and therefore has an "Rmd" extension.  It is simply a text document (meaning it contains only text), but the syntax used therein is "markdown" syntax, and the file extension (Rmd) specifies it as an R Markdown file. You might recall reading about Markdown in the [Biology Procedures and Guidelines document](https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html).
 
 Make sure you save the Rmd file into your root "BIOL202_assignments" directory, or alternatively into the appropriate sub-directory.  
 
