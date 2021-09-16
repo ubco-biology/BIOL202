@@ -23,7 +23,7 @@ This Markdown document includes the assignment questions, and serves as a starte
 Once you have opened the document, you'll see the following text at the top: 
 
 ```{r, fig.cap = "Assignment markdown file header", echo = FALSE, fig.width = 2.5, fig.height = 2.5}
-knitr::include_graphics("./more/assign_header.png")
+knitr::include_graphics("./more/assign_header2.png")
 ```
 
 Complete the following steps: 
@@ -169,7 +169,7 @@ When you knit the document to PDF, you'll see the "Figure X:" (with a number in 
 This feature - automatic figure numbering - was set within the header of the assignment markdown document:
 
 ```{r, fig.cap = "Assignment markdown file header with figure caption option", echo = FALSE, fig.width = 3}
-knitr::include_graphics("./more/assign_header.png")
+knitr::include_graphics("./more/assign_header2.png")
 ```
 
 The line "fig_caption = true" tells R Markdown and the knitting process to automatically include this part of a figure caption, "Figure X", underneath each figure you produce. Where "X" will automatically be replaced with the appropriate number.  For example, it will use "Figure 1:" for your first figure, "Figure 2" for your second, and so on.
