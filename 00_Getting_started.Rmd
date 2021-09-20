@@ -2,6 +2,10 @@
 
 # What are R and RStudio? {#what_is_R}
 
+```{r klippy, echo = FALSE, include = TRUE}
+klippy::klippy()
+```
+
 It is assumed that you are using R via RStudio. First time users often confuse the two. At its simplest:
 
 * R is like a car's engine

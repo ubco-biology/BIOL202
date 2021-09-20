@@ -87,7 +87,7 @@ Before we get any data files to store on our local computer, we should first cre
 
 Let's create the new directory in our "BIOL202_tutorials" working directory.  To do this, use the `dir.create` function in R, as follows:
 
-```
+```{r, eval = FALSE}
 dir.create("rawdata")
 ```
 
@@ -131,7 +131,7 @@ In brief, pipes allow us to string together a series of functions. Here we'll us
 
 Let's see the code first, then explain after: 
 
-```
+```{r, eval = FALSE}
 trout <- here("rawdata", "trout.csv") %>%
   read_csv()
 ```
@@ -190,7 +190,7 @@ A lot of information is provided in this summary output, so let's go through it:
 
 Now you have what you need to answer each of the questions listed above!
 
-One additional function that is useful during the overview stage is `head`. This function just gives you a view of the first 5 rows or so of the dataset:
+One additional function that is useful during the overview stage is `head`. This function just gives you a view of the first 6 rows of the dataset:
 
 ```{r}
 head(trout)
@@ -216,7 +216,7 @@ First:
 
 <div class="note">
 **Note**
-Before taking the measurements, think about how you can make your measurement procedure reproducible. Where exactly are you measuring from and to on each digit?  Are you using a ruler? Whatever approach you take, make sure you type it out clearly in your R Markdown document, so that someone else could repeat it.
+Before taking the measurements, think about how you can make your measurement procedure reproducible. Where exactly are you measuring from and to on each digit?  Are you using a ruler?  What's your measurement precision? Whatever approach you take, make sure you type it out clearly in your R Markdown document, so that someone else could repeat it.
 </div>
 
 * Also before you start measuring, think about how you'll organize the data in the spreadsheet, including how many variables you'll have, what to name those variables, and how many rows or observations you'll have.  

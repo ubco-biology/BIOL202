@@ -53,6 +53,10 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMYRT2ND2"></script>
 <script>
@@ -278,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data-overview.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim_without_charts</span>(trout)</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
-<span id="tab:unnamed-chunk-15">Table 10.1: </span>Data summary
+<span id="tab:unnamed-chunk-17">Table 10.1: </span>Data summary
 </caption>
 <thead>
 <tr>
@@ -534,7 +538,7 @@ Trout_Caught
 <li>The descriptors for the numeric variables include the mean, standard deviation (sd), and the quantiles</li>
 </ul>
 <p>Now you have what you need to answer each of the questions listed above!</p>
-<p>One additional function that is useful during the overview stage is <code>head</code>. This function just gives you a view of the first 5 rows or so of the dataset:</p>
+<p>One additional function that is useful during the overview stage is <code>head</code>. This function just gives you a view of the first 6 rows of the dataset:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-overview.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trout)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   Site           Day Trout_Caught
