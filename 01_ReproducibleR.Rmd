@@ -124,17 +124,19 @@ Reading and writing files from / to directories requires that we can tell R exac
 ### The `here` package{#here_package}
 
 Now we'll install and load an R package called `here` that will help with file and directory management and navigation. 
+```
+install.packages("here")
+```
 
 This is a helpful [blog post](http://jenrichmond.rbind.io/post/how-to-use-the-here-package/) about the utility of the `here` package.
 
-The necessary code lines are as follows:
+Then we load the package:
 
 ```{r, eval = F}
-install.packages("here")
 library(here)
 ```
 
-When you load the library, the `here` function takes stock of where your RStudio project file is located, and establishes that directory as the "working directory". It should return a file path for you. In future tutorials we'll make use of the `here` package when saving files.  
+When you load the package, the `here` function takes stock of where your RStudio project file is located, and establishes that directory as the "working directory". It should return a file path for you. In future tutorials we'll make use of the `here` package when saving files.  
 
 ## Edit an R markdown file {#edit_markdown}
 
