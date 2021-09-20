@@ -77,7 +77,7 @@ Note that the URL address is provided in double quotation marks.
 
 This code imports the data and stores it in a local object called "students". The object is called a "tibble", which you can think of as a special kind of spreadsheet. More information on "tibbles" can be found [here](https://r4ds.had.co.nz/tibbles.html).
 
-Often you'll need to import data from a locally stored CSV file, rather than from the web.  The next section shows you how to do this.
+Often you'll need to import data from a locally stored CSV file, rather than from the web. You'll learn how to do this [shortly](#import_csv_local).  First: how does one create a CSV file?
 
 ## Create a CSV file {#create_csv_local}
 
