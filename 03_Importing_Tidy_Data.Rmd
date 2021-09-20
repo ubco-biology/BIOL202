@@ -79,7 +79,7 @@ This code imports the data and stores it in a local object called "students". Th
 
 Often you'll need to import data from a locally stored CSV file, rather than from the web.  The next section shows you how to do this.
 
-## Import a CSV file from a local directory {#import_csv_local}
+## Create a CSV file {#create_csv_local}
 
 You can find additional help on importing different types of files at the [Data Import Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf).
 
@@ -106,15 +106,19 @@ Let's create a data file to work with.
 
 **Steps to create and save a CSV file**
 
-* Open up Excel or any other spreadsheet software and enter values in the spreadsheet cells exactly as shown in Figure 10.1 above
+* Open up Excel or any other spreadsheet software and enter values in the spreadsheet cells exactly as shown in the Excel example in Figure 10.1 from the [Tidy Data section above](#tidy_data)
 * You should have one row with the 3 variable names ("Site", "Day", "Trout_Caught"), one in each column, then nine rows of data
 * Save the file as a CSV file as instructed above, name it "trout.csv", and save it within the newly created "rawdata" folder
 
 Now we're ready to try importing the data into a "tibble".
 
+## Import a local CSV file {#import_csv_local}
+
 **Steps to import a local CSV file**
 
-For this, we'll make use of the `here` package that we were introduced to in an [earlier tutorial](#here_package).  
+We'll use the "trout.csv" file that we created previously. 
+
+And we'll make use of the `here` package that we were introduced to in an [earlier tutorial](#here_package).  
 
 Let's load the package:
 
