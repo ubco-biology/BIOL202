@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Could not find function | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>10.2 Import a CSV file from a website | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Could not find function | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="10.2 Import a CSV file from a website | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Could not find function | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="10.2 Import a CSV file from a website | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rtools-required-during-install.html"/>
-<link rel="next" href="there-is-no-package.html"/>
+<link rel="prev" href="tidy-data.html"/>
+<link rel="next" href="import-csv-local.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -259,19 +259,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="could-not-find-function" class="section level2 unnumbered">
-<h2>Could not find function</h2>
-<p><img src="more/no-function1.png" /></p>
-<p><strong>Solution:</strong> This error arises when you are trying to run a package, but you haven’t loaded the package yet. Therefore, R can’t find the function you are trying to use. To fix this error, load the package in an R chunk near the top of your RMarkdown document and then re-run your code. Do not load packages in the console! See a screenshot below.</p>
-<p><img src="more/no-function2.png" /></p>
+<div id="import_csv_url" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Import a CSV file from a website</h2>
+<p>In previous tutorials we’ve already seen how to import CSV files from the web. As always, the first step is to load the <code>tidyverse</code> library, because it includes many packages and functions that are handy for both data import and data wrangling.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="import-csv-url.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>One package that is loaded with the <code>tidyverse</code> package is <code>readr</code>, which includes the handy <code>read_csv</code> function.</p>
+<p>You can view the help file for the <code>read_csv</code> function by typing this into your command console pane (bottom left) in RStudio:</p>
+<pre><code>?read_csv</code></pre>
+<p>You’ll see that the function has many optional “arguments,” but in general we can use the default values for these.</p>
+<p>If the file you wish to import is located on the web, then we need to provide the “URL” (the web address) to the <code>read_csv</code> function. For example, in <a href="%60%60%60%20example_data%20%3C-%20read_csv(%22https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv%22)%20%60%60%60">Tutorial 9 section 6</a> you imported the “students.csv” dataset from the course GitHub website, as follows:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="import-csv-url.html#cb20-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## cols(
+##   height_cm = col_double(),
+##   head_circum_cm = col_double(),
+##   Sex = col_character(),
+##   Number_of_siblings = col_double(),
+##   Dominant_hand = col_character(),
+##   Dominant_foot = col_character(),
+##   Dominant_eye = col_character()
+## )</code></pre>
+<p>Note that the URL address is provided in double quotation marks.</p>
+<p>This code imports the data and stores it in a local object called “students.” The object is called a “tibble,” which you can think of as a special kind of spreadsheet. More information on “tibbles” can be found <a href="https://r4ds.had.co.nz/tibbles.html">here</a>.</p>
+<p>Often you’ll need to import data from a locally stored CSV file, rather than from the web. The next section shows you how to do this.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="rtools-required-during-install.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="there-is-no-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tidy-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="import-csv-local.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

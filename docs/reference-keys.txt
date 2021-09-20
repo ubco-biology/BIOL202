@@ -1,6 +1,7 @@
-fig:unnamed-chunk-4
 fig:unnamed-chunk-5
-fig:unnamed-chunk-7
+fig:unnamed-chunk-6
+fig:unnamed-chunk-8
+tab:unnamed-chunk-14
 what_is_R
 install_R_Rstudio
 start_r
@@ -39,3 +40,9 @@ rmd_graphing
 example_answer
 knit_assign
 submit_rmd
+data_import
+tidy_data
+import_csv_url
+import_csv_local
+data_overview
+tutorial-practice-activities
