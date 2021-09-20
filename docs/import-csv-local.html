@@ -211,7 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.7" data-path="knit-assign.html"><a href="knit-assign.html"><i class="fa fa-check"></i><b>9.7</b> Knitting your assignment to PDF</a></li>
 <li class="chapter" data-level="9.8" data-path="submit-rmd.html"><a href="submit-rmd.html"><i class="fa fa-check"></i><b>9.8</b> Submit your assignment</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>10</b> Preparing andimporting Tidy Data</a>
+<li class="chapter" data-level="10" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>10</b> Preparing and importing Tidy Data</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>10.1</b> Tidy data</a></li>
 <li class="chapter" data-level="10.2" data-path="import-csv-url.html"><a href="import-csv-url.html"><i class="fa fa-check"></i><b>10.2</b> Import a CSV file from a website</a></li>
@@ -266,9 +266,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s create the new directory in our “BIOL202_tutorials” working directory. To do this, use the <code>dir.create</code> function in R, as follows:</p>
 <pre><code>dir.create(&quot;rawdata&quot;)</code></pre>
 <p>Once you run this code, you’ll see the new directory appear in the Files pane in the bottom-right of RStudio. It might look something like this:</p>
-<div class="figure">
-<img src="more/files_pane_rawdata.png" alt="" />
-<p class="caption">View of files with rawdata folder</p>
+<div class="figure"><span id="fig:unnamed-chunk-11"></span>
+<img src="more/files_pane_rawdata.png" alt="View of files with rawdata folder" width="708" />
+<p class="caption">
+Figure 10.2: View of files with rawdata folder
+</p>
 </div>
 <div class="note">
 <p><strong>NOTE</strong>
@@ -277,7 +279,7 @@ The folder is called “rawdata” because the data stored there will be the une
 <p>Let’s create a data file to work with.</p>
 <p><strong>Steps to create and save a CSV file</strong></p>
 <ul>
-<li>Open up Excel or any other spreadsheet software and enter values in the spreadsheet cells exactly as shown in the #Tidy data in Excel above</li>
+<li>Open up Excel or any other spreadsheet software and enter values in the spreadsheet cells exactly as shown in Figure 10.1 above</li>
 <li>You should have one row with the 3 variable names (“Site,” “Day,” “Trout_Caught”), one in each column, then nine rows of data</li>
 <li>Save the file as a CSV file as instructed above, name it “trout.csv,” and save it within the newly created “rawdata” folder</li>
 </ul>
@@ -288,24 +290,19 @@ The folder is called “rawdata” because the data stored there will be the une
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="import-csv-local.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
 <div class="note">
 <p><strong>New tool</strong>
-Here we introduce a new tool called a “pipe,” actually coded as “<code>%&gt;%</code>.” Pipes come from the <code>magrittr</code> package, which is already loaded as part of the <code>tidyverse</code> package. Please see this brief <a href="https://cfss.uchicago.edu/notes/pipes/">introduction here</a></p>
+Below we introduce a new tool called a “pipe,” actually coded as “<code>%&gt;%</code>.” Pipes come from the <code>magrittr</code> package, which is already loaded as part of the <code>tidyverse</code> package. Please see this brief <a href="https://cfss.uchicago.edu/notes/pipes/">introduction here</a></p>
 </div>
 <p>In brief, pipes allow us to string together a series of functions. Here we’ll use a pipe to help import the data file.</p>
 <p>Let’s see the code first, then explain after:</p>
-<pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-## cols(
-##   Site = col_character(),
-##   Day = col_double(),
-##   Trout_Caught = col_double()
-## )</code></pre>
 <pre><code>trout &lt;- here(&quot;rawdata&quot;, &quot;trout.csv&quot;) %&gt;%
   read_csv()</code></pre>
-<p>First we have the name of the object (a “tibble”) that we wish to create, “trout.”</p>
-<p>Then you see the assignment operator “&lt;-,” which tells R to assign whatever we’re doing to the right of the operator to the object “trout.”</p>
-<p>Then we have the <code>here</code> function, which is taking two inputs: the name of the directory we wish to get something from (“rawdata”), and then the name of the file we wish to do something with, here “trout.csv”).</p>
-<p>Then we have a pipe “%&gt;%,” which tells R that we’re not done coding yet - there’s more to come on the next line…</p>
-<p>Lastly, we use the <code>read_csv</code> function, whatever came before the pipe is what is fed to the <code>read_csv</code> function.</p>
+<ul>
+<li>First we have the name of the object (a “tibble”) that we wish to create, “trout.”</li>
+<li>Then you see the assignment operator “&lt;-,” which tells R to assign whatever we’re doing to the right of the operator to the object “trout.”</li>
+<li>Then we have the <code>here</code> function, which is taking two inputs: the name of the directory we wish to get something from (“rawdata”), and then the name of the file we wish to do something with, here “trout.csv”).</li>
+<li>Then we have a pipe “%&gt;%,” which tells R that we’re not done coding yet - there’s more to come on the next line…</li>
+<li>Lastly, we use the <code>read_csv</code> function, whatever came before the pipe is what is fed to the <code>read_csv</code> function.</li>
+</ul>
 <p>Go ahead and run the chunk of code above to create the “trout” object.</p>
 <p>Next we’ll learn how to get an overview of the data stored in a tibble object.</p>
 </div>

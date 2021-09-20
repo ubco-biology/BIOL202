@@ -211,7 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.7" data-path="knit-assign.html"><a href="knit-assign.html"><i class="fa fa-check"></i><b>9.7</b> Knitting your assignment to PDF</a></li>
 <li class="chapter" data-level="9.8" data-path="submit-rmd.html"><a href="submit-rmd.html"><i class="fa fa-check"></i><b>9.8</b> Submit your assignment</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>10</b> Preparing andimporting Tidy Data</a>
+<li class="chapter" data-level="10" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>10</b> Preparing and importing Tidy Data</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>10.1</b> Tidy data</a></li>
 <li class="chapter" data-level="10.2" data-path="import-csv-url.html"><a href="import-csv-url.html"><i class="fa fa-check"></i><b>10.2</b> Import a CSV file from a website</a></li>
@@ -273,12 +273,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>As we learned in the “Preparing and formatting assignments” <a href="example-answer.html#example_answer">tutorial</a>, the <code>skimr</code> package has a handy function called <code>skim_without_charts</code> that provides a good overview of a data object. This is a rather long function name, and in fact the main function is called <code>skim</code>. However, by default, <code>skim</code> includes small charts in its output, and we don’t want that presently, hence the use of <code>skim_without_charts</code>.</p>
 <p>Let’s load that package now:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data-overview.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-overview.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
 <p>And get an overview of the <code>trout</code> dataset:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-overview.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim_without_charts</span>(trout)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data-overview.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim_without_charts</span>(trout)</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
-<span id="tab:unnamed-chunk-14">Table 10.1: </span>Data summary
+<span id="tab:unnamed-chunk-15">Table 10.1: </span>Data summary
 </caption>
 <thead>
 <tr>
@@ -535,7 +535,7 @@ Trout_Caught
 </ul>
 <p>Now you have what you need to answer each of the questions listed above!</p>
 <p>One additional function that is useful during the overview stage is <code>head</code>. This function just gives you a view of the first 5 rows or so of the dataset:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data-overview.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trout)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-overview.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(trout)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   Site           Day Trout_Caught
 ##   &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;
