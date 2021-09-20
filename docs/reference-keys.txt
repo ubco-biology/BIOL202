@@ -1,9 +1,9 @@
-fig:unnamed-chunk-4
 fig:unnamed-chunk-5
-fig:unnamed-chunk-7
+fig:unnamed-chunk-6
 fig:unnamed-chunk-8
-fig:unnamed-chunk-12
-tab:unnamed-chunk-17
+fig:unnamed-chunk-9
+fig:unnamed-chunk-13
+tab:unnamed-chunk-18
 what_is_R
 install_R_Rstudio
 start_r

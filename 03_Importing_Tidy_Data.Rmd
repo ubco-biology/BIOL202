@@ -122,7 +122,7 @@ And we'll make use of the `here` package that we were introduced to in an [earli
 
 Let's load the package:
 
-```{r}
+```{r, message = FALSE}
 library(here)
 ```
 

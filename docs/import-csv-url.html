@@ -267,13 +267,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="import_csv_url" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Import a CSV file from a website</h2>
 <p>In previous tutorials we’ve already seen how to import CSV files from the web. As always, the first step is to load the <code>tidyverse</code> library, because it includes many packages and functions that are handy for both data import and data wrangling.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="import-csv-url.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="import-csv-url.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>One package that is loaded with the <code>tidyverse</code> package is <code>readr</code>, which includes the handy <code>read_csv</code> function.</p>
 <p>You can view the help file for the <code>read_csv</code> function by typing this into your command console pane (bottom left) in RStudio:</p>
 <pre><code>?read_csv</code></pre>
 <p>You’ll see that the function has many optional “arguments,” but in general we can use the default values for these.</p>
 <p>If the file you wish to import is located on the web, then we need to provide the “URL” (the web address) to the <code>read_csv</code> function. For example, in <a href="%60%60%60%20example_data%20%3C-%20read_csv(%22https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv%22)%20%60%60%60">Tutorial 9 section 6</a> you imported the “students.csv” dataset from the course GitHub website, as follows:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="import-csv-url.html#cb23-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="import-csv-url.html#cb20-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
