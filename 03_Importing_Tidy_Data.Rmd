@@ -81,9 +81,7 @@ Often you'll need to import data from a locally stored CSV file, rather than fro
 
 ## Create a CSV file {#create_csv_local}
 
-You can find additional help on importing different types of files at the [Data Import Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf).
-
-Before we get any data files to store on our local computer, we should first create a directory (folder) called "rawdata" to store data files.
+Before we create or save any data files on our local computer, we should first create a directory (folder) called "rawdata" to store them.
 
 Let's create the new directory in our "BIOL202_tutorials" working directory.  To do this, use the `dir.create` function in R, as follows:
 
@@ -113,6 +111,8 @@ Let's create a data file to work with.
 Now we're ready to try importing the data into a "tibble".
 
 ## Import a local CSV file {#import_csv_local}
+
+You can find additional help on importing different types of files at the [Data Import Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf).
 
 **Steps to import a local CSV file**
 
