@@ -106,7 +106,8 @@ Let's create a data file to work with.
 
 * Open up Excel or any other spreadsheet software and enter values in the spreadsheet cells exactly as shown in the Excel example in Figure 10.1 from the [Tidy Data section above](#tidy_data)
 * You should have one row with the 3 variable names ("Site", "Day", "Trout_Caught"), one in each column, then nine rows of data
-* Save the file as a CSV file as instructed above, name it "trout.csv", and save it within the newly created "rawdata" folder
+* Save the file as a CSV file by selecting (MAC) File > Save As > and in the drop down list: CSV UTF-8 (Comma separated), and Windows File > Save as type > CSV UTF-8 (comma separated)
+* Name it "trout.csv", and save it within the newly created "rawdata" folder
 
 Now we're ready to try importing the data into a "tibble".
 
