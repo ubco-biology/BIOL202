@@ -282,9 +282,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s load the package:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="import-csv-local.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
 <div class="note">
-<p><strong>New tool</strong></p>
+<p><strong>New tool</strong>
+Pipes or “%&gt;%” are implemented as part of the <code>magrittr</code> package, which is loaded with the <code>tidyverse</code>. In brief, pipes allow us to string together a series of functions, and we’ll use them frequently in tutorials.</p>
 </div>
-<p>In brief, pipes allow us to string together a series of functions. Here we’ll use a pipe to help import the data file.</p>
+<p>Here we’ll use a pipe to help import the data file.</p>
 <p>Let’s see the code first, then explain after:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="import-csv-local.html#cb23-1" aria-hidden="true" tabindex="-1"></a>trout <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">&quot;rawdata&quot;</span>, <span class="st">&quot;trout.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="import-csv-local.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>()</span></code></pre></div>

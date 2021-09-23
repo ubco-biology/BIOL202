@@ -134,9 +134,10 @@ library(here)
 
 <div class="note">
 **New tool** 
+Pipes or "%>%" are implemented as part of the `magrittr` package, which is loaded with the `tidyverse`. In brief, pipes allow us to string together a series of functions, and we'll use them frequently in tutorials.
 </div>
 
-In brief, pipes allow us to string together a series of functions. Here we'll use a pipe to help import the data file.
+Here we'll use a pipe to help import the data file.
 
 Let's see the code first, then explain after: 
 
