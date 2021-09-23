@@ -181,10 +181,11 @@ Let's load that package now:
 library(skimr)
 ```
 
-And get an overview of the `trout` dataset: 
+And get an overview of the `trout` dataset, again using the pipe approach: 
 
 ```{r, eval = TRUE}
-skim_without_charts(trout)
+trout %>%
+  skim_without_charts()
 ```
 
 A lot of information is provided in this summary output, so let's go through it:
@@ -203,7 +204,9 @@ Now you have what you need to answer each of the questions listed above!
 One additional function that is useful during the overview stage is `head`. This function just gives you a view of the first 6 rows of the dataset:
 
 ```{r}
-head(trout)
+# we can use head(trout), or the pipe approach: 
+trout %>%
+  head()
 ```
 
 When you use `head` on a "tibble", like we have here, it outputs another "tibble", in this case 6 rows by 3 columns. But recall that the full "trout" dataset includes 9 rows and 3 columns.

@@ -279,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Many straightforward operations like tabulation and calculating descriptive statistics can be done using the functionality of the <code>dplyr</code> package (see the cheatsheet <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">here</a>), which gets loaded as part of the <code>tidyverse</code> suite of packages.</p>
 <p>Here, we’ll use this functionality to create a <em>frequency table</em> for a categorical variable.</p>
 <p>We’ll demonstrate this using the <code>tigerdeaths.csv</code> dataset that you should have imported as part of a suggested activity in the previous section, using code like this:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="vis-cat-freq-table.html#cb32-1" aria-hidden="true" tabindex="-1"></a>tigerdeaths <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv&quot;</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="vis-cat-freq-table.html#cb32-1" aria-hidden="true" tabindex="-1"></a>tigerdeaths <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv&quot;</span>)</span></code></pre></div>
 <p>You would also have gotten <a href="vis-data-overview.html#vis_data_overview">overview of the data</a> as part of the activity, using the <code>skim_without_charts</code> function. This would have shown that the <code>activity</code> variable is of type “character,” which tells us it is a <strong>categorical</strong> variable, and that it includes 9 unique categories. We also would have seen that there are 88 cases (rows) in the dataset.</p>
 <p>Let’s provide the code to generate the frequency table, using the pipes “%&gt;%” approach we learned about in an <a href="import-csv-local.html#import_csv_local">earlier tutorial</a>. We’ll assign the output to a new object that will hold the frequency table. We’ll name the object “tiger.table.” Note that we won’t yet view the table here… we’ll do that next.</p>
 <p>We’ll provide the code first, then explain it step-by-step after.</p>
@@ -299,10 +299,11 @@ Try figuring out how you would change the last line of code in the chunk above s
 </div>
 <p>Now that we’ve created the frequency table, let’s have a look at it.</p>
 <p>In a supplementary tutorial, you’ll find instructions on how to create nicely formatted tables for output with appropriate captions.</p>
-<p>For now, let’s go ahead and use the <code>kable</code> function that comes with the <code>knitr</code> package:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="vis-cat-freq-table.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(tiger.table, <span class="at">caption =</span> <span class="st">&quot;Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p>For now, let’s go ahead and use the <code>kable</code> function that comes with the <code>knitr</code> package, using the pipe approach:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="vis-cat-freq-table.html#cb34-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="vis-cat-freq-table.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
-<caption>(#tab:vis1_kable_tiger)Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006</caption>
+<caption><span id="tab:unnamed-chunk-21">Table 11.1: </span>Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006</caption>
 <thead>
 <tr class="header">
 <th align="left">activity</th>
@@ -358,6 +359,7 @@ Try figuring out how you would change the last line of code in the chunk above s
 </tr>
 </tbody>
 </table>
+<p>The key argument to the <code>kable</code> function is the table object (which here we provide before the pipe), and the figure caption.</p>
 <p>Notice that this produces a nicely formatted table with an appropriately worded caption. The argument “digits = 3” tells it to return numeric values to 3 digits in the table.</p>
 <p>You now know how to create a frequency table for a categorical variable!</p>
 <ol start="2" style="list-style-type: decimal">

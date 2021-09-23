@@ -1,12 +1,18 @@
 # Visualizing a single variable {#vis_describe}
 
+```{r echo = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 **Tutorial learning objectives**
 
 In this tutorial you will:  
 
 * Revisit how to import data and get an overview of a "tibble" object
-* Learn how to visualize the frequency distribution of a single categorical variable  
-* Learn how to visualize the frequency distribution of a single numerical variable  
+* Learn how to construct a frequency table
+* Learn how to visualize the frequency distribution of a single categorical variable using a bar graph
+* Learn how to visualize the frequency distribution of a single numerical variable using a histogram
+* Learn how to describe a histogram
 
 **Background** 
 
@@ -47,14 +53,16 @@ The `penguins` object is a *tibble*, with each row representing a *case* and eac
 
 We'll get an overview of the data using the `skim_without_charts` function, as we learned in the [Preparing and Importing Tidy Data](#data_overview) tutorial:
 
-```{r vis1_skim}
-skim_without_charts(penguins)
+```{r vis1_skim, tidy = TRUE, tidy.opts = list(width.cutoff = 60)}
+penguins %>%
+  skim_without_charts()
 ```
 
 Optionally, we can also get a view of the first 6 rows of the tibble using the `head` function:
 
 ```{r vis1_head}
-head(penguins)
+penguins %>%
+  head()
 ```
 
 You could also look at *all* of the data frame at once by typing its name into the command console and pressing return, but that is not advisable, as you could get reams of output thrown at you if you're dealing with a large dataset! It's better to take a small peek at the data with `head`.
@@ -81,7 +89,7 @@ Here, we'll use this functionality to create a *frequency table* for a categoric
 We'll demonstrate this  using the `tigerdeaths.csv` dataset that you should have imported as part of a suggested activity in the previous section, using code like this:
 
 ```{r vis1_read_tiger, message = FALSE}
-tigerdeaths <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv")  
+tigerdeaths <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv")
 ```
 
 You would also have gotten [overview of the data](#vis_data_overview) as part of the activity, using the `skim_without_charts` function.  This would have shown that the `activity` variable is of type "character", which tells us it is a **categorical** variable, and that it includes 9 unique categories.  We also would have seen that there are 88 cases (rows) in the dataset.
@@ -112,11 +120,14 @@ Now that we've created the frequency table, let's have a look at it.
 
 In a supplementary tutorial, you'll find instructions on how to create nicely formatted tables for output with appropriate captions. 
 
-For now, let's go ahead and use the `kable` function that comes with the `knitr` package:
+For now, let's go ahead and use the `kable` function that comes with the `knitr` package, using the pipe approach:
 
-```{r vis1_kable_tiger}
-kable(tiger.table, caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)
+```{r}
+tiger.table %>%
+  kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)
 ```
+
+The key argument to the `kable` function is the table object (which here we provide before the pipe), and the figure caption.  
 
 Notice that this produces a nicely formatted table with an appropriately worded caption. The argument "digits = 3" tells it to return numeric values to 3 digits in the table.
 
@@ -159,7 +170,7 @@ There you have it: a nicely formatted bar graph!
 
 **REMINDER** Don't forget to include a good figure caption! Here's a snapshot of the full code chunk that produced the bar graph above:
 
-```{r vis1_barcode_example, fig.cap = "Example code chunk for producing a good bar graph", echo = FALSE, fig.width = 5}
+```{r fig.cap = "Example code chunk for producing a good bar graph", echo = FALSE, fig.width = 5}
 knitr::include_graphics("./more/bar_graph_chunk.png")
 ```
 
@@ -173,7 +184,7 @@ We'll use `ggplot` to create a histogram, and we'll again use the `penguins` dat
 
 We'll give the code first, then explain below: 
 
-```{r vis1_hist_penguins, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
+```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
@@ -198,7 +209,7 @@ It's telling us that there's probably a better bin width to use. The trick is to
 
 Looking at the previous histogram, we could try using a bid width of 500 g. We need to add the argument "binwidth" to the `geom_histogram` function, as follows:
 
-```{r vis1_hist_penguins1, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
+```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 500, colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
@@ -208,7 +219,7 @@ ggplot(data = penguins, aes(x = body_mass_g)) +
 
 Hmm, that is lumping the data too much, and not giving enough detail about the distribution. Let's try a bin width of 250 g:
 
-```{r vis1_hist_penguins2, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
+```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 250, colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
@@ -229,7 +240,7 @@ Things to note in your description of a histogram:
 
 So, let's look again at the penguin body mass histogram, and provide a description thereafter:
 
-```{r vis1_hist_penguins3, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
+```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 250, colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
