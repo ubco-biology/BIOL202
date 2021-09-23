@@ -54,7 +54,7 @@ The `penguins` object is a *tibble*, with each row representing a *case* and eac
 
 We'll get an overview of the data using the `skim_without_charts` function, as we learned in the [Preparing and Importing Tidy Data](#data_overview) tutorial:
 
-```{r vis1_skim, tidy = TRUE, tidy.opts = list(width.cutoff = 60)}
+```{r vis1_skim}
 penguins %>%
   skim_without_charts()
 ```
