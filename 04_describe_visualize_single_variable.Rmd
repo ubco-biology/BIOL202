@@ -134,7 +134,7 @@ To produce the bar graph, we use a frequency table as the input. Thus, we'll use
 
 Let's provide the code first, and explain after.
 
-```{r vis1_bargraph, fig.cap = "Bar graph showing the activities of 88 people at the time they were attached and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", fig.width = 6, fig.height = 6}
+```{r fig.cap = "Bar graph showing the activities of 88 people at the time they were attached and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", fig.width = 6, fig.height = 6}
 ggplot(data = tiger.table, aes(x = reorder(activity, n), y = n)) + 
   geom_bar(stat = "identity") + 
   ylab("Frequency") +
