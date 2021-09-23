@@ -218,7 +218,7 @@ ggplot(data = penguins, aes(x = body_mass_g)) +
 
 That's much better! 
 
-## Describing a histogram (#vis_describe_hist)
+## Describing a histogram {#vis_describe_hist}
 
 Things to note in your description of a histogram:
 
