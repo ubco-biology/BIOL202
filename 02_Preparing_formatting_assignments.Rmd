@@ -145,13 +145,8 @@ There are some special code chunk header arguments that need to be set in your M
 
 In each code chunk that includes code to construct a graph, your chunk header options should look like this in the top of the chunk, and there should be one blank line underneath before the main code starts.  The following chunk produced the figure below. And recall that in the example below, the "bill_fig" text is simply the name I've given to this code chunk. 
 
-```
-{r bill_fig, fig.cap = "Histogram of bill depth among 151 Adelie penguins", fig.width = 4, fig.height = 4}
-
-penguins %>% 
-  filter(species == "Adelie") %>%
-  ggplot(aes(bill_depth_mm)) +
-  geom_histogram(color = "lightgrey")
+```{r, echo = FALSE, fig.width = 4}
+knitr::include_graphics("./more/figure_chunk_header.png")
 ```
 
 ```{r, echo = FALSE, fig.width = 4, fig.height = 4}
