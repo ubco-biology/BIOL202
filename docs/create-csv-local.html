@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -224,6 +224,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>10.5</b> Get an overview of a dataset</a></li>
 <li class="chapter" data-level="10.6" data-path="tutorial-practice-activities.html"><a href="tutorial-practice-activities.html"><i class="fa fa-check"></i><b>10.6</b> Tutorial practice activities</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="vis-describe.html"><a href="vis-describe.html"><i class="fa fa-check"></i><b>11</b> Visualizing a single variable</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="vis-packages-data.html"><a href="vis-packages-data.html"><i class="fa fa-check"></i><b>11.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="11.2" data-path="vis-data-overview.html"><a href="vis-data-overview.html"><i class="fa fa-check"></i><b>11.2</b> Get an overview of the data</a></li>
+<li class="chapter" data-level="11.3" data-path="vis-cat-freq-table.html"><a href="vis-cat-freq-table.html"><i class="fa fa-check"></i><b>11.3</b> Create a frequency table</a></li>
+<li class="chapter" data-level="11.4" data-path="vis-cat-barchart.html"><a href="vis-cat-barchart.html"><i class="fa fa-check"></i><b>11.4</b> Create a bar graph</a></li>
+<li class="chapter" data-level="11.5" data-path="vis-histogram.html"><a href="vis-histogram.html"><i class="fa fa-check"></i><b>11.5</b> Create a histogram</a></li>
+<li class="chapter" data-level="11.6" data-path="describing-a-histogram-vis-describe-hist.html"><a href="describing-a-histogram-vis-describe-hist.html"><i class="fa fa-check"></i><b>11.6</b> Describing a histogram (#vis_describe_hist)</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
 <ul>
 <li class="chapter" data-level="" data-path="a-more-familiar-editing-environment.html"><a href="a-more-familiar-editing-environment.html"><i class="fa fa-check"></i>A more familiar editing environment</a></li>
@@ -268,9 +277,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.3</span> Create a CSV file</h2>
 <p>Before we create or save any data files on our local computer, we should first create a directory (folder) called “rawdata” to store them.</p>
 <p>Let’s create the new directory in our “BIOL202_tutorials” working directory. To do this, use the <code>dir.create</code> function in R, as follows:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="create-csv-local.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;rawdata&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="create-csv-local.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;rawdata&quot;</span>)</span></code></pre></div>
 <p>Once you run this code, you’ll see the new directory appear in the Files pane in the bottom-right of RStudio. It might look something like this:</p>
-<div class="figure"><span id="fig:unnamed-chunk-12"></span>
+<div class="figure"><span id="fig:unnamed-chunk-13"></span>
 <img src="more/files_pane_rawdata.png" alt="View of files with rawdata folder" width="708" />
 <p class="caption">
 Figure 10.2: View of files with rawdata folder

@@ -23,7 +23,7 @@ In this tutorial you'll learn to construct and interpret each of these types of 
 
 In this tutorial we will make use of `tidyverse` and its suite of packages, as well as the `skimr` package. You'll also use the `palmerpenguins` package that provides some penguin-related data to work with (see this [website](https://allisonhorst.github.io/palmerpenguins/) for more info). Lastly, you'll use the `knitr` package for helping create nice tables. The latter package should have come installed with RStudio, so check the "packages" tab in the bottom-right pane of RStudio to see if it's already installed.  If it's not, then install it following the instructions you [saw earlier](#package_install).
 
-```{r, message = FALSE}
+```{r vis1_package, message = FALSE}
 library(tidyverse)
 library(palmerpenguins)
 library(skimr)
@@ -47,13 +47,13 @@ The `penguins` object is a *tibble*, with each row representing a *case* and eac
 
 We'll get an overview of the data using the `skim_without_charts` function, as we learned in the [Preparing and Importing Tidy Data](#data_overview) tutorial:
 
-```{r}
+```{r vis1_skim}
 skim_without_charts(penguins)
 ```
 
 Optionally, we can also get a view of the first 6 rows of the tibble using the `head` function:
 
-```{r}
+```{r vis1_head}
 head(penguins)
 ```
 
@@ -80,7 +80,7 @@ Here, we'll use this functionality to create a *frequency table* for a categoric
 
 We'll demonstrate this  using the `tigerdeaths.csv` dataset that you should have imported as part of a suggested activity in the previous section, using code like this:
 
-```{r message = FALSE}
+```{r vis1_read_tiger, message = FALSE}
 tigerdeaths <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv")  
 ```
 
@@ -92,7 +92,7 @@ We'll provide the code first, then explain it step-by-step after.
 
 Here's the code for creating the frequency table and assigning it to a new object named "tiger.table":
 
-```{r freq_table_single_cat}
+```{r vis1_freq_table_single_cat}
 tiger.table <- tigerdeaths %>%
   count(activity, sort = TRUE) %>% 
   mutate(relative_frequency = n / sum(n))
@@ -114,8 +114,8 @@ In a supplementary tutorial, you'll find instructions on how to create nicely fo
 
 For now, let's go ahead and use the `kable` function that comes with the `knitr` package:
 
-```{r}
-kable(tiger.table, caption = "Frequency table showing the activities of 88 people at the time they were attached and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)
+```{r vis1_kable_tiger}
+kable(tiger.table, caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)
 ```
 
 Notice that this produces a nicely formatted table with an appropriately worded caption. The argument "digits = 3" tells it to return numeric values to 3 digits in the table.
@@ -134,7 +134,7 @@ To produce the bar graph, we use a frequency table as the input. Thus, we'll use
 
 Let's provide the code first, and explain after.
 
-```{r bargraph, fig.cap = "Bar graph showing the activities of 88 people at the time they were attached and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", fig.width = 4, fig.height = 6}
+```{r vis1_bargraph, fig.cap = "Bar graph showing the activities of 88 people at the time they were attached and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", fig.width = 6, fig.height = 6}
 ggplot(data = tiger.table, aes(x = reorder(activity, n), y = n)) + 
   geom_bar(stat = "identity") + 
   ylab("Frequency") +
@@ -159,7 +159,7 @@ There you have it: a nicely formatted bar graph!
 
 **REMINDER** Don't forget to include a good figure caption! Here's a snapshot of the full code chunk that produced the bar graph above:
 
-```{r, fig.cap = "Example code chunk for producing a good bar graph", echo = FALSE, fig.width = 5}
+```{r vis1_barcode_example, fig.cap = "Example code chunk for producing a good bar graph", echo = FALSE, fig.width = 5}
 knitr::include_graphics("./more/bar_graph_chunk.png")
 ```
 
@@ -173,7 +173,7 @@ We'll use `ggplot` to create a histogram, and we'll again use the `penguins` dat
 
 We'll give the code first, then explain below: 
 
-```{r hist_penguins, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 4, warning = FALSE}
+```{r vis1_hist_penguins, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 4, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
@@ -187,8 +187,38 @@ The syntax follows what was seen above when creating a bar graph, but:
 * We use the `geom_histogram` function, which has its own optional arguments:
     - the "color" we want the outlines of each bar in the histogram to be
     - the "fill" colour we want the bars to be
+    
+You can also specify the "bin width" that `geom_histogram` uses when generating the histogram. Notice above that we got a message stating:
 
-Voila! Your first ggplot histogram! But wait, you also need to be able to describe what you see...
+```
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+It's telling us that there's probably a better bin width to use. The trick is to not have to small a bin width, such that you end up with too many bars in your histogram (giving too much detail in the frequency distribution), and to not have too large a bin width such that you have too few bars in your histogram (giving too little detail). 
+
+Looking at the previous histogram, we could try using a bid width of 500 g. We need to add the argument "binwidth" to the `geom_histogram` function, as follows:
+
+```{r vis1_hist_penguins1, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 4, warning = FALSE}
+ggplot(data = penguins, aes(x = body_mass_g)) +
+  geom_histogram(binwidth = 500, colour = "black", fill = "lightgrey") +
+  xlab("Body mass (g)") +
+  ylab("Frequency") +
+  theme_bw()
+```
+
+Hmm, that is lumping the data too much, and not giving enough detail about the distribution. Let's try a bin width of 250 g:
+
+```{r vis1_hist_penguins2, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 4, warning = FALSE}
+ggplot(data = penguins, aes(x = body_mass_g)) +
+  geom_histogram(binwidth = 250, colour = "black", fill = "lightgrey") +
+  xlab("Body mass (g)") +
+  ylab("Frequency") +
+  theme_bw()
+```
+
+That's much better! 
+
+## Describing a histogram (#vis_describe_hist)
 
 Things to note in your description of a histogram:
 
@@ -196,6 +226,18 @@ Things to note in your description of a histogram:
 * Is it roughly bell-shaped?
 * Outliers - are there observations (bars) showing up far from the others?
 * Are there multiple modes?
+
+So, let's look again at the penguin body mass histogram, and provide a description thereafter:
+
+```{r vis1_hist_penguins3, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 4, warning = FALSE}
+ggplot(data = penguins, aes(x = body_mass_g)) +
+  geom_histogram(binwidth = 250, colour = "black", fill = "lightgrey") +
+  xlab("Body mass (g)") +
+  ylab("Frequency") +
+  theme_bw()
+```
+
+The histogram is moderately positively skewed, with a major mode near 3500g, and some smaller modes near 4700 and 5500 g. There are no apparent outliers.
 
 4. Create a histogram of the bill lengths of penguins in the `penguins` dataset, and include an appropriate figure caption. 
 

@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -224,6 +224,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>10.5</b> Get an overview of a dataset</a></li>
 <li class="chapter" data-level="10.6" data-path="tutorial-practice-activities.html"><a href="tutorial-practice-activities.html"><i class="fa fa-check"></i><b>10.6</b> Tutorial practice activities</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="vis-describe.html"><a href="vis-describe.html"><i class="fa fa-check"></i><b>11</b> Visualizing a single variable</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="vis-packages-data.html"><a href="vis-packages-data.html"><i class="fa fa-check"></i><b>11.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="11.2" data-path="vis-data-overview.html"><a href="vis-data-overview.html"><i class="fa fa-check"></i><b>11.2</b> Get an overview of the data</a></li>
+<li class="chapter" data-level="11.3" data-path="vis-cat-freq-table.html"><a href="vis-cat-freq-table.html"><i class="fa fa-check"></i><b>11.3</b> Create a frequency table</a></li>
+<li class="chapter" data-level="11.4" data-path="vis-cat-barchart.html"><a href="vis-cat-barchart.html"><i class="fa fa-check"></i><b>11.4</b> Create a bar graph</a></li>
+<li class="chapter" data-level="11.5" data-path="vis-histogram.html"><a href="vis-histogram.html"><i class="fa fa-check"></i><b>11.5</b> Create a histogram</a></li>
+<li class="chapter" data-level="11.6" data-path="describing-a-histogram-vis-describe-hist.html"><a href="describing-a-histogram-vis-describe-hist.html"><i class="fa fa-check"></i><b>11.6</b> Describing a histogram (#vis_describe_hist)</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
 <ul>
 <li class="chapter" data-level="" data-path="a-more-familiar-editing-environment.html"><a href="a-more-familiar-editing-environment.html"><i class="fa fa-check"></i>A more familiar editing environment</a></li>
@@ -274,19 +283,11 @@ There are almost <em>always</em> multiple coding approaches to get the right ans
 <p><strong>Question 1.</strong> What are the minimum and maximum heights (variable name is “height_cm”) of students in the “students” dataset, which is available at this URL:</p>
 <pre><code>https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv</code></pre>
 <p>As we learned in the [fictitious] “importing and exploring data” tutorial, I can use the <code>read_csv</code> function from the <code>readr</code> package (loaded with <code>tidyverse</code>) to download and import the dataset. It creates a “tibble” object, which here I name “students”:</p>
-<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.2     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.3     ✓ stringr 1.4.0
-## ✓ readr   1.4.0     ✓ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="example-answer.html#cb16-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="example-answer.html#cb12-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <p>I also learned that it’s a good idea to get an overview of the dataset as a first step after importing data. To do this, use the <code>skim_without_charts</code> function from the <code>skimr</code> package. I need to load that package first:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="example-answer.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="example-answer.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
 <p>Now skim:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="example-answer.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim_without_charts</span>(students)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="example-answer.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim_without_charts</span>(students)</span></code></pre></div>
 <table>
 <caption>(#tab:skim_data)Data summary</caption>
 <tbody>
@@ -444,10 +445,10 @@ There are almost <em>always</em> multiple coding approaches to get the right ans
 <p>We can use the <code>summary</code> function to get some basic descriptive statistics, including the minimum and maximum of numeric variables. The <code>summary</code> function is part of the base R package, so no additional packages need to be loaded.</p>
 <p>We also use the <code>select</code> function from the <code>dplyr</code> package (which is loaded with <code>tidyverse</code>) to select which variable in the <code>students</code> tibble we wish to summarize.</p>
 <p>The use of the “%&gt;%” syntax is described in another tutorial (yet to be posted!).</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="example-answer.html#cb19-1" aria-hidden="true" tabindex="-1"></a>summary.height <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span> </span>
-<span id="cb19-2"><a href="example-answer.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(height_cm) <span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="example-answer.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  summary</span>
-<span id="cb19-4"><a href="example-answer.html#cb19-4" aria-hidden="true" tabindex="-1"></a>summary.height</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="example-answer.html#cb15-1" aria-hidden="true" tabindex="-1"></a>summary.height <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="example-answer.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(height_cm) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="example-answer.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  summary</span>
+<span id="cb15-4"><a href="example-answer.html#cb15-4" aria-hidden="true" tabindex="-1"></a>summary.height</span></code></pre></div>
 <pre><code>##    height_cm    
 ##  Min.   :150.0  
 ##  1st Qu.:165.0  

@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -224,6 +224,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.5" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>10.5</b> Get an overview of a dataset</a></li>
 <li class="chapter" data-level="10.6" data-path="tutorial-practice-activities.html"><a href="tutorial-practice-activities.html"><i class="fa fa-check"></i><b>10.6</b> Tutorial practice activities</a></li>
 </ul></li>
+<li class="chapter" data-level="11" data-path="vis-describe.html"><a href="vis-describe.html"><i class="fa fa-check"></i><b>11</b> Visualizing a single variable</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="vis-packages-data.html"><a href="vis-packages-data.html"><i class="fa fa-check"></i><b>11.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="11.2" data-path="vis-data-overview.html"><a href="vis-data-overview.html"><i class="fa fa-check"></i><b>11.2</b> Get an overview of the data</a></li>
+<li class="chapter" data-level="11.3" data-path="vis-cat-freq-table.html"><a href="vis-cat-freq-table.html"><i class="fa fa-check"></i><b>11.3</b> Create a frequency table</a></li>
+<li class="chapter" data-level="11.4" data-path="vis-cat-barchart.html"><a href="vis-cat-barchart.html"><i class="fa fa-check"></i><b>11.4</b> Create a bar graph</a></li>
+<li class="chapter" data-level="11.5" data-path="vis-histogram.html"><a href="vis-histogram.html"><i class="fa fa-check"></i><b>11.5</b> Create a histogram</a></li>
+<li class="chapter" data-level="11.6" data-path="describing-a-histogram-vis-describe-hist.html"><a href="describing-a-histogram-vis-describe-hist.html"><i class="fa fa-check"></i><b>11.6</b> Describing a histogram (#vis_describe_hist)</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
 <ul>
 <li class="chapter" data-level="" data-path="a-more-familiar-editing-environment.html"><a href="a-more-familiar-editing-environment.html"><i class="fa fa-check"></i>A more familiar editing environment</a></li>
@@ -267,15 +276,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="import_csv_url" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Import a CSV file from a website</h2>
 <p>In previous tutorials we’ve already seen how to import CSV files from the web. As always, the first step is to load the <code>tidyverse</code> library, because it includes many packages and functions that are handy for both data import and data wrangling.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="import-csv-url.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="import-csv-url.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>One package that is loaded with the <code>tidyverse</code> package is <code>readr</code>, which includes the handy <code>read_csv</code> function.</p>
 <p>You can view the help file for the <code>read_csv</code> function by typing this into your command console pane (bottom left) in RStudio:</p>
 <pre><code>?read_csv</code></pre>
 <p>You’ll see that the function has many optional “arguments,” but in general we can use the default values for these.</p>
 <p>If the file you wish to import is located on the web, then we need to provide the “URL” (the web address) to the <code>read_csv</code> function. For example, in <a href="%60%60%60%20example_data%20%3C-%20read_csv(%22https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv%22)%20%60%60%60">Tutorial 9 section 6</a> you imported the “students.csv” dataset from the course GitHub website, as follows:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="import-csv-url.html#cb23-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="import-csv-url.html#cb19-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   height_cm = col_double(),
 ##   head_circum_cm = col_double(),
@@ -287,6 +296,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## )</code></pre>
 <p>Note that the URL address is provided in double quotation marks.</p>
 <p>This code imports the data and stores it in a local object called “students.” The object is called a “tibble,” which you can think of as a special kind of spreadsheet. More information on “tibbles” can be found <a href="https://r4ds.had.co.nz/tibbles.html">here</a>.</p>
+<div class="note">
+<p><strong>NOTE</strong>
+Unless otherwise indicated, all CSV data files that we use in this course are stored at the same URL location, specifically: “<a href="https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/" class="uri">https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/</a>.” Thus, to import any CSV file you just need to copy that path, then append the appropriate file name to the end of the path. For example, the full path to access a CSV file called <code>birds.csv</code> file would be “<a href="https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv" class="uri">https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv</a>.”</p>
+</div>
 <p>Often you’ll need to import data from a locally stored CSV file, rather than from the web. You’ll learn how to do this <a href="import-csv-local.html#import_csv_local">shortly</a>. First: how does one create a CSV file?</p>
 </div>
             </section>
