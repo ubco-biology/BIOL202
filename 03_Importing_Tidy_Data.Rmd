@@ -133,7 +133,7 @@ library(here)
 ```
 
 <div class="note">
-**New tool** 
+**New tool**  
 Pipes or "%>%" are implemented as part of the `magrittr` package, which is loaded with the `tidyverse`. In brief, pipes allow us to string together a series of functions, and we'll use them frequently in tutorials.
 </div>
 
