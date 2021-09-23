@@ -59,20 +59,17 @@ penguins %>%
   skim_without_charts()
 ```
 
-Optionally, we can also get a view of the first 6 rows of the tibble using the `head` function:
+Optionally, we can also get a view of the first handful of rows of a tibble by simply typing the name of the object on its own, and hitting return:
 
 ```{r vis1_head}
-penguins %>%
-  head()
+penguins 
 ```
-
-You could also look at *all* of the data frame at once by typing its name into the command console and pressing return, but that is not advisable, as you could get reams of output thrown at you if you're dealing with a large dataset! It's better to take a small peek at the data with `head`.
 
 In a [previous tutorial](#data_overview) you learned the important information to look for when getting an overview of a dataset using the `skim_without_charts` function.
 
 <div class="note">
 **TIP**
-It's important to check whether there are any missing values for any of the variables in your dataset. In the `penguins` dataset, you'll see that there are 344 cases (rows), but (as an example) there are 2 missing values for each of the 4 morphometric variables, including body mass. **You need to take note of this so that you report the correct sample sizes in any table or figure captions!**
+It's important to check whether there are any missing values for any of the variables in your dataset. In the `penguins` dataset, you'll see from the `skim_without_charts` output that there are 344 cases (rows), but (as an example) there are 2 missing values for each of the 4 morphometric variables, including body mass. **You need to take note of this so that you report the correct sample sizes in any table or figure captions!**
 </div>
 
 Once you have gotten an overview your dataset's structure and contents, the next order of business is always to _visualize_ your data using graphs and sometimes tables. 

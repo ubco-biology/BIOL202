@@ -649,23 +649,26 @@ year
 </tr>
 </tbody>
 </table>
-<p>Optionally, we can also get a view of the first 6 rows of the tibble using the <code>head</code> function:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="vis-data-overview.html#cb30-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb30-2"><a href="vis-data-overview.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 8
-##   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
-##   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
-## 1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
-## 2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
-## 3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
-## 4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
-## 5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
-## 6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007</code></pre>
-<p>You could also look at <em>all</em> of the data frame at once by typing its name into the command console and pressing return, but that is not advisable, as you could get reams of output thrown at you if you’re dealing with a large dataset! It’s better to take a small peek at the data with <code>head</code>.</p>
+<p>Optionally, we can also get a view of the first handful of rows of a tibble by simply typing the name of the object on its own, and hitting return:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="vis-data-overview.html#cb30-1" aria-hidden="true" tabindex="-1"></a>penguins </span></code></pre></div>
+<pre><code>## # A tibble: 344 x 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
+##  2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
+##  3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
+##  4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
+##  5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
+##  6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007
+##  7 Adelie  Torgersen           38.9          17.8               181        3625 female  2007
+##  8 Adelie  Torgersen           39.2          19.6               195        4675 male    2007
+##  9 Adelie  Torgersen           34.1          18.1               193        3475 &lt;NA&gt;    2007
+## 10 Adelie  Torgersen           42            20.2               190        4250 &lt;NA&gt;    2007
+## # … with 334 more rows</code></pre>
 <p>In a <a href="data-overview.html#data_overview">previous tutorial</a> you learned the important information to look for when getting an overview of a dataset using the <code>skim_without_charts</code> function.</p>
 <div class="note">
 <p><strong>TIP</strong>
-It’s important to check whether there are any missing values for any of the variables in your dataset. In the <code>penguins</code> dataset, you’ll see that there are 344 cases (rows), but (as an example) there are 2 missing values for each of the 4 morphometric variables, including body mass. <strong>You need to take note of this so that you report the correct sample sizes in any table or figure captions!</strong></p>
+It’s important to check whether there are any missing values for any of the variables in your dataset. In the <code>penguins</code> dataset, you’ll see from the <code>skim_without_charts</code> output that there are 344 cases (rows), but (as an example) there are 2 missing values for each of the 4 morphometric variables, including body mass. <strong>You need to take note of this so that you report the correct sample sizes in any table or figure captions!</strong></p>
 </div>
 <p>Once you have gotten an overview your dataset’s structure and contents, the next order of business is always to <em>visualize</em> your data using graphs and sometimes tables.</p>
 <ol style="list-style-type: decimal">
