@@ -2,6 +2,7 @@
 
 ```{r echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+options(knitr.table.format = "html")
 ```
 
 **Tutorial learning objectives**
@@ -76,7 +77,13 @@ It's important to check whether there are any missing values for any of the vari
 
 Once you have gotten an overview your dataset's structure and contents, the next order of business is always to _visualize_ your data using graphs and sometimes tables. 
 
-1. Following instructions provided in previous tutorials, import the `tigerdeaths.csv` and `birds.csv` datasets, and get an overview of each of those datasets.
+* * *
+
+1.    Import and data overview
+
+Following the instructions provided in previous tutorials, import the `tigerdeaths.csv` and `birds.csv` datasets, and get an overview of each of those datasets.
+
+* * *
 
 ## Create a frequency table {#vis_cat_freq_table}
 
@@ -133,7 +140,13 @@ Notice that this produces a nicely formatted table with an appropriately worded 
 
 You now know how to create a frequency table for a categorical variable!
 
-2. Try creating a frequency table using the `birds` dataset, which includes data about four types of birds observed at a wetland.
+* * *
+
+2. Frequency table
+
+Try creating a frequency table using the `birds` dataset, which includes data about four types of birds observed at a wetland.
+
+* * *
 
 ## Create a bar graph {#vis_cat_barchart}
 
@@ -174,7 +187,13 @@ There you have it: a nicely formatted bar graph!
 knitr::include_graphics("./more/bar_graph_chunk.png")
 ```
 
-3. Try creating a bar graph using the `birds` dataset, which includes data about four types of birds observed at a wetland.
+* * *
+
+3. Bar graph
+
+Try creating a bar graph using the `birds` dataset, which includes data about four types of birds observed at a wetland.
+
+* * *
 
 ## Create a histogram {#vis_histogram}
 

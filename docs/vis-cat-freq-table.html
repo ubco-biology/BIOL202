@@ -303,68 +303,133 @@ Try figuring out how you would change the last line of code in the chunk above s
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="vis-cat-freq-table.html#cb34-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="sc">%&gt;%</span></span>
 <span id="cb34-2"><a href="vis-cat-freq-table.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:unnamed-chunk-21">Table 11.1: </span>Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006</caption>
+<caption>
+<span id="tab:unnamed-chunk-21">Table 11.1: </span>Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006
+</caption>
 <thead>
-<tr class="header">
-<th align="left">activity</th>
-<th align="right">n</th>
-<th align="right">relative_frequency</th>
+<tr>
+<th style="text-align:left;">
+activity
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+relative_frequency
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Grass/fodder</td>
-<td align="right">44</td>
-<td align="right">0.500</td>
+<tr>
+<td style="text-align:left;">
+Grass/fodder
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+0.500
+</td>
 </tr>
-<tr class="even">
-<td align="left">Forest products</td>
-<td align="right">11</td>
-<td align="right">0.125</td>
+<tr>
+<td style="text-align:left;">
+Forest products
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+0.125
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Fishing</td>
-<td align="right">8</td>
-<td align="right">0.091</td>
+<tr>
+<td style="text-align:left;">
+Fishing
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+0.091
+</td>
 </tr>
-<tr class="even">
-<td align="left">Herding</td>
-<td align="right">7</td>
-<td align="right">0.080</td>
+<tr>
+<td style="text-align:left;">
+Herding
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+0.080
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Disturbing tiger kill</td>
-<td align="right">5</td>
-<td align="right">0.057</td>
+<tr>
+<td style="text-align:left;">
+Disturbing tiger kill
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.057
+</td>
 </tr>
-<tr class="even">
-<td align="left">Fuelwood/timber</td>
-<td align="right">5</td>
-<td align="right">0.057</td>
+<tr>
+<td style="text-align:left;">
+Fuelwood/timber
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.057
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Sleeping in house</td>
-<td align="right">3</td>
-<td align="right">0.034</td>
+<tr>
+<td style="text-align:left;">
+Sleeping in house
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.034
+</td>
 </tr>
-<tr class="even">
-<td align="left">Walking</td>
-<td align="right">3</td>
-<td align="right">0.034</td>
+<tr>
+<td style="text-align:left;">
+Walking
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.034
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Toilet</td>
-<td align="right">2</td>
-<td align="right">0.023</td>
+<tr>
+<td style="text-align:left;">
+Toilet
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.023
+</td>
 </tr>
 </tbody>
 </table>
 <p>The key argument to the <code>kable</code> function is the table object (which here we provide before the pipe), and the figure caption.</p>
 <p>Notice that this produces a nicely formatted table with an appropriately worded caption. The argument “digits = 3” tells it to return numeric values to 3 digits in the table.</p>
 <p>You now know how to create a frequency table for a categorical variable!</p>
+<hr />
 <ol start="2" style="list-style-type: decimal">
-<li>Try creating a frequency table using the <code>birds</code> dataset, which includes data about four types of birds observed at a wetland.</li>
+<li>Frequency table</li>
 </ol>
+<p>Try creating a frequency table using the <code>birds</code> dataset, which includes data about four types of birds observed at a wetland.</p>
+<hr />
 </div>
             </section>
 
