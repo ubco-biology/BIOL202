@@ -19,7 +19,7 @@ In this tutorial you will:
 
 How to best visualize data depends upon (i) whether the data are **categorical** or **numerical**, and (ii) whether you're visualizing one variable or associations between two variables (we don't cover how to visualize associations between more than two variables). This tutorial focuses on visualizing a single variable. 
 
-When visualizing a describing a single variable, we aim to visualize a **frequency distribution**. A frequency distribution is the frequency with which unique data values occur in the dataset.
+When visualizing a single variable, we aim to visualize a **frequency distribution**. A frequency distribution is the frequency with which unique data values occur in the dataset.
 
 * If the variable is categorical, we can visualize the frequency distribution using a **bar graph**
 * If the variable is numeric, we visualize the frequency distribution using a **histogram**
@@ -77,13 +77,7 @@ It's important to check whether there are any missing values for any of the vari
 
 Once you have gotten an overview your dataset's structure and contents, the next order of business is always to _visualize_ your data using graphs and sometimes tables. 
 
-* * *
-
-1.    Import and data overview
-
-Following the instructions provided in previous tutorials, import the `tigerdeaths.csv` and `birds.csv` datasets, and get an overview of each of those datasets.
-
-* * *
+1.  **Import and data overview:** Following the instructions provided in previous tutorials, import the `tigerdeaths.csv` and `birds.csv` datasets, and get an overview of each of those datasets.
 
 ## Create a frequency table {#vis_cat_freq_table}
 
@@ -140,13 +134,7 @@ Notice that this produces a nicely formatted table with an appropriately worded 
 
 You now know how to create a frequency table for a categorical variable!
 
-* * *
-
-2. Frequency table
-
-Try creating a frequency table using the `birds` dataset, which includes data about four types of birds observed at a wetland.
-
-* * *
+2. **Frequency table**: Try creating a frequency table using the `birds` dataset, which includes data about four types of birds observed at a wetland.
 
 ## Create a bar graph {#vis_cat_barchart}
 
@@ -187,13 +175,7 @@ There you have it: a nicely formatted bar graph!
 knitr::include_graphics("./more/bar_graph_chunk.png")
 ```
 
-* * *
-
-3. Bar graph
-
-Try creating a bar graph using the `birds` dataset, which includes data about four types of birds observed at a wetland.
-
-* * *
+3. **Bar graph**: Try creating a bar graph using the `birds` dataset, which includes data about four types of birds observed at a wetland.
 
 ## Create a histogram {#vis_histogram}
 
@@ -269,5 +251,5 @@ ggplot(data = penguins, aes(x = body_mass_g)) +
 
 The histogram is moderately positively skewed, with a major mode near 3500g, and some smaller modes near 4700 and 5500 g. There are no apparent outliers.
 
-4. Create a histogram of the bill lengths of penguins in the `penguins` dataset, and include an appropriate figure caption. 
+4. **Histogram**: Create a histogram of the bill lengths of penguins in the `penguins` dataset, and include an appropriate figure caption. 
 
