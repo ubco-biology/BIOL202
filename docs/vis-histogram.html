@@ -314,7 +314,7 @@ Figure 11.3: Histogram of body mass (g) for 342 penguins
 Figure 11.4: Histogram of body mass (g) for 342 penguins
 </p>
 </div>
-<p>Hmm, that is lumping the data too much, and not giving enough detail about the distribution. Let’s try a bin width of 250 g:</p>
+<p>Hmm, that histogram is ok, but perhaps not giving enough detail about the distribution. Let’s try a bin width of 250 g:</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="vis-histogram.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
 <span id="cb40-2"><a href="vis-histogram.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">250</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>) <span class="sc">+</span></span>
 <span id="cb40-3"><a href="vis-histogram.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
@@ -326,7 +326,7 @@ Figure 11.4: Histogram of body mass (g) for 342 penguins
 Figure 11.5: Histogram of body mass (g) for 342 penguins
 </p>
 </div>
-<p>That’s much better!</p>
+<p>This histogram is OK too… it’s really more of an art than science. The key point is to not have too few observations falling within each bin, and not to have too many; you want to get a sense of the overall frequency distribution of the data. Regardless, whatever histogram you produce, you should be able to describe what you see…</p>
 </div>
             </section>
 
