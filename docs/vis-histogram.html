@@ -302,31 +302,58 @@ Figure 11.3: Histogram of body mass (g) for 342 penguins
 <p>You can also specify the “bin width” that <code>geom_histogram</code> uses when generating the histogram. Notice above that we got a message stating:</p>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p>It’s telling us that there’s probably a better bin width to use. The trick is to not have to small a bin width, such that you end up with too many bars in your histogram (giving too much detail in the frequency distribution), and to not have too large a bin width such that you have too few bars in your histogram (giving too little detail).</p>
-<p>Looking at the previous histogram, we could try using a bid width of 500 g. We need to add the argument “binwidth” to the <code>geom_histogram</code> function, as follows:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="vis-histogram.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
-<span id="cb39-2"><a href="vis-histogram.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">500</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>) <span class="sc">+</span></span>
-<span id="cb39-3"><a href="vis-histogram.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb39-4"><a href="vis-histogram.html#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb39-5"><a href="vis-histogram.html#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p>The <code>hist</code> function that comes with base R (so no need to load a package) has an algorithm that typically chooses good bin widths. To remove some of the subjectivity from this procedure, let’s leverage that function to figure out the best bin widths.</p>
+<p>We’ll provide the code then explain after:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="vis-histogram.html#cb39-1" aria-hidden="true" tabindex="-1"></a>penguins.hist.info <span class="ot">&lt;-</span> <span class="fu">hist</span>(penguins<span class="sc">$</span>body_mass_g, <span class="at">plot =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>In the chunk above, we have:</p>
+<ul>
+<li>The “penguins.hist.info” is the name we’ll give to the object we’re going to create, and the assignment operator “&lt;-” is telling R to put whatever the output from the function is into that new object</li>
+<li>The <code>hist</code> function takes the variable you want to generate a histogram function for. And in this case, it’s the <code>body_mass_g</code> variable in the <code>penguins</code> tibble.</li>
+<li>The dollar sign allows you to specify the tibble name along with the variable name: “penguins$body_mass_g.”</li>
+<li>The “plot = FALSE” tells the function we don’t wish to produce the actual histogram, and as a consequence the function instead gives us the information that would have gone into creating the histogram, including for example the break points for the histogram bins. It packages this information in the form of a “list,” which is one type of object.</li>
+</ul>
+<p>Let’s look at the info stored in the list object:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="vis-histogram.html#cb40-1" aria-hidden="true" tabindex="-1"></a>penguins.hist.info</span></code></pre></div>
+<pre><code>## $breaks
+## [1] 2500 3000 3500 4000 4500 5000 5500 6000 6500
+## 
+## $counts
+## [1] 11 67 92 57 54 33 26  2
+## 
+## $density
+## [1] 6.432749e-05 3.918129e-04 5.380117e-04 3.333333e-04 3.157895e-04 1.929825e-04 1.520468e-04 1.169591e-05
+## 
+## $mids
+## [1] 2750 3250 3750 4250 4750 5250 5750 6250
+## 
+## $xname
+## [1] &quot;penguins$body_mass_g&quot;
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;histogram&quot;</code></pre>
+<p>We won’t worry about all the information provided here. Instead just notice that the first variable in the list is “breaks.” Specifically, this provides us all the “break points” for the histogram for the given variable; break points are the values that delimit the bins for the histogram bars.</p>
+<p>That’s the information we can use to get the ideal bin width: the difference between consecutive breaks is our desired bin width!</p>
+<p>In this example it’s easy to see that the bin width was 500. But lets provide code to calculate it and thus make sure it’s reproducible. We simply need to calculate the difference between any two consecutive break points (they will all be equal in magnitude):</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="vis-histogram.html#cb42-1" aria-hidden="true" tabindex="-1"></a>penguins.hist.info<span class="sc">$</span>breaks[<span class="dv">2</span>] <span class="sc">-</span> penguins.hist.info<span class="sc">$</span>breaks[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 500</code></pre>
+<p>The above code simply asks R to calculate the difference (using the subtraction sign) between the second element of the “breaks” variable, denoted using the square brackets “breaks[2],” and the first element “breaks[2].”</p>
+<p>And R returns 500. That’s the bin width we want to use!</p>
+<p>So let’s edit the original histogram code to include the “binwidth” argument in the <code>geom_histogram</code> function, as follows:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="vis-histogram.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb44-2"><a href="vis-histogram.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">500</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="vis-histogram.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="vis-histogram.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="vis-histogram.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-25"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-25-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
 <p class="caption">
 Figure 11.4: Histogram of body mass (g) for 342 penguins
 </p>
 </div>
-<p>Hmm, that histogram is ok, but perhaps not giving enough detail about the distribution. Let’s try a bin width of 250 g:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="vis-histogram.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
-<span id="cb40-2"><a href="vis-histogram.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">250</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>) <span class="sc">+</span></span>
-<span id="cb40-3"><a href="vis-histogram.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb40-4"><a href="vis-histogram.html#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb40-5"><a href="vis-histogram.html#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-26"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-26-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
-<p class="caption">
-Figure 11.5: Histogram of body mass (g) for 342 penguins
-</p>
-</div>
-<p>This histogram is OK too… it’s really more of an art than science. The key point is to not have too few observations falling within each bin, and not to have too many; you want to get a sense of the overall frequency distribution of the data. Regardless, whatever histogram you produce, you should be able to describe what you see…</p>
+<p>There we go! Now we need to learn how to describe and interpret a histogram…</p>
 </div>
             </section>
 

@@ -205,7 +205,42 @@ You can also specify the "bin width" that `geom_histogram` uses when generating 
 
 It's telling us that there's probably a better bin width to use. The trick is to not have to small a bin width, such that you end up with too many bars in your histogram (giving too much detail in the frequency distribution), and to not have too large a bin width such that you have too few bars in your histogram (giving too little detail). 
 
-Looking at the previous histogram, we could try using a bid width of 500 g. We need to add the argument "binwidth" to the `geom_histogram` function, as follows:
+The `hist` function that comes with base R (so no need to load a package) has an algorithm that typically chooses good bin widths.  To remove some of the subjectivity from this procedure, let's leverage that function to figure out the best bin widths.
+
+We'll provide the code then explain after:
+
+```{r vis1_get_hist_info}
+penguins.hist.info <- hist(penguins$body_mass_g, plot = FALSE)
+```
+
+In the chunk above, we have: 
+
+* The "penguins.hist.info" is the name we'll give to the object we're going to create, and the assignment operator "<-" is telling R to put whatever the output from the function is into that new object
+* The `hist` function takes the variable you want to generate a histogram function for. And in this case, it's the `body_mass_g` variable in the `penguins` tibble. 
+* The dollar sign allows you to specify the tibble name along with the variable name: "penguins$body_mass_g".
+* The "plot = FALSE" tells the function we don't wish to produce the actual histogram, and as a consequence the function instead gives us the information that would have gone into creating the histogram, including for example the break points for the histogram bins. It packages this information in the form of a "list", which is one type of object.
+
+Let's look at the info stored in the list object:
+
+```{r vis1_get_binwidths}
+penguins.hist.info
+```
+
+We won't worry about all the information provided here. Instead just notice that the first variable in the list is "breaks". Specifically, this provides us all the "break points" for the histogram for the given variable; break points are the values that delimit the bins for the histogram bars.  
+
+That's the information we can use to get the ideal bin width: the difference between consecutive breaks is our desired bin width!
+
+In this example it's easy to see that the bin width was 500.  But lets provide code to calculate it and thus make sure it's reproducible. We simply need to calculate the difference between any two consecutive break points (they will all be equal in magnitude):
+
+```{r vis1_break_calc}
+penguins.hist.info$breaks[2] - penguins.hist.info$breaks[1]
+```
+
+The above code simply asks R to calculate the difference (using the subtraction sign) between the second element of the "breaks" variable, denoted using the square brackets "breaks[2]", and the first element "breaks[2]". 
+
+And R returns `r penguins.hist.info$breaks[2] - penguins.hist.info$breaks[1]`.  That's the bin width we want to use!
+
+So let's edit the original histogram code to include the "binwidth" argument in the `geom_histogram` function, as follows:
 
 ```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
@@ -215,17 +250,7 @@ ggplot(data = penguins, aes(x = body_mass_g)) +
   theme_bw()
 ```
 
-Hmm, that histogram is ok, but perhaps not giving enough detail about the distribution. Let's try a bin width of 250 g:
-
-```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
-ggplot(data = penguins, aes(x = body_mass_g)) +
-  geom_histogram(binwidth = 250, colour = "black", fill = "lightgrey") +
-  xlab("Body mass (g)") +
-  ylab("Frequency") +
-  theme_bw()
-```
-
-This histogram is OK too... it's really more of an art than science. The key point is to not have too few observations falling within each bin, and not to have too many; you want to get a sense of the overall frequency distribution of the data.  Regardless, whatever histogram you produce, you should be able to describe what you see...
+There we go! Now we need to learn how to describe and interpret a histogram...
 
 ## Describing a histogram {#vis_describe_hist}
 
@@ -240,13 +265,13 @@ So, let's look again at the penguin body mass histogram, and provide a descripti
 
 ```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
-  geom_histogram(binwidth = 250, colour = "black", fill = "lightgrey") +
+  geom_histogram(binwidth = 500, colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
   ylab("Frequency") +
   theme_bw()
 ```
 
-The histogram is moderately positively skewed, with a major mode near 3500g, and some smaller modes near 4700 and 5500 g. There are no apparent outliers.
+The histogram is moderately positively skewed and thus asymmetric, with a single mode near 3500g. There are no obvious outliers in the distribution. 
 
 4. **Histogram**: Create a histogram of the bill lengths of penguins in the `penguins` dataset, and include an appropriate figure caption. 
 
