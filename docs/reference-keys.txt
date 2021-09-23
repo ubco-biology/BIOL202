@@ -55,4 +55,4 @@ vis_data_overview
 vis_cat_freq_table
 vis_cat_barchart
 vis_histogram
-describing-a-histogram-vis_describe_hist
+vis_describe_hist

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.1 Microsoft OneDrive | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>11.6 Describing a histogram | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.1 Microsoft OneDrive | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="11.6 Describing a histogram | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.1 Microsoft OneDrive | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="11.6 Describing a histogram | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="biol202-workflow.html"/>
-<link rel="next" href="dir-structure.html"/>
+<link rel="prev" href="vis-histogram.html"/>
+<link rel="next" href="visual-markdown-editor.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -273,29 +273,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="onedrive" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Microsoft OneDrive</h2>
-<p>Our suggested approach assumes you have set up a Microsoft account through UBC (using your CWL), and have set up the OneDrive application on your own computer, which automatically syncs (when you’re online) selected files/directories between your local computer and your OneDrive account in the cloud.</p>
-<p>Why OneDrive? As a UBC student, you receive 1TB of free storage! And you also get peace of mind knowing that your files are secure and up-to-date (provided you have an internet connection), and that OneDrive has something called “version control,” which saves old versions of files and allows you to see those versions if you wish, <strong>so long as you maintain the same file name</strong>.</p>
-<div class="note">
-<p><strong>WAIT A SECOND!</strong>
-In the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/file-naming.html">“File Naming”</a> instructions that I just reviewed, I was instructed to create a new file with a new version number in the filename (e.g. with a “V0,” “V1,” “V2” etc…) each time I worked on it!</p>
+<div id="vis_describe_hist" class="section level2" number="11.6">
+<h2><span class="header-section-number">11.6</span> Describing a histogram</h2>
+<p>Things to note in your description of a histogram:</p>
+<ul>
+<li>Is it roughly symmetric or is it negatively or positively skewed?</li>
+<li>Is it roughly bell-shaped?</li>
+<li>Outliers - are there observations (bars) showing up far from the others?</li>
+<li>Are there multiple modes?</li>
+</ul>
+<p>So, let’s look again at the penguin body mass histogram, and provide a description thereafter:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="vis-describe-hist.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb41-2"><a href="vis-describe-hist.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">250</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb41-3"><a href="vis-describe-hist.html#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb41-4"><a href="vis-describe-hist.html#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="vis-describe-hist.html#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure">
+<img src="BIOL202-github_files/figure-html/vis1_hist_penguins3-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
+<p class="caption">
+(#fig:vis1_hist_penguins3)Histogram of body mass (g) for 342 penguins
+</p>
 </div>
-<p>Those instructions are entirely valid! However, when you have access to a <em>version control</em> system, like OneDrive, it is better to <strong>keep the file name the same</strong>, rather than changing it each time you update it. For example, your markdown file (which as a “.Rmd” extension to the name) that you use for your tutorial work should maintain the same name throughout the term, rather than saving a new file each time you do substantive work on it.</p>
-<p>Assuming your files are syncing properly between your computer and OneDrive (and this simply requires that you’re connected to the internet), you will always be able to <a href="https://support.microsoft.com/en-us/office/restore-a-previous-version-of-a-file-stored-in-onedrive-159cad6d-d76e-4981-88ef-de6e96c93893">see (and if desired, restore) old versions of your files</a>.</p>
-<p>If you haven’t set up OneDrive yet, follow the instructions provided at this <a href="https://lthub.ubc.ca/guides/microsoft-onedrive-student-guide/">UBC IT website</a>.</p>
-<div class="note">
-<p><strong>Note</strong>
-Using OneDrive is entirely optional. If you choose not to use OneDrive, please follow the file naming instructions from the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/file-naming.html">Procedures and Guidelines document</a>. And you can still follow the directory structure instructions below, regardless of where you set up your directories (OneDrive or not).</p>
+<p>The histogram is moderately positively skewed, with a major mode near 3500g, and some smaller modes near 4700 and 5500 g. There are no apparent outliers.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Create a histogram of the bill lengths of penguins in the <code>penguins</code> dataset, and include an appropriate figure caption.</li>
+</ol>
+
 </div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="biol202-workflow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dir-structure.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="vis-histogram.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visual-markdown-editor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

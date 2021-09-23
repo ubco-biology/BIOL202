@@ -173,7 +173,7 @@ We'll use `ggplot` to create a histogram, and we'll again use the `penguins` dat
 
 We'll give the code first, then explain below: 
 
-```{r vis1_hist_penguins, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 4, warning = FALSE}
+```{r vis1_hist_penguins, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
@@ -198,7 +198,7 @@ It's telling us that there's probably a better bin width to use. The trick is to
 
 Looking at the previous histogram, we could try using a bid width of 500 g. We need to add the argument "binwidth" to the `geom_histogram` function, as follows:
 
-```{r vis1_hist_penguins1, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 4, warning = FALSE}
+```{r vis1_hist_penguins1, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 500, colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
@@ -208,7 +208,7 @@ ggplot(data = penguins, aes(x = body_mass_g)) +
 
 Hmm, that is lumping the data too much, and not giving enough detail about the distribution. Let's try a bin width of 250 g:
 
-```{r vis1_hist_penguins2, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 4, warning = FALSE}
+```{r vis1_hist_penguins2, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 250, colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
@@ -229,7 +229,7 @@ Things to note in your description of a histogram:
 
 So, let's look again at the penguin body mass histogram, and provide a description thereafter:
 
-```{r vis1_hist_penguins3, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 4, warning = FALSE}
+```{r vis1_hist_penguins3, fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 250, colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
