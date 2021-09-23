@@ -273,5 +273,5 @@ ggplot(data = penguins, aes(x = body_mass_g)) +
 
 The histogram is moderately positively skewed and thus asymmetric, with a single mode near 3500g. There are no obvious outliers in the distribution. 
 
-4. **Histogram**: Create a histogram of the bill lengths of penguins in the `penguins` dataset, and include an appropriate figure caption. 
+4. **Histogram**: Create a histogram of the bill lengths of penguins in the `penguins` dataset, and include an appropriate figure caption. Then provide a description of what you see.
 
