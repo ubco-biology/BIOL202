@@ -83,7 +83,7 @@ Where $$n_i$$ is the frequency of observations in the given category of interest
 Proportions, and thus relative frequencies, must be between 0 and 1.
 </div>
 
-## Describing a single numerical variable {#desc_numeric_var}
+## Describing a numerical variable {#desc_numeric_var}
 
 Numeric variables are described with measures of **centre** and **spread**.
 
