@@ -65,7 +65,7 @@ vis_histogram
 vis_describe_hist
 vis_describe
 desc_packages_data
-calculating-descriptive-statistics-for-a-categorical-variable
+desc_cat_Var
 desc_numeric_var
 median_IQR
 mean_sd

@@ -42,7 +42,7 @@ We will use the following datasets in this tutorial:
 birds <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv")
 ```
 
-## Calculating descriptive statistics for a categorical variable
+## Describing a categorical variable {#desc_cat_Var}
 
 The *proportion* is the most important descriptive statistic for a categorical variable.  It measures the fraction of observations in a given category within a categorical variable. 
 
