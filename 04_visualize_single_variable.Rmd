@@ -1,6 +1,6 @@
 # (PART\*) Visualizing and Describing Data {-}
 
-# Visualizing a single variable {#vis_describe}
+# Visualizing a single variable {#vis_variable}
 
 ```{r echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -43,7 +43,7 @@ And we will use the following datasets in this tutorial:
 
 * the `penguins` dataset that is available as part of the `palmerpenguins` package
 * the `tigerdeaths.csv` file contains data associated with example 2.2A in the Whitlock and Schluter text
-* the `birds.csv` file contains counts of different categories of bird from a marsh habitat
+* the `birds.csv` file contains counts of different categories of bird observed at a marsh habitat
 
 <div class="note">
 **NOTE**
@@ -122,7 +122,7 @@ In a supplementary tutorial, you'll find instructions on how to create nicely fo
 
 For now, let's go ahead and use the `kable` function that comes with the `knitr` package, using the pipe approach:
 
-```{r}
+```{r vis_tigertable}
 tiger.table %>%
   kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)
 ```
@@ -158,7 +158,7 @@ All figures produced using the `ggplot2` package start with the `ggplot` functio
 
 * The tibble (or dataframe) that holds the data ("data = tiger.table")
 * An "aes" argument (which stands for "aesthetics"), within which one specifies the variables to be plotted; here we're plotting the frequencies from the "n" variable in the frequency table as the "y" variable, and the "activity" categorical variable as the "x" variable. To ensure the proper sorting of the bars, we use the `reorder` function, telling R to reorder the `activity` categories according to the frequencies in the `n` variable
-* Then there's a plus sign to tell ggplot we're not done yet with our graph - there are more functions coming (think of it as ggplot's version of the "pipe")
+* Then there's a plus sign ("+") to tell the `ggplot` function we're not done yet with our graph - there are more lines of code coming (think of it as ggplot's version of the "pipe")
 * Then the type of graph, which uses a function starting with "geom"; here we want a bar graph, hence `geom_bar`
 * The `geom_bar` function has its own argument: "stat = 'identity'" tells it just to make the height of the bars equal to the values provided in the "y" variable, here `n`.
 * The `ylab` function sets the y-axis label
@@ -266,6 +266,7 @@ Things to note in your description of a histogram:
 So, let's look again at the penguin body mass histogram, and provide a description thereafter:
 
 ```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
+
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 500, colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
@@ -275,5 +276,5 @@ ggplot(data = penguins, aes(x = body_mass_g)) +
 
 The histogram is moderately positively skewed and thus asymmetric, with a single mode near 3500g. There are no obvious outliers in the distribution. 
 
-4. **Histogram**: Create a histogram of the bill lengths of penguins in the `penguins` dataset, and include an appropriate figure caption. Then provide a description of what you see.
+1. **Histogram**: Create a histogram of the bill lengths of penguins in the `penguins` dataset, and include an appropriate figure caption. Then provide a description of what you see.
 

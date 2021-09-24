@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-09-23" />
+<meta name="date" content="2021-09-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.6" data-path="tutorial-practice-activities.html"><a href="tutorial-practice-activities.html"><i class="fa fa-check"></i><b>10.6</b> Tutorial practice activities</a></li>
 </ul></li>
 <li class="part"><span><b>Visualizing and Describing Data</b></span></li>
-<li class="chapter" data-level="11" data-path="vis-describe.html"><a href="vis-describe.html"><i class="fa fa-check"></i><b>11</b> Visualizing a single variable</a>
+<li class="chapter" data-level="11" data-path="vis-variable.html"><a href="vis-variable.html"><i class="fa fa-check"></i><b>11</b> Visualizing a single variable</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="vis-packages-data.html"><a href="vis-packages-data.html"><i class="fa fa-check"></i><b>11.1</b> Load packages and import data</a></li>
 <li class="chapter" data-level="11.2" data-path="vis-data-overview.html"><a href="vis-data-overview.html"><i class="fa fa-check"></i><b>11.2</b> Get an overview of the data</a></li>
@@ -233,6 +233,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.4" data-path="vis-cat-barchart.html"><a href="vis-cat-barchart.html"><i class="fa fa-check"></i><b>11.4</b> Create a bar graph</a></li>
 <li class="chapter" data-level="11.5" data-path="vis-histogram.html"><a href="vis-histogram.html"><i class="fa fa-check"></i><b>11.5</b> Create a histogram</a></li>
 <li class="chapter" data-level="11.6" data-path="vis-describe-hist.html"><a href="vis-describe-hist.html"><i class="fa fa-check"></i><b>11.6</b> Describing a histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="vis-describe.html"><a href="vis-describe.html"><i class="fa fa-check"></i><b>12</b> Describing a single variable</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="desc-packages-data.html"><a href="desc-packages-data.html"><i class="fa fa-check"></i><b>12.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="12.2" data-path="calculating-descriptive-statistics-for-a-categorical-variable.html"><a href="calculating-descriptive-statistics-for-a-categorical-variable.html"><i class="fa fa-check"></i><b>12.2</b> Calculating descriptive statistics for a categorical variable</a></li>
+<li class="chapter" data-level="12.3" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html"><i class="fa fa-check"></i><b>12.3</b> Describing a single numerical variable</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html#median_IQR"><i class="fa fa-check"></i><b>12.3.1</b> Calculating the median &amp; IQR</a></li>
+<li class="chapter" data-level="12.3.2" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html#mean_sd"><i class="fa fa-check"></i><b>12.3.2</b> Calculating the mean &amp; standard deviation</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
 <ul>
@@ -624,6 +634,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

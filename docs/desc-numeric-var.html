@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>12.3 Describing a single numerical variable | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="12.3 Describing a single numerical variable | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="12.3 Describing a single numerical variable | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="author.html"/>
+<link rel="prev" href="calculating-descriptive-statistics-for-a-categorical-variable.html"/>
+<link rel="next" href="visual-markdown-editor.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -284,23 +284,166 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Tutorials for BIOL202: Introduction to Biostatistics</h1>
-<p class="author"><em>Jason Pither</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2021-09-24</em></p>
+<div id="desc_numeric_var" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Describing a single numerical variable</h2>
+<p>Numeric variables are described with measures of <strong>centre</strong> and <strong>spread</strong>.</p>
+<p>Before calculating descriptive statistics for a numeric variable, it is advisable to visualize its frequency distribution first. Why? Because characteristics of the frequency distribution will govern which measures of centre and spread are more reliable or representative.</p>
+<ul>
+<li><p>If the frequency distribution is roughly symmetric and does not have any obvious outliers, then the <strong>mean</strong> and the <strong>standard deviation</strong> are the preferred measures of centre and spread, respectively</p></li>
+<li><p>If the frequency distribution is asymmetric and / or has outliers, the <strong>median</strong> and the <strong>inter-quartile range</strong> (IQR) are the preferred measures of centre and spread</p></li>
+</ul>
+<p>It is often the case, however, that all four measures are presented together.</p>
+<div class="note">
+<p><strong>New tool</strong>
+Introducing the <code>summarise</code> function.</p>
 </div>
-<div id="welcome" class="section level1 unnumbered">
-<h1>Welcome</h1>
-<p>This is an open source online book that includes all tutorials and other resources for the “lab” portion of the course BIOL202: Introduction to Biostatistics, at the University of British Columbia, Okanagan campus.</p>
-<p>This book is <strong>currently under development, with sections being added weekly</strong>.</p>
+<p>The <code>dplyr</code> package, which is loaded with the <code>tidyverse</code>, has a handy <code>summarise</code> (equivalently <code>summarize</code>) function for calculating descriptive statistics.</p>
+<p>Check out its help file by copying the following code into your command console:</p>
+<pre><code>?summarise</code></pre>
+<p>Let’s use the <code>penguins</code> dataset for our demonstrations.</p>
+<p>The first step is to visualize the frequency distribution. Given that this is a numeric variable, we do this using a histogram, as we learned in a previous <a href="vis-histogram.html#vis_histogram">tutorial</a>.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="desc-numeric-var.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb55-2"><a href="desc-numeric-var.html#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">500</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-3"><a href="desc-numeric-var.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-4"><a href="desc-numeric-var.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb55-5"><a href="desc-numeric-var.html#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-27"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-27-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
+<p class="caption">
+Figure 12.1: Histogram of body mass (g) for 342 penguins
+</p>
 </div>
+<p>We are reminded that the distribution of body mass is moderately positively skewed and thus asymmetric, with a single mode near 3500g. There are no obvious outliers in the distribution.</p>
+<p>This means that the <strong>median</strong> and <strong>IQR</strong> should be the preferred descriptors of centre and spread, respectively.</p>
+<div id="median_IQR" class="section level3" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> Calculating the median &amp; IQR</h3>
+<p>So let’s calculate the median and IQR of body mass for all penguins. Let’s provide the code, then explain after:</p>
+<pre><code>penguins %&gt;%
+  summarise(
+   median_body_mass_g =  median(body_mass_g),
+   IQR_body_mass_g = IQR(body_mass_g)
+    )</code></pre>
+<p>Uh oh! If you tried to run this code, it would have given you an error:</p>
+<div class="figure"><span id="fig:unnamed-chunk-28"></span>
+<img src="more/na_error.png" alt="Error when functions encounter 'NA' values" width="648" />
+<p class="caption">
+Figure 12.2: Error when functions encounter ‘NA’ values
+</p>
+</div>
+<p>We forgot that when we <a href="vis-data-overview.html#vis_data_overview">previously</a> got an overview of the <code>penguins</code> dataset we discovered there were missing values (“NA” values)!</p>
+<div class="note">
+<p><strong>TIP</strong>
+If there are “NA” values in the variable being analyzed, some R functions, such as the function <code>median</code> or <code>mean</code>, will simply return “NA.” To remedy this, we use the “na.rm = TRUE” argument.</p>
+</div>
+<p>Let’s try our code again, adding the “na.rm = TRUE” argument. And note that the key functions called within the <code>summarise</code> function are <code>median</code> and <code>IQR</code> (case sensitive!).</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="desc-numeric-var.html#cb57-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb57-2"><a href="desc-numeric-var.html#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb57-3"><a href="desc-numeric-var.html#cb57-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">Median =</span>  <span class="fu">median</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb57-4"><a href="desc-numeric-var.html#cb57-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">InterQR =</span> <span class="fu">IQR</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb57-5"><a href="desc-numeric-var.html#cb57-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 2
+##   Median InterQR
+##    &lt;dbl&gt;   &lt;dbl&gt;
+## 1   4050    1200</code></pre>
+<p>In the preceding code chunk, we have:</p>
+<ul>
+<li>The name of the tibble (here <code>penguins</code>) being used in the subsequent functions</li>
+<li>A pipe "%&gt;% to tell R we’re not done coding</li>
+<li>The <code>summarise</code> function (<code>summarize</code> will work too), telling R we’re going to calculate a new variable</li>
+<li>The name we’ll give to the first variable we’re creating, here we call the variable “Median” (the “M” is capitalized to distinguish this variable name from the function <code>median</code>)</li>
+<li>And we define how to calculate the “Median,” here using the <code>median</code> function</li>
+<li>We feed the variable of interest from the <code>penguins</code> tibble, “body_mass_g,” to the <code>median</code> function, along with the argument “na.rm = TRUE”</li>
+<li>We end the line with a comma, telling R that we’re not done providing arguments to the <code>summarise</code> function</li>
+<li>We do the same for the inter-quartile range variable we’re creating called “InterQR,” calculating the value using the <code>IQR</code> function, and this time no comma at the end of the line, because this is the last argument being provided to the <code>summarise</code> function</li>
+<li>We close out the parentheses for the <code>summarise</code> function</li>
+</ul>
+</div>
+<div id="mean_sd" class="section level3" number="12.3.2">
+<h3><span class="header-section-number">12.3.2</span> Calculating the mean &amp; standard deviation</h3>
+<p>Although the median and IQR are the preferred descriptors for the <code>body_mass_g</code> variable, it is nonetheless commonplace to report the mean and standard deviation also.</p>
+<p>Let’s do this, and while we’re at it, include even more descriptors to illustrate how they’re calculated.</p>
+<p>This time we’ll put the output from our <code>summarise</code> function into a table, and then present it in a nice format, like we learned how to do for a <a href="vis-cat-freq-table.html#vis_cat_freq_table">frequency table</a>.</p>
+<p>Let’s create the table of descriptive statistics first, a tibble called “penguins.descriptors,” and we’ll describe what’s going on after:</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="desc-numeric-var.html#cb59-1" aria-hidden="true" tabindex="-1"></a>penguins.descriptors <span class="ot">&lt;-</span> <span class="fu">summarise</span>(penguins, </span>
+<span id="cb59-2"><a href="desc-numeric-var.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb59-3"><a href="desc-numeric-var.html#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">SD =</span> <span class="fu">sd</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb59-4"><a href="desc-numeric-var.html#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Median =</span> <span class="fu">median</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb59-5"><a href="desc-numeric-var.html#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">InterQR =</span> <span class="fu">IQR</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb59-6"><a href="desc-numeric-var.html#cb59-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g),</span>
+<span id="cb59-7"><a href="desc-numeric-var.html#cb59-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g))</span></code></pre></div>
+<p>The first 4 descriptive statistics are self-explanatory based on their variable names.</p>
+<p>The last two: “Count” and “Count_NA” are providing the total number of complete observations in the <code>body_mass_g</code> variable (thus the number of observations that went into calculating the descriptive statistics), and then the total number of missing values (NAs) in the variable, respectively.</p>
+<div class="note">
+<p><strong>TIP</strong>
+It is important to calculate the total number of complete observations in the variable of interest, because, as described in the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/figures-tables.html">Biology Procedures and Guidelines document</a>, this number needs to be reported in figure and table headings.</p>
+</div>
+<p>Now let’s show the table of descriptive statistics, using the <code>kable</code> function we learned about in a previous tutorial.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="desc-numeric-var.html#cb60-1" aria-hidden="true" tabindex="-1"></a>penguins.descriptors <span class="sc">%&gt;%</span></span>
+<span id="cb60-2"><a href="desc-numeric-var.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Descriptive statistics of measurements of body mass (g) for 342 penguins&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<table>
+<caption>
+(#tab:desc_bodymass)Descriptive statistics of measurements of body mass (g) for 342 penguins
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+SD
+</th>
+<th style="text-align:right;">
+Median
+</th>
+<th style="text-align:right;">
+InterQR
+</th>
+<th style="text-align:right;">
+Count
+</th>
+<th style="text-align:right;">
+Count_NA
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+4201.754
+</td>
+<td style="text-align:right;">
+801.955
+</td>
+<td style="text-align:right;">
+4050
+</td>
+<td style="text-align:right;">
+1200
+</td>
+<td style="text-align:right;">
+342
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+<p>There we have it!</p>
+<ol style="list-style-type: decimal">
+<li><strong>Descriptive statistics</strong>: Create a histogram and table of descriptive statistics for the “flipper_length_mm” variable in the <code>penguins</code> dataset.</li>
+</ol>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="author.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="calculating-descriptive-statistics-for-a-categorical-variable.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visual-markdown-editor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
