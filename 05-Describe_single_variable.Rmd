@@ -207,7 +207,10 @@ penguins.descriptors %>%
   kable(caption = "Descriptive statistics of measurements of body mass (g) for 342 penguins", digits = 3)
 ```
 
-There we have it!
+<div class="note">
+**NOTE**
+In another tutorial we'll learn how to present the table following all the guidelines in the Biology Guidelines and Procedures document, including, for example, significant digits. For now, the preceding table is good!
+</div>
 
 1. **Descriptive statistics**: Create a histogram and table of descriptive statistics for the "flipper_length_mm" variable in the `penguins` dataset.
 
