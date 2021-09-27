@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-09-25" />
+<meta name="date" content="2021-09-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -311,8 +311,6 @@ Try figuring out how you would change the last line of code in the chunk above s
 <p>Now that we’ve created the frequency table, let’s have a look at it.</p>
 <p>In a supplementary tutorial, you’ll find instructions on how to create nicely formatted tables for output with appropriate captions.</p>
 <p>For now, let’s go ahead and use the <code>kable</code> function that comes with the <code>knitr</code> package, using the pipe approach:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="vis-cat-freq-table.html#cb34-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="vis-cat-freq-table.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <caption>
 (#tab:vis_tigertable)Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006
@@ -432,6 +430,8 @@ Toilet
 </tr>
 </tbody>
 </table>
+<pre><code>tiger.table %&gt;%
+  kable(caption = &quot;Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006&quot;, digits = 3)</code></pre>
 <p>The key argument to the <code>kable</code> function is the table object (which here we provide before the pipe), and the figure caption.</p>
 <p>Notice that this produces a nicely formatted table with an appropriately worded caption. The argument “digits = 3” tells it to return numeric values to 3 digits in the table.</p>
 <p>You now know how to create a frequency table for a categorical variable!</p>
