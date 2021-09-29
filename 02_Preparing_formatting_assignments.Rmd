@@ -72,6 +72,13 @@ The "load_packages" text is simply giving a name or "tag" to this R chunk. It is
 
 After the comma is `message = FALSE`.  This tells R markdown to NOT display any messages associated with the R commands in this chunk when knitting the R Markdown document. For example, when loading some libraries R will provide a long list of messages in the process. When you "knit" the R Markdown document, R will run each R chunk in your document. By including the `message = FALSE` heading argument, you can avoid including this extra output in your knitted document.  
 
+<div class="note">
+**Note added Sept 27, 2021**
+The `message = FALSE` header argument is NOT something to include in all chunks by default. It should only be included if the code within the associated code chunk outputs a lot of unnecessary information that would otherwise clutter your knitted PDF document.
+</div>
+
+---
+
 There will be routine steps to take for each question. 
 
 **Import data**
