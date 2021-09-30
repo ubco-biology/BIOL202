@@ -270,7 +270,7 @@ Note that in the mosaic plot there are no number values provided on the y-axis. 
 
 Let's provide the mosaic plot again, and this time we'll provide an appropriate figure heading in the chunk header, as we [learned previously](#rmd_graphing):
 
-```{r mosaic_malaria2, fig.cap = "Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.", fig.width = 6, fig.height = 4}
+```{r mosaic_malaria2, fig.cap = "Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.", fig.width = 4, fig.height = 3}
 
 ggplot(data = bird.malaria) +
   geom_mosaic(aes(x = product(treatment), fill = response)) +
