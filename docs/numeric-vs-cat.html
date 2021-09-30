@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>13.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <meta name="description" content="All tutorials associated with BIOL202" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="13.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="All tutorials associated with BIOL202" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="13.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics" />
+  
+  <meta name="twitter:description" content="All tutorials associated with BIOL202" />
+  
+
+<meta name="author" content="Jason Pither" />
+
+
+<meta name="date" content="2021-09-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="two-numeric.html"/>
+<link rel="next" href="visual-markdown-editor.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMYRT2ND2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DVMYRT2ND2');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BIOL202 Tutorials</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>Preface</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>Author</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="" data-path="copyright.html"><a href="copyright.html"><i class="fa fa-check"></i>Copyright</a></li>
+</ul></li>
+<li class="part"><span><b>Getting started with R, RStudio &amp; R Markdown</b></span></li>
+<li class="chapter" data-level="1" data-path="what-is-R.html"><a href="what-is-R.html"><i class="fa fa-check"></i><b>1</b> What are R and RStudio?</a></li>
+<li class="chapter" data-level="2" data-path="install-R-Rstudio.html"><a href="install-R-Rstudio.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="3" data-path="start-r.html"><a href="start-r.html"><i class="fa fa-check"></i><b>3</b> Start using R &amp; RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="Rstudio-interface.html"><a href="Rstudio-interface.html"><i class="fa fa-check"></i><b>3.1</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="3.2" data-path="coding-basics.html"><a href="coding-basics.html"><i class="fa fa-check"></i><b>3.2</b> Coding basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>4</b> R packages</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="package-install.html"><a href="package-install.html"><i class="fa fa-check"></i><b>4.1</b> Package installation</a></li>
+<li class="chapter" data-level="4.2" data-path="package-load.html"><a href="package-load.html"><i class="fa fa-check"></i><b>4.2</b> Package loading</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro-markdown.html"><a href="intro-markdown.html"><i class="fa fa-check"></i><b>5</b> Intro to R Markdown</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="lit-programming.html"><a href="lit-programming.html"><i class="fa fa-check"></i><b>5.1</b> Literate programming with R Markdown</a></li>
+<li class="chapter" data-level="5.2" data-path="veryify-knit.html"><a href="veryify-knit.html"><i class="fa fa-check"></i><b>5.2</b> Making sure R Markdown knits to PDF</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-resources.html"><a href="r-resources.html"><i class="fa fa-check"></i><b>6</b> Extra online resources</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="online-resources.html"><a href="online-resources.html"><i class="fa fa-check"></i><b>6.1</b> R Resources Online</a></li>
+</ul></li>
+<li class="part"><span><b>Reproducible Workflows</b></span></li>
+<li class="chapter" data-level="7" data-path="repro-research.html"><a href="repro-research.html"><i class="fa fa-check"></i><b>7</b> Reproducible Research</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="comp-repro.html"><a href="comp-repro.html"><i class="fa fa-check"></i><b>7.1</b> Computational reproducibility</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="biol202-workflow.html"><a href="biol202-workflow.html"><i class="fa fa-check"></i><b>8</b> An example BIOL202 workflow</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="onedrive.html"><a href="onedrive.html"><i class="fa fa-check"></i><b>8.1</b> Microsoft OneDrive</a></li>
+<li class="chapter" data-level="8.2" data-path="dir-structure.html"><a href="dir-structure.html"><i class="fa fa-check"></i><b>8.2</b> Directory structure</a></li>
+<li class="chapter" data-level="8.3" data-path="setup-dirs.html"><a href="setup-dirs.html"><i class="fa fa-check"></i><b>8.3</b> Steps to set up directories</a></li>
+<li class="chapter" data-level="8.4" data-path="lecture-workflow.html"><a href="lecture-workflow.html"><i class="fa fa-check"></i><b>8.4</b> Lecture workflow</a></li>
+<li class="chapter" data-level="8.5" data-path="tutorial-workflow.html"><a href="tutorial-workflow.html"><i class="fa fa-check"></i><b>8.5</b> Tutorial workflow</a></li>
+<li class="chapter" data-level="8.6" data-path="create-project.html"><a href="create-project.html"><i class="fa fa-check"></i><b>8.6</b> Create an RStudio Project</a></li>
+<li class="chapter" data-level="8.7" data-path="create-subdirs.html"><a href="create-subdirs.html"><i class="fa fa-check"></i><b>8.7</b> Create subdirectories</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="create-subdirs.html"><a href="create-subdirs.html#here_package"><i class="fa fa-check"></i><b>8.7.1</b> The <code>here</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="edit-markdown.html"><a href="edit-markdown.html"><i class="fa fa-check"></i><b>8.8</b> Edit an R markdown file</a></li>
+<li class="chapter" data-level="8.9" data-path="md-components.html"><a href="md-components.html"><i class="fa fa-check"></i><b>8.9</b> Components of an R Markdown file</a></li>
+<li class="chapter" data-level="8.10" data-path="interact-tutorial.html"><a href="interact-tutorial.html"><i class="fa fa-check"></i><b>8.10</b> Interacting with Tutorial material</a></li>
+<li class="chapter" data-level="8.11" data-path="assign-workflow.html"><a href="assign-workflow.html"><i class="fa fa-check"></i><b>8.11</b> Lab assignments workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="prepare-assignments.html"><a href="prepare-assignments.html"><i class="fa fa-check"></i><b>9</b> Preparing and formatting assignments</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="open-assign-project1.html"><a href="open-assign-project1.html"><i class="fa fa-check"></i><b>9.1</b> Open your assignment RStudio project</a></li>
+<li class="chapter" data-level="9.2" data-path="download-assign-rmd.html"><a href="download-assign-rmd.html"><i class="fa fa-check"></i><b>9.2</b> Download the assignment Rmd file</a></li>
+<li class="chapter" data-level="9.3" data-path="open-rmd-file.html"><a href="open-rmd-file.html"><i class="fa fa-check"></i><b>9.3</b> Open the assignment Rmd file</a></li>
+<li class="chapter" data-level="9.4" data-path="what-include-answer.html"><a href="what-include-answer.html"><i class="fa fa-check"></i><b>9.4</b> What to include in your answers</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="what-include-answer.html"><a href="what-include-answer.html#chunk_headers"><i class="fa fa-check"></i><b>9.4.1</b> Code chunk headers</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="rmd-graphing.html"><a href="rmd-graphing.html"><i class="fa fa-check"></i><b>9.5</b> Setting up R Markdown for graphing</a></li>
+<li class="chapter" data-level="9.6" data-path="example-answer.html"><a href="example-answer.html"><i class="fa fa-check"></i><b>9.6</b> Example question / answer</a></li>
+<li class="chapter" data-level="9.7" data-path="knit-assign.html"><a href="knit-assign.html"><i class="fa fa-check"></i><b>9.7</b> Knitting your assignment to PDF</a></li>
+<li class="chapter" data-level="9.8" data-path="submit-rmd.html"><a href="submit-rmd.html"><i class="fa fa-check"></i><b>9.8</b> Submit your assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>10</b> Preparing and importing Tidy Data</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>10.1</b> Tidy data</a></li>
+<li class="chapter" data-level="10.2" data-path="import-csv-url.html"><a href="import-csv-url.html"><i class="fa fa-check"></i><b>10.2</b> Import a CSV file from a website</a></li>
+<li class="chapter" data-level="10.3" data-path="create-csv-local.html"><a href="create-csv-local.html"><i class="fa fa-check"></i><b>10.3</b> Create a CSV file</a></li>
+<li class="chapter" data-level="10.4" data-path="import-csv-local.html"><a href="import-csv-local.html"><i class="fa fa-check"></i><b>10.4</b> Import a local CSV file</a></li>
+<li class="chapter" data-level="10.5" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>10.5</b> Get an overview of a dataset</a></li>
+<li class="chapter" data-level="10.6" data-path="tutorial-practice-activities.html"><a href="tutorial-practice-activities.html"><i class="fa fa-check"></i><b>10.6</b> Tutorial practice activities</a></li>
+</ul></li>
+<li class="part"><span><b>Visualizing and Describing Data</b></span></li>
+<li class="chapter" data-level="11" data-path="vis-variable.html"><a href="vis-variable.html"><i class="fa fa-check"></i><b>11</b> Visualizing a single variable</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="vis-packages-data.html"><a href="vis-packages-data.html"><i class="fa fa-check"></i><b>11.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="11.2" data-path="vis-data-overview.html"><a href="vis-data-overview.html"><i class="fa fa-check"></i><b>11.2</b> Get an overview of the data</a></li>
+<li class="chapter" data-level="11.3" data-path="vis-cat-freq-table.html"><a href="vis-cat-freq-table.html"><i class="fa fa-check"></i><b>11.3</b> Create a frequency table</a></li>
+<li class="chapter" data-level="11.4" data-path="vis-cat-barchart.html"><a href="vis-cat-barchart.html"><i class="fa fa-check"></i><b>11.4</b> Create a bar graph</a></li>
+<li class="chapter" data-level="11.5" data-path="vis-histogram.html"><a href="vis-histogram.html"><i class="fa fa-check"></i><b>11.5</b> Create a histogram</a></li>
+<li class="chapter" data-level="11.6" data-path="vis-describe-hist.html"><a href="vis-describe-hist.html"><i class="fa fa-check"></i><b>11.6</b> Describing a histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="vis-describe.html"><a href="vis-describe.html"><i class="fa fa-check"></i><b>12</b> Describing a single variable</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="desc-packages-data.html"><a href="desc-packages-data.html"><i class="fa fa-check"></i><b>12.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="12.2" data-path="desc-cat-Var.html"><a href="desc-cat-Var.html"><i class="fa fa-check"></i><b>12.2</b> Describing a categorical variable</a></li>
+<li class="chapter" data-level="12.3" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html"><i class="fa fa-check"></i><b>12.3</b> Describing a numerical variable</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html#median_IQR"><i class="fa fa-check"></i><b>12.3.1</b> Calculating the median &amp; IQR</a></li>
+<li class="chapter" data-level="12.3.2" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html#mean_sd"><i class="fa fa-check"></i><b>12.3.2</b> Calculating the mean &amp; standard deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="desc-numeric-var-cat.html"><a href="desc-numeric-var-cat.html"><i class="fa fa-check"></i><b>12.4</b> Describing a numerical variable grouped by a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="vis-twovar.html"><a href="vis-twovar.html"><i class="fa fa-check"></i><b>13</b> Visualizing associations between two variables</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="vis2-packages-data.html"><a href="vis2-packages-data.html"><i class="fa fa-check"></i><b>13.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="13.2" data-path="vis2-2cat.html"><a href="vis2-2cat.html"><i class="fa fa-check"></i><b>13.2</b> Visualizing association between two categorical variables</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="vis2-2cat.html"><a href="vis2-2cat.html#vis2_cont_table"><i class="fa fa-check"></i><b>13.2.1</b> Constructing a contingency table</a></li>
+<li class="chapter" data-level="13.2.2" data-path="vis2-2cat.html"><a href="vis2-2cat.html#grouped_bar_graphs"><i class="fa fa-check"></i><b>13.2.2</b> Constructing a grouped bar graph</a></li>
+<li class="chapter" data-level="13.2.3" data-path="vis2-2cat.html"><a href="vis2-2cat.html#mosaic_plot"><i class="fa fa-check"></i><b>13.2.3</b> Constructing a mosaic plot</a></li>
+<li class="chapter" data-level="13.2.4" data-path="vis2-2cat.html"><a href="vis2-2cat.html#interpret_mosaic"><i class="fa fa-check"></i><b>13.2.4</b> Interpreting mosaic plots</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="two-numeric.html"><a href="two-numeric.html"><i class="fa fa-check"></i><b>13.3</b> Visualizing association between two numeric variables</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="two-numeric.html"><a href="two-numeric.html#interpret_scatter"><i class="fa fa-check"></i><b>13.3.1</b> Interpreting and describing a scatterplot</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html"><i class="fa fa-check"></i><b>13.4</b> Visualizing association between a numeric and a categorical variable</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#stripchart"><i class="fa fa-check"></i><b>13.4.1</b> Create a stripchart</a></li>
+<li class="chapter" data-level="13.4.2" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#violinplot"><i class="fa fa-check"></i><b>13.4.2</b> Create a violin plot</a></li>
+<li class="chapter" data-level="13.4.3" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#boxplots"><i class="fa fa-check"></i><b>13.4.3</b> Creating a boxplot</a></li>
+<li class="chapter" data-level="13.4.4" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#bestplot"><i class="fa fa-check"></i><b>13.4.4</b> Combining violin and boxplots</a></li>
+<li class="chapter" data-level="13.4.5" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#interp_violin"><i class="fa fa-check"></i><b>13.4.5</b> Interpreting stripcharts and boxplots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
+<ul>
+<li class="chapter" data-level="" data-path="a-more-familiar-editing-environment.html"><a href="a-more-familiar-editing-environment.html"><i class="fa fa-check"></i>A more familiar editing environment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
+<ul>
+<li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
+<li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
+<li class="chapter" data-level="" data-path="there-is-no-package.html"><a href="there-is-no-package.html"><i class="fa fa-check"></i>There is no package</a></li>
+<li class="chapter" data-level="" data-path="trying-to-use-cran-without-setting-a-mirror.html"><a href="trying-to-use-cran-without-setting-a-mirror.html"><i class="fa fa-check"></i>Trying to use CRAN without setting a mirror</a></li>
+<li class="chapter" data-level="" data-path="pdf-latex-is-not-found.html"><a href="pdf-latex-is-not-found.html"><i class="fa fa-check"></i>PDF Latex is not found</a></li>
+<li class="chapter" data-level="" data-path="error-in-parse.html"><a href="error-in-parse.html"><i class="fa fa-check"></i>Error in parse</a></li>
+<li class="chapter" data-level="" data-path="no-such-file-or-directory-exists.html"><a href="no-such-file-or-directory-exists.html"><i class="fa fa-check"></i>No such file or directory exists</a></li>
+<li class="chapter" data-level="" data-path="messy-output-when-loading-packages.html"><a href="messy-output-when-loading-packages.html"><i class="fa fa-check"></i>Messy output when loading packages</a></li>
+<li class="chapter" data-level="" data-path="unused-argument.html"><a href="unused-argument.html"><i class="fa fa-check"></i>Unused argument</a></li>
+<li class="chapter" data-level="" data-path="object-not-found.html"><a href="object-not-found.html"><i class="fa fa-check"></i>Object not found</a></li>
+<li class="chapter" data-level="" data-path="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><a href="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><i class="fa fa-check"></i>Figure caption doesn’t show up below figure in knitted document</a></li>
+<li class="chapter" data-level="" data-path="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><a href="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><i class="fa fa-check"></i>Filename, directory name, or volume label syntax is incorrect</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorials for BIOL202: Introduction to Biostatistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="numeric_vs_cat" class="section level2" number="13.4">
+<h2><span class="header-section-number">13.4</span> Visualizing association between a numeric and a categorical variable</h2>
+<p>To visualize association between a numerical response variable and a categorical explanatory variable, we have a variety of options, and the choice depends in part on the sample sizes within the categories being visualized.</p>
+<ul>
+<li>When sample sizes are relatively small in each category, such as 20 or fewer, use a <strong>stripchart</strong></li>
+<li>When sample sizes are larger (&gt;20), use a <strong>violin plot</strong>, or less ideal, a <strong>boxplot</strong>.</li>
+</ul>
+<p>We’ll use locust serotonin data set from the text book. Consult figure 2.1-2 in the text for a description.</p>
+<div class="note">
+<p><strong>Tip</strong>
+Always remember to get an overview of the dataset before attempting to create graphs, and not only for establishing sample sizes. If you had gotten an overview of the <code>locust</code> dataset, you would see we have a numeric response variable “serotoninLevel,” but the categorical (explanatory) variable “treatmentTime” is actually coded as a numerical variable, with values of 0, 1, or 2 hours. Although this variable is coded as numeric, we can treat it as though it is an ordinal categorical variable.</p>
+</div>
+<p>We should re-code the “treatmentTime” variable in the <code>locust</code> dataset as a “factor” variable with three “levels”: 0, 1, 2. This is not necessary for our graphs to work, but it is good practice to do this when you encounter this situation where a variable that should be treated as an ordinal categorical variable is coded as numerical.</p>
+<p>We do this using the <code>as.factor</code> function, as follows:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="numeric-vs-cat.html#cb90-1" aria-hidden="true" tabindex="-1"></a>locust<span class="sc">$</span>treatmentTime <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(locust<span class="sc">$</span>treatmentTime)</span></code></pre></div>
+<p>Before creating a stripchart, it’s a good idea to prepare a table of descriptive stats for your numerical response variable grouped by the categorical variable.</p>
+<hr />
+<ol style="list-style-type: decimal">
+<li>Using what you learned in a <a href="desc-numeric-var-cat.html#desc_numeric_var_cat">previous tutorial</a>, create a table of descriptive statistics of serotonin levels grouped by the treatment group variable.</li>
+</ol>
+<hr />
+<div id="stripchart" class="section level3" number="13.4.1">
+<h3><span class="header-section-number">13.4.1</span> Create a stripchart</h3>
+<p>Now we’re ready to create a stripchart of the locust experiment data. Note that we’re not yet ready to add “error bars” to our strip chart; that will come in a later tutorial.</p>
+<p>We’ll provide the code, then explain after:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="numeric-vs-cat.html#cb91-1" aria-hidden="true" tabindex="-1"></a>locust <span class="sc">%&gt;%</span> </span>
+<span id="cb91-2"><a href="numeric-vs-cat.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatmentTime, <span class="at">y =</span> serotoninLevel)) <span class="sc">+</span></span>
+<span id="cb91-3"><a href="numeric-vs-cat.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb91-4"><a href="numeric-vs-cat.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment time (hours)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb91-5"><a href="numeric-vs-cat.html#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Serotonin (pmoles)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb91-6"><a href="numeric-vs-cat.html#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">25</span>) <span class="sc">+</span></span>
+<span id="cb91-7"><a href="numeric-vs-cat.html#cb91-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:stripchart"></span>
+<img src="BIOL202-github_files/figure-html/stripchart-1.png" alt="Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group." width="384" />
+<p class="caption">
+Figure 13.4: Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group.
+</p>
+</div>
+<ul>
+<li>the <code>ggplot</code> line of code is familiar</li>
+<li>the new function here is the <code>geom_jitter</code> function that simply plots the points in each group such that they are “jittered” or offset from one-another (to make them more visible). Its arguments include ‘colour = “black”’ telling R to use black points, “size = 3” to make the points a little larger than the default (1), “shape = 1” denoting hollow circles, and “width = 0.1” telling R to jitter the points a relatively small amount in the horizontal direction. Feel free to play with this arguments to get a feel for how they work.</li>
+<li>the x- and y-axis labels come next</li>
+<li>then we specify the minimum and maximum limits to the y-axis using the <code>ylim</code> function</li>
+</ul>
+<p>Notice how all the data are visible! And it’s evident that in the control and 1-hour treatment groups the majority of locusts exhibited comparatively low levels of serotonin (note the clusters of points).</p>
+</div>
+<div id="violinplot" class="section level3" number="13.4.2">
+<h3><span class="header-section-number">13.4.2</span> Create a violin plot</h3>
+<p>Given that violin plots are best suited to when one has larger sample sizes per group, we’ll go back to the <code>penguins</code> dataset for this, and evaluate how body mass of male penguins varies among species.</p>
+<p>Let’s first find out more about the data for the male penguins, so that we can include sample sizes in our figure captions. Specifically, we’ll tally the number of complete body mass observations for each species, and also the number of missing values (NAs).</p>
+<p>We’ll combine the <code>filter</code> function with the <code>group_by</code> function that we learned about in a <a href="desc-numeric-var-cat.html#desc_numeric_var_cat">previous tutorial</a>:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="numeric-vs-cat.html#cb92-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb92-2"><a href="numeric-vs-cat.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb92-3"><a href="numeric-vs-cat.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb92-4"><a href="numeric-vs-cat.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb92-5"><a href="numeric-vs-cat.html#cb92-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g),</span>
+<span id="cb92-6"><a href="numeric-vs-cat.html#cb92-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g))</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   species   Count Count_NA
+##   &lt;fct&gt;     &lt;int&gt;    &lt;int&gt;
+## 1 Adelie       73        0
+## 2 Chinstrap    34        0
+## 3 Gentoo       61        0</code></pre>
+<p>This is the same code we used <a href="desc-numeric-var-cat.html#desc_numeric_var_cat">previously</a> for calculating descriptive statistics using a grouping variable (though we’ve eliminated some of the descriptive statistics here), but we inserted the <code>filter</code> function in the second line to make sure we’re only using the male penguin records.</p>
+<p>We now have the accurate sample sizes for each species (under the “Count” variable) we need to report in any figure caption.</p>
+<p>We use the familiar <code>ggplot</code> approach for creating violin plots.</p>
+<div class="note">
+<p><strong>Tip</strong>
+When using the <code>ggplot</code> function, we can assign the output to an object. We can then subsequently add features to the plot by adding to the object. We’ll demonstrate this here.</p>
+</div>
+<p>Let’s assign the basic violin plot to an object called “bodymass.violin,” and we’ll explain the rest of the code after:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="numeric-vs-cat.html#cb94-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb94-2"><a href="numeric-vs-cat.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb94-3"><a href="numeric-vs-cat.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb94-4"><a href="numeric-vs-cat.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb94-5"><a href="numeric-vs-cat.html#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span></span>
+<span id="cb94-6"><a href="numeric-vs-cat.html#cb94-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb94-7"><a href="numeric-vs-cat.html#cb94-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<ul>
+<li>We assign the output to the object called “bodymass.violin,” and tell R which data object we’re using (penguins)</li>
+<li>We then <code>filter</code> the dataset to include only male penguins (sex == “male”), and note the two equal signs and the quotations around “male”</li>
+<li>Then the familar <code>ggplot</code> with its <code>aes</code> argument</li>
+<li>Now the new <code>geom_violin</code> function, and it has optional arguments that we haven’t used (see help file for the function)</li>
+<li>Then the familiar labels and theme functions</li>
+</ul>
+<p>Let’s now have a look at the graph, and to do so, we simply type the name of the graph object we created:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="numeric-vs-cat.html#cb95-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin</span></code></pre></div>
+<p><img src="BIOL202-github_files/figure-html/body_violin-1.png" width="384" /></p>
+<p>One problem with the above graph is that we don’t see the individual data points.</p>
+<p>We can add those using the <code>geom_jitter</code> function we learned about when <a href="numeric-vs-cat.html#stripchart">creating stripcharts</a>.</p>
+<p>Here’s how we add features to an existing <code>ggplot</code> graph object, and we can again create a new object, or simply replace the old one.</p>
+<p>Here, we’ll create a new object called “bodymass.violin.points”:</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="numeric-vs-cat.html#cb96-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin.points <span class="ot">&lt;-</span> bodymass.violin <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<p>And now show the plot:</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="numeric-vs-cat.html#cb97-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin.points</span></code></pre></div>
+<div class="figure">
+<img src="BIOL202-github_files/figure-html/show_newviolin-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins." width="384" />
+<p class="caption">
+(#fig:show_newviolin)Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins.
+</p>
+</div>
+<p>To help understand what the violin plot is showing, we’ll provide a new <strong>bonus</strong> graph that adds something called “density plots” to the margin of the violin plot.</p>
+<p>Don’t worry about replicating this type of graph, but if you can, fantastic!</p>
+<p>First we create the main <code>ggplot</code> violin plot object:</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="numeric-vs-cat.html#cb98-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin2 <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb98-2"><a href="numeric-vs-cat.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb98-3"><a href="numeric-vs-cat.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb98-4"><a href="numeric-vs-cat.html#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
+<span id="cb98-5"><a href="numeric-vs-cat.html#cb98-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> species), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb98-6"><a href="numeric-vs-cat.html#cb98-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span></span>
+<span id="cb98-7"><a href="numeric-vs-cat.html#cb98-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb98-8"><a href="numeric-vs-cat.html#cb98-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">3000</span>, <span class="dv">6300</span>) <span class="sc">+</span></span>
+<span id="cb98-9"><a href="numeric-vs-cat.html#cb98-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb98-10"><a href="numeric-vs-cat.html#cb98-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="sc">+</span></span>
+<span id="cb98-11"><a href="numeric-vs-cat.html#cb98-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">title=</span><span class="st">&quot;Species&quot;</span>))</span></code></pre></div>
+<p>Now we add density plots in the margins using the <code>ggMarginal</code> function from the <code>ggExtra</code> package:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="numeric-vs-cat.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggMarginal</span>(bodymass.violin2, <span class="at">type =</span> <span class="st">&quot;density&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">groupFill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="figure">
+<img src="BIOL202-github_files/figure-html/margin_dens-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin." width="480" />
+<p class="caption">
+(#fig:margin_dens)Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.
+</p>
+</div>
+<p>The violin plot is designed to give an idea of the frequency distribution of response variable values within each group. Specifically, the width of the violin reflects the frequency of observations in that range of values. This is evident in the above figure within the “density plots” that are provided in the right-hand margin. Consider these density plots as a smoothed out version of a histogram.</p>
+<p>We can see, for example, that for all three species of penguin there is a bulge in the middle indicating that there is a central mode to the body mass values in each group, with fewer values towards lower and higher extremes. The frequency distribution for the Gentoo species approximates a “bell shape” distribution, for example (the blue data).</p>
+</div>
+<div id="boxplots" class="section level3" number="13.4.3">
+<h3><span class="header-section-number">13.4.3</span> Creating a boxplot</h3>
+<p>Here we’ll learn how to create basic boxplots, and also superimpose boxplots onto violin plots.</p>
+<p>In future tutorials we’ll learn how to add features to these types of graphs in order to complement statistical comparisons of a numerical response variable among categories (groups) of a categorical explanatory variable.</p>
+<p>Here is the code for creating boxplots, again using the penguins body mass data, and this time the <code>geom_boxplot</code> function:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="numeric-vs-cat.html#cb100-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb100-2"><a href="numeric-vs-cat.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb100-3"><a href="numeric-vs-cat.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb100-4"><a href="numeric-vs-cat.html#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb100-5"><a href="numeric-vs-cat.html#cb100-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span></span>
+<span id="cb100-6"><a href="numeric-vs-cat.html#cb100-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb100-7"><a href="numeric-vs-cat.html#cb100-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:newboxplot"></span>
+<img src="BIOL202-github_files/figure-html/newboxplot-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin." width="384" />
+<p class="caption">
+Figure 13.5: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.
+</p>
+</div>
+<p>For more information about the features of the boxplot, look at the help file for the <code>geom_boxplot</code> function:</p>
+<pre><code>?geom_boxplot</code></pre>
+<p>When sample sizes are large in each group, like they are for the penguins data we’ve been visualizing, the most ideal way to visualize the data is to combine violin and boxplots. We’ll do this next!</p>
+</div>
+<div id="bestplot" class="section level3" number="13.4.4">
+<h3><span class="header-section-number">13.4.4</span> Combining violin and boxplots</h3>
+<p>Superimposing boxplots onto violin plots (and of course, showing individual points too!) provides for a very informative graph.</p>
+<p>We already have a basic violin plot object created, called “bodymass.violin,” so let’s start with that, then add the boxplot information, then superimpose the points. We need to do it in that order, so that the points become the “top” layer of information, and aren’t hidden behind the boxplot or violins.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="numeric-vs-cat.html#cb102-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin <span class="sc">+</span> </span>
+<span id="cb102-2"><a href="numeric-vs-cat.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb102-3"><a href="numeric-vs-cat.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">colour =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.15</span>)</span></code></pre></div>
+<div class="figure">
+<img src="BIOL202-github_files/figure-html/viol_box-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values." width="384" />
+<p class="caption">
+(#fig:viol_box)Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.
+</p>
+</div>
+<ul>
+<li>We start with the base violin plot object “bodymass.violin”</li>
+<li>We then add the boxplot using <code>geom_boxplot</code>, ensuring that the boxes are narrow in width (width = 0.1) so they don’t overwhelm the violins</li>
+<li>We then add the individual data points using <code>geom_jitter</code>, and this time using the colour “grey” so that they don’t obscure the black boxes underneath, and making them a bit smaller this time (size = 1), and keeping them as hollow circles (shape = 1), and this time spreading them out horizontally a bit more (width = 0.15)</li>
+</ul>
+<div class="note">
+<p><strong>Tip</strong>
+It often takes some playing around with argument values before one gets the ideal graph. For example, in the above graph, try changing some of the values used in the <code>geom_jitter</code> function.</p>
+</div>
+<div class="note">
+<p><strong>NOTE</strong>
+The first time you include a boxplot in a report / lab, be sure to include in the figure caption the details of what is being shown. You only need to do this the first time. Subsequent boxplot figure captions can refer to the first one for details.</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>Using the <code>penguins</code> dataset, and only the records pertaining to female penguins, create a combined violin / boxplot graph showing bill length in relation to species. Include an appropriate figure caption.</li>
+</ol>
+</div>
+<div id="interp_violin" class="section level3" number="13.4.5">
+<h3><span class="header-section-number">13.4.5</span> Interpreting stripcharts and boxplots</h3>
+<p>We will wait until a future tutorial to learn more about interpreting violin / boxplots, because there we learn how to add more information to the graphs, such as group means and measures of uncertainty.</p>
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="two-numeric.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visual-markdown-editor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BIOL202-github.pdf", "BIOL202-github.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highight": true,
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -16,7 +16,7 @@ In this tutorial you will:
 
 Let's load some packages first: 
 
-```{r desc1_package, message = FALSE}
+```{r desc1_package1, message = FALSE}
 library(tidyverse)
 library(palmerpenguins)
 library(skimr)
@@ -179,10 +179,11 @@ Let's do this, and while we're at it, include even more descriptors to illustrat
 
 This time we'll put the output from our `summarise` function into a table, and then present it in a nice format, like we learned how to do for a [frequency table](#vis_cat_freq_table).  
 
-Let's create the table of descriptive statistics first, a tibble called "penguins.descriptors", and we'll describe what's going on after: 
+Let's create the table of descriptive statistics first, a tibble called "penguins.descriptors", and we'll describe what's going on after (**NOTE** this code chunk was edited slightly on Sept. 30, 2021): 
 
 ```{r desc_penguins_3}
-penguins.descriptors <- summarise(penguins, 
+penguins.descriptors <- penguins %>%
+  summarise( 
   Mean = mean(body_mass_g, na.rm = T),
   SD = sd(body_mass_g, na.rm = T),
   Median = median(body_mass_g, na.rm = T),
@@ -214,3 +215,38 @@ In another tutorial we'll learn how to present the table following all the guide
 
 1. **Descriptive statistics**: Create a histogram and table of descriptive statistics for the "flipper_length_mm" variable in the `penguins` dataset.
 
+## Describing a numerical variable grouped by a categorical variable {#desc_numeric_var_cat}
+
+In this tutorial you'll learn how to calculate descriptive statistics for a numerical variable grouped according to categories of a categorical variable.  
+
+For example, a common scenario in biology is to want to calculate and report the mean and standard deviation of a response variable for different "treatment groups" in an experiment. (More commonly we would report the mean and standard error, but that's for a later tutorial!).
+
+It is straightforward to modify the code we used in the preceding tutorial to do what we want.
+
+Specifically, we use the `group_by` function from the `dplyr` package to tell R to do the calculations on the observations within each category of the grouping variable.
+
+For example, let's describe penguin body mass grouped by "species".
+
+We'll create a new tibble object called "penguins.descriptors.byspecies", and we insert one line of code using the `group_by` function, and telling R which categorical variable to use for the grouping (here, "species"):
+
+```{r desc_penguins_grouped}
+penguins.descriptors.byspecies <- penguins %>%
+  group_by(species) %>%
+summarise(
+  Mean = mean(body_mass_g, na.rm = T),
+  SD = sd(body_mass_g, na.rm = T),
+  Median = median(body_mass_g, na.rm = T),
+  InterQR = IQR(body_mass_g, na.rm = T),
+  Count = n() - naniar::n_miss(body_mass_g),
+  Count_NA = naniar::n_miss(body_mass_g))
+```
+
+It's that simple!
+
+Let's have a look at the output:
+
+```{r}
+penguins.descriptors.byspecies
+```
+
+1. Use the `kable` function to output this new tibble in a nice format

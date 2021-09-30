@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-09-26" />
+<meta name="date" content="2021-09-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -243,6 +243,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3.1" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html#median_IQR"><i class="fa fa-check"></i><b>12.3.1</b> Calculating the median &amp; IQR</a></li>
 <li class="chapter" data-level="12.3.2" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html#mean_sd"><i class="fa fa-check"></i><b>12.3.2</b> Calculating the mean &amp; standard deviation</a></li>
 </ul></li>
+<li class="chapter" data-level="12.4" data-path="desc-numeric-var-cat.html"><a href="desc-numeric-var-cat.html"><i class="fa fa-check"></i><b>12.4</b> Describing a numerical variable grouped by a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="vis-twovar.html"><a href="vis-twovar.html"><i class="fa fa-check"></i><b>13</b> Visualizing associations between two variables</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="vis2-packages-data.html"><a href="vis2-packages-data.html"><i class="fa fa-check"></i><b>13.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="13.2" data-path="vis2-2cat.html"><a href="vis2-2cat.html"><i class="fa fa-check"></i><b>13.2</b> Visualizing association between two categorical variables</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="vis2-2cat.html"><a href="vis2-2cat.html#vis2_cont_table"><i class="fa fa-check"></i><b>13.2.1</b> Constructing a contingency table</a></li>
+<li class="chapter" data-level="13.2.2" data-path="vis2-2cat.html"><a href="vis2-2cat.html#grouped_bar_graphs"><i class="fa fa-check"></i><b>13.2.2</b> Constructing a grouped bar graph</a></li>
+<li class="chapter" data-level="13.2.3" data-path="vis2-2cat.html"><a href="vis2-2cat.html#mosaic_plot"><i class="fa fa-check"></i><b>13.2.3</b> Constructing a mosaic plot</a></li>
+<li class="chapter" data-level="13.2.4" data-path="vis2-2cat.html"><a href="vis2-2cat.html#interpret_mosaic"><i class="fa fa-check"></i><b>13.2.4</b> Interpreting mosaic plots</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="two-numeric.html"><a href="two-numeric.html"><i class="fa fa-check"></i><b>13.3</b> Visualizing association between two numeric variables</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="two-numeric.html"><a href="two-numeric.html#interpret_scatter"><i class="fa fa-check"></i><b>13.3.1</b> Interpreting and describing a scatterplot</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html"><i class="fa fa-check"></i><b>13.4</b> Visualizing association between a numeric and a categorical variable</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#stripchart"><i class="fa fa-check"></i><b>13.4.1</b> Create a stripchart</a></li>
+<li class="chapter" data-level="13.4.2" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#violinplot"><i class="fa fa-check"></i><b>13.4.2</b> Create a violin plot</a></li>
+<li class="chapter" data-level="13.4.3" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#boxplots"><i class="fa fa-check"></i><b>13.4.3</b> Creating a boxplot</a></li>
+<li class="chapter" data-level="13.4.4" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#bestplot"><i class="fa fa-check"></i><b>13.4.4</b> Combining violin and boxplots</a></li>
+<li class="chapter" data-level="13.4.5" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#interp_violin"><i class="fa fa-check"></i><b>13.4.5</b> Interpreting stripcharts and boxplots</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
 <ul>
@@ -295,7 +319,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If the file you wish to import is located on the web, then we need to provide the “URL” (the web address) to the <code>read_csv</code> function. For example, in <a href="%60%60%60%20example_data%20%3C-%20read_csv(%22https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv%22)%20%60%60%60">Tutorial 9 section 6</a> you imported the “students.csv” dataset from the course GitHub website, as follows:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="import-csv-url.html#cb19-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   height_cm = col_double(),
 ##   head_circum_cm = col_double(),
