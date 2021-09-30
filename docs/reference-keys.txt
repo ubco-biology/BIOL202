@@ -13,9 +13,14 @@ fig:unnamed-chunk-27
 fig:unnamed-chunk-28
 fig:unnamed-chunk-35
 fig:unnamed-chunk-36
-fig:scatter1
-fig:stripchart
-fig:newboxplot
+fig:unnamed-chunk-37
+fig:unnamed-chunk-38
+fig:unnamed-chunk-39
+fig:unnamed-chunk-40
+fig:unnamed-chunk-41
+fig:unnamed-chunk-42
+fig:unnamed-chunk-43
+fig:unnamed-chunk-44
 what_is_R
 install_R_Rstudio
 start_r

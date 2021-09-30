@@ -230,7 +230,7 @@ knitr::include_graphics("./more/grouped_bar_graph.png")
 
 And the result:
 
-```{r malaria_barchart2, fig.cap = "Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.", fig.width = 4, fig.height = 5}
+```{r fig.cap = "Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.", fig.width = 4, fig.height = 5}
 
 ggplot(data = bird.malaria.tidy, aes(x = treatment, y = n, fill = response)) + 
   geom_bar(stat = "identity", position = position_dodge()) + 
@@ -270,7 +270,7 @@ Note that in the mosaic plot there are no number values provided on the y-axis. 
 
 Let's provide the mosaic plot again, and this time we'll provide an appropriate figure heading in the chunk header, as we [learned previously](#rmd_graphing):
 
-```{r mosaic_malaria2, fig.cap = "Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.", fig.width = 4, fig.height = 3}
+```{r fig.cap = "Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.", fig.width = 4, fig.height = 3}
 
 ggplot(data = bird.malaria) +
   geom_mosaic(aes(x = product(treatment), fill = response)) +
@@ -303,7 +303,7 @@ We'll provide an example using the `penguins` dataset, examining how bill depth 
 As shown in the tutorial on [preparing and formatting assignments](#rmd_graphing), we can use the `filter` function from the `dplyr` package to easily subset datasets according to some criterion, such as belonging to a specific category.
 </div>
 
-```{r scatter1, fig.cap = "Scatterplot of the association between bill length and depth among 151 Adelie penguins", fig.height = 4, fig.width = 5}
+```{r fig.cap = "Scatterplot of the association between bill length and depth among 151 Adelie penguins", fig.height = 4, fig.width = 5}
 
 penguins %>% 
   filter(species == "Adelie") %>%
@@ -378,7 +378,7 @@ Now we're ready to create a stripchart of the locust experiment data.  Note that
 
 We'll provide the code, then explain after:
 
-```{r stripchart, warning = F, fig.cap = "Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group.", fig.width = 4, fig.height = 6}
+```{r fig.cap = "Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group.", fig.width = 4, fig.height = 6, warning = FALSE}
 
 locust %>% 
   ggplot(aes(x = treatmentTime, y = serotoninLevel)) +
@@ -462,7 +462,7 @@ bodymass.violin.points <- bodymass.violin + geom_jitter(size = 2, shape = 1, wid
 
 And now show the plot:
 
-```{r show_newviolin, fig.cap = "Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins.", fig.width = 4, fig.height = 5}
+```{r fig.cap = "Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins.", fig.width = 4, fig.height = 5, warning = FALSE}
 
 bodymass.violin.points
 ```
@@ -489,7 +489,7 @@ bodymass.violin2 <- penguins %>%
 
 Now we add density plots in the margins using the `ggMarginal` function from the `ggExtra` package:
 
-```{r margin_dens, warning = FALSE, fig.cap = "Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.", fig.width = 5, fig.height = 6}
+```{r fig.cap = "Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.", fig.width = 5, fig.height = 6, warning = FALSE}
 
 ggMarginal(bodymass.violin2, type = "density", alpha = 0.3, groupFill = TRUE)
 ```
@@ -506,7 +506,7 @@ In future tutorials we'll learn how to add features to these types of graphs in 
 
 Here is the code for creating boxplots, again using the penguins body mass data, and this time the `geom_boxplot` function:
 
-```{r newboxplot, fig.cap = "Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.", fig.width = 4, fig.height = 5}
+```{r fig.cap = "Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.", fig.width = 4, fig.height = 5, warning = FALSE}
 
 penguins %>% 
   filter(sex == "male") %>%
@@ -531,7 +531,7 @@ Superimposing boxplots onto violin plots (and of course, showing individual poin
 
 We already have a basic violin plot object created, called "bodymass.violin", so let's start with that, then add the boxplot information, then superimpose the points.  We need to do it in that order, so that the points become the "top" layer of information, and aren't hidden behind the boxplot or violins.
 
-```{r viol_box, fig.cap = "Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.", fig.width = 4, fig.height = 5}
+```{r fig.cap = "Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.", fig.width = 4, fig.height = 5,, warning = FALSE}
 
 bodymass.violin + 
   geom_boxplot(width = 0.1) + 
