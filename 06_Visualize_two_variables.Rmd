@@ -506,7 +506,7 @@ In future tutorials we'll learn how to add features to these types of graphs in 
 
 Here is the code for creating boxplots, again using the penguins body mass data, and this time the `geom_boxplot` function:
 
-```{r fig.cap = "Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.", fig.width = 4, fig.height = 5, warning = FALSE}
+```{r fig.cap = "Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.", fig.width = 4, fig.height = 5, warning = FALSE}
 
 penguins %>% 
   filter(sex == "male") %>%
@@ -522,6 +522,11 @@ For more information about the features of the boxplot, look at the help file fo
 ```
 ?geom_boxplot
 ```
+
+<div class="note">
+**NOTE**
+The first time you include a boxplot in a report / lab, be sure to include in the figure caption the details of what is being shown.  You only need to do this the first time. Subsequent boxplot figure captions can refer to the first one for details.  
+</div>
 
 When sample sizes are large in each group, like they are for the penguins data we've been visualizing, the most ideal way to visualize the data is to combine violin and boxplots. We'll do this next!
 
@@ -547,10 +552,6 @@ bodymass.violin +
 It often takes some playing around with argument values before one gets the ideal graph. For example, in the above graph, try changing some of the values used in the `geom_jitter` function. 
 </div>
 
-<div class="note">
-**NOTE**
-The first time you include a boxplot in a report / lab, be sure to include in the figure caption the details of what is being shown.  You only need to do this the first time. Subsequent boxplot figure captions can refer to the first one for details.  
-</div>
 
 1. Using the `penguins` dataset, and only the records pertaining to female penguins, create a combined violin / boxplot graph showing bill length in relation to species. Include an appropriate figure caption. 
 

@@ -447,13 +447,17 @@ Figure 13.8: Violin plot showing the body mass (g) of male Adelie (N = 73), Chin
 <span id="cb100-6"><a href="numeric-vs-cat.html#cb100-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb100-7"><a href="numeric-vs-cat.html#cb100-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-43"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-43-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin." width="384" />
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-43-1.png" alt="Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values." width="384" />
 <p class="caption">
-Figure 13.9: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.
+Figure 13.9: Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.
 </p>
 </div>
 <p>For more information about the features of the boxplot, look at the help file for the <code>geom_boxplot</code> function:</p>
 <pre><code>?geom_boxplot</code></pre>
+<div class="note">
+<p><strong>NOTE</strong>
+The first time you include a boxplot in a report / lab, be sure to include in the figure caption the details of what is being shown. You only need to do this the first time. Subsequent boxplot figure captions can refer to the first one for details.</p>
+</div>
 <p>When sample sizes are large in each group, like they are for the penguins data we’ve been visualizing, the most ideal way to visualize the data is to combine violin and boxplots. We’ll do this next!</p>
 </div>
 <div id="bestplot" class="section level3" number="13.4.4">
@@ -477,10 +481,6 @@ Figure 13.10: Violin plot showing the body mass (g) of male Adelie (N = 73), Chi
 <div class="note">
 <p><strong>Tip</strong>
 It often takes some playing around with argument values before one gets the ideal graph. For example, in the above graph, try changing some of the values used in the <code>geom_jitter</code> function.</p>
-</div>
-<div class="note">
-<p><strong>NOTE</strong>
-The first time you include a boxplot in a report / lab, be sure to include in the figure caption the details of what is being shown. You only need to do this the first time. Subsequent boxplot figure captions can refer to the first one for details.</p>
 </div>
 <ol style="list-style-type: decimal">
 <li>Using the <code>penguins</code> dataset, and only the records pertaining to female penguins, create a combined violin / boxplot graph showing bill length in relation to species. Include an appropriate figure caption.</li>
