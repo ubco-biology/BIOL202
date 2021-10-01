@@ -538,7 +538,8 @@ The <code>group_by</code> function from the <code>dplyr</code> package enables o
 <p><img src="BIOL202-github_files/figure-html/malaria_barchart1-1.png" width="672" /></p>
 <p>This code is similar to what we used <a href="vis-cat-barchart.html#vis_cat_barchart">previously to create a bar graph</a>, but there are two key differences:</p>
 <ul>
-<li>in the first line within the <code>aes</code> function, we include a new argument <code>fill = response</code>, telling R to use different bar fill colours based on the categories in the “response” variable.</li>
+<li>in the first line within the <code>aes</code> function, we include a new argument <code>fill = response</code>, telling R to use different bar fill colours based on the categories in the “response” variable.<br />
+</li>
 <li>in the second line, we provide a new argument to the <code>geom_bar</code> function: <code>position = position_dodge()</code>, which tells R to use separate bars for each category of the “fill” variable (if we did not include this argument, we’d get a “stacked bar graph” instead)</li>
 </ul>
 <div class="note">

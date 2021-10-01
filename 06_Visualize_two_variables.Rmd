@@ -53,13 +53,13 @@ We'll again make use of the `penguins` dataset, which gets loaded as a "tibble" 
 Import the `locusts.csv` data, which are described in the Whitlock & Schluter text, Figure 2.1-2.  We'll create a tibble called `locust`. 
 
 ```{r vis2_read_data}
-locust <- read_csv(url("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/locust.csv"))
+locust <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/locust.csv")
 ```
 
 Import the `bird.malaria.csv` data, which are described in the Whitlock & Schluter text, Example 2.3A (p. 40). We'll create a tibble called `bird.malaria`.
 
 ```{r vis2_read_data2}
-bird.malaria<- read_csv(url("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bird_malaria.csv"))
+bird.malaria<- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bird_malaria.csv")
 ```
 
 1. Get an overview of the `locust` and `bird.malaria` tibbles.
@@ -109,9 +109,9 @@ bird.malaria.freq <- bird.malaria %>%
 
 Code explanation:  
 
-* the first line is telling R to assign any output from our commands to the object called "bird.malaria.freq"
-* the first line is also telling R that we're using the `bird.malaria` object as input to our subsequent functions, and the pipe (%>%) tells R there's more to come.
-* the second line uses the `tabyl` function, and we provide it with the names of the variables from the `bird.malaria` object that we want to use for tabulating frequencies. Here we provide the variable names "treatment", and "response"
+* the first line is telling R to assign any output from our commands to the object called "bird.malaria.freq" 
+* the first line is also telling R that we're using the `bird.malaria` object as input to our subsequent  functions, and the pipe (%>%) tells R there's more to come. 
+* the second line uses the `tabyl` function, and we provide it with the names of the variables from the `bird.malaria` object that we want to use for tabulating frequencies. Here we provide the variable names "treatment", and "response" 
 
 Let's look at the table:
 ```{r show_malaria}
@@ -216,7 +216,7 @@ ggplot(data = bird.malaria.tidy, aes(x = treatment, y = n, fill = response)) +
 
 This code is similar to what we used [previously to create a bar graph](#vis_cat_barchart), but there are two key differences:   
 
-* in the first line within the `aes` function, we include a new argument `fill = response`, telling R to use different bar fill colours based on the categories in the "response" variable. 
+* in the first line within the `aes` function, we include a new argument `fill = response`, telling R to use different bar fill colours based on the categories in the "response" variable.  
 * in the second line, we provide a new argument to the `geom_bar` function: `position = position_dodge()`, which tells R to use separate bars for each category of the "fill" variable (if we did not include this argument, we'd get a "stacked bar graph" instead)
 
 <div class="note">
