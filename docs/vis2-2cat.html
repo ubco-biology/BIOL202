@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-09-30" />
+<meta name="date" content="2021-10-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -339,10 +339,12 @@ The <code>tabyl</code> function from the <code>janitor</code> package is useful 
 <p>First create the basic contingency table:</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="vis2-2cat.html#cb70-1" aria-hidden="true" tabindex="-1"></a>bird.malaria.freq <span class="ot">&lt;-</span> bird.malaria <span class="sc">%&gt;%</span></span>
 <span id="cb70-2"><a href="vis2-2cat.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(treatment, response)</span></code></pre></div>
-<p>Code explanation:<br />
-* the first line is telling R to assign any output from our commands to the object called “bird.malaria.freq”
-* the first line is also telling R that we’re using the <code>bird.malaria</code> object as input to our subsequent functions, and the pipe (%&gt;%) tells R there’s more to come.
-* the second line uses the <code>tabyl</code> function, and we provide it with the names of the variables from the <code>bird.malaria</code> object that we want to use for tabulating frequencies. Here we provide the variable names “treatment,” and “response”</p>
+<p>Code explanation:</p>
+<ul>
+<li>the first line is telling R to assign any output from our commands to the object called “bird.malaria.freq”</li>
+<li>the first line is also telling R that we’re using the <code>bird.malaria</code> object as input to our subsequent functions, and the pipe (%&gt;%) tells R there’s more to come.</li>
+<li>the second line uses the <code>tabyl</code> function, and we provide it with the names of the variables from the <code>bird.malaria</code> object that we want to use for tabulating frequencies. Here we provide the variable names “treatment,” and “response”</li>
+</ul>
 <p>Let’s look at the table:</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="vis2-2cat.html#cb71-1" aria-hidden="true" tabindex="-1"></a>bird.malaria.freq</span></code></pre></div>
 <pre><code>##    treatment Malaria No Malaria
@@ -534,9 +536,11 @@ The <code>group_by</code> function from the <code>dplyr</code> package enables o
 <span id="cb84-4"><a href="vis2-2cat.html#cb84-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
 <span id="cb84-5"><a href="vis2-2cat.html#cb84-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="BIOL202-github_files/figure-html/malaria_barchart1-1.png" width="672" /></p>
-<p>This code is similar to what we used <a href="vis-cat-barchart.html#vis_cat_barchart">previously to create a bar graph</a>, but there are two key differences:<br />
-* in the first line within the <code>aes</code> function, we include a new argument <code>fill = response</code>, telling R to use different bar fill colours based on the categories in the “response” variable.
-* in the second line, we provide a new argument to the <code>geom_bar</code> function: <code>position = position_dodge()</code>, which tells R to use separate bars for each category of the “fill” variable (if we did not include this argument, we’d get a “stacked bar graph” instead)</p>
+<p>This code is similar to what we used <a href="vis-cat-barchart.html#vis_cat_barchart">previously to create a bar graph</a>, but there are two key differences:</p>
+<ul>
+<li>in the first line within the <code>aes</code> function, we include a new argument <code>fill = response</code>, telling R to use different bar fill colours based on the categories in the “response” variable.</li>
+<li>in the second line, we provide a new argument to the <code>geom_bar</code> function: <code>position = position_dodge()</code>, which tells R to use separate bars for each category of the “fill” variable (if we did not include this argument, we’d get a “stacked bar graph” instead)</li>
+</ul>
 <div class="note">
 <p><strong>Note</strong>
 It is best practice to use the <strong>response variable</strong> as the “fill” variable in a grouped bar graph, as we have done in the malaria example.</p>

@@ -27,7 +27,7 @@ In this tutorial you'll learn to construct and interpret each of these types of 
 
 ## Load packages and import data {#vis2_packages_data}
 
-Let's load some packages familiar first: 
+Let's load some familiar packages first: 
 
 ```{r desc1_package, message = FALSE}
 library(tidyverse)
@@ -108,6 +108,7 @@ bird.malaria.freq <- bird.malaria %>%
 ```
 
 Code explanation:  
+
 * the first line is telling R to assign any output from our commands to the object called "bird.malaria.freq"
 * the first line is also telling R that we're using the `bird.malaria` object as input to our subsequent functions, and the pipe (%>%) tells R there's more to come.
 * the second line uses the `tabyl` function, and we provide it with the names of the variables from the `bird.malaria` object that we want to use for tabulating frequencies. Here we provide the variable names "treatment", and "response"
@@ -213,7 +214,8 @@ ggplot(data = bird.malaria.tidy, aes(x = treatment, y = n, fill = response)) +
   theme_bw()
 ```
 
-This code is similar to what we used [previously to create a bar graph](#vis_cat_barchart), but there are two key differences:  
+This code is similar to what we used [previously to create a bar graph](#vis_cat_barchart), but there are two key differences:   
+
 * in the first line within the `aes` function, we include a new argument `fill = response`, telling R to use different bar fill colours based on the categories in the "response" variable. 
 * in the second line, we provide a new argument to the `geom_bar` function: `position = position_dodge()`, which tells R to use separate bars for each category of the "fill" variable (if we did not include this argument, we'd get a "stacked bar graph" instead)
 
