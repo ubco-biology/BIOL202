@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-01" />
+<meta name="date" content="2021-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -333,6 +333,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="desc-cat-Var.html#cb52-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
 <span id="cb52-2"><a href="desc-cat-Var.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb52-3"><a href="desc-cat-Var.html#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="note">
+<p><strong>NOTE</strong>
+If there are missing values (“NA”) in the categorical variable, the preceding code will successfully enumerate those and create an “NA” category in the frequency table.</p>
+</div>
 <p>Now display the table:</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="desc-cat-Var.html#cb53-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="sc">%&gt;%</span></span>
 <span id="cb53-2"><a href="desc-cat-Var.html#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>

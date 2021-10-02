@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-01" />
+<meta name="date" content="2021-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -398,6 +398,12 @@ If there are “NA” values in the variable being analyzed, some R functions, s
 <span id="cb59-8"><a href="desc-numeric-var.html#cb59-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g))</span></code></pre></div>
 <p>The first 4 descriptive statistics are self-explanatory based on their variable names.</p>
 <p>The last two: “Count” and “Count_NA” are providing the total number of complete observations in the <code>body_mass_g</code> variable (thus the number of observations that went into calculating the descriptive statistics), and then the total number of missing values (NAs) in the variable, respectively.</p>
+<p><strong>ADDED OCTOBER 2, 2021</strong></p>
+<p>The last two lines of code above require further explanation:</p>
+<p>This code: <code>Count = n() - naniar::n_miss(body_mass_g))</code> tells R to first tally the total sample size using the <code>n()</code> function, then to subtract from that the total number of missing values, which is calculated using the <code>n_miss</code> function from the <code>naniar</code> package.</p>
+<p>The double colons in <code>naniar::n_miss(body_mass_g)</code> indicates that the function <code>n_miss</code> comes from the <code>naniar</code> package. This syntax, which we have not used previously, provides a failsafe way to run a function even if the package is not presently loaded.</p>
+<p>The same coding approach is used in the last line: <code>Count_NA = naniar::n_miss(body_mass_g)</code>.</p>
+<hr />
 <div class="note">
 <p><strong>TIP</strong>
 It is important to calculate the total number of complete observations in the variable of interest, because, as described in the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/figures-tables.html">Biology Procedures and Guidelines document</a>, this number needs to be reported in figure and table headings.</p>

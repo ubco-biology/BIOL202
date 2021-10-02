@@ -64,6 +64,11 @@ birds.table <- birds %>%
   mutate(relative_frequency = n / sum(n))
 ```
 
+<div class="note">
+**NOTE**
+If there are missing values ("NA") in the categorical variable, the preceding code will successfully enumerate those and create an "NA" category in the frequency table.
+</div>
+
 Now display the table:
 
 ```{r birds_table}
@@ -195,6 +200,18 @@ penguins.descriptors <- penguins %>%
 The first 4 descriptive statistics are self-explanatory based on their variable names.  
 
 The last two: "Count" and "Count_NA" are providing the total number of complete observations in the `body_mass_g` variable (thus the number of observations that went into calculating the descriptive statistics), and then the total number of missing values (NAs) in the variable, respectively.
+
+**ADDED OCTOBER 2, 2021**
+
+The last two lines of code above require further explanation:
+
+This code: `Count = n() - naniar::n_miss(body_mass_g))` tells R to first tally the total sample size using the `n()` function, then to subtract from that the total number of missing values, which is calculated using the `n_miss` function from the `naniar` package.  
+
+The double colons in `naniar::n_miss(body_mass_g)` indicates that the function `n_miss` comes from the `naniar` package.  This syntax, which we have not used previously, provides a failsafe way to run a function even if the package is not presently loaded.
+
+The same coding approach is used in the last line: `Count_NA = naniar::n_miss(body_mass_g)`.
+
+* * *
 
 <div class="note">
 **TIP**
