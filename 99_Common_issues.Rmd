@@ -90,7 +90,7 @@ This error happens because in your RMarkdown document you refer to a file/folder
 
 ![](./more/messy-output1.png)
 
-**Solution:** When you load packages in R, the knitted document will automatically show associated messages as output in your knitted document. This can make your assignment look messy when you are loading a bunch of packages. To hide these messages, add `messages=FALSE` into the R chunk where you load packages. See the example below.
+**Solution:** When you load packages in R, the knitted document will automatically show associated messages as output in your knitted document. This can make your assignment look messy when you are loading a bunch of packages. To hide these messages, add `message = FALSE` into the R chunk where you load packages. See the example below.
 
 ![](./more/messy-output2.png)
 
