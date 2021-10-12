@@ -12,6 +12,12 @@ link-citations: yes
 
 # (PART\*) Preface {-}
 
+```{r echo = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(knitr.table.format = "html")
+options(pillar.sigfig = 4)
+```
+
 # Welcome {-}
 
 This is an open source online book that includes all tutorials and other resources for the "lab" portion of the course BIOL202: Introduction to Biostatistics, at the University of British Columbia, Okanagan campus. 

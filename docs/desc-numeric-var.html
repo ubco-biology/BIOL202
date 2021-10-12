@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-02" />
+<meta name="date" content="2021-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -268,6 +268,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.4.5" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#interp_violin"><i class="fa fa-check"></i><b>13.4.5</b> Interpreting stripcharts and boxplots</a></li>
 </ul></li>
 </ul></li>
+<li class="part"><span><b>Inferential Statistics</b></span></li>
+<li class="chapter" data-level="14" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>14</b> Sampling, Estimation, &amp; Uncertainty</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="estimation-packages-data.html"><a href="estimation-packages-data.html"><i class="fa fa-check"></i><b>14.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="14.2" data-path="sampling-functions.html"><a href="sampling-functions.html"><i class="fa fa-check"></i><b>14.2</b> Functions for sampling</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="sampling-functions.html"><a href="sampling-functions.html#setseed"><i class="fa fa-check"></i><b>14.2.1</b> Setting the “seed” for random sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="sampling-error.html"><a href="sampling-error.html"><i class="fa fa-check"></i><b>14.3</b> Sampling error</a></li>
+<li class="chapter" data-level="14.4" data-path="sampdistmean.html"><a href="sampdistmean.html"><i class="fa fa-check"></i><b>14.4</b> Sampling distribution of the mean</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="sampdistmean.html"><a href="sampdistmean.html#hist_samdist"><i class="fa fa-check"></i><b>14.4.1</b> Visualize the sampling distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="SEM.html"><a href="SEM.html"><i class="fa fa-check"></i><b>14.5</b> Standard error of the mean</a></li>
+<li class="chapter" data-level="14.6" data-path="confint-rough.html"><a href="confint-rough.html"><i class="fa fa-check"></i><b>14.6</b> The rule of thumb 95% confidence interval</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
 <ul>
 <li class="chapter" data-level="" data-path="a-more-familiar-editing-environment.html"><a href="a-more-familiar-editing-environment.html"><i class="fa fa-check"></i>A more familiar editing environment</a></li>
@@ -331,8 +347,8 @@ Introducing the <code>summarise</code> function.</p>
 <span id="cb55-3"><a href="desc-numeric-var.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb55-4"><a href="desc-numeric-var.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb55-5"><a href="desc-numeric-var.html#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-27"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-27-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
+<div class="figure"><span id="fig:unnamed-chunk-28"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-28-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
 <p class="caption">
 Figure 12.1: Histogram of body mass (g) for 342 penguins
 </p>
@@ -348,7 +364,7 @@ Figure 12.1: Histogram of body mass (g) for 342 penguins
    IQR_body_mass_g = IQR(body_mass_g)
     )</code></pre>
 <p>Uh oh! If you tried to run this code, it would have given you an error:</p>
-<div class="figure"><span id="fig:unnamed-chunk-28"></span>
+<div class="figure"><span id="fig:unnamed-chunk-29"></span>
 <img src="more/na_error.png" alt="Error when functions encounter 'NA' values" width="648" />
 <p class="caption">
 Figure 12.2: Error when functions encounter ‘NA’ values

@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-02" />
+<meta name="date" content="2021-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="two-numeric.html"/>
-<link rel="next" href="visual-markdown-editor.html"/>
+<link rel="next" href="estimation.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -268,6 +268,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.4.5" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#interp_violin"><i class="fa fa-check"></i><b>13.4.5</b> Interpreting stripcharts and boxplots</a></li>
 </ul></li>
 </ul></li>
+<li class="part"><span><b>Inferential Statistics</b></span></li>
+<li class="chapter" data-level="14" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>14</b> Sampling, Estimation, &amp; Uncertainty</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="estimation-packages-data.html"><a href="estimation-packages-data.html"><i class="fa fa-check"></i><b>14.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="14.2" data-path="sampling-functions.html"><a href="sampling-functions.html"><i class="fa fa-check"></i><b>14.2</b> Functions for sampling</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="sampling-functions.html"><a href="sampling-functions.html#setseed"><i class="fa fa-check"></i><b>14.2.1</b> Setting the “seed” for random sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="sampling-error.html"><a href="sampling-error.html"><i class="fa fa-check"></i><b>14.3</b> Sampling error</a></li>
+<li class="chapter" data-level="14.4" data-path="sampdistmean.html"><a href="sampdistmean.html"><i class="fa fa-check"></i><b>14.4</b> Sampling distribution of the mean</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="sampdistmean.html"><a href="sampdistmean.html#hist_samdist"><i class="fa fa-check"></i><b>14.4.1</b> Visualize the sampling distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="SEM.html"><a href="SEM.html"><i class="fa fa-check"></i><b>14.5</b> Standard error of the mean</a></li>
+<li class="chapter" data-level="14.6" data-path="confint-rough.html"><a href="confint-rough.html"><i class="fa fa-check"></i><b>14.6</b> The rule of thumb 95% confidence interval</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
 <ul>
 <li class="chapter" data-level="" data-path="a-more-familiar-editing-environment.html"><a href="a-more-familiar-editing-environment.html"><i class="fa fa-check"></i>A more familiar editing environment</a></li>
@@ -340,8 +356,8 @@ Always remember to get an overview of the dataset before attempting to create gr
 <span id="cb91-5"><a href="numeric-vs-cat.html#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Serotonin (pmoles)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb91-6"><a href="numeric-vs-cat.html#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">25</span>) <span class="sc">+</span></span>
 <span id="cb91-7"><a href="numeric-vs-cat.html#cb91-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-40"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-40-1.png" alt="Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-41"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-41-1.png" alt="Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group." width="384" />
 <p class="caption">
 Figure 13.6: Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group.
 </p>
@@ -403,8 +419,8 @@ When using the <code>ggplot</code> function, we can assign the output to an obje
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="numeric-vs-cat.html#cb96-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin.points <span class="ot">&lt;-</span> bodymass.violin <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>)</span></code></pre></div>
 <p>And now show the plot:</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="numeric-vs-cat.html#cb97-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin.points</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-41"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-41-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-42"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-42-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins." width="384" />
 <p class="caption">
 Figure 13.7: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins.
 </p>
@@ -425,8 +441,8 @@ Figure 13.7: Violin plot showing the body mass (g) of male Adelie (N = 73), Chin
 <span id="cb98-11"><a href="numeric-vs-cat.html#cb98-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">title=</span><span class="st">&quot;Species&quot;</span>))</span></code></pre></div>
 <p>Now we add density plots in the margins using the <code>ggMarginal</code> function from the <code>ggExtra</code> package:</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="numeric-vs-cat.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggMarginal</span>(bodymass.violin2, <span class="at">type =</span> <span class="st">&quot;density&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">groupFill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-42"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-42-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin." width="480" />
+<div class="figure"><span id="fig:unnamed-chunk-43"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-43-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin." width="480" />
 <p class="caption">
 Figure 13.8: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.
 </p>
@@ -446,8 +462,8 @@ Figure 13.8: Violin plot showing the body mass (g) of male Adelie (N = 73), Chin
 <span id="cb100-5"><a href="numeric-vs-cat.html#cb100-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span></span>
 <span id="cb100-6"><a href="numeric-vs-cat.html#cb100-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb100-7"><a href="numeric-vs-cat.html#cb100-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-43"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-43-1.png" alt="Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-44"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-44-1.png" alt="Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values." width="384" />
 <p class="caption">
 Figure 13.9: Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.
 </p>
@@ -467,8 +483,8 @@ The first time you include a boxplot in a report / lab, be sure to include in th
 <div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="numeric-vs-cat.html#cb102-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin <span class="sc">+</span> </span>
 <span id="cb102-2"><a href="numeric-vs-cat.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
 <span id="cb102-3"><a href="numeric-vs-cat.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">colour =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.15</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-44"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-44-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-45"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-45-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values." width="384" />
 <p class="caption">
 Figure 13.10: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.
 </p>
@@ -493,13 +509,16 @@ It often takes some playing around with argument values before one gets the idea
 </div>
 </div>
 <!-- </div> -->
+
+
+
             </section>
 
           </div>
         </div>
       </div>
 <a href="two-numeric.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="visual-markdown-editor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="estimation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
