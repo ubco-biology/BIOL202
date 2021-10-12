@@ -268,14 +268,14 @@ gene.means.n20 %>%
  skim_without_charts(mean_length)
 ```
 
-OK, so we see that the minimum and maximum values are 1864 (under the "p0" heading) and 9349 (under the "p100" heading). So this can inform our x-axis limits when constructing the histogram (note that you typically need to try out different maximum values for the y-axis limits).
+OK, so we see that the minimum and maximum values are `r min(gene.means.n20$mean_length)` (under the "p0" heading) and `r max(gene.means.n20$mean_length)` (under the "p100" heading). So this can inform our x-axis limits when constructing the histogram (note that you typically need to try out different maximum values for the y-axis limits).
 
-Let's first remind ourselves what the true mean gene length is in the entire population of genes. We'll assign the output to an object "true.mean.length", then show using the `kable` approach.
+Let's first remind ourselves what the true mean gene length is in the entire population of genes. We'll assign the output to an object "true.mean.length" and a variable called "Pop_mean", then show using the `kable` approach.
 
 ```{r get_true_mean_gene}
 true.mean.length <- genelengths %>%
   summarise(
-    Mean_length = mean(size, na.rm = TRUE)
+    Pop_mean = mean(size, na.rm = TRUE)
   )
 ```
 
@@ -287,7 +287,7 @@ kable(true.mean.length, digits = 4)
 
 Now let's plot the histogram of 10000 sample means: 
 
-```{r fig.cap = "Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20).", fig.width = 4, fig.height = 4}
+```{r fig.cap = "Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20).", fig.width = 4, fig.height = 4, warning = FALSE}
 
 gene.means.n20 %>%
 ggplot(aes(x = mean_length)) +
@@ -306,7 +306,7 @@ Before interpreting the histogram, let's first calculate the mean of the 10000 s
 ```{r get_sampmean_genes}
 sample.mean.n20 <- gene.means.n20 %>%
   summarise(
-    Mean_length = mean(mean_length, na.rm = TRUE)
+    Sample_mean = mean(mean_length, na.rm = TRUE)
   )
 ```
 
@@ -316,7 +316,7 @@ Show using `kable`:
 kable(sample.mean.n20, digits = 4)
 ```
 
-Note that the mean of the sample means is around `r round(mean(gene.means.n20$mean_length, na.rm = TRUE), 0)`, which is pretty darn close to the true population mean of `r round(mean(genelengths$size, na.rm = TRUE), 0)`. 
+Note that the mean of the sample means is around `r round(mean(gene.means.n20$Sample_mean, na.rm = TRUE), 0)`, which is pretty darn close to the true population mean of `r round(mean(genelengths$size, na.rm = TRUE), 0)`. 
 
 This reflects the fact that, provided a good random sample, the sample mean is an **unbiased estimate** of the true population mean.
 
@@ -459,7 +459,7 @@ kable(newsamp.n20.stats.short, digits = 4)
 It is a good idea to use the longer approach that reports the sample size ("Count"), mean, standard deviation, and SEM. Why? Because in this way you're reporting each value (*n* and *s*) that goes into the calculation of the SEM.
 </div>
 
-## The rule of thumb 95% confidence interval {#confint_rough}
+## Rule of thumb 95% confidence interval {#confint_rough}
 
 The __Rule of Thumb__ 95% confidence interval is calculated simply as the sample mean +/- two standard errors. 
 
