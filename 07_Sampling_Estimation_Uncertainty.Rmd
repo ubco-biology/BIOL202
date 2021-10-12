@@ -391,7 +391,7 @@ With larger sample sizes, we'll get more precise estimates of the true populatio
 
 1. Follow this [online tutorial](http://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm) that helps visualize the construction of a sampling distribution of the mean 
 
-## Standard error of the mean {#SEM}
+## Standard error of the mean {#sem_page}
 
 This is the formula for calculating the __standard error of the mean__ when the population parameter <sigma> is unknown (which is usually the case):
 

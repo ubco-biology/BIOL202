@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Extra online resources | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>14.5 Standard error of the mean | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Extra online resources | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="14.5 Standard error of the mean | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Extra online resources | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="14.5 Standard error of the mean | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="veryify-knit.html"/>
-<link rel="next" href="online-resources.html"/>
+<link rel="prev" href="sampdistmean.html"/>
+<link rel="next" href="confint-rough.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -324,26 +324,108 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="r_resources" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Extra online resources</h1>
+<div id="sem_page" class="section level2" number="14.5">
+<h2><span class="header-section-number">14.5</span> Standard error of the mean</h2>
+<p>This is the formula for calculating the <strong>standard error of the mean</strong> when the population parameter <sigma> is unknown (which is usually the case):</p>
+<p><img src="more/std_error_eqn.png" /></p>
+<p>This is one measure of uncertainty that we report alongside our sample-based estimate of the population mean.</p>
+<p>It represents the standard deviation of the sampling distribution of the mean. Thus, it is a measure of spread for the sampling distribution of the mean.</p>
+<p><strong>Calculating the SEM in R</strong></p>
+<p>To illustrate how to calculate the SEM, we’ll make use of the gene length dataset again.</p>
+<p>Let’s take a random sample of 20 genes, making sure to set the seed this time so everyone gets the same result. We’ll use a seed number of 29, and we’ll save our sample of values from the variable “size” in an object (tibble) called “newsamp.n20”:</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="sem-page.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">29</span>)</span>
+<span id="cb136-2"><a href="sem-page.html#cb136-2" aria-hidden="true" tabindex="-1"></a>newsamp.n20 <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
+<span id="cb136-3"><a href="sem-page.html#cb136-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb136-4"><a href="sem-page.html#cb136-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(size)</span></code></pre></div>
+<p>Now let’s show the code for calculating the SEM for the mean calculated using values in the “size” variable from our “newsamp.n20” object. We’ll output stats to a new object “newsamp.n20.stats” then display the object using <code>kable</code>.</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="sem-page.html#cb137-1" aria-hidden="true" tabindex="-1"></a>newsamp.n20.stats <span class="ot">&lt;-</span> newsamp.n20 <span class="sc">%&gt;%</span></span>
+<span id="cb137-2"><a href="sem-page.html#cb137-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb137-3"><a href="sem-page.html#cb137-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(size),</span>
+<span id="cb137-4"><a href="sem-page.html#cb137-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb137-5"><a href="sem-page.html#cb137-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_genelength =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb137-6"><a href="sem-page.html#cb137-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> SD_genelength<span class="sc">/</span><span class="fu">sqrt</span>(Count)</span>
+<span id="cb137-7"><a href="sem-page.html#cb137-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p>You’ve seen all but the last lines of code before! Importantly, as we’ve seen before, the “Count” variable tallies the number of non-missing observations in the variable of interest (here, “size”). This is the sample size that we’ll need for the calculation of the SEM.</p>
+<p>The last line creates a new variable “SEM” that is calculated using the formula shown above, and inputs from the previous lines’ calculations.</p>
+<p>Specifically, the sample size “n” value comes from the “Count” variable, and the “s” value comes from the “SD_genelength” variable. And lastly, we use the <code>sqrt</code> function to take the square-root of the sample size.</p>
+<p>Display the output:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="sem-page.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(newsamp.n20.stats, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Count
+</th>
+<th style="text-align:right;">
+Mean_genelength
+</th>
+<th style="text-align:right;">
+SD_genelength
+</th>
+<th style="text-align:right;">
+SEM
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+3212.1
+</td>
+<td style="text-align:right;">
+1955.737
+</td>
+<td style="text-align:right;">
+437.3161
+</td>
+</tr>
+</tbody>
+</table>
+<p>If you wish to calculate and report only the mean and SEM for a variable (here, the “size” variable from our tibble “newsamp.n20”):</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="sem-page.html#cb139-1" aria-hidden="true" tabindex="-1"></a>newsamp.n20.stats.short <span class="ot">&lt;-</span> newsamp.n20 <span class="sc">%&gt;%</span></span>
+<span id="cb139-2"><a href="sem-page.html#cb139-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb139-3"><a href="sem-page.html#cb139-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb139-4"><a href="sem-page.html#cb139-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(size))</span>
+<span id="cb139-5"><a href="sem-page.html#cb139-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p>Display the output:</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="sem-page.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(newsamp.n20.stats.short, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Mean_genelength
+</th>
+<th style="text-align:right;">
+SEM
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+3212.1
+</td>
+<td style="text-align:right;">
+437.3161
+</td>
+</tr>
+</tbody>
+</table>
 <div class="note">
-<p><strong>Note</strong>
-This page is still under development (Sept 8, 2021)</p>
+<p><strong>TIP</strong>
+It is a good idea to use the longer approach that reports the sample size (“Count”), mean, standard deviation, and SEM. Why? Because in this way you’re reporting each value (<em>n</em> and <em>s</em>) that goes into the calculation of the SEM.</p>
 </div>
-<p>Below we provide tables with various online resources, including ones that will help you troubleshoot.</p>
-<p>If you are googling for R code, make sure to also include package names in your search query (if you are using a specific package). For example, instead of googling “scatterplot in R,” google “scatterplot in R with ggplot2.”</p>
-<p>Rstudio provides links to several <strong>cheatsheets</strong> that will come in handy throughout the semester.</p>
-<p>You can get nice PDF versions of the files by going to <strong>Help -&gt; Cheatsheets</strong> inside RStudio:</p>
-<p><img src="more/cheatsheets.png" /></p>
-<p>The book titled “Getting used to R, RStudio, and R Markdown” by Chester Ismay, which can be freely accessed <a href="https://ismayc.github.io/rbasics-book/">here</a>, is also a wonderful resource for for new users of R, RStudio, and R Markdown. It includes examples showing working with R Markdown files in RStudio recorded as GIFs.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="veryify-knit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="online-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sampdistmean.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="confint-rough.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

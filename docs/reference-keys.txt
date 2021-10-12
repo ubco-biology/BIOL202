@@ -105,5 +105,5 @@ setseed
 sampling_error
 sampdistmean
 hist_samdist
-SEM
+sem_page
 confint_rough
