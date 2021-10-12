@@ -59,6 +59,8 @@ The "size" variable is the key one: it includes the gene lengths (number of nucl
 
 ## Functions for sampling {#sampling_functions}
 
+To illustrate the concepts of "sampling error" and the "sampling distribution of the mean", we're going to make use of datasets that include measurements for all individuals in a "population" of interest, and we're going to take random samples of observations from those datasets. This mimics the process of sampling at random from a population.
+
 There are two functions that are especially helpful for taking random samples from objects. 
 
 * The `sample` function in the base R package is easy to use for taking a random sample from a **vector** of values. Look at the help function for it:
