@@ -332,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For this, we’ll use the newly installed <code>infer</code> package, and its handy function <code>rep_slice_sample</code>, which complements the <code>slice_sample</code> function we’ve used before.</p>
 <p>Let’s look at the code then explain after:</p>
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="sampdistmean.html#cb123-1" aria-hidden="true" tabindex="-1"></a>gene.means.n20 <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
-<span id="cb123-2"><a href="sampdistmean.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">reps =</span> <span class="dv">10000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb123-2"><a href="sampdistmean.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">reps =</span> <span class="dv">10000</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb123-3"><a href="sampdistmean.html#cb123-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb123-4"><a href="sampdistmean.html#cb123-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_length =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> T),</span>
 <span id="cb123-5"><a href="sampdistmean.html#cb123-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sampsize =</span> <span class="fu">as.factor</span>(<span class="dv">20</span>)</span>
@@ -581,7 +581,7 @@ Sample_mean
 </tr>
 </tbody>
 </table>
-<p>Note that the mean of the sample means is around NA, which is pretty darn close to the true population mean of 3511.</p>
+<p>Note that the mean of the sample means is around 3514, which is pretty darn close to the true population mean of 3511.</p>
 <p>This reflects the fact that, provided a good random sample, the sample mean is an <strong>unbiased estimate</strong> of the true population mean.</p>
 <p>Now, let’s interpret the histogram:</p>
 <ul>
@@ -591,7 +591,7 @@ Sample_mean
 <p>The latter characteristic reflects the fact that the population of genes includes more than 100 genes that are extremely large. When we take a random sample of 20 genes, it is possible that - just by chance - our sample could include one or more of the extremely large genes in the population, and this would of course inflate the magnitude of our mean gene length in the sample.</p>
 <p>Let’s repeat this sampling exersize using a larger sample size, say 50.</p>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="sampdistmean.html#cb132-1" aria-hidden="true" tabindex="-1"></a>gene.means.n50 <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
-<span id="cb132-2"><a href="sampdistmean.html#cb132-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">reps =</span> <span class="dv">10000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb132-2"><a href="sampdistmean.html#cb132-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">reps =</span> <span class="dv">10000</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb132-3"><a href="sampdistmean.html#cb132-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb132-4"><a href="sampdistmean.html#cb132-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_length =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> T),</span>
 <span id="cb132-5"><a href="sampdistmean.html#cb132-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sampsize =</span> <span class="fu">as.factor</span>(<span class="dv">50</span>)</span>

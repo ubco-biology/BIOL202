@@ -155,7 +155,7 @@ Let's use the `slice_sample` function to randomly sample sample _n_ = 20 rows fr
 ```{r samp_genes1, message = FALSE, warning = FALSE}
 set.seed(12)
 randsamp1 <- genelengths %>%
-  slice_sample(n = 20) %>%
+  slice_sample(n = 20, replace = FALSE) %>%
   select(size)
 ```
 
@@ -163,7 +163,7 @@ In the preceding chunk, we:
 
 * set the seed (here using integer 12), so that everyone gets the same output for this code chunk
 * tell R that we want the output from our code to be stored in an object named "randsamp1"
-* use the `slice_sample` function to randomly sample 20 rows from the `genelengths` tibble
+* use the `slice_sample` function to randomly sample 20 rows from the `genelengths` tibble, and to do so without replacement
 * use the `select` function to tell R to return only the "size" variable from the newly generated (sampled) tibble 
 
 Now let's use the `mean` and `sd` base functions to calculate the mean and standard deviation using our sample.
@@ -195,7 +195,7 @@ Let's now draw another random sample of the same size (20), making sure to give 
 
 ```{r samp_genes2}
 randsamp2 <- genelengths %>%
-  slice_sample(n = 20) %>%
+  slice_sample(n = 20, replace = FALSE) %>%
   select(size)
 ```
 
@@ -232,7 +232,7 @@ Let's look at the code then explain after:
 
 ```{r sample_means}
 gene.means.n20 <- genelengths %>%
-  rep_slice_sample(n = 20, reps = 10000) %>%
+  rep_slice_sample(n = 20, replace = FALSE, reps = 10000) %>%
   summarise(
     mean_length = mean(size, na.rm = T),
     sampsize = as.factor(20)
@@ -318,7 +318,7 @@ Show using `kable`:
 kable(sample.mean.n20, digits = 4)
 ```
 
-Note that the mean of the sample means is around `r round(mean(gene.means.n20$Sample_mean, na.rm = TRUE), 0)`, which is pretty darn close to the true population mean of `r round(mean(genelengths$size, na.rm = TRUE), 0)`. 
+Note that the mean of the sample means is around `r round(mean(sample.mean.n20$Sample_mean, na.rm = TRUE), 0)`, which is pretty darn close to the true population mean of `r round(mean(genelengths$size, na.rm = TRUE), 0)`. 
 
 This reflects the fact that, provided a good random sample, the sample mean is an **unbiased estimate** of the true population mean.
 
@@ -333,7 +333,7 @@ Let's repeat this sampling exersize using a larger sample size, say 50.
 
 ```{r sample_means_50}
 gene.means.n50 <- genelengths %>%
-  rep_slice_sample(n = 50, reps = 10000) %>%
+  rep_slice_sample(n = 50, replace = FALSE, reps = 10000) %>%
   summarise(
     mean_length = mean(size, na.rm = T),
     sampsize = as.factor(50)
@@ -412,7 +412,7 @@ Let's take a random sample of 20 genes, making sure to set the seed this time so
 ```{r samp1_descr}
 set.seed(29)
 newsamp.n20 <- genelengths %>%
-  slice_sample(n = 20) %>%
+  slice_sample(n = 20, replace = FALSE) %>%
   select(size)
 ```
 
