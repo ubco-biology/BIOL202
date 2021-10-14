@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-12" />
+<meta name="date" content="2021-10-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -349,16 +349,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## # A tibble: 10,000 x 3
 ##    replicate mean_length sampsize
 ##        &lt;int&gt;       &lt;dbl&gt; &lt;fct&gt;   
-##  1         1       3915. 20      
-##  2         2       4280. 20      
-##  3         3       3076. 20      
-##  4         4       3027. 20      
-##  5         5       3460. 20      
-##  6         6       3612. 20      
-##  7         7       3494. 20      
-##  8         8       4440. 20      
-##  9         9       3453. 20      
-## 10        10       3247. 20      
+##  1         1       3094. 20      
+##  2         2       4705. 20      
+##  3         3       2576. 20      
+##  4         4       2957. 20      
+##  5         5       3060. 20      
+##  6         6       3768. 20      
+##  7         7       3412. 20      
+##  8         8       4258. 20      
+##  9         9       3242. 20      
+## 10        10       3134. 20      
 ## # … with 9,990 more rows</code></pre>
 <p>We see that it is a tibble with 10000 rows and three columns: a variable called “replicate,” which holds the numbers one through the number of replicates run (here, 10000), a variable “mean_length” that we created, which holds the sample mean gene length for each of the replicate samples we took, and a variable “sampsize” that tells us the sample size used for each sample (here, 20).</p>
 <div class="note">
@@ -495,30 +495,30 @@ mean_length
 1
 </td>
 <td style="text-align:right;">
-3514.44
+3497.63
 </td>
 <td style="text-align:right;">
-636.14
+621.56
 </td>
 <td style="text-align:right;">
-1789.2
+1650.2
 </td>
 <td style="text-align:right;">
-3079.03
+3066.16
 </td>
 <td style="text-align:right;">
-3463.6
+3439.65
 </td>
 <td style="text-align:right;">
-3891.45
+3871.6
 </td>
 <td style="text-align:right;">
-9715.2
+9609.4
 </td>
 </tr>
 </tbody>
 </table>
-<p>OK, so we see that the minimum and maximum values are 1789.2 (under the “p0” heading) and 9715.2 (under the “p100” heading). So this can inform our x-axis limits when constructing the histogram (note that you typically need to try out different maximum values for the y-axis limits).</p>
+<p>OK, so we see that the minimum and maximum values are 1650.2 (under the “p0” heading) and 9609.4 (under the “p100” heading). So this can inform our x-axis limits when constructing the histogram (note that you typically need to try out different maximum values for the y-axis limits).</p>
 <p>Let’s first remind ourselves what the true mean gene length is in the entire population of genes. We’ll assign the output to an object “true.mean.length” and a variable called “Pop_mean,” then show using the <code>kable</code> approach.</p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="sampdistmean.html#cb127-1" aria-hidden="true" tabindex="-1"></a>true.mean.length <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
 <span id="cb127-2"><a href="sampdistmean.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -551,8 +551,8 @@ Pop_mean
 <span id="cb129-6"><a href="sampdistmean.html#cb129-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Gene length (nucleotides)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb129-7"><a href="sampdistmean.html#cb129-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Number of genes&quot;</span>) <span class="sc">+</span></span>
 <span id="cb129-8"><a href="sampdistmean.html#cb129-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-48"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-48-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20)." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-54"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-54-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20)." width="384" />
 <p class="caption">
 Figure 14.1: Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20).
 </p>
@@ -576,12 +576,12 @@ Sample_mean
 <tbody>
 <tr>
 <td style="text-align:right;">
-3514.439
+3497.633
 </td>
 </tr>
 </tbody>
 </table>
-<p>Note that the mean of the sample means is around 3514, which is pretty darn close to the true population mean of 3511.</p>
+<p>Note that the mean of the sample means is around 3498, which is pretty darn close to the true population mean of 3511.</p>
 <p>This reflects the fact that, provided a good random sample, the sample mean is an <strong>unbiased estimate</strong> of the true population mean.</p>
 <p>Now, let’s interpret the histogram:</p>
 <ul>
@@ -604,8 +604,8 @@ Sample_mean
 <span id="cb133-5"><a href="sampdistmean.html#cb133-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Gene length (nucleotides)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb133-6"><a href="sampdistmean.html#cb133-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Number of genes&quot;</span>) <span class="sc">+</span></span>
 <span id="cb133-7"><a href="sampdistmean.html#cb133-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-50"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-50-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50)." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-56"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-56-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50)." width="384" />
 <p class="caption">
 Figure 14.2: Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50).
 </p>
@@ -630,8 +630,8 @@ We can merge two tibbles (or data frames) together by rows using the <code>bind_
 <span id="cb135-7"><a href="sampdistmean.html#cb135-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb135-8"><a href="sampdistmean.html#cb135-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>) <span class="sc">+</span></span>
 <span id="cb135-9"><a href="sampdistmean.html#cb135-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">&quot;Sample size&quot;</span>))</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-51"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-51-1.png" alt="Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution)." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-57"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-57-1.png" alt="Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution)." width="384" />
 <p class="caption">
 Figure 14.3: Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution).
 </p>

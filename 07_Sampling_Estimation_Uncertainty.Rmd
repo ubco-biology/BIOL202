@@ -497,7 +497,7 @@ kable(newsamp.n20.allstats, digits = 4)
 <div class="note">
 **IMPORTANT:**  
 If you were asked to report the rule-of-thumb 95% confidence **interval**, then you'd use the output from your calculations above to report:  
-**`r round(temp$Lower_95_CL, 3)` < $\mu$ < `r round(temp$Upper_95_CL, 3)`**  
+**`r round(newsamp.n20.allstats$Lower_95_CL, 3)` < $\mu$ < `r round(newsamp.n20.allstats$Upper_95_CL, 3)`**  
 Note that it is the population parameter being estimated, $\mu$, that appears in between the lower and upper limits.
 </div>
 
