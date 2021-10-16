@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10.6 Tutorial practice activities | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>15.1 Load packages and import data | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10.6 Tutorial practice activities | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="15.1 Load packages and import data | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10.6 Tutorial practice activities | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="15.1 Load packages and import data | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-overview.html"/>
-<link rel="next" href="vis-variable.html"/>
+<link rel="prev" href="hypothesis.html"/>
+<link rel="next" href="hyp-steps.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -336,62 +336,191 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tutorial-practice-activities" class="section level2" number="10.6">
-<h2><span class="header-section-number">10.6</span> Tutorial practice activities</h2>
-<p>This activity will help reinforce each of the key learning outcomes from this tutorial.</p>
-<p><strong>Steps</strong></p>
-<p>You are going to take measurements of the lengths (in mm) of your thumb, index finger, and middle finger on each hand; but don’t start measuring yet!</p>
-<p>First:</p>
-<ul>
-<li>Create a new R Markdown document for this practice activity. This is where you’ll record the procedures you use for this practice activity</li>
-<li>As we’ve learned in previous tutorials, one of the first steps we should do is include a code chunk in the markdown document in which we load any packages we’ll need.</li>
-<li>Include a code chunk to load the packages used in the present tutorial</li>
-<li>Save the R Markdown document in your root “BIOL202_tutorials” directory, and provide it an appropriate file name.</li>
-<li>Open a new blank spreadsheet in Excel</li>
-</ul>
-<div class="note">
-<p><strong>Note</strong>
-Before taking the measurements, think about how you can make your measurement procedure reproducible. Where exactly are you measuring from and to on each digit? Are you using a ruler? What’s your measurement precision? Whatever approach you take, make sure you type it out clearly in your R Markdown document, so that someone else could repeat it.</p>
+<div id="hyp_packages_data" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Load packages and import data</h2>
+<p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>naniar</code>, and <code>infer</code> packages:</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="hyp-packages-data.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb146-2"><a href="hyp-packages-data.html#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb146-3"><a href="hyp-packages-data.html#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span>
+<span id="cb146-4"><a href="hyp-packages-data.html#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span></code></pre></div>
+<p>Import the CSV file called “damselfly”:</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="hyp-packages-data.html#cb147-1" aria-hidden="true" tabindex="-1"></a>damselfly <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/damselfly.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## cols(
+##   direction = col_character()
+## )</code></pre>
+<p>Get an overview of the dataset:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="hyp-packages-data.html#cb149-1" aria-hidden="true" tabindex="-1"></a>damselfly <span class="sc">%&gt;%</span></span>
+<span id="cb149-2"><a href="hyp-packages-data.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<table style="width: auto;" class="table table-condensed">
+<caption>
+(#tab:hyp_overview)Data summary
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Name
+</td>
+<td style="text-align:left;">
+Piped data
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of rows
+</td>
+<td style="text-align:left;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of columns
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_______________________
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column type frequency:
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+character
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+________________________
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Group variables
+</td>
+<td style="text-align:left;">
+None
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+max
+</th>
+<th style="text-align:right;">
+empty
+</th>
+<th style="text-align:right;">
+n_unique
+</th>
+<th style="text-align:right;">
+whitespace
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+direction
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p>And view the first handful of rows:</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="hyp-packages-data.html#cb150-1" aria-hidden="true" tabindex="-1"></a>damselfly</span></code></pre></div>
+<pre><code>## # A tibble: 20 x 1
+##    direction        
+##    &lt;chr&gt;            
+##  1 clockwise        
+##  2 counter_clockwise
+##  3 counter_clockwise
+##  4 clockwise        
+##  5 counter_clockwise
+##  6 counter_clockwise
+##  7 counter_clockwise
+##  8 counter_clockwise
+##  9 counter_clockwise
+## 10 counter_clockwise
+## 11 counter_clockwise
+## 12 clockwise        
+## 13 counter_clockwise
+## 14 counter_clockwise
+## 15 counter_clockwise
+## 16 counter_clockwise
+## 17 counter_clockwise
+## 18 counter_clockwise
+## 19 counter_clockwise
+## 20 counter_clockwise</code></pre>
 </div>
-<ul>
-<li>Also before you start measuring, think about how you’ll organize the data in the spreadsheet, including how many variables you’ll have, what to name those variables, and how many rows or observations you’ll have.</li>
-</ul>
-<p><strong>HINT</strong>: Even before you start measuring, most of your data sheet should be filled with values, and when you type in your 6 measurements, these should be entered in a single column.</p>
-<ul>
-<li>Once you’ve organized the spreadsheet, and even before you start entering the digit measurements, save it as a CSV file into your “rawdata” folder, remembering to use an appropriate file name</li>
-<li>Once you’ve typed out the methods in your markdown document, you can start taking measurements and recording them in the spreadsheet</li>
-<li>Once you’ve finished entering the data, save the spreadsheet again, then quit Excel.</li>
-</ul>
-<div class="note">
-<p><strong>Optional</strong>
-Now would be a good time to create and edit a "_README.txt" <a href="setup-dirs.html#setup_dirs">file</a> for your new “rawdata” folder.</p>
-</div>
-<p>Now you’re ready to import the data into R.</p>
-<ul>
-<li>In your R Markdown document, include a code chunk to import the data.</li>
-</ul>
-<p>Now you’re ready to get an overview of the data.</p>
-<ul>
-<li>In your R Markdown document, include a code chunk to get an overview of the dataset.</li>
-</ul>
-<p>Once you’ve confirmed that each of the code chunks work in your R Markdown document, you’re ready to knit!</p>
-<ul>
-<li>Knit your document to PDF.</li>
-</ul>
-<p>All done!</p>
-
-</div>
-<!-- </div> -->
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vis-variable.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="hypothesis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hyp-steps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

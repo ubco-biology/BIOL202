@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>10.6 Tutorial practice activities | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>15.3 An hypothesis test example | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="10.6 Tutorial practice activities | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="15.3 An hypothesis test example | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="10.6 Tutorial practice activities | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="15.3 An hypothesis test example | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-overview.html"/>
-<link rel="next" href="vis-variable.html"/>
+<link rel="prev" href="hyp-steps.html"/>
+<link rel="next" href="visual-markdown-editor.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -336,62 +336,190 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tutorial-practice-activities" class="section level2" number="10.6">
-<h2><span class="header-section-number">10.6</span> Tutorial practice activities</h2>
-<p>This activity will help reinforce each of the key learning outcomes from this tutorial.</p>
-<p><strong>Steps</strong></p>
-<p>You are going to take measurements of the lengths (in mm) of your thumb, index finger, and middle finger on each hand; but don’t start measuring yet!</p>
-<p>First:</p>
+<div id="hyp_example" class="section level2" number="15.3">
+<h2><span class="header-section-number">15.3</span> An hypothesis test example</h2>
+<p>When defending territories along streams, males of the damselfly species <em>Calopteryx maculata</em> (pictured <a href="https://en.wikipedia.org/wiki/Ebony_jewelwing#/media/File:Ebony_Jewelwing,_male,_Gatineau_Park.jpg">here</a>) often battle intruders in the air, flying around and around in circles with their foe for minutes at a time. No one knows whether these battles are flown in a consistent direction, i.e. predominantly clockwise or counter-clockwise, as would be expected if the damselflies exhibited a form of “handedness,” like many animals do.</p>
+<p>A researcher was curious about this because he had worked with these damselflies for years and witnessed many territorial bouts (see exmaple research <a href="http://www.nrcresearchpress.com/doi/abs/10.1139/z00-130#.WdFv0GKPKJU">here</a>).</p>
+<p>The researcher conducted a study (fictional) in which he video-recorded 20 male damselflies defending territories (all randomly sampled from a population), and determined the predominant direction of flight during circular flight battles. One battle per damselfly was recorded, and each battle was known to involve a unique combattant.</p>
+<p>He found that in 17 out of 20 bouts the damselflies flew in the counter-clockwise direction.</p>
+<p>Should this result be considered evidence of handedness in this population?</p>
+<hr />
+<p>For this example, we’ll use the imported <code>damselfly</code> dataset, which includes the single categorical variable of interest “direction,” and there are two categories: “clockwise” and “counter_clockwise.”</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="hyp-example.html#cb152-1" aria-hidden="true" tabindex="-1"></a>damselfly</span></code></pre></div>
+<pre><code>## # A tibble: 20 x 1
+##    direction        
+##    &lt;chr&gt;            
+##  1 clockwise        
+##  2 counter_clockwise
+##  3 counter_clockwise
+##  4 clockwise        
+##  5 counter_clockwise
+##  6 counter_clockwise
+##  7 counter_clockwise
+##  8 counter_clockwise
+##  9 counter_clockwise
+## 10 counter_clockwise
+## 11 counter_clockwise
+## 12 clockwise        
+## 13 counter_clockwise
+## 14 counter_clockwise
+## 15 counter_clockwise
+## 16 counter_clockwise
+## 17 counter_clockwise
+## 18 counter_clockwise
+## 19 counter_clockwise
+## 20 counter_clockwise</code></pre>
+<hr />
+<div id="follow_hyp_steps" class="section level3" number="15.3.1">
+<h3><span class="header-section-number">15.3.1</span> Following the steps to hypothesis testing</h3>
+<p>For the damselfly example, we have <em>n</em> = 20 <strong>random trials</strong>, each of which has two possible outcomes: clockwise battle or counter-clockwise battle. This conforms to the expectations of a <strong>binomial test</strong>, for which the <em>binomial distribution</em> is used to generate the appropriate <strong>null distribution</strong>. We’ll learn about the binomial test in a later tutorial.</p>
+<p>For the present tutorial, we’re going to generate a null distribution via simulation.</p>
+<p>To do this, we need to consider what our “null expectation” is, i.e. if there was truly no handedness among the damselflies.</p>
+<p>Our null expectation is that clockwise and counter-clockwise battles would occur with equal frequency. In other words, if we focus on counter-clockwise battles as the category of interest, then on average - across many, many battles - we’d expect those to make up <span class="math inline">\(p_0 = 0.5\)</span> of the battles. This is just like flipping a fair coin: over the long run (i.e. over many, many coin flips), we’d expect heads to make up half the outcomes, i.e. <span class="math inline">\(p_0 = 0.5\)</span>.</p>
+<p>We can now specify our <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span>:</p>
+<p><strong>H<sub>0</sub></strong>: The proportion of bouts flown in a counter-clockwise direction is 0.5 (<span class="math inline">\(p_0 = 0.5\)</span>).</p>
+<p><strong>H<sub>A</sub></strong>: The proportion of bouts flown in a counter-clockwise direction is not 0.5 (<span class="math inline">\(p_0 \neq 0.5\)</span>).</p>
+<p>We’ll set <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p>Although our <span class="math inline">\(H_0\)</span> makes a specific statement about a proportion (<span class="math inline">\(p_0\)</span>), our <em>test statistic</em> will actually be the <strong>number of battles that occurred in a counter-clockwise direction</strong>. Of course, we can re-express this number as a proportion, but convention is that we use the number (frequency) instead.</p>
+<p>As indicated by the <strong>H<sub>A</sub></strong> statement, we’ll use a 2-tailed alternative hypothesis because we have no reason to exclude the possibility that clockwise battles are in fact more predominant.</p>
+</div>
+<div id="sim_null" class="section level3" number="15.3.2">
+<h3><span class="header-section-number">15.3.2</span> Simulating a “null distribution”</h3>
+<p>For our damselfly example, we can easily simulate the random trials (20 territorial flight battles, each yielding one of 2 outcomes) by using what we learned in the previous <a href="estimation.html#estimation">tutorial</a> about simulations in R.</p>
+<p>First, we’ll create a tibble object called “null_options” that holds a categorical variable “direction” with two categories, “clockwise” and “counter_clockwise”:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="hyp-example.html#cb154-1" aria-hidden="true" tabindex="-1"></a>null_options <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">direction =</span> <span class="fu">c</span>(<span class="st">&quot;clockwise&quot;</span>, <span class="st">&quot;counter_clockwise&quot;</span>))</span></code></pre></div>
+<p>Have a look at the resulting object:</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="hyp-example.html#cb155-1" aria-hidden="true" tabindex="-1"></a>null_options</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 1
+##   direction        
+##   &lt;chr&gt;            
+## 1 clockwise        
+## 2 counter_clockwise</code></pre>
+<p>Now we can use the <code>rep_slice_sample</code> function from the <code>infer</code> package (which we learned about in the last <a href="estimation.html#estimation">tutorial</a>) to simulate a large number of repetitions of our <em>n</em> = 20 random trials. The number of repetitions is governed by the <em>reps</em> argument.</p>
+<p>We’ll set the seed first, to ensure everyone gets the same result for this initial demonstration repetition.</p>
+<p>Let’s start with a single repetition of <em>n</em> = 20 random trials. We’ll explain the code after:</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="hyp-example.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">199</span>)</span>
+<span id="cb157-2"><a href="hyp-example.html#cb157-2" aria-hidden="true" tabindex="-1"></a>num.reps <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb157-3"><a href="hyp-example.html#cb157-3" aria-hidden="true" tabindex="-1"></a>null_options <span class="sc">%&gt;%</span></span>
+<span id="cb157-4"><a href="hyp-example.html#cb157-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">weight_by =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">reps =</span> num.reps) <span class="sc">%&gt;%</span></span>
+<span id="cb157-5"><a href="hyp-example.html#cb157-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(direction)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+## # Groups:   replicate [1]
+##   replicate direction             n
+##       &lt;int&gt; &lt;chr&gt;             &lt;int&gt;
+## 1         1 clockwise             9
+## 2         1 counter_clockwise    11</code></pre>
 <ul>
-<li>Create a new R Markdown document for this practice activity. This is where you’ll record the procedures you use for this practice activity</li>
-<li>As we’ve learned in previous tutorials, one of the first steps we should do is include a code chunk in the markdown document in which we load any packages we’ll need.</li>
-<li>Include a code chunk to load the packages used in the present tutorial</li>
-<li>Save the R Markdown document in your root “BIOL202_tutorials” directory, and provide it an appropriate file name.</li>
-<li>Open a new blank spreadsheet in Excel</li>
+<li>We first set the seed (using integer 199 here; arbitrarily chosen)</li>
+<li>Next we create an object “num.reps” that is simply one number: the number of replications we wish to run (here, 1)</li>
+<li>We tell R we’re using the “null_options” object (created previously) for input into the subsequent lines, using the pipe (%&gt;%) to continue the code</li>
+<li>We use the <code>rep_slice_sample</code> function, setting the number of trials <em>n</em> to 20, and ensuring that we use sampling with replacement here (“replace = T”) because our “null_options” object has only two observations to sample from, and we need 20 total;</li>
+<li>You can think of the “weight_by” argument as a way to control the relative probability of sampling each of the rows in the input tibble (here, the “null_options” tibble). Here we provide two values (0.5, 0.5), specifying that we want each of the two rows in the tibble to have equal likelihood of being sampled at random. This corresponds to what we want for our null expectation, and for the generation of the null distribution</li>
+<li>The last argument to the <code>rep_slice_sample</code> function is “reps = num.reps,” using our created object to tell R that we want only one repetition of the 20 trials</li>
+<li>In the last line of code we use the <code>count</code> function to tally the number of observations belonging to each of the two categories in the “direction” variable</li>
+</ul>
+<p>So you see that the output above is a tibble with 3 variables: “replicate,” “direction,” and “n.”</p>
+<p>We’re specifically interested in the number of times (the frequency) out of the 20 trials that the damselfly battle was predominantly “counter_clockwise” (what we consider a “success”). So in our first repetition here, 11 of the trials were predominantly in the counter-clockwise direction.</p>
+<p>Now what we need to do is run many thousands of repetitions (we’ll do 10^{5}), and each time tally the number of battles (out of the 20 trials) in which the direction was counter-clockwise.</p>
+<p>This will generate a reasonable approximation of a <strong>null distribution</strong> for our study.</p>
+<p>After the setting the seed, we create an object that simply holds the number of replications we wish to run.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="hyp-example.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">199</span>)</span>
+<span id="cb159-2"><a href="hyp-example.html#cb159-2" aria-hidden="true" tabindex="-1"></a>num.reps <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb159-3"><a href="hyp-example.html#cb159-3" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="ot">&lt;-</span> null_options <span class="sc">%&gt;%</span></span>
+<span id="cb159-4"><a href="hyp-example.html#cb159-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">weight_by =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">reps =</span> num.reps) <span class="sc">%&gt;%</span></span>
+<span id="cb159-5"><a href="hyp-example.html#cb159-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(direction) <span class="sc">%&gt;%</span></span>
+<span id="cb159-6"><a href="hyp-example.html#cb159-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(direction <span class="sc">==</span> <span class="st">&quot;counter_clockwise&quot;</span>)</span></code></pre></div>
+<p>In the above code chunk, we:</p>
+<ul>
+<li>assign our output to a new object called “dull_distribution”</li>
+<li>We changed the “reps” argument for the <code>rep_slice_sample</code> function to 10^{5} (all other arguments stay the same).</li>
+<li>We use the <code>count</code> function to tally the number of observations belonging to each of the two categories in the “direction” variable</li>
+<li>We then <code>filter</code> the output from our sampling to the rows with the “direction” variable equal to “counter_clockwise”</li>
+</ul>
+<p>Let’s look at the resulting object:</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="hyp-example.html#cb160-1" aria-hidden="true" tabindex="-1"></a>null_distribution</span></code></pre></div>
+<pre><code>## # A tibble: 100,000 x 3
+## # Groups:   replicate [100,000]
+##    replicate direction             n
+##        &lt;int&gt; &lt;chr&gt;             &lt;int&gt;
+##  1         1 counter_clockwise    11
+##  2         2 counter_clockwise     9
+##  3         3 counter_clockwise     8
+##  4         4 counter_clockwise    11
+##  5         5 counter_clockwise    13
+##  6         6 counter_clockwise     9
+##  7         7 counter_clockwise     9
+##  8         8 counter_clockwise    12
+##  9         9 counter_clockwise     6
+## 10        10 counter_clockwise     9
+## # … with 99,990 more rows</code></pre>
+<p>We have a tibble with the number of rows equal to the number of replications we performed (100000), three variables (“replicate,” “direction,” and “n”), and the key information are the numbers in the “n” variable. These represent the number of battles (out of 20) that were predominantly in the counter-clockwise direction.</p>
+<p>We can now create a histogram of these data, thus producing an approximation of a “null distribution.”</p>
+<p>The only difference here, compared to previous times we’ve created histograms, is that we add the <code>after_stat(density)</code> argument to the <code>aes</code> part of the <code>ggplot</code> function. This tells R to display the relative frequency (= probability density) rather than the raw counts on the y-axis. Notice we also use “binwidth = 1,” because we want to see a bar for each potential outcome (0 through 20).</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="hyp-example.html#cb162-1" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="sc">%&gt;%</span></span>
+<span id="cb162-2"><a href="hyp-example.html#cb162-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n, <span class="fu">after_stat</span>(density))) <span class="sc">+</span></span>
+<span id="cb162-3"><a href="hyp-example.html#cb162-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb162-4"><a href="hyp-example.html#cb162-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb162-5"><a href="hyp-example.html#cb162-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of counter-clockwise battles&quot;</span>) <span class="sc">+</span></span>
+<span id="cb162-6"><a href="hyp-example.html#cb162-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb162-7"><a href="hyp-example.html#cb162-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-55"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-55-1.png" alt="Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions." width="480" />
+<p class="caption">
+Figure 15.1: Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions.
+</p>
+</div>
+<p>The null distribution above shows us that if the null hypothesis was true, the most probable outcome would be 10 counter-clockwise battles out of 20. But other outcomes are of course possible, with decreasing probability towards zero and twenty.</p>
+</div>
+<div id="calc_p" class="section level3" number="15.3.3">
+<h3><span class="header-section-number">15.3.3</span> Calculating the <em>P</em>-value</h3>
+<p>The <strong><em>P</em>-value</strong> is defined as the probability of observing an outcome as extreme or more extreme as the observed value of the test statistic, if the null hypothesis were true.</p>
+<p>In our damselfly study, we observed 17 out of 20 battles to be in the counter-clockwise direction.</p>
+<p>We can calculate a <strong><em>P</em>-value</strong> as follows:</p>
+<ul>
+<li>first calculate the fraction of the 10^{5} values in our null distribution that are equal to or greater than our observed test statistic value (here, 17)</li>
+<li>if we have a 2-tailed alternative hypothesis, then we also need to calculate the fraction of the 10^{5} values in our null distribution that are less than or equal to 3, which is the mirror number to 17 in the opposite side of the distribution.</li>
 </ul>
 <div class="note">
-<p><strong>Note</strong>
-Before taking the measurements, think about how you can make your measurement procedure reproducible. Where exactly are you measuring from and to on each digit? Are you using a ruler? What’s your measurement precision? Whatever approach you take, make sure you type it out clearly in your R Markdown document, so that someone else could repeat it.</p>
+<p><strong>NOTE</strong>
+Although our approximate null distribution that we created looks quite symmetrical, it’s best not to assume it is (because recall that we generated this via simulation). Therefore we don’t simply multiply the first value we calculate above by two. In future tutorials you’ll learn how to calculate <strong><em>P</em>-values</strong> using built-in R functions and theoretical probability distributions.</p>
 </div>
-<ul>
-<li>Also before you start measuring, think about how you’ll organize the data in the spreadsheet, including how many variables you’ll have, what to name those variables, and how many rows or observations you’ll have.</li>
-</ul>
-<p><strong>HINT</strong>: Even before you start measuring, most of your data sheet should be filled with values, and when you type in your 6 measurements, these should be entered in a single column.</p>
-<ul>
-<li>Once you’ve organized the spreadsheet, and even before you start entering the digit measurements, save it as a CSV file into your “rawdata” folder, remembering to use an appropriate file name</li>
-<li>Once you’ve typed out the methods in your markdown document, you can start taking measurements and recording them in the spreadsheet</li>
-<li>Once you’ve finished entering the data, save the spreadsheet again, then quit Excel.</li>
-</ul>
-<div class="note">
-<p><strong>Optional</strong>
-Now would be a good time to create and edit a "_README.txt" <a href="setup-dirs.html#setup_dirs">file</a> for your new “rawdata” folder.</p>
+<p>In the <a href="coding-basics.html#coding_basics">Introductory R Tutorials</a> you learned how to use <strong>logical comparison operators</strong> such as <code>&gt;</code> and <code>&lt;=</code>. We’ll use these here.</p>
+<p>Let’s find out how many values within the variable <code>n</code> in our <code>null_distribution</code> tibble are less than or equal to 3, or greater than or equal to 17:</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="hyp-example.html#cb163-1" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="sc">%&gt;%</span></span>
+<span id="cb163-2"><a href="hyp-example.html#cb163-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">|</span> n <span class="sc">&gt;=</span> <span class="dv">17</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb163-3"><a href="hyp-example.html#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>() </span></code></pre></div>
+<pre><code>## [1] 254</code></pre>
+<p>This code uses the <code>filter</code> function to return only the rows that meet the condition specified: the “n” variable value less than or equal to 3, OR (using the “|” symbol) greater than or equal to 17.</p>
+<p>The <code>nrow</code> function then simply counts the number of rows in the resulting (filtered) tibble.</p>
+<p>We see that among the 10^{5} replications we ran, 254 yielded outcomes in which 3 or fewer, or 17 or more out of 20 battles were in the counter-clockwise direction.</p>
+<p>To calculate the <em>P</em>-value, we need to divide the 254 by the total number of reps that we conducted, here 10^{5}.</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="hyp-example.html#cb165-1" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="sc">%&gt;%</span></span>
+<span id="cb165-2"><a href="hyp-example.html#cb165-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">|</span> n <span class="sc">&gt;=</span> <span class="dv">17</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb165-3"><a href="hyp-example.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>() <span class="sc">/</span> num.reps</span></code></pre></div>
+<pre><code>## [1] 0.00254</code></pre>
+<p>So the <strong><em>P</em>-value</strong> associated with our observed test statistic is 0.00254.</p>
 </div>
-<p>Now you’re ready to import the data into R.</p>
-<ul>
-<li>In your R Markdown document, include a code chunk to import the data.</li>
-</ul>
-<p>Now you’re ready to get an overview of the data.</p>
-<ul>
-<li>In your R Markdown document, include a code chunk to get an overview of the dataset.</li>
-</ul>
-<p>Once you’ve confirmed that each of the code chunks work in your R Markdown document, you’re ready to knit!</p>
-<ul>
-<li>Knit your document to PDF.</li>
-</ul>
-<p>All done!</p>
+<div id="concluding_statement" class="section level3" number="15.3.4">
+<h3><span class="header-section-number">15.3.4</span> Writing a concluding statement</h3>
+<p>It is important to write a concluding statement that talks about the actual findings of the study. For example:</p>
+<p>In their territorial bouts, the damselflies flew in a counter-clockwise direction significantly more than expected (17 counter-clockwise flights out of <em>n</em> = 20 trials; <em>P</em>-value = 0.003). This is consistent with the idea that there is “handedness” in this population of <em>C. maculata</em>.</p>
+<p>It is also crucial that you report the sample size (here, number of random trials), the value of the observed test statistic (here 17), and the associated <strong><em>P</em>-value</strong>. Note we rounded the <strong><em>P</em>-value</strong> to three decimal places.</p>
+<p>When we learn new types of statistical test, we’ll adjust our concluding statements accordingly.</p>
+<ol style="list-style-type: decimal">
+<li>Using this tutorial as a guide, try to repeat all the steps of a hypothesis test for Example 6.2 in the text book (concerning handedness in toads).</li>
+</ol>
 
+</div>
 </div>
 <!-- </div> -->
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="data-overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vis-variable.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="hyp-steps.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visual-markdown-editor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

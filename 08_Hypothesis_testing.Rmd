@@ -44,7 +44,12 @@ damselfly
 
 ## Steps to hypothesis testing {#hyp_steps}
 
-Below is a list of all the steps required when conducting a hypothesis test. Several of the steps we will learn about in later tutorials. 
+Below is a list of all the steps required when conducting a hypothesis test. 
+
+<div class="note">
+**NOTE**
+Several of the steps we will learn about in later tutorials.
+</div>
 
 * Identify the appropriate statistical test and thus __null distribution__ for the test statistic
 * State the null (**H~0~**) and alternative (**H~A~**) hypotheses  
@@ -62,7 +67,7 @@ Below is a list of all the steps required when conducting a hypothesis test. Sev
 * Draw the appropriate conclusion and communicate it clearly  
 * Calculate and include a confidence interval (e.g. for *t*-tests) or *R*^2^ value (e.g. for ANOVA) when appropriate  
 
-## A hypothesis test example {#hyp_example}
+## An hypothesis test example {#hyp_example}
 
 When defending territories along streams, males of the damselfly species _Calopteryx maculata_ (pictured [here](https://en.wikipedia.org/wiki/Ebony_jewelwing#/media/File:Ebony_Jewelwing,_male,_Gatineau_Park.jpg)) often battle intruders in the air, flying around and around in circles with their foe for minutes at a time.  No one knows whether these battles are flown in a consistent direction, i.e. predominantly clockwise or counter-clockwise, as would be expected if the damselflies exhibited a form of "handedness", like many animals do.  
 
@@ -76,10 +81,10 @@ Should this result be considered evidence of handedness in this population?
 
 * * *
 
-For this example, we'll use the imported `damsefly` dataset, which includes the single categorical variable of interest "direction", and there are two categories: "clockwise" and "counter_clockwise".
+For this example, we'll use the imported `damselfly` dataset, which includes the single categorical variable of interest "direction", and there are two categories: "clockwise" and "counter_clockwise".
 
 ```{r viewdamsel}
-damsefly
+damselfly
 ```
 
 * * *
@@ -102,7 +107,7 @@ We can now specify our $H_0$ and $H_A$:
 
 We'll set $\alpha = 0.05$.
 
-Although our $H_0$ makes a specific statement about a proportion ($p_0$), our _test statistic_ will actually be the **number of bouts that occurred in a counter-clockwise direction**.  Of course, we can re-express this number as a proportion, but convention is that we use the number (frequency) instead.  
+Although our $H_0$ makes a specific statement about a proportion ($p_0$), our _test statistic_ will actually be the **number of battles that occurred in a counter-clockwise direction**.  Of course, we can re-express this number as a proportion, but convention is that we use the number (frequency) instead.  
 
 As indicated by the **H~A~** statement, we'll use a 2-tailed alternative hypothesis because we have no reason to exclude the possibility that clockwise battles are in fact more predominant.  
 
@@ -144,7 +149,7 @@ null_options %>%
 * The last argument to the `rep_slice_sample` function is "reps = num.reps", using our created object to tell R that we want only one repetition of the 20 trials
 * In the last line of code we use the `count` function to tally the number of observations belonging to each of the two categories in the "direction" variable
 
-So you see that the output is a tibble with 3 variables: "replicate", "direction", and "n". 
+So you see that the output above is a tibble with 3 variables: "replicate", "direction", and "n". 
 
 We're specifically interested in the number of times (the frequency) out of the 20 trials that the damselfly battle was predominantly "counter_clockwise" (what we consider a "success").  So in our first repetition here, 11 of the trials were predominantly in the counter-clockwise direction.
 
@@ -186,7 +191,7 @@ We can now create a histogram of these data, thus producing an approximation of 
 
 The only difference here, compared to previous times we've created histograms, is that we add the `after_stat(density)` argument to the `aes` part of the `ggplot` function. This tells R to display the relative frequency (= probability density) rather than the raw counts on the y-axis.  Notice we also use "binwidth = 1", because we want to see a bar for each potential outcome (0 through 20).
 
-```{r null_hist, fig.cap = "Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions.", fig.height = 4.5, fig.width = 5}
+```{r fig.cap = "Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions.", warning = FALSE, fig.height = 4.5, fig.width = 5}
 
 null_distribution %>%
   ggplot(aes(x = n, after_stat(density))) +
@@ -212,7 +217,7 @@ We can calculate a **_P_-value** as follows:
 
 <div class="note">
 **NOTE**
-Our approximate null distribution that we created is not perfectly symmetrical, hence not simply multiplying the first value we calculate by two.  Rather, we can compute the exact _P_-value doing it the way we've done here. In future tutorials you'll learn how to calculate **_P_-values** using built-in R functions and theoretical probability distributions.
+Although our approximate null distribution that we created looks quite symmetrical, it's best not to assume it is (because recall that we generated this via simulation). Therefore we don't simply multiply the first value we calculate above by two.  In future tutorials you'll learn how to calculate **_P_-values** using built-in R functions and theoretical probability distributions.
 </div>
 
 In the [Introductory R Tutorials](#coding_basics) you learned how to use __logical comparison operators__ such as `>` and `<=`. We'll use these here.  
@@ -251,9 +256,9 @@ So the **_P_-value** associated with our observed test statistic is `r pval`.
 
 It is important to write a concluding statement that talks about the actual findings of the study. For example:  
 
-In their territorial bouts, the damselflies flew in a counter-clockwise direction significantly more than expected (17 counter-clockwise flights out of *n* = 20 trials; *P*-value = `r p.value`). This is consistent with the idea that there is "handedness" in this population of *C. maculata*.
+In their territorial bouts, the damselflies flew in a counter-clockwise direction significantly more than expected (17 counter-clockwise flights out of *n* = 20 trials; *P*-value = `r round(pval, 3)`). This is consistent with the idea that there is "handedness" in this population of *C. maculata*.
 
-It is also crucial that you report the sample size (here, number of random trials), the value of the observed test statistic (here 17), and the associated **_P_-value**.
+It is also crucial that you report the sample size (here, number of random trials), the value of the observed test statistic (here 17), and the associated **_P_-value**. Note we rounded the **_P_-value** to three decimal places. 
 
 When we learn new types of statistical test, we'll adjust our concluding statements accordingly.
 
