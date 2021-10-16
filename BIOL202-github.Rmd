@@ -2758,7 +2758,7 @@ library(naniar)
 
 Import the CSV file called "damselfly":
 
-```{r}
+```{r get_damsel}
 damselfly <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/damselfly.csv")
 ```
 
