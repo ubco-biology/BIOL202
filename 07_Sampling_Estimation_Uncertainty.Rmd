@@ -428,7 +428,7 @@ newsamp.n20.stats <- newsamp.n20 %>%
   )
 ```
 
-You've seen all but the last lines of code before! Importantly, as we've seen before, the "Count" variable tallies the number of non-missing observations in the variable of interest (here, "size"). This is the sample size that we'll need for the calculation of the SEM. 
+You've seen all but the last lines of code before! Importantly, as we've seen [before](#mean_sd), the "Count" variable, calculatedusing the `n` function in combinatin with the `n_miss` function from the `naniar` package, tallies the number of non-missing observations in the variable of interest (here, "size"). This is the sample size that we'll need for the calculation of the SEM. 
 
 The last line creates a new variable "SEM" that is calculated using the formula shown above, and inputs from the previous lines' calculations. 
 
