@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-16" />
+<meta name="date" content="2021-10-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -390,19 +390,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb207-3"><a href="binomdist.html#cb207-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of successes (X)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb207-4"><a href="binomdist.html#cb207-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Pr[X]&quot;</span>) <span class="sc">+</span></span>
 <span id="cb207-5"><a href="binomdist.html#cb207-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-61"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-61-1.png" alt="Probability of obtaining X successes out of 6 random trials, with probability of success = 1/6." width="480" />
+<div class="figure"><span id="fig:unnamed-chunk-66"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-66-1.png" alt="Probability of obtaining X successes out of 6 random trials, with probability of success = 1/6." width="480" />
 <p class="caption">
 Figure 16.1: Probability of obtaining X successes out of 6 random trials, with probability of success = 1/6.
 </p>
 </div>
+<p><strong>Added October 17, 2021</strong></p>
+<p>What if we wished to calculate the probability of getting <em>at least</em> two fours in our 6 rolls of the dice?</p>
+<p>Consult the bar chart above. Recall that “rolling a 4” is our definition of a “success” (it could have been “rolling a 1,” or “rolling a 5” - these all result in the same calculation). Thus to calculate the probability of getting at least 2 successes we need to sum up the probabilities associated with getting 2, 3, 4, 5, and 6 successes.</p>
+<p>We can do this using the following R code:</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="binomdist.html#cb208-1" aria-hidden="true" tabindex="-1"></a>probs<span class="fl">.2</span>_to_6 <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">2</span><span class="sc">:</span>num.trials, <span class="at">size =</span> num.trials, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span>
+<span id="cb208-2"><a href="binomdist.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(probs<span class="fl">.2</span>_to_6)</span></code></pre></div>
+<pre><code>## [1] 0.2632245</code></pre>
+<p>Note that we ask the <code>dbinom</code> function to do the calculation for each of the <code>2:num.trials</code> outcomes of interest. We store these calculated probabilities in a new object “probs.2_to_6.”</p>
+<p>Then, we use the <code>sum</code> function to sum up the probabilities within that object.</p>
+<p>The resulting value of 0.2632245 looks about right based on our bar chart!</p>
+<hr />
 <p>Now let’s increase the number of trials to <em>n</em> = 15, and compare the distribution to that observed using <em>n</em> = 6:</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="binomdist.html#cb208-1" aria-hidden="true" tabindex="-1"></a>num.trials <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb208-2"><a href="binomdist.html#cb208-2" aria-hidden="true" tabindex="-1"></a>exact.probs<span class="fl">.15</span> <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb208-3"><a href="binomdist.html#cb208-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">X =</span> <span class="dv">0</span><span class="sc">:</span>num.trials,</span>
-<span id="cb208-4"><a href="binomdist.html#cb208-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span>num.trials, <span class="at">size =</span> num.trials, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span>
-<span id="cb208-5"><a href="binomdist.html#cb208-5" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb208-6"><a href="binomdist.html#cb208-6" aria-hidden="true" tabindex="-1"></a>exact.probs<span class="fl">.15</span></span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="binomdist.html#cb210-1" aria-hidden="true" tabindex="-1"></a>num.trials <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb210-2"><a href="binomdist.html#cb210-2" aria-hidden="true" tabindex="-1"></a>exact.probs<span class="fl">.15</span> <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb210-3"><a href="binomdist.html#cb210-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">X =</span> <span class="dv">0</span><span class="sc">:</span>num.trials,</span>
+<span id="cb210-4"><a href="binomdist.html#cb210-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">probs =</span> <span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span>num.trials, <span class="at">size =</span> num.trials, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span>
+<span id="cb210-5"><a href="binomdist.html#cb210-5" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb210-6"><a href="binomdist.html#cb210-6" aria-hidden="true" tabindex="-1"></a>exact.probs<span class="fl">.15</span></span></code></pre></div>
 <pre><code>## # A tibble: 16 x 2
 ##        X     probs
 ##    &lt;int&gt;     &lt;dbl&gt;
@@ -423,13 +434,13 @@ Figure 16.1: Probability of obtaining X successes out of 6 random trials, with p
 ## 15    14 1.595e-10
 ## 16    15 2.127e-12</code></pre>
 <p>Now plot the binomial probability distribution:</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="binomdist.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(exact.probs<span class="fl">.15</span>, <span class="fu">aes</span>(<span class="at">y =</span> probs, <span class="at">x =</span> X)) <span class="sc">+</span></span>
-<span id="cb210-2"><a href="binomdist.html#cb210-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb210-3"><a href="binomdist.html#cb210-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of successes (X)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb210-4"><a href="binomdist.html#cb210-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Pr[X]&quot;</span>) <span class="sc">+</span></span>
-<span id="cb210-5"><a href="binomdist.html#cb210-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-62"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-62-1.png" alt="Probability of obtaining X successes out of 15 random trials, with probability of success = 1/6." width="480" />
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="binomdist.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(exact.probs<span class="fl">.15</span>, <span class="fu">aes</span>(<span class="at">y =</span> probs, <span class="at">x =</span> X)) <span class="sc">+</span></span>
+<span id="cb212-2"><a href="binomdist.html#cb212-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb212-3"><a href="binomdist.html#cb212-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of successes (X)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb212-4"><a href="binomdist.html#cb212-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Pr[X]&quot;</span>) <span class="sc">+</span></span>
+<span id="cb212-5"><a href="binomdist.html#cb212-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-67"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-67-1.png" alt="Probability of obtaining X successes out of 15 random trials, with probability of success = 1/6." width="480" />
 <p class="caption">
 Figure 16.2: Probability of obtaining X successes out of 15 random trials, with probability of success = 1/6.
 </p>

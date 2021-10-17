@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-16" />
+<meta name="date" content="2021-10-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -350,23 +350,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="singcat_packages_data" class="section level2" number="16.1">
 <h2><span class="header-section-number">16.1</span> Load packages and import data</h2>
-<p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>naniar</code>, and <code>janitor</code> packages:</p>
+<p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>naniar</code>, <code>knitr</code>, and <code>janitor</code> packages:</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="singcat-packages-data.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb167-2"><a href="singcat-packages-data.html#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
 <span id="cb167-3"><a href="singcat-packages-data.html#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb167-4"><a href="singcat-packages-data.html#cb167-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<span id="cb167-4"><a href="singcat-packages-data.html#cb167-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb167-5"><a href="singcat-packages-data.html#cb167-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We will also need a new package called <code>binom</code>, so install that package using the procedure you <a href="package-install.html#package_install">previously learned</a>, then load it:</p>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="singcat-packages-data.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(binom)</span></code></pre></div>
 <p>Import the <code>damselfly.csv</code> data set we used in the preceding <a href="hypothesis.html#hypothesis">tutorial</a>, and also the <code>birds.csv</code> dataset we used in an earlier <a href="vis-describe.html#vis_describe">tutorial</a>.</p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="singcat-packages-data.html#cb169-1" aria-hidden="true" tabindex="-1"></a>damselfly <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/damselfly.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   direction = col_character()
 ## )</code></pre>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="singcat-packages-data.html#cb171-1" aria-hidden="true" tabindex="-1"></a>birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   type = col_character()
 ## )</code></pre>

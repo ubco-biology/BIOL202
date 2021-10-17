@@ -15,12 +15,13 @@ options(knitr.table.format = "html")
 
 ## Load packages and import data {#singcat_packages_data}
 
-Load the `tidyverse`, `skimr`, `naniar`, and `janitor` packages: 
+Load the `tidyverse`, `skimr`, `naniar`, `knitr`, and `janitor` packages: 
 
 ```{r sing_packages, warning = FALSE}
 library(tidyverse)
 library(skimr)
 library(naniar)
+library(knitr)
 library(janitor)
 ```
 
@@ -345,6 +346,27 @@ ggplot(exact.probs.6, aes(y = probs, x = X)) +
   ylab("Pr[X]") +
   theme_bw()
 ```
+
+**Added October 17, 2021**
+
+What if we wished to calculate the probability of getting *at least* two fours in our 6 rolls of the dice?
+
+Consult the bar chart above.  Recall that "rolling a 4" is our definition of a "success" (it could have been "rolling a 1", or "rolling a 5" - these all result in the same calculation).  Thus to calculate the probability of getting at least 2 successes we need to sum up the probabilities associated with getting 2, 3, 4, 5, and 6 successes.
+
+We can do this using the following R code:
+
+```{r atleast}
+probs.2_to_6 <- dbinom(x = 2:num.trials, size = num.trials, prob = 1/6)
+sum(probs.2_to_6)
+```
+
+Note that we ask the `dbinom` function to do the calculation for each of the `2:num.trials` outcomes of interest. We store these calculated probabilities in a new object "probs.2_to_6".
+
+Then, we use the `sum` function to sum up the probabilities within that object.
+
+The resulting value of `r sum(probs.2_to_6)` looks about right based on our bar chart!
+
+* * *
 
 Now let's increase the number of trials to *n* = 15, and compare the distribution to that observed using *n* = 6:  
 
