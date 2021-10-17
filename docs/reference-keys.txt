@@ -25,6 +25,8 @@ fig:unnamed-chunk-48
 fig:unnamed-chunk-50
 fig:unnamed-chunk-51
 fig:unnamed-chunk-55
+fig:unnamed-chunk-61
+fig:unnamed-chunk-62
 what_is_R
 install_R_Rstudio
 start_r
@@ -116,3 +118,11 @@ follow_hyp_steps
 sim_null
 calc_p
 concluding_statement
+single_cat
+singcat_packages_data
+estproportions
+sterr_prop
+confint_prop
+binomdist
+binom_test
+prophypconf

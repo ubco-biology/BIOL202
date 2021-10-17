@@ -397,7 +397,7 @@ With larger sample sizes, we'll get more precise estimates of the true populatio
 
 This is the formula for calculating the __standard error of the mean__ when the population parameter <sigma> is unknown (which is usually the case):
 
-![](./more/std_error_eqn.png)
+$$SE_\bar{Y} = \frac{s}{\sqrt{n}}$$
 
 This is one measure of uncertainty that we report alongside our sample-based estimate of the population mean.
 

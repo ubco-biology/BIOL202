@@ -101,9 +101,9 @@ Our null expectation is that clockwise and counter-clockwise battles would occur
 
 We can now specify our $H_0$ and $H_A$:
 
-**H~0~**: The proportion of bouts flown in a counter-clockwise direction is 0.5 ($p_0 = 0.5$).
+**H~0~**: The proportion of damselfly battles in the population flown in the counter-clockwise direction is 0.5 ($p_0 = 0.5$)  
 
-**H~A~**: The proportion of bouts flown in a counter-clockwise direction is not 0.5 ($p_0 \neq 0.5$). 
+**H~A~**: The proportion of damselfly battles in the population flown in the counter-clockwise direction is not 0.5 ($p_0 = 0.5$)
 
 We'll set $\alpha = 0.05$.
 
