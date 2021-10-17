@@ -288,9 +288,9 @@ The 95% Agresti-Coull confidence interval is: `r round(confint.results$lower, 3)
 
 The binomial distribution provides the probability distribution for the number of "successes" in a fixed number of independent trials, when the probability of success is the same in each trial.  
 
-Here'es the formula:
+Here's the formula:
 
-```{r fig.width = 3, fig.height = 2}
+```{r fig.width = 3, fig.height = 2, echo = FALSE}
 knitr::include_graphics("./more/binomial_equation.png")
 ```
 
@@ -468,6 +468,6 @@ In this case, the appropriate concluding statement would be:
 
 > Counter-clockwise battles occurred in a significantly higher proportion than 0.5 (17 of 20 battles; observed proportion of counter-clockwise battles = `r round(binom.test.results$estimate, 3)`; Agresti-Coull 95% confidence interval: `r round(damsel.confint.results$lower,3)` $\le {p} \le$ `r round(damsel.confint.results$upper,3)`.  
 
-1. Binomial hypothesis test practice
+* * *
 
-Using the present tutorial as a guide, use a **binomial test** to address the question posed in Example 6.2 in the text book (concerning handedness in toads). Be sure to include all the steps of a hypothesis test.
+1. **Binomial hypothesis test practice**: Using the present tutorial as a guide, use a **binomial test** to address the question posed in Example 6.2 in the text book (concerning handedness in toads). Be sure to include all the steps of a hypothesis test.
