@@ -466,7 +466,7 @@ Given that the interval excludes (does not encompass) the null hypothesized prop
 
 In this case, the appropriate concluding statement would be:
 
-> Counter-clockwise battles occurred in a significantly higher proportion than 0.5 (17 of 20 battles; observed proportion of counter-clockwise battles = `r round(binom.test.results$estimate, 3)`; Agresti-Coull 95% confidence interval: `r round(damsel.confint.results$lower,3)` $\le {p} \le$ `r round(damsel.confint.results$upper,3)`.  
+> Counter-clockwise battles occurred in a significantly higher proportion than 0.5 (observed proportion of counter-clockwise battles = `r round(binom.test.results$estimate, 3)`; Agresti-Coull 95% confidence interval: `r round(damsel.confint.results$lower,3)` $\le {p} \le$ `r round(damsel.confint.results$upper,3)`.  
 
 * * *
 
