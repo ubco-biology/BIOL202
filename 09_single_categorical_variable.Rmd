@@ -13,6 +13,11 @@ options(knitr.table.format = "html")
 * Learn how to test hypotheses about a proportion using the **binomial test**
 * Learn an example of the confidence interval approach to hypothesis testing
 
+<div class="note">
+**NOTE**
+In 2021 we will not be covering "$\chi$^2^ Goodness of Fit tests", which are also tests that apply when analyzing a single categorical variable. For an older tutorial on this, see this [webpage](https://people.ok.ubc.ca/jpither/modules/Goodness_of_fit_tests.html#assumptions_of_the_(chi)2_gof_test) (thought it may soon be inactive). 
+</div>
+
 ## Load packages and import data {#singcat_packages_data}
 
 Load the `tidyverse`, `skimr`, `naniar`, `knitr`, and `janitor` packages: 
@@ -488,7 +493,7 @@ Given that the interval excludes (does not encompass) the null hypothesized prop
 
 In this case, the appropriate concluding statement would be:
 
-> Counter-clockwise battles occurred in a significantly higher proportion than 0.5 (observed proportion of counter-clockwise battles = `r round(binom.test.results$estimate, 3)`; Agresti-Coull 95% confidence interval: `r round(damsel.confint.results$lower,3)` $\le {p} \le$ `r round(damsel.confint.results$upper,3)`.  
+> Counter-clockwise battles occurred in a significantly higher proportion than 0.5 (observed proportion of counter-clockwise battles = `r round(binom.test.results$estimate, 3)`; Agresti-Coull 95% confidence interval: `r round(damsel.confint.results$lower,3)` < ${p}$ < `r round(damsel.confint.results$upper,3)`.  
 
 * * *
 
