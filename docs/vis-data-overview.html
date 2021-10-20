@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-18" />
+<meta name="date" content="2021-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -307,6 +307,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.3" data-path="binomdist.html"><a href="binomdist.html"><i class="fa fa-check"></i><b>16.3</b> Binomial distribution</a></li>
 <li class="chapter" data-level="16.4" data-path="binom-test.html"><a href="binom-test.html"><i class="fa fa-check"></i><b>16.4</b> Binomial test</a></li>
 <li class="chapter" data-level="16.5" data-path="prophypconf.html"><a href="prophypconf.html"><i class="fa fa-check"></i><b>16.5</b> Confidence interval approach to hypothesis testing</a></li>
+<li class="chapter" data-level="16.6" data-path="GOF-test.html"><a href="GOF-test.html"><i class="fa fa-check"></i><b>16.6</b> Goodness-of-fit tests</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="two-cat.html"><a href="two-cat.html"><i class="fa fa-check"></i><b>17</b> Analyzing associations between two categorical variables</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="twocat-packages-data.html"><a href="twocat-packages-data.html"><i class="fa fa-check"></i><b>17.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="17.2" data-path="fishertest.html"><a href="fishertest.html"><i class="fa fa-check"></i><b>17.2</b> Fisher’s Exact Test</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="fishertest.html"><a href="fishertest.html#fisher_hyp"><i class="fa fa-check"></i><b>17.2.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="17.2.2" data-path="fishertest.html"><a href="fishertest.html#show_cont_table"><i class="fa fa-check"></i><b>17.2.2</b> Display a contingency table</a></li>
+<li class="chapter" data-level="17.2.3" data-path="fishertest.html"><a href="fishertest.html#show_mosaic"><i class="fa fa-check"></i><b>17.2.3</b> Display a mosaic plot</a></li>
+<li class="chapter" data-level="17.2.4" data-path="fishertest.html"><a href="fishertest.html#do_fisher"><i class="fa fa-check"></i><b>17.2.4</b> Conduct the Fisher’s Exact Test</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="odds.html"><a href="odds.html"><i class="fa fa-check"></i><b>17.3</b> Estimate the Odds of getting sick</a></li>
+<li class="chapter" data-level="17.4" data-path="oddsratio.html"><a href="oddsratio.html"><i class="fa fa-check"></i><b>17.4</b> Estimate the odds ratio</a></li>
+<li class="chapter" data-level="17.5" data-path="chisquare.html"><a href="chisquare.html"><i class="fa fa-check"></i><b>17.5</b> <span class="math inline">\(\chi\)</span><sup>2</sup> Contingency Test</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="chisquare.html"><a href="chisquare.html#chihyp"><i class="fa fa-check"></i><b>17.5.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="17.5.2" data-path="chisquare.html"><a href="chisquare.html#showwormcont"><i class="fa fa-check"></i><b>17.5.2</b> Display the contingency table</a></li>
+<li class="chapter" data-level="17.5.3" data-path="chisquare.html"><a href="chisquare.html#mosaicworm"><i class="fa fa-check"></i><b>17.5.3</b> Visualize a mosaic plot</a></li>
+<li class="chapter" data-level="17.5.4" data-path="chisquare.html"><a href="chisquare.html#checkchiassum"><i class="fa fa-check"></i><b>17.5.4</b> Check the assumptions</a></li>
+<li class="chapter" data-level="17.5.5" data-path="chisquare.html"><a href="chisquare.html#chiresults"><i class="fa fa-check"></i><b>17.5.5</b> Get the results of the test</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
 <ul>
@@ -352,8 +374,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">11.2</span> Get an overview of the data</h2>
 <p>The <code>penguins</code> object is a <em>tibble</em>, with each row representing a <em>case</em> and each column representing a <em>variable</em>. Tibbles can store a mixture of data types: numeric variables, categorical variables, logical variables etc… all in the same object (as separate columns). This isn’t the case with other object types (e.g. matrices).</p>
 <p>We’ll get an overview of the data using the <code>skim_without_charts</code> function, as we learned in the <a href="data-overview.html#data_overview">Preparing and Importing Tidy Data</a> tutorial:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="vis-data-overview.html#cb32-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="vis-data-overview.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="vis-data-overview.html#cb29-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a href="vis-data-overview.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:vis1_skim)Data summary
@@ -725,7 +747,7 @@ year
 </tbody>
 </table>
 <p>Optionally, we can also get a view of the first handful of rows of a tibble by simply typing the name of the object on its own, and hitting return:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="vis-data-overview.html#cb33-1" aria-hidden="true" tabindex="-1"></a>penguins </span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="vis-data-overview.html#cb30-1" aria-hidden="true" tabindex="-1"></a>penguins </span></code></pre></div>
 <pre><code>## # A tibble: 344 x 8
 ##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
 ##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;

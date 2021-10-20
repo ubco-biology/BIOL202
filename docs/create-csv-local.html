@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-18" />
+<meta name="date" content="2021-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -307,6 +307,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.3" data-path="binomdist.html"><a href="binomdist.html"><i class="fa fa-check"></i><b>16.3</b> Binomial distribution</a></li>
 <li class="chapter" data-level="16.4" data-path="binom-test.html"><a href="binom-test.html"><i class="fa fa-check"></i><b>16.4</b> Binomial test</a></li>
 <li class="chapter" data-level="16.5" data-path="prophypconf.html"><a href="prophypconf.html"><i class="fa fa-check"></i><b>16.5</b> Confidence interval approach to hypothesis testing</a></li>
+<li class="chapter" data-level="16.6" data-path="GOF-test.html"><a href="GOF-test.html"><i class="fa fa-check"></i><b>16.6</b> Goodness-of-fit tests</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="two-cat.html"><a href="two-cat.html"><i class="fa fa-check"></i><b>17</b> Analyzing associations between two categorical variables</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="twocat-packages-data.html"><a href="twocat-packages-data.html"><i class="fa fa-check"></i><b>17.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="17.2" data-path="fishertest.html"><a href="fishertest.html"><i class="fa fa-check"></i><b>17.2</b> Fisher’s Exact Test</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="fishertest.html"><a href="fishertest.html#fisher_hyp"><i class="fa fa-check"></i><b>17.2.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="17.2.2" data-path="fishertest.html"><a href="fishertest.html#show_cont_table"><i class="fa fa-check"></i><b>17.2.2</b> Display a contingency table</a></li>
+<li class="chapter" data-level="17.2.3" data-path="fishertest.html"><a href="fishertest.html#show_mosaic"><i class="fa fa-check"></i><b>17.2.3</b> Display a mosaic plot</a></li>
+<li class="chapter" data-level="17.2.4" data-path="fishertest.html"><a href="fishertest.html#do_fisher"><i class="fa fa-check"></i><b>17.2.4</b> Conduct the Fisher’s Exact Test</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="odds.html"><a href="odds.html"><i class="fa fa-check"></i><b>17.3</b> Estimate the Odds of getting sick</a></li>
+<li class="chapter" data-level="17.4" data-path="oddsratio.html"><a href="oddsratio.html"><i class="fa fa-check"></i><b>17.4</b> Estimate the odds ratio</a></li>
+<li class="chapter" data-level="17.5" data-path="chisquare.html"><a href="chisquare.html"><i class="fa fa-check"></i><b>17.5</b> <span class="math inline">\(\chi\)</span><sup>2</sup> Contingency Test</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="chisquare.html"><a href="chisquare.html#chihyp"><i class="fa fa-check"></i><b>17.5.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="17.5.2" data-path="chisquare.html"><a href="chisquare.html#showwormcont"><i class="fa fa-check"></i><b>17.5.2</b> Display the contingency table</a></li>
+<li class="chapter" data-level="17.5.3" data-path="chisquare.html"><a href="chisquare.html#mosaicworm"><i class="fa fa-check"></i><b>17.5.3</b> Visualize a mosaic plot</a></li>
+<li class="chapter" data-level="17.5.4" data-path="chisquare.html"><a href="chisquare.html#checkchiassum"><i class="fa fa-check"></i><b>17.5.4</b> Check the assumptions</a></li>
+<li class="chapter" data-level="17.5.5" data-path="chisquare.html"><a href="chisquare.html#chiresults"><i class="fa fa-check"></i><b>17.5.5</b> Get the results of the test</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
 <ul>
@@ -352,7 +374,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.3</span> Create a CSV file</h2>
 <p>Before we create or save any data files on our local computer, we should first create a directory (folder) called “rawdata” to store them.</p>
 <p>Let’s create the new directory in our “BIOL202_tutorials” working directory. To do this, use the <code>dir.create</code> function in R, as follows:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="create-csv-local.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;rawdata&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="create-csv-local.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;rawdata&quot;</span>)</span></code></pre></div>
 <p>Once you run this code, you’ll see the new directory appear in the Files pane in the bottom-right of RStudio. It might look something like this:</p>
 <div class="figure"><span id="fig:unnamed-chunk-14"></span>
 <img src="more/files_pane_rawdata.png" alt="View of files with rawdata folder" width="708" />

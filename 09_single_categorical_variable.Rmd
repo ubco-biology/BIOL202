@@ -498,3 +498,14 @@ In this case, the appropriate concluding statement would be:
 * * *
 
 1. **Binomial hypothesis test practice**: Using the present tutorial as a guide, use a **binomial test** to address the question posed in Example 6.2 in the text book (concerning handedness in toads). Be sure to include all the steps of a hypothesis test.
+
+## Goodness-of-fit tests {#GOF_test}
+
+**This tutorial will be completed in 2022**
+
+We are still learning how to test hypotheses about categorical data.
+
+We previously learned how to test a hypothesis about frequencies or proportions when there are only two categories of interest, i.e. success and failure (a binary variable). We used a binomial test for this purpose. Importantly, one can start with a categorical variable with more than two categories (e.g. hair colour), but if we define one particular category (e.g. red hair) as a “success”, and the remaining categories as failures, then we have simplified our variable to a binary categorical variable.
+
+For testing hypotheses about frequencies or proportions when there are more than two categories, we use goodness of fit (GOF) tests. We test how well an observed discrete frequency (or probability) distribution fits some specified expectation.
+
