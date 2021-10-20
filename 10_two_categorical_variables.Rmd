@@ -28,13 +28,14 @@ options(knitr.table.format = "html")
 
 ## Load packages and import data {#twocat_packages_data}
 
-Load the `tidyverse`, `skimr`, `naniar`, `knitr`, and `janitor` packages: 
+Load the `tidyverse`, `skimr`, `naniar`, `knitr`, `ggmosaic`, and `janitor` packages: 
 
 ```{r twocat_packages, warning = FALSE}
 library(tidyverse)
 library(skimr)
 library(naniar)
 library(knitr)
+library(ggmosaic)
 library(janitor)
 ```
 

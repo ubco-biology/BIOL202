@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-19" />
+<meta name="date" content="2021-10-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -386,8 +386,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If instead we specified <code>replace = T</code>, as shown below, then we be conducting <em>sampling with replacement</em>, and sampled values are placed back in the pool each time, thus enabling the code to work (try it):</p>
 <pre><code>sample(1:6, size = 10, replace = T)</code></pre>
 <div class="note">
-<p><strong>NOTE</strong>
-Most of the time we wish to <em>sample without replacement</em>, hence <code>replace = F</code>.</p>
+<p><strong>NOTE - Updated Oct 20, 2021</strong>
+Whether we wish to <em>sample without replacement</em> or not depends on the question / context (see page 138 in Whitlock &amp; Schluter). For most of the questions and contexts we deal with in this course, we do wish to sample <strong>with</strong> replacement. Why? Because we are typically assuming (or mimicking a situation) that we’re randomly sampling from a very large population, in which case the probability distribution of possible values in the individuals that remain doesn’t change when we sample. This is not the case if we’re sampling from a small population.</p>
 </div>
 <div id="setseed" class="section level3" number="14.2.1">
 <h3><span class="header-section-number">14.2.1</span> Setting the “seed” for random sampling</h3>

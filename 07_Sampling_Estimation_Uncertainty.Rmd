@@ -90,8 +90,8 @@ sample(1:6, size = 10, replace = T)
 ```
 
 <div class="note">
-**NOTE**
-Most of the time we wish to *sample without replacement*, hence `replace = F`.
+**NOTE - Updated Oct 20, 2021**
+Whether we wish to *sample without replacement* or not depends on the question / context (see page 138 in Whitlock & Schluter). For most of the questions and contexts we deal with in this course, we do wish to sample **with** replacement.  Why? Because we are typically assuming (or mimicking a situation) that we're randomly sampling from a very large population, in which case the probability distribution of possible values in the individuals that remain doesn't change when we sample. This is not the case if we're sampling from a small population.
 </div>
 
 ### Setting the "seed" for random sampling {#setseed}
