@@ -108,7 +108,7 @@ We'll store the table in an object called "cancer.aspirin.table", and we'll make
 
 ```{r contingency_cancer}
 cancer.aspirin.table <- cancer %>%
-  tabyl(aspirinTreatment, response) %>%
+  tabyl(response, aspirinTreatment) %>%
   adorn_totals(where = c("row", "col"))
 ```
 

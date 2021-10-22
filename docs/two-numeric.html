@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-21" />
+<meta name="date" content="2021-10-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -379,16 +379,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>NOTE</strong>
 As shown in the tutorial on <a href="rmd-graphing.html#rmd_graphing">preparing and formatting assignments</a>, we can use the <code>filter</code> function from the <code>dplyr</code> package to easily subset datasets according to some criterion, such as belonging to a specific category.</p>
 </div>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="two-numeric.html#cb97-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb97-2"><a href="two-numeric.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb97-3"><a href="two-numeric.html#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb97-4"><a href="two-numeric.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb97-5"><a href="two-numeric.html#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb97-6"><a href="two-numeric.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb97-7"><a href="two-numeric.html#cb97-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="two-numeric.html#cb91-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb91-2"><a href="two-numeric.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb91-3"><a href="two-numeric.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb91-4"><a href="two-numeric.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb91-5"><a href="two-numeric.html#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb91-6"><a href="two-numeric.html#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb91-7"><a href="two-numeric.html#cb91-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<div class="figure"><span id="fig:unnamed-chunk-40"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-40-1.png" alt="Scatterplot of the association between bill length and depth among 151 Adelie penguins" width="480" />
+<div class="figure"><span id="fig:unnamed-chunk-41"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-41-1.png" alt="Scatterplot of the association between bill length and depth among 151 Adelie penguins" width="480" />
 <p class="caption">
 Figure 13.5: Scatterplot of the association between bill length and depth among 151 Adelie penguins
 </p>
