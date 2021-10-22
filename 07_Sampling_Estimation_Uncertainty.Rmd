@@ -119,10 +119,10 @@ The `set.seed` function requires an integer value as an argument. You can pick a
 
 Let's test this using the `runif` function, which generates random numbers between user-designated minimum and maximum values (the default is numbers between zero and one).
 
-Let's include the `set.seed` function right before using the `runif` function, and here we'll use a seed number of 15.
+Let's include the `set.seed` function right before using the `runif` function, and here we'll again use a seed number of 12.
 
 ```{r show_runif, message = FALSE, warning = FALSE}
-set.seed(15)
+set.seed(12)
 runif(3)
 ```
 
@@ -150,7 +150,7 @@ When you are authoring your own script or markdown document (e.g. for a research
 
 Here we'll get a feel for **sampling error** using the human gene data. 
 
-Let's use the `slice_sample` function to randomly sample sample _n_ = 20 rows from the `genelengths` tibble, and store them in a tibble object called "randsamp1": 
+Let's use the `slice_sample` function to randomly sample _n_ = 20 rows from the `genelengths` tibble, and store them in a tibble object called "randsamp1": 
 
 ```{r samp_genes1, message = FALSE, warning = FALSE}
 set.seed(12)
@@ -379,7 +379,7 @@ Now we have what we need to produce a graph that enables direct comparison of th
 gene.means.combined %>%
  ggplot(aes(x = mean_length, fill = as.factor(sampsize))) +
   geom_histogram(position = 'identity', colour = "darkgrey", alpha = 0.5, binwidth = 250) +
-  scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9")) +
+  scale_fill_manual(values=c("#999999", "#E69F00")) +
   xlab("Gene length (nucleotides)") +
   ylab("Number of genes") +
   theme_bw() +

@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-20" />
+<meta name="date" content="2021-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -376,11 +376,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Sampling error</strong> is the chance difference, caused by sampling, between an estimate and the population parameter being estimated</p>
 </blockquote>
 <p>Here we’ll get a feel for <strong>sampling error</strong> using the human gene data.</p>
-<p>Let’s use the <code>slice_sample</code> function to randomly sample sample <em>n</em> = 20 rows from the <code>genelengths</code> tibble, and store them in a tibble object called “randsamp1”:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="sampling-error.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span>
-<span id="cb120-2"><a href="sampling-error.html#cb120-2" aria-hidden="true" tabindex="-1"></a>randsamp1 <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
-<span id="cb120-3"><a href="sampling-error.html#cb120-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb120-4"><a href="sampling-error.html#cb120-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(size)</span></code></pre></div>
+<p>Let’s use the <code>slice_sample</code> function to randomly sample <em>n</em> = 20 rows from the <code>genelengths</code> tibble, and store them in a tibble object called “randsamp1”:</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="sampling-error.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span>
+<span id="cb126-2"><a href="sampling-error.html#cb126-2" aria-hidden="true" tabindex="-1"></a>randsamp1 <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
+<span id="cb126-3"><a href="sampling-error.html#cb126-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb126-4"><a href="sampling-error.html#cb126-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(size)</span></code></pre></div>
 <p>In the preceding chunk, we:</p>
 <ul>
 <li>set the seed (here using integer 12), so that everyone gets the same output for this code chunk</li>
@@ -390,17 +390,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Now let’s use the <code>mean</code> and <code>sd</code> base functions to calculate the mean and standard deviation using our sample.</p>
 <p>We’ll assign the calculations to an object “randsamp1.mean.sd,” then we’ll present the output using the <code>kable</code> function.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="sampling-error.html#cb121-1" aria-hidden="true" tabindex="-1"></a>randsamp1.mean.sd <span class="ot">&lt;-</span> randsamp1 <span class="sc">%&gt;%</span></span>
-<span id="cb121-2"><a href="sampling-error.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb121-3"><a href="sampling-error.html#cb121-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb121-4"><a href="sampling-error.html#cb121-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_genelength =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb121-5"><a href="sampling-error.html#cb121-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="sampling-error.html#cb127-1" aria-hidden="true" tabindex="-1"></a>randsamp1.mean.sd <span class="ot">&lt;-</span> randsamp1 <span class="sc">%&gt;%</span></span>
+<span id="cb127-2"><a href="sampling-error.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb127-3"><a href="sampling-error.html#cb127-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb127-4"><a href="sampling-error.html#cb127-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_genelength =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb127-5"><a href="sampling-error.html#cb127-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>Now present the output using the <code>kable</code> function so we can control the maximum number of digits shown.</p>
 <div class="note">
 <p><strong>TIP</strong>
 Using the <code>kable</code> approach to presenting tibble outputs ensures that, when knitted, your output shows a sufficient number of decimal places… something that doesn’t always happen without using the <code>kable</code> function.</p>
 </div>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="sampling-error.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(randsamp1.mean.sd, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="sampling-error.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(randsamp1.mean.sd, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -425,17 +425,17 @@ SD_genelength
 </table>
 <p>Do your numbers match those above?</p>
 <p>Let’s now draw another random sample of the same size (20), making sure to give the resulting tibble object a different name (“randsamp2”). Here, we won’t set the seed again, because all that is required is for everyone to get a different sample from the first one above; we don’t need to have everyone get the <em>same</em> sample, but it’s ok if we do.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="sampling-error.html#cb123-1" aria-hidden="true" tabindex="-1"></a>randsamp2 <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
-<span id="cb123-2"><a href="sampling-error.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb123-3"><a href="sampling-error.html#cb123-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(size)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="sampling-error.html#cb129-1" aria-hidden="true" tabindex="-1"></a>randsamp2 <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
+<span id="cb129-2"><a href="sampling-error.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb129-3"><a href="sampling-error.html#cb129-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(size)</span></code></pre></div>
 <p>And calculate the mean and sd:</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="sampling-error.html#cb124-1" aria-hidden="true" tabindex="-1"></a>randsamp2.mean.sd <span class="ot">&lt;-</span> randsamp2 <span class="sc">%&gt;%</span></span>
-<span id="cb124-2"><a href="sampling-error.html#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb124-3"><a href="sampling-error.html#cb124-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb124-4"><a href="sampling-error.html#cb124-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_genelength =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb124-5"><a href="sampling-error.html#cb124-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="sampling-error.html#cb130-1" aria-hidden="true" tabindex="-1"></a>randsamp2.mean.sd <span class="ot">&lt;-</span> randsamp2 <span class="sc">%&gt;%</span></span>
+<span id="cb130-2"><a href="sampling-error.html#cb130-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb130-3"><a href="sampling-error.html#cb130-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb130-4"><a href="sampling-error.html#cb130-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_genelength =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb130-5"><a href="sampling-error.html#cb130-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>And show using the <code>kable</code> function:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="sampling-error.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(randsamp2.mean.sd, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="sampling-error.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(randsamp2.mean.sd, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
