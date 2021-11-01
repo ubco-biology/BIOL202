@@ -333,7 +333,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18" data-path="single-numeric.html"><a href="single-numeric.html"><i class="fa fa-check"></i><b>18</b> Analyzing a single numerical variable</a>
 <ul>
 <li class="chapter" data-level="18.1" data-path="singlenum-packages-data.html"><a href="singlenum-packages-data.html"><i class="fa fa-check"></i><b>18.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="18.2" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html"><i class="fa fa-check"></i><b>18.2</b> One-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html"><i class="fa fa-check"></i><b>18.2</b> One-sample <em>t</em>-test</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_hyp"><i class="fa fa-check"></i><b>18.2.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="18.2.2" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_assumptions"><i class="fa fa-check"></i><b>18.2.2</b> Assumptions of one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2.3" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_graph"><i class="fa fa-check"></i><b>18.2.3</b> A graph to accompany a one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2.4" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_test"><i class="fa fa-check"></i><b>18.2.4</b> Conduct the one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2.5" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_conclude"><i class="fa fa-check"></i><b>18.2.5</b> Concluding statement for the one-sample <em>t</em>-test</a></li>
+</ul></li>
 <li class="chapter" data-level="18.3" data-path="t-confidence.html"><a href="t-confidence.html"><i class="fa fa-check"></i><b>18.3</b> Confidence intervals for <span class="math inline">\(\mu\)</span></a>
 <ul>
 <li class="chapter" data-level="18.3.1" data-path="t-confidence.html"><a href="t-confidence.html#conf_precision"><i class="fa fa-check"></i><b>18.3.1</b> Confidence interval as a measure of precision for an estimate</a></li>
@@ -384,7 +391,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">18.2</span> One-sample <em>t</em>-test</h2>
 <p>We previously learned statistical tests for testing hypotheses about categorical response variables. For instance, we learned how to conduct a <span class="math inline">\(\chi^2\)</span> <a href="chisquare.html#chisquare">contingency test</a> to test the null hypothesis that there is no association between two categorical variables.</p>
 <p>Here we are going to learn our first statistical test for testing hypotheses about a numeric response variable, specifically one whose probability distribution in the population is normally distributed.</p>
-<p><strong>Hypothesis statement</strong></p>
+<div id="onesamp_hyp" class="section level3" number="18.2.1">
+<h3><span class="header-section-number">18.2.1</span> Hypothesis statement</h3>
 <p>Review the earlier tutorial that lists the <a href="hyp-steps.html#hyp_steps">steps to hypothesis testing</a>.</p>
 <p>We’ll use the body temperature data for this example, as described in example 11.3 in the text.</p>
 <p>Americans are taught as kids that the normal human body temperature is 98.6 degrees Farenheit.</p>
@@ -404,16 +412,19 @@ You can add a degree symbol using this syntax in markdown: <code>$^\circ$</code>
 </li>
 <li>It is a two-tailed alternative hypothesis</li>
 </ul>
+</div>
+<div id="onesamp_assumptions" class="section level3" number="18.2.2">
+<h3><span class="header-section-number">18.2.2</span> Assumptions of one-sample <em>t</em>-test</h3>
 <p>The <strong>assumptions</strong> of the one-sample <em>t</em>-test are as follows:</p>
 <ul>
 <li>the sampling units are randomly sampled from the population (a standard assumption)</li>
 <li>the variable is normally distributed in the population</li>
 </ul>
 <p>Later we’ll learn how to formally check the second assumption. For now we’ll assume both assumptions are met.</p>
-<ul>
-<li>We’ll now provide an appropriate graph to accompany our test, and interpret the graph</li>
-</ul>
-<p>Let’s create a histogram of the body temperatures (because this is the most appropriate way to visualize the frequency distribution of a single numeric variable).</p>
+</div>
+<div id="onesamp_graph" class="section level3" number="18.2.3">
+<h3><span class="header-section-number">18.2.3</span> A graph to accompany a one-sample <em>t</em>-test</h3>
+<p>Let’s create a histogram of the body temperatures, because this is the most appropriate way to visualize the frequency distribution of a single numeric variable.</p>
 <div class="note">
 <p><strong>NOTE </strong>
 Histograms may look a little wonky if you have small sample sizes. This is OK!</p>
@@ -430,8 +441,8 @@ Histograms may look a little wonky if you have small sample sizes. This is OK!</
 <span id="cb270-5"><a href="onesamp-t-test.html#cb270-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body temperature (degrees F)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb270-6"><a href="onesamp-t-test.html#cb270-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb270-7"><a href="onesamp-t-test.html#cb270-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-76"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-76-1.png" alt="Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-73"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-73-1.png" alt="Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people." width="384" />
 <p class="caption">
 Figure 18.1: Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people.
 </p>
@@ -445,7 +456,9 @@ Notice the new argument to the <code>geom_histogram</code> function: “boundary
 <blockquote>
 <p>We can see in the histogram above that most of the individuals had temperatures between 98 and 99<span class="math inline">\(^\circ\)</span>F, which is consistent with conventional wisdom, but there are 7 people with temperature below 98<span class="math inline">\(^\circ\)</span>F, and 5 with temperatures above 99<span class="math inline">\(^\circ\)</span>F. The frequency distribution is unimodal but not especially symmetrical.</p>
 </blockquote>
-<p><strong>Conduct the <em>t</em>-test</strong></p>
+</div>
+<div id="onesamp_test" class="section level3" number="18.2.4">
+<h3><span class="header-section-number">18.2.4</span> Conduct the one-sample <em>t</em>-test</h3>
 <p>We use the <code>t.test</code> function (it comes with the <code>base</code> package loaded with R) to conduct a one-sample <em>t</em>-test.</p>
 <pre><code>?t.test  </code></pre>
 <p>This function is used for both one-sample and two-sample <em>t</em>-tests (covered later), and for calculating 95% confidence intervals for a mean (later in this tutorial).</p>
@@ -483,13 +496,17 @@ Notice the new argument to the <code>geom_histogram</code> function: “boundary
 <li>The sample-based estimate, denoted “mean of x,” but is our (<span class="math inline">\(\bar{Y}\)</span>)</li>
 </ul>
 <p>The observed <em>P</em>-value for our test is larger than our <span class="math inline">\(\alpha\)</span> level of 0.05. We therefore fail to reject the null hypothesis.</p>
-<p><strong>Concluding statement</strong></p>
+</div>
+<div id="onesamp_conclude" class="section level3" number="18.2.5">
+<h3><span class="header-section-number">18.2.5</span> Concluding statement for the one-sample <em>t</em>-test</h3>
+<p>Here’s an example of an appropriately worded concluding statement, including all the relevant information:</p>
 <blockquote>
 <p>We have no reason to reject the null hypothesis that the mean body temperature of a healthy human is 98.6<span class="math inline">\(^\circ\)</span>F (one-sample <em>t</em>-test; <em>t</em> = -0.56; <em>n</em> = 25 or <em>df</em> = 24; <em>P</em> = 0.58; 95% confidence interval: 98.244 <span class="math inline">\(&lt; \mu &lt;\)</span> 98.804).</p>
 </blockquote>
 <div class="note">
 <p><strong>TIP </strong>
 The confidence interval provided by the <code>t.test</code> function is accurate and good to report with your concluding statement for a one-sample <em>t</em>-test. However, below we learn a different way to calculate the confidence interval.</p>
+</div>
 </div>
 </div>
             </section>

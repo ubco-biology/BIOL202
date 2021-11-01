@@ -333,7 +333,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18" data-path="single-numeric.html"><a href="single-numeric.html"><i class="fa fa-check"></i><b>18</b> Analyzing a single numerical variable</a>
 <ul>
 <li class="chapter" data-level="18.1" data-path="singlenum-packages-data.html"><a href="singlenum-packages-data.html"><i class="fa fa-check"></i><b>18.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="18.2" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html"><i class="fa fa-check"></i><b>18.2</b> One-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html"><i class="fa fa-check"></i><b>18.2</b> One-sample <em>t</em>-test</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_hyp"><i class="fa fa-check"></i><b>18.2.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="18.2.2" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_assumptions"><i class="fa fa-check"></i><b>18.2.2</b> Assumptions of one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2.3" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_graph"><i class="fa fa-check"></i><b>18.2.3</b> A graph to accompany a one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2.4" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_test"><i class="fa fa-check"></i><b>18.2.4</b> Conduct the one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2.5" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_conclude"><i class="fa fa-check"></i><b>18.2.5</b> Concluding statement for the one-sample <em>t</em>-test</a></li>
+</ul></li>
 <li class="chapter" data-level="18.3" data-path="t-confidence.html"><a href="t-confidence.html"><i class="fa fa-check"></i><b>18.3</b> Confidence intervals for <span class="math inline">\(\mu\)</span></a>
 <ul>
 <li class="chapter" data-level="18.3.1" data-path="t-confidence.html"><a href="t-confidence.html#conf_precision"><i class="fa fa-check"></i><b>18.3.1</b> Confidence interval as a measure of precision for an estimate</a></li>
@@ -407,7 +414,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The function we use to find the critical value of <em>t</em> is the base function <code>qt</code>:</p>
 <pre><code>?qt</code></pre>
 <p>The <code>qt</code> function only deals with one tail of the distribution. Thus, if we have a two-sided alternative hypothesis, we need to divide our <span class="math inline">\(\alpha\)</span> level by two in order to calculate the appropriate critical value of <em>t</em>.</p>
-<p>The following graph illustrates this for the <em>t</em> distribution associated with <span class="math inline">\(df = 24\)</span>:</p>
+<p>The following graph illustrates this for the <em>t</em> distribution associated with <em>df</em> = 24:</p>
 <p><img src="BIOL202-github_files/figure-html/showt-1.png" width="384" /></p>
 <p>Here’s the code to calculate the critical value of <em>t</em>, and recall that we’ve defined <code>alpha</code> and <code>d_f</code> above:</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="t-confidence.html#cb277-1" aria-hidden="true" tabindex="-1"></a>tcrit <span class="ot">&lt;-</span> <span class="fu">qt</span>(alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> d_f, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
@@ -430,8 +437,9 @@ If instead we wanted to calculate a 99% confidence interval, then <span class="m
 <p>So to recap, this procedure used R code to give us what we’d otherwise need to look up in a statistical table, like the one provided in the text book.</p>
 <p>Now that we’ve determined the value for <span class="math inline">\(t_{0.05(2),24}\)</span>, we need to calculate <span class="math inline">\(SE_{\bar{Y}}\)</span>, which we <a href="sem-page.html#sem_page">already learned how to do</a>.
 So let’s improve on what we learned in the estimation tutorial, where we learned how to calculate the <a href="confint-rough.html#confint_rough">rule-of-thumb confidence interval</a>.</p>
-<p>There, we generated a table of summary statistics that included the rule-of-thumb confidence limits; now we can include the precisely calculated lower and upper 95% confidence limits.</p>
-<p>Recall that we’ve already created an object “tcrit” that holds our required critical value of <em>t</em>:</p>
+<p>There, we generated a table (actually a “tibble”) of summary statistics that included the rule-of-thumb confidence limits; now we can include the precisely calculated lower and upper 95% confidence limits.</p>
+<p>Recall that we’ve already created an object “tcrit” that holds our required critical value of <em>t</em>.</p>
+<p>Here we’ll assign the output to a tibble called “bodytemp.stats”:</p>
 <div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="t-confidence.html#cb281-1" aria-hidden="true" tabindex="-1"></a>bodytemp.stats <span class="ot">&lt;-</span> bodytemp <span class="sc">%&gt;%</span></span>
 <span id="cb281-2"><a href="t-confidence.html#cb281-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb281-3"><a href="t-confidence.html#cb281-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(temperature),</span>
@@ -491,8 +499,13 @@ Upper_95_CL
 </tr>
 </tbody>
 </table>
-<p>If we wanted to report the confidence interval on its own, we can get the necessary information from our newly created table, and type this inline code in our markdown text (NOT in a code chunk):</p>
-<pre><code>&quot;98.244 &lt; $\mu$ &lt;  98.804&quot;</code></pre>
+<p>If we wanted to report the confidence interval on its own, we can get the necessary information from our newly created tibble “bodytemp.stats,” and type the following inline code in our markdown text (NOT in a code chunk):</p>
+<div class="figure"><span id="fig:unnamed-chunk-75"></span>
+<img src="more/confint_inline_code.png" alt="Example of inline markdown and R code for a confidence interval" width="1001" />
+<p class="caption">
+Figure 18.2: Example of inline markdown and R code for a confidence interval
+</p>
+</div>
 <p>Which will provide:</p>
 <p>98.244 &lt; <span class="math inline">\(\mu\)</span> &lt; 98.804</p>
 </div>
@@ -504,7 +517,7 @@ Upper_95_CL
 <p>The null hypothesis proposed <span class="math inline">\(\mu_0\)</span> = 98.6<span class="math inline">\(^\circ\)</span>F.</p>
 <p>The confidence interval approach to testing a null hypothesis involves:</p>
 <ul>
-<li>specifying a level of confidence (100% <span class="math inline">\(\times (1-\alpha)\)</span>), such as 95%</li>
+<li>specifying a level of confidence, 100% <span class="math inline">\(\times\)</span> (1-<span class="math inline">\(\alpha\)</span>), such as 95%</li>
 <li>calculating the confidence interval for <span class="math inline">\(\mu\)</span> using the sample data</li>
 <li>determining whether or not <span class="math inline">\(\mu_0\)</span> lies within the calculated confidence interval</li>
 </ul>

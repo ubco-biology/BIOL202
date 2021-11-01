@@ -44,7 +44,7 @@ We previously learned statistical tests for testing hypotheses about categorical
 
 Here we are going to learn our first statistical test for testing hypotheses about a numeric response variable, specifically one whose probability distribution in the population is normally distributed.  
 
-**Hypothesis statement**
+### Hypothesis statement {#onesamp_hyp}
 
 Review the earlier tutorial that lists the [steps to hypothesis testing](#hyp_steps).
 
@@ -69,6 +69,8 @@ You can add a degree symbol using this syntax in markdown: `$^\circ$`, so degree
 * We'll use an $\alpha$ level of 0.05.  
 * It is a two-tailed alternative hypothesis  
 
+### Assumptions of one-sample *t*-test {#onesamp_assumptions}
+
 The **assumptions** of the one-sample *t*-test are as follows:  
 
 * the sampling units are randomly sampled from the population (a standard assumption)
@@ -76,9 +78,9 @@ The **assumptions** of the one-sample *t*-test are as follows:
 
 Later we'll learn how to formally check the second assumption. For now we'll assume both assumptions are met.  
 
-* We'll now provide an appropriate graph to accompany our test, and interpret the graph
+### A graph to accompany a one-sample *t*-test {#onesamp_graph}
 
-Let's create a histogram of the body temperatures (because this is the most appropriate way to visualize the frequency distribution of a single numeric variable).  
+Let's create a histogram of the body temperatures, because this is the most appropriate way to visualize the frequency distribution of a single numeric variable.  
 
 <div class="note">
 **NOTE **
@@ -117,7 +119,7 @@ Recall that it can take a few times playing with different values of "binwidth" 
 
 >We can see in the histogram above that most of the individuals had temperatures between 98 and 99$^\circ$F, which is consistent with conventional wisdom, but there are 7 people with temperature below 98$^\circ$F, and 5 with temperatures above 99$^\circ$F. The frequency distribution is unimodal but not especially symmetrical.
 
-**Conduct the _t_-test**
+### Conduct the one-sample *t*-test {#onesamp_test}
 
 We use the `t.test` function (it comes with the `base` package loaded with R) to conduct a one-sample _t_-test.  
 
@@ -159,7 +161,9 @@ The output includes:
 
 The observed *P*-value for our test is larger than our $\alpha$ level of 0.05.  We therefore fail to reject the null hypothesis.
 
-**Concluding statement**
+### Concluding statement for the one-sample *t*-test {#onesamp_conclude}
+
+Here's an example of an appropriately worded concluding statement, including all the relevant information:
 
 > We have no reason to reject the null hypothesis that the mean body temperature of a healthy human is 98.6$^\circ$F (one-sample _t_-test; _t_ = `r round(body.ttest$statistic,2)`; _n_ = 25 or *df* = 24; _P_ = `r round(body.ttest$p.value,3)`; 95% confidence interval: `r round(body.ttest$conf.int[1], 3)` $< \mu <$ `r round(body.ttest$conf.int[2], 3)`).  
 
@@ -216,9 +220,9 @@ The function we use to find the critical value of *t* is the base function `qt`:
 
 The `qt` function only deals with one tail of the distribution. Thus, if we have a two-sided alternative hypothesis, we need to divide our $\alpha$ level by two in order to calculate the appropriate critical value of *t*.
 
-The following graph illustrates this for the *t* distribution associated with $df = 24$: 
+The following graph illustrates this for the *t* distribution associated with *df* = 24: 
 
-```{r showt, echo = FALSE, warning = FALSE, message = FALSE, fig.width = 4}
+```{r showt, echo = FALSE, warning = FALSE, message = FALSE, fig.width = 4, fig.height = 3.5}
 tval <- round(qt(alpha/2, df = d_f, lower.tail = FALSE), 2)
 linedata <- data.frame(x1 = tval, x2 = tval, y1 = 0, y2 = 0.3)
 tcrit_textpos <- bquote(italic(t)[crit])
@@ -278,9 +282,11 @@ So to recap, this procedure used R code to give us what we'd otherwise need to l
 Now that we've determined the value for $t_{0.05(2),24}$, we need to calculate $SE_{\bar{Y}}$, which we [already learned how to do](#sem_page). 
 So let's improve on what we learned in the estimation tutorial, where we learned how to calculate the [rule-of-thumb confidence interval](#confint_rough).
 
-There, we generated a table of summary statistics that included the rule-of-thumb confidence limits; now we can include the precisely calculated lower and upper 95% confidence limits. 
+There, we generated a table (actually a "tibble") of summary statistics that included the rule-of-thumb confidence limits; now we can include the precisely calculated lower and upper 95% confidence limits. 
 
-Recall that we've already created an object "tcrit" that holds our required critical value of *t*:
+Recall that we've already created an object "tcrit" that holds our required critical value of *t*.
+
+Here we'll assign the output to a tibble called "bodytemp.stats":
 
 ```{r conf_table}
 bodytemp.stats <- bodytemp %>%
@@ -304,10 +310,10 @@ Now let's use the `kable` function to produce a nice table, and here we'll use "
 kable(bodytemp.stats, digits = 3)
 ```
 
-If we wanted to report the confidence interval on its own, we can get the necessary information from our newly created table, and type this inline code in our markdown text (NOT in a code chunk):
+If we wanted to report the confidence interval on its own, we can get the necessary information from our newly created tibble "bodytemp.stats", and type the following inline code in our markdown text (NOT in a code chunk):
 
-```
-"`r round(bodytemp.stats$Lower_95_CL, 3)` < $\mu$ <  `r round(bodytemp.stats$Upper_95_CL, 3)`"
+```{r, fig.cap = "Example of inline markdown and R code for a confidence interval", echo = FALSE, fig.width = 5}
+knitr::include_graphics("./more/confint_inline_code.png")
 ```
 
 Which will provide: 
@@ -325,7 +331,7 @@ The null hypothesis proposed $\mu_0$ = 98.6$^\circ$F.
 
 The confidence interval approach to testing a null hypothesis involves:  
 
-* specifying a level of confidence (100% $\times (1-\alpha)$), such as 95%
+* specifying a level of confidence, 100% $\times$ (1-$\alpha$), such as 95%
 * calculating the confidence interval for $\mu$ using the sample data
 * determining whether or not $\mu_0$ lies within the calculated confidence interval
 
