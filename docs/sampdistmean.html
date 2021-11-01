@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-10-22" />
+<meta name="date" content="2021-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -330,6 +330,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="17.5.5" data-path="chisquare.html"><a href="chisquare.html#chiresults"><i class="fa fa-check"></i><b>17.5.5</b> Get the results of the test</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="18" data-path="single-numeric.html"><a href="single-numeric.html"><i class="fa fa-check"></i><b>18</b> Analyzing a single numerical variable</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="singlenum-packages-data.html"><a href="singlenum-packages-data.html"><i class="fa fa-check"></i><b>18.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="18.2" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html"><i class="fa fa-check"></i><b>18.2</b> One-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.3" data-path="t-confidence.html"><a href="t-confidence.html"><i class="fa fa-check"></i><b>18.3</b> Confidence intervals for <span class="math inline">\(\mu\)</span></a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="t-confidence.html"><a href="t-confidence.html#conf_precision"><i class="fa fa-check"></i><b>18.3.1</b> Confidence interval as a measure of precision for an estimate</a></li>
+<li class="chapter" data-level="18.3.2" data-path="t-confidence.html"><a href="t-confidence.html#conf_hyp"><i class="fa fa-check"></i><b>18.3.2</b> Confidence interval approach to hypothesis testing</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
 <ul>
 <li class="chapter" data-level="" data-path="a-more-familiar-editing-environment.html"><a href="a-more-familiar-editing-environment.html"><i class="fa fa-check"></i>A more familiar editing environment</a></li>
@@ -597,8 +607,8 @@ Pop_mean
 <span id="cb132-6"><a href="sampdistmean.html#cb132-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Gene length (nucleotides)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb132-7"><a href="sampdistmean.html#cb132-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Number of genes&quot;</span>) <span class="sc">+</span></span>
 <span id="cb132-8"><a href="sampdistmean.html#cb132-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-49"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-49-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20)." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-51"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-51-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20)." width="384" />
 <p class="caption">
 Figure 14.1: Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20).
 </p>
@@ -650,8 +660,8 @@ Sample_mean
 <span id="cb136-5"><a href="sampdistmean.html#cb136-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Gene length (nucleotides)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb136-6"><a href="sampdistmean.html#cb136-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Number of genes&quot;</span>) <span class="sc">+</span></span>
 <span id="cb136-7"><a href="sampdistmean.html#cb136-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-51"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-51-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50)." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-53"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-53-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50)." width="384" />
 <p class="caption">
 Figure 14.2: Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50).
 </p>
@@ -676,8 +686,8 @@ We can merge two tibbles (or data frames) together by rows using the <code>bind_
 <span id="cb138-7"><a href="sampdistmean.html#cb138-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb138-8"><a href="sampdistmean.html#cb138-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>) <span class="sc">+</span></span>
 <span id="cb138-9"><a href="sampdistmean.html#cb138-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">&quot;Sample size&quot;</span>))</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-52"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-52-1.png" alt="Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution)." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-54"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-54-1.png" alt="Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution)." width="384" />
 <p class="caption">
 Figure 14.3: Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution).
 </p>
