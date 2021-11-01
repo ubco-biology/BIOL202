@@ -31,6 +31,7 @@ fig:unnamed-chunk-65
 fig:unnamed-chunk-70
 fig:unnamed-chunk-73
 fig:unnamed-chunk-75
+fig:unnamed-chunk-76
 what_is_R
 install_R_Rstudio
 start_r

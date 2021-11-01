@@ -220,9 +220,9 @@ The function we use to find the critical value of *t* is the base function `qt`:
 
 The `qt` function only deals with one tail of the distribution. Thus, if we have a two-sided alternative hypothesis, we need to divide our $\alpha$ level by two in order to calculate the appropriate critical value of *t*.
 
-The following graph illustrates this for the *t* distribution associated with *df* = 24: 
+The following graph illustrates this for the *t* distribution associated with *df* = 24 and $\alpha(2)$ = 0.05.  Specifically, the $t_{crit}$ values are shown by the vertical lines, and delimit the points beyond which the area under the curve towards the tail is equal to $\alpha / 2$ (and thus the total area of both red zones= $\alpha$).
 
-```{r showt, echo = FALSE, warning = FALSE, message = FALSE, fig.width = 4, fig.height = 3.5}
+```{r, echo = FALSE, warning = FALSE, message = FALSE, fig.cap = "The *t* distribution for df = 24.", fig.width = 4, fig.height = 3.5}
 tval <- round(qt(alpha/2, df = d_f, lower.tail = FALSE), 2)
 linedata <- data.frame(x1 = tval, x2 = tval, y1 = 0, y2 = 0.3)
 tcrit_textpos <- bquote(italic(t)[crit])
@@ -245,7 +245,6 @@ ggplot(data.frame(x = c(-4, 4)), aes(x)) +
   annotate("text", x = -2.2, y = 0.32, label = tcrit_textneg) +
   theme_bw()
 ```
-
 
 Here's the code to calculate the critical value of *t*, and recall that we've defined `alpha` and `d_f` above:
 
