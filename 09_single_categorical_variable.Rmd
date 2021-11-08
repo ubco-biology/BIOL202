@@ -286,7 +286,7 @@ The function provides us with the values of _X_, _n_, the proportion estimate (s
 
 The appropriate way to report the confidence interval is as follows: 
 
-The 95% Agresti-Coull confidence interval is: `r round(confint.results$lower, 3)` $\le {p} \le$ `r round(confint.results$upper, 3)`. 
+The 95% Agresti-Coull confidence interval is: `r round(confint.results$lower, 3)` $< {p} <$ `r round(confint.results$upper, 3)`. 
 
 1. What is the best estimate of the proportion of the marsh birds that belong to the "Shorebird" category? What is the standard error of the proportion, and the 95% Agresti-Coull confidence interval?
 
@@ -483,11 +483,11 @@ Now we have all the ingredients for a proper concluding statement.
 
 This is an example of an appropriate concluding statement for a binomial test:
 
-> Counter-clockwise battles occurred with significantly greater frequency than expected (17 of 20 battles; observed proportion of counter-clockwise battles = `r round(binom.test.results$estimate, 3)`; Binomial test; _P_-value = `r round(binom.test.results$p.val, 3)`; Agresti-Coull 95% confidence interval: `r round(damsel.confint.results$lower,3)` $\le {p} \le$ `r round(damsel.confint.results$upper,3)`.  
+> Counter-clockwise battles occurred with significantly greater frequency than expected (17 of 20 battles; observed proportion of counter-clockwise battles = `r round(binom.test.results$estimate, 3)`; Binomial test; _P_-value = `r round(binom.test.results$p.val, 3)`; Agresti-Coull 95% confidence interval: `r round(damsel.confint.results$lower,3)` $< {p} <$ `r round(damsel.confint.results$upper,3)`.  
 
 ## Confidence interval approach to hypothesis testing {#prophypconf}
 
-In the preceding tutorial, we calculated the Agresti-Coull 95% confidence interval for the proportion of damsefly battles flown in the counter-clockwise direction as: `r round(damsel.confint.results$lower,3)` $\le {p} \le$ `r round(damsel.confint.results$upper,3)`.  
+In the preceding tutorial, we calculated the Agresti-Coull 95% confidence interval for the proportion of damsefly battles flown in the counter-clockwise direction as: `r round(damsel.confint.results$lower,3)` $< {p} <$ `r round(damsel.confint.results$upper,3)`.  
 
 Given that the interval excludes (does not encompass) the null hypothesized proportion of $p_0 = 0.5$, we can reject the null hypothesis.  
 
