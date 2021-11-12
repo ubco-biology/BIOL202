@@ -386,6 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="object-not-found.html"><a href="object-not-found.html"><i class="fa fa-check"></i>Object not found</a></li>
 <li class="chapter" data-level="" data-path="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><a href="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><i class="fa fa-check"></i>Figure caption doesn’t show up below figure in knitted document</a></li>
 <li class="chapter" data-level="" data-path="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><a href="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><i class="fa fa-check"></i>Filename, directory name, or volume label syntax is incorrect</a></li>
+<li class="chapter" data-level="" data-path="installing-packages-there-is-a-binary-version-available.html"><a href="installing-packages-there-is-a-binary-version-available.html"><i class="fa fa-check"></i>Installing packages: there is a binary version available</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -414,15 +415,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We’ll use the “trout.csv” file that we created previously.</p>
 <p>And we’ll make use of the <code>here</code> package that we were introduced to in an <a href="create-subdirs.html#here_package">earlier tutorial</a>.</p>
 <p>Let’s load the package:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="import-csv-local.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="import-csv-local.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
 <div class="note">
 <p><strong>New tool</strong><br />
 Pipes or “%&gt;%” are implemented as part of the <code>magrittr</code> package, which is loaded with the <code>tidyverse</code>. In brief, pipes allow us to string together a series of functions, and we’ll use them frequently in tutorials.</p>
 </div>
 <p>Here we’ll use a pipe to help import the data file.</p>
 <p>Let’s see the code first, then explain after:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="import-csv-local.html#cb26-1" aria-hidden="true" tabindex="-1"></a>trout <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">&quot;rawdata&quot;</span>, <span class="st">&quot;trout.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="import-csv-local.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="import-csv-local.html#cb23-1" aria-hidden="true" tabindex="-1"></a>trout <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">&quot;rawdata&quot;</span>, <span class="st">&quot;trout.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="import-csv-local.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>()</span></code></pre></div>
 <ul>
 <li>First we have the name of the object (a “tibble”) that we wish to create, “trout.”</li>
 <li>Then you see the assignment operator “&lt;-,” which tells R to assign whatever we’re doing to the right of the operator to the object “trout.”</li>

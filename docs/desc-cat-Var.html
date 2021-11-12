@@ -386,6 +386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="object-not-found.html"><a href="object-not-found.html"><i class="fa fa-check"></i>Object not found</a></li>
 <li class="chapter" data-level="" data-path="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><a href="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><i class="fa fa-check"></i>Figure caption doesn’t show up below figure in knitted document</a></li>
 <li class="chapter" data-level="" data-path="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><a href="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><i class="fa fa-check"></i>Filename, directory name, or volume label syntax is incorrect</a></li>
+<li class="chapter" data-level="" data-path="installing-packages-there-is-a-binary-version-available.html"><a href="installing-packages-there-is-a-binary-version-available.html"><i class="fa fa-check"></i>Installing packages: there is a binary version available</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -411,7 +412,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">12.2</span> Describing a categorical variable</h2>
 <p>The <em>proportion</em> is the most important descriptive statistic for a categorical variable. It measures the fraction of observations in a given category within a categorical variable.</p>
 <p>For example, the <code>birds.csv</code> file has a single variable called <code>type</code> that includes tallies (frequencies) of each of four categories of bird observed at a marsh habitat.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="desc-cat-Var.html#cb56-1" aria-hidden="true" tabindex="-1"></a>birds</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="desc-cat-Var.html#cb53-1" aria-hidden="true" tabindex="-1"></a>birds</span></code></pre></div>
 <pre><code>## # A tibble: 86 x 1
 ##    type     
 ##    &lt;chr&gt;    
@@ -429,16 +430,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <em>proportion</em> of birds belonging to a given category is the same as the <em>relative frequency</em> of birds belonging to a given category.</p>
 <p>In a previous <a href="vis-cat-freq-table.html#vis_cat_freq_table">tutorial</a>, using the <code>tigerdeaths</code> dataset, we learned how to create a frequency table that included relative frequencies.</p>
 <p>Let’s use the same approach for the <code>birds</code> dataset. First we create the frequency table, then we display the table with an appropriate heading:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="desc-cat-Var.html#cb58-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
-<span id="cb58-2"><a href="desc-cat-Var.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb58-3"><a href="desc-cat-Var.html#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="desc-cat-Var.html#cb55-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="desc-cat-Var.html#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-3"><a href="desc-cat-Var.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
 <div class="note">
 <p><strong>NOTE</strong>
 If there are missing values (“NA”) in the categorical variable, the preceding code will successfully enumerate those and create an “NA” category in the frequency table.</p>
 </div>
 <p>Now display the table:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="desc-cat-Var.html#cb59-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="sc">%&gt;%</span></span>
-<span id="cb59-2"><a href="desc-cat-Var.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="desc-cat-Var.html#cb56-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="desc-cat-Var.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <caption>
 (#tab:birds_table)Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)
