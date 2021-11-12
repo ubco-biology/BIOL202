@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>18.4 Checking assumptions and data transformations | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <meta name="description" content="All tutorials associated with BIOL202" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="18.4 Checking assumptions and data transformations | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="All tutorials associated with BIOL202" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="18.4 Checking assumptions and data transformations | Tutorials for BIOL202: Introduction to Biostatistics" />
+  
+  <meta name="twitter:description" content="All tutorials associated with BIOL202" />
+  
+
+<meta name="author" content="Jason Pither" />
+
+
+<meta name="date" content="2021-11-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="checking-assumptions-and-data-transformations.html"/>
+<link rel="next" href="assumptions-packages-data.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMYRT2ND2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DVMYRT2ND2');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BIOL202 Tutorials</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>Preface</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>Author</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="" data-path="copyright.html"><a href="copyright.html"><i class="fa fa-check"></i>Copyright</a></li>
+</ul></li>
+<li class="part"><span><b>Getting started with R, RStudio &amp; R Markdown</b></span></li>
+<li class="chapter" data-level="1" data-path="what-is-R.html"><a href="what-is-R.html"><i class="fa fa-check"></i><b>1</b> What are R and RStudio?</a></li>
+<li class="chapter" data-level="2" data-path="install-R-Rstudio.html"><a href="install-R-Rstudio.html"><i class="fa fa-check"></i><b>2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="3" data-path="start-r.html"><a href="start-r.html"><i class="fa fa-check"></i><b>3</b> Start using R &amp; RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="Rstudio-interface.html"><a href="Rstudio-interface.html"><i class="fa fa-check"></i><b>3.1</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="3.2" data-path="coding-basics.html"><a href="coding-basics.html"><i class="fa fa-check"></i><b>3.2</b> Coding basics</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>4</b> R packages</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="package-install.html"><a href="package-install.html"><i class="fa fa-check"></i><b>4.1</b> Package installation</a></li>
+<li class="chapter" data-level="4.2" data-path="package-load.html"><a href="package-load.html"><i class="fa fa-check"></i><b>4.2</b> Package loading</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="intro-markdown.html"><a href="intro-markdown.html"><i class="fa fa-check"></i><b>5</b> Intro to R Markdown</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="lit-programming.html"><a href="lit-programming.html"><i class="fa fa-check"></i><b>5.1</b> Literate programming with R Markdown</a></li>
+<li class="chapter" data-level="5.2" data-path="veryify-knit.html"><a href="veryify-knit.html"><i class="fa fa-check"></i><b>5.2</b> Making sure R Markdown knits to PDF</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-resources.html"><a href="r-resources.html"><i class="fa fa-check"></i><b>6</b> Extra online resources</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="online-resources.html"><a href="online-resources.html"><i class="fa fa-check"></i><b>6.1</b> R Resources Online</a></li>
+</ul></li>
+<li class="part"><span><b>Reproducible Workflows</b></span></li>
+<li class="chapter" data-level="7" data-path="repro-research.html"><a href="repro-research.html"><i class="fa fa-check"></i><b>7</b> Reproducible Research</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="comp-repro.html"><a href="comp-repro.html"><i class="fa fa-check"></i><b>7.1</b> Computational reproducibility</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="biol202-workflow.html"><a href="biol202-workflow.html"><i class="fa fa-check"></i><b>8</b> An example BIOL202 workflow</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="onedrive.html"><a href="onedrive.html"><i class="fa fa-check"></i><b>8.1</b> Microsoft OneDrive</a></li>
+<li class="chapter" data-level="8.2" data-path="dir-structure.html"><a href="dir-structure.html"><i class="fa fa-check"></i><b>8.2</b> Directory structure</a></li>
+<li class="chapter" data-level="8.3" data-path="setup-dirs.html"><a href="setup-dirs.html"><i class="fa fa-check"></i><b>8.3</b> Steps to set up directories</a></li>
+<li class="chapter" data-level="8.4" data-path="lecture-workflow.html"><a href="lecture-workflow.html"><i class="fa fa-check"></i><b>8.4</b> Lecture workflow</a></li>
+<li class="chapter" data-level="8.5" data-path="tutorial-workflow.html"><a href="tutorial-workflow.html"><i class="fa fa-check"></i><b>8.5</b> Tutorial workflow</a></li>
+<li class="chapter" data-level="8.6" data-path="create-project.html"><a href="create-project.html"><i class="fa fa-check"></i><b>8.6</b> Create an RStudio Project</a></li>
+<li class="chapter" data-level="8.7" data-path="create-subdirs.html"><a href="create-subdirs.html"><i class="fa fa-check"></i><b>8.7</b> Create subdirectories</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="create-subdirs.html"><a href="create-subdirs.html#here_package"><i class="fa fa-check"></i><b>8.7.1</b> The <code>here</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="edit-markdown.html"><a href="edit-markdown.html"><i class="fa fa-check"></i><b>8.8</b> Edit an R markdown file</a></li>
+<li class="chapter" data-level="8.9" data-path="md-components.html"><a href="md-components.html"><i class="fa fa-check"></i><b>8.9</b> Components of an R Markdown file</a></li>
+<li class="chapter" data-level="8.10" data-path="interact-tutorial.html"><a href="interact-tutorial.html"><i class="fa fa-check"></i><b>8.10</b> Interacting with Tutorial material</a></li>
+<li class="chapter" data-level="8.11" data-path="assign-workflow.html"><a href="assign-workflow.html"><i class="fa fa-check"></i><b>8.11</b> Lab assignments workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="prepare-assignments.html"><a href="prepare-assignments.html"><i class="fa fa-check"></i><b>9</b> Preparing and formatting assignments</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="open-assign-project1.html"><a href="open-assign-project1.html"><i class="fa fa-check"></i><b>9.1</b> Open your assignment RStudio project</a></li>
+<li class="chapter" data-level="9.2" data-path="download-assign-rmd.html"><a href="download-assign-rmd.html"><i class="fa fa-check"></i><b>9.2</b> Download the assignment Rmd file</a></li>
+<li class="chapter" data-level="9.3" data-path="open-rmd-file.html"><a href="open-rmd-file.html"><i class="fa fa-check"></i><b>9.3</b> Open the assignment Rmd file</a></li>
+<li class="chapter" data-level="9.4" data-path="what-include-answer.html"><a href="what-include-answer.html"><i class="fa fa-check"></i><b>9.4</b> What to include in your answers</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="what-include-answer.html"><a href="what-include-answer.html#chunk_headers"><i class="fa fa-check"></i><b>9.4.1</b> Code chunk headers</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="rmd-graphing.html"><a href="rmd-graphing.html"><i class="fa fa-check"></i><b>9.5</b> Setting up R Markdown for graphing</a></li>
+<li class="chapter" data-level="9.6" data-path="example-answer.html"><a href="example-answer.html"><i class="fa fa-check"></i><b>9.6</b> Example question / answer</a></li>
+<li class="chapter" data-level="9.7" data-path="knit-assign.html"><a href="knit-assign.html"><i class="fa fa-check"></i><b>9.7</b> Knitting your assignment to PDF</a></li>
+<li class="chapter" data-level="9.8" data-path="submit-rmd.html"><a href="submit-rmd.html"><i class="fa fa-check"></i><b>9.8</b> Submit your assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="data-import.html"><a href="data-import.html"><i class="fa fa-check"></i><b>10</b> Preparing and importing Tidy Data</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>10.1</b> Tidy data</a></li>
+<li class="chapter" data-level="10.2" data-path="import-csv-url.html"><a href="import-csv-url.html"><i class="fa fa-check"></i><b>10.2</b> Import a CSV file from a website</a></li>
+<li class="chapter" data-level="10.3" data-path="create-csv-local.html"><a href="create-csv-local.html"><i class="fa fa-check"></i><b>10.3</b> Create a CSV file</a></li>
+<li class="chapter" data-level="10.4" data-path="import-csv-local.html"><a href="import-csv-local.html"><i class="fa fa-check"></i><b>10.4</b> Import a local CSV file</a></li>
+<li class="chapter" data-level="10.5" data-path="data-overview.html"><a href="data-overview.html"><i class="fa fa-check"></i><b>10.5</b> Get an overview of a dataset</a></li>
+<li class="chapter" data-level="10.6" data-path="tutorial-practice-activities.html"><a href="tutorial-practice-activities.html"><i class="fa fa-check"></i><b>10.6</b> Tutorial practice activities</a></li>
+</ul></li>
+<li class="part"><span><b>Visualizing and Describing Data</b></span></li>
+<li class="chapter" data-level="11" data-path="vis-variable.html"><a href="vis-variable.html"><i class="fa fa-check"></i><b>11</b> Visualizing a single variable</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="vis-packages-data.html"><a href="vis-packages-data.html"><i class="fa fa-check"></i><b>11.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="11.2" data-path="vis-data-overview.html"><a href="vis-data-overview.html"><i class="fa fa-check"></i><b>11.2</b> Get an overview of the data</a></li>
+<li class="chapter" data-level="11.3" data-path="vis-cat-freq-table.html"><a href="vis-cat-freq-table.html"><i class="fa fa-check"></i><b>11.3</b> Create a frequency table</a></li>
+<li class="chapter" data-level="11.4" data-path="vis-cat-barchart.html"><a href="vis-cat-barchart.html"><i class="fa fa-check"></i><b>11.4</b> Create a bar graph</a></li>
+<li class="chapter" data-level="11.5" data-path="vis-histogram.html"><a href="vis-histogram.html"><i class="fa fa-check"></i><b>11.5</b> Create a histogram</a></li>
+<li class="chapter" data-level="11.6" data-path="vis-describe-hist.html"><a href="vis-describe-hist.html"><i class="fa fa-check"></i><b>11.6</b> Describing a histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="vis-describe.html"><a href="vis-describe.html"><i class="fa fa-check"></i><b>12</b> Describing a single variable</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="desc-packages-data.html"><a href="desc-packages-data.html"><i class="fa fa-check"></i><b>12.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="12.2" data-path="desc-cat-Var.html"><a href="desc-cat-Var.html"><i class="fa fa-check"></i><b>12.2</b> Describing a categorical variable</a></li>
+<li class="chapter" data-level="12.3" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html"><i class="fa fa-check"></i><b>12.3</b> Describing a numerical variable</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html#median_IQR"><i class="fa fa-check"></i><b>12.3.1</b> Calculating the median &amp; IQR</a></li>
+<li class="chapter" data-level="12.3.2" data-path="desc-numeric-var.html"><a href="desc-numeric-var.html#mean_sd"><i class="fa fa-check"></i><b>12.3.2</b> Calculating the mean &amp; standard deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="desc-numeric-var-cat.html"><a href="desc-numeric-var-cat.html"><i class="fa fa-check"></i><b>12.4</b> Describing a numerical variable grouped by a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="vis-twovar.html"><a href="vis-twovar.html"><i class="fa fa-check"></i><b>13</b> Visualizing associations between two variables</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="vis2-packages-data.html"><a href="vis2-packages-data.html"><i class="fa fa-check"></i><b>13.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="13.2" data-path="vis2-2cat.html"><a href="vis2-2cat.html"><i class="fa fa-check"></i><b>13.2</b> Visualizing association between two categorical variables</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="vis2-2cat.html"><a href="vis2-2cat.html#vis2_cont_table"><i class="fa fa-check"></i><b>13.2.1</b> Constructing a contingency table</a></li>
+<li class="chapter" data-level="13.2.2" data-path="vis2-2cat.html"><a href="vis2-2cat.html#grouped_bar_graphs"><i class="fa fa-check"></i><b>13.2.2</b> Constructing a grouped bar graph</a></li>
+<li class="chapter" data-level="13.2.3" data-path="vis2-2cat.html"><a href="vis2-2cat.html#mosaic_plot"><i class="fa fa-check"></i><b>13.2.3</b> Constructing a mosaic plot</a></li>
+<li class="chapter" data-level="13.2.4" data-path="vis2-2cat.html"><a href="vis2-2cat.html#interpret_mosaic"><i class="fa fa-check"></i><b>13.2.4</b> Interpreting mosaic plots</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="two-numeric.html"><a href="two-numeric.html"><i class="fa fa-check"></i><b>13.3</b> Visualizing association between two numeric variables</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="two-numeric.html"><a href="two-numeric.html#interpret_scatter"><i class="fa fa-check"></i><b>13.3.1</b> Interpreting and describing a scatterplot</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html"><i class="fa fa-check"></i><b>13.4</b> Visualizing association between a numeric and a categorical variable</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#stripchart"><i class="fa fa-check"></i><b>13.4.1</b> Create a stripchart</a></li>
+<li class="chapter" data-level="13.4.2" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#violinplot"><i class="fa fa-check"></i><b>13.4.2</b> Create a violin plot</a></li>
+<li class="chapter" data-level="13.4.3" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#boxplots"><i class="fa fa-check"></i><b>13.4.3</b> Creating a boxplot</a></li>
+<li class="chapter" data-level="13.4.4" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#bestplot"><i class="fa fa-check"></i><b>13.4.4</b> Combining violin and boxplots</a></li>
+<li class="chapter" data-level="13.4.5" data-path="numeric-vs-cat.html"><a href="numeric-vs-cat.html#interp_violin"><i class="fa fa-check"></i><b>13.4.5</b> Interpreting stripcharts and boxplots</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Inferential Statistics</b></span></li>
+<li class="chapter" data-level="14" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>14</b> Sampling, Estimation, &amp; Uncertainty</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="estimation-packages-data.html"><a href="estimation-packages-data.html"><i class="fa fa-check"></i><b>14.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="14.2" data-path="sampling-functions.html"><a href="sampling-functions.html"><i class="fa fa-check"></i><b>14.2</b> Functions for sampling</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="sampling-functions.html"><a href="sampling-functions.html#setseed"><i class="fa fa-check"></i><b>14.2.1</b> Setting the “seed” for random sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="sampling-error.html"><a href="sampling-error.html"><i class="fa fa-check"></i><b>14.3</b> Sampling error</a></li>
+<li class="chapter" data-level="14.4" data-path="sampdistmean.html"><a href="sampdistmean.html"><i class="fa fa-check"></i><b>14.4</b> Sampling distribution of the mean</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="sampdistmean.html"><a href="sampdistmean.html#hist_samdist"><i class="fa fa-check"></i><b>14.4.1</b> Visualize the sampling distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="sem-page.html"><a href="sem-page.html"><i class="fa fa-check"></i><b>14.5</b> Standard error of the mean</a></li>
+<li class="chapter" data-level="14.6" data-path="confint-rough.html"><a href="confint-rough.html"><i class="fa fa-check"></i><b>14.6</b> Rule of thumb 95% confidence interval</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>15</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="hyp-packages-data.html"><a href="hyp-packages-data.html"><i class="fa fa-check"></i><b>15.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="15.2" data-path="hyp-steps.html"><a href="hyp-steps.html"><i class="fa fa-check"></i><b>15.2</b> Steps to hypothesis testing</a></li>
+<li class="chapter" data-level="15.3" data-path="hyp-example.html"><a href="hyp-example.html"><i class="fa fa-check"></i><b>15.3</b> An hypothesis test example</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="hyp-example.html"><a href="hyp-example.html#follow_hyp_steps"><i class="fa fa-check"></i><b>15.3.1</b> Following the steps to hypothesis testing</a></li>
+<li class="chapter" data-level="15.3.2" data-path="hyp-example.html"><a href="hyp-example.html#sim_null"><i class="fa fa-check"></i><b>15.3.2</b> Simulating a “null distribution”</a></li>
+<li class="chapter" data-level="15.3.3" data-path="hyp-example.html"><a href="hyp-example.html#calc_p"><i class="fa fa-check"></i><b>15.3.3</b> Calculating the <em>P</em>-value</a></li>
+<li class="chapter" data-level="15.3.4" data-path="hyp-example.html"><a href="hyp-example.html#concluding_statement"><i class="fa fa-check"></i><b>15.3.4</b> Writing a concluding statement</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="single-cat.html"><a href="single-cat.html"><i class="fa fa-check"></i><b>16</b> Analyzing a single categorical variable</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="singcat-packages-data.html"><a href="singcat-packages-data.html"><i class="fa fa-check"></i><b>16.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="16.2" data-path="estproportions.html"><a href="estproportions.html"><i class="fa fa-check"></i><b>16.2</b> Estimating proportions</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="estproportions.html"><a href="estproportions.html#sterr_prop"><i class="fa fa-check"></i><b>16.2.1</b> Standard error for a proportion</a></li>
+<li class="chapter" data-level="16.2.2" data-path="estproportions.html"><a href="estproportions.html#confint_prop"><i class="fa fa-check"></i><b>16.2.2</b> Confidence interval for a proportion</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="binomdist.html"><a href="binomdist.html"><i class="fa fa-check"></i><b>16.3</b> Binomial distribution</a></li>
+<li class="chapter" data-level="16.4" data-path="binom-test.html"><a href="binom-test.html"><i class="fa fa-check"></i><b>16.4</b> Binomial test</a></li>
+<li class="chapter" data-level="16.5" data-path="prophypconf.html"><a href="prophypconf.html"><i class="fa fa-check"></i><b>16.5</b> Confidence interval approach to hypothesis testing</a></li>
+<li class="chapter" data-level="16.6" data-path="GOF-test.html"><a href="GOF-test.html"><i class="fa fa-check"></i><b>16.6</b> Goodness-of-fit tests</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="two-cat.html"><a href="two-cat.html"><i class="fa fa-check"></i><b>17</b> Analyzing associations between two categorical variables</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="twocat-packages-data.html"><a href="twocat-packages-data.html"><i class="fa fa-check"></i><b>17.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="17.2" data-path="fishertest.html"><a href="fishertest.html"><i class="fa fa-check"></i><b>17.2</b> Fisher’s Exact Test</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="fishertest.html"><a href="fishertest.html#fisher_hyp"><i class="fa fa-check"></i><b>17.2.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="17.2.2" data-path="fishertest.html"><a href="fishertest.html#show_cont_table"><i class="fa fa-check"></i><b>17.2.2</b> Display a contingency table</a></li>
+<li class="chapter" data-level="17.2.3" data-path="fishertest.html"><a href="fishertest.html#show_mosaic"><i class="fa fa-check"></i><b>17.2.3</b> Display a mosaic plot</a></li>
+<li class="chapter" data-level="17.2.4" data-path="fishertest.html"><a href="fishertest.html#do_fisher"><i class="fa fa-check"></i><b>17.2.4</b> Conduct the Fisher’s Exact Test</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="odds.html"><a href="odds.html"><i class="fa fa-check"></i><b>17.3</b> Estimate the Odds of getting sick</a></li>
+<li class="chapter" data-level="17.4" data-path="oddsratio.html"><a href="oddsratio.html"><i class="fa fa-check"></i><b>17.4</b> Estimate the odds ratio</a></li>
+<li class="chapter" data-level="17.5" data-path="chisquare.html"><a href="chisquare.html"><i class="fa fa-check"></i><b>17.5</b> <span class="math inline">\(\chi\)</span><sup>2</sup> Contingency Test</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="chisquare.html"><a href="chisquare.html#chihyp"><i class="fa fa-check"></i><b>17.5.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="17.5.2" data-path="chisquare.html"><a href="chisquare.html#showwormcont"><i class="fa fa-check"></i><b>17.5.2</b> Display the contingency table</a></li>
+<li class="chapter" data-level="17.5.3" data-path="chisquare.html"><a href="chisquare.html#mosaicworm"><i class="fa fa-check"></i><b>17.5.3</b> Visualize a mosaic plot</a></li>
+<li class="chapter" data-level="17.5.4" data-path="chisquare.html"><a href="chisquare.html#checkchiassum"><i class="fa fa-check"></i><b>17.5.4</b> Check the assumptions</a></li>
+<li class="chapter" data-level="17.5.5" data-path="chisquare.html"><a href="chisquare.html#chiresults"><i class="fa fa-check"></i><b>17.5.5</b> Get the results of the test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="single-numeric.html"><a href="single-numeric.html"><i class="fa fa-check"></i><b>18</b> Analyzing a single numerical variable</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="singlenum-packages-data.html"><a href="singlenum-packages-data.html"><i class="fa fa-check"></i><b>18.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="18.2" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html"><i class="fa fa-check"></i><b>18.2</b> One-sample <em>t</em>-test</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_hyp"><i class="fa fa-check"></i><b>18.2.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="18.2.2" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_assumptions"><i class="fa fa-check"></i><b>18.2.2</b> Assumptions of one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2.3" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_graph"><i class="fa fa-check"></i><b>18.2.3</b> A graph to accompany a one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2.4" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_test"><i class="fa fa-check"></i><b>18.2.4</b> Conduct the one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="18.2.5" data-path="onesamp-t-test.html"><a href="onesamp-t-test.html#onesamp_conclude"><i class="fa fa-check"></i><b>18.2.5</b> Concluding statement for the one-sample <em>t</em>-test</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="t-confidence.html"><a href="t-confidence.html"><i class="fa fa-check"></i><b>18.3</b> Confidence intervals for <span class="math inline">\(\mu\)</span></a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="t-confidence.html"><a href="t-confidence.html#conf_precision"><i class="fa fa-check"></i><b>18.3.1</b> Confidence interval as a measure of precision for an estimate</a></li>
+<li class="chapter" data-level="18.3.2" data-path="t-confidence.html"><a href="t-confidence.html#conf_hyp"><i class="fa fa-check"></i><b>18.3.2</b> Confidence interval approach to hypothesis testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="checking-assumptions-and-data-transformations.html"><a href="checking-assumptions-and-data-transformations.html"><i class="fa fa-check"></i>Checking assumptions and data transformations</a>
+<ul>
+<li class="chapter" data-level="18.4" data-path="assumptions.html"><a href="assumptions.html"><i class="fa fa-check"></i><b>18.4</b> Checking assumptions and data transformations</a></li>
+<li class="chapter" data-level="18.5" data-path="assumptions-packages-data.html"><a href="assumptions-packages-data.html"><i class="fa fa-check"></i><b>18.5</b> Load packages and import data</a></li>
+<li class="chapter" data-level="18.6" data-path="checking-the-normality-assumption.html"><a href="checking-the-normality-assumption.html"><i class="fa fa-check"></i><b>18.6</b> Checking the normality assumption</a>
+<ul>
+<li class="chapter" data-level="18.6.1" data-path="checking-the-normality-assumption.html"><a href="checking-the-normality-assumption.html#quantile_plots"><i class="fa fa-check"></i><b>18.6.1</b> Normal quantile plots</a></li>
+<li class="chapter" data-level="18.6.2" data-path="checking-the-normality-assumption.html"><a href="checking-the-normality-assumption.html#shapiro-wilk-test-for-normality"><i class="fa fa-check"></i><b>18.6.2</b> Shapiro-Wilk test for normality</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="checking-the-equal-variance-assumption.html"><a href="checking-the-equal-variance-assumption.html"><i class="fa fa-check"></i><b>18.7</b> Checking the equal-variance assumption</a></li>
+<li class="chapter" data-level="18.8" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>18.8</b> Data transformations</a>
+<ul>
+<li class="chapter" data-level="18.8.1" data-path="transform.html"><a href="transform.html#log_transform"><i class="fa fa-check"></i><b>18.8.1</b> Log-transform</a></li>
+<li class="chapter" data-level="18.8.2" data-path="transform.html"><a href="transform.html#zeroes"><i class="fa fa-check"></i><b>18.8.2</b> Dealing with zeroes</a></li>
+<li class="chapter" data-level="18.8.3" data-path="transform.html"><a href="transform.html#logbases"><i class="fa fa-check"></i><b>18.8.3</b> Log bases</a></li>
+<li class="chapter" data-level="18.8.4" data-path="transform.html"><a href="transform.html#back_transform"><i class="fa fa-check"></i><b>18.8.4</b> Back-transforming log data</a></li>
+<li class="chapter" data-level="18.8.5" data-path="transform.html"><a href="transform.html#logit_transform"><i class="fa fa-check"></i><b>18.8.5</b> Logit transform</a></li>
+<li class="chapter" data-level="18.8.6" data-path="transform.html"><a href="transform.html#logit_back"><i class="fa fa-check"></i><b>18.8.6</b> Back-transforming logit data</a></li>
+<li class="chapter" data-level="18.8.7" data-path="transform.html"><a href="transform.html#when_back"><i class="fa fa-check"></i><b>18.8.7</b> When to back-transform?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
+<ul>
+<li class="chapter" data-level="" data-path="a-more-familiar-editing-environment.html"><a href="a-more-familiar-editing-environment.html"><i class="fa fa-check"></i>A more familiar editing environment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
+<ul>
+<li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
+<li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
+<li class="chapter" data-level="" data-path="there-is-no-package.html"><a href="there-is-no-package.html"><i class="fa fa-check"></i>There is no package</a></li>
+<li class="chapter" data-level="" data-path="trying-to-use-cran-without-setting-a-mirror.html"><a href="trying-to-use-cran-without-setting-a-mirror.html"><i class="fa fa-check"></i>Trying to use CRAN without setting a mirror</a></li>
+<li class="chapter" data-level="" data-path="pdf-latex-is-not-found.html"><a href="pdf-latex-is-not-found.html"><i class="fa fa-check"></i>PDF Latex is not found</a></li>
+<li class="chapter" data-level="" data-path="error-in-parse.html"><a href="error-in-parse.html"><i class="fa fa-check"></i>Error in parse</a></li>
+<li class="chapter" data-level="" data-path="no-such-file-or-directory-exists.html"><a href="no-such-file-or-directory-exists.html"><i class="fa fa-check"></i>No such file or directory exists</a></li>
+<li class="chapter" data-level="" data-path="messy-output-when-loading-packages.html"><a href="messy-output-when-loading-packages.html"><i class="fa fa-check"></i>Messy output when loading packages</a></li>
+<li class="chapter" data-level="" data-path="unused-argument.html"><a href="unused-argument.html"><i class="fa fa-check"></i>Unused argument</a></li>
+<li class="chapter" data-level="" data-path="object-not-found.html"><a href="object-not-found.html"><i class="fa fa-check"></i>Object not found</a></li>
+<li class="chapter" data-level="" data-path="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><a href="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><i class="fa fa-check"></i>Figure caption doesn’t show up below figure in knitted document</a></li>
+<li class="chapter" data-level="" data-path="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><a href="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><i class="fa fa-check"></i>Filename, directory name, or volume label syntax is incorrect</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorials for BIOL202: Introduction to Biostatistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="assumptions" class="section level2" number="18.4">
+<h2><span class="header-section-number">18.4</span> Checking assumptions and data transformations</h2>
+<p><strong>Tutorial learning objectives</strong></p>
+<ul>
+<li>Learn how to check the normality assumption
+<ul>
+<li>Histograms and normal quantile plots</li>
+<li>Shapiro-Wilk test for normality</li>
+</ul></li>
+<li>Learn how to transform the response variable to help meet assumptions
+<ul>
+<li>log-transform</li>
+<li>Dealing with zeroes<br />
+</li>
+<li>log bases</li>
+<li>back-transforming log data</li>
+<li>logit transform</li>
+<li>back-transforming logit data</li>
+<li>when to back-transform?</li>
+</ul></li>
+</ul>
+<p>Most statistical tests, such as the <span class="math inline">\(\chi\)</span><sup>2</sup> goodness of fit test, the <span class="math inline">\(\chi\)</span><sup>2</sup> contingency test, <em>t</em>-test, ANOVA, Pearson correlation, and least-squares regression, have assumptions that must be met. For example, the one-sample <em>t</em>-test requires that the variable is normally distributed in the population, and least-squares regression requires that the residuals from the regression be normally distributed. In this tutorial we’ll learn ways to check the assumption that the variable is normally distributed in the population.</p>
+<p>We’ll also learn how transforming a variable can sometimes help satisfy assumptions, in which case the analysis is conducted on the transformed variable.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="checking-assumptions-and-data-transformations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="assumptions-packages-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BIOL202-github.pdf", "BIOL202-github.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highight": true,
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
