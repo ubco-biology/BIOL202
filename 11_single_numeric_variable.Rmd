@@ -76,7 +76,12 @@ The **assumptions** of the one-sample *t*-test are as follows:
 * the sampling units are randomly sampled from the population (a standard assumption)
 * the variable is normally distributed in the population  
 
-Later we'll learn how to formally check the second assumption. For now we'll assume both assumptions are met.  
+Consult the ["checking assumptions" tutorial](https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html) for how to formally check the second assumption. For now we'll assume both assumptions are met.  
+
+<div class="note">
+**NOTE added November 12, 2021: **
+If the normal distribution assumption is not met, and no [data transformation(https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html) helps, then one can conduct a "non-parametric" test in lieu of the one-sample *t*-test, including a "Sign test" or a "Wilcoxon signed-rank test".  A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock & Schluter text, and this [website](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page) for some R examples. 
+</div>
 
 ### A graph to accompany a one-sample *t*-test {#onesamp_graph}
 

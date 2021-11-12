@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-11" />
+<meta name="date" content="2021-11-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -412,20 +412,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <strong>Rule of Thumb</strong> 95% confidence interval is calculated simply as the sample mean +/- two standard errors.</p>
 <p>Thus, the <strong>lower confidence limit</strong> is calculated as the sample mean minus 2 times the standard error, and the <strong>upper confidence limit</strong> is calculated as the sample mean plus 2 times the standard error.</p>
 <p>We can re-use code from the previous section for the calculations, and we’ll assign the output to a new object called “newsamp.n20.allstats”:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="confint-rough.html#cb144-1" aria-hidden="true" tabindex="-1"></a>newsamp.n20.allstats <span class="ot">&lt;-</span> newsamp.n20 <span class="sc">%&gt;%</span></span>
-<span id="cb144-2"><a href="confint-rough.html#cb144-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb144-3"><a href="confint-rough.html#cb144-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(size),</span>
-<span id="cb144-4"><a href="confint-rough.html#cb144-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb144-5"><a href="confint-rough.html#cb144-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_genelength =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb144-6"><a href="confint-rough.html#cb144-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> SD_genelength<span class="sc">/</span><span class="fu">sqrt</span>(Count),</span>
-<span id="cb144-7"><a href="confint-rough.html#cb144-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Lower_95_CL =</span> Mean_genelength <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> SEM,</span>
-<span id="cb144-8"><a href="confint-rough.html#cb144-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Upper_95_CL =</span> Mean_genelength <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> SEM</span>
-<span id="cb144-9"><a href="confint-rough.html#cb144-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="confint-rough.html#cb150-1" aria-hidden="true" tabindex="-1"></a>newsamp.n20.allstats <span class="ot">&lt;-</span> newsamp.n20 <span class="sc">%&gt;%</span></span>
+<span id="cb150-2"><a href="confint-rough.html#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb150-3"><a href="confint-rough.html#cb150-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(size),</span>
+<span id="cb150-4"><a href="confint-rough.html#cb150-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb150-5"><a href="confint-rough.html#cb150-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_genelength =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb150-6"><a href="confint-rough.html#cb150-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> SD_genelength<span class="sc">/</span><span class="fu">sqrt</span>(Count),</span>
+<span id="cb150-7"><a href="confint-rough.html#cb150-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Lower_95_CL =</span> Mean_genelength <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> SEM,</span>
+<span id="cb150-8"><a href="confint-rough.html#cb150-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Upper_95_CL =</span> Mean_genelength <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> SEM</span>
+<span id="cb150-9"><a href="confint-rough.html#cb150-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>We’ve added two lines of code, one for the lower confidence limit and one for the upper confidence limit.</p>
 <p>Notice that we again use calculations completed in preceding lines as input for the subsequent lines. Specifically, we use the “Mean_genelength” value and the “SEM” value in our confidence limit calculations.</p>
 <p>The asterisk (*) denotes multiplication.</p>
 <p>Let’s look at the output:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="confint-rough.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(newsamp.n20.allstats, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="confint-rough.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(newsamp.n20.allstats, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
