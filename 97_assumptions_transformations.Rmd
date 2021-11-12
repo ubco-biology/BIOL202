@@ -219,9 +219,14 @@ We'll use the "students" dataset, and check whether `height_cm` exhibits equal v
 
 Let's look at the code, and explain after:
 
-```{r do_levene, warning = FALSE}
+```{r do_levene}
 height.vartest <- leveneTest(height_cm ~ Dominant_eye, data = students)
 ```
+
+<div class="note">
+**NOTE: **
+If you get a warning about a variable being "coerced to factor", that's OK! It is simply telling you that it took the categorical variable and treated it as a 'factor' variable.
+</div>
 
 In the code chunk above we: 
 
