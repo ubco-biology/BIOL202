@@ -128,3 +128,17 @@ This has to do with out the conversion process works, and can't easily be helped
 **Solution:** This error occurs because there is a mistake in the code for the figure caption. Specifically, there needs to be a space between the "r" and "fig." in the RChunk header. See the screenshot below for the correct figure caption code. 
 
 ![](./more/fig-cap-no-space2.png)
+
+## Installing packages: there is a binary version available {-}
+
+If you are attempting to install a package (using `install.packages`) and you get this message:
+
+```
+There is a binary version available but the source version is later:
+  binary source needs_compilation
+systemfonts  1.0.2  1.0.3              TRUE
+
+Do you want to install from sources the package which needs compilation? (Yes/no/cancel)
+```
+
+Respond with "no" (without quotes).  Do NOT respond "Yes". 
