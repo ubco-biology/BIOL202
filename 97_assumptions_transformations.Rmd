@@ -201,7 +201,7 @@ Here's an example statement:
 Visual assessments of normality are preferred, because the outcome of the Shapiro-Wilk test is sensitive to sample size: a small sample size will often yield a false negative, whereas very large sample sizes could yield false positives more than it should.
 </div>
 
-## Checking the equal-variance assumption  
+## Checking the equal-variance assumption {#levenetest}
 
 Some statistical tests, such as the 2-sample *t*-test and ANOVA, assume that the variance ($\sigma$) of the numeric response variable is the same among the populations being compared.
 
