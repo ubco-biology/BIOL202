@@ -224,7 +224,7 @@ Here we make sure to set the null hypothesized value of "mu" to zero in the argu
 
 ```{r first_ttest2}
 blackbird.ttest <- blackbird.diffs %>%
-  dplyr::select(diffs) %>%
+  select(diffs) %>%
   t.test(mu = 0, alternative = "two.sided", conf.level = 0.95) 
 ```
 
@@ -238,13 +238,7 @@ The observed *P*-value for our test is larger than our $\alpha$ level of 0.05.  
 
 **(2) Paired *t*-test**
 
-Here we use a method that relies on the data being stored in tidy (long) format, and assuming the order of the observations for each pair is correct.  For instance, recall our original "blackbird" tibble:
-
-```{r showblackbird}
-blackbird
-```
-
-We can see that birds 1 through 13 are ordered the same within each of the "After" and "Before" groups.  This is crucial for this implementation of the paired *t*-test.
+Here we use a method that relies on the data being stored in tidy (long) format, and assuming the order of the observations for each pair is correct.  For instance, this is the case for our "blackbird" tibble. Specifically, birds 1 through 13 are ordered the same within each of the "After" and "Before" groups.  This is crucial for this implementation of the paired *t*-test.
 
 Here's the code for running a paired *t*-test on tidy (long) format data:
 
@@ -258,7 +252,7 @@ Here's an explanation:
 * we create a new object "blackbird.paried.ttest" to store our results in
 * we run the `t.test` function with the arguments as follows: 
   + we use a formula syntax to specify Y ~ X, like we did when learning the [Levene's Test of equal variance](#levenetest); In this case, we have our numerical response variable (Y) "Antibody", then the "~" symbol, then the explanatory categorical variable (X) "time".
-  + then we have an argument "data = .", which tells the `t.test` function that whatever data was passed to it from the preceding line is what will be used
+  + **NEW**: we have an argument "data = .", which tells the `t.test` function that whatever data was passed to it from the preceding line is what will be used
   + we have the "paired = TRUE" argument, telling the function that this is a paired design
   + finally we use "conf.level = 0.95" which corresponds to an $\alpha = 0.05$
   
@@ -272,9 +266,9 @@ The output is identical to what we got when we applied a 1-sample *t*-test on th
 
 ### Concluding statement {#concl_paired}
 
-Here's an example of a reasonable concluding statement, based on either of the 2 methods used above (note that in either case we call the test a "paired *t*-test, even if we used the one-sample *t*-test on the differences):
+Here's an example of a reasonable concluding statement, and this can apply for either of the two methods used above (note that in either case we call the test a "paired *t*-test, even if we used the one-sample *t*-test on the differences):
 
-> We have no reason to reject the null hypothesis that the mean change in antibody production after testosterone implants was zero (paired _t_-test; _t_ = `r round(blackbird.paired.ttest$statistic,2)`; df = `r blackbird.paired.ttest$df`; _P_ = `r round(blackbird.paired.ttest$p.value,3)`; 95% confidence interval: `r round(blackbird.paired.ttest$conf.int[1], 3)` $< \mu_d <$ `r round(blackbird.paired.ttest$conf.int[2], 3)`). 
+> We have no reason to reject the null hypothesis that the mean change in antibody production after testosterone implants was zero (paired _t_-test; _t_ = `r round(blackbird.paired.ttest$statistic,2)`; df = `r blackbird.paired.ttest$parameter`; _P_ = `r round(blackbird.paired.ttest$p.value,3)`; 95% confidence interval: `r round(blackbird.paired.ttest$conf.int[1], 3)` $< \mu_d <$ `r round(blackbird.paired.ttest$conf.int[2], 3)`). 
 
 ## Two sample *t*-test {#twosamp_ttest}
 
@@ -309,7 +303,7 @@ students <- students %>%
   mutate(Dominant_eye = recode_factor(Dominant_eye, r = "Right", l = "Left"))
 ```
 
-### Hypothesis statement {#2samp_hyp}
+### Hypothesis statement {#twosamp_hyp}
 
 H~0~: Mean height is the same among students with left dominant eyes and right dominant eyes ($\mu_L = \mu_R$).  
 H~A~: Mean height is not the same among students with left dominant eyes and right dominant eyes ($\mu_L \ne \mu_R$). 
@@ -329,7 +323,7 @@ Steps to a hypothesis test:
 
 ### A table of descriptive statistics {#stats_2samp} 
 
-When we are analyzing a numeric response variable in relation to a categorical variable with two or more categories, it's good practice to provide a table of summary (or "descriptive") statistics, including confidence intervals.
+When we are analyzing a numeric response variable in relation to a categorical variable with two or more categories, it's good practice to provide a table of summary (or "descriptive") statistics (including confidence intervals for the mean) for the numeric variable grouped by the categories.
 
 In a previous [tutorial](#desc_numeric_var_cat) we learned how to calculate descriptive statistics for a numeric variable grouped by a categorical variable.  In another [tutorial](#conf_precision) we also learned how to calculate confidence intervals for a numeric variable.
 
@@ -343,25 +337,31 @@ height.stats <- students %>%
   summarise(
     Count = n() - naniar::n_miss(height_cm),
     Count_NA = naniar::n_miss(height_cm), 
-    Mean_height = mean(height_cm, na.rm = TRUE),
-    SD_height = sd(height_cm, na.rm = TRUE),
-    SEM = SD_height/sqrt(Count),
-    Lower_95_CL = t.test(height_cm, conf.level = 0.95)$conf.int[1],
-    Upper_95_CL = t.test(height_cm, conf.level = 0.95)$conf.int[2]
+    Mean = mean(height_cm, na.rm = TRUE),
+    SD = sd(height_cm, na.rm = TRUE),
+    SEM = SD/sqrt(Count),
+    Low_95_CL = t.test(height_cm, conf.level = 0.95)$conf.int[1],
+    Up_95_CL = t.test(height_cm, conf.level = 0.95)$conf.int[2]
   )
 ```
 
 The only unfamiliar code in the preceding chunk is the last two lines:
 
 * we use the `t.test` function to calculate the lower and upper confidence limits. Specifically:
-  + after the closing parenthesis to the `t.test` function, we include "$conf.int[1]", and this simply extracts the first value (lower limit) of the calculated confidence limit from the `t.test` output
+  + after the closing parenthesis to the `t.test` function, we include "$conf.int[1]", and this simply extracts the first value (lower limit) of the calculated confidence limits from the `t.test` output
   + we do the same for the upper confidence limit, but this time we include "$conf.int[2]"
 
-Now let's have a look at the table, using the `kable` function to produce a nice table:
+Now let's have a look at the table, using the `kable` function to produce a nice table.
+
+**NOTE** here I am rotating the table so that it fits on the page. To do this, use the `t` function as follows:
 
 ```{r descstats_height}
-kable(height.stats, digits = 4)
+kable(t(height.stats), digits = 4)
 ```
+
+It is best to NOT rotate the table, but it is fine to do so if your table goes off the page!  
+
+We'll learn a better way to get around this later.
 
 ### A graph to accompany a 2-sample *t*-test {#graph_2samp} 
 
@@ -462,7 +462,7 @@ Note also that the output includes a **confidence interval** for the _difference
 
 Here's an example of a concluding statement: 
 
-> On average, students with left dominant eyes are similar in height to students with right dominant eyes (Figure ) (2-sample *t*-test; *t* = `r abs(round(height.ttest$statistic,2))`; df = `r height.ttest$df`; *P*-value = `r round(height.ttest$p.value,3)`; 95% confidence limits for the true difference in mean height: `r min(abs(round(height.ttest$conf.int[1], 3)),abs(round(height.ttest$conf.int[2], 3)))`, `r max(abs(round(height.ttest$conf.int[1], 3)),abs(round(height.ttest$conf.int[2], 3)))`).
+> On average, students with left dominant eyes are similar in height to students with right dominant eyes (Figure 19.4) (2-sample *t*-test; *t* = `r abs(round(height.ttest$statistic,2))`; df = `r height.ttest$parameter`; *P*-value = `r round(height.ttest$p.value,3)`; 95% confidence interval for the difference in height `r round(height.ttest$conf.int[1], 3)` $< \mu_d <$ `r round(height.ttest$conf.int[2], 3)`).
 
 ## When assumptions aren't met {#assumpbad_2samp}
 

@@ -361,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="19.3" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html"><i class="fa fa-check"></i><b>19.3</b> Two sample <em>t</em>-test</a>
 <ul>
-<li class="chapter" data-level="19.3.1" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#hypothesis-statement-2samp_hyp"><i class="fa fa-check"></i><b>19.3.1</b> Hypothesis statement {#2samp_hyp}</a></li>
+<li class="chapter" data-level="19.3.1" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#twosamp_hyp"><i class="fa fa-check"></i><b>19.3.1</b> Hypothesis statement</a></li>
 <li class="chapter" data-level="19.3.2" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#stats_2samp"><i class="fa fa-check"></i><b>19.3.2</b> A table of descriptive statistics</a></li>
 <li class="chapter" data-level="19.3.3" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#graph_2samp"><i class="fa fa-check"></i><b>19.3.3</b> A graph to accompany a 2-sample <em>t</em>-test</a></li>
 <li class="chapter" data-level="19.3.4" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#assumptions-of-the-2-sample-t-test-2samp_assump"><i class="fa fa-check"></i><b>19.3.4</b> Assumptions of the 2-sample <em>t</em>-test {#2samp_assump}</a></li>
@@ -545,8 +545,8 @@ H<sub>A</sub>: The mean change in antibody production after testosterone implant
 <span id="cb295-5"><a href="paired-t-test.html#cb295-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Difference in antibody production rate (after - before) (ln[mOD/min]) 10^-3&quot;</span>) <span class="sc">+</span></span>
 <span id="cb295-6"><a href="paired-t-test.html#cb295-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb295-7"><a href="paired-t-test.html#cb295-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-92"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-92-1.png" alt="Histogram of the differences in antibody production rate before and after the testosterone treatment" width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-80"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-80-1.png" alt="Histogram of the differences in antibody production rate before and after the testosterone treatment" width="384" />
 <p class="caption">
 Figure 19.1: Histogram of the differences in antibody production rate before and after the testosterone treatment
 </p>
@@ -559,8 +559,8 @@ Figure 19.1: Histogram of the differences in antibody production rate before and
 <span id="cb296-3"><a href="paired-t-test.html#cb296-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
 <span id="cb296-4"><a href="paired-t-test.html#cb296-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> blackbird), <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
 <span id="cb296-5"><a href="paired-t-test.html#cb296-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-93"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-93-1.png" alt="Paired plot of antibody production rate before and after the testosterone treatment" width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-81"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-81-1.png" alt="Paired plot of antibody production rate before and after the testosterone treatment" width="384" />
 <p class="caption">
 Figure 19.2: Paired plot of antibody production rate before and after the testosterone treatment
 </p>
@@ -585,8 +585,8 @@ Figure 19.2: Paired plot of antibody production rate before and after the testos
 <span id="cb298-5"><a href="paired-t-test.html#cb298-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
 <span id="cb298-6"><a href="paired-t-test.html#cb298-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Antibody production (ln[mOD/min]) 10^-3&quot;</span>) <span class="sc">+</span></span>
 <span id="cb298-7"><a href="paired-t-test.html#cb298-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-95"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-95-1.png" alt="Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-83"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-83-1.png" alt="Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3." width="384" />
 <p class="caption">
 Figure 19.3: Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3.
 </p>
@@ -622,7 +622,7 @@ Figure 19.3: Normal quantile plot of the differences in antibody production rate
 <p>Let’s proceed with the test as we’ve <a href="onesamp-t-test.html#onesamp_t_test">previously learned</a>.</p>
 <p>Here we make sure to set the null hypothesized value of “mu” to zero in the argument for the <code>t.test</code> function:</p>
 <div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="paired-t-test.html#cb301-1" aria-hidden="true" tabindex="-1"></a>blackbird.ttest <span class="ot">&lt;-</span> blackbird.diffs <span class="sc">%&gt;%</span></span>
-<span id="cb301-2"><a href="paired-t-test.html#cb301-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(diffs) <span class="sc">%&gt;%</span></span>
+<span id="cb301-2"><a href="paired-t-test.html#cb301-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(diffs) <span class="sc">%&gt;%</span></span>
 <span id="cb301-3"><a href="paired-t-test.html#cb301-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(<span class="at">mu =</span> <span class="dv">0</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
 <p>Now have a look at the result:</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="paired-t-test.html#cb302-1" aria-hidden="true" tabindex="-1"></a>blackbird.ttest</span></code></pre></div>
@@ -639,39 +639,23 @@ Figure 19.3: Normal quantile plot of the differences in antibody production rate
 ## 0.05496981</code></pre>
 <p>The observed <em>P</em>-value for our test is larger than our <span class="math inline">\(\alpha\)</span> level of 0.05. We therefore fail to reject the null hypothesis.</p>
 <p><strong>(2) Paired <em>t</em>-test</strong></p>
-<p>Here we use a method that relies on the data being stored in tidy (long) format, and assuming the order of the observations for each pair is correct. For instance, recall our original “blackbird” tibble:</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="paired-t-test.html#cb304-1" aria-hidden="true" tabindex="-1"></a>blackbird</span></code></pre></div>
-<pre><code>## # A tibble: 26 x 3
-##    blackbird time   Antibody
-##        &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
-##  1         1 Before    4.654
-##  2         2 Before    3.912
-##  3         3 Before    4.913
-##  4         4 Before    4.500
-##  5         5 Before    4.804
-##  6         6 Before    4.883
-##  7         7 Before    4.875
-##  8         8 Before    4.779
-##  9         9 Before    4.977
-## 10        10 Before    4.868
-## # … with 16 more rows</code></pre>
-<p>We can see that birds 1 through 13 are ordered the same within each of the “After” and “Before” groups. This is crucial for this implementation of the paired <em>t</em>-test.</p>
+<p>Here we use a method that relies on the data being stored in tidy (long) format, and assuming the order of the observations for each pair is correct. For instance, this is the case for our “blackbird” tibble. Specifically, birds 1 through 13 are ordered the same within each of the “After” and “Before” groups. This is crucial for this implementation of the paired <em>t</em>-test.</p>
 <p>Here’s the code for running a paired <em>t</em>-test on tidy (long) format data:</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="paired-t-test.html#cb306-1" aria-hidden="true" tabindex="-1"></a>blackbird.paired.ttest <span class="ot">&lt;-</span> blackbird <span class="sc">%&gt;%</span> </span>
-<span id="cb306-2"><a href="paired-t-test.html#cb306-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(Antibody <span class="sc">~</span> time, <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="paired-t-test.html#cb304-1" aria-hidden="true" tabindex="-1"></a>blackbird.paired.ttest <span class="ot">&lt;-</span> blackbird <span class="sc">%&gt;%</span> </span>
+<span id="cb304-2"><a href="paired-t-test.html#cb304-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(Antibody <span class="sc">~</span> time, <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>Here’s an explanation:</p>
 <ul>
 <li>we create a new object “blackbird.paried.ttest” to store our results in</li>
 <li>we run the <code>t.test</code> function with the arguments as follows:
 <ul>
 <li>we use a formula syntax to specify Y ~ X, like we did when learning the <a href="levenetest.html#levenetest">Levene’s Test of equal variance</a>; In this case, we have our numerical response variable (Y) “Antibody,” then the “~” symbol, then the explanatory categorical variable (X) “time.”</li>
-<li>then we have an argument “data = .” which tells the <code>t.test</code> function that whatever data was passed to it from the preceding line is what will be used</li>
+<li><strong>NEW</strong>: we have an argument “data = .” which tells the <code>t.test</code> function that whatever data was passed to it from the preceding line is what will be used</li>
 <li>we have the “paired = TRUE” argument, telling the function that this is a paired design</li>
 <li>finally we use “conf.level = 0.95” which corresponds to an <span class="math inline">\(\alpha = 0.05\)</span></li>
 </ul></li>
 </ul>
 <p>Let’s look at the result:</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="paired-t-test.html#cb307-1" aria-hidden="true" tabindex="-1"></a>blackbird.paired.ttest</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="paired-t-test.html#cb305-1" aria-hidden="true" tabindex="-1"></a>blackbird.paired.ttest</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -687,9 +671,9 @@ Figure 19.3: Normal quantile plot of the differences in antibody production rate
 </div>
 <div id="concl_paired" class="section level3" number="19.2.6">
 <h3><span class="header-section-number">19.2.6</span> Concluding statement</h3>
-<p>Here’s an example of a reasonable concluding statement, based on either of the 2 methods used above (note that in either case we call the test a "paired <em>t</em>-test, even if we used the one-sample <em>t</em>-test on the differences):</p>
+<p>Here’s an example of a reasonable concluding statement, and this can apply for either of the two methods used above (note that in either case we call the test a "paired <em>t</em>-test, even if we used the one-sample <em>t</em>-test on the differences):</p>
 <blockquote>
-<p>We have no reason to reject the null hypothesis that the mean change in antibody production after testosterone implants was zero (paired <em>t</em>-test; <em>t</em> = 1.24; df = ; <em>P</em> = 0.237; 95% confidence interval: -0.041 <span class="math inline">\(&lt; \mu_d &lt;\)</span> 0.151).</p>
+<p>We have no reason to reject the null hypothesis that the mean change in antibody production after testosterone implants was zero (paired <em>t</em>-test; <em>t</em> = 1.24; df = 12; <em>P</em> = 0.237; 95% confidence interval: -0.041 <span class="math inline">\(&lt; \mu_d &lt;\)</span> 0.151).</p>
 </blockquote>
 </div>
 </div>

@@ -361,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="19.3" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html"><i class="fa fa-check"></i><b>19.3</b> Two sample <em>t</em>-test</a>
 <ul>
-<li class="chapter" data-level="19.3.1" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#hypothesis-statement-2samp_hyp"><i class="fa fa-check"></i><b>19.3.1</b> Hypothesis statement {#2samp_hyp}</a></li>
+<li class="chapter" data-level="19.3.1" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#twosamp_hyp"><i class="fa fa-check"></i><b>19.3.1</b> Hypothesis statement</a></li>
 <li class="chapter" data-level="19.3.2" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#stats_2samp"><i class="fa fa-check"></i><b>19.3.2</b> A table of descriptive statistics</a></li>
 <li class="chapter" data-level="19.3.3" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#graph_2samp"><i class="fa fa-check"></i><b>19.3.3</b> A graph to accompany a 2-sample <em>t</em>-test</a></li>
 <li class="chapter" data-level="19.3.4" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#assumptions-of-the-2-sample-t-test-2samp_assump"><i class="fa fa-check"></i><b>19.3.4</b> Assumptions of the 2-sample <em>t</em>-test {#2samp_assump}</a></li>
@@ -459,8 +459,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>?qt</code></pre>
 <p>The <code>qt</code> function only deals with one tail of the distribution. Thus, if we have a two-sided alternative hypothesis, we need to divide our <span class="math inline">\(\alpha\)</span> level by two in order to calculate the appropriate critical value of <em>t</em>.</p>
 <p>The following graph illustrates this for the <em>t</em> distribution associated with <em>df</em> = 24 and <span class="math inline">\(\alpha(2)\)</span> = 0.05. Specifically, the <span class="math inline">\(t_{crit}\)</span> values are shown by the vertical lines, and delimit the points beyond which the area under the curve towards the tail is equal to <span class="math inline">\(\alpha / 2\)</span> (and thus the total area of both red zones= <span class="math inline">\(\alpha\)</span>).</p>
-<div class="figure"><span id="fig:unnamed-chunk-87"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-87-1.png" alt="The *t* distribution for df = 24." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-75"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-75-1.png" alt="The *t* distribution for df = 24." width="384" />
 <p class="caption">
 Figure 18.2: The <em>t</em> distribution for df = 24.
 </p>
@@ -549,7 +549,7 @@ Upper_95_CL
 </tbody>
 </table>
 <p>If we wanted to report the confidence interval on its own, we can get the necessary information from our newly created tibble “bodytemp.stats,” and type the following inline code in our markdown text (NOT in a code chunk):</p>
-<div class="figure"><span id="fig:unnamed-chunk-88"></span>
+<div class="figure"><span id="fig:unnamed-chunk-76"></span>
 <img src="more/confint_inline_code.png" alt="Example of inline markdown and R code for a confidence interval" width="1001" />
 <p class="caption">
 Figure 18.3: Example of inline markdown and R code for a confidence interval
