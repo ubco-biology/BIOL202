@@ -80,7 +80,7 @@ Consult the ["checking assumptions" tutorial](https://ubco-biology.github.io/BIO
 
 <div class="note">
 **NOTE added November 12, 2021: **
-If the normal distribution assumption is not met, and no [data transformation(https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html) helps, then one can conduct a "non-parametric" test in lieu of the one-sample *t*-test, including a "Sign test" or a "Wilcoxon signed-rank test".  A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock & Schluter text, and this [website](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page) for some R examples. 
+If the normal distribution assumption is not met, and no [data transformation](https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html) helps, then one can conduct a "non-parametric" test in lieu of the one-sample *t*-test, including a "Sign test" or a "Wilcoxon signed-rank test".  A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock & Schluter text, and this [website](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page) for some R examples. 
 </div>
 
 ### A graph to accompany a one-sample *t*-test {#onesamp_graph}
@@ -253,8 +253,14 @@ ggplot(data.frame(x = c(-4, 4)), aes(x)) +
 
 Here's the code to calculate the critical value of *t*, and recall that we've defined `alpha` and `d_f` above:
 
+<div class="note">
+**NOTE: Updated Nov. 13, 2021**
+
+Added "p = " to the first argument in the `qt` function below.
+</div>
+
 ```{r tcrit1}
-tcrit <- qt(alpha/2, df = d_f, lower.tail = FALSE)
+tcrit <- qt(p = alpha/2, df = d_f, lower.tail = FALSE)
 ```
 
 In the code above: 

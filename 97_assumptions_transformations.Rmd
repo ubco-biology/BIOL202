@@ -294,7 +294,7 @@ marine %>%
   theme_bw()
 ```
 
-To log-transform the data, simply create a new variable in the dataset using the `mutate` function (from the `dplyr` package) that we've seen before.  Here we'll call our new variable `logbiomass`, and use the `log` function to take the natural log of the "biomassRatio" variable.
+To log-transform the data, simply create a new variable in the dataset using the `mutate` function (from the `dplyr` package) that we've seen before.  Here we'll call our new variable `logbiomass`, and use the `log` function to take the **natural log** of the "biomassRatio" variable.
 
 We'll assign the output to the same, original "tibble" called "marine":
 
@@ -366,6 +366,11 @@ You could now proceed with the statistical test (e.g. one-sample *t*-test) using
 
 ### Dealing with zeroes {#zeroes}
 
+<div class="note">
+**NOTE: UPDATED NOVEMBER 13, 2021**
+I have added a bit of material to this section.
+</div>
+
 If you try to log-transform a value of zero, R will return a `-Inf` value.  
 
 In this case, you'll need to add a constant (value) to each observation, and convention is to simply add 1 to each value prior to log-transforming.  
@@ -374,13 +379,80 @@ In fact, you can add any constant that makes the data conform best to the assump
 
 You then conduct the analyses using these newly transformed data (which had 1 added prior to log-transform), remembering that after back-transformation (see below), you need to subtract 1 to get back to the original scale.  
 
-Example code showing how to check for zeroes.
+**Example code showing how to check for zeroes**
 
-The following code tallies the number of observations in the "biomassRatio" variable that equal zero. If this sum is greater than zero, then you'll need to add a constant to all observations before transforming.
+We'll create a dataset to work with called "apples".
+
+Don't worry about learning this code... 
+
+```{r createdataset}
+set.seed(345)
+apples <- as_tibble(data.frame(biomass = rlnorm(n = 14, meanlog = 1, sdlog = 0.7)))
+apples$biomass[4] <- 0
+```
+
+Here's the resulting dataset, which includes a variable "biomass" that would benefit from log-transform:
 
 ```{r}
-sum(marine$biomassRatio == 0)
+apples
 ```
+
+Here's a quantile plot of the biomass variable:
+
+```{r echo = F, fig.width = 5, fig.height = 4, fig.cap = "Normal quantile plot of made-up biomass data."}
+apples %>% 
+  ggplot(aes(sample = biomass)) +
+  stat_qq(shape = 1, size = 2) +
+  stat_qq_line() +
+  xlab("Normal quantile") +
+  theme_bw()
+```
+
+Let's first see what happens when we try to log-transform the "biomass" variable:
+
+```{r}
+log(apples$biomass)
+```
+
+Notice we get a "-Inf" value.
+
+The following code tallies the number of observations in the "biomass" variable that equal zero. 
+
+**If this sum is greater than zero**, then you'll need to add a constant to all observations when transforming.
+
+```{r}
+sum(apples$biomass == 0)
+```
+
+So we have one value that equals zero.
+
+So let's add a 1 to each observation during the process of log-transforming:
+
+```{r}
+apples <- apples %>%
+  mutate(logbiomass_plus1 = log(biomass + 1))
+```
+
+Notice that we name the new variable "logbiomass_plus1" in a way that indicates we've added 1 prior to log-transforming, and that in the `log` calculation we've used "biomass + 1".
+
+Let's see the result:
+
+```{r}
+apples
+```
+
+Notice that we still have a zero in the newly created variable, **AFTER** having transformed, because for that value we calculated the log of "1" (which equals zero).  That's OK!
+
+```{r echo = F, fig.width = 5, fig.height = 4, fig.cap = "Normal quantile plot of made-up biomass data, log-transformed."}
+apples %>% 
+  ggplot(aes(sample = logbiomass_plus1)) +
+  stat_qq(shape = 1, size = 2) +
+  stat_qq_line() +
+  xlab("Normal quantile") +
+  theme_bw()
+```
+
+That's a bit better.  We would now use this new variable in our analyses (assuming it meets the normality assumption). 
 
 ### Log bases {#logbases}
 
@@ -429,6 +501,15 @@ marine %>%
 ```
 
 Yup, it worked!   
+
+If you had added a 1 to your variable prior to log-transforming, then the code would be:
+
+```
+marine <- marine %>%
+  mutate(back_biomass = exp(logbiomass) - 1)
+```
+
+Notice the minus 1 comes after the `exp` function is executed.
 
 If you had used the log base 10 transformation, then the code to back-transform is as follows:  
 

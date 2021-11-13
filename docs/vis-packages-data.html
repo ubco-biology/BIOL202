@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-12" />
+<meta name="date" content="2021-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -347,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.3.2" data-path="t-confidence.html"><a href="t-confidence.html#conf_hyp"><i class="fa fa-check"></i><b>18.3.2</b> Confidence interval approach to hypothesis testing</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="numeric-categorical.html"><a href="numeric-categorical.html"><i class="fa fa-check"></i><b>19</b> Analyzing numerical response variable in relation to categorical variable</a>
+<li class="chapter" data-level="19" data-path="compare-two-means.html"><a href="compare-two-means.html"><i class="fa fa-check"></i><b>19</b> Comparing means among two groups</a>
 <ul>
 <li class="chapter" data-level="19.1" data-path="twomean-packages-data.html"><a href="twomean-packages-data.html"><i class="fa fa-check"></i><b>19.1</b> Load packages and import data</a></li>
 <li class="chapter" data-level="19.2" data-path="paired-t-test.html"><a href="paired-t-test.html"><i class="fa fa-check"></i><b>19.2</b> Paired <em>t</em>-test</a>
@@ -364,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.3.1" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#twosamp_hyp"><i class="fa fa-check"></i><b>19.3.1</b> Hypothesis statement</a></li>
 <li class="chapter" data-level="19.3.2" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#stats_2samp"><i class="fa fa-check"></i><b>19.3.2</b> A table of descriptive statistics</a></li>
 <li class="chapter" data-level="19.3.3" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#graph_2samp"><i class="fa fa-check"></i><b>19.3.3</b> A graph to accompany a 2-sample <em>t</em>-test</a></li>
-<li class="chapter" data-level="19.3.4" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#assumptions-of-the-2-sample-t-test-2samp_assump"><i class="fa fa-check"></i><b>19.3.4</b> Assumptions of the 2-sample <em>t</em>-test {#2samp_assump}</a></li>
+<li class="chapter" data-level="19.3.4" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#twosamp_assump"><i class="fa fa-check"></i><b>19.3.4</b> Assumptions of the 2-sample <em>t</em>-test</a></li>
 <li class="chapter" data-level="19.3.5" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#conduct_2samptest"><i class="fa fa-check"></i><b>19.3.5</b> Conduct the 2-sample <em>t</em>-test</a></li>
 <li class="chapter" data-level="19.3.6" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#concl_2samp"><i class="fa fa-check"></i><b>19.3.6</b> Concluding statement</a></li>
 </ul></li>
@@ -434,10 +434,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="vis_packages_data" class="section level2" number="11.1">
 <h2><span class="header-section-number">11.1</span> Load packages and import data</h2>
 <p>In this tutorial we will make use of <code>tidyverse</code> and its suite of packages, as well as the <code>skimr</code> package. You’ll also use the <code>palmerpenguins</code> package that provides some penguin-related data to work with (see this <a href="https://allisonhorst.github.io/palmerpenguins/">website</a> for more info). Lastly, you’ll use the <code>knitr</code> package for helping create nice tables. The latter package should have come installed with RStudio, so check the “packages” tab in the bottom-right pane of RStudio to see if it’s already installed. If it’s not, then install it following the instructions you <a href="package-install.html#package_install">saw earlier</a>.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="vis-packages-data.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb28-2"><a href="vis-packages-data.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb28-3"><a href="vis-packages-data.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb28-4"><a href="vis-packages-data.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="vis-packages-data.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb31-2"><a href="vis-packages-data.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb31-3"><a href="vis-packages-data.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb31-4"><a href="vis-packages-data.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <p>And we will use the following datasets in this tutorial:</p>
 <ul>
 <li>the <code>penguins</code> dataset that is available as part of the <code>palmerpenguins</code> package</li>

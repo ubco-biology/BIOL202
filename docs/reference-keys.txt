@@ -45,7 +45,9 @@ fig:unnamed-chunk-98
 fig:unnamed-chunk-99
 fig:unnamed-chunk-100
 fig:unnamed-chunk-102
-fig:unnamed-chunk-103
+fig:unnamed-chunk-107
+fig:unnamed-chunk-108
+fig:unnamed-chunk-109
 what_is_R
 install_R_Rstudio
 start_r
@@ -172,7 +174,7 @@ onesamp_conclude
 t_confidence
 conf_precision
 conf_hyp
-numeric_categorical
+compare_two_means
 twomean_packages_data
 paired-t-test
 calc_diffs
@@ -185,7 +187,7 @@ twosamp_ttest
 twosamp_hyp
 stats_2samp
 graph_2samp
-assumptions-of-the-2-sample-t-test-2samp_assump
+twosamp_assump
 conduct_2samptest
 concl_2samp
 assumpbad_2samp

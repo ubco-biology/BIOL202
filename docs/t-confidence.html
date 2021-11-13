@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-12" />
+<meta name="date" content="2021-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="onesamp-t-test.html"/>
-<link rel="next" href="numeric-categorical.html"/>
+<link rel="next" href="compare-two-means.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -347,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.3.2" data-path="t-confidence.html"><a href="t-confidence.html#conf_hyp"><i class="fa fa-check"></i><b>18.3.2</b> Confidence interval approach to hypothesis testing</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="numeric-categorical.html"><a href="numeric-categorical.html"><i class="fa fa-check"></i><b>19</b> Analyzing numerical response variable in relation to categorical variable</a>
+<li class="chapter" data-level="19" data-path="compare-two-means.html"><a href="compare-two-means.html"><i class="fa fa-check"></i><b>19</b> Comparing means among two groups</a>
 <ul>
 <li class="chapter" data-level="19.1" data-path="twomean-packages-data.html"><a href="twomean-packages-data.html"><i class="fa fa-check"></i><b>19.1</b> Load packages and import data</a></li>
 <li class="chapter" data-level="19.2" data-path="paired-t-test.html"><a href="paired-t-test.html"><i class="fa fa-check"></i><b>19.2</b> Paired <em>t</em>-test</a>
@@ -364,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.3.1" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#twosamp_hyp"><i class="fa fa-check"></i><b>19.3.1</b> Hypothesis statement</a></li>
 <li class="chapter" data-level="19.3.2" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#stats_2samp"><i class="fa fa-check"></i><b>19.3.2</b> A table of descriptive statistics</a></li>
 <li class="chapter" data-level="19.3.3" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#graph_2samp"><i class="fa fa-check"></i><b>19.3.3</b> A graph to accompany a 2-sample <em>t</em>-test</a></li>
-<li class="chapter" data-level="19.3.4" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#assumptions-of-the-2-sample-t-test-2samp_assump"><i class="fa fa-check"></i><b>19.3.4</b> Assumptions of the 2-sample <em>t</em>-test {#2samp_assump}</a></li>
+<li class="chapter" data-level="19.3.4" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#twosamp_assump"><i class="fa fa-check"></i><b>19.3.4</b> Assumptions of the 2-sample <em>t</em>-test</a></li>
 <li class="chapter" data-level="19.3.5" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#conduct_2samptest"><i class="fa fa-check"></i><b>19.3.5</b> Conduct the 2-sample <em>t</em>-test</a></li>
 <li class="chapter" data-level="19.3.6" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#concl_2samp"><i class="fa fa-check"></i><b>19.3.6</b> Concluding statement</a></li>
 </ul></li>
@@ -452,9 +452,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>So now we need to figure out the critical value <span class="math inline">\(t_{0.05(2),df}\)</span>.</p>
 <p>For the body temperature example, we have <span class="math inline">\(n = 25\)</span> and thus <span class="math inline">\(df = 25-1 = 24\)</span>.</p>
 <p>Optionally, we could assign all these values to objects first, for use later:</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="t-confidence.html#cb275-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
-<span id="cb275-2"><a href="t-confidence.html#cb275-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">25</span></span>
-<span id="cb275-3"><a href="t-confidence.html#cb275-3" aria-hidden="true" tabindex="-1"></a>d_f <span class="ot">=</span> n <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="t-confidence.html#cb283-1" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb283-2"><a href="t-confidence.html#cb283-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb283-3"><a href="t-confidence.html#cb283-3" aria-hidden="true" tabindex="-1"></a>d_f <span class="ot">=</span> n <span class="sc">-</span> <span class="dv">1</span></span></code></pre></div>
 <p>The function we use to find the critical value of <em>t</em> is the base function <code>qt</code>:</p>
 <pre><code>?qt</code></pre>
 <p>The <code>qt</code> function only deals with one tail of the distribution. Thus, if we have a two-sided alternative hypothesis, we need to divide our <span class="math inline">\(\alpha\)</span> level by two in order to calculate the appropriate critical value of <em>t</em>.</p>
@@ -466,7 +466,11 @@ Figure 18.2: The <em>t</em> distribution for df = 24.
 </p>
 </div>
 <p>Here’s the code to calculate the critical value of <em>t</em>, and recall that we’ve defined <code>alpha</code> and <code>d_f</code> above:</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="t-confidence.html#cb277-1" aria-hidden="true" tabindex="-1"></a>tcrit <span class="ot">&lt;-</span> <span class="fu">qt</span>(alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> d_f, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="note">
+<p><strong>NOTE: Updated Nov. 13, 2021</strong></p>
+<p>Added “p =” to the first argument in the <code>qt</code> function below.</p>
+</div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="t-confidence.html#cb285-1" aria-hidden="true" tabindex="-1"></a>tcrit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="at">p =</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> d_f, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>In the code above:</p>
 <ul>
 <li>We assign the result to a new object called <code>tcrit</code></li>
@@ -475,13 +479,13 @@ Figure 18.2: The <em>t</em> distribution for df = 24.
 <li>We specified <code>lower.tail = FALSE</code> to tell R that we’d like to focus on calculating the critical value for the right-hand (upper) tail, and thus the positive critical value</li>
 </ul>
 <p>Alternatively, we could simply provide the values of alpha and degrees of freedom directly to the function arguments:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="t-confidence.html#cb278-1" aria-hidden="true" tabindex="-1"></a>tcrit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">24</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="t-confidence.html#cb286-1" aria-hidden="true" tabindex="-1"></a>tcrit <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">24</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div class="note">
 <p><strong>TIP </strong>
 If instead we wanted to calculate a 99% confidence interval, then <span class="math inline">\(\alpha(2) = 0.01\)</span>, and we’d use 0.01 instead of 0.05 in the <code>qt</code> function above. Try it out!</p>
 </div>
 <p>Now let’s see what the output is:</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="t-confidence.html#cb279-1" aria-hidden="true" tabindex="-1"></a>tcrit</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="t-confidence.html#cb287-1" aria-hidden="true" tabindex="-1"></a>tcrit</span></code></pre></div>
 <pre><code>## [1] 2.063899</code></pre>
 <p>So to recap, this procedure used R code to give us what we’d otherwise need to look up in a statistical table, like the one provided in the text book.</p>
 <p>Now that we’ve determined the value for <span class="math inline">\(t_{0.05(2),24}\)</span>, we need to calculate <span class="math inline">\(SE_{\bar{Y}}\)</span>, which we <a href="sem-page.html#sem_page">already learned how to do</a>.
@@ -489,19 +493,19 @@ So let’s improve on what we learned in the estimation tutorial, where we learn
 <p>There, we generated a table (actually a “tibble”) of summary statistics that included the rule-of-thumb confidence limits; now we can include the precisely calculated lower and upper 95% confidence limits.</p>
 <p>Recall that we’ve already created an object “tcrit” that holds our required critical value of <em>t</em>.</p>
 <p>Here we’ll assign the output to a tibble called “bodytemp.stats”:</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="t-confidence.html#cb281-1" aria-hidden="true" tabindex="-1"></a>bodytemp.stats <span class="ot">&lt;-</span> bodytemp <span class="sc">%&gt;%</span></span>
-<span id="cb281-2"><a href="t-confidence.html#cb281-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb281-3"><a href="t-confidence.html#cb281-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(temperature),</span>
-<span id="cb281-4"><a href="t-confidence.html#cb281-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_temp =</span> <span class="fu">mean</span>(temperature, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb281-5"><a href="t-confidence.html#cb281-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_temp =</span> <span class="fu">sd</span>(temperature, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb281-6"><a href="t-confidence.html#cb281-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> SD_temp<span class="sc">/</span><span class="fu">sqrt</span>(Count),</span>
-<span id="cb281-7"><a href="t-confidence.html#cb281-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Lower_95_CL =</span> Mean_temp <span class="sc">-</span> tcrit <span class="sc">*</span> SEM,</span>
-<span id="cb281-8"><a href="t-confidence.html#cb281-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Upper_95_CL =</span> Mean_temp <span class="sc">+</span> tcrit <span class="sc">*</span> SEM</span>
-<span id="cb281-9"><a href="t-confidence.html#cb281-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="t-confidence.html#cb289-1" aria-hidden="true" tabindex="-1"></a>bodytemp.stats <span class="ot">&lt;-</span> bodytemp <span class="sc">%&gt;%</span></span>
+<span id="cb289-2"><a href="t-confidence.html#cb289-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb289-3"><a href="t-confidence.html#cb289-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(temperature),</span>
+<span id="cb289-4"><a href="t-confidence.html#cb289-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_temp =</span> <span class="fu">mean</span>(temperature, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb289-5"><a href="t-confidence.html#cb289-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_temp =</span> <span class="fu">sd</span>(temperature, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb289-6"><a href="t-confidence.html#cb289-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> SD_temp<span class="sc">/</span><span class="fu">sqrt</span>(Count),</span>
+<span id="cb289-7"><a href="t-confidence.html#cb289-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Lower_95_CL =</span> Mean_temp <span class="sc">-</span> tcrit <span class="sc">*</span> SEM,</span>
+<span id="cb289-8"><a href="t-confidence.html#cb289-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Upper_95_CL =</span> Mean_temp <span class="sc">+</span> tcrit <span class="sc">*</span> SEM</span>
+<span id="cb289-9"><a href="t-confidence.html#cb289-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>The <code>summarise</code> function is used to create new summary variables, as we’ve learned before.</p>
 <p>The new part here is that we’re calculating precisely the lower and upper 95% confidence limits, using the combination of the <code>tcrit</code> value that we calculated and the “SEM” (standard error).</p>
 <p>Now let’s use the <code>kable</code> function to produce a nice table, and here we’ll use “digits = 3” because that’s appropriate for the confidence limits (noting that it will report three decimal places for all our calculated values):</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="t-confidence.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(bodytemp.stats, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="t-confidence.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(bodytemp.stats, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -595,7 +599,7 @@ Figure 18.3: Example of inline markdown and R code for a confidence interval
         </div>
       </div>
 <a href="onesamp-t-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="numeric-categorical.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="compare-two-means.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

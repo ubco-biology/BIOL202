@@ -1,4 +1,4 @@
-# Analyzing numerical response variable in relation to categorical variable {#numeric_categorical}
+# Comparing means among two groups {#compare_two_means}
 
 ```{r echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -196,7 +196,7 @@ But if you're feeling uncertain, we can follow this with a **Shapiro-Wilk Normal
 
 ```{r normtest_paired}
 shapiro.result <- blackbird.diffs %>%
-  normality(diffs)
+  dlookr::normality(diffs)
 shapiro.result
 ```
 
@@ -268,7 +268,7 @@ The output is identical to what we got when we applied a 1-sample *t*-test on th
 
 Here's an example of a reasonable concluding statement, and this can apply for either of the two methods used above (note that in either case we call the test a "paired *t*-test, even if we used the one-sample *t*-test on the differences):
 
-> We have no reason to reject the null hypothesis that the mean change in antibody production after testosterone implants was zero (paired _t_-test; _t_ = `r round(blackbird.paired.ttest$statistic,2)`; df = `r blackbird.paired.ttest$parameter`; _P_ = `r round(blackbird.paired.ttest$p.value,3)`; 95% confidence interval: `r round(blackbird.paired.ttest$conf.int[1], 3)` $< \mu_d <$ `r round(blackbird.paired.ttest$conf.int[2], 3)`). 
+> We have no reason to reject the null hypothesis that the mean change in antibody production after testosterone implants was zero (paired _t_-test; _t_ = `r round(blackbird.paired.ttest$statistic,2)`; df = `r blackbird.paired.ttest$parameter`; _P_ = `r round(blackbird.paired.ttest$p.value,3)`; 95% confidence interval for the difference: `r round(blackbird.paired.ttest$conf.int[1], 3)` $< \mu_d <$ `r round(blackbird.paired.ttest$conf.int[2], 3)`). 
 
 ## Two sample *t*-test {#twosamp_ttest}
 
@@ -385,7 +385,7 @@ students %>%
 
 > We can see in the preceding figure that heights are generally similar between students with left dominant eyes and those with right dominant eyes.  However, it appears that the spread of the heights is greater among students with right dominant eyes.  We will need to be careful about the equal-variance assumption for the 2-sample *t*-test. 
 
-### Assumptions of the 2-sample *t*-test {#2samp_assump}
+### Assumptions of the 2-sample *t*-test {#twosamp_assump}
 
 The assumptions of the 2-sample *t*-test are as follows:  
 
@@ -445,6 +445,8 @@ The only differences from the implementation used in the paired *t*-test are:
 
 * we used "paired = FALSE"
 * we include the "var.equal = TRUE" argument
+
+We again include the argument "data = .", which tells the `t.test` function that whatever data was passed to it from the preceding line is what will be used
 
 We'll learn a bit later what to due when the equal variance assumption is not met.
 

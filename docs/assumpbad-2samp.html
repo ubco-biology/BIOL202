@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-12" />
+<meta name="date" content="2021-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -347,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.3.2" data-path="t-confidence.html"><a href="t-confidence.html#conf_hyp"><i class="fa fa-check"></i><b>18.3.2</b> Confidence interval approach to hypothesis testing</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="numeric-categorical.html"><a href="numeric-categorical.html"><i class="fa fa-check"></i><b>19</b> Analyzing numerical response variable in relation to categorical variable</a>
+<li class="chapter" data-level="19" data-path="compare-two-means.html"><a href="compare-two-means.html"><i class="fa fa-check"></i><b>19</b> Comparing means among two groups</a>
 <ul>
 <li class="chapter" data-level="19.1" data-path="twomean-packages-data.html"><a href="twomean-packages-data.html"><i class="fa fa-check"></i><b>19.1</b> Load packages and import data</a></li>
 <li class="chapter" data-level="19.2" data-path="paired-t-test.html"><a href="paired-t-test.html"><i class="fa fa-check"></i><b>19.2</b> Paired <em>t</em>-test</a>
@@ -364,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.3.1" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#twosamp_hyp"><i class="fa fa-check"></i><b>19.3.1</b> Hypothesis statement</a></li>
 <li class="chapter" data-level="19.3.2" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#stats_2samp"><i class="fa fa-check"></i><b>19.3.2</b> A table of descriptive statistics</a></li>
 <li class="chapter" data-level="19.3.3" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#graph_2samp"><i class="fa fa-check"></i><b>19.3.3</b> A graph to accompany a 2-sample <em>t</em>-test</a></li>
-<li class="chapter" data-level="19.3.4" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#assumptions-of-the-2-sample-t-test-2samp_assump"><i class="fa fa-check"></i><b>19.3.4</b> Assumptions of the 2-sample <em>t</em>-test {#2samp_assump}</a></li>
+<li class="chapter" data-level="19.3.4" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#twosamp_assump"><i class="fa fa-check"></i><b>19.3.4</b> Assumptions of the 2-sample <em>t</em>-test</a></li>
 <li class="chapter" data-level="19.3.5" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#conduct_2samptest"><i class="fa fa-check"></i><b>19.3.5</b> Conduct the 2-sample <em>t</em>-test</a></li>
 <li class="chapter" data-level="19.3.6" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#concl_2samp"><i class="fa fa-check"></i><b>19.3.6</b> Concluding statement</a></li>
 </ul></li>
@@ -437,11 +437,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock &amp; Schluter text, and this <a href="https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page">website</a> for some R examples.</p>
 <p>If the <strong>equal-variance assumption</strong> is violated for the 2-sample <em>t</em>-test, then you can set the “var.equal” argument to “FALSE” in the <code>t.test</code> function, in which case the function implements a “Welch’s <em>t</em>-test.”</p>
 <p>For instance, let’s pretend that the height data did not exhibit equal variance among left- and right- dominant eye students, here’s the appropriate code:</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="assumpbad-2samp.html#cb320-1" aria-hidden="true" tabindex="-1"></a>height.ttest.unequal.var <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb320-2"><a href="assumpbad-2samp.html#cb320-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(height_cm <span class="sc">~</span> Dominant_eye, </span>
-<span id="cb320-3"><a href="assumpbad-2samp.html#cb320-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb320-4"><a href="assumpbad-2samp.html#cb320-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb320-5"><a href="assumpbad-2samp.html#cb320-5" aria-hidden="true" tabindex="-1"></a>height.ttest.unequal.var</span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="assumpbad-2samp.html#cb337-1" aria-hidden="true" tabindex="-1"></a>height.ttest.unequal.var <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb337-2"><a href="assumpbad-2samp.html#cb337-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(height_cm <span class="sc">~</span> Dominant_eye, </span>
+<span id="cb337-3"><a href="assumpbad-2samp.html#cb337-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb337-4"><a href="assumpbad-2samp.html#cb337-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb337-5"><a href="assumpbad-2samp.html#cb337-5" aria-hidden="true" tabindex="-1"></a>height.ttest.unequal.var</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 

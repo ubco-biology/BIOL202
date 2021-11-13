@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-12" />
+<meta name="date" content="2021-11-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -347,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.3.2" data-path="t-confidence.html"><a href="t-confidence.html#conf_hyp"><i class="fa fa-check"></i><b>18.3.2</b> Confidence interval approach to hypothesis testing</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="numeric-categorical.html"><a href="numeric-categorical.html"><i class="fa fa-check"></i><b>19</b> Analyzing numerical response variable in relation to categorical variable</a>
+<li class="chapter" data-level="19" data-path="compare-two-means.html"><a href="compare-two-means.html"><i class="fa fa-check"></i><b>19</b> Comparing means among two groups</a>
 <ul>
 <li class="chapter" data-level="19.1" data-path="twomean-packages-data.html"><a href="twomean-packages-data.html"><i class="fa fa-check"></i><b>19.1</b> Load packages and import data</a></li>
 <li class="chapter" data-level="19.2" data-path="paired-t-test.html"><a href="paired-t-test.html"><i class="fa fa-check"></i><b>19.2</b> Paired <em>t</em>-test</a>
@@ -364,7 +364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.3.1" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#twosamp_hyp"><i class="fa fa-check"></i><b>19.3.1</b> Hypothesis statement</a></li>
 <li class="chapter" data-level="19.3.2" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#stats_2samp"><i class="fa fa-check"></i><b>19.3.2</b> A table of descriptive statistics</a></li>
 <li class="chapter" data-level="19.3.3" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#graph_2samp"><i class="fa fa-check"></i><b>19.3.3</b> A graph to accompany a 2-sample <em>t</em>-test</a></li>
-<li class="chapter" data-level="19.3.4" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#assumptions-of-the-2-sample-t-test-2samp_assump"><i class="fa fa-check"></i><b>19.3.4</b> Assumptions of the 2-sample <em>t</em>-test {#2samp_assump}</a></li>
+<li class="chapter" data-level="19.3.4" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#twosamp_assump"><i class="fa fa-check"></i><b>19.3.4</b> Assumptions of the 2-sample <em>t</em>-test</a></li>
 <li class="chapter" data-level="19.3.5" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#conduct_2samptest"><i class="fa fa-check"></i><b>19.3.5</b> Conduct the 2-sample <em>t</em>-test</a></li>
 <li class="chapter" data-level="19.3.6" data-path="twosamp-ttest.html"><a href="twosamp-ttest.html#concl_2samp"><i class="fa fa-check"></i><b>19.3.6</b> Concluding statement</a></li>
 </ul></li>
@@ -434,13 +434,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="import_csv_url" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Import a CSV file from a website</h2>
 <p>In previous tutorials we’ve already seen how to import CSV files from the web. As always, the first step is to load the <code>tidyverse</code> library, because it includes many packages and functions that are handy for both data import and data wrangling.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="import-csv-url.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="import-csv-url.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>One package that is loaded with the <code>tidyverse</code> package is <code>readr</code>, which includes the handy <code>read_csv</code> function.</p>
 <p>You can view the help file for the <code>read_csv</code> function by typing this into your command console pane (bottom left) in RStudio:</p>
 <pre><code>?read_csv</code></pre>
 <p>You’ll see that the function has many optional “arguments,” but in general we can use the default values for these.</p>
 <p>If the file you wish to import is located on the web, then we need to provide the “URL” (the web address) to the <code>read_csv</code> function. For example, in <a href="%60%60%60%20example_data%20%3C-%20read_csv(%22https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv%22)%20%60%60%60">Tutorial 9 section 6</a> you imported the “students.csv” dataset from the course GitHub website, as follows:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="import-csv-url.html#cb19-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="import-csv-url.html#cb22-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
