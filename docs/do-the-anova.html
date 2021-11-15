@@ -520,9 +520,9 @@ H<sub>A</sub>: At least one treatment group’s mean is different from the other
 <span id="cb342-11"><a href="do-the-anova.html#cb342-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="note">
 <p><strong>NOTE: </strong>
-Here we’ll use what we learned in the <a href="https://ubco-biology.github.io/BIOL202/Tables_markdown.html">Tables in markdown tutorial</a> on creating nicely formatted tables, including <strong>table headings</strong>.</p>
+Here we’ll use what we learned in the <a href="https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html">Tables in markdown tutorial</a> on creating nicely formatted tables, including <strong>table headings</strong>.</p>
 </div>
-<p>Please consult the <a href="https://ubco-biology.github.io/BIOL202/Tables_markdown.html">Tables in Markdown</a> tutorial for more details.</p>
+<p>Please consult the <a href="https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html">Tables in Markdown</a> tutorial for more details.</p>
 <div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="do-the-anova.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(circadian.stats, <span class="at">caption =</span> <span class="st">&quot;Descriptive statistics for the circadian rythm experiment data&quot;</span>, </span>
 <span id="cb343-2"><a href="do-the-anova.html#cb343-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb343-3"><a href="do-the-anova.html#cb343-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">&quot;scale_down&quot;</span>, <span class="st">&quot;hold_position&quot;</span>), <span class="at">position =</span> <span class="st">&quot;center&quot;</span>)</span></code></pre></div>
@@ -812,7 +812,7 @@ You will need to run this chunk to create the function each time you start a new
 ## 3 Total     16.64     21 NA      NA     NA</code></pre>
 <p>It worked!</p>
 <p><strong>Generate nice output using <code>kable</code></strong></p>
-<p>To generate a nice table that will export to PDF properly, we’ll follow what we learned in the <a href="https://ubco-biology.github.io/BIOL202/Tables_markdown.html">Tables in markdown tutorial</a> on creating nicely formatted tables, including <strong>table headings</strong>.</p>
+<p>To generate a nice table that will export to PDF properly, we’ll follow what we learned in the <a href="https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html">Tables in markdown tutorial</a> on creating nicely formatted tables, including <strong>table headings</strong>.</p>
 <p>Here’s the required code.</p>
 <div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="do-the-anova.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> <span class="st">&#39;&#39;</span>)</span>
 <span id="cb358-2"><a href="do-the-anova.html#cb358-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(nice.anova.table, <span class="at">caption =</span> <span class="st">&quot;ANOVA table for the circadian rythm experiment.&quot;</span>, </span>

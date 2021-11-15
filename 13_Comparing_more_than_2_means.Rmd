@@ -71,7 +71,7 @@ Let's have a look at the data.
 
 <div class="note">
 **TIP:**
-Given that the output from `skim_without_charts` is almost always rather wide, and overflows the page width, we'll get into the habit of transposing the output, and presenting using the `kbl` command.  See the [tutorial on tables in markdown](https://ubco-biology.github.io/BIOL202/Tables_markdown.html)
+Given that the output from `skim_without_charts` is almost always rather wide, and overflows the page width, we'll get into the habit of transposing the output, and presenting using the `kbl` command.  See the [tutorial on tables in markdown](https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html)
 </div>
 
 Let's save the skim output to an object:
@@ -207,10 +207,10 @@ circadian.stats <- circadian %>%
 
 <div class="note">
 **NOTE:  **
-Here we'll use what we learned in the [Tables in markdown tutorial](https://ubco-biology.github.io/BIOL202/Tables_markdown.html) on creating nicely formatted tables, including **table headings**.
+Here we'll use what we learned in the [Tables in markdown tutorial](https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html) on creating nicely formatted tables, including **table headings**.
 </div>
 
-Please consult the [Tables in Markdown](https://ubco-biology.github.io/BIOL202/Tables_markdown.html) tutorial for more details.
+Please consult the [Tables in Markdown](https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html) tutorial for more details.
 
 ```{r givenicepdftable2}
 kbl(circadian.stats, caption = "Descriptive statistics for the circadian rythm experiment data", 
@@ -421,7 +421,7 @@ It worked!
 
 **Generate nice output using `kable`**
 
-To generate a nice table that will export to PDF properly, we'll follow what we learned in the [Tables in markdown tutorial](https://ubco-biology.github.io/BIOL202/Tables_markdown.html) on creating nicely formatted tables, including **table headings**. 
+To generate a nice table that will export to PDF properly, we'll follow what we learned in the [Tables in markdown tutorial](https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html) on creating nicely formatted tables, including **table headings**. 
 
 Here's the required code. 
 
