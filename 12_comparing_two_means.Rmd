@@ -78,11 +78,16 @@ We'll use, for the first time, the `pivot_wider` function from the `dplyr` packa
 
 The `pivot_wider` function essentially takes data stored in long format and converts it to wide format.
 
+<div class="note">
+**UPDATED November 15, 2021: **
+The following code requires that there be at least one variable in the tibble that provides a unique identifier for each individual. In the "blackbird" tibble, this variable is "blackbird".  I have added an argument "id_cols = blackbird" to the code below to underscore the need for this type of identifier variable.  The code will not work if such a variable does not exist in the tibble.
+</div>
+
 Here's the code, then we'll explain after:
 
 ```{r}
 blackbird.diffs <- blackbird %>%
-  pivot_wider(names_from = time, values_from = Antibody) %>%
+  pivot_wider(id_cols = blackbird, names_from = time, values_from = Antibody) %>%
   mutate(diffs = After - Before)
 ```
 

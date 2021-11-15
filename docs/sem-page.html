@@ -468,23 +468,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Calculating the SEM in R</strong></p>
 <p>To illustrate how to calculate the SEM, we’ll make use of the gene length dataset again.</p>
 <p>Let’s take a random sample of 20 genes, making sure to set the seed this time so everyone gets the same result. We’ll use a seed number of 29, and we’ll save our sample of values from the variable “size” in an object (tibble) called “newsamp.n20”:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="sem-page.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">29</span>)</span>
-<span id="cb139-2"><a href="sem-page.html#cb139-2" aria-hidden="true" tabindex="-1"></a>newsamp.n20 <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
-<span id="cb139-3"><a href="sem-page.html#cb139-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb139-4"><a href="sem-page.html#cb139-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(size)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="sem-page.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">29</span>)</span>
+<span id="cb142-2"><a href="sem-page.html#cb142-2" aria-hidden="true" tabindex="-1"></a>newsamp.n20 <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
+<span id="cb142-3"><a href="sem-page.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb142-4"><a href="sem-page.html#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(size)</span></code></pre></div>
 <p>Now let’s show the code for calculating the SEM for the mean calculated using values in the “size” variable from our “newsamp.n20” object. We’ll output stats to a new object “newsamp.n20.stats” then display the object using <code>kable</code>.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="sem-page.html#cb140-1" aria-hidden="true" tabindex="-1"></a>newsamp.n20.stats <span class="ot">&lt;-</span> newsamp.n20 <span class="sc">%&gt;%</span></span>
-<span id="cb140-2"><a href="sem-page.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb140-3"><a href="sem-page.html#cb140-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(size),</span>
-<span id="cb140-4"><a href="sem-page.html#cb140-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb140-5"><a href="sem-page.html#cb140-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_genelength =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb140-6"><a href="sem-page.html#cb140-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> SD_genelength<span class="sc">/</span><span class="fu">sqrt</span>(Count)</span>
-<span id="cb140-7"><a href="sem-page.html#cb140-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="sem-page.html#cb143-1" aria-hidden="true" tabindex="-1"></a>newsamp.n20.stats <span class="ot">&lt;-</span> newsamp.n20 <span class="sc">%&gt;%</span></span>
+<span id="cb143-2"><a href="sem-page.html#cb143-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb143-3"><a href="sem-page.html#cb143-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(size),</span>
+<span id="cb143-4"><a href="sem-page.html#cb143-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb143-5"><a href="sem-page.html#cb143-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD_genelength =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb143-6"><a href="sem-page.html#cb143-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> SD_genelength<span class="sc">/</span><span class="fu">sqrt</span>(Count)</span>
+<span id="cb143-7"><a href="sem-page.html#cb143-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>You’ve seen all but the last lines of code before! Importantly, as we’ve seen <a href="desc-numeric-var.html#mean_sd">before</a>, the “Count” variable, calculatedusing the <code>n</code> function in combinatin with the <code>n_miss</code> function from the <code>naniar</code> package, tallies the number of non-missing observations in the variable of interest (here, “size”). This is the sample size that we’ll need for the calculation of the SEM.</p>
 <p>The last line creates a new variable “SEM” that is calculated using the formula shown above, and inputs from the previous lines’ calculations.</p>
 <p>Specifically, the sample size “n” value comes from the “Count” variable, and the “s” value comes from the “SD_genelength” variable. And lastly, we use the <code>sqrt</code> function to take the square-root of the sample size.</p>
 <p>Display the output:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="sem-page.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(newsamp.n20.stats, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="sem-page.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(newsamp.n20.stats, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -520,13 +520,13 @@ SEM
 </tbody>
 </table>
 <p>If you wish to calculate and report only the mean and SEM for a variable (here, the “size” variable from our tibble “newsamp.n20”):</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="sem-page.html#cb142-1" aria-hidden="true" tabindex="-1"></a>newsamp.n20.stats.short <span class="ot">&lt;-</span> newsamp.n20 <span class="sc">%&gt;%</span></span>
-<span id="cb142-2"><a href="sem-page.html#cb142-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb142-3"><a href="sem-page.html#cb142-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb142-4"><a href="sem-page.html#cb142-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(size))</span>
-<span id="cb142-5"><a href="sem-page.html#cb142-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="sem-page.html#cb145-1" aria-hidden="true" tabindex="-1"></a>newsamp.n20.stats.short <span class="ot">&lt;-</span> newsamp.n20 <span class="sc">%&gt;%</span></span>
+<span id="cb145-2"><a href="sem-page.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb145-3"><a href="sem-page.html#cb145-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_genelength =</span> <span class="fu">mean</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb145-4"><a href="sem-page.html#cb145-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> <span class="fu">sd</span>(size, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(size))</span>
+<span id="cb145-5"><a href="sem-page.html#cb145-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>Display the output:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="sem-page.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(newsamp.n20.stats.short, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="sem-page.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(newsamp.n20.stats.short, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
