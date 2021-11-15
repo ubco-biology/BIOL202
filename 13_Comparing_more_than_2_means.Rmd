@@ -315,7 +315,7 @@ Instead, let's rely on the fact that (i) the strip chart in Figure 2 does not sh
 
 **Test for equal variances**  
 
-Now we need to test the assumption of equal variance among the groups, using Levene's Test as we learned in the [checking assumptions](#levenetest) tutorial.   
+Now we need to test the assumption of equal variance among the groups, using Levene's Test as we learned in the [checking assumptions](https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html) tutorial.   
 
 ```{r testvar}
 variance.check <- leveneTest(shift ~ treatment, data = circadian)
@@ -599,7 +599,7 @@ With out ANOVA table and final figure in hand, we are ready for the concluding s
 
 ## When assumptions aren't met {#assumpbad_anova}
 
-If the **normal distribution assumption** is violated, and you are unable to find a transformation that works (see the [Checking assumptions and data transformations](#assumptions_packages_data) tutorial), then you can try a non-parametric test.
+If the **normal distribution assumption** is violated, and you are unable to find a transformation that works (see the [Checking assumptions and data transformations](https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html) tutorial), then you can try a non-parametric test.
 
 A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock & Schluter text, and this [website](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page) for some R examples. 
 

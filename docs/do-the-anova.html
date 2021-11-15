@@ -721,7 +721,7 @@ Figure 20.2: Violin plot of heights of students with right (n = 106) and left (n
 <p>Instead, let’s rely on the fact that (i) the strip chart in Figure 2 does not show any obvious outliers in any of the groups, and (ii) the central limit theorem makes ANOVAs quite robust to deviations in normality, especially with larger sample sizes, but even with relatively small sample sizes such as these. So, we’ll proceed under the assumption that the measurements are normally distributed within the three populations.</p>
 <hr />
 <p><strong>Test for equal variances</strong></p>
-<p>Now we need to test the assumption of equal variance among the groups, using Levene’s Test as we learned in the <a href="levenetest.html#levenetest">checking assumptions</a> tutorial.</p>
+<p>Now we need to test the assumption of equal variance among the groups, using Levene’s Test as we learned in the <a href="https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html">checking assumptions</a> tutorial.</p>
 <div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="do-the-anova.html#cb347-1" aria-hidden="true" tabindex="-1"></a>variance.check <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(shift <span class="sc">~</span> treatment, <span class="at">data =</span> circadian)</span>
 <span id="cb347-2"><a href="do-the-anova.html#cb347-2" aria-hidden="true" tabindex="-1"></a>variance.check</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)

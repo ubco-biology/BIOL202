@@ -461,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="assumpbad_anova" class="section level2" number="20.3">
 <h2><span class="header-section-number">20.3</span> When assumptions aren’t met</h2>
-<p>If the <strong>normal distribution assumption</strong> is violated, and you are unable to find a transformation that works (see the <a href="assumptions-packages-data.html#assumptions_packages_data">Checking assumptions and data transformations</a> tutorial), then you can try a non-parametric test.</p>
+<p>If the <strong>normal distribution assumption</strong> is violated, and you are unable to find a transformation that works (see the <a href="https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html">Checking assumptions and data transformations</a> tutorial), then you can try a non-parametric test.</p>
 <p>A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock &amp; Schluter text, and this <a href="https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page">website</a> for some R examples.</p>
 <p>If the <strong>equal-variance assumption</strong> is violated for ANOVA, then you can set the “var.equal” argument to “FALSE” in the <code>t.test</code> function, in which case the function implements a “Welch’s <em>t</em>-test.”</p>
 <p>For instance, let’s pretend that the height data did not exhibit equal variance among left- and right- dominant eye students, here’s the appropriate code:</p>
