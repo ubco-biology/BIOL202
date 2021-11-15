@@ -359,7 +359,7 @@ Now let's have a look at the table, using the `kable` function to produce a nice
 kable(t(height.stats), digits = 4)
 ```
 
-It is best to NOT rotate the table, but it is fine to do so if your table goes off the page!  
+It is best to **NOT rotate the table**, but it is fine to do so if your table goes off the page!  
 
 We'll learn a better way to get around this later.
 

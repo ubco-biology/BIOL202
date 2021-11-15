@@ -1,0 +1,610 @@
+# Comparing means among more than two groups {#compare_three_more_means}
+
+```{r echo = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(knitr.table.format = "html")
+```
+
+**Tutorial learning objectives**
+
+* Learn how to analyze a numeric response variable in relation to a single categorical explanatory variable that has more than two groups. In other words, we will learn how to compare the means of more than 2 groups.  
+* Learn how to implement all the steps of an **Analysis of Variance** (ANOVA), which is often the most suitable method for testing the null hypothesis of no difference between the means of more than two groups (i.e. $\mu_1 = \mu_2 = \mu_3 = \mu_i..$)
+
+<div class="note">
+**NOTE:  **
+It might seem strange that a test designed to compare means among groups is called "Analysis of Variance". The reason lies in how the test actually works, as described in Chapter 15 of the text. 
+</div>
+
+* Here we learn **fixed-effects ANOVA** (also called Model-1 ANOVA), in which the different categories of the explanatory variable are predetermined, of direct interest, and repeatable. These methods therefore typically apply to **experimental studies**.  
+* When the groups are sampled at random from a larger population of groups, as in most **observational studies**, one should typically use a **random-effects ANOVA** (also called Model-2 ANOVA). Consult the following [webpage](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_15.html) for tutorials on how to conduct various types of ANOVA.
+* In this tutorial we're learning about a **One-way ANOVA**, in which there is only one explanatory (categorical) variable
+* Learn the assumptions of ANOVA
+* Learn appropriate tables and graphs to accompany ANOVA
+* Learn how to conduct a **post-hoc** comparison among all pairs of group means: the **Tukey-Kramer post-hoc test**
+
+## Load packages and import data {#anova_packages_data}
+
+Load the `tidyverse`, `knitr`, `naniar`, `dlookr`, `car`, `skimr`, and `janitor` packages: 
+
+```{r anova_packages, warning = FALSE, message = FALSE}
+library(tidyverse)
+library(knitr)
+library(naniar)
+library(janitor)
+library(skimr)
+library(car)
+library(dlookr)
+```
+
+And additionally the `kableExtra` package, which is required for producing nicely formatted tables.  Install this if you haven't already, then load:
+
+```{r anova_packages2, warning = FALSE, message = FALSE}
+library(kableExtra)
+```
+
+And lastly, we need the `broom` package, which may also be new for you, and if so, install it. 
+
+```{r anova_packages3, warning = FALSE, message = FALSE}
+library(broom)
+```
+
+
+We'll briefly use the "students.csv" dataset again, but for most of this tutorial we'll use the "circadian.csv" dataset.  These data are associated with Example 15.1 in the text. 
+
+The `circadian` data describe melatonin production in 22 people randomly assigned to one of three light treatments.  
+
+```{r anova_getdata2}
+students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv")
+circadian <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/circadian.csv")
+```
+
+<div class="note">
+**TIP:**
+When analyzing a numeric response variable in relation to a categorical variable, it is good practice to ensure that the categorical variable is treated as a "factor" type variable by R, and that the categories or "levels" of the factor are ordered in the correct way for the purpose of graphs and / or tables of descriptive statistics. For example, there is often a "control" group (category), and if so, this group should come first in a graph or table.
+</div>
+
+Let's follow this practice for the "circadian" dataset. 
+
+If we look at example 15.1 in the text, and the corresponding figure (Fig. 15.1), we see that there should be three treatment groups "Control", "Knees", and "Eyes", in that order.
+
+Let's have a look at the data.
+
+<div class="note">
+**TIP:**
+Given that the output from `skim_without_charts` is almost always rather wide, and overflows the page width, we'll get into the habit of transposing the output, and presenting using the `kbl` command.  See the [tutorial on tables in markdown](https://ubco-biology.github.io/BIOL202/Tables_markdown.html)
+</div>
+
+Let's save the skim output to an object:
+
+```{r anova_lookdata}
+circ.skim <- circadian %>%
+  skim_without_charts()
+```
+
+Then transpose using the `t` function, wrapped in the `kbl` function:
+
+```{r anovaskmout}
+kbl(t(circ.skim))
+```
+
+This is just the same old output from `skim_withouth_charts` but here re-oriented to fit more easily on the page.
+
+And also have a look at the tibble itself:
+
+```{r look_circadian}
+circadian
+```
+
+The data are stored in tidy (long) format - good!
+
+We can see the unique values of the categorical variable as follows:
+
+```{r see_unique}
+unique(circadian$treatment)
+```
+
+**Two important things to notice here**: 
+
+* The categorical variable "treatment" is not recognized as a "factor" variable
+* The category names are not capitalized
+
+Let's first convert the "treatment" variable into a "factor" type variable using the `as.factor` base function:
+
+```{r}
+circadian$treatment <- as.factor(circadian$treatment)
+```
+
+Let's see what this did to our categorical variable:
+
+```{r see_unique2}
+unique(circadian$treatment)
+```
+
+Now the "treatment" variable is correctly recognized as a factor, but we still need to capitalize the category names, making sure to keep the names in the same order as shown above (and while we're at it, we'll change "Knee" to "Knees"):
+
+```{r}
+levels(circadian$treatment) <- c("Control", "Eyes", "Knees")
+```
+
+Lastly, we need to fix the ordering of the categories (called "levels"):
+
+```{r}
+circadian$treatment <- ordered(circadian$treatment, levels = c("Control", "Knees", "Eyes"))
+```
+
+Let's see if this worked:
+
+```{r see_unique3}
+unique(circadian$treatment)
+```
+
+OK, now we're ready to proceed with ANOVA!
+
+<div class="note">
+**TIP:**
+This procedure (ensuring the explanatory categorical variable is coded as a factor variable, and the ordering of the categories is correct) should also be done for 2-sample *t*-tests, **if** there is an optimal ordering to the two groups.
+</div>
+
+## Analysis of variance {#do_the_anova}
+
+**Follow these steps when conducting a hypothesis test:**
+
+* State the null and alternative hypotheses  
+* Set an $\alpha$ level  
+* Identify the appropriate test & provide rationale
+* Prepare an appropriately formatted table of descriptive statistics for the response variable grouped by the categories of the explanatory variable.  
+* Visualize the data with a good graph and interpret the graph
+* Assumptions  
+  + state the assumptions of the test  
+  + use appropriate figures and / or tests to check whether the assumptions of the statistical test are met
+  + transform data to meet assumptions if required 
+  + if assumptions can't be met (e.g. after transformation), use non-parametric test and repeat steps 1 through 4 
+* Conduct the test, and report the test statistic and associated _P_-value  
+* Calculate and include a confidence interval (e.g. for *t*-tests) or $R^2$ value (e.g. for ANOVA) when appropriate  
+* Optionally, for ANOVA, conduct a "post-hoc" comparison of means using "Tukey-Kramer post-hoc test"
+* Draw the appropriate conclusion and communicate it clearly  
+
+**Additional steps are required for ANOVA tests**  
+
+* An appropriately formatted ANOVA results table
+* A good figure with results of **post-hoc tests** included (if these tests were conducted)   
+* Your concluding statement should refer to the ANOVA table, the new figure, and the $R^2$ value  
+
+### Hypothesis statements {#anova_hyps}
+
+The null hypothesis of ANOVA is that the population means $\mu_i$ are the same for all treatments. Thus, for our current example in which melatonin production was measured among treatment groups:  
+
+H~0~: Mean melatonin production is equal among all treatment groups ($\mu_1 = \mu_2 = \mu_3$).  
+H~A~: At least one treatment group's mean is different from the others  
+
+**OR**  
+
+H~A~: Mean melatonin production is not equal among all treatment groups.  
+
+We'll set $\alpha = 0.05$.  
+
+We'll use a fixed-effects ANOVA, which uses the $F$ test statistic.  
+
+### A table of descriptive statistics {#stats_anova}
+
+In a previous [tutorial](#desc_numeric_var_cat) we learned how to calculate descriptive statistics for a numeric variable grouped by a categorical variable.  In the [comparing 2 means tutorial](#stats_2samp) we also learned how to use the `t.test` function to calculate confidence intervals for a numeric variable.
+
+Let's use all these skills to generate a table of summary statistics for the "shift" variable, grouped by "treatment":
+
+```{r conf_table_anova_now}
+circadian.stats <- circadian %>%
+  group_by(treatment) %>%
+  summarise(
+    Count = n() - naniar::n_miss(shift),
+    Count_NA = naniar::n_miss(shift), 
+    Mean = mean(shift, na.rm = TRUE),
+    SD = sd(shift, na.rm = TRUE),
+    SEM = SD/sqrt(Count),
+    Low_95_CL = t.test(shift, conf.level = 0.95)$conf.int[1],
+    Up_95_CL = t.test(shift, conf.level = 0.95)$conf.int[2]
+  )
+```
+
+<div class="note">
+**NOTE:  **
+Here we'll use what we learned in the [Tables in markdown tutorial](https://ubco-biology.github.io/BIOL202/Tables_markdown.html) on creating nicely formatted tables, including **table headings**.
+</div>
+
+Please consult the [Tables in Markdown](https://ubco-biology.github.io/BIOL202/Tables_markdown.html) tutorial for more details.
+
+```{r givenicepdftable2}
+kbl(circadian.stats, caption = "Descriptive statistics for the circadian rythm experiment data", 
+    booktabs = TRUE, digits = c(0, 0, 0, 2, 3, 3, 3, 3)) %>% 
+  kable_styling(latex_options = c("scale_down", "hold_position"), position = "center")
+```
+
+<div class="note">
+**IMPORTANT:  **
+Notice that, unlike figure captions, which must be provided in the chunk header, the caption for a table is provided as an argument to the `kbl` function within the actual code!
+</div>
+
+Notice also that the ordering of the categories (also called the factor levels) is correct!
+
+### Visualize the data {#anova_graph1}
+
+We are interested in visualizing a numeric response variable in relation to a categorical explanatory variable.  
+
+We learned in an earlier [tutorial](#numeric_vs_cat) that we can use a stripchart, violin plot, or boxplot to visualize a numerical response variable in relation to a categorical variable.  
+
+It is commonplace to use a stripchart for small sample sizes in each group.
+
+We'll use code we learned in an [earlier tutorial](#numeric_vs_cat).
+
+However, because we're now not only describing and visualizing data, but also testing a hypothesis about differences in group means, it is best to add group means and error bars to our stripchart.
+
+The `stat_summary` function from the `ggplot2` package is what provides the error bars and group means:
+
+```
+?stat_summary
+```
+
+Here's the code:
+
+```{r stripanova, fig.cap = "Stripchart of phase shifts in the circadian rhythm of melatonin production in 22 participants of an experiment. Solid circles denote group means, and bars +/- one standard error", fig.width = 4, fig.height = 4.5}
+
+circadian %>%
+  ggplot(aes(x = treatment, y = shift)) +
+  geom_jitter(colour = "darkgrey", size = 3, shape = 1, width = 0.1) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", 
+    colour = "black", width = 0.1, 
+    position = position_nudge(x = 0.15)) +
+  stat_summary(fun = mean, geom = "point", 
+    colour = "black", size = 3, 
+    position=position_nudge(x = 0.15)) +
+  xlab("Light treatment") + 
+  ylab("Shift in circadian rhythm (h)") + 
+  theme_classic()
+```
+
+We've added two sets of `stat_summary` functions, one for adding the group mean, and one for adding the error bars.
+
+* The argument "fun = mean_se" adds the standard error of the group means
+* the "geom = 'errorbar'" tells ggplot to use an error bar format
+* the "position = position_nudge(x = 0.15)" tells ggplot to nudge the error bar off to the side a bit, so it doesn't obscure the data points
+* the next `stat_summary` function is the same, but this time for the group means.
+
+Clearly there is no difference between the control and knee treatment groups, but we'll have to await the results of the ANOVA to see whether the mean of the "eyes" group is different.  
+
+#### Visualizing the data when group sample sizes are large
+
+Recall that we are focusing here on **Fixed-effects ANOVA** which generally apply to experiments.  Experiments often don't have very large sample sizes per group, but if they do, we can use a different graph to visualize the data.
+
+We'll use the "students" dataset to illustrate, but note that these data are NOT from an experiment.
+
+We'll create a violin plot, and superimpose the means and standard error bars:
+
+```{r fig.width = 3, fig.height = 4, fig.cap = "Violin plot of heights of students with right (n = 106) and left (n = 48) dominant eyes. Solid circles denote group means, and bars +/- one standard error." }
+
+students %>% 
+  ggplot(aes(x = Dominant_eye, y = height_cm)) +
+  geom_violin() +
+  geom_jitter(colour = "grey", size = 1, shape = 1, width = 0.15) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", 
+    colour = "black", width = 0.1) +
+  stat_summary(fun = mean, geom = "point", 
+    colour = "black", size = 3) +
+  xlab("Dominant eye") +
+  ylab("Height (cm)") +
+  theme_bw()
+```
+
+In this case we don't need to nudge the means and error bars to the side.
+
+### Assumptions of ANOVA {#assump_anova}
+
+The assumptions of ANOVA are:  
+
+* The measurements in every group represent a random sample from the corresponding population (**NOTE**: for an experimental study, the assumption is that subjects are randomly assigned to treatments)  
+* The response variable has a normal distribution in each population 
+* The variance of the response variable is the same in all populations (called the "homogeneity of variance" assumption) 
+
+* * *
+
+**Test for normality**  
+
+The sample sizes per group are rather small, so graphical aids such as histograms or normal quantile plots will not be particularly helpful.  
+
+Instead, let's rely on the fact that (i) the strip chart in Figure 2 does not show any obvious outliers in any of the groups, and (ii) the central limit theorem makes ANOVAs quite robust to deviations in normality, especially with larger sample sizes, but even with relatively small sample sizes such as these. So, we'll proceed under the assumption that the measurements are normally distributed within the three populations.  
+
+* * *
+
+**Test for equal variances**  
+
+Now we need to test the assumption of equal variance among the groups, using Levene's Test as we learned in the [checking assumptions](#levenetest) tutorial.   
+
+```{r testvar}
+variance.check <- leveneTest(shift ~ treatment, data = circadian)
+variance.check
+```
+
+We see that the *P*-value for the test is much greater than 0.05, so the null hypothesis of equal variance is not rejected. There is no evidence against the assumption that the variances are equal.  
+
+A reasonable statement: 
+
+"A Levene's test showed no evidence against the assumption of equal variance (*F* = `r round(unlist(variance.check)[3], 2)`; *P*-value = `r round(unlist(variance.check)[5], 3)`)."
+
+**IF assumptions are not met** 
+
+A later [section](#assumpbad_anova) discusses what to do if assumptions are NOT met.
+
+### Conduct the ANOVA test {#do_anova1}
+
+There are two steps to conducting an ANOVA in R: 
+
+* Use the `lm` function (from the base package) (it stands for "linear model") to create an object that holds the key output from the test
+
+* Use the `anova` function (from the base package) on the preceding `lm` output object to generate the appropriate output for interpreting the results.   
+
+The `lm` function uses the syntax: Y ~ X.  
+
+Let's do this step first:
+
+```{r conductANOVA}
+circadian.lm <- lm(shift ~ treatment, data = circadian) 
+```
+
+Next the `anova` step: 
+
+```{r do_anova_step}
+circadian.lm.anova <- anova(circadian.lm)
+```
+
+Let's have a look at what this produced:
+
+```{r showrawanova}
+circadian.lm.anova
+```
+
+This is not in the format of a traditional ANOVA table (as described in Chapter 15 of the text): it is missing the "Total" row, and it puts the degrees of freedom (df) column before the Sums of Squares. Also, the column headers could be more informative.  
+
+Below we create our own function that takes the preceding object and generates an appropriately formatted ANOVA table .
+
+**NOTE**: These instructions are for a so-called **one-way ANOVA**, in which there is only one categorical variable against which a numerical variable is being analyzed. In the present case, we are analyzing a response variable in relation to the "treatment" categorical variable, which has 3 categories or "levels".  
+
+### Generate nice ANOVA table {#createanovatable}
+
+Let's look again at the raw output from the `anova` function:
+
+```{r showrawanova2}
+circadian.lm.anova
+```
+
+In the code chunk below we create a new function called "create.anova.table", which we can use to convert an "anova" object (like the one above) to an appropriately formatted ANOVA table.
+
+When you run this code chunk, it creates the function in your workspace. Once it is created, you can use it.
+
+<div class="note">
+**NOTE:**
+You will need to run this chunk to create the function each time you start a new R session. 
+</div>
+
+```{r create_anova_function}
+create.anova.table <- function(intable){
+  # first check that input table is of class "anova"
+  if(class(intable)[1] != "anova") stop("Input object not of class 'anova'")
+  require(tidyverse) # ensure tidyverse is loaded
+  require(broom) # ensures broom is loaded
+  tidy.intable <- tidy(intable)
+# "intable" is a the object from the `anova` output
+  temp.anova <- tidy.intable %>%
+    select("term", "sumsq", "df", "meansq", "statistic", "p.value")  # reorder columns
+  temp.anova <- temp.anova %>%
+    rename(Source = term, SS = sumsq, MS = meansq, F = statistic, P_val = p.value) # rename columns
+totals <- data.frame(
+  Source = "Total",
+  df = sum(temp.anova$df),
+  SS = sum(temp.anova$SS),
+  MS = NA,
+  F = NA,
+  P_val = NA
+)  # calculate totals
+  nice.anova.table <- as_tibble(rbind(temp.anova, totals)) # generate table
+return(nice.anova.table)
+}
+```
+
+**NOTE**: this is a quick-and-dirty function that does **NOT** follow all the best practices in coding!  
+
+Let's try out the function, using our original anova table:  
+
+```{r}
+nice.anova.table <- create.anova.table(circadian.lm.anova)
+nice.anova.table
+```
+
+It worked!
+
+**Generate nice output using `kable`**
+
+To generate a nice table that will export to PDF properly, we'll follow what we learned in the [Tables in markdown tutorial](https://ubco-biology.github.io/BIOL202/Tables_markdown.html) on creating nicely formatted tables, including **table headings**. 
+
+Here's the required code. 
+
+```{r niceanovapdf}
+options(knitr.kable.NA = '')
+kbl(nice.anova.table, caption = "ANOVA table for the circadian rythm experiment.", 
+    booktabs = TRUE, digits = c(0, 4, 0, 4, 4, 3), align = "r") %>% 
+  kable_styling(latex_options = "hold_position", position = "center")
+```
+
+We have two new pieces of code:
+
+* the first line of code [options(knitr.kable.NA = '')] tells the `kbl` function to hide any "NA" values; we need this because parts of our table have NAs
+* the argument "align = 'r'" in the `kbl` function tells it to align the text right
+
+We can now refer to this nice table in our concluding statement, and if the table is appropriately formatted like this one, you can simply refer to the Table rather than including all the additional details in your concluding statement (see below).  
+
+### Calculate $R^2$ for the ANOVA
+
+One measure that is typically reported with any "linear model" like ANOVA is the "variance explained" or **coefficient of determination**, denoted $R^2$.  
+
+This value indicates the fraction of the variation in _Y_ that is explained by groups.  
+
+The remainder of the variation ($1 - R^2$) is "error", or variation that is left unexplained by the groups.  
+
+To calculate this we use two steps, and we go back to our original "lm" object we created earlier:
+
+```{r getrsquare}
+circadian.lm.summary <- summary(circadian.lm)
+circadian.lm.summary$r.squared
+```
+
+We'll refer to this value in our concluding statement.
+
+Before we get there, we need to figure out **which group mean(s) differ??**.  
+
+### Tukey-Kramer post-hoc test {#tukey}
+
+As described in Chapter 15 in the text, **planned comparisons** (aka planned contrasts) are ideal and most powerful, but unfortunately we often need to conduct **unplanned comparisons** to assess which groups differ in our ANOVA test. This is what we'll learn here.  
+
+We can guess from our stripchart (Figure \@ref(fig:stripanova)) that it's the "Eyes" treatment group that differs from the others, but we need a formal test.  
+
+We could simply conduct three 2-sample *t*-tests on each of the three pair-wise comparisons, but then we would inflate our **Type-I error rate**, due to multiple-testing.  
+
+The Tukey-Kramer "post-hoc" (unplanned) test adjusts our *P*-values correctly to account for multiple tests.  
+
+For this test we use the `TukeyHSD` function in the base stats package (HSD stands for "Honestly Significant Difference").
+
+```
+?TukeyHSD
+```
+
+The one catch in using this function is that we need to re-do our ANOVA analysis using a different function... the `aov` function in lieu of the `lm` function.  This is necessary because the `TukeyHSD` function is expecting a particular object format, which only the `aov` function provides.  
+
+First, let's re-do the ANOVA analysis using the `aov` function, creating a new object.  **NOTE** This is only necessary if you are wishing to conduct the post-hoc Tukey HSD analysis (which we often are).
+
+```{r redo_anova}
+circadian.aov <- aov(shift ~ treatment, data = circadian)
+```
+
+Now we can pass this object to the `TukeyHSD` function, and use the appropriate confidence level (corresponding to 1 minus alpha):  
+
+```{r doTukey}
+circadianTukey <- TukeyHSD(circadian.aov, conf.level = 0.95)
+```
+
+And let's make the output `tidy`:
+
+```{r tidytukey}
+circadianTukey.tidy <- tidy(circadianTukey)
+```
+
+Have a look a the output:
+```{r looktukey}
+circadianTukey.tidy
+```
+
+Now let's reformat this table for producing a nice output.
+
+```{r reformattukey}
+circadianTukey.tidy.table <- circadianTukey.tidy %>%
+  select(-c(term, null.value)) %>%  # take away these two columns
+  rename(Contrast = "contrast", Difference = "estimate", 
+         Conf_low = "conf.low", Conf_high = "conf.high", 
+         Adj_Pval = "adj.p.value")
+```
+
+Now we can produce a nice output, which **is entirely optional**:
+
+```{r niceTukeytable}
+kbl(circadianTukey.tidy.table, 
+    caption = "Results of a Tukey-Kramer post-hoc test for the circadian rythm experiment.", 
+    booktabs = TRUE, digits = c(0, 3, 4, 4, 3), align = "r") %>% 
+  kable_styling(latex_options = "hold_position", position = "center")
+```
+
+The output clearly shows the pairwise comparisons and associated _P_-values, **adjusted** for multiple comparisons. It also shows the difference in means, and the lower and upper 95% confidence interval for the differences.
+
+We can see that the mean for the "Eyes" treatment group differs significantly (at $\alpha= 0.05$) from each of the other group means.  
+
+One typically shows these results visually on the same figure used to display the data (here, Figure \@ref(fig:stripanova)).  
+
+### Visualizing post-hoc test results {#vis_tukey}
+
+Here is our original figure, to which we'll add the results of the post-hoc test:
+
+```{r stripanova2, fig.cap = "Stripchart of phase shifts in the circadian rhythm of melatonin production in 22 participants of an experiment. Solid circles denote group means, and bars +/- one standard error", fig.width = 4, fig.height = 4.5}
+
+circadian %>%
+  ggplot(aes(x = treatment, y = shift)) +
+  geom_jitter(colour = "darkgrey", size = 3, shape = 1, width = 0.1) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", 
+    colour = "black", width = 0.1, 
+    position = position_nudge(x = 0.15)) +
+  stat_summary(fun = mean, geom = "point", 
+    colour = "black", size = 3, 
+    position=position_nudge(x = 0.15)) +
+  xlab("Light treatment") + 
+  ylab("Shift in circadian rhythm (h)") + 
+  theme_classic()
+```
+
+To visualize the outcomes of the Tukey-Kramer post-hoc test, we superimpose a text letter alongside (or above) each group in the figure, such that groups sharing the same letter are not significantly different according to the Tukey-Kramer post-hoc test.  
+
+For this we use the `annotate` function, and this requires that we know the coordinates on the graph where we wish to place our annotations.
+
+Based on our stripchart above, it looks like we need to use Y-value coordinates of around 1.1 to place our letters above each group.  **It may take some trial-and-error** to figure this out.
+
+Here's the code, with the `annotate` function added:
+
+```{r stripanovatukey, fig.cap = "Stripchart showing the phase shift in the circadian rhythm of melatonin production in 22 experimental participants given alternative light treatments. Solid circles represent group means, and bars represent +/- one SE. Group means sharing the same letter are not significantly different according to the Tukey-Kramer post-hoc test (family-wise $\\alpha$ = 0.05).", fig.width = 4, fig.height = 4.5}
+
+ggplot(circadian, aes(x = treatment, y = shift)) +
+  geom_jitter(colour = "darkgrey", size = 3, shape = 1, width = 0.1) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", 
+        colour = "black", width = 0.1, 
+        position=position_nudge(x = 0.15)) +
+  stat_summary(fun = mean, geom = "point", 
+        colour = "black", size = 3, 
+        position=position_nudge(x = 0.15)) +
+  ylim(c(-3.1, 1.2)) +
+  annotate("text", x = 1:3, y = 1.1, label = c("a", "a", "b")) +
+  labs(x = "Light treatment", y = "Shift in circadian rhythm (h)") + 
+  theme_classic()
+```
+
+Notice that we have added a line including the `ylim` function, so that we can specify the min and max y-axis limits, ensuring that our annotation letters fit on the graph.
+
+**NOTE**: The chunk option I included to get the figure heading shown above is as follows:  
+
+```
+{r fig.cap = "Stripchart showing the phase shift in the circadian rhythm of melatonin production in 22 experimental participants given alternative light treatments. Solid circles represent group means, and bars represent +/- one SE. Group means sharing the same letter are not significantly different according to the Tukey-Kramer post-hoc test (family-wise $\\alpha$ = 0.05).", fig.width = 4, fig.height = 4.5}
+```
+
+The "family-wise" $\alpha$ statement means that the Tukey-Kramer test uses our initial $\alpha$ level, but ensures that the probability of making at least one Type-1 error throughout the course of testing all pairs of means is no greater than the originally stated $\alpha$ level.  
+
+<div class="note">
+**TIP:**
+Figure \@ref(fig:stripanovatukey) is the kind of figure that should be referenced, along with ANOVA table \@ref(tab:niceanovapdf), when communicating your results of an ANOVA. For instance, with the results of the Tukey-Kramer post-hoc tests superimposed on the figure, you can not only state that the null hypothesis is rejected, but you can also state which group(s) differ from which others.
+</div>
+
+We are now able to write our truly final concluding statement, below.  
+
+* * *
+
+1. Annotating stripcharts  
+
+Pretend that our post-hoc test showed that the "Knee" group was not different from either the control or the Eyes group.  Re-do the figure above, but this time place an "ab" above the Knee group on the figure. This is how you would indicate that the control and eyes grouped differed significantly from one-another, but neither differed significantly from the Knee group.
+
+### Concluding statement {#anova_conclusion}
+
+With out ANOVA table and final figure in hand, we are ready for the concluding statement: 
+
+>Shifts in circadian rhythm differ significantly among treatment groups (ANOVA; Table \@ref(tab:niceanovapdf); *R*<sup>2</sup> = `r round(circadian.lm.summary$r.squared, 2)`). As shown in Figure \@ref(fig:stripanovatukey), the mean shift among the "Eyes" subjects was significantly lower than both of the other treatment groups.   
+
+## When assumptions aren't met {#assumpbad_anova}
+
+If the **normal distribution assumption** is violated, and you are unable to find a transformation that works (see the [Checking assumptions and data transformations](#assumptions_packages_data) tutorial), then you can try a non-parametric test.
+
+A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock & Schluter text, and this [website](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page) for some R examples. 
+
+If the **equal-variance assumption** is violated for ANOVA, then you can set the "var.equal" argument to "FALSE" in the `t.test` function, in which case the function implements a "Welch's *t*-test".
+
+For instance, let's pretend that the height data did not exhibit equal variance among left- and right- dominant eye students, here's the appropriate code:
+
+

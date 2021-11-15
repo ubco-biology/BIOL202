@@ -8,20 +8,20 @@ options(knitr.table.format = "html")
 **Tutorial learning objectives**
 
 * Learn how to check the normality assumption
-    + Normal quantile plots
-    + Shapiro-Wilk test for normality  
+  + Normal quantile plots
+  + Shapiro-Wilk test for normality  
     
 * Learn how to check the equal variance assumption
-    + Levene's Test 
+  + Levene's Test 
     
 * Learn how to transform the response variable to help meet assumptions   
-    + log-transform
-    + Dealing with zeroes  
-    + log bases
-    + back-transforming log data
-    + logit transform
-    + back-transforming logit data
-    + when to back-transform?
+  + log-transform
+  + Dealing with zeroes  
+  + log bases
+  + back-transforming log data
+  + logit transform
+  + back-transforming logit data
+  + when to back-transform?
 
 Most statistical tests, such as the $\chi$^2^ goodness of fit test, the $\chi$^2^ contingency test, *t*-test, ANOVA, Pearson correlation, and least-squares regression, have assumptions that must be met. For example, the one-sample *t*-test requires that the variable is normally distributed in the population, and least-squares regression requires that the residuals from the regression be normally distributed. In this tutorial we'll learn ways to check the assumption that the variable is normally distributed in the population.   
 
