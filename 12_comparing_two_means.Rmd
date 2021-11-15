@@ -94,7 +94,10 @@ blackbird.diffs <- blackbird %>%
 In the preceding chunk, we: 
 
 * create a new object "blackbird.diffs" to hold our data
-* the `pivot_wider` function takes a categorical (grouping) variable "names_from" and creates new columns, one for each unique category; it also takes a "values_from" variable; thus, in our case, we get 2 new columns (because there are 2 categories to the "time" variable: Before and After), and the values placed in those columns are the corresponding values of "Antibody".
+* the `pivot_wider` function takes the following arguments: 
+  + "id_cols = blackbird", which tells the function which variable in the tibble is used to keep track of the unique individuals (here, the "blackbird" variable)
+  + A categorical (grouping) variable "names_from" and creates new columns, one for each unique category
+  + A "values_from" variable; thus, in our case, we get 2 new columns (because there are 2 categories to the "time" variable: Before and After), and the values placed in those columns are the corresponding values of "Antibody".
 * we then create a new variable "diff" that equals the values in the newly created "After" variable minus the values in the "Before" variable.
 
 <div class="note">

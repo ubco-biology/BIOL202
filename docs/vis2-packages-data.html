@@ -468,18 +468,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb67-4"><a href="vis2-packages-data.html#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
 <p>We also need the <code>janitor</code> package, the <code>ggmosaic</code> package, and the <code>ggExtra</code> packages, and these are likely to be new to you. Check whether these packages are installed under the “packages” tab in the bottom-right panel in RStudio. If they are not yet installed, then <a href="package-install.html#package_install">install them</a>. <strong>Only install them once on your computer!</strong></p>
 <p>Load the packages:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="vis2-packages-data.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;janitor&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     chisq.test, fisher.test</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="vis2-packages-data.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span>
-<span id="cb71-2"><a href="vis2-packages-data.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="vis2-packages-data.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb68-2"><a href="vis2-packages-data.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span>
+<span id="cb68-3"><a href="vis2-packages-data.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggExtra)</span></code></pre></div>
 <p><strong>Import Data</strong></p>
 <p>We’ll again make use of the <code>penguins</code> dataset, which gets loaded as a “tibble” object with the <code>palmerpenguins</code> package.</p>
 <p>Import the <code>locusts.csv</code> data, which are described in the Whitlock &amp; Schluter text, Figure 2.1-2. We’ll create a tibble called <code>locust</code>.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="vis2-packages-data.html#cb72-1" aria-hidden="true" tabindex="-1"></a>locust <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/locust.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="vis2-packages-data.html#cb69-1" aria-hidden="true" tabindex="-1"></a>locust <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/locust.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
@@ -487,7 +482,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   treatmentTime = col_double()
 ## )</code></pre>
 <p>Import the <code>bird.malaria.csv</code> data, which are described in the Whitlock &amp; Schluter text, Example 2.3A (p. 40). We’ll create a tibble called <code>bird.malaria</code>.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="vis2-packages-data.html#cb74-1" aria-hidden="true" tabindex="-1"></a>bird.malaria<span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bird_malaria.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="vis2-packages-data.html#cb71-1" aria-hidden="true" tabindex="-1"></a>bird.malaria<span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bird_malaria.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
