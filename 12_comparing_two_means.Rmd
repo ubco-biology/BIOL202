@@ -277,6 +277,11 @@ blackbird.paired.ttest
 
 The output is identical to what we got when we applied a 1-sample *t*-test on the differences!
 
+<div class="note">
+**NOTE (Added Nov. 16, 2021):**
+The values of *t* and of the lower and upper confidence limits may be reversed in sign, if you conducted your calculation of differences in the alternative way.  Specifically, you may get *t* = `r -1*(blackbird.ttest$statistic)`, and confidence limits of `r -1*(blackbird.ttest$conf.int[2])` and `r -1*(blackbird.ttest$conf.int[1])`.  This is totally fine!
+</div>
+
 ### Concluding statement {#concl_paired}
 
 Here's an example of a reasonable concluding statement, and this can apply for either of the two methods used above (note that in either case we call the test a "paired *t*-test, even if we used the one-sample *t*-test on the differences):
