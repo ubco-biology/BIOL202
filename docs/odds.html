@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-15" />
+<meta name="date" content="2021-11-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -465,10 +465,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math inline">\(O = \frac{p}{1-p}\)</span></p>
 <p>Curiously, in health-related studies, a “success” is equated with getting ill!!</p>
 <p>We’ll use the data stored in the contingency table we produced before, called “cancer.aspirin.table”:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="odds.html#cb236-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table <span class="ot">&lt;-</span> cancer <span class="sc">%&gt;%</span></span>
-<span id="cb236-2"><a href="odds.html#cb236-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(aspirinTreatment, response) <span class="sc">%&gt;%</span></span>
-<span id="cb236-3"><a href="odds.html#cb236-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</span>
-<span id="cb236-4"><a href="odds.html#cb236-4" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table </span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="odds.html#cb238-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table <span class="ot">&lt;-</span> cancer <span class="sc">%&gt;%</span></span>
+<span id="cb238-2"><a href="odds.html#cb238-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(aspirinTreatment, response) <span class="sc">%&gt;%</span></span>
+<span id="cb238-3"><a href="odds.html#cb238-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</span>
+<span id="cb238-4"><a href="odds.html#cb238-4" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table </span></code></pre></div>
 <pre><code>##  aspirinTreatment Cancer No cancer Total
 ##           Aspirin   1438     18496 19934
 ##           Placebo   1427     18515 19942
@@ -482,14 +482,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>We’ll do all of this in one go using a series of steps strung together with pipes (“%&gt;%”).</p>
 <p>Here’s the code, and we’ll explain each step after:</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="odds.html#cb238-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table <span class="sc">%&gt;%</span></span>
-<span id="cb238-2"><a href="odds.html#cb238-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(aspirinTreatment <span class="sc">==</span> <span class="st">&quot;Aspirin&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb238-3"><a href="odds.html#cb238-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Cancer, Total) <span class="sc">%&gt;%</span></span>
-<span id="cb238-4"><a href="odds.html#cb238-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb238-5"><a href="odds.html#cb238-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">propCancer_aspirin =</span> Cancer <span class="sc">/</span> Total,</span>
-<span id="cb238-6"><a href="odds.html#cb238-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">propHealthy_aspirin =</span> <span class="dv">1</span> <span class="sc">-</span> propCancer_aspirin,</span>
-<span id="cb238-7"><a href="odds.html#cb238-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">oddsCancer_aspirin =</span> propCancer_aspirin<span class="sc">/</span>propHealthy_aspirin</span>
-<span id="cb238-8"><a href="odds.html#cb238-8" aria-hidden="true" tabindex="-1"></a>    ) </span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="odds.html#cb240-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table <span class="sc">%&gt;%</span></span>
+<span id="cb240-2"><a href="odds.html#cb240-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(aspirinTreatment <span class="sc">==</span> <span class="st">&quot;Aspirin&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb240-3"><a href="odds.html#cb240-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Cancer, Total) <span class="sc">%&gt;%</span></span>
+<span id="cb240-4"><a href="odds.html#cb240-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb240-5"><a href="odds.html#cb240-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">propCancer_aspirin =</span> Cancer <span class="sc">/</span> Total,</span>
+<span id="cb240-6"><a href="odds.html#cb240-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">propHealthy_aspirin =</span> <span class="dv">1</span> <span class="sc">-</span> propCancer_aspirin,</span>
+<span id="cb240-7"><a href="odds.html#cb240-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">oddsCancer_aspirin =</span> propCancer_aspirin<span class="sc">/</span>propHealthy_aspirin</span>
+<span id="cb240-8"><a href="odds.html#cb240-8" aria-hidden="true" tabindex="-1"></a>    ) </span></code></pre></div>
 <pre><code>##  Cancer Total propCancer_aspirin propHealthy_aspirin oddsCancer_aspirin
 ##    1438 19934         0.07213806           0.9278619         0.07774654</code></pre>
 <ul>

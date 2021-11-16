@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-15" />
+<meta name="date" content="2021-11-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -465,11 +465,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock &amp; Schluter text, and this <a href="https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page">website</a> for some R examples.</p>
 <p>If the <strong>equal-variance assumption</strong> is violated for the 2-sample <em>t</em>-test, then you can set the “var.equal” argument to “FALSE” in the <code>t.test</code> function, in which case the function implements a “Welch’s <em>t</em>-test.”</p>
 <p>For instance, let’s pretend that the height data did not exhibit equal variance among left- and right- dominant eye students, here’s the appropriate code:</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="assumpbad-2samp.html#cb320-1" aria-hidden="true" tabindex="-1"></a>height.ttest.unequal.var <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb320-2"><a href="assumpbad-2samp.html#cb320-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(height_cm <span class="sc">~</span> Dominant_eye, </span>
-<span id="cb320-3"><a href="assumpbad-2samp.html#cb320-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb320-4"><a href="assumpbad-2samp.html#cb320-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb320-5"><a href="assumpbad-2samp.html#cb320-5" aria-hidden="true" tabindex="-1"></a>height.ttest.unequal.var</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="assumpbad-2samp.html#cb322-1" aria-hidden="true" tabindex="-1"></a>height.ttest.unequal.var <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb322-2"><a href="assumpbad-2samp.html#cb322-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(height_cm <span class="sc">~</span> Dominant_eye, </span>
+<span id="cb322-3"><a href="assumpbad-2samp.html#cb322-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb322-4"><a href="assumpbad-2samp.html#cb322-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb322-5"><a href="assumpbad-2samp.html#cb322-5" aria-hidden="true" tabindex="-1"></a>height.ttest.unequal.var</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
