@@ -116,7 +116,7 @@ That's better!
 
 In an earlier [tutorial](#interpret_scatter), we learned how to properly interpret a scatterplot, and **what information should to include in your interpretation**. Be sure to consult that tutorial.   
 
-> We see in Figure \@ref(fig:pup_scatter) that the association between the inbreeding coefficient and number of surviving pups is negative, linear, and moderately strong.  There are no apparent outliers to the association.  
+> We see in Figure \@ref{fig:pup_scatter} that the association between the inbreeding coefficient and number of surviving pups is negative, linear, and moderately strong.  There are no apparent outliers to the association.  
 
 ### Assumptions of correlation analysis {#corr_assumptions}
 
