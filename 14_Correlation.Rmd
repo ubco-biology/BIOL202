@@ -14,12 +14,13 @@ options(knitr.table.format = "html")
 
 ## Load packages and import data {#twonum_packages_data}
 
-Load the `tidyverse`, `skimr`, `broom`, and `janitor` packages: 
+Load the `tidyverse`, `skimr`, `broom`, `knitr`, and `janitor` packages: 
 
 ```{r corr_packages, warning = FALSE}
 library(tidyverse)
 library(skimr)
 library(broom)
+library(knitr)
 library(janitor)
 ```
 

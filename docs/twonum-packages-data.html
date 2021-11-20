@@ -481,11 +481,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="twonum_packages_data" class="section level2" number="21.1">
 <h2><span class="header-section-number">21.1</span> Load packages and import data</h2>
-<p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>broom</code>, and <code>janitor</code> packages:</p>
+<p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>broom</code>, <code>knitr</code>, and <code>janitor</code> packages:</p>
 <div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="twonum-packages-data.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb372-2"><a href="twonum-packages-data.html#cb372-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
 <span id="cb372-3"><a href="twonum-packages-data.html#cb372-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb372-4"><a href="twonum-packages-data.html#cb372-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<span id="cb372-4"><a href="twonum-packages-data.html#cb372-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb372-5"><a href="twonum-packages-data.html#cb372-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We’ll use the “wolf.csv” and “trick.csv” datasets (discussed in examples 16.2 and 16.5 in the text, respectively).</p>
 <div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="twonum-packages-data.html#cb373-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/wolf.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
