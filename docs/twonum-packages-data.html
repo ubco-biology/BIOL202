@@ -482,19 +482,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="twonum_packages_data" class="section level2" number="21.1">
 <h2><span class="header-section-number">21.1</span> Load packages and import data</h2>
 <p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>broom</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="twonum-packages-data.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb383-2"><a href="twonum-packages-data.html#cb383-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb383-3"><a href="twonum-packages-data.html#cb383-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb383-4"><a href="twonum-packages-data.html#cb383-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="twonum-packages-data.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb372-2"><a href="twonum-packages-data.html#cb372-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb372-3"><a href="twonum-packages-data.html#cb372-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb372-4"><a href="twonum-packages-data.html#cb372-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We’ll use the “wolf.csv” and “trick.csv” datasets (discussed in examples 16.2 and 16.5 in the text, respectively).</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="twonum-packages-data.html#cb384-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/wolf.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="twonum-packages-data.html#cb373-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/wolf.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   inbreedCoef = col_double(),
 ##   nPups = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="twonum-packages-data.html#cb386-1" aria-hidden="true" tabindex="-1"></a>trick <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/trick.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="twonum-packages-data.html#cb375-1" aria-hidden="true" tabindex="-1"></a>trick <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/trick.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
@@ -503,7 +503,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## )</code></pre>
 <p>The <code>wolf</code> dataset includes inbreeding coefficients for wolf pairs, along with the number of the pairs’ pups surviving the first winter.</p>
 <p>Explore the data:</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="twonum-packages-data.html#cb388-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="twonum-packages-data.html#cb377-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:corr_seedata1)Data summary
@@ -685,7 +685,7 @@ nPups
 </table>
 <p>We see that there are 24 observations for each of the two variables, and no missing values. If there WERE missing values, be sure to report the correct sample size in your results!</p>
 <p>Now let’s explore the <code>trick</code> dataset:</p>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="twonum-packages-data.html#cb389-1" aria-hidden="true" tabindex="-1"></a>trick <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="twonum-packages-data.html#cb378-1" aria-hidden="true" tabindex="-1"></a>trick <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:corr_seedata2)Data summary
