@@ -206,7 +206,11 @@ ggplot(aes(x = nPups, y = inbreedCoef)) +
 
 Here is an example of a good concluding statement:
 
-> Litter size is significantly negatively correlated with the inbreeding coefficient of the parents (Figure \@ref(fig:pup_scatter2); Pearson _r_ = `r round(wolf.cor.tidy$estimate, 2)`; 95% confidence limits: `r c(round(wolf.cor.tidy$conf.low, 3), round(wolf.cor.tidy$conf.high, 3))`; $df$ = `r `wolf.cor.tidy$parameter`; _P_ = `r round(wolf.cor.tidy$p.value, 3)`).  
+* * *
+
+Litter size is significantly negatively correlated with the inbreeding coefficient of the parents (Figure \@ref(fig:pup_scatter2); Pearson _r_ = `r round(wolf.cor.tidy$estimate, 2)`; 95% confidence limits: `r c(round(wolf.cor.tidy$conf.low, 3), round(wolf.cor.tidy$conf.high, 3))`; $df$ = `r wolf.cor.tidy$parameter`; _P_ = `r round(wolf.cor.tidy$p.value, 3)`).  
+
+* * *
 
 <div class="note">
 **Tip**
@@ -310,6 +314,11 @@ trick %>%
   theme_bw()
 ```
 
-> The rank of impressiveness scores of written accounts of the Indian rope trick by firsthand observers is significantly positively correlated with the rank of number of years elapsed between witnessing the event and writing the account (Figure \@ref(fig:pup_scatter2)); Spearman $r_S$ = `r round(trick.cor.tidy$estimate, 2)`; $n$ = 21; _P_ < 0.001).  
+Concluding statement:
 
+* * *
+
+The rank of impressiveness scores of written accounts of the Indian rope trick by firsthand observers is significantly positively correlated with the rank of number of years elapsed between witnessing the event and writing the account (Figure \@ref(fig:trickplot2); Spearman $r_S$ = `r round(trick.cor.tidy$estimate, 2)`; $n$ = 21; _P_ < 0.001).  
+
+* * *
 
