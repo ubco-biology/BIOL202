@@ -504,7 +504,7 @@ Contrary to what is suggested in the text, it is better to use the “logit” t
 <div class="figure"><span id="fig:unnamed-chunk-109"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-109-1.png" alt="The frequency distribution of the 'biomass ratio' of 32 marine reserves." width="384" />
 <p class="caption">
-Figure 21.7: The frequency distribution of the ‘biomass ratio’ of 32 marine reserves.
+Figure 21.9: The frequency distribution of the ‘biomass ratio’ of 32 marine reserves.
 </p>
 </div>
 <p>To log-transform the data, simply create a new variable in the dataset using the <code>mutate</code> function (from the <code>dplyr</code> package) that we’ve seen before. Here we’ll call our new variable <code>logbiomass</code>, and use the <code>log</code> function to take the <strong>natural log</strong> of the “biomassRatio” variable.</p>
@@ -544,7 +544,7 @@ If your variable includes zeros, then you’ll need to take extra steps, as desc
 <div class="figure"><span id="fig:unnamed-chunk-110"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-110-1.png" alt="The frequency distribution of the 'biomass ratio' of 32 marine reserves (log-transformed)." width="480" />
 <p class="caption">
-Figure 21.8: The frequency distribution of the ‘biomass ratio’ of 32 marine reserves (log-transformed).
+Figure 21.10: The frequency distribution of the ‘biomass ratio’ of 32 marine reserves (log-transformed).
 </p>
 </div>
 <p>Now the quantile plot:</p>
@@ -558,7 +558,7 @@ Figure 21.8: The frequency distribution of the ‘biomass ratio’ of 32 marine 
 <div class="figure"><span id="fig:unnamed-chunk-111"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-111-1.png" alt="Figure: Normal quantile plot of the 'biomass ratio' of 32 marine reserves (log-transformed)." width="384" />
 <p class="caption">
-Figure 21.9: Figure: Normal quantile plot of the ‘biomass ratio’ of 32 marine reserves (log-transformed).
+Figure 21.11: Figure: Normal quantile plot of the ‘biomass ratio’ of 32 marine reserves (log-transformed).
 </p>
 </div>
 <p>The log-transform definitely helped, but the distribution still looks a bit wonky: several of the points are quite far from the line.</p>
@@ -616,7 +616,7 @@ I have added a bit of material to this section.</p>
 <div class="figure"><span id="fig:unnamed-chunk-113"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-113-1.png" alt="Normal quantile plot of made-up biomass data." width="480" />
 <p class="caption">
-Figure 21.10: Normal quantile plot of made-up biomass data.
+Figure 21.12: Normal quantile plot of made-up biomass data.
 </p>
 </div>
 <p>Let’s first see what happens when we try to log-transform the “biomass” variable:</p>
@@ -656,7 +656,7 @@ Figure 21.10: Normal quantile plot of made-up biomass data.
 <div class="figure"><span id="fig:unnamed-chunk-118"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-118-1.png" alt="Normal quantile plot of made-up biomass data, log-transformed." width="480" />
 <p class="caption">
-Figure 21.11: Normal quantile plot of made-up biomass data, log-transformed.
+Figure 21.13: Normal quantile plot of made-up biomass data, log-transformed.
 </p>
 </div>
 <p>That’s a bit better. We would now use this new variable in our analyses (assuming it meets the normality assumption).</p>
@@ -742,7 +742,7 @@ Figure 21.11: Normal quantile plot of made-up biomass data, log-transformed.
 <div class="figure"><span id="fig:unnamed-chunk-119"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-119-1.png" alt="Normal quantile plot of the proportion of seeds fertilized on 30 plants (left) and the corresponding normal quantile plot (right)" width="384" />
 <p class="caption">
-Figure 21.12: Normal quantile plot of the proportion of seeds fertilized on 30 plants (left) and the corresponding normal quantile plot (right)
+Figure 21.14: Normal quantile plot of the proportion of seeds fertilized on 30 plants (left) and the corresponding normal quantile plot (right)
 </p>
 </div>
 <p>Clearly not normal!</p>
@@ -763,7 +763,7 @@ Figure 21.12: Normal quantile plot of the proportion of seeds fertilized on 30 p
 <div class="figure"><span id="fig:unnamed-chunk-120"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-120-1.png" alt="Normal quantile plot of the proportion of seeds fertilized (logit transformed) on 30 plants" width="480" />
 <p class="caption">
-Figure 21.13: Normal quantile plot of the proportion of seeds fertilized (logit transformed) on 30 plants
+Figure 21.15: Normal quantile plot of the proportion of seeds fertilized (logit transformed) on 30 plants
 </p>
 </div>
 <p>That’s much better!</p>

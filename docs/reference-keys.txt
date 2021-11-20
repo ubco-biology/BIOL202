@@ -46,6 +46,8 @@ tab:niceTukeytable
 fig:stripanova2
 fig:stripanovatukey
 fig:unnamed-chunk-98
+fig:pupscatter
+fig:pupscatter2
 fig:trickplot
 fig:trickplot2
 tab:showskimtable
