@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-20" />
+<meta name="date" content="2021-11-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -718,7 +718,7 @@ The <code>group_by</code> function from the <code>dplyr</code> package enables o
 It is best practice to use the <strong>response variable</strong> as the “fill” variable in a grouped bar graph, as we have done in the malaria example.</p>
 </div>
 <p>If we wished to provide an appropriate figure heading, this would be the code:</p>
-<div class="figure"><span id="fig:unnamed-chunk-36"></span>
+<div class="figure"><span id="fig:unnamed-chunk-68"></span>
 <img src="more/grouped_bar_graph.png" alt="Example code chunk for producing a good grouped bar graph" width="1053" />
 <p class="caption">
 Figure 13.1: Example code chunk for producing a good grouped bar graph
@@ -730,8 +730,8 @@ Figure 13.1: Example code chunk for producing a good grouped bar graph
 <span id="cb88-3"><a href="vis2-2cat.html#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb88-4"><a href="vis2-2cat.html#cb88-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
 <span id="cb88-5"><a href="vis2-2cat.html#cb88-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-37"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-37-1.png" alt="Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-69"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-69-1.png" alt="Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups." width="384" />
 <p class="caption">
 Figure 13.2: Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.
 </p>
@@ -763,14 +763,14 @@ Figure 13.2: Grouped bar graph showing the incidence of malaria in female great 
 <span id="cb90-2"><a href="vis2-2cat.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
 <span id="cb90-3"><a href="vis2-2cat.html#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
 <span id="cb90-4"><a href="vis2-2cat.html#cb90-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-38"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-38-1.png" alt="Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups." width="384" />
+<div class="figure"><span id="fig:unnamed-chunk-70"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-70-1.png" alt="Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups." width="384" />
 <p class="caption">
 Figure 13.3: Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.
 </p>
 </div>
 <p>Here’s the code:</p>
-<div class="figure"><span id="fig:unnamed-chunk-39"></span>
+<div class="figure"><span id="fig:unnamed-chunk-71"></span>
 <img src="more/mosaic_graph.png" alt="Example code chunk for producing a good mosaic plot" width="1312" />
 <p class="caption">
 Figure 13.4: Example code chunk for producing a good mosaic plot

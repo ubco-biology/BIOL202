@@ -29,17 +29,17 @@ We'll also learn how transforming a variable can sometimes help satisfy assumpti
 
 ## Load packages and import data {#assumptions_packages_data}
 
-Load the usual packages
+Load the usual packages, and `broom`, which has been used in some tutorials:
 
 ```{r, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(skimr)
+library(broom)
 ```
 
-And we need a few new packages too: `car`, `boot`, and `dlookr`.  Install these if you don't have them (as per instructions in a previous [tutorial](#package_install)), then load them:
+And we need these two packages also: `car`, `boot`.  Install these if you don't have them (as per instructions in a previous [tutorial](#package_install)), then load them:
 
 ```{r, message = FALSE, warning = FALSE}
-library(dlookr)
 library(car)  
 library(boot)
 ```
@@ -163,38 +163,47 @@ The Shapiro-Wilk test is a type of goodness-of-fit test.
 Sometimes the **Shapiro-Wilk test** is applied in a hypothesis testing framework, but when it is applied as part of checking assumptions for another statistical test (like we're doing here), one does not need to present it in a hypothesis test framework. However, the implied null hypothesis is that "The data are sampled from a population having a normal distribution", and one does interpret the resulting *P*-value in the same way as usual, i.e. in relation to an $\alpha$ level (see below).
 </div>
 
-We'll make use of the `normality` function from the `dlookr` package
+We'll make use of the `shapiro.test` function from base R stats package:
 
 ```
-?dlookr::normality
+shapiro.test
 ```
 
 Let's use this on the `biomassRatio` variable in the "marine" dataset. We'll assign the output to an object called "shapiro.result", then we'll have a look at the results.
 
-Here we go:
+<div class="note">
+**NOTE: **
+The output from the `shapiro.test` function is not "tidy", so we will use the `tidy` function from the `broom` package to make it tidy.
+</div>
+
+Here we go: we provide the function with the tibble name ("marine") and the variable of interest after a "$":
 ```{r normtest}
-shapiro.result <- marine %>%
-  normality(biomassRatio)
+shapiro.result <- shapiro.test(marine$biomassRatio)
+```
+
+Now tidy the output:
+
+```{r tidynormal}
+shapiro.result.tidy <- tidy(shapiro.result)
 ```
 
 Now look at the results:
 
 ```{r normtest_results}
-shapiro.result
+shapiro.result.tidy
 ```
 
-The function returns:  
+The tidy object includes:  
 
-* The name of the variable being tested (and one can optionally provide more than one variable)
 * The value of the test statistic for the Shapriro-Wilk test (although it is not shown, this test statistic is indicated with a "W")
-* The *P*-value associated with the test
-* The sample size used in the test
+* The *P*-value associated with the test ("p.value")
+* The name of the test used ("method")
 
 Given that the *P*-value is less than a conventional $\alpha$ level of 0.05, the test is telling us that the data do not conform to a normal distribution.  Of course we already knew that from our visual assessments!
 
 Here's an example statement:
 
->The assumption of normality was checked visually using a normal quantile plot, and a Shapiro-Wilk test, which revealed evidence of non-normality (Shapiro-Wilk test, W = `r round(shapiro.result$statistic, 2)`, *P*-value < 0.001).
+>The assumption of normality was checked visually using a normal quantile plot, and a Shapiro-Wilk test, which revealed evidence of non-normality (Shapiro-Wilk test, W = `r round(shapiro.result.tidy$statistic, 2)`, *P*-value < 0.001).
 
 <div class="note">
 **Important: **
@@ -348,28 +357,23 @@ marine %>%
 
 The log-transform definitely helped, but the distribution still looks a bit wonky: several of the points are quite far from the line.  
 
-Just to be sure, let's conduct a Shapiro-Wilk test, using an $\alpha$ level of 0.05:
+Just to be sure, let's conduct a Shapiro-Wilk test, using an $\alpha$ level of 0.05, and remembering to tidy the output:
 
 ```{r normtest22}
-shapiro.log.result <- marine %>%
-  normality(logbiomass)
-shapiro.log.result
+shapiro.log.result <- shapiro.test(marine$logbiomass)
+shapiro.log.result.tidy <- tidy(shapiro.log.result)
+shapiro.log.result.tidy
 ```
 
 The *P*-value is greater than 0.05, so we'd conclude that there's no evidence against the assumption  that these data come from a normal distribution.  
 
 For this example a reasonable statement would be:
 
->Based on the normal quantile plot (Fig. 18.9), and a Shapiro-Wilk test, we found no evidence against the normality assumption (Shapiro-Wilk test, W = `r round(shapiro.log.result$statistic, 2)`, *P*-value = `r round(shapiro.log.result$p_value, 3)`).
+>Based on the normal quantile plot (Fig. 18.9), and a Shapiro-Wilk test, we found no evidence against the normality assumption (Shapiro-Wilk test, W = `r round(shapiro.log.result.tidy$statistic, 2)`, *P*-value = `r round(shapiro.log.result.tidy$p.value, 3)`).
 
 You could now proceed with the statistical test (e.g. one-sample *t*-test) using the **transformed** variable. 
 
 ### Dealing with zeroes {#zeroes}
-
-<div class="note">
-**NOTE: UPDATED NOVEMBER 13, 2021**
-I have added a bit of material to this section.
-</div>
 
 If you try to log-transform a value of zero, R will return a `-Inf` value.  
 
@@ -400,6 +404,7 @@ apples
 Here's a quantile plot of the biomass variable:
 
 ```{r echo = F, fig.width = 5, fig.height = 4, fig.cap = "Normal quantile plot of made-up biomass data."}
+
 apples %>% 
   ggplot(aes(sample = biomass)) +
   stat_qq(shape = 1, size = 2) +
@@ -444,6 +449,7 @@ apples
 Notice that we still have a zero in the newly created variable, **AFTER** having transformed, because for that value we calculated the log of "1" (which equals zero).  That's OK!
 
 ```{r echo = F, fig.width = 5, fig.height = 4, fig.cap = "Normal quantile plot of made-up biomass data, log-transformed."}
+
 apples %>% 
   ggplot(aes(sample = logbiomass_plus1)) +
   stat_qq(shape = 1, size = 2) +

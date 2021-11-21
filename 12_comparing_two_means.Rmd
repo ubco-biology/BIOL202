@@ -16,16 +16,26 @@ options(knitr.table.format = "html")
 
 ## Load packages and import data {#twomean_packages_data}
 
-Load the `tidyverse`, `knitr`, `naniar`, `dlookr`, `car`, `skimr`, and `janitor` packages: 
+<div class="note">
+**UPDATED November 21, 2021: **
+We have removed all reliance on the `dlookr` package, which was causing problems on some systems.  The `normality` function from this package was originally used for conducting the Shapiro-Wilk test for normality.  We now provide a different way to do this.  
+</div>
 
-```{r singlenum_packages2, warning = FALSE}
+Load the `tidyverse`, `knitr`, `naniar`, `car`, `skimr`, and `janitor` packages: 
+
+```{r singlenum_packages2, warning = FALSE, message = FALSE}
 library(tidyverse)
 library(knitr)
 library(naniar)
 library(janitor)
 library(skimr)
 library(car)
-library(dlookr)
+```
+
+And we also need the `broom` package, which may be new to you.
+
+```{r singlenum_packages3, warning = FALSE}
+library(broom)
 ```
 
 The following datasets are required: 
@@ -200,12 +210,12 @@ A reasonable statement would be:
 
 > "The normal quantile plot shows that the data generally fall close to the line (except perhaps the highest value), indicating that the normality assumption is reasonably met." 
 
-But if you're feeling uncertain, we can follow this with a **Shapiro-Wilk Normality Test**, which tests the null hypothesis that the data are sampled from a normal distribution:    
+But if you're feeling uncertain, we can follow this with a **Shapiro-Wilk Normality Test**, which tests the null hypothesis that the data are sampled from a normal distribution.
 
 ```{r normtest_paired}
-shapiro.result <- blackbird.diffs %>%
-  dlookr::normality(diffs)
-shapiro.result
+shapiro.result <- shapiro.test(blackbird.diffs$diffs)
+shapiro.result.tidy <- tidy(shapiro.result)
+shapiro.result.tidy
 ```
 
 Given that the *P*-value is large (and much greater than 0.05), there is no reason to reject the null hypothesis. Thus, our normality assumption is met.  
@@ -214,7 +224,7 @@ When testing the normality assumption using the Shapiro-Wilk test, there is no n
 
 For instance: 
 
->"A Shapiro-Wilk test revealed no evidence against the assumption that the data are drawn from a normal distribution (*W* = `r round(shapiro.result$statistic,2)`, *P*-value = `r round(shapiro.result$p_value,3)`)."  
+>"A Shapiro-Wilk test revealed no evidence against the assumption that the data are drawn from a normal distribution (*W* = `r round(shapiro.result.tidy$statistic,2)`, *P*-value = `r round(shapiro.result.tidy$p.value,3)`)."  
 
 ### Conduct the test {#conduct_paired}
 
