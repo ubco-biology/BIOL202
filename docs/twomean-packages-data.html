@@ -424,7 +424,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.6" data-path="checknorm-assum.html"><a href="checknorm-assum.html"><i class="fa fa-check"></i><b>21.6</b> Checking the normality assumption</a>
 <ul>
 <li class="chapter" data-level="21.6.1" data-path="checknorm-assum.html"><a href="checknorm-assum.html#quantile_plots"><i class="fa fa-check"></i><b>21.6.1</b> Normal quantile plots</a></li>
-<li class="chapter" data-level="21.6.2" data-path="checknorm-assum.html"><a href="checknorm-assum.html#shapiro-wilk-test-for-normality"><i class="fa fa-check"></i><b>21.6.2</b> Shapiro-Wilk test for normality</a></li>
+<li class="chapter" data-level="21.6.2" data-path="checknorm-assum.html"><a href="checknorm-assum.html#shapirottest"><i class="fa fa-check"></i><b>21.6.2</b> Shapiro-Wilk test for normality</a></li>
 </ul></li>
 <li class="chapter" data-level="21.7" data-path="levenetest.html"><a href="levenetest.html"><i class="fa fa-check"></i><b>21.7</b> Checking the equal-variance assumption</a></li>
 <li class="chapter" data-level="21.8" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>21.8</b> Data transformations</a>
@@ -486,30 +486,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 We have removed all reliance on the <code>dlookr</code> package, which was causing problems on some systems. The <code>normality</code> function from this package was originally used for conducting the Shapiro-Wilk test for normality. We now provide a different way to do this.</p>
 </div>
 <p>Load the <code>tidyverse</code>, <code>knitr</code>, <code>naniar</code>, <code>car</code>, <code>skimr</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="twomean-packages-data.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb283-2"><a href="twomean-packages-data.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb283-3"><a href="twomean-packages-data.html#cb283-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb283-4"><a href="twomean-packages-data.html#cb283-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb283-5"><a href="twomean-packages-data.html#cb283-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb283-6"><a href="twomean-packages-data.html#cb283-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="twomean-packages-data.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb291-2"><a href="twomean-packages-data.html#cb291-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb291-3"><a href="twomean-packages-data.html#cb291-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb291-4"><a href="twomean-packages-data.html#cb291-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb291-5"><a href="twomean-packages-data.html#cb291-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb291-6"><a href="twomean-packages-data.html#cb291-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
 <p>And we also need the <code>broom</code> package, which may be new to you.</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="twomean-packages-data.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="twomean-packages-data.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
 <p>The following datasets are required:</p>
 <ul>
 <li>the “blackbird” dataset. These are the data associated with Example 12.2 in the text (page 330)</li>
 <li>the “students” dataset, describing characteristics of students from BIOL202 from several years back</li>
 </ul>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="twomean-packages-data.html#cb285-1" aria-hidden="true" tabindex="-1"></a>blackbird <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/blackbird.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="twomean-packages-data.html#cb293-1" aria-hidden="true" tabindex="-1"></a>blackbird <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/blackbird.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   blackbird = col_double(),
 ##   time = col_character(),
 ##   Antibody = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="twomean-packages-data.html#cb287-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="twomean-packages-data.html#cb295-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   height_cm = col_double(),
 ##   head_circum_cm = col_double(),

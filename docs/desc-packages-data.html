@@ -424,7 +424,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.6" data-path="checknorm-assum.html"><a href="checknorm-assum.html"><i class="fa fa-check"></i><b>21.6</b> Checking the normality assumption</a>
 <ul>
 <li class="chapter" data-level="21.6.1" data-path="checknorm-assum.html"><a href="checknorm-assum.html#quantile_plots"><i class="fa fa-check"></i><b>21.6.1</b> Normal quantile plots</a></li>
-<li class="chapter" data-level="21.6.2" data-path="checknorm-assum.html"><a href="checknorm-assum.html#shapiro-wilk-test-for-normality"><i class="fa fa-check"></i><b>21.6.2</b> Shapiro-Wilk test for normality</a></li>
+<li class="chapter" data-level="21.6.2" data-path="checknorm-assum.html"><a href="checknorm-assum.html#shapirottest"><i class="fa fa-check"></i><b>21.6.2</b> Shapiro-Wilk test for normality</a></li>
 </ul></li>
 <li class="chapter" data-level="21.7" data-path="levenetest.html"><a href="levenetest.html"><i class="fa fa-check"></i><b>21.7</b> Checking the equal-variance assumption</a></li>
 <li class="chapter" data-level="21.8" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>21.8</b> Data transformations</a>
@@ -482,22 +482,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="desc_packages_data" class="section level2" number="12.1">
 <h2><span class="header-section-number">12.1</span> Load packages and import data</h2>
 <p>Let’s load some packages first:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="desc-packages-data.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb49-2"><a href="desc-packages-data.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb49-3"><a href="desc-packages-data.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb49-4"><a href="desc-packages-data.html#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="desc-packages-data.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb52-2"><a href="desc-packages-data.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb52-3"><a href="desc-packages-data.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb52-4"><a href="desc-packages-data.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <p>And we’re introducing a new package called <code>naniar</code>, which helps us deal more easily with missing values in datasets.</p>
 <p>You may need to install that package (<strong>recall</strong> you only do this once!). Consult a <a href="package-install.html#package_install">previous tutorial</a> if you forget how.</p>
 <p>Once you’ve installed it, load it:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="desc-packages-data.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="desc-packages-data.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span></code></pre></div>
 <p>We will use the following datasets in this tutorial:</p>
 <ul>
 <li>the <code>birds.csv</code> file contains counts of different categories of bird observed at a marsh habitat</li>
 <li>the <code>penguins</code> dataset that is available as part of the <code>palmerpenguins</code> package</li>
 </ul>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="desc-packages-data.html#cb51-1" aria-hidden="true" tabindex="-1"></a>birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="desc-packages-data.html#cb54-1" aria-hidden="true" tabindex="-1"></a>birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   type = col_character()
 ## )</code></pre>

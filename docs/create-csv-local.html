@@ -424,7 +424,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.6" data-path="checknorm-assum.html"><a href="checknorm-assum.html"><i class="fa fa-check"></i><b>21.6</b> Checking the normality assumption</a>
 <ul>
 <li class="chapter" data-level="21.6.1" data-path="checknorm-assum.html"><a href="checknorm-assum.html#quantile_plots"><i class="fa fa-check"></i><b>21.6.1</b> Normal quantile plots</a></li>
-<li class="chapter" data-level="21.6.2" data-path="checknorm-assum.html"><a href="checknorm-assum.html#shapiro-wilk-test-for-normality"><i class="fa fa-check"></i><b>21.6.2</b> Shapiro-Wilk test for normality</a></li>
+<li class="chapter" data-level="21.6.2" data-path="checknorm-assum.html"><a href="checknorm-assum.html#shapirottest"><i class="fa fa-check"></i><b>21.6.2</b> Shapiro-Wilk test for normality</a></li>
 </ul></li>
 <li class="chapter" data-level="21.7" data-path="levenetest.html"><a href="levenetest.html"><i class="fa fa-check"></i><b>21.7</b> Checking the equal-variance assumption</a></li>
 <li class="chapter" data-level="21.8" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>21.8</b> Data transformations</a>
@@ -483,9 +483,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.3</span> Create a CSV file</h2>
 <p>Before we create or save any data files on our local computer, we should first create a directory (folder) called “rawdata” to store them.</p>
 <p>Let’s create the new directory in our “BIOL202_tutorials” working directory. To do this, use the <code>dir.create</code> function in R, as follows:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="create-csv-local.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;rawdata&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="create-csv-local.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;rawdata&quot;</span>)</span></code></pre></div>
 <p>Once you run this code, you’ll see the new directory appear in the Files pane in the bottom-right of RStudio. It might look something like this:</p>
-<div class="figure"><span id="fig:unnamed-chunk-46"></span>
+<div class="figure"><span id="fig:unnamed-chunk-14"></span>
 <img src="more/files_pane_rawdata.png" alt="View of files with rawdata folder" width="708" />
 <p class="caption">
 Figure 10.2: View of files with rawdata folder

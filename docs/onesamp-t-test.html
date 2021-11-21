@@ -424,7 +424,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="21.6" data-path="checknorm-assum.html"><a href="checknorm-assum.html"><i class="fa fa-check"></i><b>21.6</b> Checking the normality assumption</a>
 <ul>
 <li class="chapter" data-level="21.6.1" data-path="checknorm-assum.html"><a href="checknorm-assum.html#quantile_plots"><i class="fa fa-check"></i><b>21.6.1</b> Normal quantile plots</a></li>
-<li class="chapter" data-level="21.6.2" data-path="checknorm-assum.html"><a href="checknorm-assum.html#shapiro-wilk-test-for-normality"><i class="fa fa-check"></i><b>21.6.2</b> Shapiro-Wilk test for normality</a></li>
+<li class="chapter" data-level="21.6.2" data-path="checknorm-assum.html"><a href="checknorm-assum.html#shapirottest"><i class="fa fa-check"></i><b>21.6.2</b> Shapiro-Wilk test for normality</a></li>
 </ul></li>
 <li class="chapter" data-level="21.7" data-path="levenetest.html"><a href="levenetest.html"><i class="fa fa-check"></i><b>21.7</b> Checking the equal-variance assumption</a></li>
 <li class="chapter" data-level="21.8" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>21.8</b> Data transformations</a>
@@ -530,15 +530,15 @@ Histograms may look a little wonky if you have small sample sizes. This is OK!</
 <p>The first step is to figure out the minimum and maximum values of your numeric variable, and you should have already done this when using the <code>skim_without_charts</code> function to get an overview of the dataset (when you first imported the data).</p>
 <p>For the <code>temperature</code> variable, our minimum and maximum values were 97.4 and 100, respectively.</p>
 <p>We’ll use this information to ensure that the histogram spans the appropriate range along the x-axis, and to decide on the appropriate “bin widths”:</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="onesamp-t-test.html#cb270-1" aria-hidden="true" tabindex="-1"></a>bodytemp <span class="sc">%&gt;%</span> </span>
-<span id="cb270-2"><a href="onesamp-t-test.html#cb270-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temperature)) <span class="sc">+</span></span>
-<span id="cb270-3"><a href="onesamp-t-test.html#cb270-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">boundary =</span> <span class="dv">97</span>, </span>
-<span id="cb270-4"><a href="onesamp-t-test.html#cb270-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>,) <span class="sc">+</span></span>
-<span id="cb270-5"><a href="onesamp-t-test.html#cb270-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body temperature (degrees F)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb270-6"><a href="onesamp-t-test.html#cb270-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb270-7"><a href="onesamp-t-test.html#cb270-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-105"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-105-1.png" alt="Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people." width="384" />
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="onesamp-t-test.html#cb278-1" aria-hidden="true" tabindex="-1"></a>bodytemp <span class="sc">%&gt;%</span> </span>
+<span id="cb278-2"><a href="onesamp-t-test.html#cb278-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temperature)) <span class="sc">+</span></span>
+<span id="cb278-3"><a href="onesamp-t-test.html#cb278-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">boundary =</span> <span class="dv">97</span>, </span>
+<span id="cb278-4"><a href="onesamp-t-test.html#cb278-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>,) <span class="sc">+</span></span>
+<span id="cb278-5"><a href="onesamp-t-test.html#cb278-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body temperature (degrees F)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb278-6"><a href="onesamp-t-test.html#cb278-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb278-7"><a href="onesamp-t-test.html#cb278-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-73"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-73-1.png" alt="Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people." width="384" />
 <p class="caption">
 Figure 18.1: Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people.
 </p>
@@ -560,9 +560,9 @@ Notice the new argument to the <code>geom_histogram</code> function: “boundary
 <p>This function is used for both one-sample and two-sample <em>t</em>-tests (covered later), and for calculating 95% confidence intervals for a mean (later in this tutorial).</p>
 <p>Because this function has multiple purposes, be sure to pay attention to the arguments.</p>
 <p>Here’s the code, which we’ll explain after:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="onesamp-t-test.html#cb272-1" aria-hidden="true" tabindex="-1"></a>body.ttest <span class="ot">&lt;-</span> bodytemp <span class="sc">%&gt;%</span></span>
-<span id="cb272-2"><a href="onesamp-t-test.html#cb272-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(temperature) <span class="sc">%&gt;%</span></span>
-<span id="cb272-3"><a href="onesamp-t-test.html#cb272-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">mu =</span> <span class="fl">98.6</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="onesamp-t-test.html#cb280-1" aria-hidden="true" tabindex="-1"></a>body.ttest <span class="ot">&lt;-</span> bodytemp <span class="sc">%&gt;%</span></span>
+<span id="cb280-2"><a href="onesamp-t-test.html#cb280-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(temperature) <span class="sc">%&gt;%</span></span>
+<span id="cb280-3"><a href="onesamp-t-test.html#cb280-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">mu =</span> <span class="fl">98.6</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
 <ul>
 <li>We first assign our results to a new object called “body.ttest”</li>
 <li>We then <code>select</code> the variable “temperature,” as this is the one being analyzed</li>
@@ -571,7 +571,7 @@ Notice the new argument to the <code>geom_histogram</code> function: “boundary
 <li>We provide the “conf.level” of 0.95, which is equal to <span class="math inline">\(1-\alpha\)</span></li>
 </ul>
 <p>Let’s look at the results:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="onesamp-t-test.html#cb273-1" aria-hidden="true" tabindex="-1"></a>body.ttest</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="onesamp-t-test.html#cb281-1" aria-hidden="true" tabindex="-1"></a>body.ttest</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
