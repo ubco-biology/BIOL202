@@ -190,6 +190,11 @@ There are two typical uses of confidence intervals:
 
 We'll explore the latter use of confidence intervals later in this tutorial. For now, let's demonstrate the first use of confidence intervals: as a measure of precision for an estimate.
 
+<div class="note">
+**NOTE: **
+A straightforward way to calculate the confidence interval for the mean of a numeric variable is using the `t.test` function. For an example, see this [tutorial section](#stats_2samp). 
+</div>
+
 ### Confidence interval as a measure of precision for an estimate {#conf_precision}
 
 The formula for a 95% confidence interval for $\mu$ is:  

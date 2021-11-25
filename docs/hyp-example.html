@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-21" />
+<meta name="date" content="2021-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -488,7 +488,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Should this result be considered evidence of handedness in this population?</p>
 <hr />
 <p>For this example, we’ll use the imported <code>damselfly</code> dataset, which includes the single categorical variable of interest “direction,” and there are two categories: “clockwise” and “counter_clockwise.”</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="hyp-example.html#cb158-1" aria-hidden="true" tabindex="-1"></a>damselfly</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="hyp-example.html#cb155-1" aria-hidden="true" tabindex="-1"></a>damselfly</span></code></pre></div>
 <pre><code>## # A tibble: 20 × 1
 ##    direction        
 ##    &lt;chr&gt;            
@@ -530,9 +530,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">15.3.2</span> Simulating a “null distribution”</h3>
 <p>For our damselfly example, we can easily simulate the random trials (20 territorial flight battles, each yielding one of 2 outcomes) by using what we learned in the previous <a href="estimation.html#estimation">tutorial</a> about simulations in R.</p>
 <p>First, we’ll create a tibble object called “null_options” that holds a categorical variable “direction” with two categories, “clockwise” and “counter_clockwise”:</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="hyp-example.html#cb160-1" aria-hidden="true" tabindex="-1"></a>null_options <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">direction =</span> <span class="fu">c</span>(<span class="st">&quot;clockwise&quot;</span>, <span class="st">&quot;counter_clockwise&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="hyp-example.html#cb157-1" aria-hidden="true" tabindex="-1"></a>null_options <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">direction =</span> <span class="fu">c</span>(<span class="st">&quot;clockwise&quot;</span>, <span class="st">&quot;counter_clockwise&quot;</span>))</span></code></pre></div>
 <p>Have a look at the resulting object:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="hyp-example.html#cb161-1" aria-hidden="true" tabindex="-1"></a>null_options</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="hyp-example.html#cb158-1" aria-hidden="true" tabindex="-1"></a>null_options</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 1
 ##   direction        
 ##   &lt;chr&gt;            
@@ -541,11 +541,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now we can use the <code>rep_slice_sample</code> function from the <code>infer</code> package (which we learned about in the last <a href="estimation.html#estimation">tutorial</a>) to simulate a large number of repetitions of our <em>n</em> = 20 random trials. The number of repetitions is governed by the <em>reps</em> argument.</p>
 <p>We’ll set the seed first, to ensure everyone gets the same result for this initial demonstration repetition.</p>
 <p>Let’s start with a single repetition of <em>n</em> = 20 random trials. We’ll explain the code after:</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="hyp-example.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">199</span>)</span>
-<span id="cb163-2"><a href="hyp-example.html#cb163-2" aria-hidden="true" tabindex="-1"></a>num.reps <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb163-3"><a href="hyp-example.html#cb163-3" aria-hidden="true" tabindex="-1"></a>null_options <span class="sc">%&gt;%</span></span>
-<span id="cb163-4"><a href="hyp-example.html#cb163-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">weight_by =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">reps =</span> num.reps) <span class="sc">%&gt;%</span></span>
-<span id="cb163-5"><a href="hyp-example.html#cb163-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(direction)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="hyp-example.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">199</span>)</span>
+<span id="cb160-2"><a href="hyp-example.html#cb160-2" aria-hidden="true" tabindex="-1"></a>num.reps <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb160-3"><a href="hyp-example.html#cb160-3" aria-hidden="true" tabindex="-1"></a>null_options <span class="sc">%&gt;%</span></span>
+<span id="cb160-4"><a href="hyp-example.html#cb160-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">weight_by =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">reps =</span> num.reps) <span class="sc">%&gt;%</span></span>
+<span id="cb160-5"><a href="hyp-example.html#cb160-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(direction)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 3
 ## # Groups:   replicate [1]
 ##   replicate direction             n
@@ -566,12 +566,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now what we need to do is run many thousands of repetitions (we’ll do 10^{5}), and each time tally the number of battles (out of the 20 trials) in which the direction was counter-clockwise.</p>
 <p>This will generate a reasonable approximation of a <strong>null distribution</strong> for our study.</p>
 <p>After the setting the seed, we create an object that simply holds the number of replications we wish to run.</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="hyp-example.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">199</span>)</span>
-<span id="cb165-2"><a href="hyp-example.html#cb165-2" aria-hidden="true" tabindex="-1"></a>num.reps <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
-<span id="cb165-3"><a href="hyp-example.html#cb165-3" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="ot">&lt;-</span> null_options <span class="sc">%&gt;%</span></span>
-<span id="cb165-4"><a href="hyp-example.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">weight_by =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">reps =</span> num.reps) <span class="sc">%&gt;%</span></span>
-<span id="cb165-5"><a href="hyp-example.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(direction) <span class="sc">%&gt;%</span></span>
-<span id="cb165-6"><a href="hyp-example.html#cb165-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(direction <span class="sc">==</span> <span class="st">&quot;counter_clockwise&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="hyp-example.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">199</span>)</span>
+<span id="cb162-2"><a href="hyp-example.html#cb162-2" aria-hidden="true" tabindex="-1"></a>num.reps <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb162-3"><a href="hyp-example.html#cb162-3" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="ot">&lt;-</span> null_options <span class="sc">%&gt;%</span></span>
+<span id="cb162-4"><a href="hyp-example.html#cb162-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">weight_by =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">reps =</span> num.reps) <span class="sc">%&gt;%</span></span>
+<span id="cb162-5"><a href="hyp-example.html#cb162-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(direction) <span class="sc">%&gt;%</span></span>
+<span id="cb162-6"><a href="hyp-example.html#cb162-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(direction <span class="sc">==</span> <span class="st">&quot;counter_clockwise&quot;</span>)</span></code></pre></div>
 <p>In the above code chunk, we:</p>
 <ul>
 <li>assign our output to a new object called “dull_distribution”</li>
@@ -580,7 +580,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>We then <code>filter</code> the output from our sampling to the rows with the “direction” variable equal to “counter_clockwise”</li>
 </ul>
 <p>Let’s look at the resulting object:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="hyp-example.html#cb166-1" aria-hidden="true" tabindex="-1"></a>null_distribution</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="hyp-example.html#cb163-1" aria-hidden="true" tabindex="-1"></a>null_distribution</span></code></pre></div>
 <pre><code>## # A tibble: 100,000 × 3
 ## # Groups:   replicate [100,000]
 ##    replicate direction             n
@@ -599,15 +599,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We have a tibble with the number of rows equal to the number of replications we performed (100000), three variables (“replicate,” “direction,” and “n”), and the key information are the numbers in the “n” variable. These represent the number of battles (out of 20) that were predominantly in the counter-clockwise direction.</p>
 <p>We can now create a histogram of these data, thus producing an approximation of a “null distribution.”</p>
 <p>The only difference here, compared to previous times we’ve created histograms, is that we add the <code>after_stat(density)</code> argument to the <code>aes</code> part of the <code>ggplot</code> function. This tells R to display the relative frequency (= probability density) rather than the raw counts on the y-axis. Notice we also use “binwidth = 1,” because we want to see a bar for each potential outcome (0 through 20).</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="hyp-example.html#cb168-1" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="sc">%&gt;%</span></span>
-<span id="cb168-2"><a href="hyp-example.html#cb168-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n, <span class="fu">after_stat</span>(density))) <span class="sc">+</span></span>
-<span id="cb168-3"><a href="hyp-example.html#cb168-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb168-4"><a href="hyp-example.html#cb168-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb168-5"><a href="hyp-example.html#cb168-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of counter-clockwise battles&quot;</span>) <span class="sc">+</span></span>
-<span id="cb168-6"><a href="hyp-example.html#cb168-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb168-7"><a href="hyp-example.html#cb168-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-55"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-55-1.png" alt="Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions." width="480" />
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="hyp-example.html#cb165-1" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="sc">%&gt;%</span></span>
+<span id="cb165-2"><a href="hyp-example.html#cb165-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n, <span class="fu">after_stat</span>(density))) <span class="sc">+</span></span>
+<span id="cb165-3"><a href="hyp-example.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb165-4"><a href="hyp-example.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb165-5"><a href="hyp-example.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of counter-clockwise battles&quot;</span>) <span class="sc">+</span></span>
+<span id="cb165-6"><a href="hyp-example.html#cb165-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb165-7"><a href="hyp-example.html#cb165-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-96"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-96-1.png" alt="Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions." width="480" />
 <p class="caption">
 Figure 15.1: Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions.
 </p>
@@ -629,17 +629,17 @@ Although our approximate null distribution that we created looks quite symmetric
 </div>
 <p>In the <a href="coding-basics.html#coding_basics">Introductory R Tutorials</a> you learned how to use <strong>logical comparison operators</strong> such as <code>&gt;</code> and <code>&lt;=</code>. We’ll use these here.</p>
 <p>Let’s find out how many values within the variable <code>n</code> in our <code>null_distribution</code> tibble are less than or equal to 3, or greater than or equal to 17:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="hyp-example.html#cb169-1" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="sc">%&gt;%</span></span>
-<span id="cb169-2"><a href="hyp-example.html#cb169-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">|</span> n <span class="sc">&gt;=</span> <span class="dv">17</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb169-3"><a href="hyp-example.html#cb169-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="hyp-example.html#cb166-1" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="sc">%&gt;%</span></span>
+<span id="cb166-2"><a href="hyp-example.html#cb166-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">|</span> n <span class="sc">&gt;=</span> <span class="dv">17</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb166-3"><a href="hyp-example.html#cb166-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>() </span></code></pre></div>
 <pre><code>## [1] 254</code></pre>
 <p>This code uses the <code>filter</code> function to return only the rows that meet the condition specified: the “n” variable value less than or equal to 3, OR (using the “|” symbol) greater than or equal to 17.</p>
 <p>The <code>nrow</code> function then simply counts the number of rows in the resulting (filtered) tibble.</p>
 <p>We see that among the 10^{5} replications we ran, 254 yielded outcomes in which 3 or fewer, or 17 or more out of 20 battles were in the counter-clockwise direction.</p>
 <p>To calculate the <em>P</em>-value, we need to divide the 254 by the total number of reps that we conducted, here 10^{5}.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="hyp-example.html#cb171-1" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="sc">%&gt;%</span></span>
-<span id="cb171-2"><a href="hyp-example.html#cb171-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">|</span> n <span class="sc">&gt;=</span> <span class="dv">17</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb171-3"><a href="hyp-example.html#cb171-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>() <span class="sc">/</span> num.reps</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="hyp-example.html#cb168-1" aria-hidden="true" tabindex="-1"></a>null_distribution <span class="sc">%&gt;%</span></span>
+<span id="cb168-2"><a href="hyp-example.html#cb168-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;=</span> <span class="dv">3</span> <span class="sc">|</span> n <span class="sc">&gt;=</span> <span class="dv">17</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb168-3"><a href="hyp-example.html#cb168-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>() <span class="sc">/</span> num.reps</span></code></pre></div>
 <pre><code>## [1] 0.00254</code></pre>
 <p>So the <strong><em>P</em>-value</strong> associated with our observed test statistic is 0.00254.</p>
 </div>

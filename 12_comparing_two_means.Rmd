@@ -148,7 +148,7 @@ Steps to a hypothesis test:
 
 The best way to visualize the data for a paired *t*-test is to create a **histogram** of the calculated *differences* between the paired observations.
 
-```{r fig.width = 4, fig.height = 3, fig.cap = "Histogram of the differences in antibody production rate before and after the testosterone treatment"}
+```{r fig.cap = "Histogram of the differences in antibody production rate before and after the testosterone treatment", fig.width = 4, fig.height = 3}
 
 blackbird.diffs %>% 
   ggplot(aes(x = diffs)) +

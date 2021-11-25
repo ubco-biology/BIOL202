@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-21" />
+<meta name="date" content="2021-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -482,29 +482,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="twonum_packages_data" class="section level2" number="21.1">
 <h2><span class="header-section-number">21.1</span> Load packages and import data</h2>
 <p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>broom</code>, <code>knitr</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="twonum-packages-data.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb381-2"><a href="twonum-packages-data.html#cb381-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb381-3"><a href="twonum-packages-data.html#cb381-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb381-4"><a href="twonum-packages-data.html#cb381-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb381-5"><a href="twonum-packages-data.html#cb381-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="twonum-packages-data.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb378-2"><a href="twonum-packages-data.html#cb378-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb378-3"><a href="twonum-packages-data.html#cb378-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb378-4"><a href="twonum-packages-data.html#cb378-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb378-5"><a href="twonum-packages-data.html#cb378-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We’ll use the “wolf.csv” and “trick.csv” datasets (discussed in examples 16.2 and 16.5 in the text, respectively).</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="twonum-packages-data.html#cb382-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/wolf.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="twonum-packages-data.html#cb379-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/wolf.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   inbreedCoef = col_double(),
 ##   nPups = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="twonum-packages-data.html#cb384-1" aria-hidden="true" tabindex="-1"></a>trick <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/trick.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="twonum-packages-data.html#cb381-1" aria-hidden="true" tabindex="-1"></a>trick <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/trick.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   years = col_double(),
 ##   impressivenessScore = col_double()
 ## )</code></pre>
 <p>The <code>wolf</code> dataset includes inbreeding coefficients for wolf pairs, along with the number of the pairs’ pups surviving the first winter.</p>
 <p>Explore the data:</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="twonum-packages-data.html#cb386-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="twonum-packages-data.html#cb383-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:corr_seedata1)Data summary
@@ -686,7 +686,7 @@ nPups
 </table>
 <p>We see that there are 24 observations for each of the two variables, and no missing values. If there WERE missing values, be sure to report the correct sample size in your results!</p>
 <p>Now let’s explore the <code>trick</code> dataset:</p>
-<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="twonum-packages-data.html#cb387-1" aria-hidden="true" tabindex="-1"></a>trick <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="twonum-packages-data.html#cb384-1" aria-hidden="true" tabindex="-1"></a>trick <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:corr_seedata2)Data summary

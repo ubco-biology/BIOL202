@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-21" />
+<meta name="date" content="2021-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -482,29 +482,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="assumptions_packages_data" class="section level2" number="21.5">
 <h2><span class="header-section-number">21.5</span> Load packages and import data</h2>
 <p>Load the usual packages, and <code>broom</code>, which has been used in some tutorials:</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="assumptions-packages-data.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb416-2"><a href="assumptions-packages-data.html#cb416-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb416-3"><a href="assumptions-packages-data.html#cb416-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="assumptions-packages-data.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb413-2"><a href="assumptions-packages-data.html#cb413-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb413-3"><a href="assumptions-packages-data.html#cb413-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
 <p>And we need these two packages also: <code>car</code>, <code>boot</code>. Install these if you don’t have them (as per instructions in a previous <a href="package-install.html#package_install">tutorial</a>), then load them:</p>
-<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="assumptions-packages-data.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)  </span>
-<span id="cb417-2"><a href="assumptions-packages-data.html#cb417-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="assumptions-packages-data.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)  </span>
+<span id="cb414-2"><a href="assumptions-packages-data.html#cb414-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span></code></pre></div>
 <p>The “marine.csv” dataset is discussed in example 13.1 in the text book. The “flowers.csv” dataset is described below. The “students.csv” data include data about BIOL202 students from a few years ago.</p>
 <p>Let’s make sure to treat any categorical variables as factor variables, using the “stringsAsFactors = T” argument:</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="assumptions-packages-data.html#cb418-1" aria-hidden="true" tabindex="-1"></a>marine <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/marine.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="assumptions-packages-data.html#cb415-1" aria-hidden="true" tabindex="-1"></a>marine <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/marine.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   biomassRatio = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="assumptions-packages-data.html#cb420-1" aria-hidden="true" tabindex="-1"></a>flowers <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/flowers.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="assumptions-packages-data.html#cb417-1" aria-hidden="true" tabindex="-1"></a>flowers <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/flowers.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   propFertile = col_double()
 ## )</code></pre>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="assumptions-packages-data.html#cb422-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="assumptions-packages-data.html#cb419-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   height_cm = col_double(),
 ##   head_circum_cm = col_double(),
@@ -514,8 +514,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##   Dominant_eye = col_character()
 ## )</code></pre>
 <p>Explore the <code>marine</code> and <code>flowers</code> datasets:</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="assumptions-packages-data.html#cb424-1" aria-hidden="true" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
-<span id="cb424-2"><a href="assumptions-packages-data.html#cb424-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="assumptions-packages-data.html#cb421-1" aria-hidden="true" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
+<span id="cb421-2"><a href="assumptions-packages-data.html#cb421-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:skim_marine)Data summary
@@ -663,8 +663,8 @@ biomassRatio
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="assumptions-packages-data.html#cb425-1" aria-hidden="true" tabindex="-1"></a>flowers <span class="sc">%&gt;%</span></span>
-<span id="cb425-2"><a href="assumptions-packages-data.html#cb425-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="assumptions-packages-data.html#cb422-1" aria-hidden="true" tabindex="-1"></a>flowers <span class="sc">%&gt;%</span></span>
+<span id="cb422-2"><a href="assumptions-packages-data.html#cb422-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:skim_flowers)Data summary

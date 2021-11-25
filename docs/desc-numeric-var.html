@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-21" />
+<meta name="date" content="2021-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -497,13 +497,13 @@ Introducing the <code>summarise</code> function.</p>
 <pre><code>?summarise</code></pre>
 <p>Let’s use the <code>penguins</code> dataset for our demonstrations.</p>
 <p>The first step is to visualize the frequency distribution. Given that this is a numeric variable, we do this using a histogram, as we learned in a previous <a href="vis-histogram.html#vis_histogram">tutorial</a>.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="desc-numeric-var.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
-<span id="cb61-2"><a href="desc-numeric-var.html#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">500</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>) <span class="sc">+</span></span>
-<span id="cb61-3"><a href="desc-numeric-var.html#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb61-4"><a href="desc-numeric-var.html#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb61-5"><a href="desc-numeric-var.html#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-28"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-28-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="desc-numeric-var.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb58-2"><a href="desc-numeric-var.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">500</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-3"><a href="desc-numeric-var.html#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-4"><a href="desc-numeric-var.html#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb58-5"><a href="desc-numeric-var.html#cb58-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-69"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-69-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
 <p class="caption">
 Figure 12.1: Histogram of body mass (g) for 342 penguins
 </p>
@@ -519,7 +519,7 @@ Figure 12.1: Histogram of body mass (g) for 342 penguins
    IQR_body_mass_g = IQR(body_mass_g)
     )</code></pre>
 <p>Uh oh! If you tried to run this code, it would have given you an error:</p>
-<div class="figure"><span id="fig:unnamed-chunk-29"></span>
+<div class="figure"><span id="fig:unnamed-chunk-70"></span>
 <img src="more/na_error.png" alt="Error when functions encounter 'NA' values" width="648" />
 <p class="caption">
 Figure 12.2: Error when functions encounter ‘NA’ values
@@ -531,11 +531,11 @@ Figure 12.2: Error when functions encounter ‘NA’ values
 If there are “NA” values in the variable being analyzed, some R functions, such as the function <code>median</code> or <code>mean</code>, will simply return “NA.” To remedy this, we use the “na.rm = TRUE” argument.</p>
 </div>
 <p>Let’s try our code again, adding the “na.rm = TRUE” argument. And note that the key functions called within the <code>summarise</code> function are <code>median</code> and <code>IQR</code> (case sensitive!).</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="desc-numeric-var.html#cb63-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb63-2"><a href="desc-numeric-var.html#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb63-3"><a href="desc-numeric-var.html#cb63-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">Median =</span>  <span class="fu">median</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb63-4"><a href="desc-numeric-var.html#cb63-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">InterQR =</span> <span class="fu">IQR</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb63-5"><a href="desc-numeric-var.html#cb63-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="desc-numeric-var.html#cb60-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb60-2"><a href="desc-numeric-var.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb60-3"><a href="desc-numeric-var.html#cb60-3" aria-hidden="true" tabindex="-1"></a>   <span class="at">Median =</span>  <span class="fu">median</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb60-4"><a href="desc-numeric-var.html#cb60-4" aria-hidden="true" tabindex="-1"></a>   <span class="at">InterQR =</span> <span class="fu">IQR</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb60-5"><a href="desc-numeric-var.html#cb60-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   Median InterQR
 ##    &lt;dbl&gt;   &lt;dbl&gt;
@@ -559,14 +559,14 @@ If there are “NA” values in the variable being analyzed, some R functions, s
 <p>Let’s do this, and while we’re at it, include even more descriptors to illustrate how they’re calculated.</p>
 <p>This time we’ll put the output from our <code>summarise</code> function into a table, and then present it in a nice format, like we learned how to do for a <a href="vis-cat-freq-table.html#vis_cat_freq_table">frequency table</a>.</p>
 <p>Let’s create the table of descriptive statistics first, a tibble called “penguins.descriptors,” and we’ll describe what’s going on after (<strong>NOTE</strong> this code chunk was edited slightly on Sept. 30, 2021):</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="desc-numeric-var.html#cb65-1" aria-hidden="true" tabindex="-1"></a>penguins.descriptors <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb65-2"><a href="desc-numeric-var.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>( </span>
-<span id="cb65-3"><a href="desc-numeric-var.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
-<span id="cb65-4"><a href="desc-numeric-var.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">SD =</span> <span class="fu">sd</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
-<span id="cb65-5"><a href="desc-numeric-var.html#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Median =</span> <span class="fu">median</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
-<span id="cb65-6"><a href="desc-numeric-var.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">InterQR =</span> <span class="fu">IQR</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
-<span id="cb65-7"><a href="desc-numeric-var.html#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g),</span>
-<span id="cb65-8"><a href="desc-numeric-var.html#cb65-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g))</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="desc-numeric-var.html#cb62-1" aria-hidden="true" tabindex="-1"></a>penguins.descriptors <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb62-2"><a href="desc-numeric-var.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>( </span>
+<span id="cb62-3"><a href="desc-numeric-var.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb62-4"><a href="desc-numeric-var.html#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">SD =</span> <span class="fu">sd</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb62-5"><a href="desc-numeric-var.html#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Median =</span> <span class="fu">median</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb62-6"><a href="desc-numeric-var.html#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">InterQR =</span> <span class="fu">IQR</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb62-7"><a href="desc-numeric-var.html#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g),</span>
+<span id="cb62-8"><a href="desc-numeric-var.html#cb62-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g))</span></code></pre></div>
 <p>The first 4 descriptive statistics are self-explanatory based on their variable names.</p>
 <p>The last two: “Count” and “Count_NA” are providing the total number of complete observations in the <code>body_mass_g</code> variable (thus the number of observations that went into calculating the descriptive statistics), and then the total number of missing values (NAs) in the variable, respectively.</p>
 <p><strong>ADDED OCTOBER 2, 2021</strong></p>
@@ -580,8 +580,8 @@ If there are “NA” values in the variable being analyzed, some R functions, s
 It is important to calculate the total number of complete observations in the variable of interest, because, as described in the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/figures-tables.html">Biology Procedures and Guidelines document</a>, this number needs to be reported in figure and table headings.</p>
 </div>
 <p>Now let’s show the table of descriptive statistics, using the <code>kable</code> function we learned about in a previous tutorial.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="desc-numeric-var.html#cb66-1" aria-hidden="true" tabindex="-1"></a>penguins.descriptors <span class="sc">%&gt;%</span></span>
-<span id="cb66-2"><a href="desc-numeric-var.html#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Descriptive statistics of measurements of body mass (g) for 342 penguins&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="desc-numeric-var.html#cb63-1" aria-hidden="true" tabindex="-1"></a>penguins.descriptors <span class="sc">%&gt;%</span></span>
+<span id="cb63-2"><a href="desc-numeric-var.html#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Descriptive statistics of measurements of body mass (g) for 342 penguins&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <caption>
 (#tab:desc_bodymass)Descriptive statistics of measurements of body mass (g) for 342 penguins
