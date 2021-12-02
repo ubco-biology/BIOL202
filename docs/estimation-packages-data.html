@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-24" />
+<meta name="date" content="2021-12-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="estimation.html"/>
 <link rel="next" href="sampling-functions.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -158,6 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>Author</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 <li class="chapter" data-level="" data-path="copyright.html"><a href="copyright.html"><i class="fa fa-check"></i>Copyright</a></li>
+<li class="chapter" data-level="" data-path="ubco-biology-open-materials.html"><a href="ubco-biology-open-materials.html"><i class="fa fa-check"></i>UBCO Biology open materials</a></li>
 </ul></li>
 <li class="part"><span><b>Getting started with R, RStudio &amp; R Markdown</b></span></li>
 <li class="chapter" data-level="1" data-path="what-is-R.html"><a href="what-is-R.html"><i class="fa fa-check"></i><b>1</b> What are R and RStudio?</a></li>
@@ -482,19 +483,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="estimation_packages_data" class="section level2" number="14.1">
 <h2><span class="header-section-number">14.1</span> Load packages and import data</h2>
 <p>Let’s load some familiar packages first:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="estimation-packages-data.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb109-2"><a href="estimation-packages-data.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb109-3"><a href="estimation-packages-data.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb109-4"><a href="estimation-packages-data.html#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="estimation-packages-data.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb106-2"><a href="estimation-packages-data.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb106-3"><a href="estimation-packages-data.html#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb106-4"><a href="estimation-packages-data.html#cb106-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
 <p>We will also need a new package called <code>infer</code>, so install that package using the procedure you <a href="package-install.html#package_install">previously learned</a>, then load it:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="estimation-packages-data.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="estimation-packages-data.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span></code></pre></div>
 <p><strong>Import Data</strong></p>
 <p>For this tutorial we’ll use the human gene length dataset that is used in Chapter 4 of the Whitlock &amp; Schluter text.</p>
 <p>The dataset is described in example 4.1 in the text.</p>
 <p>Let’s import it:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="estimation-packages-data.html#cb111-1" aria-hidden="true" tabindex="-1"></a>genelengths <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/humangenelength.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="estimation-packages-data.html#cb108-1" aria-hidden="true" tabindex="-1"></a>genelengths <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/humangenelength.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   gene = col_character(),
 ##   size = col_double(),
@@ -503,8 +504,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## )</code></pre>
 <p><strong>Get an overview of the data</strong></p>
 <p>We’ll use <code>skim_without_charts</code> to get an overview:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="estimation-packages-data.html#cb113-1" aria-hidden="true" tabindex="-1"></a>genelengths <span class="sc">%&gt;%</span></span>
-<span id="cb113-2"><a href="estimation-packages-data.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="estimation-packages-data.html#cb110-1" aria-hidden="true" tabindex="-1"></a>genelengths <span class="sc">%&gt;%</span></span>
+<span id="cb110-2"><a href="estimation-packages-data.html#cb110-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:est_overview)Data summary

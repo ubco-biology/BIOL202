@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-24" />
+<meta name="date" content="2021-12-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="single-cat.html"/>
 <link rel="next" href="estproportions.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -158,6 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>Author</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 <li class="chapter" data-level="" data-path="copyright.html"><a href="copyright.html"><i class="fa fa-check"></i>Copyright</a></li>
+<li class="chapter" data-level="" data-path="ubco-biology-open-materials.html"><a href="ubco-biology-open-materials.html"><i class="fa fa-check"></i>UBCO Biology open materials</a></li>
 </ul></li>
 <li class="part"><span><b>Getting started with R, RStudio &amp; R Markdown</b></span></li>
 <li class="chapter" data-level="1" data-path="what-is-R.html"><a href="what-is-R.html"><i class="fa fa-check"></i><b>1</b> What are R and RStudio?</a></li>
@@ -482,29 +483,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="singcat_packages_data" class="section level2" number="16.1">
 <h2><span class="header-section-number">16.1</span> Load packages and import data</h2>
 <p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>naniar</code>, <code>knitr</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="singcat-packages-data.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb170-2"><a href="singcat-packages-data.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb170-3"><a href="singcat-packages-data.html#cb170-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb170-4"><a href="singcat-packages-data.html#cb170-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb170-5"><a href="singcat-packages-data.html#cb170-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="singcat-packages-data.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb167-2"><a href="singcat-packages-data.html#cb167-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb167-3"><a href="singcat-packages-data.html#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb167-4"><a href="singcat-packages-data.html#cb167-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb167-5"><a href="singcat-packages-data.html#cb167-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We will also need a new package called <code>binom</code>, so install that package using the procedure you <a href="package-install.html#package_install">previously learned</a>, then load it:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="singcat-packages-data.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(binom)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="singcat-packages-data.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(binom)</span></code></pre></div>
 <p>Import the <code>damselfly.csv</code> data set we used in the preceding <a href="hypothesis.html#hypothesis">tutorial</a>, and also the <code>birds.csv</code> dataset we used in an earlier <a href="vis-describe.html#vis_describe">tutorial</a>.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="singcat-packages-data.html#cb172-1" aria-hidden="true" tabindex="-1"></a>damselfly <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/damselfly.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="singcat-packages-data.html#cb169-1" aria-hidden="true" tabindex="-1"></a>damselfly <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/damselfly.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   direction = col_character()
 ## )</code></pre>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="singcat-packages-data.html#cb174-1" aria-hidden="true" tabindex="-1"></a>birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="singcat-packages-data.html#cb171-1" aria-hidden="true" tabindex="-1"></a>birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   type = col_character()
 ## )</code></pre>
 <p>Recall what the damselfly dataset looks like:</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="singcat-packages-data.html#cb176-1" aria-hidden="true" tabindex="-1"></a>damselfly</span></code></pre></div>
-<pre><code>## # A tibble: 20 × 1
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="singcat-packages-data.html#cb173-1" aria-hidden="true" tabindex="-1"></a>damselfly</span></code></pre></div>
+<pre><code>## # A tibble: 20 x 1
 ##    direction        
 ##    &lt;chr&gt;            
 ##  1 clockwise        
@@ -529,8 +530,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 20 counter_clockwise</code></pre>
 <p>The data show the predominant direction (either clockwise or counter-clockwise) of 20 circular battles between male damseflies.</p>
 <p>And remind yourself what the birds dataset looks like:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="singcat-packages-data.html#cb178-1" aria-hidden="true" tabindex="-1"></a>birds</span></code></pre></div>
-<pre><code>## # A tibble: 86 × 1
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="singcat-packages-data.html#cb175-1" aria-hidden="true" tabindex="-1"></a>birds</span></code></pre></div>
+<pre><code>## # A tibble: 86 x 1
 ##    type     
 ##    &lt;chr&gt;    
 ##  1 Waterfowl

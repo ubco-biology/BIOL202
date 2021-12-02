@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-11-24" />
+<meta name="date" content="2021-12-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="vis2-2cat.html"/>
 <link rel="next" href="numeric-vs-cat.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -158,6 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>Author</a></li>
 <li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
 <li class="chapter" data-level="" data-path="copyright.html"><a href="copyright.html"><i class="fa fa-check"></i>Copyright</a></li>
+<li class="chapter" data-level="" data-path="ubco-biology-open-materials.html"><a href="ubco-biology-open-materials.html"><i class="fa fa-check"></i>UBCO Biology open materials</a></li>
 </ul></li>
 <li class="part"><span><b>Getting started with R, RStudio &amp; R Markdown</b></span></li>
 <li class="chapter" data-level="1" data-path="what-is-R.html"><a href="what-is-R.html"><i class="fa fa-check"></i><b>1</b> What are R and RStudio?</a></li>
@@ -488,16 +489,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>NOTE</strong>
 As shown in the tutorial on <a href="rmd-graphing.html#rmd_graphing">preparing and formatting assignments</a>, we can use the <code>filter</code> function from the <code>dplyr</code> package to easily subset datasets according to some criterion, such as belonging to a specific category.</p>
 </div>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="two-numeric.html#cb94-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb94-2"><a href="two-numeric.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb94-3"><a href="two-numeric.html#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb94-4"><a href="two-numeric.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb94-5"><a href="two-numeric.html#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb94-6"><a href="two-numeric.html#cb94-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb94-7"><a href="two-numeric.html#cb94-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="two-numeric.html#cb91-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb91-2"><a href="two-numeric.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb91-3"><a href="two-numeric.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb91-4"><a href="two-numeric.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb91-5"><a href="two-numeric.html#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb91-6"><a href="two-numeric.html#cb91-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb91-7"><a href="two-numeric.html#cb91-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<div class="figure"><span id="fig:unnamed-chunk-81"></span>
-<img src="BIOL202-github_files/figure-html/unnamed-chunk-81-1.png" alt="Scatterplot of the association between bill length and depth among 151 Adelie penguins" width="480" />
+<div class="figure"><span id="fig:unnamed-chunk-40"></span>
+<img src="BIOL202-github_files/figure-html/unnamed-chunk-40-1.png" alt="Scatterplot of the association between bill length and depth among 151 Adelie penguins" width="480" />
 <p class="caption">
 Figure 13.5: Scatterplot of the association between bill length and depth among 151 Adelie penguins
 </p>
