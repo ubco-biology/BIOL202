@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-12-02" />
+<meta name="date" content="2021-12-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="singcat-packages-data.html"/>
 <link rel="next" href="binomdist.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -660,7 +660,7 @@ In previous tutorials we used a bit more cumbersome way to calculate the total n
 </ul>
 <p>Let’s look at what this produced:</p>
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="estproportions.html#cb185-1" aria-hidden="true" tabindex="-1"></a>pred.phat</span></code></pre></div>
-<pre><code>## # A tibble: 1 x 1
+<pre><code>## # A tibble: 1 × 1
 ##    p_hat
 ##    &lt;dbl&gt;
 ## 1 0.3372</code></pre>
@@ -705,7 +705,7 @@ In previous tutorials we used a bit more cumbersome way to calculate the total n
 <span id="cb193-3"><a href="estproportions.html#cb193-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
 <p>Show the table:</p>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="estproportions.html#cb194-1" aria-hidden="true" tabindex="-1"></a>bird.freq.table</span></code></pre></div>
-<pre><code>## # A tibble: 4 x 3
+<pre><code>## # A tibble: 4 × 3
 ##   type          n   p_hat
 ##   &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;
 ## 1 Waterfowl    43 0.5    
@@ -719,7 +719,7 @@ In previous tutorials we used a bit more cumbersome way to calculate the total n
 <span id="cb196-3"><a href="estproportions.html#cb196-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(n)</span></code></pre></div>
 <p>Now let’s see the output:</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="estproportions.html#cb197-1" aria-hidden="true" tabindex="-1"></a>bird.X</span></code></pre></div>
-<pre><code>## # A tibble: 1 x 1
+<pre><code>## # A tibble: 1 × 1
 ##       n
 ##   &lt;int&gt;
 ## 1    29</code></pre>

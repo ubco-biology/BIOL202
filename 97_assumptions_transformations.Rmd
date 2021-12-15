@@ -640,7 +640,7 @@ The most common example is **reporting confidence intervals for a mean or differ
 
 For example, imagine you had calculated a confidence interval for the log-transformed marine biomass ratio data, and your limits were as follows: 
 
-0.347 < $\mu$ < 0.611
+0.347 < $ln(\mu)$ < 0.611
 
 These are the log-transformed limits!  So we need to back-transform them to get them in the original scale:
 
