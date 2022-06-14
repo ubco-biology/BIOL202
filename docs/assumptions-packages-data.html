@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-12-15" />
+<meta name="date" content="2022-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="checking-assumptions-and-data-transformations.html"/>
 <link rel="next" href="checknorm-assum.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -493,19 +493,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s make sure to treat any categorical variables as factor variables, using the “stringsAsFactors = T” argument:</p>
 <div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="assumptions-packages-data.html#cb410-1" aria-hidden="true" tabindex="-1"></a>marine <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/marine.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   biomassRatio = col_double()
 ## )</code></pre>
 <div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="assumptions-packages-data.html#cb412-1" aria-hidden="true" tabindex="-1"></a>flowers <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/flowers.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   propFertile = col_double()
 ## )</code></pre>
 <div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="assumptions-packages-data.html#cb414-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   height_cm = col_double(),
 ##   head_circum_cm = col_double(),

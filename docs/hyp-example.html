@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-12-15" />
+<meta name="date" content="2022-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="hyp-steps.html"/>
 <link rel="next" href="single-cat.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -490,7 +490,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <p>For this example, we’ll use the imported <code>damselfly</code> dataset, which includes the single categorical variable of interest “direction,” and there are two categories: “clockwise” and “counter_clockwise.”</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="hyp-example.html#cb152-1" aria-hidden="true" tabindex="-1"></a>damselfly</span></code></pre></div>
-<pre><code>## # A tibble: 20 × 1
+<pre><code>## # A tibble: 20 x 1
 ##    direction        
 ##    &lt;chr&gt;            
 ##  1 clockwise        
@@ -534,7 +534,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="hyp-example.html#cb154-1" aria-hidden="true" tabindex="-1"></a>null_options <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">direction =</span> <span class="fu">c</span>(<span class="st">&quot;clockwise&quot;</span>, <span class="st">&quot;counter_clockwise&quot;</span>))</span></code></pre></div>
 <p>Have a look at the resulting object:</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="hyp-example.html#cb155-1" aria-hidden="true" tabindex="-1"></a>null_options</span></code></pre></div>
-<pre><code>## # A tibble: 2 × 1
+<pre><code>## # A tibble: 2 x 1
 ##   direction        
 ##   &lt;chr&gt;            
 ## 1 clockwise        
@@ -547,7 +547,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb157-3"><a href="hyp-example.html#cb157-3" aria-hidden="true" tabindex="-1"></a>null_options <span class="sc">%&gt;%</span></span>
 <span id="cb157-4"><a href="hyp-example.html#cb157-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">weight_by =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">reps =</span> num.reps) <span class="sc">%&gt;%</span></span>
 <span id="cb157-5"><a href="hyp-example.html#cb157-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(direction)</span></code></pre></div>
-<pre><code>## # A tibble: 2 × 3
+<pre><code>## # A tibble: 2 x 3
 ## # Groups:   replicate [1]
 ##   replicate direction             n
 ##       &lt;int&gt; &lt;chr&gt;             &lt;int&gt;
@@ -582,7 +582,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Let’s look at the resulting object:</p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="hyp-example.html#cb160-1" aria-hidden="true" tabindex="-1"></a>null_distribution</span></code></pre></div>
-<pre><code>## # A tibble: 100,000 × 3
+<pre><code>## # A tibble: 100,000 x 3
 ## # Groups:   replicate [100,000]
 ##    replicate direction             n
 ##        &lt;int&gt; &lt;chr&gt;             &lt;int&gt;

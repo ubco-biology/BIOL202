@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-12-15" />
+<meta name="date" content="2022-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="single-cat.html"/>
 <link rel="next" href="estproportions.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -493,19 +493,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Import the <code>damselfly.csv</code> data set we used in the preceding <a href="hypothesis.html#hypothesis">tutorial</a>, and also the <code>birds.csv</code> dataset we used in an earlier <a href="vis-describe.html#vis_describe">tutorial</a>.</p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="singcat-packages-data.html#cb169-1" aria-hidden="true" tabindex="-1"></a>damselfly <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/damselfly.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   direction = col_character()
 ## )</code></pre>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="singcat-packages-data.html#cb171-1" aria-hidden="true" tabindex="-1"></a>birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## 
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## cols(
 ##   type = col_character()
 ## )</code></pre>
 <p>Recall what the damselfly dataset looks like:</p>
 <div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="singcat-packages-data.html#cb173-1" aria-hidden="true" tabindex="-1"></a>damselfly</span></code></pre></div>
-<pre><code>## # A tibble: 20 × 1
+<pre><code>## # A tibble: 20 x 1
 ##    direction        
 ##    &lt;chr&gt;            
 ##  1 clockwise        
@@ -531,7 +531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The data show the predominant direction (either clockwise or counter-clockwise) of 20 circular battles between male damseflies.</p>
 <p>And remind yourself what the birds dataset looks like:</p>
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="singcat-packages-data.html#cb175-1" aria-hidden="true" tabindex="-1"></a>birds</span></code></pre></div>
-<pre><code>## # A tibble: 86 × 1
+<pre><code>## # A tibble: 86 x 1
 ##    type     
 ##    &lt;chr&gt;    
 ##  1 Waterfowl

@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-12-15" />
+<meta name="date" content="2022-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="anova-packages-data.html"/>
 <link rel="next" href="assumpbad-anova.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -825,7 +825,7 @@ You will need to run this chunk to create the function each time you start a new
 <p>Let’s try out the function, using our original anova table:</p>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="do-the-anova.html#cb357-1" aria-hidden="true" tabindex="-1"></a>nice.anova.table <span class="ot">&lt;-</span> <span class="fu">create.anova.table</span>(circadian.lm.anova)</span>
 <span id="cb357-2"><a href="do-the-anova.html#cb357-2" aria-hidden="true" tabindex="-1"></a>nice.anova.table</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 6
+<pre><code>## # A tibble: 3 x 6
 ##   Source        SS    df      MS      F     P_val
 ##   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 treatment  7.224     2  3.612   7.289  0.004472
@@ -959,7 +959,7 @@ Total
 <div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="do-the-anova.html#cb365-1" aria-hidden="true" tabindex="-1"></a>circadianTukey.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(circadianTukey)</span></code></pre></div>
 <p>Have a look a the output:</p>
 <div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="do-the-anova.html#cb366-1" aria-hidden="true" tabindex="-1"></a>circadianTukey.tidy</span></code></pre></div>
-<pre><code>## # A tibble: 3 × 7
+<pre><code>## # A tibble: 3 x 7
 ##   term      contrast      null.value estimate conf.low conf.high adj.p.value
 ##   &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
 ## 1 treatment Knees-Control          0 -0.02696  -0.9525    0.8986    0.9970  

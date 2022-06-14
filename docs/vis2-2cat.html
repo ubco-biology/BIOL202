@@ -24,7 +24,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2021-12-15" />
+<meta name="date" content="2022-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="vis2-packages-data.html"/>
 <link rel="next" href="two-numeric.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -667,7 +667,7 @@ Egg removal
 <p>To construct a grouped bar graph, we first need <em>wrangle</em> (reformat) the data to be in the form of a <a href="vis-cat-freq-table.html#vis_cat_freq_table"><strong>frequency table</strong></a>.</p>
 <p>Let’s revisit what the <code>bird.malaria</code> tibble looks like:</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="vis2-2cat.html#cb82-1" aria-hidden="true" tabindex="-1"></a>bird.malaria</span></code></pre></div>
-<pre><code>## # A tibble: 65 × 3
+<pre><code>## # A tibble: 65 x 3
 ##     bird treatment   response
 ##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;   
 ##  1     1 Control     Malaria 
@@ -693,7 +693,7 @@ The <code>group_by</code> function from the <code>dplyr</code> package enables o
 <p>In the preceding code chunk, we’re tallying the observations in the two “treatment” variable categories, but also keeping track of which category of “response” the individual belongs to.</p>
 <p>Let’s have a look at the result:</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="vis2-2cat.html#cb85-1" aria-hidden="true" tabindex="-1"></a>bird.malaria.tidy</span></code></pre></div>
-<pre><code>## # A tibble: 4 × 3
+<pre><code>## # A tibble: 4 x 3
 ## # Groups:   treatment [2]
 ##   treatment   response       n
 ##   &lt;chr&gt;       &lt;chr&gt;      &lt;int&gt;
