@@ -37,7 +37,9 @@ This online book borrows some material generously made openly available by the f
 + Chester Ismay and Albert Y. Kim ([Statistical Inference via Data Science online book](https://moderndive.com/)). This resource is licensed under a [Creative Commons Attribution - NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
 + Mike Whitlock and Dolph Schluter ([resources accompanying the text "Analysis of Biological Data"](https://whitlockschluter3e.zoology.ubc.ca/index.html))
 
-It has also benefited from valuable feedback from the many BIOL202 teaching assistants who have helped me over the year.  Thank you!
+It has also benefited from valuable input from the many BIOL202 students and teaching assistants who have helped me over the years.  Thank you!
+
+Clerissa Copeland, Jordan Katchen, and Mathew Vis-Dunbar helped with some of the content development and with identifying links to other UBCO Biology material. Thanks!
 
 ## Copyright {-}
 
