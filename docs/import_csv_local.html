@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.4 Import a local CSV file | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.4 Import a local CSV file | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -454,15 +454,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We’ll use the “trout.csv” file that we created previously.</p>
 <p>And we’ll make use of the <code>here</code> package that we were introduced to in an <a href="#here_package">earlier tutorial</a>.</p>
 <p>Let’s load the package:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="import_csv_local.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="import_csv_local.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
 <div class="note">
 <p><strong>New tool</strong><br />
 Pipes or “%&gt;%” are implemented as part of the <code>magrittr</code> package, which is loaded with the <code>tidyverse</code>. In brief, pipes allow us to string together a series of functions, and we’ll use them frequently in tutorials.</p>
 </div>
 <p>Here we’ll use a pipe to help import the data file.</p>
 <p>Let’s see the code first, then explain after:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="import_csv_local.html#cb22-1" aria-hidden="true" tabindex="-1"></a>trout <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">&quot;rawdata&quot;</span>, <span class="st">&quot;trout.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="import_csv_local.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="import_csv_local.html#cb19-1" aria-hidden="true" tabindex="-1"></a>trout <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">&quot;rawdata&quot;</span>, <span class="st">&quot;trout.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="import_csv_local.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>()</span></code></pre></div>
 <ul>
 <li>First we have the name of the object (a “tibble”) that we wish to create, “trout”.</li>
 <li>Then you see the assignment operator “&lt;-”, which tells R to assign whatever we’re doing to the right of the operator to the object “trout”.</li>
@@ -541,7 +541,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

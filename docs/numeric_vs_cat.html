@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -461,7 +461,7 @@ Always remember to get an overview of the dataset before attempting to create gr
 </div>
 <p>We should re-code the “treatmentTime” variable in the <code>locust</code> dataset as a “factor” variable with three “levels”: 0, 1, 2. This is not necessary for our graphs to work, but it is good practice to do this when you encounter this situation where a variable that should be treated as an ordinal categorical variable is coded as numerical.</p>
 <p>We do this using the <code>as.factor</code> function, as follows:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="numeric_vs_cat.html#cb96-1" aria-hidden="true" tabindex="-1"></a>locust<span class="sc">$</span>treatmentTime <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(locust<span class="sc">$</span>treatmentTime)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="numeric_vs_cat.html#cb89-1" aria-hidden="true" tabindex="-1"></a>locust<span class="sc">$</span>treatmentTime <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(locust<span class="sc">$</span>treatmentTime)</span></code></pre></div>
 <p>Before creating a stripchart, it’s a good idea to prepare a table of descriptive stats for your numerical response variable grouped by the categorical variable.</p>
 <hr />
 <ol style="list-style-type: decimal">
@@ -472,13 +472,13 @@ Always remember to get an overview of the dataset before attempting to create gr
 <h3><span class="header-section-number">10.4.1</span> Create a stripchart<a href="numeric_vs_cat.html#stripchart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now we’re ready to create a stripchart of the locust experiment data. Note that we’re not yet ready to add “error bars” to our strip chart; that will come in a later tutorial.</p>
 <p>We’ll provide the code, then explain after:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="numeric_vs_cat.html#cb97-1" aria-hidden="true" tabindex="-1"></a>locust <span class="sc">%&gt;%</span> </span>
-<span id="cb97-2"><a href="numeric_vs_cat.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatmentTime, <span class="at">y =</span> serotoninLevel)) <span class="sc">+</span></span>
-<span id="cb97-3"><a href="numeric_vs_cat.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb97-4"><a href="numeric_vs_cat.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment time (hours)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb97-5"><a href="numeric_vs_cat.html#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Serotonin (pmoles)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb97-6"><a href="numeric_vs_cat.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">25</span>) <span class="sc">+</span></span>
-<span id="cb97-7"><a href="numeric_vs_cat.html#cb97-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="numeric_vs_cat.html#cb90-1" aria-hidden="true" tabindex="-1"></a>locust <span class="sc">%&gt;%</span> </span>
+<span id="cb90-2"><a href="numeric_vs_cat.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatmentTime, <span class="at">y =</span> serotoninLevel)) <span class="sc">+</span></span>
+<span id="cb90-3"><a href="numeric_vs_cat.html#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb90-4"><a href="numeric_vs_cat.html#cb90-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment time (hours)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb90-5"><a href="numeric_vs_cat.html#cb90-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Serotonin (pmoles)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb90-6"><a href="numeric_vs_cat.html#cb90-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">25</span>) <span class="sc">+</span></span>
+<span id="cb90-7"><a href="numeric_vs_cat.html#cb90-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-41"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-41-1.png" alt="Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group." width="384" />
 <p class="caption">
@@ -498,12 +498,12 @@ Figure 10.6: Serotonin levels in the central nervous system of desert locusts th
 <p>Given that violin plots are best suited to when one has larger sample sizes per group, we’ll go back to the <code>penguins</code> dataset for this, and evaluate how body mass of male penguins varies among species.</p>
 <p>Let’s first find out more about the data for the male penguins, so that we can include sample sizes in our figure captions. Specifically, we’ll tally the number of complete body mass observations for each species, and also the number of missing values (NAs).</p>
 <p>We’ll combine the <code>filter</code> function with the <code>group_by</code> function that we learned about in a <a href="desc_numeric_var_cat.html#desc_numeric_var_cat">previous tutorial</a>:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="numeric_vs_cat.html#cb98-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb98-2"><a href="numeric_vs_cat.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb98-3"><a href="numeric_vs_cat.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
-<span id="cb98-4"><a href="numeric_vs_cat.html#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb98-5"><a href="numeric_vs_cat.html#cb98-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g),</span>
-<span id="cb98-6"><a href="numeric_vs_cat.html#cb98-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g))</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="numeric_vs_cat.html#cb91-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb91-2"><a href="numeric_vs_cat.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb91-3"><a href="numeric_vs_cat.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb91-4"><a href="numeric_vs_cat.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb91-5"><a href="numeric_vs_cat.html#cb91-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g),</span>
+<span id="cb91-6"><a href="numeric_vs_cat.html#cb91-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g))</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   species   Count Count_NA
 ##   &lt;fct&gt;     &lt;int&gt;    &lt;int&gt;
@@ -518,13 +518,13 @@ Figure 10.6: Serotonin levels in the central nervous system of desert locusts th
 When using the <code>ggplot</code> function, we can assign the output to an object. We can then subsequently add features to the plot by adding to the object. We’ll demonstrate this here.</p>
 </div>
 <p>Let’s assign the basic violin plot to an object called “bodymass.violin”, and we’ll explain the rest of the code after:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="numeric_vs_cat.html#cb100-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb100-2"><a href="numeric_vs_cat.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb100-3"><a href="numeric_vs_cat.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
-<span id="cb100-4"><a href="numeric_vs_cat.html#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb100-5"><a href="numeric_vs_cat.html#cb100-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span></span>
-<span id="cb100-6"><a href="numeric_vs_cat.html#cb100-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb100-7"><a href="numeric_vs_cat.html#cb100-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="numeric_vs_cat.html#cb93-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb93-2"><a href="numeric_vs_cat.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb93-3"><a href="numeric_vs_cat.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb93-4"><a href="numeric_vs_cat.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb93-5"><a href="numeric_vs_cat.html#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-6"><a href="numeric_vs_cat.html#cb93-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-7"><a href="numeric_vs_cat.html#cb93-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <ul>
 <li>We assign the output to the object called “bodymass.violin”, and tell R which data object we’re using (penguins)</li>
 <li>We then <code>filter</code> the dataset to include only male penguins (sex == “male”), and note the two equal signs and the quotations around “male”</li>
@@ -533,15 +533,15 @@ When using the <code>ggplot</code> function, we can assign the output to an obje
 <li>Then the familiar labels and theme functions</li>
 </ul>
 <p>Let’s now have a look at the graph, and to do so, we simply type the name of the graph object we created:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="numeric_vs_cat.html#cb101-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="numeric_vs_cat.html#cb94-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin</span></code></pre></div>
 <p><img src="BIOL202-github_files/figure-html/body_violin-1.png" width="384" /></p>
 <p>One problem with the above graph is that we don’t see the individual data points.</p>
 <p>We can add those using the <code>geom_jitter</code> function we learned about when <a href="numeric_vs_cat.html#stripchart">creating stripcharts</a>.</p>
 <p>Here’s how we add features to an existing <code>ggplot</code> graph object, and we can again create a new object, or simply replace the old one.</p>
 <p>Here, we’ll create a new object called “bodymass.violin.points”:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="numeric_vs_cat.html#cb102-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin.points <span class="ot">&lt;-</span> bodymass.violin <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="numeric_vs_cat.html#cb95-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin.points <span class="ot">&lt;-</span> bodymass.violin <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>)</span></code></pre></div>
 <p>And now show the plot:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="numeric_vs_cat.html#cb103-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin.points</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="numeric_vs_cat.html#cb96-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin.points</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-42"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-42-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins." width="384" />
 <p class="caption">
@@ -551,19 +551,19 @@ Figure 10.7: Violin plot showing the body mass (g) of male Adelie (N = 73), Chin
 <p>To help understand what the violin plot is showing, we’ll provide a new <strong>bonus</strong> graph that adds something called “density plots” to the margin of the violin plot.</p>
 <p>Don’t worry about replicating this type of graph, but if you can, fantastic!</p>
 <p>First we create the main <code>ggplot</code> violin plot object:</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="numeric_vs_cat.html#cb104-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin2 <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb104-2"><a href="numeric_vs_cat.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb104-3"><a href="numeric_vs_cat.html#cb104-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb104-4"><a href="numeric_vs_cat.html#cb104-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
-<span id="cb104-5"><a href="numeric_vs_cat.html#cb104-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> species), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb104-6"><a href="numeric_vs_cat.html#cb104-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span></span>
-<span id="cb104-7"><a href="numeric_vs_cat.html#cb104-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb104-8"><a href="numeric_vs_cat.html#cb104-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">3000</span>, <span class="dv">6300</span>) <span class="sc">+</span></span>
-<span id="cb104-9"><a href="numeric_vs_cat.html#cb104-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb104-10"><a href="numeric_vs_cat.html#cb104-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="sc">+</span></span>
-<span id="cb104-11"><a href="numeric_vs_cat.html#cb104-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">title=</span><span class="st">&quot;Species&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="numeric_vs_cat.html#cb97-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin2 <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb97-2"><a href="numeric_vs_cat.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb97-3"><a href="numeric_vs_cat.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb97-4"><a href="numeric_vs_cat.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> species)) <span class="sc">+</span></span>
+<span id="cb97-5"><a href="numeric_vs_cat.html#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> species), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb97-6"><a href="numeric_vs_cat.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span></span>
+<span id="cb97-7"><a href="numeric_vs_cat.html#cb97-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb97-8"><a href="numeric_vs_cat.html#cb97-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">3000</span>, <span class="dv">6300</span>) <span class="sc">+</span></span>
+<span id="cb97-9"><a href="numeric_vs_cat.html#cb97-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb97-10"><a href="numeric_vs_cat.html#cb97-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="sc">+</span></span>
+<span id="cb97-11"><a href="numeric_vs_cat.html#cb97-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">colour =</span> <span class="fu">guide_legend</span>(<span class="at">title=</span><span class="st">&quot;Species&quot;</span>))</span></code></pre></div>
 <p>Now we add density plots in the margins using the <code>ggMarginal</code> function from the <code>ggExtra</code> package:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="numeric_vs_cat.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggMarginal</span>(bodymass.violin2, <span class="at">type =</span> <span class="st">&quot;density&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">groupFill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="numeric_vs_cat.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggMarginal</span>(bodymass.violin2, <span class="at">type =</span> <span class="st">&quot;density&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">groupFill =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-43"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-43-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin." width="480" />
 <p class="caption">
@@ -578,13 +578,13 @@ Figure 10.8: Violin plot showing the body mass (g) of male Adelie (N = 73), Chin
 <p>Here we’ll learn how to create basic boxplots, and also superimpose boxplots onto violin plots.</p>
 <p>In future tutorials we’ll learn how to add features to these types of graphs in order to complement statistical comparisons of a numerical response variable among categories (groups) of a categorical explanatory variable.</p>
 <p>Here is the code for creating boxplots, again using the penguins body mass data, and this time the <code>geom_boxplot</code> function:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="numeric_vs_cat.html#cb106-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb106-2"><a href="numeric_vs_cat.html#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb106-3"><a href="numeric_vs_cat.html#cb106-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
-<span id="cb106-4"><a href="numeric_vs_cat.html#cb106-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb106-5"><a href="numeric_vs_cat.html#cb106-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span></span>
-<span id="cb106-6"><a href="numeric_vs_cat.html#cb106-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb106-7"><a href="numeric_vs_cat.html#cb106-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="numeric_vs_cat.html#cb99-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb99-2"><a href="numeric_vs_cat.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb99-3"><a href="numeric_vs_cat.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb99-4"><a href="numeric_vs_cat.html#cb99-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb99-5"><a href="numeric_vs_cat.html#cb99-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species&quot;</span>) <span class="sc">+</span></span>
+<span id="cb99-6"><a href="numeric_vs_cat.html#cb99-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb99-7"><a href="numeric_vs_cat.html#cb99-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-44"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-44-1.png" alt="Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values." width="384" />
 <p class="caption">
@@ -603,9 +603,9 @@ The first time you include a boxplot in a report / lab, be sure to include in th
 <h3><span class="header-section-number">10.4.4</span> Combining violin and boxplots<a href="numeric_vs_cat.html#bestplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Superimposing boxplots onto violin plots (and of course, showing individual points too!) provides for a very informative graph.</p>
 <p>We already have a basic violin plot object created, called “bodymass.violin”, so let’s start with that, then add the boxplot information, then superimpose the points. We need to do it in that order, so that the points become the “top” layer of information, and aren’t hidden behind the boxplot or violins.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="numeric_vs_cat.html#cb108-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin <span class="sc">+</span> </span>
-<span id="cb108-2"><a href="numeric_vs_cat.html#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
-<span id="cb108-3"><a href="numeric_vs_cat.html#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">colour =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="numeric_vs_cat.html#cb101-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin <span class="sc">+</span> </span>
+<span id="cb101-2"><a href="numeric_vs_cat.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb101-3"><a href="numeric_vs_cat.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">colour =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.15</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-45"></span>
 <img src="BIOL202-github_files/figure-html/unnamed-chunk-45-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values." width="384" />
 <p class="caption">
@@ -703,7 +703,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.2 Get an overview of the data | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.2 Get an overview of the data | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -451,8 +451,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.2</span> Get an overview of the data<a href="vis_data_overview.html#vis_data_overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>penguins</code> object is a <em>tibble</em>, with each row representing a <em>case</em> and each column representing a <em>variable</em>. Tibbles can store a mixture of data types: numeric variables, categorical variables, logical variables etc… all in the same object (as separate columns). This isn’t the case with other object types (e.g. matrices).</p>
 <p>We’ll get an overview of the data using the <code>skim_without_charts</code> function, as we learned in the <a href="data_overview.html#data_overview">Preparing and Importing Tidy Data</a> tutorial:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="vis_data_overview.html#cb28-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb28-2"><a href="vis_data_overview.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="vis_data_overview.html#cb25-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="vis_data_overview.html#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:vis1_skim)Data summary
@@ -816,21 +816,21 @@ year
 </tbody>
 </table>
 <p>Optionally, we can also get a view of the first handful of rows of a tibble by simply typing the name of the object on its own, and hitting return:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="vis_data_overview.html#cb29-1" aria-hidden="true" tabindex="-1"></a>penguins </span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="vis_data_overview.html#cb26-1" aria-hidden="true" tabindex="-1"></a>penguins </span></code></pre></div>
 <pre><code>## # A tibble: 344 × 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           NA            NA                  NA          NA
-##  5 Adelie  Torgersen           36.7          19.3               193        3450
-##  6 Adelie  Torgersen           39.3          20.6               190        3650
-##  7 Adelie  Torgersen           38.9          17.8               181        3625
-##  8 Adelie  Torgersen           39.2          19.6               195        4675
-##  9 Adelie  Torgersen           34.1          18.1               193        3475
-## 10 Adelie  Torgersen           42            20.2               190        4250
-## # … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
+##  2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
+##  3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
+##  4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
+##  5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
+##  6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007
+##  7 Adelie  Torgersen           38.9          17.8               181        3625 female  2007
+##  8 Adelie  Torgersen           39.2          19.6               195        4675 male    2007
+##  9 Adelie  Torgersen           34.1          18.1               193        3475 &lt;NA&gt;    2007
+## 10 Adelie  Torgersen           42            20.2               190        4250 &lt;NA&gt;    2007
+## # … with 334 more rows</code></pre>
 <p>In a <a href="data_overview.html#data_overview">previous tutorial</a> you learned the important information to look for when getting an overview of a dataset using the <code>skim_without_charts</code> function.</p>
 <div class="note">
 <p><strong>TIP</strong>
@@ -909,7 +909,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
