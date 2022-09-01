@@ -47,7 +47,7 @@ And we will use the following datasets in this tutorial:
 
 <div class="note">
 **NOTE**
-Unless otherwise indicated, all CSV data files that we use in this course are stored at the same URL location, specifically: "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/". Thus, to import any CSV file you just need to copy that path, then append the appropriate file name to the end of the path. For example, the full path to access the `birds.csv` file would be "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv". And a [previous tutorial](#import_csv_url) showed you how to import using the `read_csv` function.
+Unless otherwise indicated, all <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Comma-separated-values-(CSV)-file">CSV data files</a> that we use in this course are stored at the same URL location, specifically: "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/". Thus, to import any CSV file you just need to copy that path, then append the appropriate file name to the end of the path. For example, the full path to access the `birds.csv` file would be "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv". And a [previous tutorial](#import_csv_url) showed you how to import using the `read_csv` function.
 </div>
 
 ## Get an overview of the data {#vis_data_overview}
@@ -109,7 +109,7 @@ tiger.table <- tigerdeaths %>%
 * The first line provides the name of the object (tibble) that we're going to create (here, "tiger.table"), and use the assignment operator ("<-") tell R to put whatever the output of our operation is into that object. The next part of the first line provides the name of the object that we're going to do something with, here "tigerdeaths". The "%>%" tells R that we're not done yet, and there's more lines of code to come.
 * The second line uses the `count` function from the `dplyr` package to tally the unique values of a variable, in this case the "activity" variable. It also takes an argument "sort = TRUE", telling it to sort the counts in descending order (the default sort direction). Then another "%>%" to continue the code..
 * The last line uses `mutate` function from the `dplyr` package that creates a new variable, and the arguments provided in the parentheses tells R what that variable should be called, here "relative_frequency", and then how to calculate it. 
-* The `n` in the last line actually a function that tallies the sample size or count of all observations in the present category or group, and then the `sum(n)` sums up the total sample size. Thus, `n / sum(n)` calculates the relative frequency (equivalent to the proportion) of all observations that are within the given category
+* The `n` in the last line actually a function that tallies the sample size or count of all observations in the present category or group, and then the `sum(n)` sums up the total sample size. Thus, `n / sum(n)` calculates the relative frequency (equivalent to the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a>) of all observations that are within the given category
 
 <div class="advanced">
 **Optional**
@@ -282,7 +282,7 @@ Things to note in your description of a histogram:
 * Is it roughly symmetric or is it negatively or positively skewed?
 * Is it roughly bell-shaped?
 * Outliers - are there observations (bars) showing up far from the others?
-* Are there multiple modes?
+* Are there multiple <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mode">modes</a>?
 
 So, let's look again at the penguin body mass histogram, and provide a description thereafter:
 

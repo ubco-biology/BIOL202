@@ -52,7 +52,7 @@ students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/mai
 
 We'll use the `blackbird` dataset for this example.  
 
-For 13 red-winged blackbirds, measurements of antibodies were taken before and after implantation with testosterone.  Thus, the same bird was measured twice. Clearly, these measurements are not independent, hence the need for a "paired" _t_-test.  
+For 13 red-winged blackbirds, measurements of antibodies were taken before and after implantation with testosterone.  Thus, the same bird was measured twice. Clearly, these measurements are not independent, hence the need for a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Paired-t-test">"paired" _t_-test</a>.  
 
 Let's first have a look at the `blackbird` dataset:
 
@@ -68,9 +68,9 @@ The factor variable `time` that has two levels: "After" and "Before".
 
 These data are stored in **tidy format**, which, as you've [learned](https://ubco-biology.github.io/Procedures-and-Guidelines/tidy-data.html), is the ideal format for storing data. 
 
-Sometimes you may get data in **wide format**, in which case, for instance, we would have a column for the "Before" antibody measurements and another column for the "After" measurements.  
+Sometimes you may get data in <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Wide-format-data">**wide format**</a>, in which case, for instance, we would have a column for the "Before" antibody measurements and another column for the "After" measurements.  
 
-**It is always preferable** to work with long-format (tidy) data.  
+**It is always preferable** to work with <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Long-format-data">long-format</a> (tidy) data.  
 
 Consult the following [webpage](http://www.cookbook-r.com/Manipulating_data/Converting_data_between_wide_and_long_format/) for instructions on using the `tidyr` package for converting between wide and long data formats.  
 
@@ -127,21 +127,21 @@ In any case, this is the new tibble and variable "diffs" that we'll use for our 
 
 ### Hypothesis statement {#paired_Htest}
 
-The hypotheses for this paired _t_-test focus on the mean of the *differences* between the paired measurements, denoted by $\mu_d$:  
+The hypotheses for this paired _t_-test focus on the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">mean</a> of the *differences* between the paired measurements, denoted by $\mu_d$:  
 
 H~0~: The mean change in antibody production after testosterone implants was zero ($\mu_d = 0$).  
 H~A~: The mean change in antibody production after testosterone implants was not zero ($\mu_d \neq 0$).  
 
 Steps to a hypothesis test:  
 
-* We'll use an $\alpha$ level of 0.05.  
-* It is a two-tailed alternative hypothesis  
+* We'll use an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Significance-level-($\alpha$)">$\alpha$ level</a> of 0.05.  
+* It is a two-tailed <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a> 
 * We'll visualize the data, and interpret the output
 * We'll use a paired *t*-test test to test the null hypothesis, because we're dealing with "before and after" measurements taken on the same individuals, and drawing inferences about a population mean $\mu_d$ using sample data  
 * We'll check the assumptions of the test (see below)
 * We'll calculate our test statistic
 * We'll calculate the *P*-value associated with our test statistic
-* We'll calculate a 95% confidence interval for the mean difference
+* We'll calculate a 95% <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Confidence-interval">confidence interval</a> for the mean difference
 * We'll provide a good concluding statement that includes a 95% confidence interval for the mean difference
 
 ### A graph to accompany a paired *t*-test {#graph_paried}     
@@ -186,7 +186,7 @@ Then repeat the code above to create the paired plot.
 
 ### Assumptions of the paired *t*-test {#assump_paried}
 
-The assumptions of the paired *t*-test are the same as the assumptions for the one-sample *t*-test, except they pertain to the *differences*:  
+The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> of the paired *t*-test are the same as the assumptions for the one-sample *t*-test, except they pertain to the *differences*:  
 
 * the sampling units are randomly sampled from the population
 * the _differences_ have a normal distribution in the population (each group of measurements need not be normally distributed) 
@@ -339,13 +339,13 @@ H~A~: Mean height is not the same among students with left dominant eyes and rig
 Steps to a hypothesis test:  
 
 * We'll use an $\alpha$ level of 0.05.  
-* It is a two-tailed alternative hypothesis  
-* We'll provide a table of descriptive statistics for each group
+* It is a two-tailed <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a>
+* We'll provide a table of <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistics</a> for each group
 * We'll visualize the data, and interpret the output
-* We'll use a 2-sample *t*-test test to test the null hypothesis, because we're dealing with numerical measurements taken on independent within two independent groups, and drawing inferences about population means $\mu$ using sample data  
+* We'll use a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Two-sample-t-test">2-sample *t*-test</a> to test the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null hypothesis</a>, because we're dealing with numerical measurements taken on independent within two independent groups, and drawing inferences about population means $\mu$ using sample data  
 * We'll check the assumptions of the test (see below)
 * We'll calculate our test statistic
-* We'll calculate the *P*-value associated with our test statistic
+* We'll calculate the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#P-value">*P*-value</a> associated with our test statistic
 * We'll calculate a 95% confidence interval for the difference ($\mu_L - \mu_R$)
 * We'll provide a good concluding statement that includes a 95% confidence interval for the mean difference ($\mu_L - \mu_R$)  
 
@@ -415,11 +415,11 @@ students %>%
 
 ### Assumptions of the 2-sample *t*-test {#twosamp_assump}
 
-The assumptions of the 2-sample *t*-test are as follows:  
+The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> of the 2-sample *t*-test are as follows:  
 
 * each of the two samples is a random sample from its population
 * the numerical variable is normally distributed in each population
-* the variance (and thus standard deviation) of the numerical variable is the same in both populations  
+* the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Variance">variance</a> (and thus <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-deviation">standard deviation</a>) of the numerical variable is the same in both populations  
 
 **Test for normality**  
 

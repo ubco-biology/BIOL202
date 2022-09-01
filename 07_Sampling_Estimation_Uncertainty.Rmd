@@ -91,7 +91,7 @@ sample(1:6, size = 10, replace = T)
 
 <div class="note">
 **NOTE - Updated Oct 20, 2021**
-Whether we wish to *sample without replacement* or not depends on the question / context (see page 138 in Whitlock & Schluter). For most of the questions and contexts we deal with in this course, we do wish to sample **with** replacement.  Why? Because we are typically assuming (or mimicking a situation) that we're randomly sampling from a very large population, in which case the probability distribution of possible values in the individuals that remain doesn't change when we sample. This is not the case if we're sampling from a small population.
+Whether we wish to *sample without replacement* or not depends on the question / context (see page 138 in Whitlock & Schluter). For most of the questions and contexts we deal with in this course, we do wish to sample **with** replacement.  Why? Because we are typically assuming (or mimicking a situation) that we're randomly sampling from a very large population, in which case the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> distribution of possible values in the individuals that remain doesn't change when we sample. This is not the case if we're sampling from a small population.
 </div>
 
 ### Setting the "seed" for random sampling {#setseed}
@@ -166,7 +166,7 @@ In the preceding chunk, we:
 * use the `slice_sample` function to randomly sample 20 rows from the `genelengths` tibble, and to do so without replacement
 * use the `select` function to tell R to return only the "size" variable from the newly generated (sampled) tibble 
 
-Now let's use the `mean` and `sd` base functions to calculate the mean and standard deviation using our sample.
+Now let's use the `mean` and `sd` base functions to calculate the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">mean</a> and <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-deviation">standard deviation</a> using our sample.
 
 We'll assign the calculations to an object "randsamp1.mean.sd", then we'll present the output using the `kable` function. 
 
@@ -395,7 +395,7 @@ With larger sample sizes, we'll get more precise estimates of the true populatio
 
 ## Standard error of the mean {#sem_page}
 
-This is the formula for calculating the __standard error of the mean__ when the population parameter <sigma> is unknown (which is usually the case):
+This is the formula for calculating the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-error">__standard error__</a> __of the mean__ when the population parameter <sigma> is unknown (which is usually the case):
 
 $$SE_\bar{Y} = \frac{s}{\sqrt{n}}$$
 
@@ -463,7 +463,7 @@ It is a good idea to use the longer approach that reports the sample size ("Coun
 
 ## Rule of thumb 95% confidence interval {#confint_rough}
 
-The __Rule of Thumb__ 95% confidence interval is calculated simply as the sample mean +/- two standard errors. 
+The __Rule of Thumb__ 95% <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Confidence-interval">confidence interval</a> is calculated simply as the sample mean +/- two standard errors. 
 
 Thus, the __lower confidence limit__ is calculated as the sample mean minus 2 times the standard error, and the __upper confidence limit__ is calculated as the sample mean plus 2 times the standard error. 
 

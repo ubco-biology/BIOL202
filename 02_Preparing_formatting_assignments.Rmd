@@ -91,7 +91,7 @@ Here's an example of code for importing data. It uses the `read_csv` function fr
 example_data <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv")
 ```
 
-The `read_csv` function will take as an argument a URL address for a data file. Here we've provided a ULR for the location of a CSV file (comma-separated values file), which is typically what we'll use.  
+The `read_csv` function will take as an argument a URL address for a data file. Here we've provided a URL for the location of a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Comma-separated-values-(CSV)-file">CSV file (comma-separated values file)</a>, which is typically what we'll use.  
 
 **Load packages**
 
@@ -216,7 +216,7 @@ skim_without_charts(students)
 
 This shows we have four character and three numeric variables, with 154 rows (observations) and 7 columns (variables) total. 
 
-We can use the `summary` function to get some basic descriptive statistics, including the minimum and maximum of numeric variables. The `summary` function is part of the base R package, so no additional packages need to be loaded. 
+We can use the `summary` function to get some basic <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistics</a>, including the minimum and maximum of numeric variables. The `summary` function is part of the base R package, so no additional packages need to be loaded. 
 
 We also use the `select` function from the `dplyr` package (which is loaded with `tidyverse`) to select which variable in the `students` tibble we wish to summarize. 
 

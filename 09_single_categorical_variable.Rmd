@@ -15,7 +15,7 @@ options(knitr.table.format = "html")
 
 <div class="note">
 **NOTE**
-In 2021 we will not be covering "$\chi$^2^ Goodness of Fit tests", which are also tests that apply when analyzing a single categorical variable. For an older tutorial on this, see this [webpage](https://people.ok.ubc.ca/jpither/modules/Goodness_of_fit_tests.html#assumptions_of_the_(chi)2_gof_test) (thought it may soon be inactive). 
+In 2021 we will not be covering <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Chi-square-($\chi$^2^)-goodness-of-fit-test">"$\chi$^2^ Goodness of Fit tests", which are also tests that apply when analyzing a single categorical variable. For an older tutorial on this, see this [webpage](https://people.ok.ubc.ca/jpither/modules/Goodness_of_fit_tests.html#assumptions_of_the_(chi)2_gof_test) (thought it may soon be inactive). 
 </div>
 
 ## Load packages and import data {#singcat_packages_data}
@@ -61,7 +61,7 @@ These data describe the category of bird (variable "type" that has 4 different c
 
 ## Estimating proportions {#estproportions}
 
-Recall that the key descriptor for a categorical variable is a **proportion**.  And when we wish to draw inferences about a categorical attribute within a population of interest, we take a random sample from the population to _estimate_ the true proportion ${p}$ of the population with that attribute.  Our estimate is denoted $\hat{p}$.
+Recall that the key descriptor for a categorical variable is a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">**proportion**</a>.  And when we wish to draw inferences about a categorical attribute within a population of interest, we take a random sample from the population to _estimate_ the true proportion ${p}$ of the population with that attribute.  Our estimate is denoted $\hat{p}$.
 
 In a [previous tutorial](#vis_cat_freq_table) we used the "birds" dataset to practice creating a "frequency table" that showed the _relative frequencies_ of birds falling in each category of the categorical variable "type". These relative frequencies are equivalent to their respective proportions.
 
@@ -85,13 +85,13 @@ We can see that the proportion of birds at the marsh that belong to the "Predato
 
 Being an estimate, however, we need to attach some measure of uncertainty to it.
 
-In a previous tutorial we learned how to calculate the [standard error](#sem_page) and rule-of-thumb 95% [confidence interval](#confint_rough) for the **mean**.
+In a previous tutorial we learned how to calculate the [standard error](#sem_page) and rule-of-thumb 95% [confidence interval](#confint_rough) for the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">**mean**</a>.
 
 Here we'll learn how to calculate these measures of uncertainty for a **proportion**.
 
 ### Standard error for a proportion {#sterr_prop}
 
-Here's the equation for the standard error for the proportion: 
+Here's the equation for the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-error">standard error</a> for the proportion: 
 
 $$SE_\hat{p} = \sqrt\frac{\hat{p}(1-\hat{p})}{n}$$
 
@@ -206,7 +206,7 @@ And so you insert that text in between your estimate $\hat{p}$ and the $SE_\hat{
 
 ### Confidence interval for a proportion {#confint_prop}
 
-Although a number of options are available for calculating a confidence interval for a proportion, we'll use the _Agresti-Coull_ method, as it has desirable properties:
+Although a number of options are available for calculating a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Confidence-interval">confidence interval</a> for a proportion, we'll use the _Agresti-Coull_ method, as it has desirable properties:
 
 $$p' \pm 1.96\cdot \sqrt\frac{p'(1-p')}{N+4}$$ where $$p' = \frac{X+2}{n+4}$$
 
@@ -292,7 +292,7 @@ The 95% Agresti-Coull confidence interval is: `r round(confint.results$lower, 3)
 
 ## Binomial distribution {#binomdist}
 
-The binomial distribution provides the probability distribution for the number of "successes" in a fixed number of independent trials, when the probability of success is the same in each trial.  
+The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">binomial distribution</a> provides the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> distribution for the number of "successes" in a fixed number of independent trials, when the probability of success is the same in each trial.  
 
 Here's the formula:
 
@@ -422,20 +422,20 @@ Considering the question posed above, we need to first think about what we'd exp
 
 In other words, if there was no handedness, we'd expect the _proportion_ of battles that are counter-clockwise (the direction we'll arbitrarily call a "success") to equal ${p} = 0.5$.
 
-* We'll use a **binomial test** here, because this is the **most appropriate (and powerful) test** when comparing the observed number of "successes" in a dataset to the number expected under a null hypothesis.  Or put another way, we compare an observed _proportion_ of successes in a dataset to the proportion expected under a null hypothesis.
+* We'll use a **binomial test** here, because this is the **most appropriate (and powerful) test** when comparing the observed number of "successes" in a dataset to the number expected under a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null hypothesis</a>.  Or put another way, we compare an observed _proportion_ of successes in a dataset to the proportion expected under a null hypothesis.
 
-Let's devise an appropriate null and alternative hypothesis for this question.  
+Let's devise an appropriate null and <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a> for this question.  
 
 **H~0~**: The proportion of damselfly battles in the population flown in the counter-clockwise direction is 0.5 ($p_0 = 0.5$)  
 
 **H~A~**: The proportion of damselfly battles in the population flown in the counter-clockwise direction is not 0.5 ($p_0 \ne 0.5$)
 
-* We'll use an $\alpha$ level of 0.05.  
+* We'll use an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Significance-level-($\alpha$)">$\alpha$ level</a> of 0.05.  
 * It is a two-tailed alternative hypothesis; there is no reason to eliminate the possibility that the damselflies exhibit right- or left-"handedness"
 * The binomial test assumes that the random trials were independent, and the probability of success was equal in each trial - we'll assume so!
 * We don't need a figure for this test
 * The test statistic is the number of battles that were flown predominantly in the counter-clockwise direction (the direction we arbitrarily chose as a "success"). 
-* The binomial test calculates an exact *P*-value for us (using the [binomial equation](#binomdist)), and we don't need to rely on an approximate null distribution, like we do for other tests. 
+* The binomial test calculates an exact <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#P-value">*P*-value</a> for us (using the [binomial equation](#binomdist)), and we don't need to rely on an approximate null distribution, like we do for other tests. 
 
 Let's conduct the test now.
 

@@ -40,9 +40,9 @@ Before proceeding further, remember to get an overview of each of these datasets
 
 ## One-sample _t_-test {#onesamp_t_test}      
 
-We previously learned statistical tests for testing hypotheses about categorical response variables. For instance, we learned how to conduct a $\chi^2$ [contingency test](#chisquare) to test the null hypothesis that there is no association between two categorical variables.  
+We previously learned statistical tests for testing hypotheses about categorical response variables. For instance, we learned how to conduct a $\chi^2$ [contingency test](#chisquare) to test the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null hypothesis</a> that there is no association between two categorical variables.  
 
-Here we are going to learn our first statistical test for testing hypotheses about a numeric response variable, specifically one whose probability distribution in the population is normally distributed.  
+Here we are going to learn our first statistical test for testing hypotheses about a numeric response variable, specifically one whose <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> distribution in the population is normally distributed.  
 
 ### Hypothesis statement {#onesamp_hyp}
 
@@ -54,7 +54,7 @@ Americans are taught as kids that the normal human body temperature is 98.6 degr
 
 Are the data consistent with this assertion?  
 
-* We'll use a one-sample *t*-test test to test the null hypothesis, because we're dealing with a single numerical response variable, and we're using a sample of individuals to draw inferences about a hypothesized (population) mean $\mu_0$   
+* We'll use a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#One-sample-t-test">one-sample *t*-test</a> test to test the null hypothesis, because we're dealing with a single numerical response variable, and we're using a sample of individuals to draw inferences about a hypothesized (population) <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">mean</a> $\mu_0$   
 
 The hypotheses for this test:  
 
@@ -66,12 +66,12 @@ The hypotheses for this test:
 You can add a degree symbol using this syntax in markdown: `$^\circ$`, so degrees Celsius would be `$^\circ$C`
 </div>
 
-* We'll use an $\alpha$ level of 0.05.  
-* It is a two-tailed alternative hypothesis  
+* We'll use an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Significance-level-($\alpha$)">$\alpha$ level</a> of 0.05.  
+* It is a two-tailed <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a>
 
 ### Assumptions of one-sample *t*-test {#onesamp_assumptions}
 
-The **assumptions** of the one-sample *t*-test are as follows:  
+The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">**assumptions**</a> of the one-sample *t*-test are as follows:  
 
 * the sampling units are randomly sampled from the population (a standard assumption)
 * the variable is normally distributed in the population  
@@ -160,7 +160,7 @@ The output includes:
 
 * The calculated test statistic *t*
 * The degrees of freedom
-* The *P*-value for the test
+* The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#P-value">*P*-value</a> for the test
 * A 95% confidence interval for $\mu$
 * The sample-based estimate, denoted "mean of x", but is our ($\bar{Y}$)
 
@@ -181,7 +181,7 @@ The confidence interval provided by the `t.test` function is accurate and good t
 
 In an earlier [tutorial](#confint_rough) we learned about the **rule of thumb 95% confidence interval**.  
 
-Now we will learn how to calculate confidence intervals more precisely. 
+Now we will learn how to calculate <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Confidence-interval">confidence intervals</a> more precisely. 
 
 There are two typical uses of confidence intervals:  
 
@@ -228,7 +228,7 @@ The function we use to find the critical value of *t* is the base function `qt`:
 ?qt
 ```
 
-The `qt` function only deals with one tail of the distribution. Thus, if we have a two-sided alternative hypothesis, we need to divide our $\alpha$ level by two in order to calculate the appropriate critical value of *t*.
+The `qt` function only deals with one tail of the distribution. Thus, if we have a two-sided <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a>, we need to divide our $\alpha$ level by two in order to calculate the appropriate critical value of *t*.
 
 The following graph illustrates this for the *t* distribution associated with *df* = 24 and $\alpha(2)$ = 0.05.  Specifically, the $t_{crit}$ values are shown by the vertical lines, and delimit the points beyond which the area under the curve towards the tail is equal to $\alpha / 2$ (and thus the total area of both red zones= $\alpha$).
 

@@ -6,7 +6,7 @@
 klippy::klippy()
 ```
 
-It is assumed that you are using R via RStudio. First time users often confuse the two. At its simplest:
+It is assumed that you are using <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#R">R</a> via RStudio. First time users often confuse the two. At its simplest:
 
 * R is like a car's engine
 * RStudio is like a car's dashboard
@@ -122,7 +122,7 @@ remember that this likely comes from you trying to use a function in a package t
 
 # Intro to R Markdown {#intro_markdown}
 
-As you may have learned already from section 6 of the [Biology Procedures and Guidelines resource ](https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html), R Markdown is a markup language that provides an easy way to produce a rich, fully-documented reproducible analysis.  It allows its user to share a single file that contains all of the commentary, R code, and metadata needed to reproduce the analysis from beginning to end.  R Markdown allows for "chunks" of R code to be included along with Markdown text to produce a nicely formatted HTML, PDF, or Word file without having to know any complicated programming languages or having to fuss with getting the formatting just right in a Microsoft Word DOCX file.  
+As you may have learned already from section 6 of the [Biology Procedures and Guidelines resource ](https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html), R <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Markdown">Markdown</a> is a markup language that provides an easy way to produce a rich, fully-documented reproducible analysis.  It allows its user to share a single file that contains all of the commentary, R code, and <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Metadata">metadata</a> needed to reproduce the analysis from beginning to end.  R Markdown allows for "chunks" of R code to be included along with Markdown text to produce a nicely formatted HTML, PDF, or Word file without having to know any complicated programming languages or having to fuss with getting the formatting just right in a Microsoft Word DOCX file.  
 
 One R Markdown file can generate a variety of different formats and all of this is done in a single text file with a few bits of formatting.  You'll be pleasantly surprised at how easy it is to write an R Markdown document after your first few attempts.  
 
@@ -140,7 +140,7 @@ R Markdown is just one flavour of a markup language. RStudio can be used to edit
 [**Why use R Markdown for Lab Reports?**](https://youtu.be/lNWVQ2oxNho)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lNWVQ2oxNho" frameborder="0" allowfullscreen></iframe>
 
-The preceding video described what can be referred to as **literate programming**: authoring a single document that integrates data analysis (executable code) with textual documentation, linking data, code, and text. In R Markdown, the executable R code is placed in "chunks", and these are embedded throughout sections of regular text.   
+The preceding video described what can be referred to as <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Literate-programming">**literate programming**</a>: authoring a single document that integrates data analysis (executable code) with textual documentation, linking data, code, and text. In R Markdown, the executable R code is placed in "chunks", and these are embedded throughout sections of regular text.   
 
 For an example of an HTML (webpage) document that illustrates the effectiveness of literate programming, take a look at [this HTML output - a webpage](https://ubco-biology.github.io/BIOL202/Manning_et_al_full_script.html) that accompanied a lab-based experiment examining the potential for freshwater diatoms to be successfully dispersed over long distances adhered to duck feathers.
 
@@ -286,7 +286,7 @@ https://cos.io/                                                               Ce
 
 https://ropensci.org/                                                         Open science R resources
 
-http://geoscripting-wur.github.io/RProjectManagement/                         Lessons about version control
+http://geoscripting-wur.github.io/RProjectManagement/                         Lessons about <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Version-control">version control</a>
 
 https://nicercode.github.io/                                                  Helping to improve your code
 

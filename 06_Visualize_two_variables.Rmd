@@ -154,7 +154,7 @@ Often it is useful to also present a contingency table that shows the *relative 
 
 For instance, recall that in this malaria example, we are interested in comparing the incidence of malaria among the Control and Egg removal treatment groups. Thus, we should calculate the relative frequencies using the **row totals**. This will become clear when we show the table.  
 
-We can get relative frequencies, which are equivalent to proportions, using the `adorn_percentages` function (the function name is a misnomer, because we're calculating proportions, not percentages!), and telling R to use the row totals for the calculations.
+We can get relative frequencies, which are equivalent to <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportions</a>, using the `adorn_percentages` function (the function name is a misnomer, because we're calculating proportions, not percentages!), and telling R to use the row totals for the calculations.
 
 First create the new table object "bird.malaria.prop":
 
@@ -324,7 +324,7 @@ In the code chunk above, we have:
 * then we use `geom_point` to tell R to create a scatterplot using points, and specifically "shape = 1" denotes hollow circles
 * then we have x and y labels, followed by the `theme_bw` function telling R to use black and white theme
 
-Notice that the figure caption indicates the number of observations (sample size) used in the plot. In a [previous tutorial](#vis_describe) it was emphasized that one needs to be careful in tallying the actual number of observations being used in a graph or when calculating descriptive statistics. For example, there is one missing value ("NA") in the bill measurements for the Adelie penguins, hence the sample size of 151 instead of 152.  
+Notice that the figure caption indicates the number of observations (sample size) used in the plot. In a [previous tutorial](#vis_describe) it was emphasized that one needs to be careful in tallying the actual number of observations being used in a graph or when calculating <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistics</a>. For example, there is one missing value ("NA") in the bill measurements for the Adelie penguins, hence the sample size of 151 instead of 152.  
 
 <div class="note">
 **Reminder**
@@ -355,7 +355,7 @@ We'll use locust serotonin data set from the text book. Consult figure 2.1-2 in 
 
 <div class="note">
 **Tip**
-Always remember to get an overview of the dataset before attempting to create graphs, and not only for establishing sample sizes. If you had gotten an overview of the `locust` dataset, you would see we have a numeric response variable "serotoninLevel", but the categorical (explanatory) variable "treatmentTime" is actually coded as a numerical variable, with values of 0, 1, or 2 hours. Although this variable is coded as numeric, we can treat it as though it is an ordinal categorical variable.  
+Always remember to get an overview of the dataset before attempting to create graphs, and not only for establishing sample sizes. If you had gotten an overview of the `locust` dataset, you would see we have a numeric response variable "serotoninLevel", but the categorical (explanatory) variable "treatmentTime" is actually coded as a numerical variable, with values of 0, 1, or 2 hours. Although this variable is coded as numeric, we can treat it as though it is an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Ordinal-categorical-data">ordinal categorical variable</a>.  
 </div>
 
 We should re-code the "treatmentTime" variable in the `locust` dataset as a "factor" variable with three "levels": 0, 1, 2.  This is not necessary for our graphs to work, but it is good practice to do this when you encounter this situation where a variable that should be treated as an ordinal categorical variable is coded as numerical.
@@ -498,7 +498,7 @@ ggMarginal(bodymass.violin2, type = "density", alpha = 0.3, groupFill = TRUE)
 
 The violin plot is designed to give an idea of the frequency distribution of response variable values within each group. Specifically, the width of the violin reflects the frequency of observations in that range of values. This is evident in the above figure within the "density plots" that are provided in the right-hand margin. Consider these density plots as a smoothed out version of a histogram.
 
-We can see, for example, that for all three species of penguin there is a bulge in the middle indicating that there is a central mode to the body mass values in each group, with fewer values towards lower and higher extremes.  The frequency distribution for the Gentoo species approximates a "bell shape" distribution, for example (the blue data). 
+We can see, for example, that for all three species of penguin there is a bulge in the middle indicating that there is a central <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mode">mode</a> to the body mass values in each group, with fewer values towards lower and higher extremes.  The frequency distribution for the Gentoo species approximates a "bell shape" distribution, for example (the blue data). 
 
 ### Creating a boxplot {#boxplots}
 
@@ -559,4 +559,4 @@ It often takes some playing around with argument values before one gets the idea
 
 ### Interpreting stripcharts and boxplots {#interp_violin}
 
-We will wait until a future tutorial to learn more about interpreting violin / boxplots, because there we learn how to add more information to the graphs, such as group means and measures of uncertainty. 
+We will wait until a future tutorial to learn more about interpreting violin / boxplots, because there we learn how to add more information to the graphs, such as group <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">means</a> and measures of uncertainty. 

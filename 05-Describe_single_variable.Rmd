@@ -44,7 +44,7 @@ birds <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/d
 
 ## Describing a categorical variable {#desc_cat_Var}
 
-The *proportion* is the most important descriptive statistic for a categorical variable.  It measures the fraction of observations in a given category within a categorical variable. 
+The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">*proportion*</a> is the most important <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistic</a> for a categorical variable.  It measures the fraction of observations in a given category within a categorical variable. 
 
 For example, the `birds.csv` file has a single variable called `type` that includes tallies (frequencies) of each of four categories of bird observed at a marsh habitat.
 
@@ -94,9 +94,9 @@ Numeric variables are described with measures of **centre** and **spread**.
 
 Before calculating descriptive statistics for a numeric variable, it is advisable to visualize its frequency distribution first. Why? Because characteristics of the frequency distribution will govern which measures of centre and spread are more reliable or representative.  
 
-* If the frequency distribution is roughly symmetric and does not have any obvious outliers, then the __mean__ and the __standard deviation__ are the preferred measures of centre and spread, respectively
+* If the frequency distribution is roughly symmetric and does not have any obvious outliers, then the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">__mean__</a> and the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-deviation">__standard deviation__</a> are the preferred measures of centre and spread, respectively
 
-* If the frequency distribution is asymmetric and / or has outliers, the __median__ and the __inter-quartile range__ (IQR) are the preferred measures of centre and spread
+* If the frequency distribution is asymmetric and / or has outliers, the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Median">__median__</a> and the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Interquartile-range">__inter-quartile range__ (IQR)</a> are the preferred measures of centre and spread
 
 It is often the case, however, that all four measures are presented together.
 
@@ -125,7 +125,7 @@ ggplot(data = penguins, aes(x = body_mass_g)) +
   theme_bw()
 ```
 
-We are reminded that the distribution of body mass is moderately positively skewed and thus asymmetric, with a single mode near 3500g. There are no obvious outliers in the distribution.
+We are reminded that the distribution of body mass is moderately positively skewed and thus asymmetric, with a single <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mode">mode</a> near 3500g. There are no obvious outliers in the distribution.
 
 This means that the **median** and **IQR** should be the preferred descriptors of centre and spread, respectively. 
 
@@ -236,7 +236,7 @@ In another tutorial we'll learn how to present the table following all the guide
 
 In this tutorial you'll learn how to calculate descriptive statistics for a numerical variable grouped according to categories of a categorical variable.  
 
-For example, a common scenario in biology is to want to calculate and report the mean and standard deviation of a response variable for different "treatment groups" in an experiment. (More commonly we would report the mean and standard error, but that's for a later tutorial!).
+For example, a common scenario in biology is to want to calculate and report the mean and standard deviation of a response variable for different "treatment groups" in an experiment. (More commonly we would report the mean and <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-error">standard error</a>, but that's for a later tutorial!).
 
 It is straightforward to modify the code we used in the preceding tutorial to do what we want.
 

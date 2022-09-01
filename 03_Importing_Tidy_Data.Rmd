@@ -7,7 +7,7 @@ In this tutorial you will:
 * Review how to format your data 
   + [Tidy data](https://ubco-biology.github.io/Procedures-and-Guidelines/tidy-data.html)
   + Do's and Don'ts of naming variables and data entry
-  + Wide versus Long format
+  + <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Wide-format-data">Wide</a> versus <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Long-format-data">Long</a> format
 * Learn how to save a file in CSV (comma-separated values) format  
 * Learn how to import a CSV file from a website into a `tibble` in R  
 * Learn how to import a CSV file from a local directory into a `tibble` in R  
@@ -49,7 +49,7 @@ If you're curious about data wrangling, the `dplyr` package, which is loaded wit
 
 ## Import a CSV file from a website {#import_csv_url}
 
-In previous tutorials we've already seen how to import CSV files from the web. As always, the first step is to load the `tidyverse` library, because it includes many packages and functions that are handy for both data import and data wrangling.
+In previous tutorials we've already seen how to import <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Comma-separated-values-(CSV)-file">CSV files</a> from the web. As always, the first step is to load the `tidyverse` library, because it includes many packages and functions that are handy for both data import and data wrangling.
 
 ```{r}
 library(tidyverse)
@@ -197,7 +197,7 @@ A lot of information is provided in this summary output, so let's go through it:
 * Each summary includes a variety of descriptors, described next
 * The "n_missing" descriptor tells you how many observations are missing in the given variable. In the "trout" dataset we don't have any missing values
 * The "n_unique" descriptor for categorical variables indicates how many unique values (categories) are in that variable; for the "Site" variable in the "trout" dataset there are 3 unique values
-* The descriptors for the numeric variables include the mean, standard deviation (sd), and the quantiles
+* The descriptors for the numeric variables include the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">mean</a>, <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-deviation">standard deviation (sd)</a>, and the quantiles
 
 Now you have what you need to answer each of the questions listed above!
 
@@ -236,7 +236,7 @@ Before taking the measurements, think about how you can make your measurement pr
 
 **HINT**: Even before you start measuring, most of your data sheet should be filled with values, and when you type in your 6 measurements, these should be entered in a single column.
 
-* Once you've organized the spreadsheet, and even before you start entering the digit measurements, save it as a CSV file into your "rawdata" folder, remembering to use an appropriate file name
+* Once you've organized the spreadsheet, and even before you start entering the digit measurements, save it as a CSV file into your <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Raw-data">"rawdata"</a> folder, remembering to use an appropriate file name
 * Once you've typed out the methods in your markdown document, you can start taking measurements and recording them in the spreadsheet
 * Once you've finished entering the data, save the spreadsheet again, then quit Excel.
 

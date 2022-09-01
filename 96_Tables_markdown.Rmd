@@ -156,7 +156,7 @@ For very large datasets you may find this approach causes the font to be too sma
 
 ### A nicely formatted table of descriptive statistics {#stats_nicetable}
 
-Here is the code (which you've already learned) to create a good table of descriptive statistics for a numeric response variable grouped by categories in a categorical explanatory variable.
+Here is the code (which you've already learned) to create a good table of <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistics</a> for a numeric response variable grouped by categories in a categorical explanatory variable.
 
 We'll use the "penguins" dataset again, and calculate descriptive statistics for bill lengths of male penguins, grouped by species:
 
@@ -198,7 +198,7 @@ For example, we can see that the first three numbers in the "digits" argument ar
 
 For the "Mean" column we report the values to 1 more decimal place than was used in the measurement (which you find out by looking at the raw data in the "penguins" object), so here, 2 decimal places.
 
-For measures of spread (like the standard deviation) and measures of uncertainty (including SEM and confidence limits), report the numbers to 2 more decimal places than was used in the measurement, so here, 3 decimal places.
+For measures of spread (like the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-deviation">standard deviation)</a> and measures of uncertainty (including SEM and <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Confidence-interval">confidence limits</a>), report the numbers to 2 more decimal places than was used in the measurement, so here, 3 decimal places.
 
 You now know how to produce nicely formatted tables in your knitted PDF output!
 

@@ -75,9 +75,9 @@ Both datasets are formatted "tidy" format. For a refresher on this, review the [
 
 When testing for an association between two categorical variables, the most common test that is used is the $\chi$^2^ contingency test, which is described in the next section.  
 
-When the two categorical variables _have exactly 2 categories each_, and thus yield a 2 x 2 contingency table, the **Fisher's Exact test** (a type of contingency test) provides an EXACT _P_-value, and is therefore preferred over the $\chi$^2^ contingency test (below) when you have a computer to do the calculations.  
+When the two categorical variables _have exactly 2 categories each_, and thus yield a 2 x 2 contingency table, the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Fisher's-exact-test">**Fisher's Exact test**</a> (a type of contingency test) provides an EXACT <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#P-value">_P_-value</a>, and is therefore preferred over the $\chi$^2^ contingency test (below) when you have a computer to do the calculations.  
 
-Often, and especially when the 2 x 2 contingency table deals with a health-related study, one refers to the **Odds Ratio**, which we'll learn about below.  
+Often, and especially when the 2 x 2 contingency table deals with a health-related study, one refers to the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Odds-ratio">**Odds Ratio**</a>, which we'll learn about below.  
 
 In any case, the most powerful statistical test for a 2 x 2 contingency analysis is a **Fisher's Exact test**. 
 
@@ -91,13 +91,13 @@ The hypotheses for this test:
 **H~A~**: There is an association between the use of aspirin and the probability of developing cancer.  
 
 * We'll use an $\alpha$ level of 0.05.  
-* It is a two-tailed alternative hypothesis  
-* We'll use a Fisher's Exact test to test the null hypothesis, because this is the **most powerful test** when analyzing a 2 x 2 contingency table.  
+* It is a two-tailed <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a>
+* We'll use a Fisher's Exact test to test the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null hypothesis</a>, because this is the **most powerful test** when analyzing a 2 x 2 contingency table.  
 * There is no test statistic for the Fisher's Exact test, and nor does it use "degrees of freedom" (the latter you'll learn about soon, and is only required when we use a theoretical distribution for a test statistic)  
 
-> **HOWEVER**: it is recommended that you report the "odds ratio" (which you'll learn about below) in your concluding statement, along with its appropriate confidence interval; this is a useful stand-in test statistic for the Fisher's Exact Test  
+> **HOWEVER**: it is recommended that you report the "odds ratio" (which you'll learn about below) in your concluding statement, along with its appropriate <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Confidence-interval">confidence interval</a>; this is a useful stand-in test statistic for the Fisher's Exact Test  
 
-* We also don't need to worry about assumptions for this test, because it is not relying on a theoretical probability distribution  
+* We also don't need to worry about <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> for this test, because it is not relying on a theoretical <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> distribution  
 * It is always a good idea to present a figure to accompany your analysis; in the case of a Fisher's Exact test, the figure heading will include information about the sample size / total number of observations, whereas the concluding statement typically does not  
 
 ### Display a contingency table {#show_cont_table}
@@ -216,7 +216,7 @@ cancer.aspirin.table <- cancer %>%
 cancer.aspirin.table 
 ```
 
-And recall that proportions are calculated using frequencies - which is exactly what we have in the table!
+And recall that <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportions</a> are calculated using frequencies - which is exactly what we have in the table!
 
 Thus, to estimate the "odds" of getting cancer while taking aspirin, we need to:
 
@@ -349,7 +349,7 @@ The odds ratio and its 95% confidence interval are useful to report in any analy
 
 ## $\chi$^2^ Contingency Test {#chisquare}
 
-When the contingency table is of dimensions greater than 2 x 2, the most commonly applied test is the $\chi$^2^ Contingency Test.  
+When the contingency table is of dimensions greater than 2 x 2, the most commonly applied test is the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Chi-square-($\chi$^2^)-contingency-test">$\chi$^2^ Contingency Test</a>.  
 
 For this activity we're using the "worm" data associated with **Example 9.4 on page 244** of the test.  Please read the example!  
 
@@ -359,16 +359,16 @@ For this activity we're using the "worm" data associated with **Example 9.4 on p
 
 As shown in the text example, we have a 2 x 3 contingency table, and we're testing for an association between two categorical variables.  
 
-Here are the null and alternative hypotheses (compare these to what's written in the text):  
+Here are the null and <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative</a> hypotheses (compare these to what's written in the text):  
 
 **H~0~**: There is no association between the level of trematode parasitism and the frequency (or probability) of being eaten.  
 **H~A~**: There is an association between the level of trematode parasitism and the frequency (or probability) of being eaten.  
 
-* We use $\alpha$ = 0.05.  
+* We use <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Significance-level-($\alpha$)">$\alpha$</a> = 0.05.  
 * It is a two-tailed alternative hypothesis  
 * We'll use a contingency test to test the null hypothesis, because this is appropriate for analyzing for association between two categorical variables, and when the resulting contingency table has dimension greater than 2 x 2.  
 * We will use the $\chi$^2^ test statistic, with degrees of freedom equal to (r-1)(c-1), where "r" is the number of rows, and "c" is the number of colums, so (2-1)(3-1) = 2.    
-* We must check assumptions of the $\chi$^2^ contingency test
+* We must check <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> of the $\chi$^2^ contingency test
 * It is always a good idea to present a figure to accompany your analysis; in the case of a contingency test, the figure heading will include information about the sample size / total number of observations  
 
 * * *
@@ -449,7 +449,7 @@ In the code above we manually specified the two fill colours using the `scale_fi
 
 ### Check the assumptions {#checkchiassum}
 
-The $\chi$^2^ contingency test (also known as association test) has assumptions that **must be checked** prior to proceeding:
+The $\chi$^2^ contingency test (also known as association test) has <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> that **must be checked** prior to proceeding:
 
 * none of the categories should have an expected frequency of less than one
 * no more than 20% of the categories should have expected frequencies less than five 

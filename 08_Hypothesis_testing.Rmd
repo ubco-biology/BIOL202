@@ -23,7 +23,7 @@ library(infer)
 library(naniar)
 ```
 
-Import the CSV file called "damselfly":
+Import the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Comma-separated-values-(CSV)-file">CSV file</a> called "damselfly":
 
 ```{r get_damsel}
 damselfly <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/damselfly.csv")
@@ -44,7 +44,7 @@ damselfly
 
 ## Steps to hypothesis testing {#hyp_steps}
 
-Below is a list of all the steps required when conducting a hypothesis test. 
+Below is a list of all the steps required when conducting a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Hypothesis-testing">hypothesis test</a>. 
 
 <div class="note">
 **NOTE**
@@ -52,20 +52,20 @@ Several of the steps we will learn about in later tutorials.
 </div>
 
 * Identify the appropriate statistical test and thus __null distribution__ for the test statistic
-* State the null (**H~0~**) and alternative (**H~A~**) hypotheses  
-* Set an $\alpha$ level (usually 0.05)  
+* State the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null (**H~0~**)</a> and <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative (**H~A~**)</a> hypotheses  
+* Set an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Significance-level-($\alpha$)">$\alpha$ level</a> (usually 0.05)  
 * Determine whether a one-tailed or two-tailed test is appropriate (almost always the latter)
-* Check assumptions of the statistical test
+* Check <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> of the statistical test
     + state the assumptions of the test  
     + use appropriate figures and / or tests to check whether the assumptions of the statistical test are met
-    + transform data to meet assumptions if required 
+    + <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Data-transformation">transform data</a> to meet assumptions if required 
     + if assumptions can't be met (e.g. after transformation), use non-parametric test and repeat the first four steps above 
-* Provide an appropriate figure, including figure caption, to visualize the raw or transformed data  
+* Provide an appropriate figure, including figure caption, to visualize the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Raw-data">raw</a> or transformed data  
 * Provide a line or two interpreting your figure, and this may inform your concluding statement  
 * Calculate the test statistic value using the observed data  
-* Use the __null distribution__ to determine the **_P_-value** associated with the observed test statistic  
+* Use the __null distribution__ to determine the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#P-value">**_P_-value**</a> associated with the observed test statistic  
 * Draw the appropriate conclusion and communicate it clearly  
-* Calculate and include a confidence interval (e.g. for *t*-tests) or *R*^2^ value (e.g. for ANOVA) when appropriate  
+* Calculate and include a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Confidence-interval">confidence interval</a> (e.g. for *t*-tests) or *R*^2^ value (e.g. for <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Analysis-of-variance">ANOVA</a>) when appropriate  
 
 ## An hypothesis test example {#hyp_example}
 
@@ -91,7 +91,7 @@ damselfly
 
 ### Following the steps to hypothesis testing {#follow_hyp_steps}
 
-For the damselfly example, we have _n_ = 20 __random trials__, each of which has two possible outcomes: clockwise battle or counter-clockwise battle. This conforms to the expectations of a **binomial test**, for which the _binomial distribution_ is used to generate the appropriate **null distribution**. We'll learn about the binomial test in a later tutorial. 
+For the damselfly example, we have _n_ = 20 __random trials__, each of which has two possible outcomes: clockwise battle or counter-clockwise battle. This conforms to the expectations of a **binomial test**, for which the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Binomial-distribution">_binomial distribution_</a> is used to generate the appropriate **null distribution**. We'll learn about the binomial test in a later tutorial. 
 
 For the present tutorial, we're going to generate a null distribution via simulation.
 
@@ -107,9 +107,9 @@ We can now specify our $H_0$ and $H_A$:
 
 We'll set $\alpha = 0.05$.
 
-Although our $H_0$ makes a specific statement about a proportion ($p_0$), our _test statistic_ will actually be the **number of battles that occurred in a counter-clockwise direction**.  Of course, we can re-express this number as a proportion, but convention is that we use the number (frequency) instead.  
+Although our $H_0$ makes a specific statement about a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a> ($p_0$), our _test statistic_ will actually be the **number of battles that occurred in a counter-clockwise direction**.  Of course, we can re-express this number as a proportion, but convention is that we use the number (frequency) instead.  
 
-As indicated by the **H~A~** statement, we'll use a 2-tailed alternative hypothesis because we have no reason to exclude the possibility that clockwise battles are in fact more predominant.  
+As indicated by the **H~A~** statement, we'll use a 2-tailed <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a> because we have no reason to exclude the possibility that clockwise battles are in fact more predominant.  
 
 ### Simulating a "null distribution" {#sim_null}
 
@@ -145,7 +145,7 @@ null_options %>%
 * Next we create an object "num.reps" that is simply one number: the number of replications we wish to run (here, 1)
 * We tell R we're using the "null_options" object (created previously) for input into the subsequent lines, using the pipe (%>%) to continue the code
 * We use the `rep_slice_sample` function, setting the number of trials _n_ to 20, and ensuring that we use sampling with replacement here ("replace = T") because our "null_options" object has only two observations to sample from, and we need 20 total; 
-* You can think of the "weight_by" argument as a way to control the relative probability of sampling each of the rows in the input tibble (here, the "null_options" tibble). Here we provide two values (0.5, 0.5), specifying that we want each of the two rows in the tibble to have equal likelihood of being sampled at random.  This corresponds to what we want for our null expectation, and for the generation of the null distribution
+* You can think of the "weight_by" argument as a way to control the relative <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> of sampling each of the rows in the input tibble (here, the "null_options" tibble). Here we provide two values (0.5, 0.5), specifying that we want each of the two rows in the tibble to have equal likelihood of being sampled at random.  This corresponds to what we want for our null expectation, and for the generation of the null distribution
 * The last argument to the `rep_slice_sample` function is "reps = num.reps", using our created object to tell R that we want only one repetition of the 20 trials
 * In the last line of code we use the `count` function to tally the number of observations belonging to each of the two categories in the "direction" variable
 
@@ -206,7 +206,7 @@ The null distribution above shows us that if the null hypothesis was true, the m
 
 ### Calculating the _P_-value {#calc_p}
 
-The **_P_-value** is defined as the probability of observing an outcome as extreme or more extreme as the observed value of the test statistic, if the null hypothesis were true.  
+The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#P-value">**_P_-value**</a> is defined as the probability of observing an outcome as extreme or more extreme as the observed value of the test statistic, if the null hypothesis were true.  
 
 In our damselfly study, we observed 17 out of 20 battles to be in the counter-clockwise direction.  
 

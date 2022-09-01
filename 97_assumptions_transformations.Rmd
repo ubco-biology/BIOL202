@@ -23,7 +23,7 @@ options(knitr.table.format = "html")
   + back-transforming logit data
   + when to back-transform?
 
-Most statistical tests, such as the $\chi$^2^ goodness of fit test, the $\chi$^2^ contingency test, *t*-test, ANOVA, Pearson correlation, and least-squares regression, have assumptions that must be met. For example, the one-sample *t*-test requires that the variable is normally distributed in the population, and least-squares regression requires that the residuals from the regression be normally distributed. In this tutorial we'll learn ways to check the assumption that the variable is normally distributed in the population.   
+Most statistical tests, such as the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Chi-square-($\chi$^2^)-goodness-of-fit-test">$\chi$^2^ goodness of fit test</a>, <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Chi-square-($\chi$^2^)-contingency-test">the $\chi$^2^ contingency test</a>, *t*-test, <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Analysis-of-variance">ANOVA</a>, Pearson correlation, and least-squares <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Linear-regression">regression</a>, have <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> that must be met. For example, the one-sample *t*-test requires that the variable is normally distributed in the population, and least-squares regression requires that the residuals from the regression be normally distributed. In this tutorial we'll learn ways to check the assumption that the variable is normally distributed in the population.   
 
 We'll also learn how transforming a variable can sometimes help satisfy assumptions, in which case the analysis is conducted on the transformed variable. 
 
@@ -154,13 +154,13 @@ Egregious deviations from the normality assumption will be clearly evident in no
 
 ### Shapiro-Wilk test for normality {#shapirottest}
 
-Although graphical assessments are usually sufficient for checking the normality assumption, one can conduct a formal statistical test of the null hypothesis that the data are sampled from a population having a normal distribution. The test is called the **Shapiro-Wilk test**.  
+Although graphical assessments are usually sufficient for checking the normality assumption, one can conduct a formal statistical test of the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null hypothesis</a> that the data are sampled from a population having a normal distribution. The test is called the **Shapiro-Wilk test**.  
 
 The Shapiro-Wilk test is a type of goodness-of-fit test.  
 
 <div class="note">
 **NOTE: **
-Sometimes the **Shapiro-Wilk test** is applied in a hypothesis testing framework, but when it is applied as part of checking assumptions for another statistical test (like we're doing here), one does not need to present it in a hypothesis test framework. However, the implied null hypothesis is that "The data are sampled from a population having a normal distribution", and one does interpret the resulting *P*-value in the same way as usual, i.e. in relation to an $\alpha$ level (see below).
+Sometimes the **Shapiro-Wilk test** is applied in a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Hypothesis-testing">hypothesis testing</a> framework, but when it is applied as part of checking assumptions for another statistical test (like we're doing here), one does not need to present it in a hypothesis test framework. However, the implied null hypothesis is that "The data are sampled from a population having a normal distribution", and one does interpret the resulting *P*-value in the same way as usual, i.e. in relation to an $\alpha$ level (see below).
 </div>
 
 We'll make use of the `shapiro.test` function from base R stats package:
@@ -226,7 +226,7 @@ Visual assessments of normality are preferred, because the outcome of the Shapir
 
 ## Checking the equal-variance assumption {#levenetest}
 
-Some statistical tests, such as the 2-sample *t*-test and ANOVA, assume that the variance ($\sigma$) of the numeric response variable is the same among the populations being compared.
+Some statistical tests, such as the 2-sample *t*-test and ANOVA, assume that the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Variance">variance ($\sigma$)</a> of the numeric response variable is the same among the populations being compared.
 
 For this we use the **Levene's test**, which we implement using the `leveneTest` function from the `car` package:
 
@@ -290,7 +290,7 @@ As part of your main statistical test, such as a two-sample *t*-test or an ANOVA
 
 ## Data transformations {#transform}
 
-Here we learn how to transform numeric variables using two common methods:  
+Here we learn how to <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Data-transformation">transform</a> numeric variables using two common methods:  
 
 * log-transform
 * logit-transform  
@@ -299,7 +299,7 @@ There are many other types of transformations that can be performed, some of whi
 
 <div class="note">
 **NOTE: **
-Contrary to what is suggested in the text, it is better to use the "logit" transformation rather than the "arcsin square-root" transformation for proportion or percentage data, as described in this [article](http://onlinelibrary.wiley.com/doi/10.1890/10-0340.1/abstract) by Warton and Hui (2011).
+Contrary to what is suggested in the text, it is better to use the "logit" transformation rather than the "arcsin square-root" transformation for <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a> or percentage data, as described in this [article](http://onlinelibrary.wiley.com/doi/10.1890/10-0340.1/abstract) by Warton and Hui (2011).
 </div>
 
 ### Log-transform {#log_transform}
@@ -371,7 +371,7 @@ marine %>%
 
 The log-transform definitely helped, but the distribution still looks a bit wonky: several of the points are quite far from the line.  
 
-Just to be sure, let's conduct a Shapiro-Wilk test, using an $\alpha$ level of 0.05, and remembering to tidy the output:
+Just to be sure, let's conduct a Shapiro-Wilk test, using an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Significance-level-($\alpha$)">$\alpha$ level</a> of 0.05, and remembering to tidy the output:
 
 ```{r normtest22}
 shapiro.log.result <- shapiro.test(marine$logbiomass)
@@ -636,7 +636,7 @@ Yup, it worked!
 
 You should back-transform your data when it makes sense to communicate findings on the original measurement scale.  
 
-The most common example is **reporting confidence intervals for a mean or difference in means**.  
+The most common example is **reporting <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Confidence-interval">confidence intervals</a> for a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">mean</a> or difference in means**.  
 
 For example, imagine you had calculated a confidence interval for the log-transformed marine biomass ratio data, and your limits were as follows: 
 

@@ -53,7 +53,7 @@ It includes 21 observations, no missing values, and two integer variables: "year
 
 It is commonplace in biology to wish to quantify the strength and direction of a linear association between two numerical variables. 
 
-For example, in an [earlier tutorial](#two_numeric) we visualized the association between bill depth and bill length among Adelie penguins, using the "penguins" dataset. Here we learn how to quantify the strength and direction of this type of association by calculating the **Pearson correlation coefficient**.  
+For example, in an [earlier tutorial](#two_numeric) we visualized the association between bill depth and bill length among Adelie penguins, using the "penguins" dataset. Here we learn how to quantify the strength and direction of this type of association by calculating the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Pearson-correlation">**Pearson correlation coefficient**</a>.  
 
 When drawing inferences about associations between numerical variables in a population, the true correlation coefficient is referred to as "rho" or $\rho$.
 
@@ -80,7 +80,7 @@ The hypothesis statements should be framed in the context of the question, and s
 **H~0~**: Inbreeding coefficients are not associated with the number of pups surviving the first winter ($\rho = 0$). 
 **H~A~**: Inbreeding coefficients are associated with the number of pups surviving the first winter ($\rho \ne 0$).  
 
-We'll set $\alpha$ = 0.05.  
+We'll set <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Significance-level-($\alpha$)">$\alpha$ = 0.05</a>.  
 
 ### Visualize the data {#see_corr}
 
@@ -183,12 +183,12 @@ wolf.cor.tidy
 ```
 
 * The "estimate" value represents the value of Pearson's correlation coefficient $r$
-* The "statistic" value is actually the value for $t$, which is used to test the significance of *r*
+* The "statistic" value is actually the value for $t$, which is used to test the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Statistical-significance">significance</a> of *r*
 * The "p.value" associated with the observed value of *t*
 * The "parameter" value is, strangely, referring to the degrees of freedom for the test, $df = n - 2$
-* The output also includes the confidence interval for *r* ("conf.low" and "conf.high")
+* The output also includes the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Confidence-interval">confidence interval</a> for *r* ("conf.low" and "conf.high")
 * The "method" refers to the type of test conducted
-* The "alternative" indicates whether the alternative hypothesis was one- or two-sided (the latter is the default)
+* The "alternative" indicates whether the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a> was one- or two-sided (the latter is the default)
 
 Despite the reporting of the *t* test statistic, **we do not report _t_ in our concluding statement** (see below). 
 
@@ -225,15 +225,15 @@ Remember to double-check if you had any missing values in your dataset, do that 
 
 ## Rank correlation (Spearman's correlation) {#rankcorr}
 
-If the assumption of bivariate normality is not met for Pearson correlation analysis, then we use Spearman rank correlation.  
+If the assumption of bivariate normality is not met for Pearson correlation analysis, then we use <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Spearman-rank-correlation">Spearman rank correlation</a>.  
 
-For example, if one or both of your numerical variables (X and / or Y) is actually a discrete, ordinal numerical variable to begin with (e.g. an attractiveness score that ranges from 1 to 5), then this automatically necessitates the use of Spearman rank correlation, because it does not meet the assumptions of bivariate normality. (This is why one needs to be careful with count data).    
+For example, if one or both of your numerical variables (X and / or Y) is actually a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Discrete-quantitative-data">discrete</a>, ordinal numerical variable to begin with (e.g. an attractiveness score that ranges from 1 to 5), then this automatically necessitates the use of Spearman rank correlation, because it does not meet the assumptions of bivariate normality. (This is why one needs to be careful with count data).    
 
 We'll use the `trick` dataset for this example, and the data are described in example 16.5 in the text.  
 
 ### Hypothesis statements
 
-The null and alternative hypotheses are:  
+The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null</a> and <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypotheses</a> are:  
 
 **H~0~**: There is no linear correlation between the ranks of the impressiveness scores and time elapsed until the writing of the description ($\rho_{S} = 0$).  
 **H~A~**: There is a linear correlation between the ranks of the impressiveness scores and time elapsed until the writing of the description ($\rho_{S} \ne 0$).    
@@ -262,14 +262,14 @@ trick %>%
 
 ### Assumptions of Spearman rank correlation {#assum_spear} 
 
-Spearman rank correlation assumes that:  
+Spearman rank correlation <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumes</a> that:  
 
 * the observations are a random sample from the population  
 * the relationship between the two variables is monotonic; in other words it assumes that the relationship between the **ranks** of the two numerical variables is linear.  
 
 **Checking assumptions**
 
-As in the Pearson correlation analysis, we use the scatterplot to check the assumptions.  
+As in the Pearson correlation analysis, we use the scatterplot to check the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a>.  
 
 > As shown in Figure \@ref(fig:trickplot), there is a monotonic relationship between the two variables.  
 

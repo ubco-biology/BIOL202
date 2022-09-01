@@ -8,7 +8,7 @@ options(knitr.table.format = "html")
 **Tutorial learning objectives**
 
 * Learn how to analyze a numeric response variable in relation to a single categorical explanatory variable that has more than two groups. In other words, we will learn how to compare the means of more than 2 groups.  
-* Learn how to implement all the steps of an **Analysis of Variance** (ANOVA), which is often the most suitable method for testing the null hypothesis of no difference between the means of more than two groups (i.e. $\mu_1 = \mu_2 = \mu_3 = \mu_i..$)
+* Learn how to implement all the steps of an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Analysis-of-variance">**Analysis of Variance** (ANOVA)</a>, which is often the most suitable method for testing the null hypothesis of no difference between the means of more than two groups (i.e. $\mu_1 = \mu_2 = \mu_3 = \mu_i..$)
 
 <div class="note">
 **NOTE:  **
@@ -60,7 +60,7 @@ circadian <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/ma
 
 <div class="note">
 **TIP:**
-When analyzing a numeric response variable in relation to a categorical variable, it is good practice to ensure that the categorical variable is treated as a "factor" type variable by R, and that the categories or "levels" of the factor are ordered in the correct way for the purpose of graphs and / or tables of descriptive statistics. For example, there is often a "control" group (category), and if so, this group should come first in a graph or table.
+When analyzing a numeric response variable in relation to a categorical variable, it is good practice to ensure that the categorical variable is treated as a "factor" type variable by R, and that the categories or "levels" of the factor are ordered in the correct way for the purpose of graphs and / or tables of <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistics</a>. For example, there is often a "control" group (category), and if so, this group should come first in a graph or table.
 </div>
 
 Let's follow this practice for the "circadian" dataset. 
@@ -71,7 +71,7 @@ Let's have a look at the data.
 
 <div class="note">
 **TIP:**
-Given that the output from `skim_without_charts` is almost always rather wide, and overflows the page width, we'll get into the habit of transposing the output, and presenting using the `kbl` command.  See the [tutorial on tables in markdown](https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html)
+Given that the output from `skim_without_charts` is almost always rather <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Wide-format-data">wide</a>, and overflows the page width, we'll get into the habit of transposing the output, and presenting using the `kbl` command.  See the [tutorial on tables in markdown](https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html)
 </div>
 
 Let's save the skim output to an object:
@@ -95,7 +95,7 @@ And also have a look at the tibble itself:
 circadian
 ```
 
-The data are stored in tidy (long) format - good!
+The data are stored in tidy <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Long-format-data">(long) format</a> - good!
 
 We can see the unique values of the categorical variable as follows:
 
@@ -147,10 +147,10 @@ This procedure (ensuring the explanatory categorical variable is coded as a fact
 
 ## Analysis of variance {#do_the_anova}
 
-**Follow these steps when conducting a hypothesis test:**
+**Follow these steps when conducting a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Hypothesis-testing">hypothesis test</a>:**
 
-* State the null and alternative hypotheses  
-* Set an $\alpha$ level  
+* State the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null</a> and <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative</a> hypotheses  
+* Set an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Significance-level-($\alpha$)">$\alpha$ level </a> 
 * Identify the appropriate test & provide rationale
 * Prepare an appropriately formatted table of descriptive statistics for the response variable grouped by the categories of the explanatory variable.  
 * Visualize the data with a good graph and interpret the graph
@@ -158,16 +158,16 @@ This procedure (ensuring the explanatory categorical variable is coded as a fact
   + state the assumptions of the test  
   + use appropriate figures and / or tests to check whether the assumptions of the statistical test are met
   + transform data to meet assumptions if required 
-  + if assumptions can't be met (e.g. after transformation), use non-parametric test and repeat steps 1 through 4 
-* Conduct the test, and report the test statistic and associated _P_-value  
-* Calculate and include a confidence interval (e.g. for *t*-tests) or $R^2$ value (e.g. for ANOVA) when appropriate  
-* Optionally, for ANOVA, conduct a "post-hoc" comparison of means using "Tukey-Kramer post-hoc test"
+  + if assumptions can't be met (e.g. after <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Data-transformation">transformation</a>), use non-parametric test and repeat steps 1 through 4 
+* Conduct the test, and report the test statistic and associated <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#P-value">_P_-value</a>  
+* Calculate and include a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Confidence-interval">confidence interval</a> (e.g. for *t*-tests) or $R^2$ value (e.g. for ANOVA) when appropriate  
+* Optionally, for ANOVA, conduct a "post-hoc" comparison of <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">means</a> using "Tukey-Kramer post-hoc test"
 * Draw the appropriate conclusion and communicate it clearly  
 
 **Additional steps are required for ANOVA tests**  
 
 * An appropriately formatted ANOVA results table
-* A good figure with results of **post-hoc tests** included (if these tests were conducted)   
+* A good figure with results of <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Post-hoc-test">**post-hoc tests**</a> included (if these tests were conducted)   
 * Your concluding statement should refer to the ANOVA table, the new figure, and the $R^2$ value  
 
 ### Hypothesis statements {#anova_hyps}
@@ -263,7 +263,7 @@ circadian %>%
 
 We've added two sets of `stat_summary` functions, one for adding the group mean, and one for adding the error bars.
 
-* The argument "fun = mean_se" adds the standard error of the group means
+* The argument "fun = mean_se" adds the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-error">standard error</a> of the group means
 * the "geom = 'errorbar'" tells ggplot to use an error bar format
 * the "position = position_nudge(x = 0.15)" tells ggplot to nudge the error bar off to the side a bit, so it doesn't obscure the data points
 * the next `stat_summary` function is the same, but this time for the group means.
@@ -297,11 +297,11 @@ In this case we don't need to nudge the means and error bars to the side.
 
 ### Assumptions of ANOVA {#assump_anova}
 
-The assumptions of ANOVA are:  
+The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> of ANOVA are:  
 
 * The measurements in every group represent a random sample from the corresponding population (**NOTE**: for an experimental study, the assumption is that subjects are randomly assigned to treatments)  
 * The response variable has a normal distribution in each population 
-* The variance of the response variable is the same in all populations (called the "homogeneity of variance" assumption) 
+* The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Variance">variance</a> of the response variable is the same in all populations (called the "homogeneity of variance" assumption) 
 
 * * *
 
@@ -441,7 +441,7 @@ We can now refer to this nice table in our concluding statement, and if the tabl
 
 ### Calculate $R^2$ for the ANOVA
 
-One measure that is typically reported with any "linear model" like ANOVA is the "variance explained" or **coefficient of determination**, denoted $R^2$.  
+One measure that is typically reported with any "linear model" like ANOVA is the "variance explained" or <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Coefficient-of-determination-(R<sup>2</sup>)">**coefficient of determination**</a>, denoted $R^2$.  
 
 This value indicates the fraction of the variation in _Y_ that is explained by groups.  
 
@@ -576,7 +576,7 @@ Notice that we have added a line including the `ylim` function, so that we can s
 {r fig.cap = "Stripchart showing the phase shift in the circadian rhythm of melatonin production in 22 experimental participants given alternative light treatments. Solid circles represent group means, and bars represent +/- one SE. Group means sharing the same letter are not significantly different according to the Tukey-Kramer post-hoc test (family-wise $\\alpha$ = 0.05).", fig.width = 4, fig.height = 4.5}
 ```
 
-The "family-wise" $\alpha$ statement means that the Tukey-Kramer test uses our initial $\alpha$ level, but ensures that the probability of making at least one Type-1 error throughout the course of testing all pairs of means is no greater than the originally stated $\alpha$ level.  
+The "family-wise" $\alpha$ statement means that the Tukey-Kramer test uses our initial $\alpha$ level, but ensures that the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> of making at least one Type-1 error throughout the course of testing all pairs of means is no greater than the originally stated $\alpha$ level.  
 
 <div class="note">
 **TIP:**
