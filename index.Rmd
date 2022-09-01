@@ -13,7 +13,7 @@ link-citations: yes
 # (PART\*) Preface {-}
 
 ```{r echo = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 options(knitr.table.format = "html")
 options(pillar.sigfig = 4)
 ```
