@@ -452,7 +452,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.2</span> Describing a categorical variable</h2>
 <p>The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion"><em>proportion</em></a> is the most important <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistic</a> for a categorical variable. It measures the fraction of observations in a given category within a categorical variable.</p>
 <p>For example, the <code>birds.csv</code> file has a single variable called <code>type</code> that includes tallies (frequencies) of each of four categories of bird observed at a marsh habitat.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="desc-cat-Var.html#cb49-1" aria-hidden="true" tabindex="-1"></a>birds</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="desc-cat-Var.html#cb52-1" aria-hidden="true" tabindex="-1"></a>birds</span></code></pre></div>
 <pre><code>## # A tibble: 86 × 1
 ##    type     
 ##    &lt;chr&gt;    
@@ -470,16 +470,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <em>proportion</em> of birds belonging to a given category is the same as the <em>relative frequency</em> of birds belonging to a given category.</p>
 <p>In a previous <a href="vis-cat-freq-table.html#vis_cat_freq_table">tutorial</a>, using the <code>tigerdeaths</code> dataset, we learned how to create a frequency table that included relative frequencies.</p>
 <p>Let’s use the same approach for the <code>birds</code> dataset. First we create the frequency table, then we display the table with an appropriate heading:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="desc-cat-Var.html#cb51-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
-<span id="cb51-2"><a href="desc-cat-Var.html#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb51-3"><a href="desc-cat-Var.html#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="desc-cat-Var.html#cb54-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
+<span id="cb54-2"><a href="desc-cat-Var.html#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-3"><a href="desc-cat-Var.html#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
 <div class="note">
 <p><strong>NOTE</strong>
 If there are missing values (“NA”) in the categorical variable, the preceding code will successfully enumerate those and create an “NA” category in the frequency table.</p>
 </div>
 <p>Now display the table:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="desc-cat-Var.html#cb52-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="sc">%&gt;%</span></span>
-<span id="cb52-2"><a href="desc-cat-Var.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="desc-cat-Var.html#cb55-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a href="desc-cat-Var.html#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <caption>
 (#tab:birds_table)Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)
@@ -602,7 +602,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["BIOL202-github.pdf", "BIOL202-github.epub"],
+"download": null,
 "toc": {
 "collapse": "section",
 "scroll_highight": true,

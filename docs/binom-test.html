@@ -479,13 +479,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We use the <code>binom.test</code> function that is from the base R package.</p>
 <pre><code>?binom.test</code></pre>
 <p>Let’s show the code then explain after:</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="binom-test.html#cb210-1" aria-hidden="true" tabindex="-1"></a>binom.test.results <span class="ot">&lt;-</span> <span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">17</span>, <span class="at">n =</span> <span class="dv">20</span>, <span class="at">p =</span> <span class="fl">0.5</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="binom-test.html#cb216-1" aria-hidden="true" tabindex="-1"></a>binom.test.results <span class="ot">&lt;-</span> <span class="fu">binom.test</span>(<span class="at">x =</span> <span class="dv">17</span>, <span class="at">n =</span> <span class="dv">20</span>, <span class="at">p =</span> <span class="fl">0.5</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
 <ul>
 <li>We create a new object “binom.test.results” to hold the results</li>
 <li>the arguments for the <code>binom.test</code> function include the number of successes (x), the number of trials (n), the null hypothesized proportion (p), and we specify that the alternative hypothesis is “two.sided” - which is almost always the case</li>
 </ul>
 <p>Now let’s look at the output:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="binom-test.html#cb211-1" aria-hidden="true" tabindex="-1"></a>binom.test.results</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="binom-test.html#cb217-1" aria-hidden="true" tabindex="-1"></a>binom.test.results</span></code></pre></div>
 <pre><code>## 
 ##  Exact binomial test
 ## 
@@ -503,9 +503,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 The confidence interval provided by this <code>binom.test</code> function is <em>not</em> recommended. Rather, you should <strong>ALWAYS</strong> use the Agresti-Coull method to calculate a confidence interval for a proportion, as shown in the previous <a href="estproportions.html#confint_prop">tutorial</a>.</p>
 </div>
 <p>Let’s now calculate the Agresti-Coull 95% confidence interval for the proportion, as we learned previously, using the <code>binom.confint</code> function from the <code>binom</code> package:</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="binom-test.html#cb213-1" aria-hidden="true" tabindex="-1"></a>damsel.confint.results <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="at">x =</span> <span class="dv">17</span>, <span class="at">n =</span> <span class="dv">20</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">methods =</span> <span class="st">&quot;ac&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="binom-test.html#cb219-1" aria-hidden="true" tabindex="-1"></a>damsel.confint.results <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="at">x =</span> <span class="dv">17</span>, <span class="at">n =</span> <span class="dv">20</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">methods =</span> <span class="st">&quot;ac&quot;</span>)</span></code></pre></div>
 <p>And look at the output:</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="binom-test.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(damsel.confint.results, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="binom-test.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(damsel.confint.results, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -607,7 +607,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["BIOL202-github.pdf", "BIOL202-github.epub"],
+"download": null,
 "toc": {
 "collapse": "section",
 "scroll_highight": true,
