@@ -180,14 +180,12 @@ This will open an R Markdown document in the top left panel.  Don't worry about 
 
 In a future [tutorial](#repro_research) we'll discuss how to use R Markdown as part of a reproducible workflow.
  
-# Extra online resources {#r_resources}
+# Extra resources {#r_resources}
 
 <div class="note">
 **Note**
-This page is still under development (Sept 8, 2021)
+This page is still under development (Aug 2022)
 </div>
-
-Below we provide tables with various online resources, including ones that will help you troubleshoot.
 
 If you are googling for R code, make sure to also include package names in your search query (if you are using a specific package). For example, instead of googling "scatterplot in R", google "scatterplot in R with ggplot2".
 
