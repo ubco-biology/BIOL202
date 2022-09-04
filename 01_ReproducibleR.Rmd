@@ -1,6 +1,6 @@
 # (PART\*) Reproducible Workflows {-}
 
-# Reproducible Research {#repro_research}
+# Reproducible Research {#repro_research1}
 
 A key goal of our Biology program at UBC's Okanagan campus is to foster appreciation for reproducible research, and to equip students (and professors) with skills that will help them undertake reproducible research themselves.     
 
