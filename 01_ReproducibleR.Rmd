@@ -30,7 +30,7 @@ Following best practices for naming and organizing your files and directories on
 
 1. Review the Biology department's [Procedures and Guidelines webpage](https://ubco-biology.github.io/Procedures-and-Guidelines/) description of how to [manage files and directories](https://ubco-biology.github.io/Procedures-and-Guidelines/file-and-data-management.html). This should take about **20 minutes**
 
-# An example BIOL202 workflow {#biol202_workflow}
+## An example BIOL202 workflow {#biol202_workflow}
 
 Now that you have reviewed the fundamentals of <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#File-and-data-management">file and directory management</a>, you should decide how to best organize and manage the work you do for BIOL202. Here we'll provide one example approach that most if not all of you will find useful.  
 
@@ -129,6 +129,7 @@ Reading and writing files from / to directories requires that we can tell R exac
 ### The `here` package{#here_package}
 
 Now we'll install and load an R package called `here` that will help with file and directory management and navigation. 
+
 ```
 install.packages("here")
 ```

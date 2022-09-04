@@ -2,8 +2,8 @@
 
 # What are R and RStudio? {#what_is_R}
 
-```{r klippy, echo = FALSE, include = TRUE}
-klippy::klippy()
+```{r kilppy, echo = FALSE, include = TRUE}
+# klippy::klippy()
 ```
 
 It is assumed that you are using <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#R">R</a> via RStudio. First time users often confuse the two. At its simplest:
@@ -17,7 +17,7 @@ R: Engine            |  RStudio: Dashboard
 
 More precisely, R is a programming language that runs computations while RStudio is an *integrated development environment (IDE)* that provides an interface by adding many convenient features and tools. So the way of having access to a speedometer, rearview mirrors, and a navigation system makes driving much easier, using RStudio's interface makes using R much easier as well. 
 
-# Installing R and RStudio {#install_R_Rstudio}
+## Installing R and RStudio {#install_R_Rstudio}
 
 <div class="note">
 **Note**
@@ -62,7 +62,7 @@ Note the four panes which are four panels dividing the screen: the source pane (
 
 Please go through section [1.2 of the ModernDive online text](https://moderndive.com/1-getting-started.html#code) called "How do I code in R?". This should take about **15 minutes**.
 
-# R packages {#packages}
+## R packages {#packages}
 
 An R package is a collection of functions, data, and documentation that extends the capabilities of R. They are written by a world-wide community of R users. For example, among the most popular packages are:
 
@@ -120,7 +120,7 @@ Error: could not find function
 remember that this likely comes from you trying to use a function in a package that has not been loaded.  Remember to run the `library()` function with the appropriate package to fix this error.
 </div>
 
-# Intro to R Markdown {#intro_markdown}
+## Intro to R Markdown {#intro_markdown}
 
 As you may have learned already from section 6 of the [Biology Procedures and Guidelines resource ](https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html), R <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Markdown">Markdown</a> is a markup language that provides an easy way to produce a rich, fully-documented reproducible analysis.  It allows its user to share a single file that contains all of the commentary, R code, and <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Metadata">metadata</a> needed to reproduce the analysis from beginning to end.  R Markdown allows for "chunks" of R code to be included along with Markdown text to produce a nicely formatted HTML, PDF, or Word file without having to know any complicated programming languages or having to fuss with getting the formatting just right in a Microsoft Word DOCX file.  
 
@@ -180,7 +180,7 @@ This will open an R Markdown document in the top left panel.  Don't worry about 
 
 In a future [tutorial](#repro_research) we'll discuss how to use R Markdown as part of a reproducible workflow.
  
-# Extra resources {#r_resources}
+## Extra resources {#r_resources}
 
 <div class="note">
 **Note**
