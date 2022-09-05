@@ -175,6 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7" data-path="lit_programming.html"><a href="lit_programming.html"><i class="fa fa-check"></i><b>2.7</b> Literate programming with R Markdown</a></li>
 <li class="chapter" data-level="2.8" data-path="veryify_knit.html"><a href="veryify_knit.html"><i class="fa fa-check"></i><b>2.8</b> Making sure R Markdown knits to PDF</a></li>
 <li class="chapter" data-level="2.9" data-path="r_resources.html"><a href="r_resources.html"><i class="fa fa-check"></i><b>2.9</b> Extra resources</a></li>
+<li class="chapter" data-level="2.10" data-path="online_resources.html"><a href="online_resources.html"><i class="fa fa-check"></i><b>2.10</b> R Resources Online</a></li>
 </ul></li>
 <li class="part"><span><b>Reproducible Workflows</b></span></li>
 <li class="chapter" data-level="3" data-path="repro_res.html"><a href="repro_res.html"><i class="fa fa-check"></i><b>3</b> Reproducible Research</a>
@@ -610,8 +611,7 @@ Figure 16.12: Normal quantile plot of made-up biomass data.
 </div>
 <p>Let’s first see what happens when we try to log-transform the “biomass” variable:</p>
 <div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="transform.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(apples<span class="sc">$</span>biomass)</span></code></pre></div>
-<pre><code>##  [1] 0.45056428 0.80433995 0.88697947       -Inf 0.95272789 0.55653572 0.35059322 2.19753971 2.15833805 2.26733776 2.30674058 0.02011719
-## [13] 0.40525957 1.22291473</code></pre>
+<pre><code>##  [1] 0.45056428 0.80433995 0.88697947       -Inf 0.95272789 0.55653572 0.35059322 2.19753971 2.15833805 2.26733776 2.30674058 0.02011719 0.40525957 1.22291473</code></pre>
 <p>Notice we get a “-Inf” value.</p>
 <p>The following code tallies the number of observations in the “biomass” variable that equal zero.</p>
 <p><strong>If this sum is greater than zero</strong>, then you’ll need to add a constant to all observations when transforming.</p>
@@ -707,8 +707,7 @@ Figure 16.13: Normal quantile plot of made-up biomass data, log-transformed.
 <p>Notice the minus 1 comes after the <code>exp</code> function is executed.</p>
 <p>If you had used the log base 10 transformation, then the code to back-transform is as follows:</p>
 <div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="transform.html#cb460-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span>(marine<span class="sc">$</span>log10biomass)</span></code></pre></div>
-<pre><code>##  [1] 1.34 1.96 2.49 1.27 1.19 1.15 1.29 1.05 1.10 1.21 1.31 1.26 1.38 1.49 1.84 1.84 3.06 2.65 4.25 3.35 2.55 1.72 1.52 1.49 1.67 1.78 1.71 1.88
-## [29] 0.83 1.16 1.31 1.40</code></pre>
+<pre><code>##  [1] 1.34 1.96 2.49 1.27 1.19 1.15 1.29 1.05 1.10 1.21 1.31 1.26 1.38 1.49 1.84 1.84 3.06 2.65 4.25 3.35 2.55 1.72 1.52 1.49 1.67 1.78 1.71 1.88 0.83 1.16 1.31 1.40</code></pre>
 <p>The <code>^</code> symbol stands for “exponent”. So here we’re calculating 10 to the exponent <em>x</em>, where <em>x</em> is each value in the dataset.</p>
 </div>
 <div id="logit_transform" class="section level3 hasAnchor" number="16.8.5">

@@ -76,6 +76,7 @@ intro_markdown
 lit_programming
 veryify_knit
 r_resources
+online_resources
 repro_res
 comp_repro
 biol202_workflow

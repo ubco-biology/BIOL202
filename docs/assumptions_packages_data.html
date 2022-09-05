@@ -175,6 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7" data-path="lit_programming.html"><a href="lit_programming.html"><i class="fa fa-check"></i><b>2.7</b> Literate programming with R Markdown</a></li>
 <li class="chapter" data-level="2.8" data-path="veryify_knit.html"><a href="veryify_knit.html"><i class="fa fa-check"></i><b>2.8</b> Making sure R Markdown knits to PDF</a></li>
 <li class="chapter" data-level="2.9" data-path="r_resources.html"><a href="r_resources.html"><i class="fa fa-check"></i><b>2.9</b> Extra resources</a></li>
+<li class="chapter" data-level="2.10" data-path="online_resources.html"><a href="online_resources.html"><i class="fa fa-check"></i><b>2.10</b> R Resources Online</a></li>
 </ul></li>
 <li class="part"><span><b>Reproducible Workflows</b></span></li>
 <li class="chapter" data-level="3" data-path="repro_res.html"><a href="repro_res.html"><i class="fa fa-check"></i><b>3</b> Reproducible Research</a>
@@ -485,7 +486,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s make sure to treat any categorical variables as factor variables, using the “stringsAsFactors = T” argument:</p>
 <div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="assumptions_packages_data.html#cb410-1" aria-hidden="true" tabindex="-1"></a>marine <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/marine.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 32 Columns: 1
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## dbl (1): biomassRatio
 ## 
@@ -493,7 +494,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="assumptions_packages_data.html#cb412-1" aria-hidden="true" tabindex="-1"></a>flowers <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/flowers.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 30 Columns: 1
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## dbl (1): propFertile
 ## 
@@ -501,7 +502,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="assumptions_packages_data.html#cb414-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 154 Columns: 6
-## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): Dominant_hand, Dominant_foot, Dominant_eye
 ## dbl (3): height_cm, head_circum_cm, Number_of_siblings
