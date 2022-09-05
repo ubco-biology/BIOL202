@@ -52,6 +52,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -655,7 +659,7 @@ handy stats reference</td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left"># Reproducible Research {#repro_research}</td>
+<td align="left"># Reproducible Research {#repro_res}</td>
 <td align="left"></td>
 </tr>
 <tr class="even">
@@ -841,225 +845,221 @@ r this purpose, and we’ll download that a bit later.</td>
 <td align="left">figures”, and this time we’ll use R to create the directory.</td>
 </tr>
 <tr class="even">
-<td align="left">&gt; Updated 7:15pm Sept 9</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
 <td align="left">The following code will create a directory called “figures” in you</td>
 <td align="left">r working directory</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>dir.create("figures")</code></td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">You should see the new folder appear in the files panel on the bot</td>
 <td align="left">tom right of RStudio.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Whenever you wish to generate figures in R, then export them as im</td>
 <td align="left">age files, for example, you can save them to this folder. We’ll learn about this later.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Reading and writing files from / to directories requires that we c</td>
 <td align="left">an tell R exactly where to find those directories. That’s where the handy package called <code>here</code> comes in.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">### The <code>here</code> package{#here_package}</td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Now we’ll install and load an R package called <code>here</code> that will he</td>
 <td align="left">lp with file and directory management and navigation.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><code>install.packages("here")</code></td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">This is a helpful [blog post](<a href="http://jenrichmond.rbind.io/post/how" class="uri">http://jenrichmond.rbind.io/post/how</a></td>
 <td align="left">-to-use-the-here-package/) about the utility of the <code>here</code> package.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Then we load the package:</td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>r library(here)</code></td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">When you load the package, the <code>here</code> function takes stock of wher</td>
 <td align="left">e your RStudio project file is located, and establishes that directory as the “working directory”. It should return a file path for you. In future tutorials we’ll make use of the <code>here</code> package when saving files.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">## Edit an R markdown file {#edit_markdown}</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">In a previous <a href="intro_markdown.html#intro_markdown">tutorial</a> you learned how to creat</td>
 <td align="left">e an R Markdown file, but generally you won’t need to do this in this course, because you’ll be provided starter documents to work with.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">I have created an R Markdown file that you can download and use fo</td>
 <td align="left">r starting your tutorial work.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">To do this, copy and paste the following code into your command co</td>
 <td align="left">nsole in RStudio (the bottom left panel), and press return:</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><code>r download.file("https://raw.githubusercontent.com/ubco-biology/BIOL</code></td>
 <td align="left">202/main/more/Example_tutorial_markdown.Rmd”, “BIOL202_tutorial_markdown.Rmd”)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">This <code>download.file</code> command takes a URL address for a file stored</td>
 <td align="left">online, and then tells R where to save it, and what name to use.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Here we will save the RMD file in your “working directory”, which</td>
 <td align="left">is the “BIOL202_tutorials” directory. It should show up in the “files” pane in the bottom right RStudio panel. Click on the “BIOL202_tutorial_markdown.Rmd file to open it.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">This is the R Markdown file that you’ll edit/add to throughout the</td>
 <td align="left">term. It has some starting instructions / example text already, and you’re welcome to delete / change that.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">* Change the “author” information at the top of the document (in t
 * Save your file by clicking the save icon in the top left, and be</td>
 <td align="left">he header) to your name.
 sure to give it an appropriate name as per previous file-naming instructions</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">For the basics on formatting in R Markdown, consult the R Markdown</td>
 <td align="left"><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">reference guide</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">## Components of an R Markdown file {#md_components}</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">At this point, you should familiarize yourself with the components</td>
 <td align="left">of a markdown file.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">* * *</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">1. R basics</td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Read through section 4.2 of this online [tutorial](<a href="https://rbasics" class="uri">https://rbasics</a></td>
 <td align="left">.netlify.app/4-rmarkdown.html#the-components-of-an-r-markdown-file) and watch the videos there too</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">* * *</td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">## Interacting with Tutorial material {#interact_tutorial}</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Students have typically worked through tutorials by reading the ma</td>
 <td align="left">terial, typing helpful notes in their markdown document, and copying and pasting any R code into “chunks” within their R Markdown document, then running those chunks.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">You can insert as many chunks as you’d like. Chunk insertion is ac</td>
 <td align="left">hieved by selecting the green “+” icon at top of the editor panel, and selecting “R”. Or go to the “Code” menu drop down and “Insert Chunk”.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">The key advice: keep your work organized by using headings. There’</td>
 <td align="left">s an option to view your headings all in one navigation pane by clicking on the navigation pane icon at the top right of your editor panel.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">## Lab assignments workflow {#assign_workflow}</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">You can repeat the same steps from earlier for creating a new [RSt</td>
 <td align="left">udio project](#create_project) for your lab work. But this time when you create the project, specify your lab assignment directory “BIOL202_assignments” as the location.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">You can optionally create subdirectories also, perhaps one for eac</td>
 <td align="left">h of the lab assignments.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">The key difference in the assignments workflow is that for each as</td>
 <td align="left">signment you’ll start with a new R Markdown (Rmd) file, which you’ll download from Canvas under the “assignments” link. The document will include the questions you are to answer, and you simply edit / add to the document as you answer them.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Instructions for this will come in a later tutorial.</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Next tutorial: Practicing completing a very short lab assignment u</td>
 <td align="left">sing R Markdown.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><!--chapter:end:02_ReproducibleR.Rmd--></td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"># Preparing and formatting assignments {#prepare_assignments}</td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">This material provides instructions on how to prepare and format R</td>
 <td align="left">Markdown documents for assignments.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">## Open your assignment RStudio project {#open_assign_project1}</td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">In a previous <a href="#assign_workflow">tutorial</a> it was suggested you se</td>
 <td align="left">t up a working root directory called “BIOL202_assignments” to host all your assignment work. You may have also created sub-directories, one for each of the three assignments. Regardless, in your root “BIOL202_assignments” directory locate the RStudio project file (it has a “Rproj” extension in the filename), and open it by double-clicking it.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">## Download the assignment Rmd file {#download_assign_rmd}</td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">The assignment file will be available to you for download from Can</td>
 <td align="left">vas under the “Assignments” section. The file is actually an R Markdown file, and therefore has an “Rmd” extension. It is simply a text document (meaning it contains only text), but the syntax used therein is “markdown” syntax, and the file extension (Rmd) specifies it as an R Markdown file. You might recall reading about Markdown in the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/markdown-1.html">Biology Procedures and Guidelines document</a>.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Make sure you save the Rmd file into your root “BIOL202_assignment</td>
 <td align="left">s” directory, or alternatively into the appropriate sub-directory.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">A practice assignment has been set up on Canvas, so that you can g</td>
 <td align="left">et used to this procedure. It is located under “Lab_materials” module. Download the file, and make sure it’s saved into your root directory (where your RStudio project is).</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">## Open the assignment Rmd file {#open_rmd_file}</td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">In RStudio, look in the “files” pane (bottom right) and locate you</td>
 <td align="left">r downloaded assignment Rmd file. Then click it to open.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">This Markdown document includes the assignment questions, and serv</td>
 <td align="left">es as a starter document for your assignment.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Once you have opened the document, you’ll see the following text a</td>
 <td align="left">t the top:</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"></td>
 <td align="left">header” /&gt;
 header</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Complete the following steps:</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">* keeping the quotation marks, replace the “Practice assignment” t
 * keeping the quotation marks, replace the “Firstname Lastname, Se
 * keeping the quotation marks, replace the”Due date” with the due</td>
@@ -1067,60 +1067,60 @@ header</td>
 ction YY” with your own Firstname Lastname and section number (e.g. ” Jason Pither, Section 04”)
 date of the current assignment, e.g. “November 3, 2021”</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"></td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">* save the Rmd file using a new name (so select file &gt; “save as”),</td>
 <td align="left">according to appropriate <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/file-and-data-management.html">file naming conventions</a>, such as “Pither_BIOL202_practice.Rmd”. Recall that if you’re saving this on OneDrive, or in your local directory that is synced to OneDrive, then your file will be <a href="#onedrive">version controlled</a>.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">You’re now ready to start working on your assignment, and doing [l</td>
 <td align="left">iterate programming](<a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary.html" class="uri">https://ubco-biology.github.io/Procedures-and-Guidelines/glossary.html</a>) using R Markdown.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"></td>
 <td align="left"></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">## What to include in your answers {#what_include_answer}</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">The general approach is to enter your text answers and associated</td>
 <td align="left">R chunks with code underneath each question.</td>
 </tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-</tr>
 <tr class="even">
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
 <td align="left">### Code chunk headers {#chunk_headers}</td>
 <td align="left"></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Here’s an example code chunk in which the <code>tidyverse</code> package is b</td>
 <td align="left">eing loaded. You’ll notice some extra text in the header of the chunk.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"></td>
 <td align="left">er with message suppression” /&gt;
 essage suppression</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">The “load_packages” text is simply giving a name or “tag” to this</td>
 <td align="left">R chunk. It is good practice to provide a <em>unique</em> name to each R chunk.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">After the comma is <code>message = FALSE</code>. This tells R markdown to NO</td>
 <td align="left">T display any messages associated with the R commands in this chunk when knitting the R Markdown document. For example, when loading some libraries R will provide a long list of messages in the process. When you “knit” the R Markdown document, R will run each R chunk in your document. By including the <code>message = FALSE</code> heading argument, you can avoid including this extra output in your knitted document.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"></td>
 <td align="left"></td>
 </tr>

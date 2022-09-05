@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>8.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="8.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="All tutorials associated with BIOL202" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="8.4 Visualizing association between a numeric and a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -52,6 +52,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -171,231 +175,260 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7" data-path="lit_programming.html"><a href="lit_programming.html"><i class="fa fa-check"></i><b>2.7</b> Literate programming with R Markdown</a></li>
 <li class="chapter" data-level="2.8" data-path="veryify_knit.html"><a href="veryify_knit.html"><i class="fa fa-check"></i><b>2.8</b> Making sure R Markdown knits to PDF</a></li>
 <li class="chapter" data-level="2.9" data-path="r_resources.html"><a href="r_resources.html"><i class="fa fa-check"></i><b>2.9</b> Extra resources</a></li>
-<li class="chapter" data-level="2.10" data-path="online_resources.html"><a href="online_resources.html"><i class="fa fa-check"></i><b>2.10</b> R Resources Online</a></li>
-<li class="chapter" data-level="2.11" data-path="rmd_graphing.html"><a href="rmd_graphing.html"><i class="fa fa-check"></i><b>2.11</b> Setting up R Markdown for graphing</a></li>
-<li class="chapter" data-level="2.12" data-path="example_answer.html"><a href="example_answer.html"><i class="fa fa-check"></i><b>2.12</b> Example question / answer</a></li>
-<li class="chapter" data-level="2.13" data-path="knit_assign.html"><a href="knit_assign.html"><i class="fa fa-check"></i><b>2.13</b> Knitting your assignment to PDF</a></li>
-<li class="chapter" data-level="2.14" data-path="submit_rmd.html"><a href="submit_rmd.html"><i class="fa fa-check"></i><b>2.14</b> Submit your assignment</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data_import.html"><a href="data_import.html"><i class="fa fa-check"></i><b>3</b> Preparing and importing Tidy Data</a>
+<li class="part"><span><b>Reproducible Workflows</b></span></li>
+<li class="chapter" data-level="3" data-path="repro_res.html"><a href="repro_res.html"><i class="fa fa-check"></i><b>3</b> Reproducible Research</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="tidy_data.html"><a href="tidy_data.html"><i class="fa fa-check"></i><b>3.1</b> Tidy data</a></li>
-<li class="chapter" data-level="3.2" data-path="import_csv_url.html"><a href="import_csv_url.html"><i class="fa fa-check"></i><b>3.2</b> Import a CSV file from a website</a></li>
-<li class="chapter" data-level="3.3" data-path="create_csv_local.html"><a href="create_csv_local.html"><i class="fa fa-check"></i><b>3.3</b> Create a CSV file</a></li>
-<li class="chapter" data-level="3.4" data-path="import_csv_local.html"><a href="import_csv_local.html"><i class="fa fa-check"></i><b>3.4</b> Import a local CSV file</a></li>
-<li class="chapter" data-level="3.5" data-path="data_overview.html"><a href="data_overview.html"><i class="fa fa-check"></i><b>3.5</b> Get an overview of a dataset</a></li>
-<li class="chapter" data-level="3.6" data-path="tutorial-practice-activities.html"><a href="tutorial-practice-activities.html"><i class="fa fa-check"></i><b>3.6</b> Tutorial practice activities</a></li>
+<li class="chapter" data-level="3.1" data-path="comp_repro.html"><a href="comp_repro.html"><i class="fa fa-check"></i><b>3.1</b> Computational reproducibility</a></li>
+<li class="chapter" data-level="3.2" data-path="biol202_workflow.html"><a href="biol202_workflow.html"><i class="fa fa-check"></i><b>3.2</b> An example BIOL202 workflow</a></li>
+<li class="chapter" data-level="3.3" data-path="onedrive.html"><a href="onedrive.html"><i class="fa fa-check"></i><b>3.3</b> Microsoft OneDrive</a></li>
+<li class="chapter" data-level="3.4" data-path="dir_structure.html"><a href="dir_structure.html"><i class="fa fa-check"></i><b>3.4</b> Directory structure</a></li>
+<li class="chapter" data-level="3.5" data-path="setup_dirs.html"><a href="setup_dirs.html"><i class="fa fa-check"></i><b>3.5</b> Steps to set up directories</a></li>
+<li class="chapter" data-level="3.6" data-path="lecture_workflow.html"><a href="lecture_workflow.html"><i class="fa fa-check"></i><b>3.6</b> Lecture workflow</a></li>
+<li class="chapter" data-level="3.7" data-path="tutorial_workflow.html"><a href="tutorial_workflow.html"><i class="fa fa-check"></i><b>3.7</b> Tutorial workflow</a></li>
+<li class="chapter" data-level="3.8" data-path="create_project.html"><a href="create_project.html"><i class="fa fa-check"></i><b>3.8</b> Create an RStudio Project</a></li>
+<li class="chapter" data-level="3.9" data-path="create_subdirs.html"><a href="create_subdirs.html"><i class="fa fa-check"></i><b>3.9</b> Create subdirectories</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="create_subdirs.html"><a href="create_subdirs.html#here_package"><i class="fa fa-check"></i><b>3.9.1</b> The <code>here</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="edit_markdown.html"><a href="edit_markdown.html"><i class="fa fa-check"></i><b>3.10</b> Edit an R markdown file</a></li>
+<li class="chapter" data-level="3.11" data-path="md_components.html"><a href="md_components.html"><i class="fa fa-check"></i><b>3.11</b> Components of an R Markdown file</a></li>
+<li class="chapter" data-level="3.12" data-path="interact_tutorial.html"><a href="interact_tutorial.html"><i class="fa fa-check"></i><b>3.12</b> Interacting with Tutorial material</a></li>
+<li class="chapter" data-level="3.13" data-path="assign_workflow.html"><a href="assign_workflow.html"><i class="fa fa-check"></i><b>3.13</b> Lab assignments workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="prepare_assignments.html"><a href="prepare_assignments.html"><i class="fa fa-check"></i><b>4</b> Preparing and formatting assignments</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="open_assign_project1.html"><a href="open_assign_project1.html"><i class="fa fa-check"></i><b>4.1</b> Open your assignment RStudio project</a></li>
+<li class="chapter" data-level="4.2" data-path="download_assign_rmd.html"><a href="download_assign_rmd.html"><i class="fa fa-check"></i><b>4.2</b> Download the assignment Rmd file</a></li>
+<li class="chapter" data-level="4.3" data-path="open_rmd_file.html"><a href="open_rmd_file.html"><i class="fa fa-check"></i><b>4.3</b> Open the assignment Rmd file</a></li>
+<li class="chapter" data-level="4.4" data-path="what_include_answer.html"><a href="what_include_answer.html"><i class="fa fa-check"></i><b>4.4</b> What to include in your answers</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="what_include_answer.html"><a href="what_include_answer.html#chunk_headers"><i class="fa fa-check"></i><b>4.4.1</b> Code chunk headers</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="rmd_graphing.html"><a href="rmd_graphing.html"><i class="fa fa-check"></i><b>4.5</b> Setting up R Markdown for graphing</a></li>
+<li class="chapter" data-level="4.6" data-path="example_answer.html"><a href="example_answer.html"><i class="fa fa-check"></i><b>4.6</b> Example question / answer</a></li>
+<li class="chapter" data-level="4.7" data-path="knit_assign.html"><a href="knit_assign.html"><i class="fa fa-check"></i><b>4.7</b> Knitting your assignment to PDF</a></li>
+<li class="chapter" data-level="4.8" data-path="submit_rmd.html"><a href="submit_rmd.html"><i class="fa fa-check"></i><b>4.8</b> Submit your assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data_import.html"><a href="data_import.html"><i class="fa fa-check"></i><b>5</b> Preparing and importing Tidy Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tidy_data.html"><a href="tidy_data.html"><i class="fa fa-check"></i><b>5.1</b> Tidy data</a></li>
+<li class="chapter" data-level="5.2" data-path="import_csv_url.html"><a href="import_csv_url.html"><i class="fa fa-check"></i><b>5.2</b> Import a CSV file from a website</a></li>
+<li class="chapter" data-level="5.3" data-path="create_csv_local.html"><a href="create_csv_local.html"><i class="fa fa-check"></i><b>5.3</b> Create a CSV file</a></li>
+<li class="chapter" data-level="5.4" data-path="import_csv_local.html"><a href="import_csv_local.html"><i class="fa fa-check"></i><b>5.4</b> Import a local CSV file</a></li>
+<li class="chapter" data-level="5.5" data-path="data_overview.html"><a href="data_overview.html"><i class="fa fa-check"></i><b>5.5</b> Get an overview of a dataset</a></li>
+<li class="chapter" data-level="5.6" data-path="tutorial-practice-activities.html"><a href="tutorial-practice-activities.html"><i class="fa fa-check"></i><b>5.6</b> Tutorial practice activities</a></li>
 </ul></li>
 <li class="part"><span><b>Visualizing and Describing Data</b></span></li>
-<li class="chapter" data-level="4" data-path="vis_variable.html"><a href="vis_variable.html"><i class="fa fa-check"></i><b>4</b> Visualizing a single variable</a>
+<li class="chapter" data-level="6" data-path="vis_variable.html"><a href="vis_variable.html"><i class="fa fa-check"></i><b>6</b> Visualizing a single variable</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="vis_packages_data.html"><a href="vis_packages_data.html"><i class="fa fa-check"></i><b>4.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="4.2" data-path="vis_data_overview.html"><a href="vis_data_overview.html"><i class="fa fa-check"></i><b>4.2</b> Get an overview of the data</a></li>
-<li class="chapter" data-level="4.3" data-path="vis_cat_freq_table.html"><a href="vis_cat_freq_table.html"><i class="fa fa-check"></i><b>4.3</b> Create a frequency table</a></li>
-<li class="chapter" data-level="4.4" data-path="vis_cat_barchart.html"><a href="vis_cat_barchart.html"><i class="fa fa-check"></i><b>4.4</b> Create a bar graph</a></li>
-<li class="chapter" data-level="4.5" data-path="vis_histogram.html"><a href="vis_histogram.html"><i class="fa fa-check"></i><b>4.5</b> Create a histogram</a></li>
-<li class="chapter" data-level="4.6" data-path="vis_describe_hist.html"><a href="vis_describe_hist.html"><i class="fa fa-check"></i><b>4.6</b> Describing a histogram</a></li>
+<li class="chapter" data-level="6.1" data-path="vis_packages_data.html"><a href="vis_packages_data.html"><i class="fa fa-check"></i><b>6.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="6.2" data-path="vis_data_overview.html"><a href="vis_data_overview.html"><i class="fa fa-check"></i><b>6.2</b> Get an overview of the data</a></li>
+<li class="chapter" data-level="6.3" data-path="vis_cat_freq_table.html"><a href="vis_cat_freq_table.html"><i class="fa fa-check"></i><b>6.3</b> Create a frequency table</a></li>
+<li class="chapter" data-level="6.4" data-path="vis_cat_barchart.html"><a href="vis_cat_barchart.html"><i class="fa fa-check"></i><b>6.4</b> Create a bar graph</a></li>
+<li class="chapter" data-level="6.5" data-path="vis_histogram.html"><a href="vis_histogram.html"><i class="fa fa-check"></i><b>6.5</b> Create a histogram</a></li>
+<li class="chapter" data-level="6.6" data-path="vis_describe_hist.html"><a href="vis_describe_hist.html"><i class="fa fa-check"></i><b>6.6</b> Describing a histogram</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="vis_describe.html"><a href="vis_describe.html"><i class="fa fa-check"></i><b>5</b> Describing a single variable</a>
+<li class="chapter" data-level="7" data-path="vis_describe.html"><a href="vis_describe.html"><i class="fa fa-check"></i><b>7</b> Describing a single variable</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="desc_packages_data.html"><a href="desc_packages_data.html"><i class="fa fa-check"></i><b>5.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="5.2" data-path="desc_cat_Var.html"><a href="desc_cat_Var.html"><i class="fa fa-check"></i><b>5.2</b> Describing a categorical variable</a></li>
-<li class="chapter" data-level="5.3" data-path="desc_numeric_var.html"><a href="desc_numeric_var.html"><i class="fa fa-check"></i><b>5.3</b> Describing a numerical variable</a>
+<li class="chapter" data-level="7.1" data-path="desc_packages_data.html"><a href="desc_packages_data.html"><i class="fa fa-check"></i><b>7.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="7.2" data-path="desc_cat_Var.html"><a href="desc_cat_Var.html"><i class="fa fa-check"></i><b>7.2</b> Describing a categorical variable</a></li>
+<li class="chapter" data-level="7.3" data-path="desc_numeric_var.html"><a href="desc_numeric_var.html"><i class="fa fa-check"></i><b>7.3</b> Describing a numerical variable</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="desc_numeric_var.html"><a href="desc_numeric_var.html#median_IQR"><i class="fa fa-check"></i><b>5.3.1</b> Calculating the median &amp; IQR</a></li>
-<li class="chapter" data-level="5.3.2" data-path="desc_numeric_var.html"><a href="desc_numeric_var.html#mean_sd"><i class="fa fa-check"></i><b>5.3.2</b> Calculating the mean &amp; standard deviation</a></li>
+<li class="chapter" data-level="7.3.1" data-path="desc_numeric_var.html"><a href="desc_numeric_var.html#median_IQR"><i class="fa fa-check"></i><b>7.3.1</b> Calculating the median &amp; IQR</a></li>
+<li class="chapter" data-level="7.3.2" data-path="desc_numeric_var.html"><a href="desc_numeric_var.html#mean_sd"><i class="fa fa-check"></i><b>7.3.2</b> Calculating the mean &amp; standard deviation</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="desc_numeric_var_cat.html"><a href="desc_numeric_var_cat.html"><i class="fa fa-check"></i><b>5.4</b> Describing a numerical variable grouped by a categorical variable</a></li>
+<li class="chapter" data-level="7.4" data-path="desc_numeric_var_cat.html"><a href="desc_numeric_var_cat.html"><i class="fa fa-check"></i><b>7.4</b> Describing a numerical variable grouped by a categorical variable</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="vis_twovar.html"><a href="vis_twovar.html"><i class="fa fa-check"></i><b>6</b> Visualizing associations between two variables</a>
+<li class="chapter" data-level="8" data-path="vis_twovar.html"><a href="vis_twovar.html"><i class="fa fa-check"></i><b>8</b> Visualizing associations between two variables</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="vis2_packages_data.html"><a href="vis2_packages_data.html"><i class="fa fa-check"></i><b>6.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="6.2" data-path="vis2_2cat.html"><a href="vis2_2cat.html"><i class="fa fa-check"></i><b>6.2</b> Visualizing association between two categorical variables</a>
+<li class="chapter" data-level="8.1" data-path="vis2_packages_data.html"><a href="vis2_packages_data.html"><i class="fa fa-check"></i><b>8.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="8.2" data-path="vis2_2cat.html"><a href="vis2_2cat.html"><i class="fa fa-check"></i><b>8.2</b> Visualizing association between two categorical variables</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="vis2_2cat.html"><a href="vis2_2cat.html#vis2_cont_table"><i class="fa fa-check"></i><b>6.2.1</b> Constructing a contingency table</a></li>
-<li class="chapter" data-level="6.2.2" data-path="vis2_2cat.html"><a href="vis2_2cat.html#grouped_bar_graphs"><i class="fa fa-check"></i><b>6.2.2</b> Constructing a grouped bar graph</a></li>
-<li class="chapter" data-level="6.2.3" data-path="vis2_2cat.html"><a href="vis2_2cat.html#mosaic_plot"><i class="fa fa-check"></i><b>6.2.3</b> Constructing a mosaic plot</a></li>
-<li class="chapter" data-level="6.2.4" data-path="vis2_2cat.html"><a href="vis2_2cat.html#interpret_mosaic"><i class="fa fa-check"></i><b>6.2.4</b> Interpreting mosaic plots</a></li>
+<li class="chapter" data-level="8.2.1" data-path="vis2_2cat.html"><a href="vis2_2cat.html#vis2_cont_table"><i class="fa fa-check"></i><b>8.2.1</b> Constructing a contingency table</a></li>
+<li class="chapter" data-level="8.2.2" data-path="vis2_2cat.html"><a href="vis2_2cat.html#grouped_bar_graphs"><i class="fa fa-check"></i><b>8.2.2</b> Constructing a grouped bar graph</a></li>
+<li class="chapter" data-level="8.2.3" data-path="vis2_2cat.html"><a href="vis2_2cat.html#mosaic_plot"><i class="fa fa-check"></i><b>8.2.3</b> Constructing a mosaic plot</a></li>
+<li class="chapter" data-level="8.2.4" data-path="vis2_2cat.html"><a href="vis2_2cat.html#interpret_mosaic"><i class="fa fa-check"></i><b>8.2.4</b> Interpreting mosaic plots</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="two_numeric.html"><a href="two_numeric.html"><i class="fa fa-check"></i><b>6.3</b> Visualizing association between two numeric variables</a>
+<li class="chapter" data-level="8.3" data-path="two_numeric.html"><a href="two_numeric.html"><i class="fa fa-check"></i><b>8.3</b> Visualizing association between two numeric variables</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="two_numeric.html"><a href="two_numeric.html#interpret_scatter"><i class="fa fa-check"></i><b>6.3.1</b> Interpreting and describing a scatterplot</a></li>
+<li class="chapter" data-level="8.3.1" data-path="two_numeric.html"><a href="two_numeric.html#interpret_scatter"><i class="fa fa-check"></i><b>8.3.1</b> Interpreting and describing a scatterplot</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html"><i class="fa fa-check"></i><b>6.4</b> Visualizing association between a numeric and a categorical variable</a>
+<li class="chapter" data-level="8.4" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html"><i class="fa fa-check"></i><b>8.4</b> Visualizing association between a numeric and a categorical variable</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#stripchart"><i class="fa fa-check"></i><b>6.4.1</b> Create a stripchart</a></li>
-<li class="chapter" data-level="6.4.2" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#violinplot"><i class="fa fa-check"></i><b>6.4.2</b> Create a violin plot</a></li>
-<li class="chapter" data-level="6.4.3" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#boxplots"><i class="fa fa-check"></i><b>6.4.3</b> Creating a boxplot</a></li>
-<li class="chapter" data-level="6.4.4" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#bestplot"><i class="fa fa-check"></i><b>6.4.4</b> Combining violin and boxplots</a></li>
-<li class="chapter" data-level="6.4.5" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#interp_violin"><i class="fa fa-check"></i><b>6.4.5</b> Interpreting stripcharts and boxplots</a></li>
+<li class="chapter" data-level="8.4.1" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#stripchart"><i class="fa fa-check"></i><b>8.4.1</b> Create a stripchart</a></li>
+<li class="chapter" data-level="8.4.2" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#violinplot"><i class="fa fa-check"></i><b>8.4.2</b> Create a violin plot</a></li>
+<li class="chapter" data-level="8.4.3" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#boxplots"><i class="fa fa-check"></i><b>8.4.3</b> Creating a boxplot</a></li>
+<li class="chapter" data-level="8.4.4" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#bestplot"><i class="fa fa-check"></i><b>8.4.4</b> Combining violin and boxplots</a></li>
+<li class="chapter" data-level="8.4.5" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#interp_violin"><i class="fa fa-check"></i><b>8.4.5</b> Interpreting stripcharts and boxplots</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>Inferential Statistics</b></span></li>
-<li class="chapter" data-level="7" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>7</b> Sampling, Estimation, &amp; Uncertainty</a>
+<li class="chapter" data-level="9" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>9</b> Sampling, Estimation, &amp; Uncertainty</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="estimation_packages_data.html"><a href="estimation_packages_data.html"><i class="fa fa-check"></i><b>7.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="7.2" data-path="sampling_functions.html"><a href="sampling_functions.html"><i class="fa fa-check"></i><b>7.2</b> Functions for sampling</a>
+<li class="chapter" data-level="9.1" data-path="estimation_packages_data.html"><a href="estimation_packages_data.html"><i class="fa fa-check"></i><b>9.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="9.2" data-path="sampling_functions.html"><a href="sampling_functions.html"><i class="fa fa-check"></i><b>9.2</b> Functions for sampling</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="sampling_functions.html"><a href="sampling_functions.html#setseed"><i class="fa fa-check"></i><b>7.2.1</b> Setting the “seed” for random sampling</a></li>
+<li class="chapter" data-level="9.2.1" data-path="sampling_functions.html"><a href="sampling_functions.html#setseed"><i class="fa fa-check"></i><b>9.2.1</b> Setting the “seed” for random sampling</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="sampling_error.html"><a href="sampling_error.html"><i class="fa fa-check"></i><b>7.3</b> Sampling error</a></li>
-<li class="chapter" data-level="7.4" data-path="sampdistmean.html"><a href="sampdistmean.html"><i class="fa fa-check"></i><b>7.4</b> Sampling distribution of the mean</a>
+<li class="chapter" data-level="9.3" data-path="sampling_error.html"><a href="sampling_error.html"><i class="fa fa-check"></i><b>9.3</b> Sampling error</a></li>
+<li class="chapter" data-level="9.4" data-path="sampdistmean.html"><a href="sampdistmean.html"><i class="fa fa-check"></i><b>9.4</b> Sampling distribution of the mean</a>
 <ul>
-<li class="chapter" data-level="7.4.1" data-path="sampdistmean.html"><a href="sampdistmean.html#hist_samdist"><i class="fa fa-check"></i><b>7.4.1</b> Visualize the sampling distribution</a></li>
+<li class="chapter" data-level="9.4.1" data-path="sampdistmean.html"><a href="sampdistmean.html#hist_samdist"><i class="fa fa-check"></i><b>9.4.1</b> Visualize the sampling distribution</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="sem_page.html"><a href="sem_page.html"><i class="fa fa-check"></i><b>7.5</b> Standard error of the mean</a></li>
-<li class="chapter" data-level="7.6" data-path="confint_rough.html"><a href="confint_rough.html"><i class="fa fa-check"></i><b>7.6</b> Rule of thumb 95% confidence interval</a></li>
+<li class="chapter" data-level="9.5" data-path="sem_page.html"><a href="sem_page.html"><i class="fa fa-check"></i><b>9.5</b> Standard error of the mean</a></li>
+<li class="chapter" data-level="9.6" data-path="confint_rough.html"><a href="confint_rough.html"><i class="fa fa-check"></i><b>9.6</b> Rule of thumb 95% confidence interval</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>8</b> Hypothesis testing</a>
+<li class="chapter" data-level="10" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>10</b> Hypothesis testing</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="hyp_packages_data.html"><a href="hyp_packages_data.html"><i class="fa fa-check"></i><b>8.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="8.2" data-path="hyp_steps.html"><a href="hyp_steps.html"><i class="fa fa-check"></i><b>8.2</b> Steps to hypothesis testing</a></li>
-<li class="chapter" data-level="8.3" data-path="hyp_example.html"><a href="hyp_example.html"><i class="fa fa-check"></i><b>8.3</b> An hypothesis test example</a>
+<li class="chapter" data-level="10.1" data-path="hyp_packages_data.html"><a href="hyp_packages_data.html"><i class="fa fa-check"></i><b>10.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="10.2" data-path="hyp_steps.html"><a href="hyp_steps.html"><i class="fa fa-check"></i><b>10.2</b> Steps to hypothesis testing</a></li>
+<li class="chapter" data-level="10.3" data-path="hyp_example.html"><a href="hyp_example.html"><i class="fa fa-check"></i><b>10.3</b> An hypothesis test example</a>
 <ul>
-<li class="chapter" data-level="8.3.1" data-path="hyp_example.html"><a href="hyp_example.html#follow_hyp_steps"><i class="fa fa-check"></i><b>8.3.1</b> Following the steps to hypothesis testing</a></li>
-<li class="chapter" data-level="8.3.2" data-path="hyp_example.html"><a href="hyp_example.html#sim_null"><i class="fa fa-check"></i><b>8.3.2</b> Simulating a “null distribution”</a></li>
-<li class="chapter" data-level="8.3.3" data-path="hyp_example.html"><a href="hyp_example.html#calc_p"><i class="fa fa-check"></i><b>8.3.3</b> Calculating the <em>P</em>-value</a></li>
-<li class="chapter" data-level="8.3.4" data-path="hyp_example.html"><a href="hyp_example.html#concluding_statement"><i class="fa fa-check"></i><b>8.3.4</b> Writing a concluding statement</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="single_cat.html"><a href="single_cat.html"><i class="fa fa-check"></i><b>9</b> Analyzing a single categorical variable</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="singcat_packages_data.html"><a href="singcat_packages_data.html"><i class="fa fa-check"></i><b>9.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="9.2" data-path="estproportions.html"><a href="estproportions.html"><i class="fa fa-check"></i><b>9.2</b> Estimating proportions</a>
-<ul>
-<li class="chapter" data-level="9.2.1" data-path="estproportions.html"><a href="estproportions.html#sterr_prop"><i class="fa fa-check"></i><b>9.2.1</b> Standard error for a proportion</a></li>
-<li class="chapter" data-level="9.2.2" data-path="estproportions.html"><a href="estproportions.html#confint_prop"><i class="fa fa-check"></i><b>9.2.2</b> Confidence interval for a proportion</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="binomdist.html"><a href="binomdist.html"><i class="fa fa-check"></i><b>9.3</b> Binomial distribution</a></li>
-<li class="chapter" data-level="9.4" data-path="binom_test.html"><a href="binom_test.html"><i class="fa fa-check"></i><b>9.4</b> Binomial test</a></li>
-<li class="chapter" data-level="9.5" data-path="prophypconf.html"><a href="prophypconf.html"><i class="fa fa-check"></i><b>9.5</b> Confidence interval approach to hypothesis testing</a></li>
-<li class="chapter" data-level="9.6" data-path="GOF_test.html"><a href="GOF_test.html"><i class="fa fa-check"></i><b>9.6</b> Goodness-of-fit tests</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="two_cat.html"><a href="two_cat.html"><i class="fa fa-check"></i><b>10</b> Analyzing associations between two categorical variables</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="twocat_packages_data.html"><a href="twocat_packages_data.html"><i class="fa fa-check"></i><b>10.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="10.2" data-path="fishertest.html"><a href="fishertest.html"><i class="fa fa-check"></i><b>10.2</b> Fisher’s Exact Test</a>
-<ul>
-<li class="chapter" data-level="10.2.1" data-path="fishertest.html"><a href="fishertest.html#fisher_hyp"><i class="fa fa-check"></i><b>10.2.1</b> Hypothesis statement</a></li>
-<li class="chapter" data-level="10.2.2" data-path="fishertest.html"><a href="fishertest.html#show_cont_table"><i class="fa fa-check"></i><b>10.2.2</b> Display a contingency table</a></li>
-<li class="chapter" data-level="10.2.3" data-path="fishertest.html"><a href="fishertest.html#show_mosaic"><i class="fa fa-check"></i><b>10.2.3</b> Display a mosaic plot</a></li>
-<li class="chapter" data-level="10.2.4" data-path="fishertest.html"><a href="fishertest.html#do_fisher"><i class="fa fa-check"></i><b>10.2.4</b> Conduct the Fisher’s Exact Test</a></li>
-</ul></li>
-<li class="chapter" data-level="10.3" data-path="odds.html"><a href="odds.html"><i class="fa fa-check"></i><b>10.3</b> Estimate the Odds of getting sick</a></li>
-<li class="chapter" data-level="10.4" data-path="oddsratio.html"><a href="oddsratio.html"><i class="fa fa-check"></i><b>10.4</b> Estimate the odds ratio</a></li>
-<li class="chapter" data-level="10.5" data-path="chisquare.html"><a href="chisquare.html"><i class="fa fa-check"></i><b>10.5</b> <span class="math inline">\(\chi\)</span><sup>2</sup> Contingency Test</a>
-<ul>
-<li class="chapter" data-level="10.5.1" data-path="chisquare.html"><a href="chisquare.html#chihyp"><i class="fa fa-check"></i><b>10.5.1</b> Hypothesis statement</a></li>
-<li class="chapter" data-level="10.5.2" data-path="chisquare.html"><a href="chisquare.html#showwormcont"><i class="fa fa-check"></i><b>10.5.2</b> Display the contingency table</a></li>
-<li class="chapter" data-level="10.5.3" data-path="chisquare.html"><a href="chisquare.html#mosaicworm"><i class="fa fa-check"></i><b>10.5.3</b> Visualize a mosaic plot</a></li>
-<li class="chapter" data-level="10.5.4" data-path="chisquare.html"><a href="chisquare.html#checkchiassum"><i class="fa fa-check"></i><b>10.5.4</b> Check the assumptions</a></li>
-<li class="chapter" data-level="10.5.5" data-path="chisquare.html"><a href="chisquare.html#chiresults"><i class="fa fa-check"></i><b>10.5.5</b> Get the results of the test</a></li>
+<li class="chapter" data-level="10.3.1" data-path="hyp_example.html"><a href="hyp_example.html#follow_hyp_steps"><i class="fa fa-check"></i><b>10.3.1</b> Following the steps to hypothesis testing</a></li>
+<li class="chapter" data-level="10.3.2" data-path="hyp_example.html"><a href="hyp_example.html#sim_null"><i class="fa fa-check"></i><b>10.3.2</b> Simulating a “null distribution”</a></li>
+<li class="chapter" data-level="10.3.3" data-path="hyp_example.html"><a href="hyp_example.html#calc_p"><i class="fa fa-check"></i><b>10.3.3</b> Calculating the <em>P</em>-value</a></li>
+<li class="chapter" data-level="10.3.4" data-path="hyp_example.html"><a href="hyp_example.html#concluding_statement"><i class="fa fa-check"></i><b>10.3.4</b> Writing a concluding statement</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="single_numeric.html"><a href="single_numeric.html"><i class="fa fa-check"></i><b>11</b> Analyzing a single numerical variable</a>
+<li class="chapter" data-level="11" data-path="single_cat.html"><a href="single_cat.html"><i class="fa fa-check"></i><b>11</b> Analyzing a single categorical variable</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="singlenum_packages_data.html"><a href="singlenum_packages_data.html"><i class="fa fa-check"></i><b>11.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="11.2" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html"><i class="fa fa-check"></i><b>11.2</b> One-sample <em>t</em>-test</a>
+<li class="chapter" data-level="11.1" data-path="singcat_packages_data.html"><a href="singcat_packages_data.html"><i class="fa fa-check"></i><b>11.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="11.2" data-path="estproportions.html"><a href="estproportions.html"><i class="fa fa-check"></i><b>11.2</b> Estimating proportions</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_hyp"><i class="fa fa-check"></i><b>11.2.1</b> Hypothesis statement</a></li>
-<li class="chapter" data-level="11.2.2" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_assumptions"><i class="fa fa-check"></i><b>11.2.2</b> Assumptions of one-sample <em>t</em>-test</a></li>
-<li class="chapter" data-level="11.2.3" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_graph"><i class="fa fa-check"></i><b>11.2.3</b> A graph to accompany a one-sample <em>t</em>-test</a></li>
-<li class="chapter" data-level="11.2.4" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_test"><i class="fa fa-check"></i><b>11.2.4</b> Conduct the one-sample <em>t</em>-test</a></li>
-<li class="chapter" data-level="11.2.5" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_conclude"><i class="fa fa-check"></i><b>11.2.5</b> Concluding statement for the one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="11.2.1" data-path="estproportions.html"><a href="estproportions.html#sterr_prop"><i class="fa fa-check"></i><b>11.2.1</b> Standard error for a proportion</a></li>
+<li class="chapter" data-level="11.2.2" data-path="estproportions.html"><a href="estproportions.html#confint_prop"><i class="fa fa-check"></i><b>11.2.2</b> Confidence interval for a proportion</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="t_confidence.html"><a href="t_confidence.html"><i class="fa fa-check"></i><b>11.3</b> Confidence intervals for <span class="math inline">\(\mu\)</span></a>
+<li class="chapter" data-level="11.3" data-path="binomdist.html"><a href="binomdist.html"><i class="fa fa-check"></i><b>11.3</b> Binomial distribution</a></li>
+<li class="chapter" data-level="11.4" data-path="binom_test.html"><a href="binom_test.html"><i class="fa fa-check"></i><b>11.4</b> Binomial test</a></li>
+<li class="chapter" data-level="11.5" data-path="prophypconf.html"><a href="prophypconf.html"><i class="fa fa-check"></i><b>11.5</b> Confidence interval approach to hypothesis testing</a></li>
+<li class="chapter" data-level="11.6" data-path="GOF_test.html"><a href="GOF_test.html"><i class="fa fa-check"></i><b>11.6</b> Goodness-of-fit tests</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="two_cat.html"><a href="two_cat.html"><i class="fa fa-check"></i><b>12</b> Analyzing associations between two categorical variables</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="t_confidence.html"><a href="t_confidence.html#conf_precision"><i class="fa fa-check"></i><b>11.3.1</b> Confidence interval as a measure of precision for an estimate</a></li>
-<li class="chapter" data-level="11.3.2" data-path="t_confidence.html"><a href="t_confidence.html#conf_hyp"><i class="fa fa-check"></i><b>11.3.2</b> Confidence interval approach to hypothesis testing</a></li>
+<li class="chapter" data-level="12.1" data-path="twocat_packages_data.html"><a href="twocat_packages_data.html"><i class="fa fa-check"></i><b>12.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="12.2" data-path="fishertest.html"><a href="fishertest.html"><i class="fa fa-check"></i><b>12.2</b> Fisher’s Exact Test</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="fishertest.html"><a href="fishertest.html#fisher_hyp"><i class="fa fa-check"></i><b>12.2.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="12.2.2" data-path="fishertest.html"><a href="fishertest.html#show_cont_table"><i class="fa fa-check"></i><b>12.2.2</b> Display a contingency table</a></li>
+<li class="chapter" data-level="12.2.3" data-path="fishertest.html"><a href="fishertest.html#show_mosaic"><i class="fa fa-check"></i><b>12.2.3</b> Display a mosaic plot</a></li>
+<li class="chapter" data-level="12.2.4" data-path="fishertest.html"><a href="fishertest.html#do_fisher"><i class="fa fa-check"></i><b>12.2.4</b> Conduct the Fisher’s Exact Test</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="odds.html"><a href="odds.html"><i class="fa fa-check"></i><b>12.3</b> Estimate the Odds of getting sick</a></li>
+<li class="chapter" data-level="12.4" data-path="oddsratio.html"><a href="oddsratio.html"><i class="fa fa-check"></i><b>12.4</b> Estimate the odds ratio</a></li>
+<li class="chapter" data-level="12.5" data-path="chisquare.html"><a href="chisquare.html"><i class="fa fa-check"></i><b>12.5</b> <span class="math inline">\(\chi\)</span><sup>2</sup> Contingency Test</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="chisquare.html"><a href="chisquare.html#chihyp"><i class="fa fa-check"></i><b>12.5.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="12.5.2" data-path="chisquare.html"><a href="chisquare.html#showwormcont"><i class="fa fa-check"></i><b>12.5.2</b> Display the contingency table</a></li>
+<li class="chapter" data-level="12.5.3" data-path="chisquare.html"><a href="chisquare.html#mosaicworm"><i class="fa fa-check"></i><b>12.5.3</b> Visualize a mosaic plot</a></li>
+<li class="chapter" data-level="12.5.4" data-path="chisquare.html"><a href="chisquare.html#checkchiassum"><i class="fa fa-check"></i><b>12.5.4</b> Check the assumptions</a></li>
+<li class="chapter" data-level="12.5.5" data-path="chisquare.html"><a href="chisquare.html#chiresults"><i class="fa fa-check"></i><b>12.5.5</b> Get the results of the test</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="compare_two_means.html"><a href="compare_two_means.html"><i class="fa fa-check"></i><b>12</b> Comparing means among two groups</a>
+<li class="chapter" data-level="13" data-path="single_numeric.html"><a href="single_numeric.html"><i class="fa fa-check"></i><b>13</b> Analyzing a single numerical variable</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="twomean_packages_data.html"><a href="twomean_packages_data.html"><i class="fa fa-check"></i><b>12.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="12.2" data-path="paired-t-test.html"><a href="paired-t-test.html"><i class="fa fa-check"></i><b>12.2</b> Paired <em>t</em>-test</a>
+<li class="chapter" data-level="13.1" data-path="singlenum_packages_data.html"><a href="singlenum_packages_data.html"><i class="fa fa-check"></i><b>13.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="13.2" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html"><i class="fa fa-check"></i><b>13.2</b> One-sample <em>t</em>-test</a>
 <ul>
-<li class="chapter" data-level="12.2.1" data-path="paired-t-test.html"><a href="paired-t-test.html#calc_diffs"><i class="fa fa-check"></i><b>12.2.1</b> Calculate differences</a></li>
-<li class="chapter" data-level="12.2.2" data-path="paired-t-test.html"><a href="paired-t-test.html#paired_Htest"><i class="fa fa-check"></i><b>12.2.2</b> Hypothesis statement</a></li>
-<li class="chapter" data-level="12.2.3" data-path="paired-t-test.html"><a href="paired-t-test.html#graph_paried"><i class="fa fa-check"></i><b>12.2.3</b> A graph to accompany a paired <em>t</em>-test</a></li>
-<li class="chapter" data-level="12.2.4" data-path="paired-t-test.html"><a href="paired-t-test.html#assump_paried"><i class="fa fa-check"></i><b>12.2.4</b> Assumptions of the paired <em>t</em>-test</a></li>
-<li class="chapter" data-level="12.2.5" data-path="paired-t-test.html"><a href="paired-t-test.html#conduct_paired"><i class="fa fa-check"></i><b>12.2.5</b> Conduct the test</a></li>
-<li class="chapter" data-level="12.2.6" data-path="paired-t-test.html"><a href="paired-t-test.html#concl_paired"><i class="fa fa-check"></i><b>12.2.6</b> Concluding statement</a></li>
+<li class="chapter" data-level="13.2.1" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_hyp"><i class="fa fa-check"></i><b>13.2.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="13.2.2" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_assumptions"><i class="fa fa-check"></i><b>13.2.2</b> Assumptions of one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="13.2.3" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_graph"><i class="fa fa-check"></i><b>13.2.3</b> A graph to accompany a one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="13.2.4" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_test"><i class="fa fa-check"></i><b>13.2.4</b> Conduct the one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="13.2.5" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_conclude"><i class="fa fa-check"></i><b>13.2.5</b> Concluding statement for the one-sample <em>t</em>-test</a></li>
 </ul></li>
-<li class="chapter" data-level="12.3" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html"><i class="fa fa-check"></i><b>12.3</b> Two sample <em>t</em>-test</a>
+<li class="chapter" data-level="13.3" data-path="t_confidence.html"><a href="t_confidence.html"><i class="fa fa-check"></i><b>13.3</b> Confidence intervals for <span class="math inline">\(\mu\)</span></a>
 <ul>
-<li class="chapter" data-level="12.3.1" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#twosamp_hyp"><i class="fa fa-check"></i><b>12.3.1</b> Hypothesis statement</a></li>
-<li class="chapter" data-level="12.3.2" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#stats_2samp"><i class="fa fa-check"></i><b>12.3.2</b> A table of descriptive statistics</a></li>
-<li class="chapter" data-level="12.3.3" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#graph_2samp"><i class="fa fa-check"></i><b>12.3.3</b> A graph to accompany a 2-sample <em>t</em>-test</a></li>
-<li class="chapter" data-level="12.3.4" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#twosamp_assump"><i class="fa fa-check"></i><b>12.3.4</b> Assumptions of the 2-sample <em>t</em>-test</a></li>
-<li class="chapter" data-level="12.3.5" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#conduct_2samptest"><i class="fa fa-check"></i><b>12.3.5</b> Conduct the 2-sample <em>t</em>-test</a></li>
-<li class="chapter" data-level="12.3.6" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#concl_2samp"><i class="fa fa-check"></i><b>12.3.6</b> Concluding statement</a></li>
+<li class="chapter" data-level="13.3.1" data-path="t_confidence.html"><a href="t_confidence.html#conf_precision"><i class="fa fa-check"></i><b>13.3.1</b> Confidence interval as a measure of precision for an estimate</a></li>
+<li class="chapter" data-level="13.3.2" data-path="t_confidence.html"><a href="t_confidence.html#conf_hyp"><i class="fa fa-check"></i><b>13.3.2</b> Confidence interval approach to hypothesis testing</a></li>
 </ul></li>
-<li class="chapter" data-level="12.4" data-path="assumpbad_2samp.html"><a href="assumpbad_2samp.html"><i class="fa fa-check"></i><b>12.4</b> When assumptions aren’t met</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="compare_three_more_means.html"><a href="compare_three_more_means.html"><i class="fa fa-check"></i><b>13</b> Comparing means among more than two groups</a>
+<li class="chapter" data-level="14" data-path="compare_two_means.html"><a href="compare_two_means.html"><i class="fa fa-check"></i><b>14</b> Comparing means among two groups</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="anova_packages_data.html"><a href="anova_packages_data.html"><i class="fa fa-check"></i><b>13.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="13.2" data-path="do_the_anova.html"><a href="do_the_anova.html"><i class="fa fa-check"></i><b>13.2</b> Analysis of variance</a>
+<li class="chapter" data-level="14.1" data-path="twomean_packages_data.html"><a href="twomean_packages_data.html"><i class="fa fa-check"></i><b>14.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="14.2" data-path="paired-t-test.html"><a href="paired-t-test.html"><i class="fa fa-check"></i><b>14.2</b> Paired <em>t</em>-test</a>
 <ul>
-<li class="chapter" data-level="13.2.1" data-path="do_the_anova.html"><a href="do_the_anova.html#anova_hyps"><i class="fa fa-check"></i><b>13.2.1</b> Hypothesis statements</a></li>
-<li class="chapter" data-level="13.2.2" data-path="do_the_anova.html"><a href="do_the_anova.html#stats_anova"><i class="fa fa-check"></i><b>13.2.2</b> A table of descriptive statistics</a></li>
-<li class="chapter" data-level="13.2.3" data-path="do_the_anova.html"><a href="do_the_anova.html#anova_graph1"><i class="fa fa-check"></i><b>13.2.3</b> Visualize the data</a></li>
-<li class="chapter" data-level="13.2.4" data-path="do_the_anova.html"><a href="do_the_anova.html#assump_anova"><i class="fa fa-check"></i><b>13.2.4</b> Assumptions of ANOVA</a></li>
-<li class="chapter" data-level="13.2.5" data-path="do_the_anova.html"><a href="do_the_anova.html#do_anova1"><i class="fa fa-check"></i><b>13.2.5</b> Conduct the ANOVA test</a></li>
-<li class="chapter" data-level="13.2.6" data-path="do_the_anova.html"><a href="do_the_anova.html#createanovatable"><i class="fa fa-check"></i><b>13.2.6</b> Generate nice ANOVA table</a></li>
-<li class="chapter" data-level="13.2.7" data-path="do_the_anova.html"><a href="do_the_anova.html#calculate-r2-for-the-anova"><i class="fa fa-check"></i><b>13.2.7</b> Calculate <span class="math inline">\(R^2\)</span> for the ANOVA</a></li>
-<li class="chapter" data-level="13.2.8" data-path="do_the_anova.html"><a href="do_the_anova.html#tukey"><i class="fa fa-check"></i><b>13.2.8</b> Tukey-Kramer post-hoc test</a></li>
-<li class="chapter" data-level="13.2.9" data-path="do_the_anova.html"><a href="do_the_anova.html#vis_tukey"><i class="fa fa-check"></i><b>13.2.9</b> Visualizing post-hoc test results</a></li>
-<li class="chapter" data-level="13.2.10" data-path="do_the_anova.html"><a href="do_the_anova.html#anova_conclusion"><i class="fa fa-check"></i><b>13.2.10</b> Concluding statement</a></li>
+<li class="chapter" data-level="14.2.1" data-path="paired-t-test.html"><a href="paired-t-test.html#calc_diffs"><i class="fa fa-check"></i><b>14.2.1</b> Calculate differences</a></li>
+<li class="chapter" data-level="14.2.2" data-path="paired-t-test.html"><a href="paired-t-test.html#paired_Htest"><i class="fa fa-check"></i><b>14.2.2</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="14.2.3" data-path="paired-t-test.html"><a href="paired-t-test.html#graph_paried"><i class="fa fa-check"></i><b>14.2.3</b> A graph to accompany a paired <em>t</em>-test</a></li>
+<li class="chapter" data-level="14.2.4" data-path="paired-t-test.html"><a href="paired-t-test.html#assump_paried"><i class="fa fa-check"></i><b>14.2.4</b> Assumptions of the paired <em>t</em>-test</a></li>
+<li class="chapter" data-level="14.2.5" data-path="paired-t-test.html"><a href="paired-t-test.html#conduct_paired"><i class="fa fa-check"></i><b>14.2.5</b> Conduct the test</a></li>
+<li class="chapter" data-level="14.2.6" data-path="paired-t-test.html"><a href="paired-t-test.html#concl_paired"><i class="fa fa-check"></i><b>14.2.6</b> Concluding statement</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="assumpbad_anova.html"><a href="assumpbad_anova.html"><i class="fa fa-check"></i><b>13.3</b> When assumptions aren’t met</a></li>
+<li class="chapter" data-level="14.3" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html"><i class="fa fa-check"></i><b>14.3</b> Two sample <em>t</em>-test</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#twosamp_hyp"><i class="fa fa-check"></i><b>14.3.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="14.3.2" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#stats_2samp"><i class="fa fa-check"></i><b>14.3.2</b> A table of descriptive statistics</a></li>
+<li class="chapter" data-level="14.3.3" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#graph_2samp"><i class="fa fa-check"></i><b>14.3.3</b> A graph to accompany a 2-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="14.3.4" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#twosamp_assump"><i class="fa fa-check"></i><b>14.3.4</b> Assumptions of the 2-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="14.3.5" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#conduct_2samptest"><i class="fa fa-check"></i><b>14.3.5</b> Conduct the 2-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="14.3.6" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#concl_2samp"><i class="fa fa-check"></i><b>14.3.6</b> Concluding statement</a></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="two_num.html"><a href="two_num.html"><i class="fa fa-check"></i><b>14</b> Analyzing associations between two numerical variables</a>
-<ul>
-<li class="chapter" data-level="14.1" data-path="twonum_packages_data.html"><a href="twonum_packages_data.html"><i class="fa fa-check"></i><b>14.1</b> Load packages and import data</a></li>
-<li class="chapter" data-level="14.2" data-path="pearson.html"><a href="pearson.html"><i class="fa fa-check"></i><b>14.2</b> Pearson correlation analysis</a>
-<ul>
-<li class="chapter" data-level="14.2.1" data-path="pearson.html"><a href="pearson.html#pearson_hyp"><i class="fa fa-check"></i><b>14.2.1</b> Hypothesis statements</a></li>
-<li class="chapter" data-level="14.2.2" data-path="pearson.html"><a href="pearson.html#see_corr"><i class="fa fa-check"></i><b>14.2.2</b> Visualize the data</a></li>
-<li class="chapter" data-level="14.2.3" data-path="pearson.html"><a href="pearson.html#corr_assumptions"><i class="fa fa-check"></i><b>14.2.3</b> Assumptions of correlation analysis</a></li>
-<li class="chapter" data-level="14.2.4" data-path="pearson.html"><a href="pearson.html#do_corr"><i class="fa fa-check"></i><b>14.2.4</b> Conduct the correlation analysis</a></li>
-<li class="chapter" data-level="14.2.5" data-path="pearson.html"><a href="pearson.html#concl_corr"><i class="fa fa-check"></i><b>14.2.5</b> Concluding statement</a></li>
+<li class="chapter" data-level="14.4" data-path="assumpbad_2samp.html"><a href="assumpbad_2samp.html"><i class="fa fa-check"></i><b>14.4</b> When assumptions aren’t met</a></li>
 </ul></li>
-<li class="chapter" data-level="14.3" data-path="rankcorr.html"><a href="rankcorr.html"><i class="fa fa-check"></i><b>14.3</b> Rank correlation (Spearman’s correlation)</a>
+<li class="chapter" data-level="15" data-path="compare_three_more_means.html"><a href="compare_three_more_means.html"><i class="fa fa-check"></i><b>15</b> Comparing means among more than two groups</a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="rankcorr.html"><a href="rankcorr.html#hypothesis-statements"><i class="fa fa-check"></i><b>14.3.1</b> Hypothesis statements</a></li>
-<li class="chapter" data-level="14.3.2" data-path="rankcorr.html"><a href="rankcorr.html#spearman_hyp"><i class="fa fa-check"></i><b>14.3.2</b> Visualize the data</a></li>
-<li class="chapter" data-level="14.3.3" data-path="rankcorr.html"><a href="rankcorr.html#assum_spear"><i class="fa fa-check"></i><b>14.3.3</b> Assumptions of Spearman rank correlation</a></li>
-<li class="chapter" data-level="14.3.4" data-path="rankcorr.html"><a href="rankcorr.html#conduct_spearman"><i class="fa fa-check"></i><b>14.3.4</b> Conduct the test</a></li>
-<li class="chapter" data-level="14.3.5" data-path="rankcorr.html"><a href="rankcorr.html#spear_conclude"><i class="fa fa-check"></i><b>14.3.5</b> Concluding statement</a></li>
+<li class="chapter" data-level="15.1" data-path="anova_packages_data.html"><a href="anova_packages_data.html"><i class="fa fa-check"></i><b>15.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="15.2" data-path="do_the_anova.html"><a href="do_the_anova.html"><i class="fa fa-check"></i><b>15.2</b> Analysis of variance</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="do_the_anova.html"><a href="do_the_anova.html#anova_hyps"><i class="fa fa-check"></i><b>15.2.1</b> Hypothesis statements</a></li>
+<li class="chapter" data-level="15.2.2" data-path="do_the_anova.html"><a href="do_the_anova.html#stats_anova"><i class="fa fa-check"></i><b>15.2.2</b> A table of descriptive statistics</a></li>
+<li class="chapter" data-level="15.2.3" data-path="do_the_anova.html"><a href="do_the_anova.html#anova_graph1"><i class="fa fa-check"></i><b>15.2.3</b> Visualize the data</a></li>
+<li class="chapter" data-level="15.2.4" data-path="do_the_anova.html"><a href="do_the_anova.html#assump_anova"><i class="fa fa-check"></i><b>15.2.4</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="15.2.5" data-path="do_the_anova.html"><a href="do_the_anova.html#do_anova1"><i class="fa fa-check"></i><b>15.2.5</b> Conduct the ANOVA test</a></li>
+<li class="chapter" data-level="15.2.6" data-path="do_the_anova.html"><a href="do_the_anova.html#createanovatable"><i class="fa fa-check"></i><b>15.2.6</b> Generate nice ANOVA table</a></li>
+<li class="chapter" data-level="15.2.7" data-path="do_the_anova.html"><a href="do_the_anova.html#calculate-r2-for-the-anova"><i class="fa fa-check"></i><b>15.2.7</b> Calculate <span class="math inline">\(R^2\)</span> for the ANOVA</a></li>
+<li class="chapter" data-level="15.2.8" data-path="do_the_anova.html"><a href="do_the_anova.html#tukey"><i class="fa fa-check"></i><b>15.2.8</b> Tukey-Kramer post-hoc test</a></li>
+<li class="chapter" data-level="15.2.9" data-path="do_the_anova.html"><a href="do_the_anova.html#vis_tukey"><i class="fa fa-check"></i><b>15.2.9</b> Visualizing post-hoc test results</a></li>
+<li class="chapter" data-level="15.2.10" data-path="do_the_anova.html"><a href="do_the_anova.html#anova_conclusion"><i class="fa fa-check"></i><b>15.2.10</b> Concluding statement</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="assumpbad_anova.html"><a href="assumpbad_anova.html"><i class="fa fa-check"></i><b>15.3</b> When assumptions aren’t met</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="two_num.html"><a href="two_num.html"><i class="fa fa-check"></i><b>16</b> Analyzing associations between two numerical variables</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="twonum_packages_data.html"><a href="twonum_packages_data.html"><i class="fa fa-check"></i><b>16.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="16.2" data-path="pearson.html"><a href="pearson.html"><i class="fa fa-check"></i><b>16.2</b> Pearson correlation analysis</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="pearson.html"><a href="pearson.html#pearson_hyp"><i class="fa fa-check"></i><b>16.2.1</b> Hypothesis statements</a></li>
+<li class="chapter" data-level="16.2.2" data-path="pearson.html"><a href="pearson.html#see_corr"><i class="fa fa-check"></i><b>16.2.2</b> Visualize the data</a></li>
+<li class="chapter" data-level="16.2.3" data-path="pearson.html"><a href="pearson.html#corr_assumptions"><i class="fa fa-check"></i><b>16.2.3</b> Assumptions of correlation analysis</a></li>
+<li class="chapter" data-level="16.2.4" data-path="pearson.html"><a href="pearson.html#do_corr"><i class="fa fa-check"></i><b>16.2.4</b> Conduct the correlation analysis</a></li>
+<li class="chapter" data-level="16.2.5" data-path="pearson.html"><a href="pearson.html#concl_corr"><i class="fa fa-check"></i><b>16.2.5</b> Concluding statement</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="rankcorr.html"><a href="rankcorr.html"><i class="fa fa-check"></i><b>16.3</b> Rank correlation (Spearman’s correlation)</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="rankcorr.html"><a href="rankcorr.html#hypothesis-statements"><i class="fa fa-check"></i><b>16.3.1</b> Hypothesis statements</a></li>
+<li class="chapter" data-level="16.3.2" data-path="rankcorr.html"><a href="rankcorr.html#spearman_hyp"><i class="fa fa-check"></i><b>16.3.2</b> Visualize the data</a></li>
+<li class="chapter" data-level="16.3.3" data-path="rankcorr.html"><a href="rankcorr.html#assum_spear"><i class="fa fa-check"></i><b>16.3.3</b> Assumptions of Spearman rank correlation</a></li>
+<li class="chapter" data-level="16.3.4" data-path="rankcorr.html"><a href="rankcorr.html#conduct_spearman"><i class="fa fa-check"></i><b>16.3.4</b> Conduct the test</a></li>
+<li class="chapter" data-level="16.3.5" data-path="rankcorr.html"><a href="rankcorr.html#spear_conclude"><i class="fa fa-check"></i><b>16.3.5</b> Concluding statement</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="creating-tables-in-r-markdown.html"><a href="creating-tables-in-r-markdown.html"><i class="fa fa-check"></i>Creating tables in R Markdown</a>
 <ul>
-<li class="chapter" data-level="14.4" data-path="tables_packages.html"><a href="tables_packages.html"><i class="fa fa-check"></i><b>14.4</b> Load packages and import data</a>
+<li class="chapter" data-level="16.4" data-path="tables_packages.html"><a href="tables_packages.html"><i class="fa fa-check"></i><b>16.4</b> Load packages and import data</a>
 <ul>
-<li class="chapter" data-level="14.4.1" data-path="tables_packages.html"><a href="tables_packages.html#skim_tables"><i class="fa fa-check"></i><b>14.4.1</b> Formatting output from the <code>skimr</code> package</a></li>
-<li class="chapter" data-level="14.4.2" data-path="tables_packages.html"><a href="tables_packages.html#stats_nicetable"><i class="fa fa-check"></i><b>14.4.2</b> A nicely formatted table of descriptive statistics</a></li>
+<li class="chapter" data-level="16.4.1" data-path="tables_packages.html"><a href="tables_packages.html#skim_tables"><i class="fa fa-check"></i><b>16.4.1</b> Formatting output from the <code>skimr</code> package</a></li>
+<li class="chapter" data-level="16.4.2" data-path="tables_packages.html"><a href="tables_packages.html#stats_nicetable"><i class="fa fa-check"></i><b>16.4.2</b> A nicely formatted table of descriptive statistics</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="checking-assumptions-and-data-transformations.html"><a href="checking-assumptions-and-data-transformations.html"><i class="fa fa-check"></i>Checking assumptions and data transformations</a>
 <ul>
-<li class="chapter" data-level="14.5" data-path="assumptions_packages_data.html"><a href="assumptions_packages_data.html"><i class="fa fa-check"></i><b>14.5</b> Load packages and import data</a></li>
-<li class="chapter" data-level="14.6" data-path="checknorm_assum.html"><a href="checknorm_assum.html"><i class="fa fa-check"></i><b>14.6</b> Checking the normality assumption</a>
+<li class="chapter" data-level="16.5" data-path="assumptions_packages_data.html"><a href="assumptions_packages_data.html"><i class="fa fa-check"></i><b>16.5</b> Load packages and import data</a></li>
+<li class="chapter" data-level="16.6" data-path="checknorm_assum.html"><a href="checknorm_assum.html"><i class="fa fa-check"></i><b>16.6</b> Checking the normality assumption</a>
 <ul>
-<li class="chapter" data-level="14.6.1" data-path="checknorm_assum.html"><a href="checknorm_assum.html#quantile_plots"><i class="fa fa-check"></i><b>14.6.1</b> Normal quantile plots</a></li>
-<li class="chapter" data-level="14.6.2" data-path="checknorm_assum.html"><a href="checknorm_assum.html#shapirottest"><i class="fa fa-check"></i><b>14.6.2</b> Shapiro-Wilk test for normality</a></li>
+<li class="chapter" data-level="16.6.1" data-path="checknorm_assum.html"><a href="checknorm_assum.html#quantile_plots"><i class="fa fa-check"></i><b>16.6.1</b> Normal quantile plots</a></li>
+<li class="chapter" data-level="16.6.2" data-path="checknorm_assum.html"><a href="checknorm_assum.html#shapirottest"><i class="fa fa-check"></i><b>16.6.2</b> Shapiro-Wilk test for normality</a></li>
 </ul></li>
-<li class="chapter" data-level="14.7" data-path="levenetest.html"><a href="levenetest.html"><i class="fa fa-check"></i><b>14.7</b> Checking the equal-variance assumption</a></li>
-<li class="chapter" data-level="14.8" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>14.8</b> Data transformations</a>
+<li class="chapter" data-level="16.7" data-path="levenetest.html"><a href="levenetest.html"><i class="fa fa-check"></i><b>16.7</b> Checking the equal-variance assumption</a></li>
+<li class="chapter" data-level="16.8" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>16.8</b> Data transformations</a>
 <ul>
-<li class="chapter" data-level="14.8.1" data-path="transform.html"><a href="transform.html#log_transform"><i class="fa fa-check"></i><b>14.8.1</b> Log-transform</a></li>
-<li class="chapter" data-level="14.8.2" data-path="transform.html"><a href="transform.html#zeroes"><i class="fa fa-check"></i><b>14.8.2</b> Dealing with zeroes</a></li>
-<li class="chapter" data-level="14.8.3" data-path="transform.html"><a href="transform.html#logbases"><i class="fa fa-check"></i><b>14.8.3</b> Log bases</a></li>
-<li class="chapter" data-level="14.8.4" data-path="transform.html"><a href="transform.html#back_transform"><i class="fa fa-check"></i><b>14.8.4</b> Back-transforming log data</a></li>
-<li class="chapter" data-level="14.8.5" data-path="transform.html"><a href="transform.html#logit_transform"><i class="fa fa-check"></i><b>14.8.5</b> Logit transform</a></li>
-<li class="chapter" data-level="14.8.6" data-path="transform.html"><a href="transform.html#logit_back"><i class="fa fa-check"></i><b>14.8.6</b> Back-transforming logit data</a></li>
-<li class="chapter" data-level="14.8.7" data-path="transform.html"><a href="transform.html#when_back"><i class="fa fa-check"></i><b>14.8.7</b> When to back-transform?</a></li>
+<li class="chapter" data-level="16.8.1" data-path="transform.html"><a href="transform.html#log_transform"><i class="fa fa-check"></i><b>16.8.1</b> Log-transform</a></li>
+<li class="chapter" data-level="16.8.2" data-path="transform.html"><a href="transform.html#zeroes"><i class="fa fa-check"></i><b>16.8.2</b> Dealing with zeroes</a></li>
+<li class="chapter" data-level="16.8.3" data-path="transform.html"><a href="transform.html#logbases"><i class="fa fa-check"></i><b>16.8.3</b> Log bases</a></li>
+<li class="chapter" data-level="16.8.4" data-path="transform.html"><a href="transform.html#back_transform"><i class="fa fa-check"></i><b>16.8.4</b> Back-transforming log data</a></li>
+<li class="chapter" data-level="16.8.5" data-path="transform.html"><a href="transform.html#logit_transform"><i class="fa fa-check"></i><b>16.8.5</b> Logit transform</a></li>
+<li class="chapter" data-level="16.8.6" data-path="transform.html"><a href="transform.html#logit_back"><i class="fa fa-check"></i><b>16.8.6</b> Back-transforming logit data</a></li>
+<li class="chapter" data-level="16.8.7" data-path="transform.html"><a href="transform.html#when_back"><i class="fa fa-check"></i><b>16.8.7</b> When to back-transform?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
@@ -439,8 +472,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="numeric_vs_cat" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Visualizing association between a numeric and a categorical variable<a href="numeric_vs_cat.html#numeric_vs_cat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="numeric_vs_cat" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Visualizing association between a numeric and a categorical variable<a href="numeric_vs_cat.html#numeric_vs_cat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To visualize association between a numerical response variable and a categorical explanatory variable, we have a variety of options, and the choice depends in part on the sample sizes within the categories being visualized.</p>
 <ul>
 <li>When sample sizes are relatively small in each category, such as 20 or fewer, use a <strong>stripchart</strong></li>
@@ -460,8 +493,8 @@ Always remember to get an overview of the dataset before attempting to create gr
 <li>Using what you learned in a <a href="desc_numeric_var_cat.html#desc_numeric_var_cat">previous tutorial</a>, create a table of descriptive statistics of serotonin levels grouped by the treatment group variable.</li>
 </ol>
 <hr />
-<div id="stripchart" class="section level3 hasAnchor" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Create a stripchart<a href="numeric_vs_cat.html#stripchart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="stripchart" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Create a stripchart<a href="numeric_vs_cat.html#stripchart" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now we’re ready to create a stripchart of the locust experiment data. Note that we’re not yet ready to add “error bars” to our strip chart; that will come in a later tutorial.</p>
 <p>We’ll provide the code, then explain after:</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="numeric_vs_cat.html#cb94-1" aria-hidden="true" tabindex="-1"></a>locust <span class="sc">%&gt;%</span> </span>
@@ -474,7 +507,7 @@ Always remember to get an overview of the dataset before attempting to create gr
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-42"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-42-1.png" alt="Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group." width="384" />
 <p class="caption">
-Figure 6.6: Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group.
+Figure 8.6: Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group.
 </p>
 </div>
 <ul>
@@ -485,8 +518,8 @@ Figure 6.6: Serotonin levels in the central nervous system of desert locusts tha
 </ul>
 <p>Notice how all the data are visible! And it’s evident that in the control and 1-hour treatment groups the majority of locusts exhibited comparatively low levels of serotonin (note the clusters of points).</p>
 </div>
-<div id="violinplot" class="section level3 hasAnchor" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Create a violin plot<a href="numeric_vs_cat.html#violinplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="violinplot" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> Create a violin plot<a href="numeric_vs_cat.html#violinplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Given that violin plots are best suited to when one has larger sample sizes per group, we’ll go back to the <code>penguins</code> dataset for this, and evaluate how body mass of male penguins varies among species.</p>
 <p>Let’s first find out more about the data for the male penguins, so that we can include sample sizes in our figure captions. Specifically, we’ll tally the number of complete body mass observations for each species, and also the number of missing values (NAs).</p>
 <p>We’ll combine the <code>filter</code> function with the <code>group_by</code> function that we learned about in a <a href="desc_numeric_var_cat.html#desc_numeric_var_cat">previous tutorial</a>:</p>
@@ -537,7 +570,7 @@ When using the <code>ggplot</code> function, we can assign the output to an obje
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-43"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-43-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins." width="384" />
 <p class="caption">
-Figure 6.7: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins.
+Figure 8.7: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins.
 </p>
 </div>
 <p>To help understand what the violin plot is showing, we’ll provide a new <strong>bonus</strong> graph that adds something called “density plots” to the margin of the violin plot.</p>
@@ -559,14 +592,14 @@ Figure 6.7: Violin plot showing the body mass (g) of male Adelie (N = 73), Chins
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-44"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-44-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin." width="480" />
 <p class="caption">
-Figure 6.8: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.
+Figure 8.8: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.
 </p>
 </div>
 <p>The violin plot is designed to give an idea of the frequency distribution of response variable values within each group. Specifically, the width of the violin reflects the frequency of observations in that range of values. This is evident in the above figure within the “density plots” that are provided in the right-hand margin. Consider these density plots as a smoothed out version of a histogram.</p>
 <p>We can see, for example, that for all three species of penguin there is a bulge in the middle indicating that there is a central <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mode">mode</a> to the body mass values in each group, with fewer values towards lower and higher extremes. The frequency distribution for the Gentoo species approximates a “bell shape” distribution, for example (the blue data).</p>
 </div>
-<div id="boxplots" class="section level3 hasAnchor" number="6.4.3">
-<h3><span class="header-section-number">6.4.3</span> Creating a boxplot<a href="numeric_vs_cat.html#boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="boxplots" class="section level3 hasAnchor" number="8.4.3">
+<h3><span class="header-section-number">8.4.3</span> Creating a boxplot<a href="numeric_vs_cat.html#boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here we’ll learn how to create basic boxplots, and also superimpose boxplots onto violin plots.</p>
 <p>In future tutorials we’ll learn how to add features to these types of graphs in order to complement statistical comparisons of a numerical response variable among categories (groups) of a categorical explanatory variable.</p>
 <p>Here is the code for creating boxplots, again using the penguins body mass data, and this time the <code>geom_boxplot</code> function:</p>
@@ -580,7 +613,7 @@ Figure 6.8: Violin plot showing the body mass (g) of male Adelie (N = 73), Chins
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-45"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-45-1.png" alt="Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values." width="384" />
 <p class="caption">
-Figure 6.9: Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.
+Figure 8.9: Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.
 </p>
 </div>
 <p>For more information about the features of the boxplot, look at the help file for the <code>geom_boxplot</code> function:</p>
@@ -591,8 +624,8 @@ The first time you include a boxplot in a report / lab, be sure to include in th
 </div>
 <p>When sample sizes are large in each group, like they are for the penguins data we’ve been visualizing, the most ideal way to visualize the data is to combine violin and boxplots. We’ll do this next!</p>
 </div>
-<div id="bestplot" class="section level3 hasAnchor" number="6.4.4">
-<h3><span class="header-section-number">6.4.4</span> Combining violin and boxplots<a href="numeric_vs_cat.html#bestplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="bestplot" class="section level3 hasAnchor" number="8.4.4">
+<h3><span class="header-section-number">8.4.4</span> Combining violin and boxplots<a href="numeric_vs_cat.html#bestplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Superimposing boxplots onto violin plots (and of course, showing individual points too!) provides for a very informative graph.</p>
 <p>We already have a basic violin plot object created, called “bodymass.violin”, so let’s start with that, then add the boxplot information, then superimpose the points. We need to do it in that order, so that the points become the “top” layer of information, and aren’t hidden behind the boxplot or violins.</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="numeric_vs_cat.html#cb105-1" aria-hidden="true" tabindex="-1"></a>bodymass.violin <span class="sc">+</span> </span>
@@ -601,7 +634,7 @@ The first time you include a boxplot in a report / lab, be sure to include in th
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-46"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-46-1.png" alt="Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values." width="384" />
 <p class="caption">
-Figure 6.10: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.
+Figure 8.10: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.
 </p>
 </div>
 <ul>
@@ -617,8 +650,8 @@ It often takes some playing around with argument values before one gets the idea
 <li>Using the <code>penguins</code> dataset, and only the records pertaining to female penguins, create a combined violin / boxplot graph showing bill length in relation to species. Include an appropriate figure caption.</li>
 </ol>
 </div>
-<div id="interp_violin" class="section level3 hasAnchor" number="6.4.5">
-<h3><span class="header-section-number">6.4.5</span> Interpreting stripcharts and boxplots<a href="numeric_vs_cat.html#interp_violin" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="interp_violin" class="section level3 hasAnchor" number="8.4.5">
+<h3><span class="header-section-number">8.4.5</span> Interpreting stripcharts and boxplots<a href="numeric_vs_cat.html#interp_violin" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We will wait until a future tutorial to learn more about interpreting violin / boxplots, because there we learn how to add more information to the graphs, such as group <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">means</a> and measures of uncertainty.</p>
 
 </div>

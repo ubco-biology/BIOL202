@@ -1,6 +1,6 @@
 # (PART\*) Reproducible Workflows {-}
 
-# Reproducible Research {#repro_research}
+# Reproducible Research {#repro_res}
 
 ```{r echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -111,8 +111,6 @@ RStudio has now created an RStudio project file that has an "Rproj" extension at
 Your tutorial work may involve creating and saving outputs like figures or files, in which case you should have sub-directories for these purposes in your root directory. See the example provided in the [Procedures and Guidelines document](https://ubco-biology.github.io/Procedures-and-Guidelines/example-biol-116.html#screenshot).
 
 Let's illustrate the procedure by creating a subdirectory called "figures", and this time we'll use R to create the directory.
-
-> Updated 7:15pm Sept 9
 
 The following code will create a directory called "figures" in your working directory
 
