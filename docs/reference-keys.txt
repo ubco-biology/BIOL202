@@ -77,7 +77,7 @@ lit_programming
 veryify_knit
 r_resources
 online_resources
-repro_res
+repro_research
 comp_repro
 biol202_workflow
 onedrive

@@ -1,6 +1,6 @@
 # (PART\*) Reproducible Workflows {-}
 
-# Reproducible Research {#repro_res}
+# Reproducible Research {#repro_research}
 
 ```{r echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)

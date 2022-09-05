@@ -33,7 +33,7 @@ Follow the instructions below, and optionally you can view this YouTube video [h
 R needs to be installed successfully >prior< to installing RStudio (because the latter depends on the former)  
 </div>
 
-* Figure out what operating system (and version) you have on your computer (e.g. Windows 10; Mac OS X 10.15 "Big Sur")  
+* Figure out what operating system (and version) you have on your computer (e.g. Windows 10; Mac OS X 12.51 "Monterey")  
 * Go to this [website](https://cran.r-project.org/) and click on the appropriate download link at the top of the page (depending on your operating system, Windows / MacOS / Linux)  
     - For *Windows* users, download the "base" version; this file will be called something like R-4.1.1-win.exe. Executing this file launches a familiar Windows Setup Wizard that will install R on your computer.  
     - For *Mac* users, download the "pkg" file that is appropriate for your version of MacOS; the file will be called something like R-4.1.1.pkg. Download and run this installation package—just accept the default options and you will be ready to go.  
