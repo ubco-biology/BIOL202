@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-03" />
+<meta name="date" content="2022-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -453,10 +453,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>As we learned in the “Preparing and formatting assignments” <a href="example_answer.html#example_answer">tutorial</a>, the <code>skimr</code> package has a handy function called <code>skim_without_charts</code> that provides a good overview of a data object. This is a rather long function name, and in fact the main function is called <code>skim</code>. However, by default, <code>skim</code> includes small charts in its output, and we don’t want that presently, hence the use of <code>skim_without_charts</code>.</p>
 <p>Let’s load that package now:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data_overview.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data_overview.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
 <p>And get an overview of the <code>trout</code> dataset, again using the pipe approach:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data_overview.html#cb22-1" aria-hidden="true" tabindex="-1"></a>trout <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="data_overview.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data_overview.html#cb21-1" aria-hidden="true" tabindex="-1"></a>trout <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="data_overview.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 <span id="tab:unnamed-chunk-20">Table 3.1: </span>Data summary
@@ -708,9 +708,9 @@ Trout_Caught
 </ul>
 <p>Now you have what you need to answer each of the questions listed above!</p>
 <p>One additional function that is useful during the overview stage is <code>head</code>. This function just gives you a view of the first 6 rows of the dataset:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data_overview.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we can use head(trout), or the pipe approach: </span></span>
-<span id="cb23-2"><a href="data_overview.html#cb23-2" aria-hidden="true" tabindex="-1"></a>trout <span class="sc">%&gt;%</span></span>
-<span id="cb23-3"><a href="data_overview.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data_overview.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we can use head(trout), or the pipe approach: </span></span>
+<span id="cb22-2"><a href="data_overview.html#cb22-2" aria-hidden="true" tabindex="-1"></a>trout <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a href="data_overview.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   Site           Day Trout_Caught
 ##   &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;

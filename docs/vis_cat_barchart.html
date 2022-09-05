@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-03" />
+<meta name="date" content="2022-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -444,11 +444,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We use a <em>bar graph</em> to visualize the frequency distribution for a single categorical variable.</p>
 <p>We’ll use the <code>ggplot</code> approach with its <code>geom_bar</code> function to create a bar graph. The <code>ggplot</code> function comes with the <code>ggplot2</code> package, which itself is loaded as part of the <code>tidyverse</code>.</p>
 <p>To produce the bar graph, we use a frequency table as the input. Thus, let’s repeat the creation of the “tiger.table” from the preceding section.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="vis_cat_barchart.html#cb32-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="ot">&lt;-</span> tigerdeaths <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="vis_cat_barchart.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(activity, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-3"><a href="vis_cat_barchart.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="vis_cat_barchart.html#cb31-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="ot">&lt;-</span> tigerdeaths <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="vis_cat_barchart.html#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(activity, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-3"><a href="vis_cat_barchart.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
 <p>Recall that the “tiger.table” is a sort of summary presentation of the “activity” variable:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="vis_cat_barchart.html#cb33-1" aria-hidden="true" tabindex="-1"></a>tiger.table</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="vis_cat_barchart.html#cb32-1" aria-hidden="true" tabindex="-1"></a>tiger.table</span></code></pre></div>
 <pre><code>## # A tibble: 9 × 3
 ##   activity                  n relative_frequency
 ##   &lt;chr&gt;                 &lt;int&gt;              &lt;dbl&gt;
@@ -464,12 +464,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>It shows the total counts (frequencies) of individuals in each of the nine “activity” categories.</p>
 <p>And although in the code chunk below you’ll see that we provide an “x” and a “y” variable for creating the graph, remember that we’re really only visualizing a <em>single categorical variable</em>.</p>
 <p>Let’s provide the code first, and explain after.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="vis_cat_barchart.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> tiger.table, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(activity, n), <span class="at">y =</span> n)) <span class="sc">+</span> </span>
-<span id="cb35-2"><a href="vis_cat_barchart.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb35-3"><a href="vis_cat_barchart.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb35-4"><a href="vis_cat_barchart.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Activity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb35-5"><a href="vis_cat_barchart.html#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb35-6"><a href="vis_cat_barchart.html#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="vis_cat_barchart.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> tiger.table, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(activity, n), <span class="at">y =</span> n)) <span class="sc">+</span> </span>
+<span id="cb34-2"><a href="vis_cat_barchart.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb34-3"><a href="vis_cat_barchart.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="vis_cat_barchart.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Activity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb34-5"><a href="vis_cat_barchart.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb34-6"><a href="vis_cat_barchart.html#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-23"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-23-1.png" alt="Bar graph showing the activities of 88 people at the time they were attached and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006" width="576" />
 <p class="caption">
@@ -491,7 +491,7 @@ Figure 4.1: Bar graph showing the activities of 88 people at the time they were 
 <p>There you have it: a nicely formatted bar graph!</p>
 <p><strong>REMINDER</strong> Don’t forget to include a good figure caption! Here’s a snapshot of the full code chunk that produced the bar graph above:</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-24"></span>
-<img src="more/bar_graph_chunk.png" alt="Example code chunk for producing a good bar graph" width="978" />
+<img src="more/bar_graph_chunk.png" alt="Example code chunk for producing a good bar graph"  />
 <p class="caption">
 Figure 4.2: Example code chunk for producing a good bar graph
 </p>

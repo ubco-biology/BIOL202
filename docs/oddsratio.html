@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-03" />
+<meta name="date" content="2022-09-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -451,20 +451,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you were calculating the odds ratio by hand, using the letters shown in the table above, the shortcut formula is:</p>
 <p><span class="math display">\[\hat{OR} = \frac{{a/c}}{{b/d}}\]</span></p>
 <p>Here’s the code for producing the appropriately formatted 2 x 2 table as so:</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="oddsratio.html#cb245-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="sc">%&gt;%</span></span>
-<span id="cb245-2"><a href="oddsratio.html#cb245-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(aspirinTreatment, response) <span class="sc">%&gt;%</span></span>
-<span id="cb245-3"><a href="oddsratio.html#cb245-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Cancer, <span class="st">&quot;No cancer&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="oddsratio.html#cb244-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="sc">%&gt;%</span></span>
+<span id="cb244-2"><a href="oddsratio.html#cb244-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(aspirinTreatment, response) <span class="sc">%&gt;%</span></span>
+<span id="cb244-3"><a href="oddsratio.html#cb244-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Cancer, <span class="st">&quot;No cancer&quot;</span>)</span></code></pre></div>
 <pre><code>##  Cancer No cancer
 ##    1438     18496
 ##    1427     18515</code></pre>
 <p>So thats what the <code>oddsratio</code> function is expecting as input.</p>
 <p>However, it’s also expecting it in the form of a “matrix” object.</p>
 <p>Here’s all the code at once, and we’ll store the output (which comes in the form of a “list”) in an object called “cancer.odds”:</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="oddsratio.html#cb247-1" aria-hidden="true" tabindex="-1"></a>cancer.odds <span class="ot">&lt;-</span> cancer <span class="sc">%&gt;%</span></span>
-<span id="cb247-2"><a href="oddsratio.html#cb247-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(aspirinTreatment, response) <span class="sc">%&gt;%</span></span>
-<span id="cb247-3"><a href="oddsratio.html#cb247-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Cancer, <span class="st">&quot;No cancer&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb247-4"><a href="oddsratio.html#cb247-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.matrix</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb247-5"><a href="oddsratio.html#cb247-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">oddsratio</span>(<span class="at">method =</span> <span class="st">&quot;wald&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="oddsratio.html#cb246-1" aria-hidden="true" tabindex="-1"></a>cancer.odds <span class="ot">&lt;-</span> cancer <span class="sc">%&gt;%</span></span>
+<span id="cb246-2"><a href="oddsratio.html#cb246-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(aspirinTreatment, response) <span class="sc">%&gt;%</span></span>
+<span id="cb246-3"><a href="oddsratio.html#cb246-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(Cancer, <span class="st">&quot;No cancer&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb246-4"><a href="oddsratio.html#cb246-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.matrix</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb246-5"><a href="oddsratio.html#cb246-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">oddsratio</span>(<span class="at">method =</span> <span class="st">&quot;wald&quot;</span>)</span></code></pre></div>
 <p>We’ve seen the first two lines before. Then:</p>
 <ul>
 <li>we <code>select</code> the two columns associated with the “Cancer” and “No cancer” data. <strong>NOTE</strong> that because there’s a space in the variable name “No cancer”, we need to use quotation marks around it</li>
@@ -472,7 +472,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>lastly we run the <code>oddsratio</code> function, with the argument “method = ‘wald’” (don’t worry about why)</li>
 </ul>
 <p>Let’s have a look at the rather verbose output:</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="oddsratio.html#cb248-1" aria-hidden="true" tabindex="-1"></a>cancer.odds</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="oddsratio.html#cb247-1" aria-hidden="true" tabindex="-1"></a>cancer.odds</span></code></pre></div>
 <pre><code>## $data
 ##       Cancer No cancer Total
 ## row1    1438     18496 19934
@@ -499,7 +499,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This is more information than we need.</p>
 <p>What we’re interested in is the information under the “$measure” part, and specifically the “odds ratio with 95% C.I.”.</p>
 <p>To limit the output to the relevant information, use this code:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="oddsratio.html#cb250-1" aria-hidden="true" tabindex="-1"></a>cancer.odds<span class="sc">$</span>measure[<span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="oddsratio.html#cb249-1" aria-hidden="true" tabindex="-1"></a>cancer.odds<span class="sc">$</span>measure[<span class="dv">2</span>,]</span></code></pre></div>
 <pre><code>##  estimate     lower     upper 
 ## 1.0087436 0.9349043 1.0884148</code></pre>
 <p>This isolates the actual estimate of the odds ratio (<span class="math inline">\(\hat{OR}\)</span>) with its 95% confidence interval.</p>
