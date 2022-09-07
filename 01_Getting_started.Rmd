@@ -142,7 +142,7 @@ R Markdown is just one flavour of a markup language. RStudio can be used to edit
 
 The preceding video described what can be referred to as <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Literate-programming">**literate programming**</a>: authoring a single document that integrates data analysis (executable code) with textual documentation, linking data, code, and text. In R Markdown, the executable R code is placed in "chunks", and these are embedded throughout sections of regular text.   
 
-For an example of an HTML (webpage) document that illustrates the effectiveness of literate programming, take a look at [this HTML output - a webpage](https://ubco-biology.github.io/BIOL202/Manning_et_al_full_script.html) that accompanied a lab-based experiment examining the potential for freshwater diatoms to be successfully dispersed over long distances adhered to duck feathers.
+For an example of an HTML (webpage) document that illustrates literate programming, download [this HTML file](https://osf.io/h7p6a) and open it in your browser.  It accompanied a lab-based experiment examining the potential for freshwater diatoms to be successfully dispersed over long distances adhered to duck feathers.
 
 2. View the following youtube video on creating an R Markdown document:
 

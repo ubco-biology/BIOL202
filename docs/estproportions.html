@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-05" />
+<meta name="date" content="2022-09-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -479,11 +479,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In a <a href="vis_cat_freq_table.html#vis_cat_freq_table">previous tutorial</a> we used the “birds” dataset to practice creating a “frequency table” that showed the <em>relative frequencies</em> of birds falling in each category of the categorical variable “type”. These relative frequencies are equivalent to their respective proportions.</p>
 <p>So, for the birds dataset, let’s produce a frequency table, but instead of using the term “relative frequency” we’ll use “p_hat” to denote that this is our estimate of the proportion of birds in that category.</p>
 <p>We’ll put the output in an object “bird.freq.table” then we’ll display it after:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="estproportions.html#cb177-1" aria-hidden="true" tabindex="-1"></a>bird.freq.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
-<span id="cb177-2"><a href="estproportions.html#cb177-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb177-3"><a href="estproportions.html#cb177-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="estproportions.html#cb182-1" aria-hidden="true" tabindex="-1"></a>bird.freq.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
+<span id="cb182-2"><a href="estproportions.html#cb182-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb182-3"><a href="estproportions.html#cb182-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
 <p>Now show the table:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="estproportions.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(bird.freq.table, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="estproportions.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(bird.freq.table, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -555,11 +555,11 @@ Songbird
 <p><span class="math display">\[SE_\hat{p} = \sqrt\frac{\hat{p}(1-\hat{p})}{n}\]</span></p>
 <p>Let’s use the “birds” dataset to demonstrate the calculation.</p>
 <p>Let’s re-create the table again:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="estproportions.html#cb179-1" aria-hidden="true" tabindex="-1"></a>bird.freq.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
-<span id="cb179-2"><a href="estproportions.html#cb179-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb179-3"><a href="estproportions.html#cb179-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="estproportions.html#cb184-1" aria-hidden="true" tabindex="-1"></a>bird.freq.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
+<span id="cb184-2"><a href="estproportions.html#cb184-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb184-3"><a href="estproportions.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
 <p>Show the table:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="estproportions.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(bird.freq.table, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="estproportions.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(bird.freq.table, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -624,9 +624,9 @@ Songbird
 <p>That table does show us our estimate of the proportion of birds that are predatory. We’ll isolate that value later.</p>
 <p>But we also need to get the total sample size, i.e. the total number of birds sampled.</p>
 <p>To do this, we need to make sure not to count any missing values, and we can use the <code>n_complete</code> function from the <code>naniar</code> package:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="estproportions.html#cb181-1" aria-hidden="true" tabindex="-1"></a>birds.sampsize <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
-<span id="cb181-2"><a href="estproportions.html#cb181-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(type) <span class="sc">%&gt;%</span></span>
-<span id="cb181-3"><a href="estproportions.html#cb181-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">n_complete</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="estproportions.html#cb186-1" aria-hidden="true" tabindex="-1"></a>birds.sampsize <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
+<span id="cb186-2"><a href="estproportions.html#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(type) <span class="sc">%&gt;%</span></span>
+<span id="cb186-3"><a href="estproportions.html#cb186-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">n_complete</span>()</span></code></pre></div>
 <p>In the preceding code:</p>
 <ul>
 <li>We first ensure the output will be put in a new object called “birds.sampsize”</li>
@@ -635,16 +635,16 @@ Songbird
 <li>We then use the <code>n_complete</code> function to get the total number of non-missing observations in the variable.</li>
 </ul>
 <p>Now let’s see what the outcome was:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="estproportions.html#cb182-1" aria-hidden="true" tabindex="-1"></a>birds.sampsize</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="estproportions.html#cb187-1" aria-hidden="true" tabindex="-1"></a>birds.sampsize</span></code></pre></div>
 <pre><code>## [1] 86</code></pre>
 <div class="note">
 <p><strong>NOTE</strong>
 In previous tutorials we used a bit more cumbersome way to calculate the total number of complete observations in a variable. The <code>n_complete</code> function will simplify things.</p>
 </div>
 <p>Now that we have <em>n</em> (above), stored in the object “birds.sampsize”, we need to extract the “p_hat” value associated with the “Predatory” category, and we’ll store this in an object called “pred.phat”:</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="estproportions.html#cb184-1" aria-hidden="true" tabindex="-1"></a>pred.phat <span class="ot">&lt;-</span> bird.freq.table <span class="sc">%&gt;%</span></span>
-<span id="cb184-2"><a href="estproportions.html#cb184-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;Predatory&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb184-3"><a href="estproportions.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(p_hat)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="estproportions.html#cb189-1" aria-hidden="true" tabindex="-1"></a>pred.phat <span class="ot">&lt;-</span> bird.freq.table <span class="sc">%&gt;%</span></span>
+<span id="cb189-2"><a href="estproportions.html#cb189-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;Predatory&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb189-3"><a href="estproportions.html#cb189-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(p_hat)</span></code></pre></div>
 <p>In the preceding chunk we:</p>
 <ul>
 <li>assign our output to an object “pred.phat”</li>
@@ -652,25 +652,25 @@ In previous tutorials we used a bit more cumbersome way to calculate the total n
 <li>use the <code>select</code> function to return (select) the “p_hat” variable only</li>
 </ul>
 <p>Let’s look at what this produced:</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="estproportions.html#cb185-1" aria-hidden="true" tabindex="-1"></a>pred.phat</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="estproportions.html#cb190-1" aria-hidden="true" tabindex="-1"></a>pred.phat</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##    p_hat
 ##    &lt;dbl&gt;
 ## 1 0.3372</code></pre>
 <p>So this produced a tibble called “pred.phat” with a variable “p_hat”, and it has one value - our proportion estimate <span class="math inline">\(\hat{p}\)</span>.</p>
 <p><strong>NOTE</strong>: We could have calculated and isolated the “P-hat” value for predatory birds all in one go, using the following code:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="estproportions.html#cb187-1" aria-hidden="true" tabindex="-1"></a>pred.phat <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
-<span id="cb187-2"><a href="estproportions.html#cb187-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb187-3"><a href="estproportions.html#cb187-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
-<span id="cb187-4"><a href="estproportions.html#cb187-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;Predatory&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb187-5"><a href="estproportions.html#cb187-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(p_hat)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="estproportions.html#cb192-1" aria-hidden="true" tabindex="-1"></a>pred.phat <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
+<span id="cb192-2"><a href="estproportions.html#cb192-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb192-3"><a href="estproportions.html#cb192-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb192-4"><a href="estproportions.html#cb192-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;Predatory&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb192-5"><a href="estproportions.html#cb192-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(p_hat)</span></code></pre></div>
 <p>That demonstrates the power of the pipe approach!</p>
 <p>OK, now we’re ready to calculate <span class="math inline">\(SE_\hat{p} = \sqrt\frac{\hat{p}(1-\hat{p})}{n}\)</span></p>
 <p>Here’s how we do this using basic R syntax, recalling that our “n” (86 birds total) is stored in the object “birds.sampsize”.</p>
 <p>We’ll store the value in a new object called “SE_phat”:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="estproportions.html#cb188-1" aria-hidden="true" tabindex="-1"></a>SE_phat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(pred.phat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> pred.phat) <span class="sc">/</span> birds.sampsize)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="estproportions.html#cb193-1" aria-hidden="true" tabindex="-1"></a>SE_phat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(pred.phat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> pred.phat) <span class="sc">/</span> birds.sampsize)</span></code></pre></div>
 <p>And now see what the value is:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="estproportions.html#cb189-1" aria-hidden="true" tabindex="-1"></a>SE_phat</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="estproportions.html#cb194-1" aria-hidden="true" tabindex="-1"></a>SE_phat</span></code></pre></div>
 <pre><code>##       p_hat
 ## 1 0.0509787</code></pre>
 <p><strong>Reporting the proportion and standard error</strong></p>
@@ -689,15 +689,15 @@ In previous tutorials we used a bit more cumbersome way to calculate the total n
 <p>This margin of error is the value that we <em>subtract</em> to our proportion estimate <span class="math inline">\(\hat{p}\)</span> to get the <strong>lower 95% confidence limit</strong>, and we <em>add</em> that value to our proportion estimate <span class="math inline">\(\hat{p}\)</span> to get the <strong>upper 95% confidence limit</strong>.</p>
 <p>We’ll again use the “birds” data, and the estimated proportion of birds that are predatory.</p>
 <p>Let’s again calculate the sample size of birds:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="estproportions.html#cb192-1" aria-hidden="true" tabindex="-1"></a>birds.sampsize <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
-<span id="cb192-2"><a href="estproportions.html#cb192-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(type) <span class="sc">%&gt;%</span></span>
-<span id="cb192-3"><a href="estproportions.html#cb192-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">n_complete</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="estproportions.html#cb197-1" aria-hidden="true" tabindex="-1"></a>birds.sampsize <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
+<span id="cb197-2"><a href="estproportions.html#cb197-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(type) <span class="sc">%&gt;%</span></span>
+<span id="cb197-3"><a href="estproportions.html#cb197-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">n_complete</span>()</span></code></pre></div>
 <p>And here’s the frequency table we constructed:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="estproportions.html#cb193-1" aria-hidden="true" tabindex="-1"></a>bird.freq.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
-<span id="cb193-2"><a href="estproportions.html#cb193-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb193-3"><a href="estproportions.html#cb193-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="estproportions.html#cb198-1" aria-hidden="true" tabindex="-1"></a>bird.freq.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
+<span id="cb198-2"><a href="estproportions.html#cb198-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb198-3"><a href="estproportions.html#cb198-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p_hat =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
 <p>Show the table:</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="estproportions.html#cb194-1" aria-hidden="true" tabindex="-1"></a>bird.freq.table</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="estproportions.html#cb199-1" aria-hidden="true" tabindex="-1"></a>bird.freq.table</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 3
 ##   type          n   p_hat
 ##   &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;
@@ -707,11 +707,11 @@ In previous tutorials we used a bit more cumbersome way to calculate the total n
 ## 4 Songbird      6 0.06977</code></pre>
 <p>Looking at the formula for the <em>Agresti-Coull</em> confidence interal, we see that we need <em>X</em> - the number of “successes”, which in our case is the number of birds in the category “Predatory”. This is provided in our table above. So let’s extract that information.</p>
 <p>We’ll store our value of “X” in a new object called “bird.X”:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="estproportions.html#cb196-1" aria-hidden="true" tabindex="-1"></a>bird.X <span class="ot">&lt;-</span> bird.freq.table <span class="sc">%&gt;%</span></span>
-<span id="cb196-2"><a href="estproportions.html#cb196-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;Predatory&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb196-3"><a href="estproportions.html#cb196-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(n)</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="estproportions.html#cb201-1" aria-hidden="true" tabindex="-1"></a>bird.X <span class="ot">&lt;-</span> bird.freq.table <span class="sc">%&gt;%</span></span>
+<span id="cb201-2"><a href="estproportions.html#cb201-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;Predatory&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb201-3"><a href="estproportions.html#cb201-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(n)</span></code></pre></div>
 <p>Now let’s see the output:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="estproportions.html#cb197-1" aria-hidden="true" tabindex="-1"></a>bird.X</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="estproportions.html#cb202-1" aria-hidden="true" tabindex="-1"></a>bird.X</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##       n
 ##   &lt;int&gt;
@@ -723,9 +723,9 @@ In previous tutorials we used a bit more cumbersome way to calculate the total n
 <p>The one catch in the code below is that we can’t simply provide the name of our “bird.X” object to provide the value of <em>X</em> for the <code>binom.confint</code> function; instead we need to specify that the value we want to use is stored in the variable called “n” within the “bird.X” object. Thus, we use <code>bird.X$n</code>. The dollar sign allows us to specify a specific variable within the tibble.</p>
 <p>Then, we use “ac” to specify the “Agresti-Coull” methods.</p>
 <p>We’ll assing our output to a new object called “confint.results”:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="estproportions.html#cb200-1" aria-hidden="true" tabindex="-1"></a>confint.results <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="at">x =</span> bird.X<span class="sc">$</span>n, <span class="at">n =</span> birds.sampsize, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">methods =</span> <span class="st">&quot;ac&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="estproportions.html#cb205-1" aria-hidden="true" tabindex="-1"></a>confint.results <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="at">x =</span> bird.X<span class="sc">$</span>n, <span class="at">n =</span> birds.sampsize, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">methods =</span> <span class="st">&quot;ac&quot;</span>)</span></code></pre></div>
 <p>Have a look at the output using the <code>kable</code> function to make it nicer looking:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="estproportions.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(confint.results, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="estproportions.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(confint.results, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr>
