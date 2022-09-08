@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-06" />
+<meta name="date" content="2022-09-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -479,14 +479,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Many straightforward operations like tabulation and calculating descriptive statistics can be done using the functionality of the <code>dplyr</code> package (see the cheatsheet <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">here</a>), which gets loaded as part of the <code>tidyverse</code> suite of packages.</p>
 <p>Here, we’ll use this functionality to create a <em>frequency table</em> for a categorical variable.</p>
 <p>We’ll demonstrate this using the <code>tigerdeaths.csv</code> dataset that you should have imported as part of a suggested activity in the previous section, using code like this:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="vis_cat_freq_table.html#cb33-1" aria-hidden="true" tabindex="-1"></a>tigerdeaths <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="vis_cat_freq_table.html#cb34-1" aria-hidden="true" tabindex="-1"></a>tigerdeaths <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv&quot;</span>)</span></code></pre></div>
 <p>You would also have gotten <a href="vis_data_overview.html#vis_data_overview">overview of the data</a> as part of the activity, using the <code>skim_without_charts</code> function. This would have shown that the <code>activity</code> variable is of type “character”, which tells us it is a <strong>categorical</strong> variable, and that it includes 9 unique categories. We also would have seen that there are 88 cases (rows) in the dataset.</p>
 <p>Let’s provide the code to generate the frequency table, using the pipes “%&gt;%” approach we learned about in an <a href="import_csv_local.html#import_csv_local">earlier tutorial</a>. We’ll assign the output to a new object that will hold the frequency table. We’ll name the object “tiger.table”. Note that we won’t yet view the table here… we’ll do that next.</p>
 <p>We’ll provide the code first, then explain it step-by-step after.</p>
 <p>Here’s the code for creating the frequency table and assigning it to a new object named “tiger.table”:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="vis_cat_freq_table.html#cb34-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="ot">&lt;-</span> tigerdeaths <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="vis_cat_freq_table.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(activity, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-3"><a href="vis_cat_freq_table.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="vis_cat_freq_table.html#cb35-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="ot">&lt;-</span> tigerdeaths <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="vis_cat_freq_table.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(activity, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-3"><a href="vis_cat_freq_table.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
 <ul>
 <li>The first line provides the name of the object (tibble) that we’re going to create (here, “tiger.table”), and use the assignment operator (“&lt;-”) tell R to put whatever the output of our operation is into that object. The next part of the first line provides the name of the object that we’re going to do something with, here “tigerdeaths”. The “%&gt;%” tells R that we’re not done yet, and there’s more lines of code to come.</li>
 <li>The second line uses the <code>count</code> function from the <code>dplyr</code> package to tally the unique values of a variable, in this case the “activity” variable. It also takes an argument “sort = TRUE”, telling it to sort the counts in descending order (the default sort direction). Then another “%&gt;%” to continue the code..</li>
