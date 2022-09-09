@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-08" />
+<meta name="date" content="2022-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -475,7 +475,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="example_answer" class="section level2 hasAnchor" number="4.6">
 <h2><span class="header-section-number">4.6</span> Example question / answer<a href="example_answer.html#example_answer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Below is an example of how to answer a question.</p>
+<p>Below is an example of how to answer a question. You haven’t yet learned some of the functions we use here, but follow along for now - it’s just an example!</p>
 <div class="note">
 <p><strong>NOTE</strong>
 There are almost <em>always</em> multiple coding approaches to get the right answer, some better than others. As long as your code and answer are accurate and make sense, you’ll get the marks!</p>
@@ -483,19 +483,11 @@ There are almost <em>always</em> multiple coding approaches to get the right ans
 <p><strong>Question 1.</strong> What are the minimum and maximum heights (variable name is “height_cm”) of students in the “students” dataset, which is available at this URL:</p>
 <pre><code>https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv</code></pre>
 <p>As we learned in the [fictitious] “importing and exploring data” tutorial, I can use the <code>read_csv</code> function from the <code>readr</code> package (loaded with <code>tidyverse</code>) to download and import the dataset. It creates a “tibble” object, which here I name “students”:</p>
-<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.2 ──
-## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-## ✔ tibble  3.1.8     ✔ dplyr   1.0.9
-## ✔ tidyr   1.2.0     ✔ stringr 1.4.1
-## ✔ readr   2.1.2     ✔ forcats 0.5.2
-## ── Conflicts ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="example_answer.html#cb14-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="example_answer.html#cb13-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <p>I also learned that it’s a good idea to get an overview of the dataset as a first step after importing data. To do this, use the <code>skim_without_charts</code> function from the <code>skimr</code> package. I need to load that package first:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="example_answer.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="example_answer.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
 <p>Now skim:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="example_answer.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim_without_charts</span>(students)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="example_answer.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim_without_charts</span>(students)</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:skim_data)Data summary
@@ -822,10 +814,10 @@ Number_of_siblings
 <p>We can use the <code>summary</code> function to get some basic <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistics</a>, including the minimum and maximum of numeric variables. The <code>summary</code> function is part of the base R package, so no additional packages need to be loaded.</p>
 <p>We also use the <code>select</code> function from the <code>dplyr</code> package (which is loaded with <code>tidyverse</code>) to select which variable in the <code>students</code> tibble we wish to summarize.</p>
 <p>The use of the “%&gt;%” syntax is described in another tutorial (yet to be posted!).</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="example_answer.html#cb17-1" aria-hidden="true" tabindex="-1"></a>summary.height <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="example_answer.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(height_cm) <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a href="example_answer.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  summary</span>
-<span id="cb17-4"><a href="example_answer.html#cb17-4" aria-hidden="true" tabindex="-1"></a>summary.height</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="example_answer.html#cb16-1" aria-hidden="true" tabindex="-1"></a>summary.height <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="example_answer.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(height_cm) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="example_answer.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  summary</span>
+<span id="cb16-4"><a href="example_answer.html#cb16-4" aria-hidden="true" tabindex="-1"></a>summary.height</span></code></pre></div>
 <pre><code>##    height_cm    
 ##  Min.   :150.0  
 ##  1st Qu.:165.0  

@@ -178,7 +178,7 @@ The line "fig_caption = true" tells R Markdown and the knitting process to autom
 
 ## Example question / answer {#example_answer}
 
-Below is an example of how to answer a question. 
+Below is an example of how to answer a question. You haven't yet learned some of the functions we use here, but follow along for now - it's just an example!
 
 <div class="note">
 **NOTE** 
@@ -193,7 +193,7 @@ https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv
 
 As we learned in the [fictitious] "importing and exploring data" tutorial, I can use the `read_csv` function from the `readr` package (loaded with `tidyverse`) to download and import the dataset.  It creates a "tibble" object, which here I name "students":
 
-```{r loadtidy, echo = FALSE}
+```{r loadtidy, echo = FALSE, message = FALSE}
 library(tidyverse)
 ```
 
