@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.3 Microsoft OneDrive | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>15 Checking assumptions and data transformations | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.3 Microsoft OneDrive | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="15 Checking assumptions and data transformations | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="All tutorials associated with BIOL202" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.3 Microsoft OneDrive | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="15 Checking assumptions and data transformations | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="biol202_workflow.html"/>
-<link rel="next" href="dir_structure.html"/>
+<link rel="prev" href="assumpbad_2samp.html"/>
+<link rel="next" href="assumptions_packages_data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -473,29 +473,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="onedrive" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Microsoft OneDrive<a href="onedrive.html#onedrive" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Our suggested approach assumes you have set up a Microsoft account through UBC (using your CWL), and have set up the OneDrive application on your own computer, which automatically syncs (when you’re online) selected files/directories between your local computer and your OneDrive account in the cloud.</p>
-<p>Why OneDrive? As a UBC student, you receive 1TB of free storage! And you also get peace of mind knowing that your files are secure and up-to-date (provided you have an internet connection), and that OneDrive has something called <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Version-control">“version control”</a>, which saves old versions of files and allows you to see those versions if you wish, <strong>so long as you maintain the same file name</strong>.</p>
-<div class="note">
-<p><strong>WAIT A SECOND!</strong>
-In the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/file-naming.html">“File Naming”</a> instructions that I just reviewed, I was instructed to create a new file with a new version number in the filename (e.g. with a “V0”, “V1”, “V2” etc…) each time I worked on it!</p>
-</div>
-<p>Those instructions are entirely valid! However, when you have access to a <em>version control</em> system, like OneDrive, it is better to <strong>keep the file name the same</strong>, rather than changing it each time you update it. For example, your markdown file (which as a “.Rmd” extension to the name) that you use for your tutorial work should maintain the same name throughout the term, rather than saving a new file each time you do substantive work on it.</p>
-<p>Assuming your files are syncing properly between your computer and OneDrive (and this simply requires that you’re connected to the internet), you will always be able to <a href="https://support.microsoft.com/en-us/office/restore-a-previous-version-of-a-file-stored-in-onedrive-159cad6d-d76e-4981-88ef-de6e96c93893">see (and if desired, restore) old versions of your files</a>.</p>
-<p>If you haven’t set up OneDrive yet, follow the instructions provided at this <a href="https://lthub.ubc.ca/guides/microsoft-onedrive-student-guide/">UBC IT website</a>.</p>
-<div class="note">
-<p><strong>Note</strong>
-Using OneDrive is entirely optional. If you choose not to use OneDrive, please follow the file naming instructions from the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/file-naming.html">Procedures and Guidelines document</a>. And you can still follow the directory structure instructions below, regardless of where you set up your directories (OneDrive or not).</p>
-</div>
+<div id="assumptions_trans" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">15</span> Checking assumptions and data transformations<a href="assumptions_trans.html#assumptions_trans" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Tutorial learning objectives</strong></p>
+<ul>
+<li>Learn how to check the normality assumption
+<ul>
+<li>Normal quantile plots</li>
+<li>Shapiro-Wilk test for normality</li>
+</ul></li>
+<li>Learn how to check the equal variance assumption
+<ul>
+<li>Levene’s Test</li>
+</ul></li>
+<li>Learn how to transform the response variable to help meet assumptions
+<ul>
+<li>log-transform</li>
+<li>Dealing with zeroes<br />
+</li>
+<li>log bases</li>
+<li>back-transforming log data</li>
+<li>logit transform</li>
+<li>back-transforming logit data</li>
+<li>when to back-transform?</li>
+</ul></li>
+</ul>
+<p>Most statistical tests, such as the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Chi-square-($\chi$^2^)-goodness-of-fit-test"><span class="math inline">\(\chi\)</span><sup>2</sup> goodness of fit test</a>, <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Chi-square-($\chi$^2^)-contingency-test">the <span class="math inline">\(\chi\)</span><sup>2</sup> contingency test</a>, <em>t</em>-test, <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Analysis-of-variance">ANOVA</a>, Pearson correlation, and least-squares <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Linear-regression">regression</a>, have <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> that must be met. For example, the one-sample <em>t</em>-test requires that the variable is normally distributed in the population, and least-squares regression requires that the residuals from the regression be normally distributed. In this tutorial we’ll learn ways to check the assumption that the variable is normally distributed in the population.</p>
+<p>We’ll also learn how transforming a variable can sometimes help satisfy assumptions, in which case the analysis is conducted on the transformed variable.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="biol202_workflow.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dir_structure.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="assumpbad_2samp.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="assumptions_packages_data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

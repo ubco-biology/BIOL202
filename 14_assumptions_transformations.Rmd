@@ -1,4 +1,4 @@
-# Checking assumptions and data transformations {-}
+# Checking assumptions and data transformations {#assumptions_trans}
 
 ```{r echo = FALSE}
 knitr::opts_chunk$set(echo = TRUE)

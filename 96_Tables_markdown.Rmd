@@ -14,6 +14,8 @@ options(knitr.table.format = "html")
 This tutorial aims to help you produce nice tables when knitting to PDF.  However, because this tutorial is presented in HTML format, some of the output does not look the same as it will in PDF format.  These instances are noted.
 </div>
 
+**EXTRA**: there is a new package called [`flextable`](https://ardata-fr.github.io/flextable-book/index.html) that, if you're keen, you are welcome to check out! We don't cover it here.
+
 ## Load packages and import data {#tables_packages}
 
 Load the following packages, including `palmerpenguins` and `kableExtra`:

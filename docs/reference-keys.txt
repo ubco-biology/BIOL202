@@ -207,6 +207,7 @@ twosamp_assump
 conduct_2samptest
 concl_2samp
 assumpbad_2samp
+assumptions_trans
 assumptions_packages_data
 checknorm_assum
 quantile_plots
