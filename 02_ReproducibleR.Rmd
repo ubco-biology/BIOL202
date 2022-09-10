@@ -148,7 +148,7 @@ In a previous [tutorial](#intro_markdown) you learned how to create an R Markdow
 
 I have created an R Markdown file that you can download and use for starting your tutorial work. 
 
-To do this, copy and paste the following code into your command console in RStudio (the bottom left panel), and press return:
+To do this, type the following code into your command console in RStudio (the bottom left panel):
 
 ```{r down_rmd, eval = F}
 download.file("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/more/Example_tutorial_markdown.Rmd", "BIOL202_tutorial_markdown.Rmd")
@@ -179,7 +179,7 @@ Read through section 4.2 of this online [tutorial](https://rbasics.netlify.app/4
 
 ## Interacting with Tutorial material {#interact_tutorial}
 
-Students have typically worked through tutorials by reading the material, typing helpful notes in their markdown document, and copying and pasting any R code into "chunks" within their R Markdown document, then running those chunks.  
+Students have typically worked through tutorials by reading the material, typing helpful notes in their markdown document, and typing the provided R code into "chunks" within their R Markdown document, then running those chunks.  (**NOTE**: it's better for you to practice typing the code, rather than copying and pasting!)
 
 You can insert as many chunks as you'd like. Chunk insertion is achieved by selecting the green "+" icon at top of the editor panel, and selecting "R".  Or go to the "Code" menu drop down and "Insert Chunk".
 
