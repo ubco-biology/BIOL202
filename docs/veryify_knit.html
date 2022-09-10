@@ -478,12 +478,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now we’re going to ensure R Markdown works the way we want. A key functionality we need is being able to “knit” our report to PDF format.</p>
 <p>With the newest versions of RStudio, you may be able to knit to PDF without doing anything special first.</p>
 <p>Let’s give this a try:</p>
-<ol style="list-style-type: lower-roman">
-<li><p>While in RStudio, select the “+” dropdown icon at top left of RStudio window, and select R Markdown. RStudio may at this point install a bunch of things, and if so that’s ok. It may also ask you to install the <code>rmarkdown</code> package.. if it does, do so!</p></li>
-<li><p>A window will then appear and you can replace the “Untitled” with something like “Test”, then select OK.</p></li>
-<li><p>This will open an R Markdown document in the top left panel. Don’t worry about all the text in there at this point. What we want to do is test whether it will “knit” (render) the document to PDF format.</p></li>
-<li><p>Select the “Knit” drop-down icon at the top of the RStudio window, and select “Knit to PDF”. RStudio will ask you to first save the markdown file (save it anywhere with any name for now), then it will process the markdown file and render it to PDF.</p></li>
-</ol>
+<p>Step 1: While in RStudio, select the “+” dropdown icon at top left of RStudio window, and select R Markdown. RStudio may at this point install a bunch of things, and if so that’s ok. It may also ask you to install the <code>rmarkdown</code> package.. if it does, do so!</p>
+<p>Step 2: A window will then appear and you can replace the “Untitled” with something like “Test”, then select OK.</p>
+<p>Step 3: This will open an R Markdown document in the top left panel. Don’t worry about all the text in there at this point. What we want to do is test whether it will “knit” (render) the document to PDF format.</p>
+<p>Step 4: Select the “Knit” drop-down icon at the top of the RStudio window, and select “Knit to PDF”. RStudio will ask you to first save the markdown file (save it anywhere with any name for now), then it will process the markdown file and render it to PDF.</p>
 <p>If this worked, great!! You can ignore the next section here. If it didn’t work, then proceed to this next section:</p>
 <p>If the preceding steps did not result in you being able to knit your markdown document to PDF, then do this:</p>
 <p>install the <code>tinytex</code> package.</p>
@@ -497,7 +495,7 @@ tinytex::install_tinytex()</code></pre>
 <p><strong>Reminder</strong>
 Recall you only need to install a package once! And this should be the last time you need to deal with the <code>tinytex</code> package (you won’t need to “load” it in future), because now that it’s installed, its functionality works in the background with RStudio.</p>
 </div>
-<p>Now go back to the steps (i) through (iv) above to try knitting your markdown document to PDF.</p>
+<p>Now go back to the steps 1 through 4 above to try knitting your markdown document to PDF.</p>
 <p>In a future <a href="repro_research.html#repro_research">tutorial</a> we’ll discuss how to use R Markdown as part of a reproducible workflow.</p>
 </div>
             </section>
