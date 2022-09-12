@@ -81,7 +81,7 @@ The `message = FALSE` header argument is NOT something to include in all chunks 
 
 There will be routine steps to take for each question. 
 
-**Import data**
+### Import data {#first_csv_import}
 
 Each assignment question will indicate which dataset(s) you'll need to answer the question, and where to locate / download these. In many instances multiple questions will use the same dataset, in which case you don't need to load data for each question; just load it once. 
 
@@ -93,7 +93,7 @@ example_data <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202
 
 The `read_csv` function will take as an argument a URL address for a data file. Here we've provided a URL for the location of a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Comma-separated-values-(CSV)-file">CSV file (comma-separated values file)</a>, which is typically what we'll use.  
 
-**Load packages**
+### Load packages {#first_load_package}
 
 Once you've loaded the data, you'll now need to figure out how to answer the question by looking through the tutorials for the answer. And typically, to answer the question you'll need to make sure you've loaded some packages.
 
@@ -110,7 +110,7 @@ library(janitor)
 When working on your own computer, you only need to install a package once (unless you want to update an already installed package to the latest version, which is a rare event). If you're working on a school computer (in a computer lab), you may need to install packages each time you log on to a computer, because the school computers delete local files daily. If you're unsure what packages are already installed, consult the "packages" tab in the lower-right RStudio pane when you start up RStudio; installed packages are listed there.  
 </div>
 
-**Answer the questions**
+### Answer the questions
 
 After you've imported the required data and loaded required packages, it's time to answer the questions! 
 
@@ -251,7 +251,7 @@ If you need to fix something, close your PDF file, go back to your R Markdown do
 Once you're happy with the PDF you created, it's time to submit **both your markdown file (.Rmd file) and your PDF document** to the appropriate place in Canvas.  Submitting both files enables markers to check where things went wrong if there are any knitting errors.  
 
 <div class="note">
-**IMPORTANT** 
+**IMPORTANT**  
 **Only the PDF document will be graded**. As such, do not wait until the last minute to try to knit your document; if you are unsuccessful at knitting, and end up having time to submit only your markdown file, you will receive a _zero_ on your assignment.
 </div>
  

@@ -98,6 +98,9 @@ download_assign_rmd
 open_rmd_file
 what_include_answer
 chunk_headers
+first_csv_import
+first_load_package
+answer-the-questions
 rmd_graphing
 example_answer
 knit_assign

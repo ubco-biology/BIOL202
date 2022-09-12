@@ -205,6 +205,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4" data-path="what_include_answer.html"><a href="what_include_answer.html"><i class="fa fa-check"></i><b>4.4</b> What to include in your answers</a>
 <ul>
 <li class="chapter" data-level="4.4.1" data-path="what_include_answer.html"><a href="what_include_answer.html#chunk_headers"><i class="fa fa-check"></i><b>4.4.1</b> Code chunk headers</a></li>
+<li class="chapter" data-level="4.4.2" data-path="what_include_answer.html"><a href="what_include_answer.html#first_csv_import"><i class="fa fa-check"></i><b>4.4.2</b> Import data</a></li>
+<li class="chapter" data-level="4.4.3" data-path="what_include_answer.html"><a href="what_include_answer.html#first_load_package"><i class="fa fa-check"></i><b>4.4.3</b> Load packages</a></li>
+<li class="chapter" data-level="4.4.4" data-path="what_include_answer.html"><a href="what_include_answer.html#answer-the-questions"><i class="fa fa-check"></i><b>4.4.4</b> Answer the questions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="rmd_graphing.html"><a href="rmd_graphing.html"><i class="fa fa-check"></i><b>4.5</b> Setting up R Markdown for graphing</a></li>
 <li class="chapter" data-level="4.6" data-path="example_answer.html"><a href="example_answer.html"><i class="fa fa-check"></i><b>4.6</b> Example question / answer</a></li>
@@ -501,12 +504,16 @@ The <code>message = FALSE</code> header argument is NOT something to include in 
 </div>
 <hr />
 <p>There will be routine steps to take for each question.</p>
-<p><strong>Import data</strong></p>
+</div>
+<div id="first_csv_import" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Import data<a href="what_include_answer.html#first_csv_import" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Each assignment question will indicate which dataset(s) you’ll need to answer the question, and where to locate / download these. In many instances multiple questions will use the same dataset, in which case you don’t need to load data for each question; just load it once.</p>
 <p>Here’s an example of code for importing data. It uses the <code>read_csv</code> function from the <code>readr</code> package, which is bundled with the <code>tidyverse</code> package:</p>
 <pre><code>example_data &lt;- read_csv(&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv&quot;)</code></pre>
 <p>The <code>read_csv</code> function will take as an argument a URL address for a data file. Here we’ve provided a URL for the location of a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Comma-separated-values-(CSV)-file">CSV file (comma-separated values file)</a>, which is typically what we’ll use.</p>
-<p><strong>Load packages</strong></p>
+</div>
+<div id="first_load_package" class="section level3 hasAnchor" number="4.4.3">
+<h3><span class="header-section-number">4.4.3</span> Load packages<a href="what_include_answer.html#first_load_package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Once you’ve loaded the data, you’ll now need to figure out how to answer the question by looking through the tutorials for the answer. And typically, to answer the question you’ll need to make sure you’ve loaded some packages.</p>
 <p>If you’ve forgotten what “packages” are, refresh your memory at this <a href="packages.html#packages">tutorial</a>.</p>
 <p>For example, it’s likely you’ve already loaded the <code>tidyverse</code> package (as advised above), but if a tutorial indicates you need another package, say the <code>janitor</code> package, then insert a code chunk with the following:</p>
@@ -515,7 +522,9 @@ The <code>message = FALSE</code> header argument is NOT something to include in 
 <p><strong>REMINDER</strong>
 When working on your own computer, you only need to install a package once (unless you want to update an already installed package to the latest version, which is a rare event). If you’re working on a school computer (in a computer lab), you may need to install packages each time you log on to a computer, because the school computers delete local files daily. If you’re unsure what packages are already installed, consult the “packages” tab in the lower-right RStudio pane when you start up RStudio; installed packages are listed there.</p>
 </div>
-<p><strong>Answer the questions</strong></p>
+</div>
+<div id="answer-the-questions" class="section level3 hasAnchor" number="4.4.4">
+<h3><span class="header-section-number">4.4.4</span> Answer the questions<a href="what_include_answer.html#answer-the-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>After you’ve imported the required data and loaded required packages, it’s time to answer the questions!</p>
 <p>You simply insert any required text and R code (in R Chunks) after each question. The tutorials will provide the information required to answer the questions.</p>
 <div class="note">
