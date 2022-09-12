@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-10" />
+<meta name="date" content="2022-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -480,31 +480,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 We have removed all reliance on the <code>dlookr</code> package, which was causing problems on some systems. The <code>normality</code> function from this package was originally used for conducting the Shapiro-Wilk test for normality. We now provide a different way to do this.</p>
 </div>
 <p>Load the <code>tidyverse</code>, <code>knitr</code>, <code>naniar</code>, <code>car</code>, <code>skimr</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="twomean_packages_data.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb284-2"><a href="twomean_packages_data.html#cb284-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb284-3"><a href="twomean_packages_data.html#cb284-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb284-4"><a href="twomean_packages_data.html#cb284-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb284-5"><a href="twomean_packages_data.html#cb284-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb284-6"><a href="twomean_packages_data.html#cb284-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="twomean_packages_data.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb290-2"><a href="twomean_packages_data.html#cb290-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb290-3"><a href="twomean_packages_data.html#cb290-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb290-4"><a href="twomean_packages_data.html#cb290-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb290-5"><a href="twomean_packages_data.html#cb290-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb290-6"><a href="twomean_packages_data.html#cb290-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
 <p>And we also need the <code>broom</code> package, which may be new to you.</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="twomean_packages_data.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="twomean_packages_data.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
 <p>The following datasets are required:</p>
 <ul>
 <li>the “blackbird” dataset. These are the data associated with Example 12.2 in the text (page 330)</li>
 <li>the “students” dataset, describing characteristics of students from BIOL202 from several years back</li>
 </ul>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="twomean_packages_data.html#cb286-1" aria-hidden="true" tabindex="-1"></a>blackbird <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/blackbird.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="twomean_packages_data.html#cb292-1" aria-hidden="true" tabindex="-1"></a>blackbird <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/blackbird.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 26 Columns: 3
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (1): time
 ## dbl (2): blackbird, Antibody
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="twomean_packages_data.html#cb288-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="twomean_packages_data.html#cb294-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 154 Columns: 6
-## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (3): Dominant_hand, Dominant_foot, Dominant_eye
 ## dbl (3): height_cm, head_circum_cm, Number_of_siblings

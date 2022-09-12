@@ -12,7 +12,7 @@ The assignment file will be available to you for download from Canvas under the 
 
 Make sure you save the Rmd file into your root "BIOL202_assignments" directory, or alternatively into the appropriate sub-directory.  
 
-A practice assignment has been set up on Canvas, so that you can get used to this procedure. It is located under "Lab_materials" module. Download the file, and make sure it's saved into your root directory (where your RStudio project is). 
+A small assignment has been set up on Canvas, with the aim of you getting use to the assignment procedure. It is located under "Lab_materials" module. Download the file, and make sure it's saved into your root directory (where your RStudio project is). 
 
 ## Open the assignment Rmd file {#open_rmd_file}
 
@@ -28,16 +28,16 @@ knitr::include_graphics("./more/assign_header.png")
 
 Complete the following steps: 
 
-* keeping the quotation marks, replace the "Practice assignment" text with the current assignment name (unless you're doing the practice assignment, in which case do not change anything!) 
+* keeping the quotation marks, replace the "Practice assignment" text with the current assignment name   
 * keeping the quotation marks, replace the "Firstname Lastname, Section YY" with your own Firstname Lastname and section number (e.g. " Jason Pither, Section 04") 
-* keeping the quotation marks, replace the "Due date" with the due date of the current assignment, e.g. "November 3, 2021"  
+* keeping the quotation marks, replace the "Due date" with the due date of the current assignment, e.g. "September 21, 2022"  
 
 <div class="note">
 **NOTE**
 Don't alter anything else at the top of the document, including the R Chunk that you see below the header.  
 </div>
 
-* save the Rmd file using a new name (so select file > "save as"), according to appropriate [file naming conventions](https://ubco-biology.github.io/Procedures-and-Guidelines/file-and-data-management.html), such as "Pither_BIOL202_practice.Rmd". Recall that if you're saving this on OneDrive, or in your local directory that is synced to OneDrive, then your file will be [version controlled](#onedrive).  
+* save the Rmd file using a new name (so select file > "save as"), according to appropriate [file naming conventions](https://ubco-biology.github.io/Procedures-and-Guidelines/file-and-data-management.html), such as "Pither_BIOL202_lab-assignment-01_V0.Rmd". Recall that if you're saving this on OneDrive, or in your local directory that is synced to OneDrive, then your file will be [version controlled](#onedrive), so you don't need to include a version number ("_V0") in the filename.  
 
 You're now ready to start working on your assignment, and doing [literate programming](https://ubco-biology.github.io/Procedures-and-Guidelines/glossary.html) using R Markdown. 
 
@@ -73,7 +73,7 @@ The "load_packages" text is simply giving a name or "tag" to this R chunk. It is
 After the comma is `message = FALSE`.  This tells R markdown to NOT display any messages associated with the R commands in this chunk when knitting the R Markdown document. For example, when loading some libraries R will provide a long list of messages in the process. When you "knit" the R Markdown document, R will run each R chunk in your document. By including the `message = FALSE` heading argument, you can avoid including this extra output in your knitted document.  
 
 <div class="note">
-**Note added Sept 27, 2021**
+**NOTE**
 The `message = FALSE` header argument is NOT something to include in all chunks by default. It should only be included if the code within the associated code chunk outputs a lot of unnecessary information that would otherwise clutter your knitted PDF document.
 </div>
 

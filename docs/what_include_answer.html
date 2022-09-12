@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-10" />
+<meta name="date" content="2022-09-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -496,7 +496,7 @@ Figure 4.2: Code chunk header with message suppression
 <p>The “load_packages” text is simply giving a name or “tag” to this R chunk. It is good practice to provide a <em>unique</em> name to each R chunk.</p>
 <p>After the comma is <code>message = FALSE</code>. This tells R markdown to NOT display any messages associated with the R commands in this chunk when knitting the R Markdown document. For example, when loading some libraries R will provide a long list of messages in the process. When you “knit” the R Markdown document, R will run each R chunk in your document. By including the <code>message = FALSE</code> heading argument, you can avoid including this extra output in your knitted document.</p>
 <div class="note">
-<p><strong>Note added Sept 27, 2021</strong>
+<p><strong>NOTE</strong>
 The <code>message = FALSE</code> header argument is NOT something to include in all chunks by default. It should only be included if the code within the associated code chunk outputs a lot of unnecessary information that would otherwise clutter your knitted PDF document.</p>
 </div>
 <hr />
