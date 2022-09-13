@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-12" />
+<meta name="date" content="2022-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -480,12 +480,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">4.4</span> What to include in your answers<a href="what_include_answer.html#what_include_answer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The general approach is to enter your text answers and associated R chunks with code underneath each question.</p>
 <div class="note">
-<p><strong>Tip</strong>
-It is almost always the case that you’ll need to load the <code>tidyverse</code> package, so it’s advisable to include an R chunk right at the beginning of your document that does this.</p>
+<p><strong>TIP</strong>: It is almost always the case that you’ll need to load the <code>tidyverse</code> package, so it’s advisable to include an R chunk right at the beginning of your document that does this.</p>
 </div>
 <div class="note">
-<p><strong>Tip</strong>
-To insert a new code chunk, you can either: Use the shortcut: Mac = <code>Command+Option+I</code>; Windows = <code>Ctrl+Alt+I</code>. Click on the <strong>Insert a new code chunk</strong> icon. You can also specify the coding language of the chunk using the drop-down menu.</p>
+<p><strong>TIP</strong>: To insert a new code chunk, you can either: Use the shortcut: Mac = <code>Command+Option+I</code>; Windows = <code>Ctrl+Alt+I</code>. Click on the <strong>Insert a new code chunk</strong> icon. You can also specify the coding language of the chunk using the drop-down menu.</p>
 </div>
 <div id="chunk_headers" class="section level3 hasAnchor" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Code chunk headers<a href="what_include_answer.html#chunk_headers" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -498,9 +496,8 @@ Figure 4.2: Code chunk header with message suppression
 </div>
 <p>The “load_packages” text is simply giving a name or “tag” to this R chunk. It is good practice to provide a <em>unique</em> name to each R chunk.</p>
 <p>After the comma is <code>message = FALSE</code>. This tells R markdown to NOT display any messages associated with the R commands in this chunk when knitting the R Markdown document. For example, when loading some libraries R will provide a long list of messages in the process. When you “knit” the R Markdown document, R will run each R chunk in your document. By including the <code>message = FALSE</code> heading argument, you can avoid including this extra output in your knitted document.</p>
-<div class="note">
-<p><strong>NOTE</strong>
-The <code>message = FALSE</code> header argument is NOT something to include in all chunks by default. It should only be included if the code within the associated code chunk outputs a lot of unnecessary information that would otherwise clutter your knitted PDF document.</p>
+<div class="flag">
+<p>The <code>message = FALSE</code> header argument is NOT something to include in all chunks by default. It should only be included if the code within the associated code chunk outputs a lot of unnecessary information that would otherwise clutter your knitted PDF document.</p>
 </div>
 <hr />
 <p>There will be routine steps to take for each question.</p>
@@ -519,8 +516,7 @@ The <code>message = FALSE</code> header argument is NOT something to include in 
 <p>For example, it’s likely you’ve already loaded the <code>tidyverse</code> package (as advised above), but if a tutorial indicates you need another package, say the <code>janitor</code> package, then insert a code chunk with the following:</p>
 <pre><code>library(janitor)</code></pre>
 <div class="note">
-<p><strong>REMINDER</strong>
-When working on your own computer, you only need to install a package once (unless you want to update an already installed package to the latest version, which is a rare event). If you’re working on a school computer (in a computer lab), you may need to install packages each time you log on to a computer, because the school computers delete local files daily. If you’re unsure what packages are already installed, consult the “packages” tab in the lower-right RStudio pane when you start up RStudio; installed packages are listed there.</p>
+<p>When working on your own computer, you only need to install a package once (unless you want to update an already installed package to the latest version, which is a rare event). If you’re working on a school computer (in a computer lab), you may need to install packages each time you log on to a computer, because the school computers delete local files daily. If you’re unsure what packages are already installed, consult the “packages” tab in the lower-right RStudio pane when you start up RStudio; installed packages are listed there.</p>
 </div>
 </div>
 <div id="answer-the-questions" class="section level3 hasAnchor" number="4.4.4">
@@ -528,8 +524,7 @@ When working on your own computer, you only need to install a package once (unle
 <p>After you’ve imported the required data and loaded required packages, it’s time to answer the questions!</p>
 <p>You simply insert any required text and R code (in R Chunks) after each question. The tutorials will provide the information required to answer the questions.</p>
 <div class="note">
-<p><strong>TIP</strong>
-The way to test out your code once it’s inserted in the R chunk is to press the green play button at the top right of the code chunk. This will run what’s in the chunk. You’ll be provided error statements if something goes wrong. If it works, it will provide you the output (and hopefully the answer!), and this is what you use to inform your written (typed) answer.</p>
+<p><strong>TIP</strong>: The way to test out your code once it’s inserted in the R chunk is to press the green play button at the top right of the code chunk. This will run what’s in the chunk. You’ll be provided error statements if something goes wrong. If it works, it will provide you the output (and hopefully the answer!), and this is what you use to inform your written (typed) answer.</p>
 </div>
 <p>Here’s what you need to include in your answers:</p>
 <ul>
@@ -540,12 +535,10 @@ The way to test out your code once it’s inserted in the R chunk is to press th
 <li><p>If you use a graph to answer a question, refer to that graph in your answer</p></li>
 </ul>
 <div class="note">
-<p><strong>REMINDER</strong>
-As you work on your document, save frequently, and also knit your document frequently.</p>
+<p><strong>REMINDER</strong>: As you work on your document, save frequently, and also knit your document frequently.</p>
 </div>
 <div class="note">
-<p><strong>TIP</strong>
-You will often need/want to preview the document you are working on to ensure that everything is being formatted as you expected in the knitting process. The default setting is for the preview to open in a new pop-up window outside of RStudio, although you may find it useful to have it open in the Viewer panel within RStudio itself (particularly if you’re only working with one screen!). To change the preview location, click the <strong>Settings</strong> icon in the toolbar and select the option to “Preview in Viewer Pane”.</p>
+<p><strong>TIP</strong>: You will often need/want to preview the document you are working on to ensure that everything is being formatted as you expected in the knitting process. The default setting is for the preview to open in a new pop-up window outside of RStudio, although you may find it useful to have it open in the Viewer panel within RStudio itself (particularly if you’re only working with one screen!). To change the preview location, click the <strong>Settings</strong> icon in the toolbar and select the option to “Preview in Viewer Pane”.</p>
 </div>
 </div>
 </div>

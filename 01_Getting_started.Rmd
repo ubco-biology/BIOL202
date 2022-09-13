@@ -20,7 +20,6 @@ More precisely, R is a programming language that runs computations while RStudio
 ## Installing R and RStudio {#install_R_Rstudio}
 
 <div class="note">
-**Note**
 The latest version of R is 4.2.1 ("Funny-looking-kid") (2022-06-23).  It is strongly recommended that you install this latest version, even if you have older versions already installed.  **However** If you have an older operating system on your computer, you'll want to check compatibility of both R and RStudio.  With respect to RStudio, its website (rstudio.com) should detect your operating system and provide the appropriate download option automatically.  The website with older versions of R is [here](https://cran.r-project.org/bin/macosx/), and older versions of RStudio is [here](https://www.rstudio.com/products/rstudio/older-versions/).  
 </div>
 
@@ -29,7 +28,6 @@ Follow the instructions below, and you are encouraged to view this YouTube video
 * Download and install both R and RStudio (Desktop version) on your computer. 
 
 <div class="note">
-**Note**
 R needs to be installed successfully >prior< to installing RStudio (because the latter depends on the former)  
 </div>
 
@@ -92,8 +90,7 @@ There are two ways to install an R package:
     
 - Alternatively, in the Console pane type the following 
 
-<div class="note">
-**Warning**
+<div class="flag">
 Later, when you start using R Markdown, never include the following "install.packages" code within your R Markdown document; only install packages by typing directly in the Console!
 </div>
 
@@ -115,7 +112,6 @@ Respond with "no" (without quotes).  Do NOT respond "Yes".
 
 
 <div class="note">
-**Note**
 When working on your own computer, you only need to install a package once, unless you want to update an already installed package to the latest version (something you might do every 6 months or so). **HOWEVER**: If you're working on a school computer (in a computer lab or in the library), you may need to install packages each session, because local files (on the computer) are automatically deleted daily. If you're unsure what packages are already installed, consult the "packages" tab in the lower-right RStudio pane when you start up RStudio; installed packages are listed there.  
 </div>
 
@@ -132,7 +128,6 @@ library(tidyverse)
 ```
 
 <div class="note">
-**Note**
 You have to reload each package you want to use every time you open a new session of RStudio.  This is a little annoying to get used to and will be your most common error as you begin.  When you see an error such as
 
 ```
@@ -151,7 +146,6 @@ One R Markdown file can generate a variety of different formats and all of this 
 We will be using R Markdown to create reproducible lab reports. 
 
 <div class="note">
-**Note**
 R Markdown is just one flavour of a markup language. RStudio can be used to edit R Markdown. There are many other markdown editors out there, but using RStudio is good for our purposes.  
 </div>
 
@@ -169,8 +163,7 @@ For an example of a PDF document that illustrates literate programming, see [her
 2. View the following [youtube video](https://www.youtube.com/watch?v=asHhuHRxhvo) on creating an R Markdown document.
 
 
-<div class="note">
-**Optional**
+<div class="advanced">
 If you'd like additional introductory tutorials on R Markdown,  see this [one from RStudio](https://rmarkdown.rstudio.com/lesson-1.html), or this [one](https://rbasics.netlify.app/4-rmarkdown.html). 
 </div>
 
@@ -206,7 +199,6 @@ tinytex::install_tinytex()
 RStudio will take a minute or two to install a bunch of things. Once it's done, we're ready to try knitting to PDF.
 
 <div class="note">
-**Reminder**
 Recall you only need to install a package once!  And this should be the last time you need to deal with the `tinytex` package (you won't need to "load" it in future), because now that it's installed, its functionality works in the background with RStudio.  
 </div>
 
@@ -217,7 +209,6 @@ In a future [tutorial](#repro_research) we'll discuss how to use R Markdown as p
 ## Extra resources {#r_resources}
 
 <div class="note">
-**Note**
 This page is still under development (Aug 2022)
 </div>
 

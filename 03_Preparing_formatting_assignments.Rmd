@@ -32,8 +32,7 @@ Complete the following steps:
 * keeping the quotation marks, replace the "Firstname Lastname, Section YY" with your own Firstname Lastname and section number (e.g. " Jason Pither, Section 04") 
 * keeping the quotation marks, replace the "Due date" with the due date of the current assignment, e.g. "September 21, 2022"  
 
-<div class="note">
-**NOTE**
+<div class="flag">
 Don't alter anything else at the top of the document, including the R Chunk that you see below the header.  
 </div>
 
@@ -42,7 +41,6 @@ Don't alter anything else at the top of the document, including the R Chunk that
 You're now ready to start working on your assignment, and doing [literate programming](https://ubco-biology.github.io/Procedures-and-Guidelines/glossary.html) using R Markdown. 
 
 <div class="note">
-**REMINDER**
 In RStudio, under the "Help" menu, you'll find "Cheat Sheets" > R Markdown Cheat Sheet and R Markdown Reference Guide.  Have a look at those!
 </div>
 
@@ -51,13 +49,11 @@ In RStudio, under the "Help" menu, you'll find "Cheat Sheets" > R Markdown Cheat
 The general approach is to enter your text answers and associated R chunks with code underneath each question. 
 
 <div class="note">
-**Tip**
-It is almost always the case that you'll need to load the `tidyverse` package, so it's advisable to include an R chunk right at the beginning of your document that does this. 
+**TIP**: It is almost always the case that you'll need to load the `tidyverse` package, so it's advisable to include an R chunk right at the beginning of your document that does this. 
 </div>
 
 <div class="note">
-**Tip**
-To insert a new code chunk, you can either: Use the shortcut: Mac = `Command+Option+I`; Windows = `Ctrl+Alt+I`. Click on the **Insert a new code chunk** icon. You can also specify the coding language of the chunk using the drop-down menu. 
+**TIP**:  To insert a new code chunk, you can either: Use the shortcut: Mac = `Command+Option+I`; Windows = `Ctrl+Alt+I`. Click on the **Insert a new code chunk** icon. You can also specify the coding language of the chunk using the drop-down menu. 
 </div>
 
 ### Code chunk headers {#chunk_headers}
@@ -72,8 +68,7 @@ The "load_packages" text is simply giving a name or "tag" to this R chunk. It is
 
 After the comma is `message = FALSE`.  This tells R markdown to NOT display any messages associated with the R commands in this chunk when knitting the R Markdown document. For example, when loading some libraries R will provide a long list of messages in the process. When you "knit" the R Markdown document, R will run each R chunk in your document. By including the `message = FALSE` heading argument, you can avoid including this extra output in your knitted document.  
 
-<div class="note">
-**NOTE**
+<div class="flag">
 The `message = FALSE` header argument is NOT something to include in all chunks by default. It should only be included if the code within the associated code chunk outputs a lot of unnecessary information that would otherwise clutter your knitted PDF document.
 </div>
 
@@ -106,7 +101,6 @@ library(janitor)
 ```
 
 <div class="note">
-**REMINDER**
 When working on your own computer, you only need to install a package once (unless you want to update an already installed package to the latest version, which is a rare event). If you're working on a school computer (in a computer lab), you may need to install packages each time you log on to a computer, because the school computers delete local files daily. If you're unsure what packages are already installed, consult the "packages" tab in the lower-right RStudio pane when you start up RStudio; installed packages are listed there.  
 </div>
 
@@ -117,8 +111,7 @@ After you've imported the required data and loaded required packages, it's time 
 You simply insert any required text and R code (in R Chunks) after each question. The tutorials will provide the information required to answer the questions.  
 
 <div class="note">
-**TIP**
-The way to test out your code once it's inserted in the R chunk is to press the green play button at the top right of the code chunk. This will run what's in the chunk.  You'll be provided error statements if something goes wrong. If it works, it will provide you the output (and hopefully the answer!), and this is what you use to inform your written (typed) answer.
+**TIP**: The way to test out your code once it's inserted in the R chunk is to press the green play button at the top right of the code chunk. This will run what's in the chunk.  You'll be provided error statements if something goes wrong. If it works, it will provide you the output (and hopefully the answer!), and this is what you use to inform your written (typed) answer.
 </div>
 
 Here's what you need to include in your answers: 
@@ -134,13 +127,11 @@ Here's what you need to include in your answers:
  - If you use a graph to answer a question, refer to that graph in your answer
  
 <div class="note">
-**REMINDER**
-As you work on your document, save frequently, and also knit your document frequently.
+**REMINDER**: As you work on your document, save frequently, and also knit your document frequently.
 </div>
 
 <div class="note">
-**TIP** 
-You will often need/want to preview the document you are working on to ensure that everything is being formatted as you expected in the knitting process. The default setting is for the preview to open in a new pop-up window outside of RStudio, although you may find it useful to have it open in the Viewer panel within RStudio itself (particularly if you're only working with one screen!). To change the preview location, click the **Settings** icon in the toolbar and select the option to "Preview in Viewer Pane".
+**TIP**: You will often need/want to preview the document you are working on to ensure that everything is being formatted as you expected in the knitting process. The default setting is for the preview to open in a new pop-up window outside of RStudio, although you may find it useful to have it open in the Viewer panel within RStudio itself (particularly if you're only working with one screen!). To change the preview location, click the **Settings** icon in the toolbar and select the option to "Preview in Viewer Pane".
 </div>
 
 ## Setting up R Markdown for graphing {#rmd_graphing}
@@ -181,7 +172,6 @@ The line "fig_caption = true" tells R Markdown and the knitting process to autom
 Below is an example of how to answer a question. You haven't yet learned some of the functions we use here, but follow along for now - it's just an example!
 
 <div class="note">
-**NOTE** 
 There are almost *always* multiple coding approaches to get the right answer, some better than others. As long as your code and answer are accurate and make sense, you'll get the marks!
 </div>
 
@@ -232,8 +222,7 @@ summary.height
 As shown in the output above, the minimum height was 150.0 cm and the maximum student height was 210.8 cm.
 
 <div class="note">
-**TIP** 
-You'll note that functions and package names above are highlighted in grey. When writing in markdown, it's good practice to encompass function names and package names in single backticks, i.e.`` `tidyverse` ``. Backticks are typically located with the tilden ("~") key on your keyboard. 
+**TIP**: You'll note that functions and package names above are highlighted in grey. When writing in markdown, it's good practice to encompass function names and package names in single backticks, i.e.`` `tidyverse` ``. Backticks are typically located with the tilden ("~") key on your keyboard. 
 </div>
 
 ## Knitting your assignment to PDF {#knit_assign}
@@ -251,7 +240,6 @@ If you need to fix something, close your PDF file, go back to your R Markdown do
 Once you're happy with the PDF you created, it's time to submit **both your markdown file (.Rmd file) and your PDF document** to the appropriate place in Canvas.  Submitting both files enables markers to check where things went wrong if there are any knitting errors.  
 
 <div class="note">
-**IMPORTANT**  
 **Only the PDF document will be graded**. As such, do not wait until the last minute to try to knit your document; if you are unsuccessful at knitting, and end up having time to submit only your markdown file, you will receive a _zero_ on your assignment.
 </div>
  

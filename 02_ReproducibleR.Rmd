@@ -22,7 +22,6 @@ Given that this work is done on computers (which are entirely controllable), it 
 In this tutorial you'll start gaining relevant experience and skills by producing a reproducible lab report.   
 
 <div class="note">
-**Note**
 A *workflow* refers to the the steps you take when conducting your day-to-day work - say, on a term project, for example. Having a well-designed workflow improves efficiency, and when done right, reproducibility. It includes, for example, how you create, access, and manage files on your computer (or in the cloud).
 </div>
 
@@ -41,8 +40,7 @@ Our suggested approach assumes you have set up a Microsoft account through UBC (
 Why OneDrive? As a UBC student, you receive 1TB of free storage! And you also get peace of mind knowing that your files are secure and up-to-date (provided you have an internet connection), and that OneDrive has something called <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Version-control">"version control"</a>, which saves old versions of files and allows you to see those versions if you wish, **so long as you maintain the same file name**. 
 
 <div class="note">
-**WAIT A SECOND!**
-In the ["File Naming"](https://ubco-biology.github.io/Procedures-and-Guidelines/file-naming.html) instructions that I just reviewed, I was instructed to create a new file with a new version number in the filename (e.g. with a "V0", "V1", "V2" etc...) each time I worked on it!  
+**WAIT A SECOND!** In the ["File Naming"](https://ubco-biology.github.io/Procedures-and-Guidelines/file-naming.html) instructions that I just reviewed, I was instructed to create a new file with a new version number in the filename (e.g. with a "V0", "V1", "V2" etc...) each time I worked on it!  
 </div>
 
 Those instructions are entirely valid! However, when you have access to a *version control* system, like OneDrive, it is better to **keep the file name the same**, rather than changing it each time you update it. For example, your markdown file (which as a ".Rmd" extension to the name) that you use for your tutorial work should maintain the same name throughout the term, rather than saving a new file each time you do substantive work on it. 
@@ -52,7 +50,6 @@ Assuming your files are syncing properly between your computer and OneDrive (and
 If you haven't set up OneDrive yet, follow the instructions provided at this [UBC IT website](https://lthub.ubc.ca/guides/microsoft-onedrive-student-guide/).
 
 <div class="note">
-**Note**
 Using OneDrive is entirely optional.  If you choose not to use OneDrive, please follow the file naming instructions from the [Procedures and Guidelines document](https://ubco-biology.github.io/Procedures-and-Guidelines/file-naming.html). And you can still follow the directory structure instructions below, regardless of where you set up your directories (OneDrive or not).
 </div>
 
@@ -73,7 +70,6 @@ Each of these categories of work should have their own directory, and all three 
 * Create a "_README.txt file for the root BIOL202 directory, as per instructions in the [Biology Procedures and Guidelines webpage](https://ubco-biology.github.io/Procedures-and-Guidelines/readme-files-and-data-dictionaries.html).
 
 <div class="note">
-**TIP**
 You can create and edit your "_README.txt" file in RStudio! Just click on the "+" drop down at the top left, and select "Text file". Then type in the information you need, and name it "_README.txt" and save it in the appropriate directory.
 </div>
 

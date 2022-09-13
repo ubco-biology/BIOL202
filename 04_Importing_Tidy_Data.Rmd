@@ -20,8 +20,7 @@ Here, you'll learn (or review) how to format your own data files according to be
 It is assumed that if you are collecting data during a project, you'll likely enter them on your computer using a spreadsheet software program like Excel. 
 
 <div class="note">
-**PAUSE**
-Before starting any data collection and data-entry, ask yourself: how should I organize the spreadsheet for data-entry?
+**PAUSE**:  Before starting any data collection and data-entry, ask yourself: how should I organize the spreadsheet for data-entry?
 </div>
 
 The short answer: according to **TIDY** formatting principles...
@@ -38,7 +37,6 @@ knitr::include_graphics("./more/excel_tidy.png")
 
 
 <div class="advanced">
-**Deeper Dive: Optional**
 If you'd like a longer, more in-depth read about "tidy data", see Hadley Wickham's "R for Datascience" online book, linked [here](http://r4ds.had.co.nz/tidy-data.html). 
 And this [article](https://towardsdatascience.com/tidy-data-with-r-f3d078853fc6) describes why making your data "tidy" saves a lot of time and effort in the long run.  Oh, and it uses Covid-19 data to demonstrate!  
 </div>
@@ -72,10 +70,11 @@ students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/mai
 ```
 
 <div class="note">
-**PAUSE**  
-Did you get an error?
+**PAUSE**: Did you get an error like this?  
+
 **Error in read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv") : **
-**could not find function "read_csv"**
+**could not find function "read_csv"**  
+
 This happens if you forgot to load the `tidyverse` library!
 </div>
 
@@ -84,7 +83,6 @@ Note that the URL address is provided in double quotation marks.
 This code imports the data and stores it in a local object called "students". The object is called a "tibble", which you can think of as a special kind of spreadsheet. More information on "tibbles" can be found [here](https://r4ds.had.co.nz/tibbles.html).
 
 <div class="note">
-**NOTE**
 Unless otherwise indicated, all CSV data files that we use in this course are stored at the same URL location, specifically: "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/". Thus, to import any CSV file you just need to copy that path, then append the appropriate file name to the end of the path. For example, the full path to access a CSV file called `birds.csv` file would be "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv". 
 </div>
 
@@ -107,7 +105,6 @@ knitr::include_graphics("./more/files_pane_rawdata.png")
 ```
 
 <div class="note">
-**NOTE**
 The folder is called "rawdata" because the data stored there will be the unedited, raw version of the data, and any files therein should **NOT** be altered.  Any changes or edits one makes to the datasets should be saved in new data files that are saved in a different folder called "output", which we'll create later.
 </div>
 
@@ -139,8 +136,7 @@ library(here)
 ```
 
 <div class="note">
-**New tool**  
-Pipes or "%>%" are implemented as part of the `magrittr` package, which is loaded with the `tidyverse`. In brief, pipes allow us to string together a series of functions, and we'll use them frequently in tutorials.
+**New tool**: Pipes or "%>%" are implemented as part of the `magrittr` package, which is loaded with the `tidyverse`. In brief, pipes allow us to string together a series of functions, and we'll use them frequently in tutorials.
 </div>
 
 Here we'll use a pipe to help import the data file.
@@ -234,7 +230,6 @@ First:
 * Open a new blank spreadsheet in Excel
 
 <div class="note">
-**Note**
 Before taking the measurements, think about how you can make your measurement procedure reproducible. Where exactly are you measuring from and to on each digit?  Are you using a ruler?  What's your measurement precision? Whatever approach you take, make sure you type it out clearly in your R Markdown document, so that someone else could repeat it.
 </div>
 
@@ -247,7 +242,6 @@ Before taking the measurements, think about how you can make your measurement pr
 * Once you've finished entering the data, save the spreadsheet again, then quit Excel.
 
 <div class="note">
-**Optional**
 Now would be a good time to create and edit a "_README.txt" [file](#setup_dirs) for your new "rawdata" folder. 
 </div>
 
