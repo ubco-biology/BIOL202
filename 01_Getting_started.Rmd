@@ -187,12 +187,15 @@ If this worked, great!!  You can ignore the next section here.  If it didn't wor
 
 If the preceding steps did not result in you being able to knit your markdown document to PDF, then do this:
 
-install the `tinytex` package.  
-
-* Type these two lines of code into the command console of RStudio (the bottom left window panel):  
+Install the `tinytex` package by typing this code into the command console of RStudio:
 
 ```
 install.packages("tinytex")
+```
+
+Then, once that has installed successfully, type the following: 
+
+```
 tinytex::install_tinytex()
 ```
 

@@ -46,7 +46,6 @@ And we will use the following datasets in this tutorial:
 * the `birds.csv` file contains counts of different categories of bird observed at a marsh habitat
 
 <div class="note">
-**NOTE**
 Unless otherwise indicated, all <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Comma-separated-values-(CSV)-file">CSV data files</a> that we use in this course are stored at the same URL location, specifically: "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/". Thus, to import any CSV file you just need to copy that path, then append the appropriate file name to the end of the path. For example, the full path to access the `birds.csv` file would be "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv". And a [previous tutorial](#import_csv_url) showed you how to import using the `read_csv` function.
 </div>
 
@@ -112,7 +111,6 @@ tiger.table <- tigerdeaths %>%
 * The `n` in the last line actually a function that tallies the sample size or count of all observations in the present category or group, and then the `sum(n)` sums up the total sample size. Thus, `n / sum(n)` calculates the relative frequency (equivalent to the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a>) of all observations that are within the given category
 
 <div class="advanced">
-**Optional**
 Try figuring out how you would change the last line of code in the chunk above so that the table showed the _percent_ rather than the _relative frequency_ of observations in each category
 </div>
 
