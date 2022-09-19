@@ -506,17 +506,17 @@ Whether we wish to <em>sample without replacement</em> or not depends on the que
 This assumes you are using R version 4 or later (e.g. 4.1). The <code>set.seed</code> function used a different default algorithm in versions of R prior to version 4.0.</p>
 </div>
 <p>Let’s provide the code chunk then explain after:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="sampling_functions.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="sampling_functions.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span></code></pre></div>
 <p>The <code>set.seed</code> function requires an integer value as an argument. You can pick any number you want as the seed number. Here we’ll use 12, and if you do too, you’ll get the same results as in the tutorial.</p>
 <p>Let’s test this using the <code>runif</code> function, which generates random numbers between user-designated minimum and maximum values (the default is numbers between zero and one).</p>
 <p>Let’s include the <code>set.seed</code> function right before using the <code>runif</code> function, and here we’ll again use a seed number of 12.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="sampling_functions.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span>
-<span id="cb123-2"><a href="sampling_functions.html#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="sampling_functions.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span>
+<span id="cb119-2"><a href="sampling_functions.html#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0.06936092 0.81777520 0.94262173</code></pre>
 <p>Here we told the <code>runif</code> function to generate three random numbers, and it used the default minimum and maximum values of zero and one.</p>
 <p>Now let’s try a different seed:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="sampling_functions.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">25</span>)</span>
-<span id="cb125-2"><a href="sampling_functions.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="sampling_functions.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">25</span>)</span>
+<span id="cb121-2"><a href="sampling_functions.html#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4161184 0.6947637 0.1488006</code></pre>
 <p>So long as you used the same seed number, you should have gotten the same three random numbers as shown above.</p>
 <div class="note">

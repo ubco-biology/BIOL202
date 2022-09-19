@@ -78,7 +78,7 @@ students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/mai
 This happens if you forgot to load the `tidyverse` library!
 </div>
 
-The default behaviour of the `read_csv` function is to include a printout of the type of variable housed in each column of the dataset. For example, when importing the `students` dataset, the function gave a printout showing that there are three "character" variables (denoted `chr`) (R calls categorical variables character variales), and three `dbl` or double precision, floating point format numeric variables. 
+The default behaviour of the `read_csv` function is to include a printout of the type of variable housed in each column of the dataset. For example, when importing the `students` dataset, the function gave a printout showing that there are three "character" variables (denoted `chr`) (R calls categorical variables character variables), and three `dbl` or double precision, floating point format numeric variables. 
 
 1. Take a minute to check out this [good overview](https://www.burns-stat.com/documents/tutorials/impatient-r/more-r-key-objects/more-r-numbers/) of how R handles numeric variables.  
 
