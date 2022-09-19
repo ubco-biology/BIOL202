@@ -214,7 +214,7 @@ We can use the `summary` function to get some basic <a href="https://ubco-biolog
 
 We also use the `select` function from the `dplyr` package (which is loaded with `tidyverse`) to select which variable in the `students` tibble we wish to summarize. 
 
-The use of the "%>%" syntax is described in another tutorial (yet to be posted!). 
+The use of the "%>%" syntax is described in a later tutorial. 
 
 ```{r min_max1}
 summary.height <- students %>% 
@@ -242,9 +242,5 @@ If you need to fix something, close your PDF file, go back to your R Markdown do
 ## Submit your assignment {#submit_rmd}
 
 Once you're happy with the PDF you created, it's time to submit **both your markdown file (.Rmd file) and your PDF document** to the appropriate place in Canvas.  Submitting both files enables markers to check where things went wrong if there are any knitting errors.  
-
-<div class="note">
-**Only the PDF document will be graded**. As such, do not wait until the last minute to try to knit your document; if you are unsuccessful at knitting, and end up having time to submit only your markdown file, you will receive a _zero_ on your assignment.
-</div>
  
 It's a good idea also to verify afterwards that your PDF document did indeed upload correctly.

@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-18" />
+<meta name="date" content="2022-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -479,15 +479,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="singcat_packages_data" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> Load packages and import data<a href="singcat_packages_data.html#singcat_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>naniar</code>, <code>knitr</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="singcat_packages_data.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb173-2"><a href="singcat_packages_data.html#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb173-3"><a href="singcat_packages_data.html#cb173-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb173-4"><a href="singcat_packages_data.html#cb173-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb173-5"><a href="singcat_packages_data.html#cb173-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="singcat_packages_data.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb174-2"><a href="singcat_packages_data.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb174-3"><a href="singcat_packages_data.html#cb174-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb174-4"><a href="singcat_packages_data.html#cb174-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb174-5"><a href="singcat_packages_data.html#cb174-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We will also need a new package called <code>binom</code>, so install that package using the procedure you <a href="package_install.html#package_install">previously learned</a>, then load it:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="singcat_packages_data.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(binom)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="singcat_packages_data.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(binom)</span></code></pre></div>
 <p>Import the <code>damselfly.csv</code> data set we used in the preceding <a href="hypothesis.html#hypothesis">tutorial</a>, and also the <code>birds.csv</code> dataset we used in an earlier <a href="vis_describe.html#vis_describe">tutorial</a>.</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="singcat_packages_data.html#cb175-1" aria-hidden="true" tabindex="-1"></a>damselfly <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/damselfly.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="singcat_packages_data.html#cb176-1" aria-hidden="true" tabindex="-1"></a>damselfly <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/damselfly.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 20 Columns: 1
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -495,7 +495,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="singcat_packages_data.html#cb177-1" aria-hidden="true" tabindex="-1"></a>birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="singcat_packages_data.html#cb178-1" aria-hidden="true" tabindex="-1"></a>birds <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 86 Columns: 1
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -504,7 +504,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <p>Recall what the damselfly dataset looks like:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="singcat_packages_data.html#cb179-1" aria-hidden="true" tabindex="-1"></a>damselfly</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="singcat_packages_data.html#cb180-1" aria-hidden="true" tabindex="-1"></a>damselfly</span></code></pre></div>
 <pre><code>## # A tibble: 20 × 1
 ##    direction        
 ##    &lt;chr&gt;            
@@ -530,7 +530,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 20 counter_clockwise</code></pre>
 <p>The data show the predominant direction (either clockwise or counter-clockwise) of 20 circular battles between male damseflies.</p>
 <p>And remind yourself what the birds dataset looks like:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="singcat_packages_data.html#cb181-1" aria-hidden="true" tabindex="-1"></a>birds</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="singcat_packages_data.html#cb182-1" aria-hidden="true" tabindex="-1"></a>birds</span></code></pre></div>
 <pre><code>## # A tibble: 86 × 1
 ##    type     
 ##    &lt;chr&gt;    

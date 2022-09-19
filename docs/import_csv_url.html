@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-18" />
+<meta name="date" content="2022-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -484,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can view the help file for the <code>read_csv</code> function by typing this into your command console pane (bottom left) in RStudio:</p>
 <pre><code>?read_csv</code></pre>
 <p>You’ll see that the function has many optional “arguments”, but in general we can use the default values for these.</p>
-<p>If the file you wish to import is located on the web, then we need to provide the “URL” (the web address) to the <code>read_csv</code> function. For example, in <a href="example_answer.html#example_answer">a previous tutorial</a> you imported the “students.csv” dataset from the course GitHub website, as follows:</p>
+<p>If the file you wish to import is located on the web, then we need to provide the “URL” (the web address) to the <code>read_csv</code> function. For example, in <a href="example_answer.html#example_answer">a previous tutorial</a> you imported the “students.csv” dataset from the course GitHub website, as follows (and note that the URL address is provided in double quotation marks):</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="import_csv_url.html#cb21-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 154 Columns: 6
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -500,8 +500,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <strong>could not find function “read_csv”</strong></p>
 <p>This happens if you forgot to load the <code>tidyverse</code> library!</p>
 </div>
-<p>Note that the URL address is provided in double quotation marks.</p>
-<p>This code imports the data and stores it in a local object called “students”. The object is called a “tibble”, which you can think of as a special kind of spreadsheet. More information on “tibbles” can be found <a href="https://r4ds.had.co.nz/tibbles.html">here</a>.</p>
+<p>The default behaviour of the <code>read_csv</code> function is to include a printout of the type of variable housed in each column of the dataset. For example, when importing the <code>students</code> dataset, the function gave a printout showing that there are three “character” variables (denoted <code>chr</code>) (R calls categorical variables character variales), and three <code>dbl</code> or double precision, floating point format numeric variables.</p>
+<ol style="list-style-type: decimal">
+<li>Take a minute to check out this <a href="https://www.burns-stat.com/documents/tutorials/impatient-r/more-r-key-objects/more-r-numbers/">good overview</a> of how R handles numeric variables.</li>
+</ol>
+<p>You can tell R to not provide this information by including the argument <code>show_col_types = FALSE</code> within the <code>read_csv</code> code. Like so:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="import_csv_url.html#cb23-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>,</span>
+<span id="cb23-2"><a href="import_csv_url.html#cb23-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>We have now imported the data and stored it in a local object called “students”. The object is called a “tibble”, which you can think of as a special kind of spreadsheet. More information on “tibbles” can be found <a href="https://r4ds.had.co.nz/tibbles.html">here</a>.</p>
 <div class="note">
 <p>Unless otherwise indicated, all CSV data files that we use in this course are stored at the same URL location, specifically: “<a href="https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/" class="uri">https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/</a>”. Thus, to import any CSV file you just need to copy that path, then append the appropriate file name to the end of the path. For example, the full path to access a CSV file called <code>birds.csv</code> file would be “<a href="https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv" class="uri">https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv</a>”.</p>
 </div>

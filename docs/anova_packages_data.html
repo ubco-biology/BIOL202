@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-18" />
+<meta name="date" content="2022-09-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -479,20 +479,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="anova_packages_data" class="section level2 hasAnchor" number="16.1">
 <h2><span class="header-section-number">16.1</span> Load packages and import data<a href="anova_packages_data.html#anova_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>knitr</code>, <code>naniar</code>, <code>dlookr</code>, <code>car</code>, <code>skimr</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="anova_packages_data.html#cb395-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb395-2"><a href="anova_packages_data.html#cb395-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb395-3"><a href="anova_packages_data.html#cb395-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb395-4"><a href="anova_packages_data.html#cb395-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb395-5"><a href="anova_packages_data.html#cb395-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb395-6"><a href="anova_packages_data.html#cb395-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb395-7"><a href="anova_packages_data.html#cb395-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="anova_packages_data.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb396-2"><a href="anova_packages_data.html#cb396-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb396-3"><a href="anova_packages_data.html#cb396-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb396-4"><a href="anova_packages_data.html#cb396-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb396-5"><a href="anova_packages_data.html#cb396-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb396-6"><a href="anova_packages_data.html#cb396-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb396-7"><a href="anova_packages_data.html#cb396-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlookr)</span></code></pre></div>
 <p>And additionally the <code>kableExtra</code> package, which is required for producing nicely formatted tables. Install this if you haven’t already, then load:</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="anova_packages_data.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="anova_packages_data.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div>
 <p>And lastly, we need the <code>broom</code> package, which may also be new for you, and if so, install it.</p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="anova_packages_data.html#cb397-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="anova_packages_data.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
 <p>We’ll briefly use the “students.csv” dataset again, but for most of this tutorial we’ll use the “circadian.csv” dataset. These data are associated with Example 15.1 in the text.</p>
 <p>The <code>circadian</code> data describe melatonin production in 22 people randomly assigned to one of three light treatments.</p>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="anova_packages_data.html#cb398-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="anova_packages_data.html#cb399-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 154 Columns: 6
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -501,7 +501,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="anova_packages_data.html#cb400-1" aria-hidden="true" tabindex="-1"></a>circadian <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/circadian.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="anova_packages_data.html#cb401-1" aria-hidden="true" tabindex="-1"></a>circadian <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/circadian.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 22 Columns: 2
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -522,10 +522,10 @@ When analyzing a numeric response variable in relation to a categorical variable
 Given that the output from <code>skim_without_charts</code> is almost always rather <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Wide-format-data">wide</a>, and overflows the page width, we’ll get into the habit of transposing the output, and presenting using the <code>kbl</code> command. See the <a href="https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html">tutorial on tables in markdown</a></p>
 </div>
 <p>Let’s save the skim output to an object:</p>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="anova_packages_data.html#cb402-1" aria-hidden="true" tabindex="-1"></a>circ.skim <span class="ot">&lt;-</span> circadian <span class="sc">%&gt;%</span></span>
-<span id="cb402-2"><a href="anova_packages_data.html#cb402-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="anova_packages_data.html#cb403-1" aria-hidden="true" tabindex="-1"></a>circ.skim <span class="ot">&lt;-</span> circadian <span class="sc">%&gt;%</span></span>
+<span id="cb403-2"><a href="anova_packages_data.html#cb403-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <p>Then transpose using the <code>t</code> function, wrapped in the <code>kbl</code> function:</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="anova_packages_data.html#cb403-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">t</span>(circ.skim))</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="anova_packages_data.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">t</span>(circ.skim))</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -720,7 +720,7 @@ NA
 </table>
 <p>This is just the same old output from <code>skim_withouth_charts</code> but here re-oriented to fit more easily on the page.</p>
 <p>And also have a look at the tibble itself:</p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="anova_packages_data.html#cb404-1" aria-hidden="true" tabindex="-1"></a>circadian</span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="anova_packages_data.html#cb405-1" aria-hidden="true" tabindex="-1"></a>circadian</span></code></pre></div>
 <pre><code>## # A tibble: 22 × 2
 ##    treatment shift
 ##    &lt;chr&gt;     &lt;dbl&gt;
@@ -737,7 +737,7 @@ NA
 ## # … with 12 more rows</code></pre>
 <p>The data are stored in tidy <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Long-format-data">(long) format</a> - good!</p>
 <p>We can see the unique values of the categorical variable as follows:</p>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="anova_packages_data.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(circadian<span class="sc">$</span>treatment)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="anova_packages_data.html#cb407-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(circadian<span class="sc">$</span>treatment)</span></code></pre></div>
 <pre><code>## [1] &quot;control&quot; &quot;knee&quot;    &quot;eyes&quot;</code></pre>
 <p><strong>Two important things to notice here</strong>:</p>
 <ul>
@@ -745,17 +745,17 @@ NA
 <li>The category names are not capitalized</li>
 </ul>
 <p>Let’s first convert the “treatment” variable into a “factor” type variable using the <code>as.factor</code> base function:</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="anova_packages_data.html#cb408-1" aria-hidden="true" tabindex="-1"></a>circadian<span class="sc">$</span>treatment <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(circadian<span class="sc">$</span>treatment)</span></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="anova_packages_data.html#cb409-1" aria-hidden="true" tabindex="-1"></a>circadian<span class="sc">$</span>treatment <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(circadian<span class="sc">$</span>treatment)</span></code></pre></div>
 <p>Let’s see what this did to our categorical variable:</p>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="anova_packages_data.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(circadian<span class="sc">$</span>treatment)</span></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="anova_packages_data.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(circadian<span class="sc">$</span>treatment)</span></code></pre></div>
 <pre><code>## [1] control knee    eyes   
 ## Levels: control eyes knee</code></pre>
 <p>Now the “treatment” variable is correctly recognized as a factor, but we still need to capitalize the category names, making sure to keep the names in the same order as shown above (and while we’re at it, we’ll change “Knee” to “Knees”):</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="anova_packages_data.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(circadian<span class="sc">$</span>treatment) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>, <span class="st">&quot;Eyes&quot;</span>, <span class="st">&quot;Knees&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="anova_packages_data.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(circadian<span class="sc">$</span>treatment) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>, <span class="st">&quot;Eyes&quot;</span>, <span class="st">&quot;Knees&quot;</span>)</span></code></pre></div>
 <p>Lastly, we need to fix the ordering of the categories (called “levels”):</p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="anova_packages_data.html#cb412-1" aria-hidden="true" tabindex="-1"></a>circadian<span class="sc">$</span>treatment <span class="ot">&lt;-</span> <span class="fu">ordered</span>(circadian<span class="sc">$</span>treatment, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>, <span class="st">&quot;Knees&quot;</span>, <span class="st">&quot;Eyes&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="anova_packages_data.html#cb413-1" aria-hidden="true" tabindex="-1"></a>circadian<span class="sc">$</span>treatment <span class="ot">&lt;-</span> <span class="fu">ordered</span>(circadian<span class="sc">$</span>treatment, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Control&quot;</span>, <span class="st">&quot;Knees&quot;</span>, <span class="st">&quot;Eyes&quot;</span>))</span></code></pre></div>
 <p>Let’s see if this worked:</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="anova_packages_data.html#cb413-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(circadian<span class="sc">$</span>treatment)</span></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="anova_packages_data.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(circadian<span class="sc">$</span>treatment)</span></code></pre></div>
 <pre><code>## [1] Control Knees   Eyes   
 ## Levels: Control &lt; Knees &lt; Eyes</code></pre>
 <p>OK, now we’re ready to proceed with ANOVA!</p>
