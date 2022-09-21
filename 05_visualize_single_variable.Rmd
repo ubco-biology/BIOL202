@@ -123,7 +123,7 @@ In a supplementary tutorial, you'll find instructions on how to create nicely fo
 
 For now, let's go ahead and use the `kable` function that comes with the `knitr` package, using the pipe approach:
 
-```{r vis_tigertable, echo = FALSE}
+```{r echo = FALSE}
 tiger.table %>%
   kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3, booktabs = TRUE)
 ```

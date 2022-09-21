@@ -143,7 +143,7 @@ Now let's use the `kable` function to improve the look, and add a table heading.
 We are still finalizing the tutorial describing how to provide a Table heading.
 </div>
 
-```{r vis2_malaria}
+```{r vismalaria}
 bird.malaria.freq.totals %>%
   kable(caption = "Contingency table showing the incidence of malaria in female great tits in relation to experimental treatment", booktabs = TRUE)
 ```

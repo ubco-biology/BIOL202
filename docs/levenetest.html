@@ -485,7 +485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Nevertheless, the <em>implied</em> null hypothesis is that the variance of the numeric response variable is the same among the populations being compared. So in the case where a numeric variable is being compared among two groups, then the implied null hypothesis is that (<span class="math inline">\(\sigma\)</span>(1) = <span class="math inline">\(\sigma\)</span>(2). The usual <span class="math inline">\(\alpha\)</span> level of 0.05 can be used.</p>
 <p>We’ll use the “students” dataset, and check whether <code>height_cm</code> exhibits equal variance among students with different dominant eyes (left or right).</p>
 <p>Let’s look at the code, and explain after:</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="levenetest.html#cb349-1" aria-hidden="true" tabindex="-1"></a>height.vartest <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(height_cm <span class="sc">~</span> Dominant_eye, <span class="at">data =</span> students)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="levenetest.html#cb346-1" aria-hidden="true" tabindex="-1"></a>height.vartest <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(height_cm <span class="sc">~</span> Dominant_eye, <span class="at">data =</span> students)</span></code></pre></div>
 <pre><code>## Warning in leveneTest.default(y = y, group = group, ...): group coerced to factor.</code></pre>
 <div class="note">
 <p><strong>NOTE: </strong>
@@ -507,7 +507,7 @@ If you get a warning about a variable being “coerced to factor”, that’s OK
 The argument to the <code>leveneTest</code> function that is in the form <span class="math inline">\(Y\)</span> ~ <span class="math inline">\(X\)</span> is one we’ll use several times.</p>
 </div>
 <p>Let’s look at the results:</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="levenetest.html#cb351-1" aria-hidden="true" tabindex="-1"></a>height.vartest</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="levenetest.html#cb348-1" aria-hidden="true" tabindex="-1"></a>height.vartest</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value Pr(&gt;F)
 ## group   1   0.907 0.3424
