@@ -144,6 +144,7 @@ We are still finalizing the tutorial describing how to provide a Table heading.
 </div>
 
 ```{r vismalaria}
+
 bird.malaria.freq.totals %>%
   kable(caption = "Contingency table showing the incidence of malaria in female great tits in relation to experimental treatment", booktabs = TRUE)
 ```
@@ -166,7 +167,8 @@ bird.malaria.prop <- bird.malaria %>%
 
 Now present it using `kable`:
 
-```{r vis2_malaria_prop}
+```{r vismalariaprop}
+
 bird.malaria.prop %>%
   kable(caption = "Contingency table showing the relative frequency of malaria in female great tits in relation to experimental treatment", booktabs = TRUE)
 ```

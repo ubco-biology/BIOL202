@@ -73,7 +73,8 @@ If there are missing values ("NA") in the categorical variable, the preceding co
 
 Now display the table:
 
-```{r}
+```{r birdfreqtable}
+
 birds.table %>%
   kable(caption = "Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)", digits = 3)
 ```
@@ -222,7 +223,8 @@ It is important to calculate the total number of complete observations in the va
 
 Now let's show the table of descriptive statistics, using the `kable` function we learned about in a previous tutorial.  
 
-```{r}
+```{r penguindescribe}
+
 penguins.descriptors %>%
   kable(caption = "Descriptive statistics of measurements of body mass (g) for 342 penguins", digits = 3)
 ```
