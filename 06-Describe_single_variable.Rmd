@@ -21,6 +21,7 @@ library(tidyverse)
 library(palmerpenguins)
 library(skimr)
 library(knitr)
+library(janitor)
 ```
 
 And we're introducing a new package called `naniar`, which helps us deal more easily with missing values in datasets.
@@ -61,7 +62,8 @@ Let's use the same approach for the `birds` dataset. First we create the frequen
 ```{r desc_freq_table_birds}
 birds.table <- birds %>%
   count(type, sort = TRUE) %>% 
-  mutate(relative_frequency = n / sum(n))
+  mutate(relative_frequency = n / sum(n)) %>% 
+  adorn_totals()
 ```
 
 <div class="note">
@@ -71,7 +73,7 @@ If there are missing values ("NA") in the categorical variable, the preceding co
 
 Now display the table:
 
-```{r birds_table}
+```{r}
 birds.table %>%
   kable(caption = "Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)", digits = 3)
 ```
@@ -118,6 +120,7 @@ Let's use the `penguins` dataset for our demonstrations.
 The first step is to visualize the frequency distribution. Given that this is a numeric variable, we do this using a histogram, as we learned in a previous [tutorial](#vis_histogram).
 
 ```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
+
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 500, colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
@@ -144,6 +147,7 @@ penguins %>%
 Uh oh! If you tried to run this code, it would have given you an error: 
 
 ```{r fig.cap = "Error when functions encounter 'NA' values", echo = FALSE, fig.width = 5}
+
 knitr::include_graphics("./more/na_error.png")
 ```
 
@@ -201,8 +205,6 @@ The first 4 descriptive statistics are self-explanatory based on their variable 
 
 The last two: "Count" and "Count_NA" are providing the total number of complete observations in the `body_mass_g` variable (thus the number of observations that went into calculating the descriptive statistics), and then the total number of missing values (NAs) in the variable, respectively.
 
-**ADDED OCTOBER 2, 2021**
-
 The last two lines of code above require further explanation:
 
 This code: `Count = n() - naniar::n_miss(body_mass_g))` tells R to first tally the total sample size using the `n()` function, then to subtract from that the total number of missing values, which is calculated using the `n_miss` function from the `naniar` package.  
@@ -220,13 +222,12 @@ It is important to calculate the total number of complete observations in the va
 
 Now let's show the table of descriptive statistics, using the `kable` function we learned about in a previous tutorial.  
 
-```{r desc_bodymass}
+```{r}
 penguins.descriptors %>%
   kable(caption = "Descriptive statistics of measurements of body mass (g) for 342 penguins", digits = 3)
 ```
 
 <div class="note">
-**NOTE**
 In another tutorial we'll learn how to present the table following all the guidelines in the [Biology Guidelines and Procedures document](https://ubco-biology.github.io/Procedures-and-Guidelines/figures-tables.html), including, for example, significant digits. For now, the preceding table is good!
 </div>
 

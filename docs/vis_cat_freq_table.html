@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-19" />
+<meta name="date" content="2022-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -489,12 +489,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Here’s the code for creating the frequency table and assigning it to a new object named “tiger.table”:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="vis_cat_freq_table.html#cb36-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="ot">&lt;-</span> tigerdeaths <span class="sc">%&gt;%</span></span>
 <span id="cb36-2"><a href="vis_cat_freq_table.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(activity, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb36-3"><a href="vis_cat_freq_table.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<span id="cb36-3"><a href="vis_cat_freq_table.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb36-4"><a href="vis_cat_freq_table.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>()</span></code></pre></div>
 <ul>
 <li>The first line provides the name of the object (tibble) that we’re going to create (here, “tiger.table”), and use the assignment operator (“&lt;-”) tell R to put whatever the output of our operation is into that object. The next part of the first line provides the name of the object that we’re going to do something with, here “tigerdeaths”. The “%&gt;%” tells R that we’re not done yet, and there’s more lines of code to come.</li>
 <li>The second line uses the <code>count</code> function from the <code>dplyr</code> package to tally the unique values of a variable, in this case the “activity” variable. It also takes an argument “sort = TRUE”, telling it to sort the counts in descending order (the default sort direction). Then another “%&gt;%” to continue the code..</li>
 <li>The last line uses <code>mutate</code> function from the <code>dplyr</code> package that creates a new variable, and the arguments provided in the parentheses tells R what that variable should be called, here “relative_frequency”, and then how to calculate it.</li>
-<li>The <code>n</code> in the last line actually a function that tallies the sample size or count of all observations in the present category or group, and then the <code>sum(n)</code> sums up the total sample size. Thus, <code>n / sum(n)</code> calculates the relative frequency (equivalent to the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a>) of all observations that are within the given category</li>
+<li>The <code>n</code> in the third line is a function that tallies the sample size or count of all observations in the present category or group, and then the <code>sum(n)</code> sums up the total sample size. Thus, <code>n / sum(n)</code> calculates the relative frequency (equivalent to the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a>) of all observations that are within the given category<br />
+</li>
+<li>the <code>adorn_totals</code> in the last line is a function from the <code>janitor</code> package that enables adding row and / or column totals to tables (see the help for this function for more details)</li>
 </ul>
 <div class="advanced">
 <p>Try figuring out how you would change the last line of code in the chunk above so that the table showed the <em>percent</em> rather than the <em>relative frequency</em> of observations in each category</p>
@@ -619,11 +622,22 @@ Toilet
 0.023
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
 </tbody>
 </table>
 <pre><code>tiger.table %&gt;%
   kable(caption = &quot;Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006&quot;, digits = 3)</code></pre>
-<p>The key argument to the <code>kable</code> function is the table object (which here we provide before the pipe), and the figure caption.</p>
+<p>The key argument to the <code>kable</code> function is the table object (which here we provide before the pipe), and the table heading (caption).</p>
 <p>Notice that this produces a nicely formatted table with an appropriately worded caption. The argument “digits = 3” tells it to return numeric values to 3 digits in the table.</p>
 <p>You now know how to create a frequency table for a categorical variable!</p>
 <ol start="2" style="list-style-type: decimal">

@@ -37,6 +37,7 @@ library(tidyverse)
 library(palmerpenguins)
 library(skimr)
 library(knitr)
+library(janitor)
 ```
 
 And we will use the following datasets in this tutorial:
@@ -102,13 +103,15 @@ Here's the code for creating the frequency table and assigning it to a new objec
 ```{r vis1_freq_table_single_cat}
 tiger.table <- tigerdeaths %>%
   count(activity, sort = TRUE) %>% 
-  mutate(relative_frequency = n / sum(n))
+  mutate(relative_frequency = n / sum(n)) %>%
+  adorn_totals()
 ```
 
 * The first line provides the name of the object (tibble) that we're going to create (here, "tiger.table"), and use the assignment operator ("<-") tell R to put whatever the output of our operation is into that object. The next part of the first line provides the name of the object that we're going to do something with, here "tigerdeaths". The "%>%" tells R that we're not done yet, and there's more lines of code to come.
 * The second line uses the `count` function from the `dplyr` package to tally the unique values of a variable, in this case the "activity" variable. It also takes an argument "sort = TRUE", telling it to sort the counts in descending order (the default sort direction). Then another "%>%" to continue the code..
 * The last line uses `mutate` function from the `dplyr` package that creates a new variable, and the arguments provided in the parentheses tells R what that variable should be called, here "relative_frequency", and then how to calculate it. 
-* The `n` in the last line actually a function that tallies the sample size or count of all observations in the present category or group, and then the `sum(n)` sums up the total sample size. Thus, `n / sum(n)` calculates the relative frequency (equivalent to the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a>) of all observations that are within the given category
+* The `n` in the third line is a function that tallies the sample size or count of all observations in the present category or group, and then the `sum(n)` sums up the total sample size. Thus, `n / sum(n)` calculates the relative frequency (equivalent to the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a>) of all observations that are within the given category  
+* the `adorn_totals` in the last line is a function from the `janitor` package that enables adding row and / or column totals to tables (see the help for this function for more details)
 
 <div class="advanced">
 Try figuring out how you would change the last line of code in the chunk above so that the table showed the _percent_ rather than the _relative frequency_ of observations in each category
@@ -130,7 +133,7 @@ tiger.table %>%
   kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)
 ```
 
-The key argument to the `kable` function is the table object (which here we provide before the pipe), and the figure caption.  
+The key argument to the `kable` function is the table object (which here we provide before the pipe), and the table heading (caption).   
 
 Notice that this produces a nicely formatted table with an appropriately worded caption. The argument "digits = 3" tells it to return numeric values to 3 digits in the table.
 
@@ -149,7 +152,8 @@ To produce the bar graph, we use a frequency table as the input. Thus, let's rep
 ```{r vis1_freq_table_single_cat2}
 tiger.table <- tigerdeaths %>%
   count(activity, sort = TRUE) %>% 
-  mutate(relative_frequency = n / sum(n))
+  mutate(relative_frequency = n / sum(n)) %>%
+  adorn_totals()
 ```
 
 Recall that the "tiger.table" is a sort of summary presentation of the "activity" variable: 
@@ -165,6 +169,7 @@ And although in the code chunk below you'll see that we provide an "x" and a "y"
 Let's provide the code first, and explain after.
 
 ```{r fig.cap = "Bar graph showing the activities of 88 people at the time they were attached and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", fig.width = 6, fig.height = 6}
+
 ggplot(data = tiger.table, aes(x = reorder(activity, n), y = n)) + 
   geom_bar(stat = "identity") + 
   ylab("Frequency") +
@@ -204,6 +209,7 @@ We'll use `ggplot` to create a histogram, and we'll again use the `penguins` dat
 We'll give the code first, then explain below: 
 
 ```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
+
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +
@@ -264,6 +270,7 @@ And R returns `r penguins.hist.info$breaks[2] - penguins.hist.info$breaks[1]`.  
 So let's edit the original histogram code to include the "binwidth" argument in the `geom_histogram` function, as follows:
 
 ```{r fig.cap = "Histogram of body mass (g) for 342 penguins", fig.width = 6, warning = FALSE}
+
 ggplot(data = penguins, aes(x = body_mass_g)) +
   geom_histogram(binwidth = 500, colour = "black", fill = "lightgrey") +
   xlab("Body mass (g)") +

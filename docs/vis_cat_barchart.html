@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-19" />
+<meta name="date" content="2022-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -483,21 +483,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To produce the bar graph, we use a frequency table as the input. Thus, let’s repeat the creation of the “tiger.table” from the preceding section.</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="vis_cat_barchart.html#cb38-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="ot">&lt;-</span> tigerdeaths <span class="sc">%&gt;%</span></span>
 <span id="cb38-2"><a href="vis_cat_barchart.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(activity, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-3"><a href="vis_cat_barchart.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<span id="cb38-3"><a href="vis_cat_barchart.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="vis_cat_barchart.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>()</span></code></pre></div>
 <p>Recall that the “tiger.table” is a sort of summary presentation of the “activity” variable:</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="vis_cat_barchart.html#cb39-1" aria-hidden="true" tabindex="-1"></a>tiger.table</span></code></pre></div>
-<pre><code>## # A tibble: 9 × 3
-##   activity                  n relative_frequency
-##   &lt;chr&gt;                 &lt;int&gt;              &lt;dbl&gt;
-## 1 Grass/fodder             44            0.5    
-## 2 Forest products          11            0.125  
-## 3 Fishing                   8            0.09091
-## 4 Herding                   7            0.07955
-## 5 Disturbing tiger kill     5            0.05682
-## 6 Fuelwood/timber           5            0.05682
-## 7 Sleeping in house         3            0.03409
-## 8 Walking                   3            0.03409
-## 9 Toilet                    2            0.02273</code></pre>
+<pre><code>##               activity  n relative_frequency
+##           Grass/fodder 44         0.50000000
+##        Forest products 11         0.12500000
+##                Fishing  8         0.09090909
+##                Herding  7         0.07954545
+##  Disturbing tiger kill  5         0.05681818
+##        Fuelwood/timber  5         0.05681818
+##      Sleeping in house  3         0.03409091
+##                Walking  3         0.03409091
+##                 Toilet  2         0.02272727
+##                  Total 88         1.00000000</code></pre>
 <p>It shows the total counts (frequencies) of individuals in each of the nine “activity” categories.</p>
 <p>And although in the code chunk below you’ll see that we provide an “x” and a “y” variable for creating the graph, remember that we’re really only visualizing a <em>single categorical variable</em>.</p>
 <p>Let’s provide the code first, and explain after.</p>

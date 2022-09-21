@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-19" />
+<meta name="date" content="2022-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -499,8 +499,8 @@ Introducing the <code>summarise</code> function.</p>
 <span id="cb61-3"><a href="desc_numeric_var.html#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb61-4"><a href="desc_numeric_var.html#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb61-5"><a href="desc_numeric_var.html#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-29"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-29-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-30"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-30-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
 <p class="caption">
 Figure 7.1: Histogram of body mass (g) for 342 penguins
 </p>
@@ -516,7 +516,7 @@ Figure 7.1: Histogram of body mass (g) for 342 penguins
    IQR_body_mass_g = IQR(body_mass_g)
     )</code></pre>
 <p>Uh oh! If you tried to run this code, it would have given you an error:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-30"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-31"></span>
 <img src="more/na_error.png" alt="Error when functions encounter 'NA' values"  />
 <p class="caption">
 Figure 7.2: Error when functions encounter ‘NA’ values
@@ -566,7 +566,6 @@ If there are “NA” values in the variable being analyzed, some R functions, s
 <span id="cb65-8"><a href="desc_numeric_var.html#cb65-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g))</span></code></pre></div>
 <p>The first 4 descriptive statistics are self-explanatory based on their variable names.</p>
 <p>The last two: “Count” and “Count_NA” are providing the total number of complete observations in the <code>body_mass_g</code> variable (thus the number of observations that went into calculating the descriptive statistics), and then the total number of missing values (NAs) in the variable, respectively.</p>
-<p><strong>ADDED OCTOBER 2, 2021</strong></p>
 <p>The last two lines of code above require further explanation:</p>
 <p>This code: <code>Count = n() - naniar::n_miss(body_mass_g))</code> tells R to first tally the total sample size using the <code>n()</code> function, then to subtract from that the total number of missing values, which is calculated using the <code>n_miss</code> function from the <code>naniar</code> package.</p>
 <p>The double colons in <code>naniar::n_miss(body_mass_g)</code> indicates that the function <code>n_miss</code> comes from the <code>naniar</code> package. This syntax, which we have not used previously, provides a failsafe way to run a function even if the package is not presently loaded.</p>
@@ -581,7 +580,7 @@ It is important to calculate the total number of complete observations in the va
 <span id="cb66-2"><a href="desc_numeric_var.html#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Descriptive statistics of measurements of body mass (g) for 342 penguins&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <caption>
-(#tab:desc_bodymass)Descriptive statistics of measurements of body mass (g) for 342 penguins
+<span id="tab:unnamed-chunk-32">Table 7.2: </span>Descriptive statistics of measurements of body mass (g) for 342 penguins
 </caption>
 <thead>
 <tr>
@@ -629,8 +628,7 @@ Count_NA
 </tbody>
 </table>
 <div class="note">
-<p><strong>NOTE</strong>
-In another tutorial we’ll learn how to present the table following all the guidelines in the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/figures-tables.html">Biology Guidelines and Procedures document</a>, including, for example, significant digits. For now, the preceding table is good!</p>
+<p>In another tutorial we’ll learn how to present the table following all the guidelines in the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/figures-tables.html">Biology Guidelines and Procedures document</a>, including, for example, significant digits. For now, the preceding table is good!</p>
 </div>
 <ol style="list-style-type: decimal">
 <li><strong>Descriptive statistics</strong>: Create a histogram and table of descriptive statistics for the “flipper_length_mm” variable in the <code>penguins</code> dataset.</li>

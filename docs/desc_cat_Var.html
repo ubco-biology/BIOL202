@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-19" />
+<meta name="date" content="2022-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -500,7 +500,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s use the same approach for the <code>birds</code> dataset. First we create the frequency table, then we display the table with an appropriate heading:</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="desc_cat_Var.html#cb58-1" aria-hidden="true" tabindex="-1"></a>birds.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
 <span id="cb58-2"><a href="desc_cat_Var.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb58-3"><a href="desc_cat_Var.html#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<span id="cb58-3"><a href="desc_cat_Var.html#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb58-4"><a href="desc_cat_Var.html#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>()</span></code></pre></div>
 <div class="note">
 <p><strong>NOTE</strong>
 If there are missing values (“NA”) in the categorical variable, the preceding code will successfully enumerate those and create an “NA” category in the frequency table.</p>
@@ -510,7 +511,7 @@ If there are missing values (“NA”) in the categorical variable, the precedin
 <span id="cb59-2"><a href="desc_cat_Var.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)&quot;</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
 <table>
 <caption>
-(#tab:birds_table)Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)
+<span id="tab:unnamed-chunk-29">Table 7.1: </span>Frequency table showing the frequencies of each of four types of bird observed at a marsh habitat (N = 86)
 </caption>
 <thead>
 <tr>
@@ -568,6 +569,17 @@ Songbird
 </td>
 <td style="text-align:right;">
 0.070
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+86
+</td>
+<td style="text-align:right;">
+1.000
 </td>
 </tr>
 </tbody>
