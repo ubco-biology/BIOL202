@@ -577,7 +577,7 @@ When using the <code>ggplot</code> function, we can assign the output to an obje
 Figure 8.7: Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins.
 </p>
 </div>
-<p>If you wish to run all the code at once in a single chunk to create a figure, rather than adding new code to an existing object, here’s what you’d include in your chunk (but here we don’t show the chunk header that would include the caption):</p>
+<p><strong>TIP</strong>: If you wish to run all the code at once in a single chunk to create a figure, rather than adding new code to an existing object, here’s what you’d include in your chunk (but here we don’t show the chunk header that would include the caption):</p>
 <pre><code>penguins %&gt;% 
   filter(sex == &quot;male&quot;) %&gt;%
   ggplot(aes(x = species, y = body_mass_g)) +
@@ -655,7 +655,7 @@ Figure 8.10: Violin plot showing the body mass (g) of male Adelie (N = 73), Chin
 <li>We then add the boxplot using <code>geom_boxplot</code>, ensuring that the boxes are narrow in width (width = 0.1) so they don’t overwhelm the violins</li>
 <li>We then add the individual data points using <code>geom_jitter</code>, and this time using the colour “grey” so that they don’t obscure the black boxes underneath, and making them a bit smaller this time (size = 1), and keeping them as hollow circles (shape = 1), and this time spreading them out horizontally a bit more (width = 0.15)</li>
 </ul>
-<p>And if you’d rather do all the code in one chunk, without creating objects, here’s what you’d include:</p>
+<p><strong>TIP</strong>: if you’d rather do all the code in one chunk, without creating objects, here’s what you’d include:</p>
 <pre><code>penguins %&gt;% 
   filter(sex == &quot;male&quot;) %&gt;%
   ggplot(aes(x = species, y = body_mass_g)) +
