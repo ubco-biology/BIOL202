@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-22" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -479,17 +479,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="singlenum_packages_data" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> Load packages and import data<a href="singlenum_packages_data.html#singlenum_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>knitr</code>, <code>naniar</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="singlenum_packages_data.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb273-2"><a href="singlenum_packages_data.html#cb273-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb273-3"><a href="singlenum_packages_data.html#cb273-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb273-4"><a href="singlenum_packages_data.html#cb273-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="singlenum_packages_data.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb276-2"><a href="singlenum_packages_data.html#cb276-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb276-3"><a href="singlenum_packages_data.html#cb276-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb276-4"><a href="singlenum_packages_data.html#cb276-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We’ll use the following datasets:</p>
 <ul>
 <li>the “bodytemp” dataset. These are the data associated with Example 11.3 in the text (page 310)</li>
 <li>the “stalkies” dataset. These are the data associated with Example 11.2 in the text (page 307)</li>
 </ul>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="singlenum_packages_data.html#cb274-1" aria-hidden="true" tabindex="-1"></a>bodytemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bodytemp.csv&quot;</span>)</span>
-<span id="cb274-2"><a href="singlenum_packages_data.html#cb274-2" aria-hidden="true" tabindex="-1"></a>stalkies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/stalkies.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="singlenum_packages_data.html#cb277-1" aria-hidden="true" tabindex="-1"></a>bodytemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bodytemp.csv&quot;</span>)</span>
+<span id="cb277-2"><a href="singlenum_packages_data.html#cb277-2" aria-hidden="true" tabindex="-1"></a>stalkies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/stalkies.csv&quot;</span>)</span></code></pre></div>
 <div class="note">
 <p><strong>Reminder: </strong>
 Before proceeding further, remember to get an overview of each of these datasets.</p>
