@@ -745,10 +745,6 @@ Figure 8.2: Grouped bar graph showing the incidence of malaria in female great t
 <span id="cb92-2"><a href="vis2_2cat.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
 <span id="cb92-3"><a href="vis2_2cat.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
 <span id="cb92-4"><a href="vis2_2cat.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: `unite_()` was deprecated in tidyr 1.2.0.
-## Please use `unite()` instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
 <p><img src="BIOL202_files/figure-html/mosaic_malaria1-1.png" width="672" /></p>
 <p>In the code chunk above we see one key difference from previous uses of the <code>ggplot</code> function is that the <code>aes</code> function is not provided in the arguments to <code>ggplot</code> in the first line, but is instead provided to the arguments of the <code>geom_mosaic</code> function on the second line.</p>
 <p>We also see <code>product(treatment)</code>, which is difficult to explain, so suffice it to say that it’s telling the <code>geom_mosaic</code> function to calculate relative frequencies based on the “treatment” variable, and in conjunction with the fill variable “response”.</p>
@@ -760,10 +756,10 @@ Figure 8.2: Grouped bar graph showing the incidence of malaria in female great t
 <div id="interpret_mosaic" class="section level3 hasAnchor" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> Interpreting mosaic plots<a href="vis2_2cat.html#interpret_mosaic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s provide the mosaic plot again, and this time we’ll provide an appropriate figure heading in the chunk header, as we <a href="rmd_graphing.html#rmd_graphing">learned previously</a>:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="vis2_2cat.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bird.malaria) <span class="sc">+</span></span>
-<span id="cb94-2"><a href="vis2_2cat.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
-<span id="cb94-3"><a href="vis2_2cat.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
-<span id="cb94-4"><a href="vis2_2cat.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="vis2_2cat.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bird.malaria) <span class="sc">+</span></span>
+<span id="cb93-2"><a href="vis2_2cat.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
+<span id="cb93-3"><a href="vis2_2cat.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-4"><a href="vis2_2cat.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-39"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-39-1.png" alt="Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups." width="384" />
 <p class="caption">

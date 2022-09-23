@@ -481,7 +481,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We’ll use the <code>blackbird</code> dataset for this example.</p>
 <p>For 13 red-winged blackbirds, measurements of antibodies were taken before and after implantation with testosterone. Thus, the same bird was measured twice. Clearly, these measurements are not independent, hence the need for a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Paired-t-test">“paired” <em>t</em>-test</a>.</p>
 <p>Let’s first have a look at the <code>blackbird</code> dataset:</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="paired-t-test.html#cb295-1" aria-hidden="true" tabindex="-1"></a>blackbird </span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="paired-t-test.html#cb294-1" aria-hidden="true" tabindex="-1"></a>blackbird </span></code></pre></div>
 <pre><code>## # A tibble: 26 × 3
 ##    blackbird time   Antibody
 ##        &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
@@ -507,7 +507,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="calc_diffs" class="section level3 hasAnchor" number="14.2.1">
 <h3><span class="header-section-number">14.2.1</span> Calculate differences<a href="paired-t-test.html#calc_diffs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s remind ourselves how the data are stored:</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="paired-t-test.html#cb297-1" aria-hidden="true" tabindex="-1"></a>blackbird</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="paired-t-test.html#cb296-1" aria-hidden="true" tabindex="-1"></a>blackbird</span></code></pre></div>
 <pre><code>## # A tibble: 26 × 3
 ##    blackbird time   Antibody
 ##        &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
@@ -529,9 +529,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 The following code requires that there be at least one variable in the tibble that provides a unique identifier for each individual. In the “blackbird” tibble, this variable is “blackbird”. I have added an argument “id_cols = blackbird” to the code below to underscore the need for this type of identifier variable. The code will not work if such a variable does not exist in the tibble.</p>
 </div>
 <p>Here’s the code, then we’ll explain after:</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="paired-t-test.html#cb299-1" aria-hidden="true" tabindex="-1"></a>blackbird.diffs <span class="ot">&lt;-</span> blackbird <span class="sc">%&gt;%</span></span>
-<span id="cb299-2"><a href="paired-t-test.html#cb299-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> blackbird, <span class="at">names_from =</span> time, <span class="at">values_from =</span> Antibody) <span class="sc">%&gt;%</span></span>
-<span id="cb299-3"><a href="paired-t-test.html#cb299-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diffs =</span> After <span class="sc">-</span> Before)</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="paired-t-test.html#cb298-1" aria-hidden="true" tabindex="-1"></a>blackbird.diffs <span class="ot">&lt;-</span> blackbird <span class="sc">%&gt;%</span></span>
+<span id="cb298-2"><a href="paired-t-test.html#cb298-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> blackbird, <span class="at">names_from =</span> time, <span class="at">values_from =</span> Antibody) <span class="sc">%&gt;%</span></span>
+<span id="cb298-3"><a href="paired-t-test.html#cb298-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diffs =</span> After <span class="sc">-</span> Before)</span></code></pre></div>
 <p>In the preceding chunk, we:</p>
 <ul>
 <li>create a new object “blackbird.diffs” to hold our data</li>
@@ -548,7 +548,7 @@ The following code requires that there be at least one variable in the tibble th
 In the blackbird example we have “Before” and “After” measurements of a variable, and we calculated the <em>difference</em> as “<span class="math inline">\(After - Before\)</span>”, as this is a logical way to do it. It doesn’t really matter which direction you calculate the difference, but just be aware that you need to make clear how it was calculated, so that your interpretation is correct.</p>
 </div>
 <p>Let’s have a look at the result:</p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="paired-t-test.html#cb300-1" aria-hidden="true" tabindex="-1"></a>blackbird.diffs</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="paired-t-test.html#cb299-1" aria-hidden="true" tabindex="-1"></a>blackbird.diffs</span></code></pre></div>
 <pre><code>## # A tibble: 13 × 4
 ##    blackbird Before After    diffs
 ##        &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
@@ -591,13 +591,13 @@ H<sub>A</sub>: The mean change in antibody production after testosterone implant
 <div id="graph_paried" class="section level3 hasAnchor" number="14.2.3">
 <h3><span class="header-section-number">14.2.3</span> A graph to accompany a paired <em>t</em>-test<a href="paired-t-test.html#graph_paried" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The best way to visualize the data for a paired <em>t</em>-test is to create a <strong>histogram</strong> of the calculated <em>differences</em> between the paired observations.</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="paired-t-test.html#cb302-1" aria-hidden="true" tabindex="-1"></a>blackbird.diffs <span class="sc">%&gt;%</span> </span>
-<span id="cb302-2"><a href="paired-t-test.html#cb302-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> diffs)) <span class="sc">+</span></span>
-<span id="cb302-3"><a href="paired-t-test.html#cb302-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">boundary =</span> <span class="sc">-</span><span class="fl">0.3</span>, </span>
-<span id="cb302-4"><a href="paired-t-test.html#cb302-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>,) <span class="sc">+</span></span>
-<span id="cb302-5"><a href="paired-t-test.html#cb302-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Difference in antibody production rate (after - before) (ln[mOD/min]) 10^-3&quot;</span>) <span class="sc">+</span></span>
-<span id="cb302-6"><a href="paired-t-test.html#cb302-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb302-7"><a href="paired-t-test.html#cb302-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="paired-t-test.html#cb301-1" aria-hidden="true" tabindex="-1"></a>blackbird.diffs <span class="sc">%&gt;%</span> </span>
+<span id="cb301-2"><a href="paired-t-test.html#cb301-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> diffs)) <span class="sc">+</span></span>
+<span id="cb301-3"><a href="paired-t-test.html#cb301-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">boundary =</span> <span class="sc">-</span><span class="fl">0.3</span>, </span>
+<span id="cb301-4"><a href="paired-t-test.html#cb301-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>,) <span class="sc">+</span></span>
+<span id="cb301-5"><a href="paired-t-test.html#cb301-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Difference in antibody production rate (after - before) (ln[mOD/min]) 10^-3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb301-6"><a href="paired-t-test.html#cb301-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb301-7"><a href="paired-t-test.html#cb301-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-81"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-81-1.png" alt="Histogram of the differences in antibody production rate before and after the testosterone treatment" width="384" />
 <p class="caption">
@@ -607,11 +607,11 @@ Figure 14.1: Histogram of the differences in antibody production rate before and
 <p>With such a small sample size (13), the histogram is not particularly informative. But we do see most observations are just above zero.</p>
 <p><strong>OPTIONAL</strong></p>
 <p>Another optional but nice way to visualize paired data is using a paired plot.</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="paired-t-test.html#cb303-1" aria-hidden="true" tabindex="-1"></a>blackbird <span class="sc">%&gt;%</span></span>
-<span id="cb303-2"><a href="paired-t-test.html#cb303-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> Antibody)) <span class="sc">+</span></span>
-<span id="cb303-3"><a href="paired-t-test.html#cb303-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb303-4"><a href="paired-t-test.html#cb303-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> blackbird), <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
-<span id="cb303-5"><a href="paired-t-test.html#cb303-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="paired-t-test.html#cb302-1" aria-hidden="true" tabindex="-1"></a>blackbird <span class="sc">%&gt;%</span></span>
+<span id="cb302-2"><a href="paired-t-test.html#cb302-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> Antibody)) <span class="sc">+</span></span>
+<span id="cb302-3"><a href="paired-t-test.html#cb302-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb302-4"><a href="paired-t-test.html#cb302-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> blackbird), <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb302-5"><a href="paired-t-test.html#cb302-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-82"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-82-1.png" alt="Paired plot of antibody production rate before and after the testosterone treatment" width="384" />
 <p class="caption">
@@ -620,7 +620,7 @@ Figure 14.2: Paired plot of antibody production rate before and after the testos
 </div>
 <p><strong>OPTIONAL</strong></p>
 <p>Notice that the “After” group is plotted on the left, which is a bit counter-intuitive. We could optionally change that by changing how R recognizes the “order” of the “time” variable:</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="paired-t-test.html#cb304-1" aria-hidden="true" tabindex="-1"></a>blackbird<span class="sc">$</span>time <span class="ot">&lt;-</span> <span class="fu">ordered</span>(blackbird<span class="sc">$</span>time, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Before&quot;</span>, <span class="st">&quot;After&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="paired-t-test.html#cb303-1" aria-hidden="true" tabindex="-1"></a>blackbird<span class="sc">$</span>time <span class="ot">&lt;-</span> <span class="fu">ordered</span>(blackbird<span class="sc">$</span>time, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Before&quot;</span>, <span class="st">&quot;After&quot;</span>))</span></code></pre></div>
 <p>Then repeat the code above to create the paired plot.</p>
 </div>
 <div id="assump_paried" class="section level3 hasAnchor" number="14.2.4">
@@ -631,13 +631,13 @@ Figure 14.2: Paired plot of antibody production rate before and after the testos
 <li>the <em>differences</em> have a normal distribution in the population (each group of measurements need not be normally distributed)</li>
 </ul>
 <p>As instructed in the <a href="checknorm_assum.html#checknorm_assum">checking assumptions</a> tutorial, we should use a normal quantile plot to visually check the normal distribution assumption.</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="paired-t-test.html#cb305-1" aria-hidden="true" tabindex="-1"></a>blackbird.diffs <span class="sc">%&gt;%</span></span>
-<span id="cb305-2"><a href="paired-t-test.html#cb305-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> diffs)) <span class="sc">+</span></span>
-<span id="cb305-3"><a href="paired-t-test.html#cb305-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb305-4"><a href="paired-t-test.html#cb305-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb305-5"><a href="paired-t-test.html#cb305-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
-<span id="cb305-6"><a href="paired-t-test.html#cb305-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Antibody production (ln[mOD/min]) 10^-3&quot;</span>) <span class="sc">+</span></span>
-<span id="cb305-7"><a href="paired-t-test.html#cb305-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="paired-t-test.html#cb304-1" aria-hidden="true" tabindex="-1"></a>blackbird.diffs <span class="sc">%&gt;%</span></span>
+<span id="cb304-2"><a href="paired-t-test.html#cb304-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> diffs)) <span class="sc">+</span></span>
+<span id="cb304-3"><a href="paired-t-test.html#cb304-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb304-4"><a href="paired-t-test.html#cb304-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb304-5"><a href="paired-t-test.html#cb304-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
+<span id="cb304-6"><a href="paired-t-test.html#cb304-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Antibody production (ln[mOD/min]) 10^-3&quot;</span>) <span class="sc">+</span></span>
+<span id="cb304-7"><a href="paired-t-test.html#cb304-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-84"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-84-1.png" alt="Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3." width="384" />
 <p class="caption">
@@ -650,9 +650,9 @@ Figure 14.3: Normal quantile plot of the differences in antibody production rate
 <p>“The normal quantile plot shows that the data generally fall close to the line (except perhaps the highest value), indicating that the normality assumption is reasonably met.”</p>
 </blockquote>
 <p>But if you’re feeling uncertain, we can follow this with a <strong>Shapiro-Wilk Normality Test</strong>, which tests the null hypothesis that the data are sampled from a normal distribution.</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="paired-t-test.html#cb306-1" aria-hidden="true" tabindex="-1"></a>shapiro.result <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(blackbird.diffs<span class="sc">$</span>diffs)</span>
-<span id="cb306-2"><a href="paired-t-test.html#cb306-2" aria-hidden="true" tabindex="-1"></a>shapiro.result.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(shapiro.result)</span>
-<span id="cb306-3"><a href="paired-t-test.html#cb306-3" aria-hidden="true" tabindex="-1"></a>shapiro.result.tidy</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="paired-t-test.html#cb305-1" aria-hidden="true" tabindex="-1"></a>shapiro.result <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(blackbird.diffs<span class="sc">$</span>diffs)</span>
+<span id="cb305-2"><a href="paired-t-test.html#cb305-2" aria-hidden="true" tabindex="-1"></a>shapiro.result.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(shapiro.result)</span>
+<span id="cb305-3"><a href="paired-t-test.html#cb305-3" aria-hidden="true" tabindex="-1"></a>shapiro.result.tidy</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##   statistic p.value method                     
 ##       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                      
@@ -674,11 +674,11 @@ Figure 14.3: Normal quantile plot of the differences in antibody production rate
 <p><strong>(1) One-sample <em>t</em>-test on the differences</strong></p>
 <p>Let’s proceed with the test as we’ve <a href="onesamp_t_test.html#onesamp_t_test">previously learned</a>.</p>
 <p>Here we make sure to set the null hypothesized value of “mu” to zero in the argument for the <code>t.test</code> function:</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="paired-t-test.html#cb308-1" aria-hidden="true" tabindex="-1"></a>blackbird.ttest <span class="ot">&lt;-</span> blackbird.diffs <span class="sc">%&gt;%</span></span>
-<span id="cb308-2"><a href="paired-t-test.html#cb308-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(diffs) <span class="sc">%&gt;%</span></span>
-<span id="cb308-3"><a href="paired-t-test.html#cb308-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(<span class="at">mu =</span> <span class="dv">0</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="paired-t-test.html#cb307-1" aria-hidden="true" tabindex="-1"></a>blackbird.ttest <span class="ot">&lt;-</span> blackbird.diffs <span class="sc">%&gt;%</span></span>
+<span id="cb307-2"><a href="paired-t-test.html#cb307-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(diffs) <span class="sc">%&gt;%</span></span>
+<span id="cb307-3"><a href="paired-t-test.html#cb307-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(<span class="at">mu =</span> <span class="dv">0</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
 <p>Now have a look at the result:</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="paired-t-test.html#cb309-1" aria-hidden="true" tabindex="-1"></a>blackbird.ttest</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="paired-t-test.html#cb308-1" aria-hidden="true" tabindex="-1"></a>blackbird.ttest</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -698,8 +698,8 @@ The values of <em>t</em> and of the lower and upper confidence limits may be rev
 <p><strong>(2) Paired <em>t</em>-test</strong></p>
 <p>Here we use a method that relies on the data being stored in tidy (long) format, and assuming the order of the observations for each pair is correct. For instance, this is the case for our “blackbird” tibble. Specifically, birds 1 through 13 are ordered the same within each of the “After” and “Before” groups. This is crucial for this implementation of the paired <em>t</em>-test.</p>
 <p>Here’s the code for running a paired <em>t</em>-test on tidy (long) format data:</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="paired-t-test.html#cb311-1" aria-hidden="true" tabindex="-1"></a>blackbird.paired.ttest <span class="ot">&lt;-</span> blackbird <span class="sc">%&gt;%</span> </span>
-<span id="cb311-2"><a href="paired-t-test.html#cb311-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(Antibody <span class="sc">~</span> time, <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="paired-t-test.html#cb310-1" aria-hidden="true" tabindex="-1"></a>blackbird.paired.ttest <span class="ot">&lt;-</span> blackbird <span class="sc">%&gt;%</span> </span>
+<span id="cb310-2"><a href="paired-t-test.html#cb310-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(Antibody <span class="sc">~</span> time, <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>Here’s an explanation:</p>
 <ul>
 <li>we create a new object “blackbird.paried.ttest” to store our results in</li>
@@ -712,7 +712,7 @@ The values of <em>t</em> and of the lower and upper confidence limits may be rev
 </ul></li>
 </ul>
 <p>Let’s look at the result:</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="paired-t-test.html#cb312-1" aria-hidden="true" tabindex="-1"></a>blackbird.paired.ttest</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="paired-t-test.html#cb311-1" aria-hidden="true" tabindex="-1"></a>blackbird.paired.ttest</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 

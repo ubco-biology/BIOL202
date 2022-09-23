@@ -479,25 +479,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="twocat_packages_data" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> Load packages and import data<a href="twocat_packages_data.html#twocat_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>naniar</code>, <code>knitr</code>, <code>ggmosaic</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="twocat_packages_data.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb223-2"><a href="twocat_packages_data.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb223-3"><a href="twocat_packages_data.html#cb223-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb223-4"><a href="twocat_packages_data.html#cb223-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb223-5"><a href="twocat_packages_data.html#cb223-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span>
-<span id="cb223-6"><a href="twocat_packages_data.html#cb223-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="twocat_packages_data.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb224-2"><a href="twocat_packages_data.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb224-3"><a href="twocat_packages_data.html#cb224-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb224-4"><a href="twocat_packages_data.html#cb224-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb224-5"><a href="twocat_packages_data.html#cb224-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span>
+<span id="cb224-6"><a href="twocat_packages_data.html#cb224-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We’ll also need a new package called <code>epitools</code>, so install that now if you haven’t done so.</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="twocat_packages_data.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epitools)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;epitools&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:binom&#39;:
-## 
-##     binom.exact, binom.wilson</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="twocat_packages_data.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epitools)</span></code></pre></div>
 <p>We’ll use two datasets described in the Whitlock &amp; Schluter text:</p>
 <ul>
 <li>the “cancer.csv” dataset (described in Example 9.2 in the text, page 238)</li>
 <li>the “worm.csv” dataset (described in Example 9.4 in the text, page 246)</li>
 </ul>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="twocat_packages_data.html#cb227-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/cancer.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="twocat_packages_data.html#cb226-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/cancer.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 39876 Columns: 2
 ## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -505,7 +500,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="twocat_packages_data.html#cb229-1" aria-hidden="true" tabindex="-1"></a>worm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/worm.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="twocat_packages_data.html#cb228-1" aria-hidden="true" tabindex="-1"></a>worm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/worm.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 141 Columns: 2
 ## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -514,8 +509,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <p>Take a look at the cancer dataset:</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="twocat_packages_data.html#cb231-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="sc">%&gt;%</span></span>
-<span id="cb231-2"><a href="twocat_packages_data.html#cb231-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="twocat_packages_data.html#cb230-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="sc">%&gt;%</span></span>
+<span id="cb230-2"><a href="twocat_packages_data.html#cb230-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:cont_datalook_cancer)Data summary
@@ -670,8 +665,8 @@ response
 </tbody>
 </table>
 <p>And the worm dataset:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="twocat_packages_data.html#cb232-1" aria-hidden="true" tabindex="-1"></a>worm <span class="sc">%&gt;%</span></span>
-<span id="cb232-2"><a href="twocat_packages_data.html#cb232-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="twocat_packages_data.html#cb231-1" aria-hidden="true" tabindex="-1"></a>worm <span class="sc">%&gt;%</span></span>
+<span id="cb231-2"><a href="twocat_packages_data.html#cb231-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:cont_datalook_worm)Data summary
