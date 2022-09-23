@@ -154,13 +154,12 @@ We use a *bar graph* to visualize the frequency distribution for a single catego
 
 We'll use the `ggplot` approach with its `geom_bar` function to create a bar graph. The `ggplot` function comes with the `ggplot2` package, which itself is loaded as part of the `tidyverse`.
 
-To produce the bar graph, we use a frequency table as the input. Thus, let's repeat the creation of the "tiger.table" from the preceding section. 
+To produce the bar graph, we use a frequency table as the input. Thus, let's repeat the creation of the "tiger.table" from the preceding section, **but this time we exclude the `adorn_totals` line of code**, because we don't want the "total" row to be plotted in the bar graph. 
 
 ```{r vis1_freq_table_single_cat2}
 tiger.table <- tigerdeaths %>%
   count(activity, sort = TRUE) %>% 
-  mutate(relative_frequency = n / sum(n)) %>%
-  adorn_totals()
+  mutate(relative_frequency = n / sum(n))
 ```
 
 Recall that the "tiger.table" is a sort of summary presentation of the "activity" variable: 
