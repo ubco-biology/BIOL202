@@ -13,6 +13,7 @@ In this tutorial you will:
 
 * Revisit how to import data and get an overview of a "tibble" object
 * Learn how to construct a frequency table
+* Learn how to include a table caption
 * Learn how to visualize the frequency distribution of a single categorical variable using a bar graph
 * Learn how to visualize the frequency distribution of a single numerical variable using a histogram
 * Learn how to describe a histogram
@@ -119,9 +120,14 @@ Try figuring out how you would change the last line of code in the chunk above s
 
 Now that we've created the frequency table, let's have a look at it.
 
-In a supplementary tutorial, you'll find instructions on how to create nicely formatted tables for output with appropriate captions. 
+In a [supplementary tutorial](https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html), you'll find instructions on how to create fancy tables for output.  Here, you'll learn the basics. 
 
-For now, let's go ahead and use the `kable` function that comes with the `knitr` package, using the pipe approach:
+For our straightforward approach to tables with table headings (or captions), we'll use the `kable` function that comes with the `knitr` package, using the pipe approach:
+
+```
+tiger.table %>%
+  kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)
+```
 
 ```{r tigerfreqtable, echo = FALSE}
 
@@ -129,16 +135,16 @@ tiger.table %>%
   kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3, booktabs = TRUE)
 ```
 
-```
-tiger.table %>%
-  kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)
-```
 
 The key argument to the `kable` function is the table object (which here we provide before the pipe), and the table heading (caption).   
 
 Notice that this produces a nicely formatted table with an appropriately worded caption. The argument "digits = 3" tells it to return numeric values to 3 digits in the table.
 
 You now know how to create a frequency table for a categorical variable!
+
+<div class="note">
+Your table caption won't include a number (e.g. Table 1) until you actually knit to PDF. Be sure to check your PDF to ensure that the table captions show up, and are numbered!
+</div>
 
 2. **Frequency table**: Try creating a frequency table using the `birds` dataset, which includes data about four types of birds observed at a wetland.
 
@@ -196,6 +202,7 @@ There you have it: a nicely formatted bar graph!
 **REMINDER** Don't forget to include a good figure caption! Here's a snapshot of the full code chunk that produced the bar graph above:
 
 ```{r fig.cap = "Example code chunk for producing a good bar graph", echo = FALSE, fig.width = 5}
+
 knitr::include_graphics("./more/bar_graph_chunk.png")
 ```
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-21" />
+<meta name="date" content="2022-09-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -503,8 +503,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Try figuring out how you would change the last line of code in the chunk above so that the table showed the <em>percent</em> rather than the <em>relative frequency</em> of observations in each category</p>
 </div>
 <p>Now that we’ve created the frequency table, let’s have a look at it.</p>
-<p>In a supplementary tutorial, you’ll find instructions on how to create nicely formatted tables for output with appropriate captions.</p>
-<p>For now, let’s go ahead and use the <code>kable</code> function that comes with the <code>knitr</code> package, using the pipe approach:</p>
+<p>In a <a href="https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html">supplementary tutorial</a>, you’ll find instructions on how to create fancy tables for output. Here, you’ll learn the basics.</p>
+<p>For our straightforward approach to tables with table headings (or captions), we’ll use the <code>kable</code> function that comes with the <code>knitr</code> package, using the pipe approach:</p>
+<pre><code>tiger.table %&gt;%
+  kable(caption = &quot;Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006&quot;, digits = 3)</code></pre>
 <table>
 <caption>
 <span id="tab:tigerfreqtable">Table 6.1: </span>Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006
@@ -635,11 +637,12 @@ Total
 </tr>
 </tbody>
 </table>
-<pre><code>tiger.table %&gt;%
-  kable(caption = &quot;Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006&quot;, digits = 3)</code></pre>
 <p>The key argument to the <code>kable</code> function is the table object (which here we provide before the pipe), and the table heading (caption).</p>
 <p>Notice that this produces a nicely formatted table with an appropriately worded caption. The argument “digits = 3” tells it to return numeric values to 3 digits in the table.</p>
 <p>You now know how to create a frequency table for a categorical variable!</p>
+<div class="note">
+<p>Your table caption won’t include a number (e.g. Table 1) until you actually knit to PDF. Be sure to check your PDF to ensure that the table captions show up, and are numbered!</p>
+</div>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Frequency table</strong>: Try creating a frequency table using the <code>birds</code> dataset, which includes data about four types of birds observed at a wetland.</li>
 </ol>
