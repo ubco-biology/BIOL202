@@ -1,7 +1,7 @@
 # Visualizing associations between two variables {#vis_twovar}
 
 ```{r echo = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 options(knitr.table.format = "html")
 ```
 
@@ -138,11 +138,6 @@ bird.malaria.freq.totals
 
 Now let's use the `kable` function to improve the look, and add a table heading.
 
-<div class="note">
-**NOTE**
-We are still finalizing the tutorial describing how to provide a Table heading.
-</div>
-
 ```{r vismalaria}
 
 bird.malaria.freq.totals %>%
@@ -222,7 +217,6 @@ This code is similar to what we used [previously to create a bar graph](#vis_cat
 * in the second line, we provide a new argument to the `geom_bar` function: `position = position_dodge()`, which tells R to use separate bars for each category of the "fill" variable (if we did not include this argument, we'd get a "stacked bar graph" instead)
 
 <div class="note">
-**Note**
 It is best practice to use the **response variable** as the "fill" variable in a grouped bar graph, as we have done in the malaria example. 
 </div>
 
@@ -258,15 +252,20 @@ Here's the code, and we'll explain after:
 ```{r mosaic_malaria1}
 ggplot(data = bird.malaria) +
   geom_mosaic(aes(x = product(treatment), fill = response)) +
+  scale_y_continuous() +
   xlab("Treatment group") +
-  ylab("Relative frequency")
+  ylab("Relative frequency") +
+  theme_bw
 ```
 
 In the code chunk above we see one key difference from previous uses of the `ggplot` function is that the `aes` function is not provided in the arguments to `ggplot` in the first line, but is instead provided to the arguments of the `geom_mosaic` function on the second line.
 
 We also see `product(treatment)`, which is difficult to explain, so suffice it to say that it's telling the `geom_mosaic` function to calculate relative frequencies based on the "treatment" variable, and in conjunction with the fill variable "response".  
 
-Note that in the mosaic plot there are no number values provided on the y-axis.  This is OK: as you can see, the difference in the relative frequency of malaria incidence across the treatment groups is obvious, and that's the goal of this type of graph, i.e. to visualize any differences in relative frequency across groups.  One doesn't need y-axis numbers because it's the comparison across groups that is the focus.  Nevertheless, the y-axis limits would be zero and one, so one can "eyeball" the relative frequencies for each group. We'll learn about interpreting mosaic plots soon. 
+The `scale_y_continuous` function tells ggplot to add a continuous scale for the y-axis, and here, this defaults to zero to one for relative frequencies.
+
+We'll learn about interpreting mosaic plots next.  
+
 
 1. Using the `penguins` dataset, try creating a mosaic plot for comparing the relative frequency of penguins belonging to the three different "species" across the three different islands (variable "island").
 
@@ -278,8 +277,10 @@ Let's provide the mosaic plot again, and this time we'll provide an appropriate 
 
 ggplot(data = bird.malaria) +
   geom_mosaic(aes(x = product(treatment), fill = response)) +
+  scale_y_continuous() +
   xlab("Treatment group") +
-  ylab("Relative frequency")
+  ylab("Relative frequency") +
+  theme_bw()
 ```
 
 Here's the code:
@@ -303,7 +304,6 @@ We'll use the `ggplot` function that we've seen before, along with `geom_point` 
 We'll provide an example using the `penguins` dataset, examining how bill depth and length are associated among the penguins belonging to the Adelie species.
 
 <div class="note">
-**NOTE**
 As shown in the tutorial on [preparing and formatting assignments](#rmd_graphing), we can use the `filter` function from the `dplyr` package to easily subset datasets according to some criterion, such as belonging to a specific category.
 </div>
 
@@ -329,7 +329,6 @@ In the code chunk above, we have:
 Notice that the figure caption indicates the number of observations (sample size) used in the plot. In a [previous tutorial](#vis_describe) it was emphasized that one needs to be careful in tallying the actual number of observations being used in a graph or when calculating <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistics</a>. For example, there is one missing value ("NA") in the bill measurements for the Adelie penguins, hence the sample size of 151 instead of 152.  
 
 <div class="note">
-**Reminder**
 Recall that you can use the `skim` or `skim_without_charts` functions to get an overview of a dataset or of a single variable in a dataset, and to figure out how many missing values there are for each variable. You can also use the `summarise` function, as described [previously](#mean_sd). 
 </div>
 
@@ -355,8 +354,7 @@ To visualize association between a numerical response variable and a categorical
 
 We'll use locust serotonin data set from the text book. Consult figure 2.1-2 in the text for a description. 
 
-<div class="note">
-**Tip**
+<div class="flag">
 Always remember to get an overview of the dataset before attempting to create graphs, and not only for establishing sample sizes. If you had gotten an overview of the `locust` dataset, you would see we have a numeric response variable "serotoninLevel", but the categorical (explanatory) variable "treatmentTime" is actually coded as a numerical variable, with values of 0, 1, or 2 hours. Although this variable is coded as numeric, we can treat it as though it is an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Ordinal-categorical-data">ordinal categorical variable</a>.  
 </div>
 
@@ -424,7 +422,6 @@ We now have the accurate sample sizes for each species (under the "Count" variab
 We use the familiar `ggplot` approach for creating violin plots. 
 
 <div class="note">
-**Tip**
 When using the `ggplot` function, we can assign the output to an object. We can then subsequently add features to the plot by adding to the object.  We'll demonstrate this here. 
 </div>
 
@@ -543,7 +540,6 @@ For more information about the features of the boxplot, look at the help file fo
 ```
 
 <div class="note">
-**NOTE**
 The first time you include a boxplot in a report / lab, be sure to include in the figure caption the details of what is being shown.  You only need to do this the first time. Subsequent boxplot figure captions can refer to the first one for details.  
 </div>
 
@@ -582,7 +578,6 @@ penguins %>%
 ```
 
 <div class="note">
-**Tip**
 It often takes some playing around with argument values before one gets the ideal graph. For example, in the above graph, try changing some of the values used in the `geom_jitter` function. 
 </div>
 
