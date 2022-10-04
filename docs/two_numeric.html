@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-23" />
+<meta name="date" content="2022-10-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -482,19 +482,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We’ll use the <code>ggplot</code> function that we’ve seen before, along with <code>geom_point</code> to construct a scatterplot.</p>
 <p>We’ll provide an example using the <code>penguins</code> dataset, examining how bill depth and length are associated among the penguins belonging to the Adelie species.</p>
 <div class="note">
-<p><strong>NOTE</strong>
-As shown in the tutorial on <a href="rmd_graphing.html#rmd_graphing">preparing and formatting assignments</a>, we can use the <code>filter</code> function from the <code>dplyr</code> package to easily subset datasets according to some criterion, such as belonging to a specific category.</p>
+<p>As shown in the tutorial on <a href="rmd_graphing.html#rmd_graphing">preparing and formatting assignments</a>, we can use the <code>filter</code> function from the <code>dplyr</code> package to easily subset datasets according to some criterion, such as belonging to a specific category.</p>
 </div>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="two_numeric.html#cb95-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb95-2"><a href="two_numeric.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb95-3"><a href="two_numeric.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb95-4"><a href="two_numeric.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb95-5"><a href="two_numeric.html#cb95-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb95-6"><a href="two_numeric.html#cb95-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb95-7"><a href="two_numeric.html#cb95-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-47"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-47-1.png" alt="Scatterplot of the association between bill length and depth among 151 Adelie penguins" width="480" />
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="two_numeric.html#cb94-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb94-2"><a href="two_numeric.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb94-3"><a href="two_numeric.html#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb94-4"><a href="two_numeric.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb94-5"><a href="two_numeric.html#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb94-6"><a href="two_numeric.html#cb94-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb94-7"><a href="two_numeric.html#cb94-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-49"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-49-1.png" alt="Scatterplot of the association between bill length and depth among 151 Adelie penguins" width="480" />
 <p class="caption">
 Figure 8.5: Scatterplot of the association between bill length and depth among 151 Adelie penguins
 </p>
@@ -509,8 +507,7 @@ Figure 8.5: Scatterplot of the association between bill length and depth among 1
 </ul>
 <p>Notice that the figure caption indicates the number of observations (sample size) used in the plot. In a <a href="vis_describe.html#vis_describe">previous tutorial</a> it was emphasized that one needs to be careful in tallying the actual number of observations being used in a graph or when calculating <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistics</a>. For example, there is one missing value (“NA”) in the bill measurements for the Adelie penguins, hence the sample size of 151 instead of 152.</p>
 <div class="note">
-<p><strong>Reminder</strong>
-Recall that you can use the <code>skim</code> or <code>skim_without_charts</code> functions to get an overview of a dataset or of a single variable in a dataset, and to figure out how many missing values there are for each variable. You can also use the <code>summarise</code> function, as described <a href="desc_numeric_var.html#mean_sd">previously</a>.</p>
+<p>Recall that you can use the <code>skim</code> or <code>skim_without_charts</code> functions to get an overview of a dataset or of a single variable in a dataset, and to figure out how many missing values there are for each variable. You can also use the <code>summarise</code> function, as described <a href="desc_numeric_var.html#mean_sd">previously</a>.</p>
 </div>
 <div id="interpret_scatter" class="section level3 hasAnchor" number="8.3.1">
 <h3><span class="header-section-number">8.3.1</span> Interpreting and describing a scatterplot<a href="two_numeric.html#interpret_scatter" class="anchor-section" aria-label="Anchor link to header"></a></h3>

@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-23" />
+<meta name="date" content="2022-10-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -479,17 +479,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tables_packages" class="section level2 hasAnchor" number="17.4">
 <h2><span class="header-section-number">17.4</span> Load packages and import data<a href="tables_packages.html#tables_packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the following packages, including <code>palmerpenguins</code> and <code>kableExtra</code>:</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="tables_packages.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb466-2"><a href="tables_packages.html#cb466-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb466-3"><a href="tables_packages.html#cb466-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb466-4"><a href="tables_packages.html#cb466-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb466-5"><a href="tables_packages.html#cb466-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb466-6"><a href="tables_packages.html#cb466-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="tables_packages.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb462-2"><a href="tables_packages.html#cb462-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb462-3"><a href="tables_packages.html#cb462-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb462-4"><a href="tables_packages.html#cb462-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb462-5"><a href="tables_packages.html#cb462-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb462-6"><a href="tables_packages.html#cb462-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div>
 <p>We’ll use the “circadian.csv” dataset, which is also used in the <a href="compare_three_more_means.html#compare_three_more_means">“comparing more than 2 means tutorial”</a>. These data are associated with Example 15.1 in the text.</p>
 <p>The <code>circadian</code> data describe melatonin production in 22 people randomly assigned to one of three light treatments.</p>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="tables_packages.html#cb467-1" aria-hidden="true" tabindex="-1"></a>circadian <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/circadian.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="tables_packages.html#cb463-1" aria-hidden="true" tabindex="-1"></a>circadian <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/circadian.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 22 Columns: 2
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (1): treatment
 ## dbl (1): shift
@@ -502,10 +502,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For this we have been using the <code>skim_without_charts</code> function from the <code>skimr</code> package.</p>
 <p>You may have noticed that when you knit assignments to PDF, any output from the <code>skim_without_charts</code> function tends to run off the edge of the page. Here we’ll learn how to avoid this.</p>
 <p>The key is to assign the output to an object first, as such:</p>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="tables_packages.html#cb469-1" aria-hidden="true" tabindex="-1"></a>skim.out <span class="ot">&lt;-</span> circadian <span class="sc">%&gt;%</span></span>
-<span id="cb469-2"><a href="tables_packages.html#cb469-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="tables_packages.html#cb465-1" aria-hidden="true" tabindex="-1"></a>skim.out <span class="ot">&lt;-</span> circadian <span class="sc">%&gt;%</span></span>
+<span id="cb465-2"><a href="tables_packages.html#cb465-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <p>We will also “transpose” (rotate) the table using the <code>t</code> base function:, so that it’ll fit on a page:</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="tables_packages.html#cb470-1" aria-hidden="true" tabindex="-1"></a>skim.out.transposed <span class="ot">&lt;-</span> <span class="fu">t</span>(skim.out)</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="tables_packages.html#cb466-1" aria-hidden="true" tabindex="-1"></a>skim.out.transposed <span class="ot">&lt;-</span> <span class="fu">t</span>(skim.out)</span></code></pre></div>
 <p>Now we’ll use the <code>kbl</code> function with various arguments to ensure the output looks good and includes a table caption:</p>
 <div class="note">
 <p><strong>NOTE: </strong>
@@ -724,18 +724,18 @@ numeric.p100
 </table>
 <p>Let’s check to see if this approach works on a larger dataset (one with more variables).</p>
 <p>Let’s try it on the “penguins” dataset:</p>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="tables_packages.html#cb472-1" aria-hidden="true" tabindex="-1"></a>skim.penguins <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb472-2"><a href="tables_packages.html#cb472-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="tables_packages.html#cb468-1" aria-hidden="true" tabindex="-1"></a>skim.penguins <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb468-2"><a href="tables_packages.html#cb468-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <p>Transpose:</p>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="tables_packages.html#cb473-1" aria-hidden="true" tabindex="-1"></a>skim.penguins.transposed <span class="ot">&lt;-</span> <span class="fu">t</span>(skim.penguins)</span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="tables_packages.html#cb469-1" aria-hidden="true" tabindex="-1"></a>skim.penguins.transposed <span class="ot">&lt;-</span> <span class="fu">t</span>(skim.penguins)</span></code></pre></div>
 <p>Now let’s try the <code>kbl</code> ouptut:</p>
 <div class="note">
 <p><strong>NOTE: </strong>
 This table will look different when knitted to PDF (rather than HTML). Specifically, it will print off page…</p>
 </div>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="tables_packages.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(skim.penguins.transposed, <span class="at">caption =</span> <span class="st">&quot;Overview of the &#39;penguins&#39; dataset&quot;</span>,</span>
-<span id="cb474-2"><a href="tables_packages.html#cb474-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb474-3"><a href="tables_packages.html#cb474-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="tables_packages.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(skim.penguins.transposed, <span class="at">caption =</span> <span class="st">&quot;Overview of the &#39;penguins&#39; dataset&quot;</span>,</span>
+<span id="cb470-2"><a href="tables_packages.html#cb470-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb470-3"><a href="tables_packages.html#cb470-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="st">&quot;hold_position&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:nicetablepeng">Table 17.2: </span>Overview of the ‘penguins’ dataset
@@ -1150,7 +1150,7 @@ numeric.p100
   kable_styling(latex_options = c(&quot;scale_down&quot;, &quot;hold_position&quot;))</code></pre>
 <table class=" lightable-paper" style="font-family: Arial Narrow; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-126">Table 17.3: </span>Overview of the ‘penguins’ dataset
+<span id="tab:unnamed-chunk-128">Table 17.3: </span>Overview of the ‘penguins’ dataset
 </caption>
 <thead>
 <tr>
@@ -1567,20 +1567,20 @@ On this HTML page the table above still goes off the page, but the PDF version w
 <h3><span class="header-section-number">17.4.2</span> A nicely formatted table of descriptive statistics<a href="tables_packages.html#stats_nicetable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here is the code (which you’ve already learned) to create a good table of <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Descriptive-statistics">descriptive statistics</a> for a numeric response variable grouped by categories in a categorical explanatory variable.</p>
 <p>We’ll use the “penguins” dataset again, and calculate descriptive statistics for bill lengths of male penguins, grouped by species:</p>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="tables_packages.html#cb476-1" aria-hidden="true" tabindex="-1"></a>penguins.stats <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb476-2"><a href="tables_packages.html#cb476-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb476-3"><a href="tables_packages.html#cb476-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
-<span id="cb476-4"><a href="tables_packages.html#cb476-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb476-5"><a href="tables_packages.html#cb476-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(bill_length_mm),</span>
-<span id="cb476-6"><a href="tables_packages.html#cb476-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(bill_length_mm), </span>
-<span id="cb476-7"><a href="tables_packages.html#cb476-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb476-8"><a href="tables_packages.html#cb476-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb476-9"><a href="tables_packages.html#cb476-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> SD<span class="sc">/</span><span class="fu">sqrt</span>(Count),</span>
-<span id="cb476-10"><a href="tables_packages.html#cb476-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Low_95_CL =</span> <span class="fu">t.test</span>(bill_length_mm, <span class="at">conf.level =</span> <span class="fl">0.95</span>)<span class="sc">$</span>conf.int[<span class="dv">1</span>],</span>
-<span id="cb476-11"><a href="tables_packages.html#cb476-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Up_95_CL =</span> <span class="fu">t.test</span>(bill_length_mm, <span class="at">conf.level =</span> <span class="fl">0.95</span>)<span class="sc">$</span>conf.int[<span class="dv">2</span>]</span>
-<span id="cb476-12"><a href="tables_packages.html#cb476-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="tables_packages.html#cb472-1" aria-hidden="true" tabindex="-1"></a>penguins.stats <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb472-2"><a href="tables_packages.html#cb472-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb472-3"><a href="tables_packages.html#cb472-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb472-4"><a href="tables_packages.html#cb472-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb472-5"><a href="tables_packages.html#cb472-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(bill_length_mm),</span>
+<span id="cb472-6"><a href="tables_packages.html#cb472-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(bill_length_mm), </span>
+<span id="cb472-7"><a href="tables_packages.html#cb472-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb472-8"><a href="tables_packages.html#cb472-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb472-9"><a href="tables_packages.html#cb472-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> SD<span class="sc">/</span><span class="fu">sqrt</span>(Count),</span>
+<span id="cb472-10"><a href="tables_packages.html#cb472-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Low_95_CL =</span> <span class="fu">t.test</span>(bill_length_mm, <span class="at">conf.level =</span> <span class="fl">0.95</span>)<span class="sc">$</span>conf.int[<span class="dv">1</span>],</span>
+<span id="cb472-11"><a href="tables_packages.html#cb472-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Up_95_CL =</span> <span class="fu">t.test</span>(bill_length_mm, <span class="at">conf.level =</span> <span class="fl">0.95</span>)<span class="sc">$</span>conf.int[<span class="dv">2</span>]</span>
+<span id="cb472-12"><a href="tables_packages.html#cb472-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>Here’s what the raw table looks like:</p>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="tables_packages.html#cb477-1" aria-hidden="true" tabindex="-1"></a>penguins.stats</span></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="tables_packages.html#cb473-1" aria-hidden="true" tabindex="-1"></a>penguins.stats</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 8
 ##   species   Count Count_NA  Mean    SD    SEM Low_95_CL Up_95_CL
 ##   &lt;fct&gt;     &lt;int&gt;    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -1588,9 +1588,9 @@ On this HTML page the table above still goes off the page, but the PDF version w
 ## 2 Chinstrap    34        0 51.09 1.565 0.2683     50.55    51.64
 ## 3 Gentoo       61        0 49.47 2.721 0.3483     48.78    50.17</code></pre>
 <p>Now let’s format it for PDF output:</p>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="tables_packages.html#cb479-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(penguins.stats, <span class="at">caption =</span> <span class="st">&quot;Descriptive statistics for bill length among male penguins.&quot;</span>, </span>
-<span id="cb479-2"><a href="tables_packages.html#cb479-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb479-3"><a href="tables_packages.html#cb479-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">&quot;scale_down&quot;</span>, <span class="st">&quot;hold_position&quot;</span>), <span class="at">position =</span> <span class="st">&quot;center&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="tables_packages.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(penguins.stats, <span class="at">caption =</span> <span class="st">&quot;Descriptive statistics for bill length among male penguins.&quot;</span>, </span>
+<span id="cb475-2"><a href="tables_packages.html#cb475-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb475-3"><a href="tables_packages.html#cb475-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">latex_options =</span> <span class="fu">c</span>(<span class="st">&quot;scale_down&quot;</span>, <span class="st">&quot;hold_position&quot;</span>), <span class="at">position =</span> <span class="st">&quot;center&quot;</span>)</span></code></pre></div>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:givenicepdftable">Table 17.4: </span>Descriptive statistics for bill length among male penguins.

@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-09-23" />
+<meta name="date" content="2022-10-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -533,10 +533,6 @@ The <code>tabyl</code> function from the <code>janitor</code> package is useful 
 ##  Egg removal      15         15    30
 ##        Total      22         43    65</code></pre>
 <p>Now let’s use the <code>kable</code> function to improve the look, and add a table heading.</p>
-<div class="note">
-<p><strong>NOTE</strong>
-We are still finalizing the tutorial describing how to provide a Table heading.</p>
-</div>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="vis2_2cat.html#cb82-1" aria-hidden="true" tabindex="-1"></a>bird.malaria.freq.totals <span class="sc">%&gt;%</span></span>
 <span id="cb82-2"><a href="vis2_2cat.html#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Contingency table showing the incidence of malaria in female great tits in relation to experimental treatment&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table>
@@ -711,11 +707,10 @@ The <code>group_by</code> function from the <code>dplyr</code> package enables o
 <li>in the second line, we provide a new argument to the <code>geom_bar</code> function: <code>position = position_dodge()</code>, which tells R to use separate bars for each category of the “fill” variable (if we did not include this argument, we’d get a “stacked bar graph” instead)</li>
 </ul>
 <div class="note">
-<p><strong>Note</strong>
-It is best practice to use the <strong>response variable</strong> as the “fill” variable in a grouped bar graph, as we have done in the malaria example.</p>
+<p>It is best practice to use the <strong>response variable</strong> as the “fill” variable in a grouped bar graph, as we have done in the malaria example.</p>
 </div>
 <p>If we wished to provide an appropriate figure heading, this would be the code:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-43"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-45"></span>
 <img src="more/grouped_bar_graph.png" alt="Example code chunk for producing a good grouped bar graph"  />
 <p class="caption">
 Figure 8.1: Example code chunk for producing a good grouped bar graph
@@ -727,8 +722,8 @@ Figure 8.1: Example code chunk for producing a good grouped bar graph
 <span id="cb91-3"><a href="vis2_2cat.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb91-4"><a href="vis2_2cat.html#cb91-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
 <span id="cb91-5"><a href="vis2_2cat.html#cb91-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-44"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-44-1.png" alt="Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-46"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-46-1.png" alt="Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups." width="384" />
 <p class="caption">
 Figure 8.2: Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.
 </p>
@@ -743,16 +738,15 @@ Figure 8.2: Grouped bar graph showing the incidence of malaria in female great t
 <p>Here’s the code, and we’ll explain after:</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="vis2_2cat.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bird.malaria) <span class="sc">+</span></span>
 <span id="cb92-2"><a href="vis2_2cat.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
-<span id="cb92-3"><a href="vis2_2cat.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
-<span id="cb92-4"><a href="vis2_2cat.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: `unite_()` was deprecated in tidyr 1.2.0.
-## Please use `unite()` instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+<span id="cb92-3"><a href="vis2_2cat.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
+<span id="cb92-4"><a href="vis2_2cat.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
+<span id="cb92-5"><a href="vis2_2cat.html#cb92-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb92-6"><a href="vis2_2cat.html#cb92-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="BIOL202_files/figure-html/mosaic_malaria1-1.png" width="672" /></p>
 <p>In the code chunk above we see one key difference from previous uses of the <code>ggplot</code> function is that the <code>aes</code> function is not provided in the arguments to <code>ggplot</code> in the first line, but is instead provided to the arguments of the <code>geom_mosaic</code> function on the second line.</p>
 <p>We also see <code>product(treatment)</code>, which is difficult to explain, so suffice it to say that it’s telling the <code>geom_mosaic</code> function to calculate relative frequencies based on the “treatment” variable, and in conjunction with the fill variable “response”.</p>
-<p>Note that in the mosaic plot there are no number values provided on the y-axis. This is OK: as you can see, the difference in the relative frequency of malaria incidence across the treatment groups is obvious, and that’s the goal of this type of graph, i.e. to visualize any differences in relative frequency across groups. One doesn’t need y-axis numbers because it’s the comparison across groups that is the focus. Nevertheless, the y-axis limits would be zero and one, so one can “eyeball” the relative frequencies for each group. We’ll learn about interpreting mosaic plots soon.</p>
+<p>The <code>scale_y_continuous</code> function tells ggplot to add a continuous scale for the y-axis, and here, this defaults to zero to one for relative frequencies.</p>
+<p>We’ll learn about interpreting mosaic plots next.</p>
 <ol style="list-style-type: decimal">
 <li>Using the <code>penguins</code> dataset, try creating a mosaic plot for comparing the relative frequency of penguins belonging to the three different “species” across the three different islands (variable “island”).</li>
 </ol>
@@ -760,18 +754,20 @@ Figure 8.2: Grouped bar graph showing the incidence of malaria in female great t
 <div id="interpret_mosaic" class="section level3 hasAnchor" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> Interpreting mosaic plots<a href="vis2_2cat.html#interpret_mosaic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s provide the mosaic plot again, and this time we’ll provide an appropriate figure heading in the chunk header, as we <a href="rmd_graphing.html#rmd_graphing">learned previously</a>:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="vis2_2cat.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bird.malaria) <span class="sc">+</span></span>
-<span id="cb94-2"><a href="vis2_2cat.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
-<span id="cb94-3"><a href="vis2_2cat.html#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
-<span id="cb94-4"><a href="vis2_2cat.html#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>)</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-45"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-45-1.png" alt="Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups." width="384" />
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="vis2_2cat.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bird.malaria) <span class="sc">+</span></span>
+<span id="cb93-2"><a href="vis2_2cat.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
+<span id="cb93-3"><a href="vis2_2cat.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
+<span id="cb93-4"><a href="vis2_2cat.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-5"><a href="vis2_2cat.html#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb93-6"><a href="vis2_2cat.html#cb93-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-47"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-47-1.png" alt="Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups." width="384" />
 <p class="caption">
 Figure 8.3: Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.
 </p>
 </div>
 <p>Here’s the code:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-46"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-48"></span>
 <img src="more/mosaic_graph.png" alt="Example code chunk for producing a good mosaic plot"  />
 <p class="caption">
 Figure 8.4: Example code chunk for producing a good mosaic plot

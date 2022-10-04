@@ -255,7 +255,7 @@ ggplot(data = bird.malaria) +
   scale_y_continuous() +
   xlab("Treatment group") +
   ylab("Relative frequency") +
-  theme_bw
+  theme_bw()
 ```
 
 In the code chunk above we see one key difference from previous uses of the `ggplot` function is that the `aes` function is not provided in the arguments to `ggplot` in the first line, but is instead provided to the arguments of the `geom_mosaic` function on the second line.
