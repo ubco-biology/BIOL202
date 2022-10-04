@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-10-03" />
+<meta name="date" content="2022-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -264,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.2" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#violinplot"><i class="fa fa-check"></i><b>8.4.2</b> Create a violin plot</a></li>
 <li class="chapter" data-level="8.4.3" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#boxplots"><i class="fa fa-check"></i><b>8.4.3</b> Creating a boxplot</a></li>
 <li class="chapter" data-level="8.4.4" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#bestplot"><i class="fa fa-check"></i><b>8.4.4</b> Combining violin and boxplots</a></li>
-<li class="chapter" data-level="8.4.5" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#interp_violin"><i class="fa fa-check"></i><b>8.4.5</b> Interpreting stripcharts and boxplots</a></li>
+<li class="chapter" data-level="8.4.5" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#interp_violin"><i class="fa fa-check"></i><b>8.4.5</b> Interpreting stripcharts, violin plots and boxplots</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>Inferential Statistics</b></span></li>
@@ -598,8 +598,8 @@ H<sub>A</sub>: The mean change in antibody production after testosterone implant
 <span id="cb302-5"><a href="paired-t-test.html#cb302-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Difference in antibody production rate (after - before) (ln[mOD/min]) 10^-3&quot;</span>) <span class="sc">+</span></span>
 <span id="cb302-6"><a href="paired-t-test.html#cb302-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb302-7"><a href="paired-t-test.html#cb302-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-89"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-89-1.png" alt="Histogram of the differences in antibody production rate before and after the testosterone treatment" width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-81"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-81-1.png" alt="Histogram of the differences in antibody production rate before and after the testosterone treatment" width="384" />
 <p class="caption">
 Figure 14.1: Histogram of the differences in antibody production rate before and after the testosterone treatment
 </p>
@@ -612,8 +612,8 @@ Figure 14.1: Histogram of the differences in antibody production rate before and
 <span id="cb303-3"><a href="paired-t-test.html#cb303-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
 <span id="cb303-4"><a href="paired-t-test.html#cb303-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> blackbird), <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
 <span id="cb303-5"><a href="paired-t-test.html#cb303-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-90"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-90-1.png" alt="Paired plot of antibody production rate before and after the testosterone treatment" width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-82"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-82-1.png" alt="Paired plot of antibody production rate before and after the testosterone treatment" width="384" />
 <p class="caption">
 Figure 14.2: Paired plot of antibody production rate before and after the testosterone treatment
 </p>
@@ -638,8 +638,8 @@ Figure 14.2: Paired plot of antibody production rate before and after the testos
 <span id="cb305-5"><a href="paired-t-test.html#cb305-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
 <span id="cb305-6"><a href="paired-t-test.html#cb305-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Antibody production (ln[mOD/min]) 10^-3&quot;</span>) <span class="sc">+</span></span>
 <span id="cb305-7"><a href="paired-t-test.html#cb305-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-92"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-92-1.png" alt="Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-84"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-84-1.png" alt="Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3." width="384" />
 <p class="caption">
 Figure 14.3: Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3.
 </p>

@@ -584,6 +584,6 @@ It often takes some playing around with argument values before one gets the idea
 
 1. Using the `penguins` dataset, and only the records pertaining to female penguins, create a combined violin / boxplot graph showing bill length in relation to species. Include an appropriate figure caption. 
 
-### Interpreting stripcharts and boxplots {#interp_violin}
+### Interpreting stripcharts, violin plots and boxplots {#interp_violin}
 
-We will wait until a future tutorial to learn more about interpreting violin / boxplots, because there we learn how to add more information to the graphs, such as group <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">means</a> and measures of uncertainty. 
+In general, stripcharts, violin plots, and boxplots are used to visualize how a numeric variable varies or differs among categories (groups) of a categorical variable.  For instance, it's pretty obvious from the violin plots above that Gentoo penguins have, on average, considerably greater body mass than the other two species.  We will wait until a future tutorial to learn more about interpreting violin / boxplots, because there we learn how to add more information to the graphs, such as group <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Mean">means</a> and measures of uncertainty. For now, you should be comfortable interpreting any obvious patterns in the plots.  

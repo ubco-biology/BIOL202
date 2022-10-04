@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-10-03" />
+<meta name="date" content="2022-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -264,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.2" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#violinplot"><i class="fa fa-check"></i><b>8.4.2</b> Create a violin plot</a></li>
 <li class="chapter" data-level="8.4.3" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#boxplots"><i class="fa fa-check"></i><b>8.4.3</b> Creating a boxplot</a></li>
 <li class="chapter" data-level="8.4.4" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#bestplot"><i class="fa fa-check"></i><b>8.4.4</b> Combining violin and boxplots</a></li>
-<li class="chapter" data-level="8.4.5" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#interp_violin"><i class="fa fa-check"></i><b>8.4.5</b> Interpreting stripcharts and boxplots</a></li>
+<li class="chapter" data-level="8.4.5" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#interp_violin"><i class="fa fa-check"></i><b>8.4.5</b> Interpreting stripcharts, violin plots and boxplots</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>Inferential Statistics</b></span></li>
@@ -695,8 +695,8 @@ Pop_mean
 <span id="cb136-6"><a href="sampdistmean.html#cb136-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Gene length (nucleotides)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb136-7"><a href="sampdistmean.html#cb136-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Number of genes&quot;</span>) <span class="sc">+</span></span>
 <span id="cb136-8"><a href="sampdistmean.html#cb136-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-57"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-57-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20)." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-49"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-49-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20)." width="384" />
 <p class="caption">
 Figure 9.1: Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20).
 </p>
@@ -748,8 +748,8 @@ Sample_mean
 <span id="cb140-5"><a href="sampdistmean.html#cb140-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Gene length (nucleotides)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb140-6"><a href="sampdistmean.html#cb140-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Number of genes&quot;</span>) <span class="sc">+</span></span>
 <span id="cb140-7"><a href="sampdistmean.html#cb140-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-59"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-59-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50)." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-51"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-51-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50)." width="384" />
 <p class="caption">
 Figure 9.2: Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50).
 </p>
@@ -774,8 +774,8 @@ We can merge two tibbles (or data frames) together by rows using the <code>bind_
 <span id="cb142-7"><a href="sampdistmean.html#cb142-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb142-8"><a href="sampdistmean.html#cb142-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>) <span class="sc">+</span></span>
 <span id="cb142-9"><a href="sampdistmean.html#cb142-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">&quot;Sample size&quot;</span>))</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-60"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-60-1.png" alt="Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution)." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-52"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-52-1.png" alt="Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution)." width="384" />
 <p class="caption">
 Figure 9.3: Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution).
 </p>

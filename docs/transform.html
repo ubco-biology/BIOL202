@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-10-03" />
+<meta name="date" content="2022-10-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -264,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.2" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#violinplot"><i class="fa fa-check"></i><b>8.4.2</b> Create a violin plot</a></li>
 <li class="chapter" data-level="8.4.3" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#boxplots"><i class="fa fa-check"></i><b>8.4.3</b> Creating a boxplot</a></li>
 <li class="chapter" data-level="8.4.4" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#bestplot"><i class="fa fa-check"></i><b>8.4.4</b> Combining violin and boxplots</a></li>
-<li class="chapter" data-level="8.4.5" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#interp_violin"><i class="fa fa-check"></i><b>8.4.5</b> Interpreting stripcharts and boxplots</a></li>
+<li class="chapter" data-level="8.4.5" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#interp_violin"><i class="fa fa-check"></i><b>8.4.5</b> Interpreting stripcharts, violin plots and boxplots</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>Inferential Statistics</b></span></li>
@@ -498,8 +498,8 @@ Contrary to what is suggested in the text, it is better to use the “logit” t
 <span id="cb352-5"><a href="transform.html#cb352-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Biomass ratio&quot;</span>) <span class="sc">+</span></span>
 <span id="cb352-6"><a href="transform.html#cb352-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb352-7"><a href="transform.html#cb352-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-107"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-107-1.png" alt="The frequency distribution of the 'biomass ratio' of 32 marine reserves." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-99"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-99-1.png" alt="The frequency distribution of the 'biomass ratio' of 32 marine reserves." width="384" />
 <p class="caption">
 Figure 15.4: The frequency distribution of the ‘biomass ratio’ of 32 marine reserves.
 </p>
@@ -538,8 +538,8 @@ If your variable includes zeros, then you’ll need to take extra steps, as desc
 <span id="cb357-5"><a href="transform.html#cb357-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Biomass ratio (log-transformed)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb357-6"><a href="transform.html#cb357-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb357-7"><a href="transform.html#cb357-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-108"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-108-1.png" alt="The frequency distribution of the 'biomass ratio' of 32 marine reserves (log-transformed)." width="480" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-100"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-100-1.png" alt="The frequency distribution of the 'biomass ratio' of 32 marine reserves (log-transformed)." width="480" />
 <p class="caption">
 Figure 15.5: The frequency distribution of the ‘biomass ratio’ of 32 marine reserves (log-transformed).
 </p>
@@ -552,8 +552,8 @@ Figure 15.5: The frequency distribution of the ‘biomass ratio’ of 32 marine 
 <span id="cb358-5"><a href="transform.html#cb358-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass ratio (log)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb358-6"><a href="transform.html#cb358-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
 <span id="cb358-7"><a href="transform.html#cb358-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-109"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-109-1.png" alt="Figure: Normal quantile plot of the 'biomass ratio' of 32 marine reserves (log-transformed)." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-101"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-101-1.png" alt="Figure: Normal quantile plot of the 'biomass ratio' of 32 marine reserves (log-transformed)." width="384" />
 <p class="caption">
 Figure 15.6: Figure: Normal quantile plot of the ‘biomass ratio’ of 32 marine reserves (log-transformed).
 </p>
@@ -606,16 +606,16 @@ Figure 15.6: Figure: Normal quantile plot of the ‘biomass ratio’ of 32 marin
 ## 13   1.500
 ## 14   3.397</code></pre>
 <p>Here’s a quantile plot of the biomass variable:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-111"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-111-1.png" alt="Normal quantile plot of made-up biomass data." width="480" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-103"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-103-1.png" alt="Normal quantile plot of made-up biomass data." width="480" />
 <p class="caption">
 Figure 15.7: Normal quantile plot of made-up biomass data.
 </p>
 </div>
 <p>Let’s first see what happens when we try to log-transform the “biomass” variable:</p>
 <div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="transform.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(apples<span class="sc">$</span>biomass)</span></code></pre></div>
-<pre><code>##  [1] 0.45056428 0.80433995 0.88697947       -Inf 0.95272789 0.55653572 0.35059322 2.19753971 2.15833805 2.26733776 2.30674058 0.02011719
-## [13] 0.40525957 1.22291473</code></pre>
+<pre><code>##  [1] 0.45056428 0.80433995 0.88697947       -Inf 0.95272789 0.55653572 0.35059322 2.19753971 2.15833805 2.26733776 2.30674058 0.02011719 0.40525957
+## [14] 1.22291473</code></pre>
 <p>Notice we get a “-Inf” value.</p>
 <p>The following code tallies the number of observations in the “biomass” variable that equal zero.</p>
 <p><strong>If this sum is greater than zero</strong>, then you’ll need to add a constant to all observations when transforming.</p>
@@ -646,8 +646,8 @@ Figure 15.7: Normal quantile plot of made-up biomass data.
 ## 13   1.500           0.9162
 ## 14   3.397           1.481</code></pre>
 <p>Notice that we still have a zero in the newly created variable, <strong>AFTER</strong> having transformed, because for that value we calculated the log of “1” (which equals zero). That’s OK!</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-116"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-116-1.png" alt="Normal quantile plot of made-up biomass data, log-transformed." width="480" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-108"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-108-1.png" alt="Normal quantile plot of made-up biomass data, log-transformed." width="480" />
 <p class="caption">
 Figure 15.8: Normal quantile plot of made-up biomass data, log-transformed.
 </p>
@@ -711,8 +711,8 @@ Figure 15.8: Normal quantile plot of made-up biomass data, log-transformed.
 <p>Notice the minus 1 comes after the <code>exp</code> function is executed.</p>
 <p>If you had used the log base 10 transformation, then the code to back-transform is as follows:</p>
 <div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="transform.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span>(marine<span class="sc">$</span>log10biomass)</span></code></pre></div>
-<pre><code>##  [1] 1.34 1.96 2.49 1.27 1.19 1.15 1.29 1.05 1.10 1.21 1.31 1.26 1.38 1.49 1.84 1.84 3.06 2.65 4.25 3.35 2.55 1.72 1.52 1.49 1.67 1.78 1.71 1.88
-## [29] 0.83 1.16 1.31 1.40</code></pre>
+<pre><code>##  [1] 1.34 1.96 2.49 1.27 1.19 1.15 1.29 1.05 1.10 1.21 1.31 1.26 1.38 1.49 1.84 1.84 3.06 2.65 4.25 3.35 2.55 1.72 1.52 1.49 1.67 1.78 1.71 1.88 0.83
+## [30] 1.16 1.31 1.40</code></pre>
 <p>The <code>^</code> symbol stands for “exponent”. So here we’re calculating 10 to the exponent <em>x</em>, where <em>x</em> is each value in the dataset.</p>
 </div>
 <div id="logit_transform" class="section level3 hasAnchor" number="15.4.5">
@@ -732,8 +732,8 @@ Figure 15.8: Normal quantile plot of made-up biomass data, log-transformed.
 <span id="cb382-5"><a href="transform.html#cb382-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion of seeds fertilized&quot;</span>) <span class="sc">+</span></span>
 <span id="cb382-6"><a href="transform.html#cb382-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
 <span id="cb382-7"><a href="transform.html#cb382-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-117"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-117-1.png" alt="Normal quantile plot of the proportion of seeds fertilized on 30 plants (left) and the corresponding normal quantile plot (right)" width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-109"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-109-1.png" alt="Normal quantile plot of the proportion of seeds fertilized on 30 plants (left) and the corresponding normal quantile plot (right)" width="384" />
 <p class="caption">
 Figure 15.9: Normal quantile plot of the proportion of seeds fertilized on 30 plants (left) and the corresponding normal quantile plot (right)
 </p>
@@ -753,8 +753,8 @@ Figure 15.9: Normal quantile plot of the proportion of seeds fertilized on 30 pl
 <span id="cb385-5"><a href="transform.html#cb385-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion of seeds fertilized (logit-transformed&quot;</span>) <span class="sc">+</span></span>
 <span id="cb385-6"><a href="transform.html#cb385-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
 <span id="cb385-7"><a href="transform.html#cb385-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-118"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-118-1.png" alt="Normal quantile plot of the proportion of seeds fertilized (logit transformed) on 30 plants" width="480" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-110"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-110-1.png" alt="Normal quantile plot of the proportion of seeds fertilized (logit transformed) on 30 plants" width="480" />
 <p class="caption">
 Figure 15.10: Normal quantile plot of the proportion of seeds fertilized (logit transformed) on 30 plants
 </p>
