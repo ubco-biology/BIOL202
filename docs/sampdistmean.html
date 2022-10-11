@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-10-04" />
+<meta name="date" content="2022-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -514,7 +514,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 9,990 more rows</code></pre>
 <p>We see that it is a tibble with 10000 rows and three columns: a variable called “replicate”, which holds the numbers one through the number of replicates run (here, 10000), a variable “mean_length” that we created, which holds the sample mean gene length for each of the replicate samples we took, and a variable “sampsize” that tells us the sample size used for each sample (here, 20).</p>
 <div class="note">
-<p><strong>Pause</strong>
+<p><strong>Pause:</strong>
 If we were to plot a histogram of these 10000 sample means, what shape do you think it would have? And what value do you think it would be centred on?</p>
 </div>
 <div id="hist_samdist" class="section level3 hasAnchor" number="9.4.1">
@@ -764,7 +764,9 @@ We can merge two tibbles (or data frames) together by rows using the <code>bind_
 <p>The <code>bind_rows</code> function will simply append one object to another by rows. This requires that the two (or more) objects each have the same variables. In our case, the two objects have the same three variables.</p>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="sampdistmean.html#cb141-1" aria-hidden="true" tabindex="-1"></a>gene.means.combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(gene.means.n20, gene.means.n50)</span></code></pre></div>
 <p>Now we have what we need to produce a graph that enables direct comparison of the two sampling distributions.</p>
-<p><strong>NOTE</strong> This type of graph is not something you’ll need to be able to do for assignments!</p>
+<div class="note">
+<p>This type of graph is not something you’ll need to be able to do for assignments!</p>
+</div>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="sampdistmean.html#cb142-1" aria-hidden="true" tabindex="-1"></a>gene.means.combined <span class="sc">%&gt;%</span></span>
 <span id="cb142-2"><a href="sampdistmean.html#cb142-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_length, <span class="at">fill =</span> <span class="fu">as.factor</span>(sampsize))) <span class="sc">+</span></span>
 <span id="cb142-3"><a href="sampdistmean.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">position =</span> <span class="st">&#39;identity&#39;</span>, <span class="at">colour =</span> <span class="st">&quot;darkgrey&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="dv">250</span>) <span class="sc">+</span></span>

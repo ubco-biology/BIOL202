@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-10-04" />
+<meta name="date" content="2022-10-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -492,8 +492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If instead we specified <code>replace = T</code>, as shown below, then we be conducting <em>sampling with replacement</em>, and sampled values are placed back in the pool each time, thus enabling the code to work (try it):</p>
 <pre><code>sample(1:6, size = 10, replace = T)</code></pre>
 <div class="note">
-<p><strong>NOTE - Updated Oct 20, 2021</strong>
-Whether we wish to <em>sample without replacement</em> or not depends on the question / context (see page 138 in Whitlock &amp; Schluter). For most of the questions and contexts we deal with in this course, we do wish to sample <strong>with</strong> replacement. Why? Because we are typically assuming (or mimicking a situation) that we’re randomly sampling from a very large population, in which case the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> distribution of possible values in the individuals that remain doesn’t change when we sample. This is not the case if we’re sampling from a small population.</p>
+<p>Whether we wish to <em>sample without replacement</em> or not depends on the question / context (see page 138 in Whitlock &amp; Schluter). For most of the questions and contexts we deal with in this course, we do wish to sample <strong>with</strong> replacement. Why? Because we are typically assuming (or mimicking a situation) that we’re randomly sampling from a very large population, in which case the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> distribution of possible values in the individuals that remain doesn’t change when we sample. This is not the case if we’re sampling from a small population.</p>
 </div>
 <div id="setseed" class="section level3 hasAnchor" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> Setting the “seed” for random sampling<a href="sampling_functions.html#setseed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -501,9 +500,8 @@ Whether we wish to <em>sample without replacement</em> or not depends on the que
 <p>However, we DO need to worry about <em>computational reproducibility</em>.</p>
 <p>Imagine we have authored a script for a research project, and the script makes use of functions such as <code>sample</code>. Now imagine that someone else wanted to re-run our analyses on their own computer. Any code chunks that included functions such as <code>sample</code> would produce different results for them, because the function takes a different random sample each time it’s run!</p>
 <p>Thankfully there’s a way to ensure that scripts implementing random sampling can be computationally reproducible: we can use the <code>set.seed</code> function.</p>
-<div class="note">
-<p><strong>NOTE</strong>
-This assumes you are using R version 4 or later (e.g. 4.1). The <code>set.seed</code> function used a different default algorithm in versions of R prior to version 4.0.</p>
+<div class="flag">
+<p>This assumes you are using R version 4 or later (e.g. 4.1). The <code>set.seed</code> function used a different default algorithm in versions of R prior to version 4.0.</p>
 </div>
 <p>Let’s provide the code chunk then explain after:</p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="sampling_functions.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span></code></pre></div>
@@ -520,8 +518,7 @@ This assumes you are using R version 4 or later (e.g. 4.1). The <code>set.seed<
 <pre><code>## [1] 0.4161184 0.6947637 0.1488006</code></pre>
 <p>So long as you used the same seed number, you should have gotten the same three random numbers as shown above.</p>
 <div class="note">
-<p><strong>IMPORTANT</strong>
-When you are authoring your own script or markdown document (e.g. for a research project), it is advisable to only set the seed once, at the beginning of your script or markdown document. When you run or knit your completed script/markdown, the seed will be set at the beginning, the code chunks will run in sequence, and each chunk that uses a random number generator will do so in a predictable way (based on the seed number). The script will be computationally reproducible. In contrast, when we’re trying out code (e.g. when working on tutorial material), we aren’t running a set sequence or number of code chunks, so we can’t rely on everyone getting the same output for a particular code chunk. For this reason you’ll see in the tutorial material that many of the code chunks that require use of a random number generator will include a <code>set.seed</code> statement, to ensure that everyone gets the same output from that specific code chunk (this isn’t always required, but often it is).</p>
+<p>When you are authoring your own script or markdown document (e.g. for a research project), it is advisable to only set the seed once, at the beginning of your script or markdown document. When you run or knit your completed script/markdown, the seed will be set at the beginning, the code chunks will run in sequence, and each chunk that uses a random number generator will do so in a predictable way (based on the seed number). The script will be computationally reproducible. In contrast, when we’re trying out code (e.g. when working on tutorial material), we aren’t running a set sequence or number of code chunks, so we can’t rely on everyone getting the same output for a particular code chunk. For this reason you’ll see in the tutorial material that many of the code chunks that require use of a random number generator will include a <code>set.seed</code> statement, to ensure that everyone gets the same output from that specific code chunk (this isn’t always required, but often it is).</p>
 </div>
 <ol style="list-style-type: decimal">
 <li>Generate 10 random numbers using the <code>runif</code> function, and first set the seed number to 200.</li>
