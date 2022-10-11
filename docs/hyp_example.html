@@ -621,8 +621,7 @@ Figure 10.1: Approximate null distribution for the damselfly study, with n = 20 
 <li>if we have a 2-tailed alternative hypothesis, then we also need to calculate the fraction of the 10^{5} values in our null distribution that are less than or equal to 3, which is the mirror number to 17 in the opposite side of the distribution.</li>
 </ul>
 <div class="note">
-<p><strong>NOTE</strong>
-Although our approximate null distribution that we created looks quite symmetrical, it’s best not to assume it is (because recall that we generated this via simulation). Therefore we don’t simply multiply the first value we calculate above by two. In future tutorials you’ll learn how to calculate <strong><em>P</em>-values</strong> using built-in R functions and theoretical probability distributions.</p>
+<p>Although our approximate null distribution that we created looks quite symmetrical, it’s best not to assume it is (because recall that we generated this via simulation). Therefore we don’t simply multiply the first value we calculate above by two. In future tutorials you’ll learn how to calculate <strong><em>P</em>-values</strong> using built-in R functions and theoretical probability distributions.</p>
 </div>
 <p>In the <a href="coding_basics.html#coding_basics">Introductory R Tutorials</a> you learned how to use <strong>logical comparison operators</strong> such as <code>&gt;</code> and <code>&lt;=</code>. We’ll use these here.</p>
 <p>Let’s find out how many values within the variable <code>n</code> in our <code>null_distribution</code> tibble are less than or equal to 3, or greater than or equal to 17:</p>

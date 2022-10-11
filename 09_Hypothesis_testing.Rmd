@@ -47,7 +47,6 @@ damselfly
 Below is a list of all the steps required when conducting a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Hypothesis-testing">hypothesis test</a>. 
 
 <div class="note">
-**NOTE**
 Several of the steps we will learn about in later tutorials.
 </div>
 
@@ -216,7 +215,6 @@ We can calculate a **_P_-value** as follows:
 * if we have a 2-tailed alternative hypothesis, then we also need to calculate the fraction of the `r num.reps` values in our null distribution that are less than or equal to 3, which is the mirror number to 17 in the opposite side of the distribution.
 
 <div class="note">
-**NOTE**
 Although our approximate null distribution that we created looks quite symmetrical, it's best not to assume it is (because recall that we generated this via simulation). Therefore we don't simply multiply the first value we calculate above by two.  In future tutorials you'll learn how to calculate **_P_-values** using built-in R functions and theoretical probability distributions.
 </div>
 
