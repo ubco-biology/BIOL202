@@ -90,7 +90,6 @@ sample(1:6, size = 10, replace = T)
 ```
 
 <div class="note">
-**NOTE - Updated Oct 20, 2021**
 Whether we wish to *sample without replacement* or not depends on the question / context (see page 138 in Whitlock & Schluter). For most of the questions and contexts we deal with in this course, we do wish to sample **with** replacement.  Why? Because we are typically assuming (or mimicking a situation) that we're randomly sampling from a very large population, in which case the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> distribution of possible values in the individuals that remain doesn't change when we sample. This is not the case if we're sampling from a small population.
 </div>
 
@@ -104,8 +103,7 @@ Imagine we have authored a script for a research project, and the script makes u
 
 Thankfully there's a way to ensure that scripts implementing random sampling can be computationally reproducible: we can use the `set.seed` function.
 
-<div class="note">
-**NOTE**
+<div class="flag">
 This assumes you are using R version 4 or later (e.g. 4.1). The `set.seed` function used a different default algorithm in versions of R prior to version 4.0.
 </div>
 
@@ -138,7 +136,6 @@ runif(3)
 So long as you used the same seed number, you should have gotten the same three random numbers as shown above.
 
 <div class="note">
-**IMPORTANT**
 When you are authoring your own script or markdown document (e.g. for a research project), it is advisable to only set the seed once, at the beginning of your script or markdown document. When you run or knit your completed script/markdown, the seed will be set at the beginning, the code chunks will run in sequence, and each chunk that uses a random number generator will do so in a predictable way (based on the seed number). The script will be computationally reproducible. In contrast, when we're trying out code (e.g. when working on tutorial material), we aren't running a set sequence or number of code chunks, so we can't rely on everyone getting the same output for a particular code chunk.  For this reason you'll see in the tutorial material that many of the code chunks that require use of a random number generator will include a `set.seed` statement, to ensure that everyone gets the same output from that specific code chunk (this isn't always required, but often it is). 
 </div>
 
@@ -181,7 +178,6 @@ randsamp1.mean.sd <- randsamp1 %>%
 Now present the output using the `kable` function so we can control the maximum number of digits shown. 
 
 <div class="note">
-**TIP**
 Using the `kable` approach to presenting tibble outputs ensures that, when knitted, your output shows a sufficient number of decimal places... something that doesn't always happen without using the `kable` function. 
 </div>
 
@@ -255,7 +251,7 @@ gene.means.n20
 We see that it is a tibble with 10000 rows and three columns: a variable called "replicate", which holds the numbers one through the number of replicates run (here, 10000), a variable "mean_length" that we created, which holds the sample mean gene length for each of the replicate samples we took, and a variable "sampsize" that tells us the sample size used for each sample (here, 20).
 
 <div class="note">
-**Pause**
+**Pause:**
 If we were to plot a histogram of these 10000 sample means, what shape do you think it would have? And what value do you think it would be centred on?
 </div>
 
@@ -372,7 +368,9 @@ gene.means.combined <- bind_rows(gene.means.n20, gene.means.n50)
 
 Now we have what we need to produce a graph that enables direct comparison of the two sampling distributions.
 
-**NOTE** This type of graph is not something you'll need to be able to do for assignments!
+<div class="note">
+This type of graph is not something you'll need to be able to do for assignments!
+</div>
 
 ```{r warning = FALSE, message = FALSE, fig.cap = "Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution).", fig.width = 4, fig.height = 4}
 
@@ -494,12 +492,13 @@ Let's look at the output:
 kable(newsamp.n20.allstats, digits = 4)
 ```
 
-<div class="note">
-**IMPORTANT:**  
-If you were asked to report the rule-of-thumb 95% confidence **interval**, then you'd use the output from your calculations above to report:  
+<div class="flag">
+If you are asked to report the rule-of-thumb 95% confidence **interval**, then you'd use the output from your calculations above to report:  
 **`r round(newsamp.n20.allstats$Lower_95_CL, 3)` < $\mu$ < `r round(newsamp.n20.allstats$Upper_95_CL, 3)`**  
 Note that it is the population parameter being estimated, $\mu$, that appears in between the lower and upper limits.
 </div>
+
+To produce greek letters such as "mu", simply precede the "mu" with a backslash, then enclose the entire term with dollar signs, as shown at this [webpage](http://www.evanlray.com/stat242_f2019/resources/R/MathinRmd.html).  
 
 __NOTE__: In a later tutorial you'll learn how to calculate actual confidence intervals, rather than "rule of thumb" confidence intervals
 
