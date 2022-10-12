@@ -118,9 +118,9 @@ Let's have a look at the result:
 cancer.aspirin.table
 ```
 
-**NOTE**: When dealing with data from studies on human health (e.g. evaluating healthy versus sick subjects), it is convention to organize the contingency table as shown above, with (i) the outcome of interest (here, cancer) in the top row and the alternative outcome on the bottom row, and (ii) the treatment in the first column and placebo (control group) in the second column.  
-
-When the data are not related to health outcomes, you do not need to worry about the ordering of the rows of data.  
+<div class="note">
+When dealing with data from studies on human health (e.g. evaluating healthy versus sick subjects), it is convention to organize the contingency table as shown above, with (i) the outcome of interest (here, cancer) in the top row and the alternative outcome on the bottom row, and (ii) the treatment in the first column and placebo (control group) in the second column. When the data are not related to health outcomes, you do not need to worry about the ordering of the rows of data.  
+</div>
 
 Let's use the `kable` function to display a nice looking contingency table:
 
@@ -159,8 +159,7 @@ It is best practice to display the response variable as the "fill" variable in a
 
 To do the Fisher's exact test on the cancer data, it is straightforward, using the `fisher.test` function from the `janitor` package.
 
-<div class="note">
-**NOTE**
+<div class="flag">
 There is also `fisher.test` function in the base R `stats` package, but it does not conform to `tidyverse` expectations. Hence our use of the `fisher.test` function from the `janitor` package.  When there are multiple packages that use the same name for a function, we can specify the version we want by prefacing the function with the package name and two colons, like this: "janitor::fisher.test()"
 </div>
 

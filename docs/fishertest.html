@@ -518,8 +518,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##     Cancer    1438    1427  2865
 ##  No cancer   18496   18515 37011
 ##      Total   19934   19942 39876</code></pre>
-<p><strong>NOTE</strong>: When dealing with data from studies on human health (e.g. evaluating healthy versus sick subjects), it is convention to organize the contingency table as shown above, with (i) the outcome of interest (here, cancer) in the top row and the alternative outcome on the bottom row, and (ii) the treatment in the first column and placebo (control group) in the second column.</p>
-<p>When the data are not related to health outcomes, you do not need to worry about the ordering of the rows of data.</p>
+<div class="note">
+<p>When dealing with data from studies on human health (e.g. evaluating healthy versus sick subjects), it is convention to organize the contingency table as shown above, with (i) the outcome of interest (here, cancer) in the top row and the alternative outcome on the bottom row, and (ii) the treatment in the first column and placebo (control group) in the second column. When the data are not related to health outcomes, you do not need to worry about the ordering of the rows of data.</p>
+</div>
 <p>Let’s use the <code>kable</code> function to display a nice looking contingency table:</p>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="fishertest.html#cb236-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table <span class="sc">%&gt;%</span></span>
 <span id="cb236-2"><a href="fishertest.html#cb236-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Contingency table showing the incidence of cancer in relation to experimental treatments&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
@@ -616,9 +617,8 @@ It is best practice to display the response variable as the “fill” variable 
 <div id="do_fisher" class="section level3 hasAnchor" number="12.2.4">
 <h3><span class="header-section-number">12.2.4</span> Conduct the Fisher’s Exact Test<a href="fishertest.html#do_fisher" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To do the Fisher’s exact test on the cancer data, it is straightforward, using the <code>fisher.test</code> function from the <code>janitor</code> package.</p>
-<div class="note">
-<p><strong>NOTE</strong>
-There is also <code>fisher.test</code> function in the base R <code>stats</code> package, but it does not conform to <code>tidyverse</code> expectations. Hence our use of the <code>fisher.test</code> function from the <code>janitor</code> package. When there are multiple packages that use the same name for a function, we can specify the version we want by prefacing the function with the package name and two colons, like this: “janitor::fisher.test()”</p>
+<div class="flag">
+<p>There is also <code>fisher.test</code> function in the base R <code>stats</code> package, but it does not conform to <code>tidyverse</code> expectations. Hence our use of the <code>fisher.test</code> function from the <code>janitor</code> package. When there are multiple packages that use the same name for a function, we can specify the version we want by prefacing the function with the package name and two colons, like this: “janitor::fisher.test()”</p>
 </div>
 <p>See the help file for the <code>janitor</code> version of the <code>fisher.test</code> function:</p>
 <pre><code>?janitor::fisher.test</code></pre>
