@@ -12,11 +12,8 @@ options(knitr.table.format = "html")
 * Learn about the binomial distribution and the `dbinom` function
 * Learn how to test hypotheses about a proportion using the **binomial test**
 * Learn an example of the confidence interval approach to hypothesis testing
+* Learn how to conduct a **$\chi$^2^ goodness of fit test** using a proportional model
 
-<div class="note">
-**NOTE**
-In 2021 we will not be covering <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Chi-square-($\chi$^2^)-goodness-of-fit-test">"$\chi$^2^ Goodness of Fit tests", which are also tests that apply when analyzing a single categorical variable. For an older tutorial on this, see this [webpage](https://people.ok.ubc.ca/jpither/modules/Goodness_of_fit_tests.html#assumptions_of_the_(chi)2_gof_test) (thought it may soon be inactive). 
-</div>
 
 ## Load packages and import data {#singcat_packages_data}
 
@@ -136,7 +133,6 @@ birds.sampsize
 ```
 
 <div class="note">
-**NOTE**
 In previous tutorials we used a bit more cumbersome way to calculate the total number of complete observations in a variable. The `n_complete` function will simplify things. 
 </div>
 
@@ -162,7 +158,7 @@ pred.phat
 
 So this produced a tibble called "pred.phat" with a variable "p_hat", and it has one value - our proportion estimate $\hat{p}$. 
 
-**NOTE**: We could have calculated and isolated the "P-hat" value for predatory birds all in one go, using the following code: 
+**TIP**: We could have calculated and isolated the "P-hat" value for predatory birds all in one go, using the following code: 
 
 ```{r}
 pred.phat <- birds %>%
@@ -296,7 +292,7 @@ The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#A
 
 Here's the formula:
 
-```{r fig.width = 3, fig.height = 2, echo = FALSE}
+```{r fig.width = 2, fig.height = 1, echo = FALSE}
 knitr::include_graphics("./more/binomial_equation.png")
 ```
 
@@ -351,8 +347,6 @@ ggplot(exact.probs.6, aes(y = probs, x = X)) +
   ylab("Pr[X]") +
   theme_bw()
 ```
-
-**Added October 17, 2021**
 
 What if we wished to calculate the probability of getting *at least* two fours in our 6 rolls of the dice?
 
@@ -462,8 +456,7 @@ binom.test.results
 
 The output from the binomial test includes the number of successes, the number of trials, and the calculated _P_-value.  It also includes a 95% confidence interval for the proportion.
 
-<div class="note">
-**IMPORTANT**
+<div class="flag">
 The confidence interval provided by this `binom.test` function is _not_ recommended.  Rather, you should **ALWAYS** use the Agresti-Coull method to calculate a confidence interval for a proportion, as shown in the previous [tutorial](#confint_prop). 
 </div>
 
@@ -483,7 +476,7 @@ Now we have all the ingredients for a proper concluding statement.
 
 This is an example of an appropriate concluding statement for a binomial test:
 
-> Counter-clockwise battles occurred with significantly greater frequency than expected (17 of 20 battles; observed proportion of counter-clockwise battles = `r round(binom.test.results$estimate, 3)`; Binomial test; _P_-value = `r round(binom.test.results$p.val, 3)`; Agresti-Coull 95% confidence interval: `r round(damsel.confint.results$lower,3)` $< {p} <$ `r round(damsel.confint.results$upper,3)`.  
+> Counter-clockwise battles occurred with significantly greater frequency than expected (17 of 20 battles; observed proportion of counter-clockwise battles = `r round(binom.test.results$estimate, 3)`; Binomial test; _P_-value = `r round(binom.test.results$p.val, 3)`; Agresti-Coull 95% confidence interval: `r round(damsel.confint.results$lower,3)` $< {p} <$ `r round(damsel.confint.results$upper,3)`).  
 
 ## Confidence interval approach to hypothesis testing {#prophypconf}
 
@@ -501,11 +494,13 @@ In this case, the appropriate concluding statement would be:
 
 ## Goodness-of-fit tests {#GOF_test}
 
-**This tutorial will be completed in 2022**
+**This tutorial is under construction, and will not be covered in 2022**
 
-We are still learning how to test hypotheses about categorical data.
+In this tutorial, we continue to learn how to test hypotheses about a categorical variable.
 
-We previously learned how to test a hypothesis about frequencies or proportions when there are only two categories of interest, i.e. success and failure (a binary variable). We used a binomial test for this purpose. Importantly, one can start with a categorical variable with more than two categories (e.g. hair colour), but if we define one particular category (e.g. red hair) as a “success”, and the remaining categories as failures, then we have simplified our variable to a binary categorical variable.
+We previously learned how to test a hypothesis about frequencies or proportions when the variable has only two categories of interest, i.e. success and failure (a binary variable). We used a binomial test for this purpose. It is important to note, however, that even in cases where the variable has more than two categories (e.g. hair colour: brown, black, blonde, red), one can define a particular category (e.g. red hair) as a “success”, and the remaining categories as failures, in which case we have simplified our variable to a binary categorical variable.
 
-For testing hypotheses about frequencies or proportions when there are more than two categories, we use goodness of fit (GOF) tests. We test how well an observed discrete frequency (or probability) distribution fits some specified expectation.
+For testing hypotheses about frequencies or proportions when there are more than two categories, we use goodness of fit (GOF) tests. In general, these types of test evaluate how well an observed discrete frequency (or probability) distribution fits some hypothesized frequency distribution.  We'll demonstrate this next.
+
+
 
