@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-10-12" />
+<meta name="date" content="2022-10-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -511,16 +511,14 @@ You can add a degree symbol using this syntax in markdown: <code>$^\circ$</code>
 </ul>
 <p>Consult the <a href="https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html">“checking assumptions” tutorial</a> for how to formally check the second assumption. For now we’ll assume both assumptions are met.</p>
 <div class="note">
-<p><strong>NOTE added November 12, 2021: </strong>
-If the normal distribution assumption is not met, and no <a href="https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html">data transformation</a> helps, then one can conduct a “non-parametric” test in lieu of the one-sample <em>t</em>-test, including a “Sign test” or a “Wilcoxon signed-rank test”. A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock &amp; Schluter text, and this <a href="https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page">website</a> for some R examples.</p>
+<p>If the normal distribution assumption is not met, and no <a href="https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html">data transformation</a> helps, then one can conduct a “non-parametric” test in lieu of the one-sample <em>t</em>-test, including a “Sign test” or a “Wilcoxon signed-rank test”. A tutorial on non-parametric tests is under development, but will not be deployed until 2023. Consult chapter 13 in the Whitlock &amp; Schluter text, and this <a href="https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page">website</a> for some R examples.</p>
 </div>
 </div>
 <div id="onesamp_graph" class="section level3 hasAnchor" number="13.2.3">
 <h3><span class="header-section-number">13.2.3</span> A graph to accompany a one-sample <em>t</em>-test<a href="onesamp_t_test.html#onesamp_graph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s create a histogram of the body temperatures, because this is the most appropriate way to visualize the frequency distribution of a single numeric variable.</p>
 <div class="note">
-<p><strong>NOTE </strong>
-Histograms may look a little wonky if you have small sample sizes. This is OK!</p>
+<p>Histograms may look a little wonky if you have small sample sizes. This is OK!</p>
 </div>
 <p>If you forget how to create a histogram, consult the previous tutorial on <a href="vis_histogram.html#vis_histogram">visualizing a single numeric variable</a>.</p>
 <p>Here we’ll learn a few more tricks for producing a high-quality histogram.</p>
@@ -541,8 +539,7 @@ Figure 13.1: Frequency distribution of body temperature (degrees Farenheit) for 
 </p>
 </div>
 <div class="note">
-<p><strong>TIP </strong>
-Notice the new argument to the <code>geom_histogram</code> function: “boundary”. Why include this? The minimum value in our dataset is 97.4. Based on our overview of the data, we decided to use a “binwidth” of 0.5. Therefore, it made most sense to have our bins (bars) start at 97, the first whole number preceding our minimum value, then have breaks every 0.5 units thereafter. Constructing the histogram this way makes it easier to interpret.</p>
+<p>Notice the new argument to the <code>geom_histogram</code> function: “boundary”. Why include this? The minimum value in our dataset is 97.4. Based on our overview of the data, we decided to use a “binwidth” of 0.5. Therefore, it made most sense to have our bins (bars) start at 97, the first whole number preceding our minimum value, then have breaks every 0.5 units thereafter. Constructing the histogram this way makes it easier to interpret.</p>
 </div>
 <p>Recall that it can take a few times playing with different values of “binwidth” to make the histogram have the right number of bins.</p>
 <p><strong>Interpreting the histogram</strong>:</p>

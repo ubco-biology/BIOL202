@@ -79,8 +79,7 @@ The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#A
 Consult the ["checking assumptions" tutorial](https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html) for how to formally check the second assumption. For now we'll assume both assumptions are met.  
 
 <div class="note">
-**NOTE added November 12, 2021: **
-If the normal distribution assumption is not met, and no [data transformation](https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html) helps, then one can conduct a "non-parametric" test in lieu of the one-sample *t*-test, including a "Sign test" or a "Wilcoxon signed-rank test".  A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock & Schluter text, and this [website](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page) for some R examples. 
+If the normal distribution assumption is not met, and no [data transformation](https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html) helps, then one can conduct a "non-parametric" test in lieu of the one-sample *t*-test, including a "Sign test" or a "Wilcoxon signed-rank test".  A tutorial on non-parametric tests is under development, but will not be deployed until 2023. Consult chapter 13 in the Whitlock & Schluter text, and this [website](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page) for some R examples. 
 </div>
 
 ### A graph to accompany a one-sample *t*-test {#onesamp_graph}
@@ -88,7 +87,6 @@ If the normal distribution assumption is not met, and no [data transformation](h
 Let's create a histogram of the body temperatures, because this is the most appropriate way to visualize the frequency distribution of a single numeric variable.  
 
 <div class="note">
-**NOTE **
 Histograms may look a little wonky if you have small sample sizes. This is OK!
 </div>
 
@@ -114,7 +112,6 @@ bodytemp %>%
 ```
 
 <div class="note">
-**TIP **
 Notice the new argument to the `geom_histogram` function: "boundary". Why include this? The minimum value in our dataset is 97.4. Based on our overview of the data, we decided to use a "binwidth" of 0.5. Therefore, it made most sense to have our bins (bars) start at 97, the first whole number preceding our minimum value, then have breaks every 0.5 units thereafter. Constructing the histogram this way makes it easier to interpret.  
 </div>
 
@@ -191,7 +188,6 @@ There are two typical uses of confidence intervals:
 We'll explore the latter use of confidence intervals later in this tutorial. For now, let's demonstrate the first use of confidence intervals: as a measure of precision for an estimate.
 
 <div class="note">
-**NOTE: **
 A straightforward way to calculate the confidence interval for the mean of a numeric variable is using the `t.test` function. For an example, see this [tutorial section](#stats_2samp). 
 </div>
 
@@ -257,12 +253,6 @@ ggplot(data.frame(x = c(-4, 4)), aes(x)) +
 ```
 
 Here's the code to calculate the critical value of *t*, and recall that we've defined `alpha` and `d_f` above:
-
-<div class="note">
-**NOTE: Updated Nov. 13, 2021**
-
-Added "p = " to the first argument in the `qt` function below.
-</div>
 
 ```{r tcrit1}
 tcrit <- qt(p = alpha/2, df = d_f, lower.tail = FALSE)
