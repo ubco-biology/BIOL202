@@ -167,20 +167,6 @@ We'll make use of the `shapiro.test` function from base R stats package:
 shapiro.test
 ```
 
-<div class="note">
-**Important: **
-In a previous version of this tutorial we used the "dlookr" package and its `normality` function to test for normality, as follows
-</div>
-
-```
-marine %>%
-  normality(biomassRatio)
-```
-
-We will no longer use that code, but it can legitimately be used for those who can succesfully load the "dlookr" package.
-
-Instead, use the following approach!
-
 Let's use this on the `biomassRatio` variable in the "marine" dataset. We'll assign the output to an object called "shapiro.result", then we'll have a look at the results.
 
 <div class="note">

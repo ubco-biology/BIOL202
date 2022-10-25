@@ -16,11 +16,6 @@ options(knitr.table.format = "html")
 
 ## Load packages and import data {#twomean_packages_data}
 
-<div class="note">
-**UPDATED November 21, 2021: **
-We have removed all reliance on the `dlookr` package, which was causing problems on some systems.  The `normality` function from this package was originally used for conducting the Shapiro-Wilk test for normality.  We now provide a different way to do this.  
-</div>
-
 Load the `tidyverse`, `knitr`, `naniar`, `car`, `skimr`, and `janitor` packages: 
 
 ```{r singlenum_packages2, warning = FALSE, message = FALSE}
@@ -89,7 +84,6 @@ We'll use, for the first time, the `pivot_wider` function from the `dplyr` packa
 The `pivot_wider` function essentially takes data stored in long format and converts it to wide format.
 
 <div class="note">
-**UPDATED November 15, 2021: **
 The following code requires that there be at least one variable in the tibble that provides a unique identifier for each individual. In the "blackbird" tibble, this variable is "blackbird".  I have added an argument "id_cols = blackbird" to the code below to underscore the need for this type of identifier variable.  The code will not work if such a variable does not exist in the tibble.
 </div>
 
@@ -255,7 +249,6 @@ blackbird.ttest
 The observed *P*-value for our test is larger than our $\alpha$ level of 0.05.  We therefore fail to reject the null hypothesis. 
 
 <div class="note">
-**NOTE (Added Nov. 16, 2021):**
 The values of *t* and of the lower and upper confidence limits may be reversed in sign, if you conducted your calculation of differences in the alternative way.  Specifically, you may get *t* = `r -1*(blackbird.ttest$statistic)`, and confidence limits of `r -1*(blackbird.ttest$conf.int[2])` and `r -1*(blackbird.ttest$conf.int[1])`.  This is totally fine!
 </div>
 
@@ -288,7 +281,6 @@ blackbird.paired.ttest
 The output is identical to what we got when we applied a 1-sample *t*-test on the differences!
 
 <div class="note">
-**NOTE (Added Nov. 16, 2021):**
 The values of *t* and of the lower and upper confidence limits may be reversed in sign, if you conducted your calculation of differences in the alternative way.  Specifically, you may get *t* = `r -1*(blackbird.ttest$statistic)`, and confidence limits of `r -1*(blackbird.ttest$conf.int[2])` and `r -1*(blackbird.ttest$conf.int[1])`.  This is totally fine!
 </div>
 
