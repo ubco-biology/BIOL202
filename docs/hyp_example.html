@@ -522,6 +522,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We’ll set <span class="math inline">\(\alpha = 0.05\)</span>.</p>
 <p>Although our <span class="math inline">\(H_0\)</span> makes a specific statement about a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a> (<span class="math inline">\(p_0\)</span>), our <em>test statistic</em> will actually be the <strong>number of battles that occurred in a counter-clockwise direction</strong>. Of course, we can re-express this number as a proportion, but convention is that we use the number (frequency) instead.</p>
 <p>As indicated by the <strong>H<sub>A</sub></strong> statement, we’ll use a 2-tailed <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a> because we have no reason to exclude the possibility that clockwise battles are in fact more predominant.</p>
+<div class="note">
+<p><strong>TIP</strong>:
+The symbol for “not equal” can be done using this syntax: <code>$\ne$</code>. Simply type that as part of your regular markdown text. In the alternative hypothesis statement above, we used <code>$p_0 \ne 0.5$</code> to create the <span class="math inline">\(p_0 \ne 0.5\)</span>.</p>
+</div>
 </div>
 <div id="sim_null" class="section level3 hasAnchor" number="10.3.2">
 <h3><span class="header-section-number">10.3.2</span> Simulating a “null distribution”<a href="hyp_example.html#sim_null" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -603,8 +607,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb166-5"><a href="hyp_example.html#cb166-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of counter-clockwise battles&quot;</span>) <span class="sc">+</span></span>
 <span id="cb166-6"><a href="hyp_example.html#cb166-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb166-7"><a href="hyp_example.html#cb166-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-59"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-59-1.png" alt="Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions." width="480" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-56"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-56-1.png" alt="Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions." width="480" />
 <p class="caption">
 Figure 10.1: Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions.
 </p>

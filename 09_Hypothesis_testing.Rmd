@@ -110,6 +110,11 @@ Although our $H_0$ makes a specific statement about a <a href="https://ubco-biol
 
 As indicated by the **H~A~** statement, we'll use a 2-tailed <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a> because we have no reason to exclude the possibility that clockwise battles are in fact more predominant.  
 
+<div class="note">
+**TIP**: 
+The symbol for "not equal" can be done using this syntax: `$\ne$`.  Simply type that as part of your regular markdown text.  In the alternative hypothesis statement above, we used `$p_0 \ne 0.5$` to create the $p_0 \ne 0.5$.  
+</div>
+
 ### Simulating a "null distribution" {#sim_null}
 
 For our damselfly example, we can easily simulate the random trials (20 territorial flight battles, each yielding one of 2 outcomes) by using what we learned in the previous [tutorial](#estimation) about simulations in R.
