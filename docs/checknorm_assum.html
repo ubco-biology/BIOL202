@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-10-21" />
+<meta name="date" content="2022-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -489,8 +489,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ?stat_qq_line</code></pre>
 <p>For details about what Normal Quantile Plots are, and how they’re constructed, consult this informative <a href="https://data.library.virginia.edu/understanding-q-q-plots/">link</a>.</p>
 <div class="note">
-<p><strong>NOTE: </strong>
-If the frequency distribution were normally distributed, points would fall close to the straight line in the normal quantile plot.</p>
+<p>If the frequency distribution were normally distributed, points would fall close to the straight line in the normal quantile plot.</p>
 </div>
 <p>Check out this example showing simulated data drawn from a normal distribution:</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-96"></span>
@@ -546,8 +545,7 @@ Egregious deviations from the normality assumption will be clearly evident in no
 <p>Although graphical assessments are usually sufficient for checking the normality assumption, one can conduct a formal statistical test of the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null hypothesis</a> that the data are sampled from a population having a normal distribution. The test is called the <strong>Shapiro-Wilk test</strong>.</p>
 <p>The Shapiro-Wilk test is a type of goodness-of-fit test.</p>
 <div class="note">
-<p><strong>NOTE: </strong>
-Sometimes the <strong>Shapiro-Wilk test</strong> is applied in a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Hypothesis-testing">hypothesis testing</a> framework, but when it is applied as part of checking assumptions for another statistical test (like we’re doing here), one does not need to present it in a hypothesis test framework. However, the implied null hypothesis is that “The data are sampled from a population having a normal distribution”, and one does interpret the resulting <em>P</em>-value in the same way as usual, i.e. in relation to an <span class="math inline">\(\alpha\)</span> level (see below).</p>
+<p>Sometimes the <strong>Shapiro-Wilk test</strong> is applied in a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Hypothesis-testing">hypothesis testing</a> framework, but when it is applied as part of checking assumptions for another statistical test (like we’re doing here), one does not need to present it in a hypothesis test framework. However, the implied null hypothesis is that “The data are sampled from a population having a normal distribution”, and one does interpret the resulting <em>P</em>-value in the same way as usual, i.e. in relation to an <span class="math inline">\(\alpha\)</span> level (see below).</p>
 </div>
 <p>We’ll make use of the <code>shapiro.test</code> function from base R stats package:</p>
 <pre><code>shapiro.test</code></pre>
@@ -561,8 +559,7 @@ In a previous version of this tutorial we used the “dlookr” package and its 
 <p>Instead, use the following approach!</p>
 <p>Let’s use this on the <code>biomassRatio</code> variable in the “marine” dataset. We’ll assign the output to an object called “shapiro.result”, then we’ll have a look at the results.</p>
 <div class="note">
-<p><strong>NOTE: </strong>
-The output from the <code>shapiro.test</code> function is not “tidy”, so we will use the <code>tidy</code> function from the <code>broom</code> package to make it tidy.</p>
+<p>The output from the <code>shapiro.test</code> function is not “tidy”, so we will use the <code>tidy</code> function from the <code>broom</code> package to make it tidy.</p>
 </div>
 <p>Here we go: we provide the function with the tibble name (“marine”) and the variable of interest after a “$”:</p>
 <div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="checknorm_assum.html#cb344-1" aria-hidden="true" tabindex="-1"></a>shapiro.result <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(marine<span class="sc">$</span>biomassRatio)</span></code></pre></div>

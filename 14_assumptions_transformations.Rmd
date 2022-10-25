@@ -88,7 +88,6 @@ The `ggplot2` package (loaded with the `tidyverse` package) has plotting functio
 For details about what Normal Quantile Plots are, and how they're constructed, consult this informative [link](https://data.library.virginia.edu/understanding-q-q-plots/). 
 
 <div class="note">
-**NOTE: **
 If the frequency distribution were normally distributed, points would fall close to the straight line in the normal quantile plot.
 </div>
 
@@ -159,7 +158,6 @@ Although graphical assessments are usually sufficient for checking the normality
 The Shapiro-Wilk test is a type of goodness-of-fit test.  
 
 <div class="note">
-**NOTE: **
 Sometimes the **Shapiro-Wilk test** is applied in a <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Hypothesis-testing">hypothesis testing</a> framework, but when it is applied as part of checking assumptions for another statistical test (like we're doing here), one does not need to present it in a hypothesis test framework. However, the implied null hypothesis is that "The data are sampled from a population having a normal distribution", and one does interpret the resulting *P*-value in the same way as usual, i.e. in relation to an $\alpha$ level (see below).
 </div>
 
@@ -186,7 +184,6 @@ Instead, use the following approach!
 Let's use this on the `biomassRatio` variable in the "marine" dataset. We'll assign the output to an object called "shapiro.result", then we'll have a look at the results.
 
 <div class="note">
-**NOTE: **
 The output from the `shapiro.test` function is not "tidy", so we will use the `tidy` function from the `broom` package to make it tidy.
 </div>
 
@@ -247,7 +244,6 @@ height.vartest <- leveneTest(height_cm ~ Dominant_eye, data = students)
 ```
 
 <div class="note">
-**NOTE: **
 If you get a warning about a variable being "coerced to factor", that's OK! It is simply telling you that it took the categorical variable and treated it as a 'factor' variable.
 </div>
 
@@ -298,7 +294,6 @@ Here we learn how to <a href="https://ubco-biology.github.io/Procedures-and-Guid
 There are many other types of transformations that can be performed, some of which are described in **Chapter 13** of the course text book.  
 
 <div class="note">
-**NOTE: **
 Contrary to what is suggested in the text, it is better to use the "logit" transformation rather than the "arcsin square-root" transformation for <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a> or percentage data, as described in this [article](http://onlinelibrary.wiley.com/doi/10.1890/10-0340.1/abstract) by Warton and Hui (2011).
 </div>
 
@@ -333,7 +328,6 @@ marine$logbiomass <- log(marine$biomassRatio)
 ```
 
 <div class="note">
-**NOTE: **
 If your variable includes zeros, then you'll need to take extra steps, as described in the next [section](#zeroes).
 </div>
 
