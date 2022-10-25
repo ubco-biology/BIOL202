@@ -112,7 +112,7 @@ As indicated by the **H~A~** statement, we'll use a 2-tailed <a href="https://ub
 
 <div class="note">
 **TIP**: 
-The symbol for "not equal" can be done using this syntax: `$\ne$`.  Simply type that as part of your regular markdown text.  In the alternative hypothesis statement above, we used `$p_0 \ne 0.5$` to create the $p_0 \ne 0.5$.  
+The symbol for "not equal" can be done using this syntax: `$\ne$`.  Simply type that as part of your regular markdown text. A subscript can be added by prefacing the character with a "_". Thus, in the alternative hypothesis statement above, we used `$p_0 \ne 0.5$` to create the $p_0 \ne 0.5$.  
 </div>
 
 ### Simulating a "null distribution" {#sim_null}
