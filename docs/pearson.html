@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-10-25" />
+<meta name="date" content="2022-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -455,6 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><a href="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><i class="fa fa-check"></i>Figure caption doesn’t show up below figure in knitted document</a></li>
 <li class="chapter" data-level="" data-path="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><a href="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><i class="fa fa-check"></i>Filename, directory name, or volume label syntax is incorrect</a></li>
 <li class="chapter" data-level="" data-path="installing-packages-there-is-a-binary-version-available.html"><a href="installing-packages-there-is-a-binary-version-available.html"><i class="fa fa-check"></i>Installing packages: there is a binary version available</a></li>
+<li class="chapter" data-level="17.5" data-path="unicode-knitting-error.html"><a href="unicode-knitting-error.html"><i class="fa fa-check"></i><b>17.5</b> Unicode knitting error</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -500,12 +501,12 @@ In the calculation of <span class="math inline">\(r\)</span> it does not matter 
 <div id="see_corr" class="section level3 hasAnchor" number="17.2.2">
 <h3><span class="header-section-number">17.2.2</span> Visualize the data<a href="pearson.html#see_corr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We learned in an <a href="two_numeric.html#two_numeric">earlier tutorial</a> that the best way to visualize an association between two numeric variables is with a scatterplot, and that we can create a scatterplot using the <code>geom_point</code> function from the <code>ggplot2</code> package:</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="pearson.html#cb446-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="sc">%&gt;%</span> </span>
-<span id="cb446-2"><a href="pearson.html#cb446-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nPups, <span class="at">y =</span> inbreedCoef)) <span class="sc">+</span></span>
-<span id="cb446-3"><a href="pearson.html#cb446-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb446-4"><a href="pearson.html#cb446-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of pups&quot;</span>) <span class="sc">+</span></span>
-<span id="cb446-5"><a href="pearson.html#cb446-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Inbreeding coefficient&quot;</span>) <span class="sc">+</span></span>
-<span id="cb446-6"><a href="pearson.html#cb446-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="pearson.html#cb448-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="sc">%&gt;%</span> </span>
+<span id="cb448-2"><a href="pearson.html#cb448-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nPups, <span class="at">y =</span> inbreedCoef)) <span class="sc">+</span></span>
+<span id="cb448-3"><a href="pearson.html#cb448-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb448-4"><a href="pearson.html#cb448-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of pups&quot;</span>) <span class="sc">+</span></span>
+<span id="cb448-5"><a href="pearson.html#cb448-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Inbreeding coefficient&quot;</span>) <span class="sc">+</span></span>
+<span id="cb448-6"><a href="pearson.html#cb448-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-119"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-119-1.png" alt="The association between inbreeding coefficient and number of surviving wolf pups (n = 24)." width="403.2" />
 <p class="caption">
@@ -514,12 +515,12 @@ Figure 17.1: The association between inbreeding coefficient and number of surviv
 </div>
 <p>We notice that there doesn’t appear to be the correct number of points (24) in the scatterplot, so there must be some overlapping.</p>
 <p>To remedy this, we use the <code>geom_jitter</code> function instead of the <code>geom_point</code> function.</p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="pearson.html#cb447-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="sc">%&gt;%</span> </span>
-<span id="cb447-2"><a href="pearson.html#cb447-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nPups, <span class="at">y =</span> inbreedCoef)) <span class="sc">+</span></span>
-<span id="cb447-3"><a href="pearson.html#cb447-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb447-4"><a href="pearson.html#cb447-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of pups&quot;</span>) <span class="sc">+</span></span>
-<span id="cb447-5"><a href="pearson.html#cb447-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Inbreeding coefficient&quot;</span>) <span class="sc">+</span></span>
-<span id="cb447-6"><a href="pearson.html#cb447-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="pearson.html#cb449-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="sc">%&gt;%</span> </span>
+<span id="cb449-2"><a href="pearson.html#cb449-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nPups, <span class="at">y =</span> inbreedCoef)) <span class="sc">+</span></span>
+<span id="cb449-3"><a href="pearson.html#cb449-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb449-4"><a href="pearson.html#cb449-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of pups&quot;</span>) <span class="sc">+</span></span>
+<span id="cb449-5"><a href="pearson.html#cb449-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Inbreeding coefficient&quot;</span>) <span class="sc">+</span></span>
+<span id="cb449-6"><a href="pearson.html#cb449-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:pupscatter"></span>
 <img src="BIOL202_files/figure-html/pupscatter-1.png" alt="The association between inbreeding coefficient and number of surviving wolf pups (n = 24). Values have been jittered slightly to improve legibility." width="403.2" />
 <p class="caption">
@@ -576,11 +577,11 @@ Be careful with “count” type variables such as “number of pups”, as thes
 <p>This function does not produce “tidy” output, so we’ll make use of the <code>tidy</code> function from the <code>broom</code> package to tidy up the correlation output (like <a href="do_the_anova.html#createanovatable">we did in for ANOVA output</a>).</p>
 <p>Notice that the function expects the “x” and “y” variables as separate arguments.</p>
 <p>And here’s how to implement it. First run the <code>cor.test</code> function, and notice we provide the “x” and “y” variables</p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="pearson.html#cb448-1" aria-hidden="true" tabindex="-1"></a>wolf.cor <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> wolf<span class="sc">$</span>inbreedCoef, <span class="at">y =</span> wolf<span class="sc">$</span>nPups, </span>
-<span id="cb448-2"><a href="pearson.html#cb448-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb448-3"><a href="pearson.html#cb448-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="pearson.html#cb450-1" aria-hidden="true" tabindex="-1"></a>wolf.cor <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> wolf<span class="sc">$</span>inbreedCoef, <span class="at">y =</span> wolf<span class="sc">$</span>nPups, </span>
+<span id="cb450-2"><a href="pearson.html#cb450-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb450-3"><a href="pearson.html#cb450-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
 <p>Let’s have a look at the untidy output:</p>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="pearson.html#cb449-1" aria-hidden="true" tabindex="-1"></a>wolf.cor</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="pearson.html#cb451-1" aria-hidden="true" tabindex="-1"></a>wolf.cor</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
@@ -593,8 +594,8 @@ Be careful with “count” type variables such as “number of pups”, as thes
 ##        cor 
 ## -0.6077184</code></pre>
 <p>Now let’s tidy it up and have a look at the resulting tidy output:</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="pearson.html#cb451-1" aria-hidden="true" tabindex="-1"></a>wolf.cor.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(wolf.cor)</span>
-<span id="cb451-2"><a href="pearson.html#cb451-2" aria-hidden="true" tabindex="-1"></a>wolf.cor.tidy</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="pearson.html#cb453-1" aria-hidden="true" tabindex="-1"></a>wolf.cor.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(wolf.cor)</span>
+<span id="cb453-2"><a href="pearson.html#cb453-2" aria-hidden="true" tabindex="-1"></a>wolf.cor.tidy</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 8
 ##   estimate statistic  p.value parameter conf.low conf.high method                               alternative
 ##      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                                &lt;chr&gt;      
@@ -614,12 +615,12 @@ Be careful with “count” type variables such as “number of pups”, as thes
 <h3><span class="header-section-number">17.2.5</span> Concluding statement<a href="pearson.html#concl_corr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It is advisable to always refer to a scatterplot when authoring a concluding statement for correlation analysis.</p>
 <p>Let’s re-do the scatterplot here.</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="pearson.html#cb453-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="sc">%&gt;%</span> </span>
-<span id="cb453-2"><a href="pearson.html#cb453-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nPups, <span class="at">y =</span> inbreedCoef)) <span class="sc">+</span></span>
-<span id="cb453-3"><a href="pearson.html#cb453-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb453-4"><a href="pearson.html#cb453-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of pups&quot;</span>) <span class="sc">+</span></span>
-<span id="cb453-5"><a href="pearson.html#cb453-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Inbreeding coefficient&quot;</span>) <span class="sc">+</span></span>
-<span id="cb453-6"><a href="pearson.html#cb453-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="pearson.html#cb455-1" aria-hidden="true" tabindex="-1"></a>wolf <span class="sc">%&gt;%</span> </span>
+<span id="cb455-2"><a href="pearson.html#cb455-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nPups, <span class="at">y =</span> inbreedCoef)) <span class="sc">+</span></span>
+<span id="cb455-3"><a href="pearson.html#cb455-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb455-4"><a href="pearson.html#cb455-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of pups&quot;</span>) <span class="sc">+</span></span>
+<span id="cb455-5"><a href="pearson.html#cb455-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Inbreeding coefficient&quot;</span>) <span class="sc">+</span></span>
+<span id="cb455-6"><a href="pearson.html#cb455-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:pupscatter2"></span>
 <img src="BIOL202_files/figure-html/pupscatter2-1.png" alt="The association between inbreeding coefficient and number of surviving wolf pups (n = 24). Values have been jittered slightly to improve legibility." width="403.2" />
 <p class="caption">

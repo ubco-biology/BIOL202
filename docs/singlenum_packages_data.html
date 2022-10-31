@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-10-25" />
+<meta name="date" content="2022-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -455,6 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><a href="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><i class="fa fa-check"></i>Figure caption doesn’t show up below figure in knitted document</a></li>
 <li class="chapter" data-level="" data-path="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><a href="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><i class="fa fa-check"></i>Filename, directory name, or volume label syntax is incorrect</a></li>
 <li class="chapter" data-level="" data-path="installing-packages-there-is-a-binary-version-available.html"><a href="installing-packages-there-is-a-binary-version-available.html"><i class="fa fa-check"></i>Installing packages: there is a binary version available</a></li>
+<li class="chapter" data-level="17.5" data-path="unicode-knitting-error.html"><a href="unicode-knitting-error.html"><i class="fa fa-check"></i><b>17.5</b> Unicode knitting error</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -479,17 +480,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="singlenum_packages_data" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> Load packages and import data<a href="singlenum_packages_data.html#singlenum_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>knitr</code>, <code>naniar</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="singlenum_packages_data.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb272-2"><a href="singlenum_packages_data.html#cb272-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb272-3"><a href="singlenum_packages_data.html#cb272-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb272-4"><a href="singlenum_packages_data.html#cb272-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="singlenum_packages_data.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb274-2"><a href="singlenum_packages_data.html#cb274-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb274-3"><a href="singlenum_packages_data.html#cb274-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb274-4"><a href="singlenum_packages_data.html#cb274-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We’ll use the following datasets:</p>
 <ul>
 <li>the “bodytemp” dataset. These are the data associated with Example 11.3 in the text (page 310)</li>
 <li>the “stalkies” dataset. These are the data associated with Example 11.2 in the text (page 307)</li>
 </ul>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="singlenum_packages_data.html#cb273-1" aria-hidden="true" tabindex="-1"></a>bodytemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bodytemp.csv&quot;</span>)</span>
-<span id="cb273-2"><a href="singlenum_packages_data.html#cb273-2" aria-hidden="true" tabindex="-1"></a>stalkies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/stalkies.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="singlenum_packages_data.html#cb275-1" aria-hidden="true" tabindex="-1"></a>bodytemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bodytemp.csv&quot;</span>)</span>
+<span id="cb275-2"><a href="singlenum_packages_data.html#cb275-2" aria-hidden="true" tabindex="-1"></a>stalkies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/stalkies.csv&quot;</span>)</span></code></pre></div>
 <div class="note">
 <p><strong>Reminder: </strong>
 Before proceeding further, remember to get an overview of each of these datasets.</p>

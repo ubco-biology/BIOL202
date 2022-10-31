@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-10-25" />
+<meta name="date" content="2022-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -455,6 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><a href="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><i class="fa fa-check"></i>Figure caption doesn’t show up below figure in knitted document</a></li>
 <li class="chapter" data-level="" data-path="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><a href="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><i class="fa fa-check"></i>Filename, directory name, or volume label syntax is incorrect</a></li>
 <li class="chapter" data-level="" data-path="installing-packages-there-is-a-binary-version-available.html"><a href="installing-packages-there-is-a-binary-version-available.html"><i class="fa fa-check"></i>Installing packages: there is a binary version available</a></li>
+<li class="chapter" data-level="17.5" data-path="unicode-knitting-error.html"><a href="unicode-knitting-error.html"><i class="fa fa-check"></i><b>17.5</b> Unicode knitting error</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -485,7 +486,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Nevertheless, the <em>implied</em> null hypothesis is that the variance of the numeric response variable is the same among the populations being compared. So in the case where a numeric variable is being compared among two groups, then the implied null hypothesis is that (<span class="math inline">\(\sigma\)</span>(1) = <span class="math inline">\(\sigma\)</span>(2). The usual <span class="math inline">\(\alpha\)</span> level of 0.05 can be used.</p>
 <p>We’ll use the “students” dataset, and check whether <code>height_cm</code> exhibits equal variance among students with different dominant eyes (left or right).</p>
 <p>Let’s look at the code, and explain after:</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="levenetest.html#cb346-1" aria-hidden="true" tabindex="-1"></a>height.vartest <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(height_cm <span class="sc">~</span> Dominant_eye, <span class="at">data =</span> students)</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="levenetest.html#cb348-1" aria-hidden="true" tabindex="-1"></a>height.vartest <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(height_cm <span class="sc">~</span> Dominant_eye, <span class="at">data =</span> students)</span></code></pre></div>
 <div class="note">
 <p>If you get a warning about a variable being “coerced to factor”, that’s OK! It is simply telling you that it took the categorical variable and treated it as a ‘factor’ variable.</p>
 </div>
@@ -505,7 +506,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 The argument to the <code>leveneTest</code> function that is in the form <span class="math inline">\(Y\)</span> ~ <span class="math inline">\(X\)</span> is one we’ll use several times.</p>
 </div>
 <p>Let’s look at the results:</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="levenetest.html#cb347-1" aria-hidden="true" tabindex="-1"></a>height.vartest</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="levenetest.html#cb349-1" aria-hidden="true" tabindex="-1"></a>height.vartest</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value Pr(&gt;F)
 ## group   1   0.907 0.3424

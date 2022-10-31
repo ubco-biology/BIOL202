@@ -142,3 +142,17 @@ Do you want to install from sources the package which needs compilation? (Yes/no
 ```
 
 Respond with "no" (without quotes).  Do NOT respond "Yes". 
+
+## Unicode knitting error
+
+When you try to knit your markdown file, and you get an error that refers to a "Unicode character" like this:
+
+![](./more/unicode_error.png)
+
+This means there’s a strange, non-simple text character somewhere in your RMD script.  Mostly likely it is the result of copying and pasting text directly from the web into your RMD document.  Common examples of troublesome characters include curly quotation marks and special symbols.
+
+To troubleshoot, first go carefully through your RMD text to look for obviously strange characters.
+
+If that doesn't reveal anything, you'll need to trysystematically knitting one section of your RMD document at a time. For example: 
+
+Open a blank text document alongside your current RMD file, and cut out one question/answer at a time, pasting into blank text document temporarily.  Then try knitting your reduced RMD document, and if it works, paste the cut code back in to your RMD document. Then go to the next question and do the same thing. This will help isolate problem.

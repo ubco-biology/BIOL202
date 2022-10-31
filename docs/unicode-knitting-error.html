@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.3 Create a frequency table | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>17.5 Unicode knitting error | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.3 Create a frequency table | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="17.5 Unicode knitting error | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="All tutorials associated with BIOL202" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.3 Create a frequency table | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="17.5 Unicode knitting error | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="vis_data_overview.html"/>
-<link rel="next" href="vis_cat_barchart.html"/>
+<link rel="prev" href="installing-packages-there-is-a-binary-version-available.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -477,184 +477,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="vis_cat_freq_table" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Create a frequency table<a href="vis_cat_freq_table.html#vis_cat_freq_table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Sometimes when the aim is to visualize a single categorical variable, it’s useful to present a <em>frequency table</em>. If your variable has more than, say, 10 unique categories, then this approach can be messy, and instead one should solely create a <strong>bar graph</strong>, as described in the next section.</p>
-<p>Many straightforward operations like tabulation and calculating descriptive statistics can be done using the functionality of the <code>dplyr</code> package (see the cheatsheet <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">here</a>), which gets loaded as part of the <code>tidyverse</code> suite of packages.</p>
-<p>Here, we’ll use this functionality to create a <em>frequency table</em> for a categorical variable.</p>
-<p>We’ll demonstrate this using the <code>tigerdeaths.csv</code> dataset that you should have imported as part of a suggested activity in the previous section, using code like this:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="vis_cat_freq_table.html#cb35-1" aria-hidden="true" tabindex="-1"></a>tigerdeaths <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv&quot;</span>)</span></code></pre></div>
-<p>You would also have gotten <a href="vis_data_overview.html#vis_data_overview">overview of the data</a> as part of the activity, using the <code>skim_without_charts</code> function. This would have shown that the <code>activity</code> variable is of type “character”, which tells us it is a <strong>categorical</strong> variable, and that it includes 9 unique categories. We also would have seen that there are 88 cases (rows) in the dataset.</p>
-<p>Let’s provide the code to generate the frequency table, using the pipes “%&gt;%” approach we learned about in an <a href="import_csv_local.html#import_csv_local">earlier tutorial</a>. We’ll assign the output to a new object that will hold the frequency table. We’ll name the object “tiger.table”. Note that we won’t yet view the table here… we’ll do that next.</p>
-<p>We’ll provide the code first, then explain it step-by-step after.</p>
-<p>Here’s the code for creating the frequency table and assigning it to a new object named “tiger.table”:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="vis_cat_freq_table.html#cb36-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="ot">&lt;-</span> tigerdeaths <span class="sc">%&gt;%</span></span>
-<span id="cb36-2"><a href="vis_cat_freq_table.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(activity, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb36-3"><a href="vis_cat_freq_table.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
-<span id="cb36-4"><a href="vis_cat_freq_table.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>()</span></code></pre></div>
-<ul>
-<li>The first line provides the name of the object (tibble) that we’re going to create (here, “tiger.table”), and use the assignment operator (“&lt;-”) tell R to put whatever the output of our operation is into that object. The next part of the first line provides the name of the object that we’re going to do something with, here “tigerdeaths”. The “%&gt;%” tells R that we’re not done yet, and there’s more lines of code to come.</li>
-<li>The second line uses the <code>count</code> function from the <code>dplyr</code> package to tally the unique values of a variable, in this case the “activity” variable. It also takes an argument “sort = TRUE”, telling it to sort the counts in descending order (the default sort direction). Then another “%&gt;%” to continue the code..</li>
-<li>The last line uses <code>mutate</code> function from the <code>dplyr</code> package that creates a new variable, and the arguments provided in the parentheses tells R what that variable should be called, here “relative_frequency”, and then how to calculate it.</li>
-<li>The <code>n</code> in the third line is a function that tallies the sample size or count of all observations in the present category or group, and then the <code>sum(n)</code> sums up the total sample size. Thus, <code>n / sum(n)</code> calculates the relative frequency (equivalent to the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Proportion">proportion</a>) of all observations that are within the given category<br />
-</li>
-<li>the <code>adorn_totals</code> in the last line is a function from the <code>janitor</code> package that enables adding row and / or column totals to tables (see the help for this function for more details)</li>
-</ul>
-<div class="advanced">
-<p>Try figuring out how you would change the last line of code in the chunk above so that the table showed the <em>percent</em> rather than the <em>relative frequency</em> of observations in each category</p>
+<div id="unicode-knitting-error" class="section level2 hasAnchor" number="17.5">
+<h2><span class="header-section-number">17.5</span> Unicode knitting error<a href="unicode-knitting-error.html#unicode-knitting-error" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When you try to knit your markdown file, and you get an error that refers to a “Unicode character” like this:</p>
+<p><img src="more/unicode_error.png" /></p>
+<p>This means there’s a strange, non-simple text character somewhere in your RMD script. Mostly likely it is the result of copying and pasting text directly from the web into your RMD document. Common examples of troublesome characters include curly quotation marks and special symbols.</p>
+<p>To troubleshoot, first go carefully through your RMD text to look for obviously strange characters.</p>
+<p>If that doesn’t reveal anything, you’ll need to trysystematically knitting one section of your RMD document at a time. For example:</p>
+<p>Open a blank text document alongside your current RMD file, and cut out one question/answer at a time, pasting into blank text document temporarily. Then try knitting your reduced RMD document, and if it works, paste the cut code back in to your RMD document. Then go to the next question and do the same thing. This will help isolate problem.</p>
+
 </div>
-<p>Now that we’ve created the frequency table, let’s have a look at it.</p>
-<p>In a <a href="https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html">supplementary tutorial</a>, you’ll find instructions on how to create fancy tables for output. Here, you’ll learn the basics.</p>
-<p>For our straightforward approach to tables with table headings (or captions), we’ll use the <code>kable</code> function that comes with the <code>knitr</code> package, using the pipe approach:</p>
-<pre><code>tiger.table %&gt;%
-  kable(caption = &quot;Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006&quot;, digits = 3)</code></pre>
-<table>
-<caption>
-<span id="tab:tigerfreqtable">Table 6.1: </span>Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-activity
-</th>
-<th style="text-align:right;">
-n
-</th>
-<th style="text-align:right;">
-relative_frequency
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Grass/fodder
-</td>
-<td style="text-align:right;">
-44
-</td>
-<td style="text-align:right;">
-0.500
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Forest products
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-0.125
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fishing
-</td>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-0.091
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Herding
-</td>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-0.080
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Disturbing tiger kill
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.057
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Fuelwood/timber
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-0.057
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Sleeping in house
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.034
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Walking
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.034
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Toilet
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.023
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:right;">
-88
-</td>
-<td style="text-align:right;">
-1.000
-</td>
-</tr>
-</tbody>
-</table>
-<p>The key argument to the <code>kable</code> function is the table object (which here we provide before the pipe), and the table heading (caption).</p>
-<p>Notice that this produces a nicely formatted table with an appropriately worded caption. The argument “digits = 3” tells it to return numeric values to 3 digits in the table.</p>
-<p>You now know how to create a frequency table for a categorical variable!</p>
-<div class="note">
-<p>Your table caption won’t include a number (e.g. Table 1) until you actually knit to PDF. Be sure to check your PDF to ensure that the table captions show up, and are numbered!</p>
-</div>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>Frequency table</strong>: Try creating a frequency table using the <code>birds</code> dataset, which includes data about four types of birds observed at a wetland.</li>
-</ol>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="vis_data_overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="vis_cat_barchart.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="installing-packages-there-is-a-binary-version-available.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
