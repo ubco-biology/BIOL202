@@ -143,7 +143,7 @@ Do you want to install from sources the package which needs compilation? (Yes/no
 
 Respond with "no" (without quotes).  Do NOT respond "Yes". 
 
-## Unicode knitting error
+## Unicode knitting error {-}
 
 When you try to knit your markdown file, and you get an error that refers to a "Unicode character" like this:
 

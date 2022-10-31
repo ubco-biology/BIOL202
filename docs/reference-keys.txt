@@ -261,4 +261,3 @@ spear_conclude
 tables_packages
 skim_tables
 stats_nicetable
-unicode-knitting-error
