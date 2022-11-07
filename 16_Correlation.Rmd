@@ -63,7 +63,6 @@ The sample-based correlation coefficient, which we use to estimate $\rho$, is re
 $$r = \frac{\sum{(X_{i}-\bar{X})(Y_{i}-\bar{Y})}}{\sqrt{\sum{(X_{i}-\bar{X})^2}} {\sqrt{\sum(Y_{i}-\bar{Y})^2}}}$$
 
 <div class="note">
-**NOTE**
 In the calculation of $r$ it does not matter which variable is treated as the "X" and which as the "Y". However, in many instances there may good reason to choose which serves as the "X" (explanatory) and which as the "Y" (response).  
 </div>
 
@@ -147,7 +146,6 @@ If any of these patterns are evident, then one should opt for a non-parametric a
 >Based on Figure \@ref(fig:pupscatter), there doesn't seem to be any indications that the assumptions are not met, so we'll proceed with testing the null hypothesis.  
 
 <div class="note">
-**NOTE: **
 Be careful with "count" type variables such as "number of pups", as these may not adhere to the "bivariate normality" assumption. If the variable is restricted to a limited range of possible counts, say zero to 5 or 6, then the association should probably be analyzed using a non-parametric test (see below). The variable "number of pups" in this example is borderline OK...
 </div>
 
@@ -284,7 +282,6 @@ trick.cor <- cor.test(x = trick$years, y = trick$impressivenessScore,
 ```
 
 <div class="note">
-**NOTE**
 You may get a warning message, simply saying that it can't compute exact _P_-values when there are ties in the ranked data. Don't worry about this.
 </div>
 

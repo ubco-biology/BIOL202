@@ -1,0 +1,554 @@
+# Regression {#ls_regression}
+
+```{r echo = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(knitr.table.format = "html")
+```
+
+**Tutorial learning objectives**
+
+* Learn about using least-squares linear regression ("LSR", also called "Model-1 regression") to model the relationship between two numeric variables, and to make predictions  
+* Learn the assumptions of LSR, and how to test whether these assumptions are met
+* Learn that the implied statistical null hypothesis for a LSR is that the slope of the relationship is equal to zero
+* Learn about the "coefficient of determination", _R_^{2}, represents the fraction of variation in the response variable that is accounted for by the regression model 
+* Learn how to make predictions using LRS
+* Learn how to implement and report the findings of LSR  
+
+## Load packages and import data {#twonum_packages_data}
+
+Load the `tidyverse`, `skimr`, `broom`, `knitr`, and `visreg` packages.
+
+The latter package is likely new to you. If so, install it first by typing the following in the command console:  
+
+```
+install.packages("visreg", dependencies = T)
+```
+
+```{r lsr_packages, warning = FALSE, message = FALSE}
+library(tidyverse)
+library(skimr)
+library(broom)
+library(knitr)
+library(visreg)
+```
+
+We'll use the "plantbiomass" dataset:  
+
+```{r import_data_lsr}
+plantbiomass <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/plantbiomass.csv")
+```
+
+The `plantbiomass` dataset (Example 17.3 in the text book) includes data describing plant biomass measured after 10 years within each of 5 experimental "species richness" treatments, wherein plants were grown in groups of 1, 2, 4, 8, or 16 species. The treatment variable is called `nSpecies`, and the response variable `biomassStability` is a measure of ecosystem stability. The research hypothesis was that increasing diversity (species richness) would lead to increased ecosystem stability.  
+
+Let's have a look:
+
+```{r view_data_lsr}
+
+plantbiomass %>% skim_without_charts()
+```
+
+We see that both variables are numeric, and that there are 161 observations overall.  
+
+* * *
+
+## Least-squares regression analysis {#LSR}
+
+When we are only interested in the strength of a linear association between two numerical variables, we use a [correlation analysis](#two_num).  
+
+When we are interest in making _predictions_, we use regression analysis.  
+
+Often in the literature you see authors reporting regression results when in fact there was no rationale for using regression; a correlation analysis would have been more appropriate.  
+
+The two analyses are mathematically related.  
+
+Regression analysis is extremely common in biology, and unfortunately it is also common to see incorrect implementation of regression analysis. In particular, one often sees scatterplots that clearly reveal violations of the assumptions of regression analysis (see below).  
+
+>Failure to appropriately check assumptions can lead to misleading and incorrect conclusions   
+
+* * *
+
+### Hypothesis testing - not really! {#LSR_hyp}
+
+Recall from your high-school training that the equation for a straight line is:  
+
+_Y_ = _a_ + _bX_  
+
+In regression analysis, the "least-squares line" is the line for which the sum of all the _squared deviations in Y_ is smallest.  
+
+In a regression context, _a_ is the Y-intercept and _b_ is the slope of the regression line.  
+
+Regression analysis falls under the heading of **inferential statistics**, which means we use it to draw inferences about a linear relationship between Y and X within a _population_ of interest. So in the actual population, the true least-squares line is represented as follows:  
+
+_Y_ = $\alpha$ + $\beta$_X_  
+
+In practice, we estimate the "parameters" $\alpha$ and $\beta$ using a random sample from the population, and by calculating _a_ and _b_ using regression analysis.  
+
+<div class="flag">
+The $\alpha$ in the regression equation has no relation to the $\alpha$ that sets the significance level for a test!
+</div>
+
+In least-squares regression analysis, the null hypothesis is that the _slope_ of the relationship between Y and X is equal to zero. That is:  
+
+**H~0~**: $\beta$ = 0  
+**H~A~**: $\beta$ $\neq$ 0     
+
+However, one does not typically state the null and alternative hypotheses when conducting a regression analysis. Rather, they are **implied**.  
+
+As such, **there is no need to explicitly state these hypotheses for a regression analysis**.  
+
+You must, however, know what is being tested: the null hypothesis that the slope is equal to zero.  
+
+<div class="note">
+One need not use $\beta$ = 0 as the null hypothesis. For instance, research on allometry often tests null hypotheses about regressions slopes that differ from zero.  Curious? Check out this [website](https://www.nature.com/scitable/knowledge/library/allometry-the-study-of-biological-scaling-13228439/). 
+</div>
+
+* * *
+
+### Steps to conducting regression analysis {#LSR_steps}
+
+In regression analysis one must conduct the actual analysis before one can check the assumptions. Thus, the order of operations is a bit different from that of other tests.  
+
+**Follow these steps when conducting regression analysis:**
+
+* Set an $\alpha$ level (default is 0.05)  
+* Provide an appropriate figure, including figure caption, to visualize the association between the [two numeric variables](#two_numeric)  
+* Provide a sentence or two interpreting your figure, and this may inform your concluding statement  
+* Conduct the regression analysis, save the output, and use the **residuals** from the analysis to check assumptions  
+* Assumptions  
+    + state the assumptions of the test  
+    + use appropriate figures and / or tests to check whether the assumptions of the statistical test are met
+    + transform data to meet assumptions if required
+    + if assumptions can't be met (e.g. after transformation), use alternative methods (**these alternative methods are not covered here**)
+    + if data transformation is required, then do the transformation and provide another appropriate figure, including figure caption, to visualize the transformed data, and a sentence or two interpreting this new figure  
+* Calculate the confidence interval for the slope and the *R*^2^ value, report these in concluding statement  
+* If the slope of the least-squares regression line differs significantly from zero (i.e. the regression is significant), provide a scatterplot that includes the regression line and **confidence bands**, with an appropriate figure caption  
+* Use the output from the regression analysis (above) draw an appropriate conclusion and communicate it clearly  
+
+* * *
+
+### Set the $\alpha$ level {#LSR_alpha}     
+
+We will use the conventional $\alpha$ level of 0.05.  
+
+In practice, if you are concerned about lack of <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Study-power-(aka-statistical-power)">Study power (aka statistical power)</a>
+you may wish to increase $\alpha$, e.g. to 0.1.   
+
+* * *
+
+### Visualize the data {#LSR_vis}     
+
+Using the plant biomass data, let's evaluate whether ecosystem stability can be reliably predicted from plant species richness.  
+
+We learned in an earlier [tutorial](#two_numeric) that the best way to visualize an association between two numeric variables is with a scatterplot, and that we can create a scatterplot using the `ggplot` and `geom_point` functions:  
+
+```{r LSR_fig1, fig.cap = "Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots.", fig.width = 4.2, fig.height = 4} 
+
+plantbiomass %>%
+ggplot(aes(x = nSpecies, y = biomassStability)) +
+  geom_point(shape = 1) +
+  xlab("Species number treatment") +
+  ylab("Biomass stability") +
+  theme_bw()
+```
+
+Note that in the above figure we do not report units for the response variable, because in this example the variable does not have units.  But often you do need to provide units!
+
+<div class="note">
+This figure that you first produce for visualizing the data may or may not be necessary to present with your results. If your least-squares regression does end up beign statistically significant, i.e. having a slope that differs significantly from zero, then you'll create a new figure to reference in your concluding statement (see below). If your regression analysis is non-significant, then you should present and refer to this simple scatterplot (which does not include a best-fit regression line).
+</div>
+
+* * *
+
+### Interpreting a scatterplot {LSR_scatter_interp}
+
+In an earlier [tutorial](#interpret_scatter), we learned how to properly interpret a scatterplot, and **what information should to include in your interpretation**. Be sure to consult that tutorial.   
+
+> We see in Figure \@ref(fig:LSR_fig1) that there is a weak, positive, and somewhat linear association between biomass stability and species number treatment.  There appears to be increasing spread of the response variable with increasing values of the predictor (x) variable, and perhaps outliers in the treatment group with greatest species richness. We should keep this in mind.   
+
+* * *
+
+### Checking assumptions of regression analysis {#LSR_assumptions}
+
+Regression analysis assumes that:  
+
+* the true relationship between X and Y is linear  
+* for every value of X the corresponding values of Y are normally distributed  
+* the variance of Y-values is the same at all values of X
+* at each value of X, the Y measurements represent a random sample from the population of possible Y values  
+
+Strangely, we must implement the regression analysis before checking the assumptions. This is because we check the assumptions using the **residuals** from the regression analysis.  
+
+Let's implement the regression analysis and be sure to store the output for future use.   
+
+The function to use is the `lm` function, which we saw in a previous [tutorial](#do_anova1), but here our predictor (independent) variable is a numeric variable rather than a categorical variable.  
+
+Let's run the regression analysis and assign the output to an object as follows:  
+
+```{r LSR_run}
+biomass.lm <- lm(biomassStability ~ nSpecies, data = plantbiomass)
+```
+
+Let's have a look at the untidy output:
+
+```{r LSR_view_untidy}
+biomass.lm
+```
+
+We can use the `broom` package and its `tidy` function to tidy up the regression model object:
+
+```{r LSR_tidy_output}
+biomass.lm.tidy <- tidy(biomass.lm)
+```
+
+Now have a look at this tidy output:
+
+```{r LSR_view_tidy}
+biomass.lm.tidy
+```
+
+Before we do anything else (e.g. look at the results of the regression), we need to first check the assumptions!  
+
+<div class="note">
+The `plot.lm` function in the base stats package can be used on the regression output object to produce a series of so-called "regression diagnostic plots".  See the help file for info.
+</div>
+
+To get the residuals, which are required to check the assumptions, you simply use the `residuals` function (from the base stats package) on the object holding the regression output from above (`biomass.lm`). We'll create a new variable (`biomass.lm.resids`) in the dataframe `plantbiomass` to store these residuals:  
+
+**NOTE**: if there are missing values in either of the X or Y variables used in the regression, then assigning residuals to a new variable within the original dataframe will not work, because the length of the "residuals" output will differ from the number of rows in the original dataframe.  
+
+For instance, in the present example, there are no missing values, so the length of the residuals output will be the same as the number of rows in the original dataframe:
+
+```{r}
+length(residuals(biomass.lm))
+nrow(plantbiomass)
+```
+
+**If you have missing values** in either the X or Y variable in your regression, see the section a bit further down.
+
+If there are NO missing values, then if you want you can assing the residuals to a new variable in the original dataframe, for use in making the necessary residual plots:
+
+```{r}
+plantbiomass$biomass.lm.resids <- residuals(biomass.lm)
+```
+
+"Residuals" represent the vertical difference between each observed value of Y (here, biomass stability) the least-squares line (the predicted value of Y) at each value of X.  
+
+You might think that one could check the normality assumption by simply conducting usual diagnostics on the raw Y values. However, the appropriate method is to use the **residuals** from the regression, and check that these are normally distributed.  
+
+We can check the normality of residuals assumption with a normal quantile plot, which you've seen [previously](https://people.ok.ubc.ca/jpither/modules/Comparing_two_means.html#check_assumptions16).  
+
+
+```{r fig.cap = "Figure 2: Normal quantile plot of the residuals from a regression of biomass stability on species number for 161 plots", fig.width = 4.2, fig.height=4}
+  ggplot(data = plantbiomass, aes(sample = biomass.lm.resids)) +
+  stat_qq(shape = 1, size = 2) +
+  stat_qq_line() +
+  theme_bw()
+
+```
+
+
+> Figure 2 shows that the residuals don't really fall consistently near the line in the normal quantile plot; there is curviture, and increasing values tend to fall further from the line. This suggests the need to **log-transform the data**.  
+
+Before trying a transformation, let's also check the assumption that (i) the variance of Y is the same at all values of X, and (ii) the assumption that the association is linear.  To do this, we plot the residuals against the original "X" variable, which here is the number of species initially used in the treatment. Note that we'll add a horizontal line ("segement") at zero for reference:  
+
+```{r fig.cap = "Figure 3: Residual plot from a regression of biomass stability on species number for 161 plots.", fig.width = 4.2, fig.height = 4}
+  ggplot(data = plantbiomass, aes(x = nSpecies, y = biomass.lm.resids)) +
+  geom_point(shape = 1) +
+  geom_abline(slope = 0, linetype = "dashed") +
+  xlab("Species number treatment") +
+  ylab("Residual") +
+  theme_bw()
+```
+
+Here we are watching out for:  
+
+* a "funnel" shape, or substantial differences in the spread of Y at each X
+* outliers to the general trend  
+* a curved pattern  
+
+> Figure 3 shows that the variance in biomass stability is greatest within the largest species richness treatment. This again suggests the need for a log transformation.
+
+**TIP**:  If ever you see a clear outlier when checking assumptions, then a safe approach is to report the regression with and without the outlier point(s) included. If the exclusion of the outlier changes your conclusions, then you should make this clear.  
+
+### Residual plots when you have missing values
+
+**IF** there are missing values in either the X or Y variables used in the regression, then simply make use of the default residual plots that are part of the `plot.lm` function, which actually shortens to `plot` when you feed it a "lm" object.  Here I show how to plot the two key plots this way.
+
+First, the plot for checking homogeneity of variance in residuals and linearity of the relationship:
+
+```{r}
+plot(biomass.lm, which = 1)
+```
+
+Second, the plot for checking normality of residuals:
+
+```{r}
+plot(biomass.lm, which = 2)
+```
+
+These aren't fancy plots, but they are absolutely sufficient for the purpose at hand.
+
+### Transform the data
+
+Let's log-transform the response variable, creating a new variable `log.biomass`: 
+```{r}
+plantbiomass$log.biomass <- log(plantbiomass$biomassStability)
+```
+
+Now let's re-run the regression analysis and save the residuals again:
+```{r}
+log.biomass.lm <- lm(log.biomass ~ nSpecies, data = plantbiomass)
+plantbiomass$log.biomass.lm.resids <- residuals(log.biomass.lm)
+```
+
+And re-plot the residual diagnostic plots:  
+
+```{r fig.cap = "Figure 4: Normal quantile plot of the residuals from a regression of biomass stability (log transformed) on species number for 161 plots", fig.width = 4.2, fig.height=4}
+  ggplot(data = plantbiomass, aes(sample = log.biomass.lm.resids)) +
+  stat_qq(shape = 1, size = 2) +
+  stat_qq_line() +
+  theme_bw()
+```
+
+```{r fig.cap = "Figure 5: Residual plot from a regression of biomass stability (log transformed) on species number for 161 plots.", fig.width = 4.2, fig.height = 4}
+  ggplot(data = plantbiomass, aes(x = nSpecies, y = log.biomass.lm.resids)) +
+  geom_point(shape = 1) +
+  geom_abline(slope = 0, linetype = "dashed") +
+  xlab("Species number treatment") +
+  ylab("Residual") +
+  theme_bw()
+```
+
+> Figure 4 shows that the residuals are reasonably normally distributed, and Figure 5 shows no strong pattern of changing variance in Y along X, and nor is there an obvious curved pattern to the residuals (which would indicate a non-linear association). We therefore proceed with the analyses using the log-transformed response variable.  
+
+* * *
+
+### Conduct the regression analysis  
+
+We have already conducted the regression analysis above, using the `lm` function.  We stored the output in the `log.biomass.lm` object. Now, we use the `summary` function on the regression output to view the results:  
+
+```{r}
+summary(log.biomass.lm)
+```
+
+What do we need to focus on in this output?  
+
+Under the "Estimate" heading, you see the estimated value of the Intercept (_a_) and of the slope (_b_), which is reported to the right of the predictor variable name.  
+
+**NOTE**: There are two values of _t_ reported in the table; one associated with the intercept, and one with the slope. These are testing the implied hypotheses that (i) the intercept equals zero and (ii) the slope equals zero. We are typically only interested in the slope.    
+
+At the bottom of the output you'll see a value of _F_, just like you saw with the ANOVA output in [Tutorial 13](https://people.ok.ubc.ca/jpither/modules/Comparing_more_than_2_means.html#conduct_the_anova_test). **It is this value of _F_ that you will report in statements about regression (see below).**  
+
+We also see the _P_-value associated with the test of the zero slope null hypothesis, which is identical to the _P_-value reported for the overall regression (at the bottom of the output).  
+
+**NOTE**: It is important to recognize that an overall significant regression (i.e. slope significantly different from zero) does not necessarily mean that the regression will yield accurate predictions. For this we need to assess the "coefficient of determination", or _R_^2^ value (called "multiple R-squared" in the output), which here is `r round(summary(log.biomass.lm)$r.squared, 2)`, and **represents the fraction of the variation in Y that is accounted for by the linear regression model**. A value of this magnitude is indicative of a comparatively weak regression, i.e. one that does has predictive power, but not particularly good predictive power (provided assumptions are met, and we're not extrapolating beyond the range of our X values).  
+
+Before getting to our concluding statement, we need to additionally calculate the 95% confidence interval for the slope, $\beta$.  
+
+* * *
+
+### Confidence interval for the slope
+
+To calculate the confidence interval for the true slope, $\beta$, we use the `confint` function from the base stats package:  
+
+```
+?confint
+```
+
+We run this function on the `lm` model output:  
+
+```{r}
+confint(log.biomass.lm)
+```
+
+This provides the lower and upper limits of the 95% confidence interval for the intercept (top row) and slope (bottom row).  
+
+* * *
+
+### Scatterplot with regression confidence bands
+
+If your regression is significant, then it is recommended to accompany your concluding statement with a scatterplot that includes so-called **confidence bands** around the regression line.  
+
+If your regression is not significant, **do not** include a regression line in your scatterplot!  
+
+We can calculate two types of confidence intervals to show on the scatterplot:  
+
+* the 95% "confidence bands"  
+* the 95% "prediction intervals"  
+
+Most of the time we're interested in showing **confidence bands**, which show the 95% confidence limits for the _mean_ value of Y in the population at each value of X. In other words, we're more interested in predicting an average value in the population (easier), rather than the value of an individual in the population (much more difficult).  
+
+To display the confidence bands, we use the `visreg` function from the `visreg` package:  
+
+```
+?visreg
+```
+
+The function has a lot of options that we're going to ignore, because the default arguments are *almost* all good for our purposes.  
+
+This "visreg" function takes the regression output object, here `log.biomass.lm`, and plots the regression line with confidence bands included. The argument "alpha" is used to set the level of confidence, and the default is alpha = 0.05, so 95% confidence bands. Note that you provide 2 arguments to the function: the regression object, and the name (in quotes) of the "X" variable!  
+
+Let's give it a try, making sure to spruce it up a bit with some additional options, and including a good figure caption, shown here for your reference (this is the code you'd put after the "r" in the header of the R chunk:  
+
+```
+fig.cap = "Figure 5. Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is the significant least-square regression line (black solid line; see text for details) and the 95% confidence bands (grey shading)."
+```
+
+```{r fig.cap = "Figure 6: Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is the significant least-square regression line (black solid line; see text for details) and the 95% confidence bands (grey shading).", fig.width = 4.2, fig.height = 4}
+visreg(fit = log.biomass.lm, 
+       xvar = "nSpecies",
+       alpha = 0.05, gg = T, 
+       line = list(col = "black"), 
+       points = list(pch = 1, col = "white"),
+       las = 1, 
+       xlab = "Species number treatment", 
+       ylab = "Biomass stability (log transformed)") +
+  geom_point(shape = 1, size = 2) +
+  theme_bw()
+```
+
+There are a few key arguments to note:
+
+- the "fit" argument refers to the "lm" object you created
+- the "xvar" argument refers to the name (in quotes) of the X-variable
+- the "alpha" argument refers to the alpha level for the hypothesis test, and more specifically here, 1 minus alpha is the confidence level you wish to use for the confidence bands on the plot
+- the "gg" argument enables the `visreg` function to work within the "ggplot" context
+- the "line" argument expects a list (as provided), with any arguments for defining the look of the regression line, such as its "col" (colour)
+- the "points" argument is like the "line" argument, and we use "pch" to tell it the symbol type (1 is hollow circle), "col" the colour of the points, which we're setting to white here so that we can actually draw the symbols using the "geom_point" command further down  
+- the "las" = 1 tells it to ensure both Y and X axis tick labels are rotated horizontal
+- the "xlab" and "ylab" are x and y axis labels, respectively
+
+Then we add the `geom_point` function to add the points to the plot
+
+Here we can interpret the figure as follows:  
+
+> Figure 6 shows that biomass stability (log-transformed) is positively and linearly related to the initial number of plant species assigned to experimental plots, but there is considerable variation that remains unexplained by the least-square regression model.  
+
+**NOTE**: Although the Guidelines for Data Presentation [document](https://people.ok.ubc.ca/jpither/more/UBCO_biology_guidelines_data_presentation_2016.pdf) indicates that you should report key information about the regression within the figure caption (e.g. the equation of the line), it is sufficient to refer the reader to the text.  
+
+* * *
+
+### Concluding statement
+
+Now that we have our new figure including confidence bands (because our regression was significant), and all our regression output (including confidence intervals for the slope), we're ready to provide a concluding statement.  
+
+**NOTE**: We simply report the sample size rather than the degrees of freedom in the parentheses.  
+
+> As seen in Figure 6, species number is a significant predictor of biomass stability: _Biomass stability (log)_ = `r round(coef(log.biomass.lm)[1], 2)` + `r round(coef(log.biomass.lm)[2], 2)`(_Species number treatment_); _F_ = `r round(summary(log.biomass.lm)$fstatistic[1], 2)`; _n_ = `r length(na.omit(plantbiomass$biomassStability))`; 95% confidence limits for the slope: `r c(round(confint(log.biomass.lm)[2,1], 3), round(confint(log.biomass.lm)[2,2], 3))`; _R_^2^ = `r round(summary(log.biomass.lm)$r.squared, 2)`; _P_ < 0.001). Given the relatively low *R*^2^ value, predictions from our regression model will not be particularly accurate.   
+
+**NOTE**: It is OK to report the concluding statement and associated regression output using the log-transformed data. However, if you wanted to make predictions using the regression model, it is often desirable to report the back-transformed predicted values (see below).   
+
+* * *
+
+## Model-I versus Model-II regression
+
+Model-I regression, which we use here, assumes that there is negligible error or uncertainty associated with the "X" variable measurements, relative to that associated with the "Y" variable measurements. In other words, it effectively assumes that we have control over the "X" values (like we do in this biomass experiment). Model-II regression is generally more appropriate (though not always) in a situation where both X and Y have similar error or uncertainty, such as using measurements of height to predict values of weight among individuals. 
+
+* * *
+
+## Making predictions
+
+Even though the *R*^2^ value from our regression was rather low, we'll proceed with using the model to make predictions.  
+
+It is not advisable to make predictions beyond the range of X-values upon which the regression was built. So in our case (see Figure 6), we would not wish to make predictions using species richness values beyond 16.  Such "extrapolations" are inadvisable.  
+
+To make a prediction using our regression model, use the `predict.lm` function from the base stats package:  
+
+```
+?predict.lm
+```
+
+If you do not provide new values of `nSpecies` (note that the variable name must be the same as was used when building the model), then it will simply use the old values that were supplied when building the regression model.  
+
+Here, let's create a new data.frame that includes new values of `nSpecies` (we'll use 7 and 13 as example values) with which to make predictions:
+
+```{r}
+new.data <- data.frame(nSpecies = c(7, 13))
+```
+
+Now let's make the predictions:
+
+```{r}
+predicted.values <- predict.lm(log.biomass.lm, newdata = new.data)
+predicted.values
+```
+
+Let's superimpose these predicted values over the original scatterplot, using the `annotate` function from the `ggplot2` package.
+
+We re-use the code from our original `visreg` plot above, and simply add the `annotate` line of code:
+
+```{r fig.cap = "Figure 7: Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown are predicted values of Y across values of X.", fig.width = 4.2, fig.height = 4}
+visreg(fit = log.biomass.lm, 
+       xvar = "nSpecies",
+       alpha = 0.05, gg = T, 
+       line = list(col = "black"), 
+       points = list(pch = 1, col = "white"),
+       las = 1, 
+       xlab = "Species number treatment", 
+       ylab = "Biomass stability (log transformed)") +
+  geom_point(shape = 1, size = 2) +
+  annotate("point", x = new.data$nSpecies, y = predicted.values, shape = 2, size = 4) +
+  theme_bw()
+```
+
+As expected, Figure 7 shows the predicted values exactly where the regression line would be!  We generally don't present such a figure... here we're just doing it for illustration.    
+
+### Back-transforming regression predictions 
+ 
+The regression model we have calculated above is as follows:  
+
+ln(biomass stability) ~ 1.2 + 0.033(species richness)
+
+Thus, any predictions we make are predictions of ln(y).  It is sometimes desirable to report predicted values back in their original non-transformed state. To do this, follow the instructions in the earlier [tutorial](https://people.ok.ubc.ca/jpither/modules/assumptions_transformations.html#Back-transforming_log_data) dealing with data transformations. 
+
+* * *
+
+## List of functions
+
+__Getting started__:
+
+* `read.csv`
+* `url`
+* `library` 
+
+__Data management / manipulation__: 
+
+* `str`
+* `summary`
+* `head`
+
+__Data visualization__:
+
+* `ggplot`
+* `geom_point`
+* `visreg` (from the `visreg` package)
+
+__Assumptions__:
+
+* `stat_qq` (from `ggplot2` package)
+* `residuals`
+
+__Regression__:
+
+* `lm`  
+* `summary`  
+* `confint`
+* `visreg` (from the `visreg` package)
+
+__Prediction__:  
+
+* `predict.lm`
+* `seq`
+* `data.frame`
+* `sample`
+* `points`
+
+* * *
+
+## Markdown File
+
+You can access the Rmd file that created this page [here](https://people.ok.ubc.ca/jpither/modules/least_squares_regression.Rmd). For it to work, you also need to download a "css" file linked [here](https://people.ok.ubc.ca/jpither/modules/tutorial.css) (called "tutorial.css"), and place it in a directory one down from your working directory.  
+
+
+
+
