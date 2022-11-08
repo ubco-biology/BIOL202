@@ -16,20 +16,13 @@ options(knitr.table.format = "html")
 
 ## Load packages and import data {#twonum_packages_data}
 
-Load the `tidyverse`, `skimr`, `broom`, `knitr`, and `visreg` packages.
-
-The latter package is likely new to you. If so, install it first by typing the following in the command console:  
-
-```
-install.packages("visreg", dependencies = T)
-```
+Load the `tidyverse`, `skimr`, `broom`, and `knitr`.
 
 ```{r lsr_packages, warning = FALSE, message = FALSE}
 library(tidyverse)
 library(skimr)
 library(broom)
 library(knitr)
-library(visreg)
 ```
 
 We'll use the "plantbiomass" dataset:  
@@ -40,7 +33,11 @@ plantbiomass <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202
 
 The `plantbiomass` dataset (Example 17.3 in the text book) includes data describing plant biomass measured after 10 years within each of 5 experimental "species richness" treatments, wherein plants were grown in groups of 1, 2, 4, 8, or 16 species. The treatment variable is called `nSpecies`, and the response variable `biomassStability` is a measure of ecosystem stability. The research hypothesis was that increasing diversity (species richness) would lead to increased ecosystem stability.  
 
-Let's have a look:
+<div class="note">
+When one [visualizes the data](#LSR_vis), one might ask why an [ANOVA](#do_anova1) isn't the analysis method of choice. If we were simply interested in testing the null hypothesis that "there is no difference in mean ecosystem stability among the species richness treatment groups", then an ANOVA could be used, and we would simply treat the "species richness" variable as a categorical variable. However, here we are interested not simply in testing for differences among treatment groups, but more specifically in quantifying if and how ecosystem stability varies with variation in species richness, AND if so, whether we can reliably predict ecosystem stability based on species richness.  
+</div>
+
+Let's have a look at the data:
 
 ```{r view_data_lsr}
 
@@ -194,51 +191,68 @@ Let's have a look at the untidy output:
 biomass.lm
 ```
 
-We can use the `broom` package and its `tidy` function to tidy up the regression model object:
+Before we do anything else (e.g. explore the results of the regression), we need to first check the assumptions!  
 
-```{r LSR_tidy_output}
-biomass.lm.tidy <- tidy(biomass.lm)
+To get the residuals, which are required to check the assumptions, you first need to `augment` the untidy regression object, as this will allow us to easily access the residuals.
+
+```{r LSR_augment_lm}
+biomass.lm.augment <- augment(biomass.lm)
 ```
 
-Now have a look at this tidy output:
+This produces a tibble, in which one of the variables, called ".resid", houses the residuals that we're after. 
 
-```{r LSR_view_tidy}
-biomass.lm.tidy
+Let's have a look:
+
+```{r LSR_augment_view}
+biomass.lm.augment
 ```
 
-Before we do anything else (e.g. look at the results of the regression), we need to first check the assumptions!  
+"Residuals" represent the vertical difference between each observed value of Y (here, biomass stability) the least-squares line (the predicted value of Y, ".fitted" in the tibble above) at each value of X.  
 
-<div class="note">
-The `plot.lm` function in the base stats package can be used on the regression output object to produce a series of so-called "regression diagnostic plots".  See the help file for info.
-</div>
+Don't worry about the other variables in the tibble for now. 
 
-To get the residuals, which are required to check the assumptions, you simply use the `residuals` function (from the base stats package) on the object holding the regression output from above (`biomass.lm`). We'll create a new variable (`biomass.lm.resids`) in the dataframe `plantbiomass` to store these residuals:  
+Let's revisit the assumptions:  
 
-**NOTE**: if there are missing values in either of the X or Y variables used in the regression, then assigning residuals to a new variable within the original dataframe will not work, because the length of the "residuals" output will differ from the number of rows in the original dataframe.  
+* the true relationship between X and Y is linear  
+* for every value of X the corresponding values of Y are normally distributed  
+* the variance of Y-values is the same at all values of X
+* at each value of X, the Y measurements represent a random sample from the population of possible Y values  
 
-For instance, in the present example, there are no missing values, so the length of the residuals output will be the same as the number of rows in the original dataframe:
+With respect to the last assumption regarding random sampling, we can assume that it is met for the plant experiment example.  In experiments, the key experimental design feature is that individuals (here, plant seedlings) are randomly assigned to treatments, and that the individuals themselves were randomly drawn from the population prior to randomizing to experimental treatments. If your study is observational, then it is key that the individuals upon which measurements were made were randomly drawn from the population.
 
-```{r}
-length(residuals(biomass.lm))
-nrow(plantbiomass)
+For the first three assumptions, we start by looking at the original scatterplot \@ref(fig:LSR_fig1).  
+
+```{r LSR_fig2, fig.cap = "Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots.", fig.width = 4.2, fig.height = 4} 
+
+plantbiomass %>%
+ggplot(aes(x = nSpecies, y = biomassStability)) +
+  geom_point(shape = 1) +
+  geom_smooth(method = "loess", se = FALSE) +
+  xlab("Species number treatment") +
+  ylab("Biomass stability") +
+  theme_bw()
 ```
 
-**If you have missing values** in either the X or Y variable in your regression, see the section a bit further down.
+Sometimes it is obvious from the scatterplot that the association is non-linear (curved) (violating the first assumption), and sometimes it is obvious that the spread of the Y values appears to change systematically (e.g. get bigger) with increasing values of X (violating the third assumption). 
 
-If there are NO missing values, then if you want you can assing the residuals to a new variable in the original dataframe, for use in making the necessary residual plots:
+The second assumption is better assessed using the residuals (see below).  
 
-```{r}
-plantbiomass$biomass.lm.resids <- residuals(biomass.lm)
-```
+In either case, one can try [transforming](#transform) the response variable, re-running the regression analysis using this transformed variable as the new "Y" variable, then checking the assumptions again. 
 
-"Residuals" represent the vertical difference between each observed value of Y (here, biomass stability) the least-squares line (the predicted value of Y) at each value of X.  
+#### Outliers {#LSR_outliers}
 
-You might think that one could check the normality assumption by simply conducting usual diagnostics on the raw Y values. However, the appropriate method is to use the **residuals** from the regression, and check that these are normally distributed.  
+Viewing the scatterplot, keep an eye out for **outliers**, i.e. observations that look very unusual relative to the other observations.  In regression, observations that are far away from the general linear association can have undue influence over the best-fit line.  This sounds a bit fuzzy to judge, and it is.  There are more formal approaches to evaluating "outliers", but for now use this approach: If your eye is drawn to an observation because it seems unusual compared to the rest, then you're probably on to something.  In this case, the most transparent and thorough approach is to report your regression results using the full dataset, and then also excluding the outlier observations from the analysis.  
 
-We can check the normality of residuals assumption with a normal quantile plot, which you've seen [previously](https://people.ok.ubc.ca/jpither/modules/Comparing_two_means.html#check_assumptions16).  
+Outliers will cause the first three regression assumptions to be violated.
 
+Two other types of graphs are used to help evaluate assumptions. 
 
-```{r fig.cap = "Figure 2: Normal quantile plot of the residuals from a regression of biomass stability on species number for 161 plots", fig.width = 4.2, fig.height=4}
+We can check the normality of residuals assumption with a normal quantile plot, which you've seen [previously](#quantile_plots).  
+
+For this, we use the "augmented" output we created above.
+
+```{r fig.cap = "Normal quantile plot of the residuals from a regression of biomass stability on species number for 161 plots", fig.width = 4.2, fig.height=4}
+
   ggplot(data = plantbiomass, aes(sample = biomass.lm.resids)) +
   stat_qq(shape = 1, size = 2) +
   stat_qq_line() +
@@ -252,7 +266,8 @@ We can check the normality of residuals assumption with a normal quantile plot, 
 Before trying a transformation, let's also check the assumption that (i) the variance of Y is the same at all values of X, and (ii) the assumption that the association is linear.  To do this, we plot the residuals against the original "X" variable, which here is the number of species initially used in the treatment. Note that we'll add a horizontal line ("segement") at zero for reference:  
 
 ```{r fig.cap = "Figure 3: Residual plot from a regression of biomass stability on species number for 161 plots.", fig.width = 4.2, fig.height = 4}
-  ggplot(data = plantbiomass, aes(x = nSpecies, y = biomass.lm.resids)) +
+
+  ggplot(data = , aes(x = nSpecies, y = biomass.lm.resids)) +
   geom_point(shape = 1) +
   geom_abline(slope = 0, linetype = "dashed") +
   xlab("Species number treatment") +
