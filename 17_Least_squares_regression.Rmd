@@ -10,6 +10,7 @@ options(knitr.table.format = "html")
 * Learn about using least-squares linear regression ("LSR", also called "Model-1 regression") to model the relationship between two numeric variables, and to make predictions  
 * Learn the assumptions of LSR, and how to test whether these assumptions are met
 * Learn that the implied statistical null hypothesis for a LSR is that the slope of the relationship is equal to zero
+* Learn how to interpret regression analysis output
 * Learn about the "coefficient of determination", _R_^{2}, represents the fraction of variation in the response variable that is accounted for by the regression model 
 * Learn how to make predictions using LRS
 * Learn how to implement and report the findings of LSR  
@@ -34,7 +35,7 @@ plantbiomass <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202
 The `plantbiomass` dataset (Example 17.3 in the text book) includes data describing plant biomass measured after 10 years within each of 5 experimental "species richness" treatments, wherein plants were grown in groups of 1, 2, 4, 8, or 16 species. The treatment variable is called `nSpecies`, and the response variable `biomassStability` is a measure of ecosystem stability. The research hypothesis was that increasing diversity (species richness) would lead to increased ecosystem stability.  
 
 <div class="note">
-When one [visualizes the data](#LSR_vis), one might ask why an [ANOVA](#do_anova1) isn't the analysis method of choice. If we were simply interested in testing the null hypothesis that "there is no difference in mean ecosystem stability among the species richness treatment groups", then an ANOVA could be used, and we would simply treat the "species richness" variable as a categorical variable. However, here we are interested not simply in testing for differences among treatment groups, but more specifically in quantifying if and how ecosystem stability varies with variation in species richness, AND if so, whether we can reliably predict ecosystem stability based on species richness.  
+When one [visualizes the data](#LSR_vis), one might ask why an [ANOVA](#do_anova1) isn't the analysis method of choice. If we were simply interested in testing the null hypothesis that "there is no difference in mean ecosystem stability among the species richness treatment groups", then an ANOVA could be used, and we would simply treat the "species richness" variable as a categorical variable. However, here we are interested not simply in testing for differences among treatment groups, but more specifically in quantifying if and how ecosystem stability varies with variation in species richness, AND if so, whether we can reliably predict ecosystem stability based on species richness. For this, we need to construct a regression model.
 </div>
 
 Let's have a look at the data:
@@ -96,26 +97,30 @@ As such, **there is no need to explicitly state these hypotheses for a regressio
 You must, however, know what is being tested: the null hypothesis that the slope is equal to zero.  
 
 <div class="note">
-One need not use $\beta$ = 0 as the null hypothesis. For instance, research on allometry often tests null hypotheses about regressions slopes that differ from zero.  Curious? Check out this [website](https://www.nature.com/scitable/knowledge/library/allometry-the-study-of-biological-scaling-13228439/). 
+One need not use $\beta$ = 0 as the null hypothesis. For instance, research on allometric relationships often tests null hypotheses about regressions slopes that differ from zero.  Curious? Check out this [website](https://www.nature.com/scitable/knowledge/library/allometry-the-study-of-biological-scaling-13228439/). 
 </div>
 
 * * *
 
 ### Steps to conducting regression analysis {#LSR_steps}
 
-In regression analysis one must conduct the actual analysis before one can check the assumptions. Thus, the order of operations is a bit different from that of other tests.  
+In regression analysis one must implement the analysis before one can check the assumptions. Thus, the order of operations is a bit different from that of other tests.  
 
 **Follow these steps when conducting regression analysis:**
 
+In one common scenario for regression analysis, we wish to know whether some numeric variable Y can be reliably predicted using variable X.  So it's good to start with a statement to this effect, e.g. "Can vehicle mileage be reliably predicted by the weight of the vehicle?"  
+
+Another scenario is when we wish to test a specific hypothesis about the slope of a linear regression of Y on X.  For example, across species, metabolism (_q_) tends to scale with body mass (_M_) according to a(_q_ = _M_^{3/4}, which, when converted to a logarithmic relationship, gives a familiar form log(q) = 0.75*log(M). In this case, 0.75 is the empirically derived slope
+
 * Set an $\alpha$ level (default is 0.05)  
-* Provide an appropriate figure, including figure caption, to visualize the association between the [two numeric variables](#two_numeric)  
+* Provide an appropriate figure, including figure caption, to visualize the association between the [two numeric variables](#two_numeric) 
 * Provide a sentence or two interpreting your figure, and this may inform your concluding statement  
 * Conduct the regression analysis, save the output, and use the **residuals** from the analysis to check assumptions  
 * Assumptions  
     + state the assumptions of the test  
     + use appropriate figures and / or tests to check whether the assumptions of the statistical test are met
     + transform data to meet assumptions if required
-    + if assumptions can't be met (e.g. after transformation), use alternative methods (**these alternative methods are not covered here**)
+    + if assumptions can't be met (e.g. after transformation), use alternative methods (**these alternative methods are not covered in this course**)
     + if data transformation is required, then do the transformation and provide another appropriate figure, including figure caption, to visualize the transformed data, and a sentence or two interpreting this new figure  
 * Calculate the confidence interval for the slope and the *R*^2^ value, report these in concluding statement  
 * If the slope of the least-squares regression line differs significantly from zero (i.e. the regression is significant), provide a scatterplot that includes the regression line and **confidence bands**, with an appropriate figure caption  
@@ -123,7 +128,9 @@ In regression analysis one must conduct the actual analysis before one can check
 
 * * *
 
-### Set the $\alpha$ level {#LSR_alpha}     
+### State question and set the $\alpha$ level {#LSR_alpha}     
+
+The `plantbiomass` dataset (Example 17.3 in the text book) includes data describing plant biomass measured after 10 years within each of 5 experimental "species richness" treatments, wherein plants were grown in groups of 1, 2, 4, 8, or 16 species. The treatment variable is called `nSpecies`, and the response variable `biomassStability` is a measure of ecosystem stability. The research hypothesis was that increasing diversity (species richness) would lead to increased ecosystem stability.  
 
 We will use the conventional $\alpha$ level of 0.05.  
 
