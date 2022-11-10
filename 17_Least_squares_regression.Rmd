@@ -65,7 +65,29 @@ Regression analysis is extremely common in biology, and unfortunately it is also
 
 * * *
 
-### Hypothesis testing - not really! {#LSR_hyp}
+### Hypothesis testing or prediction? {#LSR_hyp}
+
+In general, there are two common scenarios in which least-squares regression analysis is appropriate. 
+
+(i) We wish to know whether some numeric variable _Y_ can be reliably predicted using a regression model of _Y_ on some predictor _X_.  For example, "Can vehicle mileage be reliably predicted by the weight of the vehicle?"  
+
+(ii) We wish to test a specific hypothesis about the slope of the regression model of _Y_ on _X_.  For example, across species, metabolism (_q_) tends to scale with body mass (_M_) according to a(_q_ = _M_^{3/4}, which, when converted to a logarithmic relationship, gives a familiar form log(q) = 0.75*log(M). In this case, 0.75 is the empirically derived slope
+
+In least-squares regression analysis, the "default" null hypothesis is that the _slope_ of the relationship between Y and X is equal to zero. That is:  
+
+**H~0~**: $\beta$ = 0  
+**H~A~**: $\beta$ $\neq$ 0     
+
+However, one does not typically state the null and alternative hypotheses when conducting a regression analysis. Rather, they are **implied**.  
+
+As such, **there is no need to explicitly state these hypotheses for a regression analysis**.  
+
+You must, however, know what is being tested: the null hypothesis that the slope is equal to zero.  
+
+<div class="note">
+One need not use $\beta$ = 0 as the null hypothesis. For instance, research on allometric relationships often tests null hypotheses about regressions slopes that differ from zero.  Curious? Check out this [website](https://www.nature.com/scitable/knowledge/library/allometry-the-study-of-biological-scaling-13228439/). 
+</div>
+
 
 Recall from your high-school training that the equation for a straight line is:  
 
@@ -85,21 +107,6 @@ In practice, we estimate the "parameters" $\alpha$ and $\beta$ using a random sa
 The $\alpha$ in the regression equation has no relation to the $\alpha$ that sets the significance level for a test!
 </div>
 
-In least-squares regression analysis, the null hypothesis is that the _slope_ of the relationship between Y and X is equal to zero. That is:  
-
-**H~0~**: $\beta$ = 0  
-**H~A~**: $\beta$ $\neq$ 0     
-
-However, one does not typically state the null and alternative hypotheses when conducting a regression analysis. Rather, they are **implied**.  
-
-As such, **there is no need to explicitly state these hypotheses for a regression analysis**.  
-
-You must, however, know what is being tested: the null hypothesis that the slope is equal to zero.  
-
-<div class="note">
-One need not use $\beta$ = 0 as the null hypothesis. For instance, research on allometric relationships often tests null hypotheses about regressions slopes that differ from zero.  Curious? Check out this [website](https://www.nature.com/scitable/knowledge/library/allometry-the-study-of-biological-scaling-13228439/). 
-</div>
-
 * * *
 
 ### Steps to conducting regression analysis {#LSR_steps}
@@ -107,10 +114,6 @@ One need not use $\beta$ = 0 as the null hypothesis. For instance, research on a
 In regression analysis one must implement the analysis before one can check the assumptions. Thus, the order of operations is a bit different from that of other tests.  
 
 **Follow these steps when conducting regression analysis:**
-
-In one common scenario for regression analysis, we wish to know whether some numeric variable Y can be reliably predicted using variable X.  So it's good to start with a statement to this effect, e.g. "Can vehicle mileage be reliably predicted by the weight of the vehicle?"  
-
-Another scenario is when we wish to test a specific hypothesis about the slope of a linear regression of Y on X.  For example, across species, metabolism (_q_) tends to scale with body mass (_M_) according to a(_q_ = _M_^{3/4}, which, when converted to a logarithmic relationship, gives a familiar form log(q) = 0.75*log(M). In this case, 0.75 is the empirically derived slope
 
 * Set an $\alpha$ level (default is 0.05)  
 * Provide an appropriate figure, including figure caption, to visualize the association between the [two numeric variables](#two_numeric) 
