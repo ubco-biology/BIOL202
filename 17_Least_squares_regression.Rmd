@@ -275,7 +275,7 @@ biomass.lm.augment %>%
 
 > Figure \@ref(fig:lsrfigthree) shows that the residuals don't really fall consistently near the line in the normal quantile plot; there is curviture, and increasing values tend to fall further from the line. This suggests the need to **log-transform the data**.  
 
-Before trying a transformation, let's also check the assumptions that (i) the variance of Y is the same at all values of X, and (ii) the assumption that the association is linear.  To do this, we plot the residuals against the original "$X$" variable, which here is the number of species initially used in the treatment. Note that we'll add a horizontal line ("segement") at zero for reference:  
+Before trying a transformation, let's also check the assumptions that (i) the variance of $Y$ is the same at all values of $X$, and (ii) the assumption that the association is linear.  To do this, we plot the residuals against the original "$X$" variable, which here is the number of species initially used in the treatment. Note that we'll add a horizontal line ("segement") at zero for reference:  
 
 ```{r lsrfigfour, fig.cap = "Residual plot from a regression of biomass stability on Species richness for 161 plots.", fig.width = 4.2, fig.height = 4}
 
@@ -302,9 +302,9 @@ Here we are watching out for:
 
 ### Residual plots when you have missing values
 
-**IF** there are missing values in either the $X$ or Y variables used in the regression, then simply `filter` those NA rows out before plotting the residuals.  
+**IF** there are missing values in either the $X$ or $Y$ variables used in the regression, then simply `filter` those NA rows out before plotting the residuals.  
 
-For example, imagine one of the rows in our biomass dataset included a missing value ("NA") in the "nSpecies" variable, then we could use this code:
+For example, imagine one of the rows in our biomass dataset included a missing value ("NA") in the "nSpecies" variable, then we could use this code for producing the residual plot:
 
 ```
 biomass.lm.augment %>%
@@ -347,7 +347,7 @@ log.biomass.lm.augment %>%
   theme_bw()
 ```
 
-```{r LSF_fig_six, fig.cap = "Residual plot from a regression of biomass stability (log transformed) on Species richness for 161 plots.", fig.width = 4.2, fig.height = 4}
+```{r lsrfigsix, fig.cap = "Residual plot from a regression of biomass stability (log transformed) on Species richness for 161 plots.", fig.width = 4.2, fig.height = 4}
 
 log.biomass.lm.augment %>%
   ggplot(aes(x = nSpecies, y = .resid)) +

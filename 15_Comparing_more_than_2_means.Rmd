@@ -357,30 +357,16 @@ Let's try out the function, using our original anova table:
 
 ```{r}
 nice.anova.table <- create.anova.table(circadian.lm.anova)
-nice.anova.table
 ```
 
-It worked!
-
-**Generate nice output using `kable`**
-
-To generate a nice table that will export to PDF properly, we'll follow what we learned in the [Tables in markdown tutorial](https://ubco-biology.github.io/BIOL202/creating-tables-in-r-markdown.html) on creating nicely formatted tables, including **table headings**. 
-
-Here's the required code. 
-
+And present it:
 ```{r niceanovapdf}
-options(knitr.kable.NA = '')
-kbl(nice.anova.table, caption = "ANOVA table for the circadian rythm experiment.", 
-    booktabs = TRUE, digits = c(0, 4, 0, 4, 4, 3), align = "r") %>% 
-  kable_styling(latex_options = "hold_position", position = "center")
+kable(nice.anova.table, digits = 4, 
+      caption = "ANOVA table for the circadian rythm experiment.", 
+      lable = "niceanovapdf")
 ```
 
-We have two new pieces of code:
-
-* the first line of code [options(knitr.kable.NA = '')] tells the `kbl` function to hide any "NA" values; we need this because parts of our table have NAs
-* the argument "align = 'r'" in the `kbl` function tells it to align the text right
-
-We can now refer to this nice table in our concluding statement, and if the table is appropriately formatted like this one, you can simply refer to the Table rather than including all the additional details in your concluding statement (see below).  
+Nice!
 
 ### Calculate $R^2$ for the ANOVA
 
@@ -536,7 +522,7 @@ Pretend that our post-hoc test showed that the "Knee" group was not different fr
 
 With out ANOVA table and final figure in hand, we are ready for the concluding statement: 
 
->Shifts in circadian rhythm differ significantly among treatment groups (ANOVA; Table \@ref(tab:niceanovapdf); *R*<sup>2</sup> = `r round(circadian.lm.summary$r.squared, 2)`). As shown in Figure \@ref(fig:stripanovatukey), the mean shift among the "Eyes" subjects was significantly lower than both of the other treatment groups.   
+> Shifts in circadian rhythm differ significantly among treatment groups (ANOVA; Table \@ref(tab:niceanovapdf); $R^2$ = `r round(circadian.lm.summary$r.squared, 2)`). As shown in Figure \@ref(fig:stripanovatukey), the mean shift among the "Eyes" subjects was significantly lower than both of the other treatment groups.   
 
 ## When assumptions aren't met {#assumpbad_anova}
 

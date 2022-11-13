@@ -67,6 +67,7 @@ fig:lsrfigtwo
 fig:lsrfigthree
 fig:lsrfigfour
 fig:lsrfigfive
+fig:lsrfigsix
 fig:lsrfigseven
 fig:lsrfigeight
 tab:showskimtable
