@@ -176,7 +176,8 @@ wolf.cor
 Now let's tidy it up and have a look at the resulting tidy output:
 
 ```{r createtidycor}
-wolf.cor.tidy <- tidy(wolf.cor)
+wolf.cor.tidy <- wolf.cor %>%
+  broom::tidy()
 wolf.cor.tidy
 ```
 
@@ -286,7 +287,8 @@ You may get a warning message, simply saying that it can't compute exact _P_-val
 </div>
 
 ```{r createtidyspear}
-trick.cor.tidy <- tidy(trick.cor)
+trick.cor.tidy <- trick.cor %>%
+  broom::tidy()
 trick.cor.tidy
 ```
 
@@ -297,7 +299,6 @@ trick.cor.tidy
 * The "alternative" indicates whether the alternative hypothesis was one- or two-sided (the latter is the default)
 
 <div class="note">
-**NOTE**
  There is no confidence interval reported with Spearman correlation analysis, so there is no need to report one in the concluding statement for a rank correlation. Nor is the degrees of freedom reported, so be sure to have figured out the appropriate degrees of freedom (or sample size "n") to report in your concluding statement.
 </div>
 

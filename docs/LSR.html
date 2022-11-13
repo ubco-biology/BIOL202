@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>18.2 Least-squares regression analysis | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <meta name="description" content="All tutorials associated with BIOL202" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="18.2 Least-squares regression analysis | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="All tutorials associated with BIOL202" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="18.2 Least-squares regression analysis | Tutorials for BIOL202: Introduction to Biostatistics" />
+  
+  <meta name="twitter:description" content="All tutorials associated with BIOL202" />
+  
+
+<meta name="author" content="Jason Pither" />
+
+
+<meta name="date" content="2022-11-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="LSR_packages_data.html"/>
+<link rel="next" href="making-predictions.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
+<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
+<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
+<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DVMYRT2ND2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DVMYRT2ND2');
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BIOL202 Tutorials</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>Preface</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>Author</a></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="chapter" data-level="" data-path="copyright.html"><a href="copyright.html"><i class="fa fa-check"></i>Copyright</a></li>
+<li class="chapter" data-level="" data-path="ubco-biology-open-materials.html"><a href="ubco-biology-open-materials.html"><i class="fa fa-check"></i>UBCO Biology open materials</a></li>
+</ul></li>
+<li class="part"><span><b>Getting started with R, RStudio &amp; R Markdown</b></span></li>
+<li class="chapter" data-level="1" data-path="what_is_R.html"><a href="what_is_R.html"><i class="fa fa-check"></i><b>1</b> What are R and RStudio?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="install_R_Rstudio.html"><a href="install_R_Rstudio.html"><i class="fa fa-check"></i><b>1.1</b> Installing R and RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="start_r.html"><a href="start_r.html"><i class="fa fa-check"></i><b>2</b> Start using R &amp; RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="Rstudio_interface.html"><a href="Rstudio_interface.html"><i class="fa fa-check"></i><b>2.1</b> The RStudio Interface</a></li>
+<li class="chapter" data-level="2.2" data-path="coding_basics.html"><a href="coding_basics.html"><i class="fa fa-check"></i><b>2.2</b> Coding basics</a></li>
+<li class="chapter" data-level="2.3" data-path="packages.html"><a href="packages.html"><i class="fa fa-check"></i><b>2.3</b> R packages</a></li>
+<li class="chapter" data-level="2.4" data-path="package_install.html"><a href="package_install.html"><i class="fa fa-check"></i><b>2.4</b> Package installation</a></li>
+<li class="chapter" data-level="2.5" data-path="package_load.html"><a href="package_load.html"><i class="fa fa-check"></i><b>2.5</b> Package loading</a></li>
+<li class="chapter" data-level="2.6" data-path="intro_markdown.html"><a href="intro_markdown.html"><i class="fa fa-check"></i><b>2.6</b> Intro to R Markdown</a></li>
+<li class="chapter" data-level="2.7" data-path="lit_programming.html"><a href="lit_programming.html"><i class="fa fa-check"></i><b>2.7</b> Literate programming with R Markdown</a></li>
+<li class="chapter" data-level="2.8" data-path="veryify_knit.html"><a href="veryify_knit.html"><i class="fa fa-check"></i><b>2.8</b> Making sure R Markdown knits to PDF</a></li>
+<li class="chapter" data-level="2.9" data-path="r_resources.html"><a href="r_resources.html"><i class="fa fa-check"></i><b>2.9</b> Extra resources</a></li>
+<li class="chapter" data-level="2.10" data-path="online_resources.html"><a href="online_resources.html"><i class="fa fa-check"></i><b>2.10</b> R Resources Online</a></li>
+</ul></li>
+<li class="part"><span><b>Reproducible Workflows</b></span></li>
+<li class="chapter" data-level="3" data-path="repro_research.html"><a href="repro_research.html"><i class="fa fa-check"></i><b>3</b> Reproducible Research</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="comp_repro.html"><a href="comp_repro.html"><i class="fa fa-check"></i><b>3.1</b> Computational reproducibility</a></li>
+<li class="chapter" data-level="3.2" data-path="biol202_workflow.html"><a href="biol202_workflow.html"><i class="fa fa-check"></i><b>3.2</b> An example BIOL202 workflow</a></li>
+<li class="chapter" data-level="3.3" data-path="onedrive.html"><a href="onedrive.html"><i class="fa fa-check"></i><b>3.3</b> Microsoft OneDrive</a></li>
+<li class="chapter" data-level="3.4" data-path="dir_structure.html"><a href="dir_structure.html"><i class="fa fa-check"></i><b>3.4</b> Directory structure</a></li>
+<li class="chapter" data-level="3.5" data-path="setup_dirs.html"><a href="setup_dirs.html"><i class="fa fa-check"></i><b>3.5</b> Steps to set up directories</a></li>
+<li class="chapter" data-level="3.6" data-path="lecture_workflow.html"><a href="lecture_workflow.html"><i class="fa fa-check"></i><b>3.6</b> Lecture workflow</a></li>
+<li class="chapter" data-level="3.7" data-path="tutorial_workflow.html"><a href="tutorial_workflow.html"><i class="fa fa-check"></i><b>3.7</b> Tutorial workflow</a></li>
+<li class="chapter" data-level="3.8" data-path="create_project.html"><a href="create_project.html"><i class="fa fa-check"></i><b>3.8</b> Create an RStudio Project</a></li>
+<li class="chapter" data-level="3.9" data-path="create_subdirs.html"><a href="create_subdirs.html"><i class="fa fa-check"></i><b>3.9</b> Create subdirectories</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="create_subdirs.html"><a href="create_subdirs.html#here_package"><i class="fa fa-check"></i><b>3.9.1</b> The <code>here</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="edit_markdown.html"><a href="edit_markdown.html"><i class="fa fa-check"></i><b>3.10</b> Edit an R markdown file</a></li>
+<li class="chapter" data-level="3.11" data-path="md_components.html"><a href="md_components.html"><i class="fa fa-check"></i><b>3.11</b> Components of an R Markdown file</a></li>
+<li class="chapter" data-level="3.12" data-path="interact_tutorial.html"><a href="interact_tutorial.html"><i class="fa fa-check"></i><b>3.12</b> Interacting with Tutorial material</a></li>
+<li class="chapter" data-level="3.13" data-path="assign_workflow.html"><a href="assign_workflow.html"><i class="fa fa-check"></i><b>3.13</b> Lab assignments workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="prepare_assignments.html"><a href="prepare_assignments.html"><i class="fa fa-check"></i><b>4</b> Preparing and formatting assignments</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="open_assign_project1.html"><a href="open_assign_project1.html"><i class="fa fa-check"></i><b>4.1</b> Open your assignment RStudio project</a></li>
+<li class="chapter" data-level="4.2" data-path="download_assign_rmd.html"><a href="download_assign_rmd.html"><i class="fa fa-check"></i><b>4.2</b> Download the assignment Rmd file</a></li>
+<li class="chapter" data-level="4.3" data-path="open_rmd_file.html"><a href="open_rmd_file.html"><i class="fa fa-check"></i><b>4.3</b> Open the assignment Rmd file</a></li>
+<li class="chapter" data-level="4.4" data-path="what_include_answer.html"><a href="what_include_answer.html"><i class="fa fa-check"></i><b>4.4</b> What to include in your answers</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="what_include_answer.html"><a href="what_include_answer.html#chunk_headers"><i class="fa fa-check"></i><b>4.4.1</b> Code chunk headers</a></li>
+<li class="chapter" data-level="4.4.2" data-path="what_include_answer.html"><a href="what_include_answer.html#first_csv_import"><i class="fa fa-check"></i><b>4.4.2</b> Import data</a></li>
+<li class="chapter" data-level="4.4.3" data-path="what_include_answer.html"><a href="what_include_answer.html#first_load_package"><i class="fa fa-check"></i><b>4.4.3</b> Load packages</a></li>
+<li class="chapter" data-level="4.4.4" data-path="what_include_answer.html"><a href="what_include_answer.html#answer-the-questions"><i class="fa fa-check"></i><b>4.4.4</b> Answer the questions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="rmd_graphing.html"><a href="rmd_graphing.html"><i class="fa fa-check"></i><b>4.5</b> Setting up R Markdown for graphing</a></li>
+<li class="chapter" data-level="4.6" data-path="example_answer.html"><a href="example_answer.html"><i class="fa fa-check"></i><b>4.6</b> Example question / answer</a></li>
+<li class="chapter" data-level="4.7" data-path="knit_assign.html"><a href="knit_assign.html"><i class="fa fa-check"></i><b>4.7</b> Knitting your assignment to PDF</a></li>
+<li class="chapter" data-level="4.8" data-path="submit_rmd.html"><a href="submit_rmd.html"><i class="fa fa-check"></i><b>4.8</b> Submit your assignment</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data_import.html"><a href="data_import.html"><i class="fa fa-check"></i><b>5</b> Preparing and importing Tidy Data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tidy_data.html"><a href="tidy_data.html"><i class="fa fa-check"></i><b>5.1</b> Tidy data</a></li>
+<li class="chapter" data-level="5.2" data-path="import_csv_url.html"><a href="import_csv_url.html"><i class="fa fa-check"></i><b>5.2</b> Import a CSV file from a website</a></li>
+<li class="chapter" data-level="5.3" data-path="create_csv_local.html"><a href="create_csv_local.html"><i class="fa fa-check"></i><b>5.3</b> Create a CSV file</a></li>
+<li class="chapter" data-level="5.4" data-path="import_csv_local.html"><a href="import_csv_local.html"><i class="fa fa-check"></i><b>5.4</b> Import a local CSV file</a></li>
+<li class="chapter" data-level="5.5" data-path="data_overview.html"><a href="data_overview.html"><i class="fa fa-check"></i><b>5.5</b> Get an overview of a dataset</a></li>
+<li class="chapter" data-level="5.6" data-path="tutorial-practice-activities.html"><a href="tutorial-practice-activities.html"><i class="fa fa-check"></i><b>5.6</b> Tutorial practice activities</a></li>
+</ul></li>
+<li class="part"><span><b>Visualizing and Describing Data</b></span></li>
+<li class="chapter" data-level="6" data-path="vis_variable.html"><a href="vis_variable.html"><i class="fa fa-check"></i><b>6</b> Visualizing a single variable</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vis_packages_data.html"><a href="vis_packages_data.html"><i class="fa fa-check"></i><b>6.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="6.2" data-path="vis_data_overview.html"><a href="vis_data_overview.html"><i class="fa fa-check"></i><b>6.2</b> Get an overview of the data</a></li>
+<li class="chapter" data-level="6.3" data-path="vis_cat_freq_table.html"><a href="vis_cat_freq_table.html"><i class="fa fa-check"></i><b>6.3</b> Create a frequency table</a></li>
+<li class="chapter" data-level="6.4" data-path="vis_cat_barchart.html"><a href="vis_cat_barchart.html"><i class="fa fa-check"></i><b>6.4</b> Create a bar graph</a></li>
+<li class="chapter" data-level="6.5" data-path="vis_histogram.html"><a href="vis_histogram.html"><i class="fa fa-check"></i><b>6.5</b> Create a histogram</a></li>
+<li class="chapter" data-level="6.6" data-path="vis_describe_hist.html"><a href="vis_describe_hist.html"><i class="fa fa-check"></i><b>6.6</b> Describing a histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="vis_describe.html"><a href="vis_describe.html"><i class="fa fa-check"></i><b>7</b> Describing a single variable</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="desc_packages_data.html"><a href="desc_packages_data.html"><i class="fa fa-check"></i><b>7.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="7.2" data-path="desc_cat_Var.html"><a href="desc_cat_Var.html"><i class="fa fa-check"></i><b>7.2</b> Describing a categorical variable</a></li>
+<li class="chapter" data-level="7.3" data-path="desc_numeric_var.html"><a href="desc_numeric_var.html"><i class="fa fa-check"></i><b>7.3</b> Describing a numerical variable</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="desc_numeric_var.html"><a href="desc_numeric_var.html#median_IQR"><i class="fa fa-check"></i><b>7.3.1</b> Calculating the median &amp; IQR</a></li>
+<li class="chapter" data-level="7.3.2" data-path="desc_numeric_var.html"><a href="desc_numeric_var.html#mean_sd"><i class="fa fa-check"></i><b>7.3.2</b> Calculating the mean &amp; standard deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="desc_numeric_var_cat.html"><a href="desc_numeric_var_cat.html"><i class="fa fa-check"></i><b>7.4</b> Describing a numerical variable grouped by a categorical variable</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="vis_twovar.html"><a href="vis_twovar.html"><i class="fa fa-check"></i><b>8</b> Visualizing associations between two variables</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="vis2_packages_data.html"><a href="vis2_packages_data.html"><i class="fa fa-check"></i><b>8.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="8.2" data-path="vis2_2cat.html"><a href="vis2_2cat.html"><i class="fa fa-check"></i><b>8.2</b> Visualizing association between two categorical variables</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="vis2_2cat.html"><a href="vis2_2cat.html#vis2_cont_table"><i class="fa fa-check"></i><b>8.2.1</b> Constructing a contingency table</a></li>
+<li class="chapter" data-level="8.2.2" data-path="vis2_2cat.html"><a href="vis2_2cat.html#grouped_bar_graphs"><i class="fa fa-check"></i><b>8.2.2</b> Constructing a grouped bar graph</a></li>
+<li class="chapter" data-level="8.2.3" data-path="vis2_2cat.html"><a href="vis2_2cat.html#mosaic_plot"><i class="fa fa-check"></i><b>8.2.3</b> Constructing a mosaic plot</a></li>
+<li class="chapter" data-level="8.2.4" data-path="vis2_2cat.html"><a href="vis2_2cat.html#interpret_mosaic"><i class="fa fa-check"></i><b>8.2.4</b> Interpreting mosaic plots</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="two_numeric.html"><a href="two_numeric.html"><i class="fa fa-check"></i><b>8.3</b> Visualizing association between two numeric variables</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="two_numeric.html"><a href="two_numeric.html#interpret_scatter"><i class="fa fa-check"></i><b>8.3.1</b> Interpreting and describing a scatterplot</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html"><i class="fa fa-check"></i><b>8.4</b> Visualizing association between a numeric and a categorical variable</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#stripchart"><i class="fa fa-check"></i><b>8.4.1</b> Create a stripchart</a></li>
+<li class="chapter" data-level="8.4.2" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#violinplot"><i class="fa fa-check"></i><b>8.4.2</b> Create a violin plot</a></li>
+<li class="chapter" data-level="8.4.3" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#boxplots"><i class="fa fa-check"></i><b>8.4.3</b> Creating a boxplot</a></li>
+<li class="chapter" data-level="8.4.4" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#bestplot"><i class="fa fa-check"></i><b>8.4.4</b> Combining violin and boxplots</a></li>
+<li class="chapter" data-level="8.4.5" data-path="numeric_vs_cat.html"><a href="numeric_vs_cat.html#interp_violin"><i class="fa fa-check"></i><b>8.4.5</b> Interpreting stripcharts, violin plots and boxplots</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Inferential Statistics</b></span></li>
+<li class="chapter" data-level="9" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>9</b> Sampling, Estimation, &amp; Uncertainty</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="estimation_packages_data.html"><a href="estimation_packages_data.html"><i class="fa fa-check"></i><b>9.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="9.2" data-path="sampling_functions.html"><a href="sampling_functions.html"><i class="fa fa-check"></i><b>9.2</b> Functions for sampling</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="sampling_functions.html"><a href="sampling_functions.html#setseed"><i class="fa fa-check"></i><b>9.2.1</b> Setting the “seed” for random sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="sampling_error.html"><a href="sampling_error.html"><i class="fa fa-check"></i><b>9.3</b> Sampling error</a></li>
+<li class="chapter" data-level="9.4" data-path="sampdistmean.html"><a href="sampdistmean.html"><i class="fa fa-check"></i><b>9.4</b> Sampling distribution of the mean</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="sampdistmean.html"><a href="sampdistmean.html#hist_samdist"><i class="fa fa-check"></i><b>9.4.1</b> Visualize the sampling distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="sem_page.html"><a href="sem_page.html"><i class="fa fa-check"></i><b>9.5</b> Standard error of the mean</a></li>
+<li class="chapter" data-level="9.6" data-path="confint_rough.html"><a href="confint_rough.html"><i class="fa fa-check"></i><b>9.6</b> Rule of thumb 95% confidence interval</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="hypothesis.html"><a href="hypothesis.html"><i class="fa fa-check"></i><b>10</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="hyp_packages_data.html"><a href="hyp_packages_data.html"><i class="fa fa-check"></i><b>10.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="10.2" data-path="hyp_steps.html"><a href="hyp_steps.html"><i class="fa fa-check"></i><b>10.2</b> Steps to hypothesis testing</a></li>
+<li class="chapter" data-level="10.3" data-path="hyp_example.html"><a href="hyp_example.html"><i class="fa fa-check"></i><b>10.3</b> An hypothesis test example</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="hyp_example.html"><a href="hyp_example.html#follow_hyp_steps"><i class="fa fa-check"></i><b>10.3.1</b> Following the steps to hypothesis testing</a></li>
+<li class="chapter" data-level="10.3.2" data-path="hyp_example.html"><a href="hyp_example.html#sim_null"><i class="fa fa-check"></i><b>10.3.2</b> Simulating a “null distribution”</a></li>
+<li class="chapter" data-level="10.3.3" data-path="hyp_example.html"><a href="hyp_example.html#calc_p"><i class="fa fa-check"></i><b>10.3.3</b> Calculating the <em>P</em>-value</a></li>
+<li class="chapter" data-level="10.3.4" data-path="hyp_example.html"><a href="hyp_example.html#concluding_statement"><i class="fa fa-check"></i><b>10.3.4</b> Writing a concluding statement</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="single_cat.html"><a href="single_cat.html"><i class="fa fa-check"></i><b>11</b> Analyzing a single categorical variable</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="singcat_packages_data.html"><a href="singcat_packages_data.html"><i class="fa fa-check"></i><b>11.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="11.2" data-path="estproportions.html"><a href="estproportions.html"><i class="fa fa-check"></i><b>11.2</b> Estimating proportions</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="estproportions.html"><a href="estproportions.html#sterr_prop"><i class="fa fa-check"></i><b>11.2.1</b> Standard error for a proportion</a></li>
+<li class="chapter" data-level="11.2.2" data-path="estproportions.html"><a href="estproportions.html#confint_prop"><i class="fa fa-check"></i><b>11.2.2</b> Confidence interval for a proportion</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="binomdist.html"><a href="binomdist.html"><i class="fa fa-check"></i><b>11.3</b> Binomial distribution</a></li>
+<li class="chapter" data-level="11.4" data-path="binom_test.html"><a href="binom_test.html"><i class="fa fa-check"></i><b>11.4</b> Binomial test</a></li>
+<li class="chapter" data-level="11.5" data-path="prophypconf.html"><a href="prophypconf.html"><i class="fa fa-check"></i><b>11.5</b> Confidence interval approach to hypothesis testing</a></li>
+<li class="chapter" data-level="11.6" data-path="GOF_test.html"><a href="GOF_test.html"><i class="fa fa-check"></i><b>11.6</b> Goodness-of-fit tests</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="two_cat.html"><a href="two_cat.html"><i class="fa fa-check"></i><b>12</b> Analyzing associations between two categorical variables</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="twocat_packages_data.html"><a href="twocat_packages_data.html"><i class="fa fa-check"></i><b>12.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="12.2" data-path="fishertest.html"><a href="fishertest.html"><i class="fa fa-check"></i><b>12.2</b> Fisher’s Exact Test</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="fishertest.html"><a href="fishertest.html#fisher_hyp"><i class="fa fa-check"></i><b>12.2.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="12.2.2" data-path="fishertest.html"><a href="fishertest.html#show_cont_table"><i class="fa fa-check"></i><b>12.2.2</b> Display a contingency table</a></li>
+<li class="chapter" data-level="12.2.3" data-path="fishertest.html"><a href="fishertest.html#show_mosaic"><i class="fa fa-check"></i><b>12.2.3</b> Display a mosaic plot</a></li>
+<li class="chapter" data-level="12.2.4" data-path="fishertest.html"><a href="fishertest.html#do_fisher"><i class="fa fa-check"></i><b>12.2.4</b> Conduct the Fisher’s Exact Test</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="odds.html"><a href="odds.html"><i class="fa fa-check"></i><b>12.3</b> Estimate the Odds of getting sick</a></li>
+<li class="chapter" data-level="12.4" data-path="oddsratio.html"><a href="oddsratio.html"><i class="fa fa-check"></i><b>12.4</b> Estimate the odds ratio</a></li>
+<li class="chapter" data-level="12.5" data-path="chisquare.html"><a href="chisquare.html"><i class="fa fa-check"></i><b>12.5</b> <span class="math inline">\(\chi\)</span><sup>2</sup> Contingency Test</a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="chisquare.html"><a href="chisquare.html#chihyp"><i class="fa fa-check"></i><b>12.5.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="12.5.2" data-path="chisquare.html"><a href="chisquare.html#showwormcont"><i class="fa fa-check"></i><b>12.5.2</b> Display the contingency table</a></li>
+<li class="chapter" data-level="12.5.3" data-path="chisquare.html"><a href="chisquare.html#mosaicworm"><i class="fa fa-check"></i><b>12.5.3</b> Visualize a mosaic plot</a></li>
+<li class="chapter" data-level="12.5.4" data-path="chisquare.html"><a href="chisquare.html#checkchiassum"><i class="fa fa-check"></i><b>12.5.4</b> Check the assumptions</a></li>
+<li class="chapter" data-level="12.5.5" data-path="chisquare.html"><a href="chisquare.html#chiresults"><i class="fa fa-check"></i><b>12.5.5</b> Get the results of the test</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="single_numeric.html"><a href="single_numeric.html"><i class="fa fa-check"></i><b>13</b> Analyzing a single numerical variable</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="singlenum_packages_data.html"><a href="singlenum_packages_data.html"><i class="fa fa-check"></i><b>13.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="13.2" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html"><i class="fa fa-check"></i><b>13.2</b> One-sample <em>t</em>-test</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_hyp"><i class="fa fa-check"></i><b>13.2.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="13.2.2" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_assumptions"><i class="fa fa-check"></i><b>13.2.2</b> Assumptions of one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="13.2.3" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_graph"><i class="fa fa-check"></i><b>13.2.3</b> A graph to accompany a one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="13.2.4" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_test"><i class="fa fa-check"></i><b>13.2.4</b> Conduct the one-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="13.2.5" data-path="onesamp_t_test.html"><a href="onesamp_t_test.html#onesamp_conclude"><i class="fa fa-check"></i><b>13.2.5</b> Concluding statement for the one-sample <em>t</em>-test</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="t_confidence.html"><a href="t_confidence.html"><i class="fa fa-check"></i><b>13.3</b> Confidence intervals for <span class="math inline">\(\mu\)</span></a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="t_confidence.html"><a href="t_confidence.html#conf_precision"><i class="fa fa-check"></i><b>13.3.1</b> Confidence interval as a measure of precision for an estimate</a></li>
+<li class="chapter" data-level="13.3.2" data-path="t_confidence.html"><a href="t_confidence.html#conf_hyp"><i class="fa fa-check"></i><b>13.3.2</b> Confidence interval approach to hypothesis testing</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="compare_two_means.html"><a href="compare_two_means.html"><i class="fa fa-check"></i><b>14</b> Comparing means among two groups</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="twomean_packages_data.html"><a href="twomean_packages_data.html"><i class="fa fa-check"></i><b>14.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="14.2" data-path="paired-t-test.html"><a href="paired-t-test.html"><i class="fa fa-check"></i><b>14.2</b> Paired <em>t</em>-test</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="paired-t-test.html"><a href="paired-t-test.html#calc_diffs"><i class="fa fa-check"></i><b>14.2.1</b> Calculate differences</a></li>
+<li class="chapter" data-level="14.2.2" data-path="paired-t-test.html"><a href="paired-t-test.html#paired_Htest"><i class="fa fa-check"></i><b>14.2.2</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="14.2.3" data-path="paired-t-test.html"><a href="paired-t-test.html#graph_paried"><i class="fa fa-check"></i><b>14.2.3</b> A graph to accompany a paired <em>t</em>-test</a></li>
+<li class="chapter" data-level="14.2.4" data-path="paired-t-test.html"><a href="paired-t-test.html#assump_paried"><i class="fa fa-check"></i><b>14.2.4</b> Assumptions of the paired <em>t</em>-test</a></li>
+<li class="chapter" data-level="14.2.5" data-path="paired-t-test.html"><a href="paired-t-test.html#conduct_paired"><i class="fa fa-check"></i><b>14.2.5</b> Conduct the test</a></li>
+<li class="chapter" data-level="14.2.6" data-path="paired-t-test.html"><a href="paired-t-test.html#concl_paired"><i class="fa fa-check"></i><b>14.2.6</b> Concluding statement</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html"><i class="fa fa-check"></i><b>14.3</b> Two sample <em>t</em>-test</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#twosamp_hyp"><i class="fa fa-check"></i><b>14.3.1</b> Hypothesis statement</a></li>
+<li class="chapter" data-level="14.3.2" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#stats_2samp"><i class="fa fa-check"></i><b>14.3.2</b> A table of descriptive statistics</a></li>
+<li class="chapter" data-level="14.3.3" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#graph_2samp"><i class="fa fa-check"></i><b>14.3.3</b> A graph to accompany a 2-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="14.3.4" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#twosamp_assump"><i class="fa fa-check"></i><b>14.3.4</b> Assumptions of the 2-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="14.3.5" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#conduct_2samptest"><i class="fa fa-check"></i><b>14.3.5</b> Conduct the 2-sample <em>t</em>-test</a></li>
+<li class="chapter" data-level="14.3.6" data-path="twosamp_ttest.html"><a href="twosamp_ttest.html#concl_2samp"><i class="fa fa-check"></i><b>14.3.6</b> Concluding statement</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="assumpbad_2samp.html"><a href="assumpbad_2samp.html"><i class="fa fa-check"></i><b>14.4</b> When assumptions aren’t met</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="assumptions_trans.html"><a href="assumptions_trans.html"><i class="fa fa-check"></i><b>15</b> Checking assumptions and data transformations</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="assumptions_packages_data.html"><a href="assumptions_packages_data.html"><i class="fa fa-check"></i><b>15.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="15.2" data-path="checknorm_assum.html"><a href="checknorm_assum.html"><i class="fa fa-check"></i><b>15.2</b> Checking the normality assumption</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="checknorm_assum.html"><a href="checknorm_assum.html#quantile_plots"><i class="fa fa-check"></i><b>15.2.1</b> Normal quantile plots</a></li>
+<li class="chapter" data-level="15.2.2" data-path="checknorm_assum.html"><a href="checknorm_assum.html#shapirottest"><i class="fa fa-check"></i><b>15.2.2</b> Shapiro-Wilk test for normality</a></li>
+</ul></li>
+<li class="chapter" data-level="15.3" data-path="levenetest.html"><a href="levenetest.html"><i class="fa fa-check"></i><b>15.3</b> Checking the equal-variance assumption</a></li>
+<li class="chapter" data-level="15.4" data-path="transform.html"><a href="transform.html"><i class="fa fa-check"></i><b>15.4</b> Data transformations</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="transform.html"><a href="transform.html#log_transform"><i class="fa fa-check"></i><b>15.4.1</b> Log-transform</a></li>
+<li class="chapter" data-level="15.4.2" data-path="transform.html"><a href="transform.html#zeroes"><i class="fa fa-check"></i><b>15.4.2</b> Dealing with zeroes</a></li>
+<li class="chapter" data-level="15.4.3" data-path="transform.html"><a href="transform.html#logbases"><i class="fa fa-check"></i><b>15.4.3</b> Log bases</a></li>
+<li class="chapter" data-level="15.4.4" data-path="transform.html"><a href="transform.html#back_transform"><i class="fa fa-check"></i><b>15.4.4</b> Back-transforming log data</a></li>
+<li class="chapter" data-level="15.4.5" data-path="transform.html"><a href="transform.html#logit_transform"><i class="fa fa-check"></i><b>15.4.5</b> Logit transform</a></li>
+<li class="chapter" data-level="15.4.6" data-path="transform.html"><a href="transform.html#logit_back"><i class="fa fa-check"></i><b>15.4.6</b> Back-transforming logit data</a></li>
+<li class="chapter" data-level="15.4.7" data-path="transform.html"><a href="transform.html#when_back"><i class="fa fa-check"></i><b>15.4.7</b> When to back-transform?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="compare_three_more_means.html"><a href="compare_three_more_means.html"><i class="fa fa-check"></i><b>16</b> Comparing means among more than two groups</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="anova_packages_data.html"><a href="anova_packages_data.html"><i class="fa fa-check"></i><b>16.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="16.2" data-path="do_the_anova.html"><a href="do_the_anova.html"><i class="fa fa-check"></i><b>16.2</b> Analysis of variance</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="do_the_anova.html"><a href="do_the_anova.html#anova_hyps"><i class="fa fa-check"></i><b>16.2.1</b> Hypothesis statements</a></li>
+<li class="chapter" data-level="16.2.2" data-path="do_the_anova.html"><a href="do_the_anova.html#stats_anova"><i class="fa fa-check"></i><b>16.2.2</b> A table of descriptive statistics</a></li>
+<li class="chapter" data-level="16.2.3" data-path="do_the_anova.html"><a href="do_the_anova.html#anova_graph1"><i class="fa fa-check"></i><b>16.2.3</b> Visualize the data</a></li>
+<li class="chapter" data-level="16.2.4" data-path="do_the_anova.html"><a href="do_the_anova.html#assump_anova"><i class="fa fa-check"></i><b>16.2.4</b> Assumptions of ANOVA</a></li>
+<li class="chapter" data-level="16.2.5" data-path="do_the_anova.html"><a href="do_the_anova.html#do_anova1"><i class="fa fa-check"></i><b>16.2.5</b> Conduct the ANOVA test</a></li>
+<li class="chapter" data-level="16.2.6" data-path="do_the_anova.html"><a href="do_the_anova.html#calculate-r2-for-the-anova"><i class="fa fa-check"></i><b>16.2.6</b> Calculate <span class="math inline">\(R^2\)</span> for the ANOVA</a></li>
+<li class="chapter" data-level="16.2.7" data-path="do_the_anova.html"><a href="do_the_anova.html#tukey"><i class="fa fa-check"></i><b>16.2.7</b> Tukey-Kramer post-hoc test</a></li>
+<li class="chapter" data-level="16.2.8" data-path="do_the_anova.html"><a href="do_the_anova.html#vis_tukey"><i class="fa fa-check"></i><b>16.2.8</b> Visualizing post-hoc test results</a></li>
+<li class="chapter" data-level="16.2.9" data-path="do_the_anova.html"><a href="do_the_anova.html#anova_conclusion"><i class="fa fa-check"></i><b>16.2.9</b> Concluding statement</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="assumpbad_anova.html"><a href="assumpbad_anova.html"><i class="fa fa-check"></i><b>16.3</b> When assumptions aren’t met</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="two_num.html"><a href="two_num.html"><i class="fa fa-check"></i><b>17</b> Analyzing associations between two numerical variables</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="twonum_packages_data.html"><a href="twonum_packages_data.html"><i class="fa fa-check"></i><b>17.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="17.2" data-path="pearson.html"><a href="pearson.html"><i class="fa fa-check"></i><b>17.2</b> Pearson correlation analysis</a>
+<ul>
+<li class="chapter" data-level="17.2.1" data-path="pearson.html"><a href="pearson.html#pearson_hyp"><i class="fa fa-check"></i><b>17.2.1</b> Hypothesis statements</a></li>
+<li class="chapter" data-level="17.2.2" data-path="pearson.html"><a href="pearson.html#see_corr"><i class="fa fa-check"></i><b>17.2.2</b> Visualize the data</a></li>
+<li class="chapter" data-level="17.2.3" data-path="pearson.html"><a href="pearson.html#corr_assumptions"><i class="fa fa-check"></i><b>17.2.3</b> Assumptions of correlation analysis</a></li>
+<li class="chapter" data-level="17.2.4" data-path="pearson.html"><a href="pearson.html#do_corr"><i class="fa fa-check"></i><b>17.2.4</b> Conduct the correlation analysis</a></li>
+<li class="chapter" data-level="17.2.5" data-path="pearson.html"><a href="pearson.html#concl_corr"><i class="fa fa-check"></i><b>17.2.5</b> Concluding statement</a></li>
+</ul></li>
+<li class="chapter" data-level="17.3" data-path="rankcorr.html"><a href="rankcorr.html"><i class="fa fa-check"></i><b>17.3</b> Rank correlation (Spearman’s correlation)</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="rankcorr.html"><a href="rankcorr.html#hypothesis-statements"><i class="fa fa-check"></i><b>17.3.1</b> Hypothesis statements</a></li>
+<li class="chapter" data-level="17.3.2" data-path="rankcorr.html"><a href="rankcorr.html#spearman_hyp"><i class="fa fa-check"></i><b>17.3.2</b> Visualize the data</a></li>
+<li class="chapter" data-level="17.3.3" data-path="rankcorr.html"><a href="rankcorr.html#assum_spear"><i class="fa fa-check"></i><b>17.3.3</b> Assumptions of Spearman rank correlation</a></li>
+<li class="chapter" data-level="17.3.4" data-path="rankcorr.html"><a href="rankcorr.html#conduct_spearman"><i class="fa fa-check"></i><b>17.3.4</b> Conduct the test</a></li>
+<li class="chapter" data-level="17.3.5" data-path="rankcorr.html"><a href="rankcorr.html#spear_conclude"><i class="fa fa-check"></i><b>17.3.5</b> Concluding statement</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="ls_regression.html"><a href="ls_regression.html"><i class="fa fa-check"></i><b>18</b> Least-squares linear regression</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="LSR_packages_data.html"><a href="LSR_packages_data.html"><i class="fa fa-check"></i><b>18.1</b> Load packages and import data</a></li>
+<li class="chapter" data-level="18.2" data-path="LSR.html"><a href="LSR.html"><i class="fa fa-check"></i><b>18.2</b> Least-squares regression analysis</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="LSR.html"><a href="LSR.html#LSR_line"><i class="fa fa-check"></i><b>18.2.1</b> Equation of a line and “least-squares line”</a></li>
+<li class="chapter" data-level="18.2.2" data-path="LSR.html"><a href="LSR.html#LSR_hyp"><i class="fa fa-check"></i><b>18.2.2</b> Hypothesis testing or prediction?</a></li>
+<li class="chapter" data-level="18.2.3" data-path="LSR.html"><a href="LSR.html#LSR_steps"><i class="fa fa-check"></i><b>18.2.3</b> Steps to conducting regression analysis</a></li>
+<li class="chapter" data-level="18.2.4" data-path="LSR.html"><a href="LSR.html#LSR_alpha"><i class="fa fa-check"></i><b>18.2.4</b> State question and set the <span class="math inline">\(\alpha\)</span> level</a></li>
+<li class="chapter" data-level="18.2.5" data-path="LSR.html"><a href="LSR.html#LSR_vis"><i class="fa fa-check"></i><b>18.2.5</b> Visualize the data</a></li>
+<li class="chapter" data-level="18.2.6" data-path="LSR.html"><a href="LSR.html#LSR_scatter_interp"><i class="fa fa-check"></i><b>18.2.6</b> Interpreting a scatterplot</a></li>
+<li class="chapter" data-level="18.2.7" data-path="LSR.html"><a href="LSR.html#LSR_assumptions"><i class="fa fa-check"></i><b>18.2.7</b> Checking assumptions of regression analysis</a></li>
+<li class="chapter" data-level="18.2.8" data-path="LSR.html"><a href="LSR.html#residual-plots-when-you-have-missing-values"><i class="fa fa-check"></i><b>18.2.8</b> Residual plots when you have missing values</a></li>
+<li class="chapter" data-level="18.2.9" data-path="LSR.html"><a href="LSR.html#transform-the-data"><i class="fa fa-check"></i><b>18.2.9</b> Transform the data</a></li>
+<li class="chapter" data-level="18.2.10" data-path="LSR.html"><a href="LSR.html#conduct-the-regression-analysis"><i class="fa fa-check"></i><b>18.2.10</b> Conduct the regression analysis</a></li>
+<li class="chapter" data-level="18.2.11" data-path="LSR.html"><a href="LSR.html#confidence-interval-for-the-slope"><i class="fa fa-check"></i><b>18.2.11</b> Confidence interval for the slope</a></li>
+<li class="chapter" data-level="18.2.12" data-path="LSR.html"><a href="LSR.html#scatterplot-with-regression-confidence-bands"><i class="fa fa-check"></i><b>18.2.12</b> Scatterplot with regression confidence bands</a></li>
+<li class="chapter" data-level="18.2.13" data-path="LSR.html"><a href="LSR.html#concluding-statement"><i class="fa fa-check"></i><b>18.2.13</b> Concluding statement</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="making-predictions.html"><a href="making-predictions.html"><i class="fa fa-check"></i><b>18.3</b> Making predictions</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="making-predictions.html"><a href="making-predictions.html#back-transforming-regression-predictions"><i class="fa fa-check"></i><b>18.3.1</b> Back-transforming regression predictions</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="model-i-versus-model-ii-regression.html"><a href="model-i-versus-model-ii-regression.html"><i class="fa fa-check"></i><b>18.4</b> Model-I versus Model-II regression</a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="model-i-versus-model-ii-regression.html"><a href="model-i-versus-model-ii-regression.html#definitions"><i class="fa fa-check"></i><b>18.4.1</b> Definitions</a></li>
+<li class="chapter" data-level="18.4.2" data-path="model-i-versus-model-ii-regression.html"><a href="model-i-versus-model-ii-regression.html#which-one-do-i-use"><i class="fa fa-check"></i><b>18.4.2</b> Which one do I use?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="creating-tables-in-r-markdown.html"><a href="creating-tables-in-r-markdown.html"><i class="fa fa-check"></i>Creating tables in R Markdown</a>
+<ul>
+<li class="chapter" data-level="18.5" data-path="tables_packages.html"><a href="tables_packages.html"><i class="fa fa-check"></i><b>18.5</b> Load packages and import data</a>
+<ul>
+<li class="chapter" data-level="18.5.1" data-path="tables_packages.html"><a href="tables_packages.html#skim_tables"><i class="fa fa-check"></i><b>18.5.1</b> Formatting output from the <code>skimr</code> package</a></li>
+<li class="chapter" data-level="18.5.2" data-path="tables_packages.html"><a href="tables_packages.html#stats_nicetable"><i class="fa fa-check"></i><b>18.5.2</b> A nicely formatted table of descriptive statistics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visual-markdown-editor.html"><a href="visual-markdown-editor.html"><i class="fa fa-check"></i>Visual Markdown Editor</a>
+<ul>
+<li class="chapter" data-level="" data-path="a-more-familiar-editing-environment.html"><a href="a-more-familiar-editing-environment.html"><i class="fa fa-check"></i>A more familiar editing environment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
+<ul>
+<li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
+<li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
+<li class="chapter" data-level="" data-path="there-is-no-package.html"><a href="there-is-no-package.html"><i class="fa fa-check"></i>There is no package</a></li>
+<li class="chapter" data-level="" data-path="trying-to-use-cran-without-setting-a-mirror.html"><a href="trying-to-use-cran-without-setting-a-mirror.html"><i class="fa fa-check"></i>Trying to use CRAN without setting a mirror</a></li>
+<li class="chapter" data-level="" data-path="pdf-latex-is-not-found.html"><a href="pdf-latex-is-not-found.html"><i class="fa fa-check"></i>PDF Latex is not found</a></li>
+<li class="chapter" data-level="" data-path="error-in-parse.html"><a href="error-in-parse.html"><i class="fa fa-check"></i>Error in parse</a></li>
+<li class="chapter" data-level="" data-path="no-such-file-or-directory-exists.html"><a href="no-such-file-or-directory-exists.html"><i class="fa fa-check"></i>No such file or directory exists</a></li>
+<li class="chapter" data-level="" data-path="messy-output-when-loading-packages.html"><a href="messy-output-when-loading-packages.html"><i class="fa fa-check"></i>Messy output when loading packages</a></li>
+<li class="chapter" data-level="" data-path="unused-argument.html"><a href="unused-argument.html"><i class="fa fa-check"></i>Unused argument</a></li>
+<li class="chapter" data-level="" data-path="object-not-found.html"><a href="object-not-found.html"><i class="fa fa-check"></i>Object not found</a></li>
+<li class="chapter" data-level="" data-path="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><a href="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><i class="fa fa-check"></i>Figure caption doesn’t show up below figure in knitted document</a></li>
+<li class="chapter" data-level="" data-path="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><a href="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><i class="fa fa-check"></i>Filename, directory name, or volume label syntax is incorrect</a></li>
+<li class="chapter" data-level="" data-path="installing-packages-there-is-a-binary-version-available.html"><a href="installing-packages-there-is-a-binary-version-available.html"><i class="fa fa-check"></i>Installing packages: there is a binary version available</a></li>
+<li class="chapter" data-level="" data-path="unicode-knitting-error.html"><a href="unicode-knitting-error.html"><i class="fa fa-check"></i>Unicode knitting error</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorials for BIOL202: Introduction to Biostatistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="LSR" class="section level2 hasAnchor" number="18.2">
+<h2><span class="header-section-number">18.2</span> Least-squares regression analysis<a href="LSR.html#LSR" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When we are only interested in the strength of a linear association between two numerical variables, we use a <a href="two_num.html#two_num">correlation analysis</a>.</p>
+<p>When we are interest in making <em>predictions</em>, we use regression analysis.</p>
+<p>Often in the literature you see authors reporting regression results when in fact there was no rationale for using regression; a correlation analysis would have been more appropriate.</p>
+<p>The two analyses are mathematically related.</p>
+<p>Regression analysis is extremely common in biology, and unfortunately it is also common to see incorrect implementation of regression analysis. In particular, one often sees scatterplots that clearly reveal violations of the assumptions of regression analysis (see below).</p>
+<blockquote>
+<p>Failure to appropriately check assumptions can lead to misleading and incorrect conclusions</p>
+</blockquote>
+<hr />
+<div id="LSR_line" class="section level3 hasAnchor" number="18.2.1">
+<h3><span class="header-section-number">18.2.1</span> Equation of a line and “least-squares line”<a href="LSR.html#LSR_line" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Recall from your high-school training that the equation for a straight line is:</p>
+<p><span class="math inline">\(Y\)</span> = <em>a</em> + <em>bX</em></p>
+<p>In regression analysis, the “least-squares line” is the line for which the sum of all the <em>squared deviations in Y</em> is smallest.</p>
+<p>In a regression context, <em>a</em> is the Y-intercept and <em>b</em> is the slope of the regression line.</p>
+<p>Regression analysis falls under the heading of <strong>inferential statistics</strong>, which means we use it to draw inferences about a linear relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(X\)</span> within a <em>population</em> of interest. So in the actual population, the true least-squares line is represented as follows:</p>
+<p><span class="math inline">\(Y\)</span> = <span class="math inline">\(\alpha\)</span> + <span class="math inline">\(\beta\)</span><span class="math inline">\(X\)</span></p>
+<p>In practice, we estimate the “parameters” <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> using a random sample from the population, and by calculating <em>a</em> and <em>b</em> using regression analysis.</p>
+<div class="flag">
+<p>The <span class="math inline">\(\alpha\)</span> in the regression equation has no relation to the <span class="math inline">\(\alpha\)</span> that sets the significance level for a test!</p>
+</div>
+<hr />
+</div>
+<div id="LSR_hyp" class="section level3 hasAnchor" number="18.2.2">
+<h3><span class="header-section-number">18.2.2</span> Hypothesis testing or prediction?<a href="LSR.html#LSR_hyp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In general, there are two common scenarios in which least-squares regression analysis is appropriate.</p>
+<ul>
+<li><p>We wish to know whether some numeric variable <span class="math inline">\(Y\)</span> can be reliably predicted using a regression model of <span class="math inline">\(Y\)</span> on some predictor <span class="math inline">\(X\)</span>. For example, “Can vehicle mileage be reliably predicted by the weight of the vehicle?”</p></li>
+<li><p>We wish to test a specific hypothesis about the slope of the regression model of <span class="math inline">\(Y\)</span> on <span class="math inline">\(X\)</span>. For example, across species, basal metabolic rate (BMR) relates to body mass (BM) according to <span class="math inline">\(BMR = \alpha M^\beta\)</span>. Here, <span class="math inline">\(\alpha\)</span> is a constant. If we log-transform both sides of the equation, we get the following relationship, for which the parameters can be estimated via linear regression analysis:</p></li>
+</ul>
+<p><span class="math inline">\(log(BMR) = log(\alpha) + \beta\cdot log(M)\)</span></p>
+<p>Some biological hypotheses propose that the slope <span class="math inline">\(\beta\)</span> should equal 2/3, whereas others propose 3/4. This represents an example of when one would propose a specific, hypothesized value for <span class="math inline">\(\beta\)</span>.</p>
+<p>In the most common application of regression analysis we don’t propose a specific value for the slope <span class="math inline">\(\beta\)</span>. Instead, we proceed with the “default” and <strong>unstated</strong> null and alternative hypotheses as follows:</p>
+<p><strong>H<sub>0</sub></strong>: <span class="math inline">\(\beta = 0\)</span><br />
+<strong>H<sub>A</sub></strong>: <span class="math inline">\(\beta \neq 0\)</span></p>
+<p>In this case, <strong>there is no need to explicitly state these hypotheses for regression analysis</strong>.</p>
+<p>You must, however, know what is being tested: the null hypothesis that the slope is equal to zero.</p>
+</div>
+<div id="LSR_steps" class="section level3 hasAnchor" number="18.2.3">
+<h3><span class="header-section-number">18.2.3</span> Steps to conducting regression analysis<a href="LSR.html#LSR_steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In regression analysis one must implement the analysis before one can check the assumptions. Thus, the order of operations is a bit different from that of other tests.</p>
+<p><strong>Follow these steps when conducting regression analysis:</strong></p>
+<ul>
+<li>Set an <span class="math inline">\(\alpha\)</span> level (default is 0.05)<br />
+</li>
+<li>Provide an appropriate figure, including figure caption, to visualize the association between the <a href="two_numeric.html#two_numeric">two numeric variables</a></li>
+<li>Provide a sentence or two interpreting your figure, and this may inform your concluding statement<br />
+</li>
+<li>Conduct the regression analysis, save the output, and use the <strong>residuals</strong> from the analysis to check assumptions<br />
+</li>
+<li>Assumptions
+<ul>
+<li>state the assumptions of the test<br />
+</li>
+<li>use appropriate figures and / or tests to check whether the assumptions of the statistical test are met</li>
+<li>transform data to meet assumptions if required</li>
+<li>if assumptions can’t be met (e.g. after transformation), use alternative methods (<strong>these alternative methods are not covered in this course</strong>)</li>
+<li>if data transformation is required, then do the transformation and provide another appropriate figure, including figure caption, to visualize the transformed data, and a sentence or two interpreting this new figure<br />
+</li>
+</ul></li>
+<li>Calculate the confidence interval for the slope and the <span class="math inline">\(R^2\)</span> value, report these in concluding statement<br />
+</li>
+<li>If the slope of the least-squares regression line differs significantly from zero (i.e. the regression is significant), provide a scatterplot that includes the regression line and <strong>confidence bands</strong>, with an appropriate figure caption<br />
+</li>
+<li>Use the output from the regression analysis (above) draw an appropriate conclusion and communicate it clearly</li>
+</ul>
+<hr />
+</div>
+<div id="LSR_alpha" class="section level3 hasAnchor" number="18.2.4">
+<h3><span class="header-section-number">18.2.4</span> State question and set the <span class="math inline">\(\alpha\)</span> level<a href="LSR.html#LSR_alpha" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>plantbiomass</code> dataset (Example 17.3 in the text book) includes data describing plant biomass measured after 10 years within each of 5 experimental “species richness” treatments, wherein plants were grown in groups of 1, 2, 4, 8, or 16 species. The treatment variable is called <code>nSpecies</code>, and the response variable <code>biomassStability</code> is a measure of ecosystem stability. The research hypothesis was that increasing diversity (species richness) would lead to increased ecosystem stability. If the data support this hypothesis, it would be valuable to be able to predict ecosystem stability based on species richness.</p>
+<p>We will use the conventional <span class="math inline">\(\alpha\)</span> level of 0.05.</p>
+<p>In practice, if you are concerned about lack of <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Study-power-(aka-statistical-power)">Study power (aka statistical power)</a>
+you may wish to increase <span class="math inline">\(\alpha\)</span>, e.g. to 0.1.</p>
+<hr />
+</div>
+<div id="LSR_vis" class="section level3 hasAnchor" number="18.2.5">
+<h3><span class="header-section-number">18.2.5</span> Visualize the data<a href="LSR.html#LSR_vis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using the plant biomass data, let’s evaluate whether ecosystem stability can be reliably predicted from plant species richness.</p>
+<p>We learned in an earlier <a href="two_numeric.html#two_numeric">tutorial</a> that the best way to visualize an association between two numeric variables is with a scatterplot, and that we can create a scatterplot using the <code>ggplot</code> and <code>geom_point</code> functions:</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="LSR.html#cb460-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
+<span id="cb460-2"><a href="LSR.html#cb460-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> biomassStability)) <span class="sc">+</span></span>
+<span id="cb460-3"><a href="LSR.html#cb460-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb460-4"><a href="LSR.html#cb460-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb460-5"><a href="LSR.html#cb460-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability&quot;</span>) <span class="sc">+</span></span>
+<span id="cb460-6"><a href="LSR.html#cb460-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:lsrfigone"></span>
+<img src="BIOL202_files/figure-html/lsrfigone-1.png" alt="Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots." width="403.2" />
+<p class="caption">
+Figure 18.1: Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots.
+</p>
+</div>
+<p>Note that in the above figure we do not report units for the response variable, because in this example the variable does not have units. But often you do need to provide units!</p>
+<div class="note">
+<p>This figure that you first produce for visualizing the data may or may not be necessary to present with your results. If your least-squares regression does end up being statistically significant, i.e. having a slope that differs significantly from zero, then you’ll create a new figure to reference in your concluding statement (see below). If your regression analysis is non-significant, then you should present and refer to this simple scatterplot (which does not include a best-fit regression line).</p>
+</div>
+<hr />
+</div>
+<div id="LSR_scatter_interp" class="section level3 hasAnchor" number="18.2.6">
+<h3><span class="header-section-number">18.2.6</span> Interpreting a scatterplot<a href="LSR.html#LSR_scatter_interp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In an earlier <a href="two_numeric.html#interpret_scatter">tutorial</a>, we learned how to properly interpret a scatterplot, and <strong>what information should to include in your interpretation</strong>. Be sure to consult that tutorial.</p>
+<blockquote>
+<p>We see in Figure <a href="LSR.html#fig:lsrfigone">18.1</a> that there is a weak, positive, and somewhat linear association between biomass stability and Species richness. There appears to be increasing spread of the response variable with increasing values of the predictor (x) variable, and perhaps outliers in the treatment group with greatest species richness. We should keep this in mind.</p>
+</blockquote>
+<hr />
+</div>
+<div id="LSR_assumptions" class="section level3 hasAnchor" number="18.2.7">
+<h3><span class="header-section-number">18.2.7</span> Checking assumptions of regression analysis<a href="LSR.html#LSR_assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Regression analysis assumes that:</p>
+<ul>
+<li>the true relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is linear<br />
+</li>
+<li>for every value of <span class="math inline">\(X\)</span> the corresponding values of <span class="math inline">\(Y\)</span> are normally distributed<br />
+</li>
+<li>the variance of <span class="math inline">\(Y\)</span>-values is the same at all values of <span class="math inline">\(X\)</span></li>
+<li>at each value of <span class="math inline">\(X\)</span>, the <span class="math inline">\(Y\)</span> measurements represent a random sample from the population of possible <span class="math inline">\(Y\)</span> values</li>
+</ul>
+<p>Strangely, we must implement the regression analysis before checking the assumptions. This is because we check the assumptions using the <strong>residuals</strong> from the regression analysis.</p>
+<p>Let’s implement the regression analysis and be sure to store the output for future use.</p>
+<p>The function to use is the <code>lm</code> function, which we saw in a previous <a href="do_the_anova.html#do_anova1">tutorial</a>, but here our predictor (independent) variable is a numeric variable rather than a categorical variable.</p>
+<p>Let’s run the regression analysis and assign the output to an object as follows:</p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="LSR.html#cb461-1" aria-hidden="true" tabindex="-1"></a>biomass.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(biomassStability <span class="sc">~</span> nSpecies, <span class="at">data =</span> plantbiomass)</span></code></pre></div>
+<p>Let’s have a look at the untidy output:</p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="LSR.html#cb462-1" aria-hidden="true" tabindex="-1"></a>biomass.lm</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = biomassStability ~ nSpecies, data = plantbiomass)
+## 
+## Coefficients:
+## (Intercept)     nSpecies  
+##      3.4081       0.1605</code></pre>
+<p>We’ll learn a bit later how to tidy up this output…</p>
+<p>Before we do anything else (e.g. explore the results of the regression), we need to first check the assumptions!</p>
+<p>To get the residuals, which are required to check the assumptions, you first need to run the <code>augment</code> function from the <code>broom</code> package on the untidy regression object, as this will allow us to easily access the residuals.</p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="LSR.html#cb464-1" aria-hidden="true" tabindex="-1"></a>biomass.lm.augment <span class="ot">&lt;-</span> biomass.lm <span class="sc">%&gt;%</span></span>
+<span id="cb464-2"><a href="LSR.html#cb464-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">augment</span>()</span></code></pre></div>
+<p>This produces a tibble, in which one of the variables, called “.resid”, houses the residuals that we’re after.</p>
+<p>Let’s have a look:</p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="LSR.html#cb465-1" aria-hidden="true" tabindex="-1"></a>biomass.lm.augment</span></code></pre></div>
+<pre><code>## # A tibble: 161 × 8
+##    biomassStability nSpecies .fitted .resid    .hat .sigma   .cooksd .std.resid
+##               &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1             7.47        1   3.569 3.901  0.01177  1.707 0.03063       2.268 
+##  2             6.74        1   3.569 3.171  0.01177  1.717 0.02024       1.844 
+##  3             6.61        1   3.569 3.041  0.01177  1.718 0.01862       1.768 
+##  4             6.4         1   3.569 2.831  0.01177  1.721 0.01613       1.646 
+##  5             5.67        1   3.569 2.101  0.01177  1.727 0.008887      1.222 
+##  6             5.26        1   3.569 1.691  0.01177  1.730 0.005758      0.9835
+##  7             4.8         1   3.569 1.231  0.01177  1.733 0.003052      0.7160
+##  8             4.4         1   3.569 0.8314 0.01177  1.734 0.001391      0.4834
+##  9             4.4         1   3.569 0.8314 0.01177  1.734 0.001391      0.4834
+## 10             4.26        1   3.569 0.6914 0.01177  1.735 0.0009622     0.4020
+## # … with 151 more rows</code></pre>
+<p>“Residuals” represent the vertical difference between each observed value of <span class="math inline">\(Y\)</span> (here, biomass stability) the least-squares line (the predicted value of <span class="math inline">\(Y\)</span>, “.fitted” in the tibble above) at each value of <span class="math inline">\(X\)</span>.</p>
+<p>Don’t worry about the other variables in the tibble for now.</p>
+<p>Let’s revisit the assumptions:</p>
+<ul>
+<li>the true relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> is linear<br />
+</li>
+<li>for every value of <span class="math inline">\(X\)</span> the corresponding values of <span class="math inline">\(Y\)</span> are normally distributed<br />
+</li>
+<li>the variance of <span class="math inline">\(Y\)</span>-values is the same at all values of <span class="math inline">\(X\)</span></li>
+<li>at each value of <span class="math inline">\(X\)</span>, the <span class="math inline">\(Y\)</span> measurements represent a random sample from the population of possible <span class="math inline">\(Y\)</span> values</li>
+</ul>
+<p>With respect to the last assumption regarding random sampling, we can assume that it is met for the plant experiment example. In experiments, the key experimental design feature is that individuals (here, plant seedlings) are randomly assigned to treatments, and that the individuals themselves were randomly drawn from the population prior to randomizing to experimental treatments. If your study is observational, then it is key that the individuals upon which measurements were made were randomly drawn from the population.</p>
+<p>For the first three assumptions, we start by looking at the original scatterplot <a href="LSR.html#fig:lsrfigone">18.1</a>.</p>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="LSR.html#cb467-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
+<span id="cb467-2"><a href="LSR.html#cb467-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> biomassStability)) <span class="sc">+</span></span>
+<span id="cb467-3"><a href="LSR.html#cb467-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb467-4"><a href="LSR.html#cb467-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb467-5"><a href="LSR.html#cb467-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb467-6"><a href="LSR.html#cb467-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability&quot;</span>) <span class="sc">+</span></span>
+<span id="cb467-7"><a href="LSR.html#cb467-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<div class="figure"><span style="display:block;" id="fig:lsrfigtwo"></span>
+<img src="BIOL202_files/figure-html/lsrfigtwo-1.png" alt="Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots." width="403.2" />
+<p class="caption">
+Figure 18.2: Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots.
+</p>
+</div>
+<p>Sometimes it is obvious from the scatterplot that the association is non-linear (curved) (violating the first assumption), and sometimes it is obvious that the spread of the <span class="math inline">\(Y\)</span> values appears to change systematically (e.g. get bigger) with increasing values of <span class="math inline">\(X\)</span> (violating the third assumption).</p>
+<p>The second assumption is better assessed using the residuals (see below).</p>
+<p>In either case, one can try <a href="transform.html#transform">transforming</a> the response variable, re-running the regression analysis using this transformed variable as the new “<em>Y’</em>” variable, then checking the assumptions again.</p>
+<div id="LSR_outliers" class="section level4 hasAnchor" number="18.2.7.1">
+<h4><span class="header-section-number">18.2.7.1</span> Outliers<a href="LSR.html#LSR_outliers" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Outliers will cause the first three regression assumptions to be violated.</p>
+<p>Viewing the scatterplot, keep an eye out for <strong>outliers</strong>, i.e. observations that look very unusual relative to the other observations. In regression, observations that are far away from the general linear association can have undue influence over the best-fit line. This sounds a bit fuzzy to judge, and it is. There are more formal approaches to evaluating “outliers”, but for now use this approach: If your eye is drawn to an observation because it seems unusual compared to the rest, then you’re probably on to something. In this case, the most transparent and thorough approach is to report your regression results first using the full dataset, and then second, excluding the outlier observations from the analysis.</p>
+<p>Two other types of graphs are used to help evaluate assumptions.</p>
+<p>We can check the normality of residuals assumption with a normal quantile plot, which you’ve seen <a href="checknorm_assum.html#quantile_plots">previously</a>.</p>
+<p>For this, we use the “augmented” output we created above.</p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="LSR.html#cb469-1" aria-hidden="true" tabindex="-1"></a>biomass.lm.augment <span class="sc">%&gt;%</span></span>
+<span id="cb469-2"><a href="LSR.html#cb469-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb469-3"><a href="LSR.html#cb469-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb469-4"><a href="LSR.html#cb469-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb469-5"><a href="LSR.html#cb469-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:lsrfigthree"></span>
+<img src="BIOL202_files/figure-html/lsrfigthree-1.png" alt="Normal quantile plot of the residuals from a regression of biomass stability on Species richness for 161 plots" width="403.2" />
+<p class="caption">
+Figure 18.3: Normal quantile plot of the residuals from a regression of biomass stability on Species richness for 161 plots
+</p>
+</div>
+<blockquote>
+<p>Figure <a href="LSR.html#fig:lsrfigthree">18.3</a> shows that the residuals don’t really fall consistently near the line in the normal quantile plot; there is curviture, and increasing values tend to fall further from the line. This suggests the need to <strong>log-transform the data</strong>.</p>
+</blockquote>
+<p>Before trying a transformation, let’s also check the assumptions that (i) the variance of Y is the same at all values of X, and (ii) the assumption that the association is linear. To do this, we plot the residuals against the original “<span class="math inline">\(X\)</span>” variable, which here is the number of species initially used in the treatment. Note that we’ll add a horizontal line (“segement”) at zero for reference:</p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="LSR.html#cb470-1" aria-hidden="true" tabindex="-1"></a>biomass.lm.augment <span class="sc">%&gt;%</span></span>
+<span id="cb470-2"><a href="LSR.html#cb470-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb470-3"><a href="LSR.html#cb470-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb470-4"><a href="LSR.html#cb470-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb470-5"><a href="LSR.html#cb470-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb470-6"><a href="LSR.html#cb470-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Residual&quot;</span>) <span class="sc">+</span></span>
+<span id="cb470-7"><a href="LSR.html#cb470-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:lsrfigfour"></span>
+<img src="BIOL202_files/figure-html/lsrfigfour-1.png" alt="Residual plot from a regression of biomass stability on Species richness for 161 plots." width="403.2" />
+<p class="caption">
+Figure 18.4: Residual plot from a regression of biomass stability on Species richness for 161 plots.
+</p>
+</div>
+<p>Here we are watching out for:</p>
+<ul>
+<li>a “funnel” shape, or substantial differences in the spread of the residuals at each value of <span class="math inline">\(X\)</span></li>
+<li>outliers to the general trend<br />
+</li>
+<li>a curved pattern</li>
+</ul>
+<blockquote>
+<p>Figure <a href="LSR.html#fig:lsrfigfour">18.4</a> shows that the variance in biomass stability is greatest within the largest species richness treatment. This again suggests the need for a log transformation.</p>
+</blockquote>
+<div class="note">
+<p><strong>REMINDER</strong>: If ever you see a clear outlier when checking assumptions, then a safe approach is to report the regression with and without the outlier point(s) included. If the exclusion of the outlier changes your conclusions, then you should make this clear.</p>
+</div>
+</div>
+</div>
+<div id="residual-plots-when-you-have-missing-values" class="section level3 hasAnchor" number="18.2.8">
+<h3><span class="header-section-number">18.2.8</span> Residual plots when you have missing values<a href="LSR.html#residual-plots-when-you-have-missing-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>IF</strong> there are missing values in either the <span class="math inline">\(X\)</span> or Y variables used in the regression, then simply <code>filter</code> those NA rows out before plotting the residuals.</p>
+<p>For example, imagine one of the rows in our biomass dataset included a missing value (“NA”) in the “nSpecies” variable, then we could use this code:</p>
+<pre><code>biomass.lm.augment %&gt;%
+  filter(!is.na(nSpecies)) %&gt;%
+  ggplot(aes(x = nSpecies, y = .resid)) +
+  geom_point(shape = 1) +
+  geom_abline(slope = 0, linetype = &quot;dashed&quot;) +
+  xlab(&quot;Species richness&quot;) +
+  ylab(&quot;Residual&quot;) +
+  theme_bw()</code></pre>
+</div>
+<div id="transform-the-data" class="section level3 hasAnchor" number="18.2.9">
+<h3><span class="header-section-number">18.2.9</span> Transform the data<a href="LSR.html#transform-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s log-transform the response variable, creating a new variable <code>log.biomass</code> using the <code>mutate</code> function from the <code>dplyr</code> package:</p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="LSR.html#cb472-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="ot">&lt;-</span> plantbiomass <span class="sc">%&gt;%</span></span>
+<span id="cb472-2"><a href="LSR.html#cb472-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log.biomass =</span> <span class="fu">log</span>(biomassStability))</span></code></pre></div>
+<p>Now let’s re-run the regression analysis:</p>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="LSR.html#cb473-1" aria-hidden="true" tabindex="-1"></a>log.biomass.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(log.biomass <span class="sc">~</span> nSpecies, <span class="at">data =</span> plantbiomass)</span></code></pre></div>
+<p>And <code>augment</code> the output:</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="LSR.html#cb474-1" aria-hidden="true" tabindex="-1"></a>log.biomass.lm.augment <span class="ot">&lt;-</span> log.biomass.lm <span class="sc">%&gt;%</span></span>
+<span id="cb474-2"><a href="LSR.html#cb474-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">augment</span>()</span></code></pre></div>
+<p>And re-plot the residual diagnostic plots:</p>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="LSR.html#cb475-1" aria-hidden="true" tabindex="-1"></a>log.biomass.lm.augment <span class="sc">%&gt;%</span></span>
+<span id="cb475-2"><a href="LSR.html#cb475-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb475-3"><a href="LSR.html#cb475-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb475-4"><a href="LSR.html#cb475-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb475-5"><a href="LSR.html#cb475-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:lsrfigfive"></span>
+<img src="BIOL202_files/figure-html/lsrfigfive-1.png" alt="Normal quantile plot of the residuals from a regression of biomass stability (log transformed) on Species richness for 161 plots" width="403.2" />
+<p class="caption">
+Figure 18.5: Normal quantile plot of the residuals from a regression of biomass stability (log transformed) on Species richness for 161 plots
+</p>
+</div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="LSR.html#cb476-1" aria-hidden="true" tabindex="-1"></a>log.biomass.lm.augment <span class="sc">%&gt;%</span></span>
+<span id="cb476-2"><a href="LSR.html#cb476-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb476-3"><a href="LSR.html#cb476-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb476-4"><a href="LSR.html#cb476-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb476-5"><a href="LSR.html#cb476-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb476-6"><a href="LSR.html#cb476-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Residual&quot;</span>) <span class="sc">+</span></span>
+<span id="cb476-7"><a href="LSR.html#cb476-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="figure">
+<img src="BIOL202_files/figure-html/LSF_fig_six-1.png" alt="Residual plot from a regression of biomass stability (log transformed) on Species richness for 161 plots." width="403.2" />
+<p class="caption">
+(#fig:LSF_fig_six)Residual plot from a regression of biomass stability (log transformed) on Species richness for 161 plots.
+</p>
+</div>
+<blockquote>
+<p>Figure <a href="LSR.html#fig:lsrfigfive">18.5</a> shows that the residuals are reasonably normally distributed, and <a href="#fig:lsrfigsix"><strong>??</strong></a> shows no strong pattern of changing variance in the residuals along <span class="math inline">\(X\)</span>, and nor is there an obvious curved pattern to the residuals (which would indicate a non-linear association). We therefore proceed with the analyses using the log-transformed response variable.</p>
+</blockquote>
+<hr />
+</div>
+<div id="conduct-the-regression-analysis" class="section level3 hasAnchor" number="18.2.10">
+<h3><span class="header-section-number">18.2.10</span> Conduct the regression analysis<a href="LSR.html#conduct-the-regression-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We have already conducted the main regression analysis above, using the <code>lm</code> function. We stored the output in the <code>log.biomass.lm</code> object. Now, we use the <code>summary</code> function to view the entire output from the regression analysis:</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="LSR.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(log.biomass.lm)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log.biomass ~ nSpecies, data = plantbiomass)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.97148 -0.25984 -0.00234  0.23100  1.03237 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 1.198294   0.041298  29.016  &lt; 2e-16 ***
+## nSpecies    0.032926   0.004884   6.742 2.73e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.3484 on 159 degrees of freedom
+## Multiple R-squared:  0.2223, Adjusted R-squared:  0.2174 
+## F-statistic: 45.45 on 1 and 159 DF,  p-value: 2.733e-10</code></pre>
+<p>What do we need to focus on in this output?</p>
+<p>Under the “Estimate” heading, you see the estimated value of the Intercept (<em>a</em>) and of the slope (<em>b</em>), which is reported to the right of the predictor variable name (“nSpecies”).</p>
+<div class="note">
+<p>There are two values of <em>t</em> reported in the table; one associated with the intercept, and one with the slope. These are testing the implied hypotheses that (i) the intercept equals zero and (ii) the slope equals zero. We are typically only interested in the slope.</p>
+</div>
+<p>At the bottom of the output you’ll see a value for the <em>F</em> statistic, just like you saw in the ANOVA <a href="do_the_anova.html#do_anova1">tutorial</a>. <strong>It is this value of <em>F</em> that you will report in statements about regression (see below).</strong></p>
+<p>We also see the <em>P</em>-value associated with the test of the zero slope null hypothesis, which is identical to the <em>P</em>-value reported for the overall regression (at the bottom of the output).</p>
+<div class="flag">
+<p>It is important to recognize that an overall significant regression (i.e. slope significantly different from zero) does not necessarily mean that the regression will yield accurate predictions. For this we need to assess the “coefficient of determination”, or <span class="math inline">\(R^2\)</span> value (called “multiple R-squared” in the output), which here is 0.22, and <strong>represents the fraction of the variation in <span class="math inline">\(Y\)</span> that is accounted for by the linear regression model</strong>. A value of this magnitude is indicative of a comparatively weak regression, i.e. one that does has predictive power, but not particularly good predictive power (provided assumptions are met, and we’re not extrapolating beyond the range of our <span class="math inline">\(X\)</span> values).</p>
+</div>
+<p>Before getting to our concluding statement, we need to additionally calculate the 95% confidence interval for the true slope, <span class="math inline">\(\beta\)</span>.</p>
+<hr />
+</div>
+<div id="confidence-interval-for-the-slope" class="section level3 hasAnchor" number="18.2.11">
+<h3><span class="header-section-number">18.2.11</span> Confidence interval for the slope<a href="LSR.html#confidence-interval-for-the-slope" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To calculate the confidence interval for the true slope, <span class="math inline">\(\beta\)</span>, we use the <code>confint</code> function from the base stats package:</p>
+<pre><code>?confint</code></pre>
+<p>We run this function on the <code>lm</code> model output:</p>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="LSR.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(log.biomass.lm)</span></code></pre></div>
+<pre><code>##                  2.5 %     97.5 %
+## (Intercept) 1.11673087 1.27985782
+## nSpecies    0.02328063 0.04257117</code></pre>
+<p>This provides the lower and upper limits of the 95% confidence interval for the intercept (top row) and slope (bottom row).</p>
+<hr />
+</div>
+<div id="scatterplot-with-regression-confidence-bands" class="section level3 hasAnchor" number="18.2.12">
+<h3><span class="header-section-number">18.2.12</span> Scatterplot with regression confidence bands<a href="LSR.html#scatterplot-with-regression-confidence-bands" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If your regression is significant, then it is recommended to accompany your concluding statement with a scatterplot that includes so-called <strong>confidence bands</strong> around the regression line.</p>
+<div class="flag">
+<p>If your regression is not significant, <strong>do not</strong> include a regression line in your scatterplot!</p>
+</div>
+<p>We can calculate two types of confidence intervals to show on the scatterplot:</p>
+<ul>
+<li>the 95% “confidence bands”<br />
+</li>
+<li>the 95% “prediction intervals”</li>
+</ul>
+<p>Most of the time we’re interested in showing <strong>confidence bands</strong>, which show the 95% confidence limits for the <em>mean</em> value of <span class="math inline">\(Y\)</span> in the population at each value of <span class="math inline">\(X\)</span>. In other words, we’re more interested in predicting an average value in the population (easier), rather than the value of an individual in the population (much more difficult).</p>
+<p>To display the confidence bands, we use the <code>geom_smooth</code> function from the <code>ggplot2</code> package:</p>
+<pre><code>?geom_smooth</code></pre>
+<p>Let’s give it a try, making sure to spruce it up a bit with some additional options, and including a good figure caption, shown here for your reference (this is the code you’d put after the “r” in the header of the R chunk:</p>
+<pre><code>fig.cap = &quot;Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is the significant least-square regression line (black solid line; see text for details) and the 95% confidence bands (grey shading).&quot;</code></pre>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="LSR.html#cb484-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
+<span id="cb484-2"><a href="LSR.html#cb484-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> log.biomass)) <span class="sc">+</span></span>
+<span id="cb484-3"><a href="LSR.html#cb484-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb484-4"><a href="LSR.html#cb484-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb484-5"><a href="LSR.html#cb484-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">level =</span> <span class="fl">0.95</span>) <span class="sc">+</span></span>
+<span id="cb484-6"><a href="LSR.html#cb484-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb484-7"><a href="LSR.html#cb484-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability (log-transformed)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb484-8"><a href="LSR.html#cb484-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<div class="figure"><span style="display:block;" id="fig:lsrfigseven"></span>
+<img src="BIOL202_files/figure-html/lsrfigseven-1.png" alt="Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is the significant least-square regression line (black solid line; see text for details) and the 95% confidence bands (grey shading)." width="403.2" />
+<p class="caption">
+Figure 18.6: Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is the significant least-square regression line (black solid line; see text for details) and the 95% confidence bands (grey shading).
+</p>
+</div>
+<p>There are a few key arguments for the <code>geom_smooth</code> function:</p>
+<ul>
+<li>the “method” argument tells ggplot to use a least-squares linear model</li>
+<li>the “se = TRUE” argument tells ggplot to add confidence bands</li>
+<li>the “level = 0.95” tells it to use 95% confidence level</li>
+<li>the “colour” argument tells it what colour to make the best-fit regression line</li>
+</ul>
+<p>Here we can interpret the figure as follows:</p>
+<blockquote>
+<p>Figure <a href="LSR.html#fig:lsrfigseven">18.6</a> shows that biomass stability (log-transformed) is positively and linearly related to the initial number of plant species assigned to experimental plots, but there is considerable variation that remains unexplained by the least-square regression model.</p>
+</blockquote>
+<hr />
+</div>
+<div id="concluding-statement" class="section level3 hasAnchor" number="18.2.13">
+<h3><span class="header-section-number">18.2.13</span> Concluding statement<a href="LSR.html#concluding-statement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that we have our new figure including confidence bands (because our regression was significant), and all our regression output (including confidence intervals for the slope), we’re ready to provide a concluding statement.</p>
+<div class="note">
+<p>We simply report the sample size rather than the degrees of freedom in the parentheses.</p>
+</div>
+<blockquote>
+<p>As seen in Figure <a href="LSR.html#fig:lsrfigseven">18.6</a>, Species richness is a significant predictor of biomass stability: <em>Biomass stability (log)</em> = 1.2 + 0.03(<em>Species richness</em>); <em>F</em> = 45.45; <em>n</em> = 161; 95% confidence limits for the slope: 0.023, 0.043; <span class="math inline">\(R^2\)</span> = 0.22; <em>P</em> &lt; 0.001). Given the relatively low <span class="math inline">\(R^2\)</span> value, predictions from our regression model will not be particularly accurate.</p>
+</blockquote>
+<div class="note">
+<p>It is OK to report the concluding statement and associated regression output using the log-transformed data. However, if you wanted to make predictions using the regression model, it is often desirable to report the back-transformed predicted values (see below).</p>
+</div>
+<hr />
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="LSR_packages_data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="making-predictions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BIOL202.pdf", "BIOL202.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
