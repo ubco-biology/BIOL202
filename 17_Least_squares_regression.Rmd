@@ -246,7 +246,7 @@ With respect to the last assumption regarding random sampling, we can assume tha
 
 For the first three assumptions, we start by looking at the original scatterplot \@ref(fig:lsrfigone), but this time we add what's called a "locally weighted smoother" line, using the `ggplot2` function `geom_smooth`:
 
-```{r lsrfigtwo, fig.cap = "Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots.", fig.width = 4.2, fig.height = 4} 
+```{r lsrfigtwo, fig.cap = "Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is a locally weighted smoothing line.", fig.width = 4.2, fig.height = 4} 
 
 plantbiomass %>%
 ggplot(aes(x = nSpecies, y = biomassStability)) +
