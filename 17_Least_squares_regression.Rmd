@@ -244,20 +244,22 @@ Let's revisit the assumptions:
 
 With respect to the last assumption regarding random sampling, we can assume that it is met for the plant experiment example.  In experiments, the key experimental design feature is that individuals (here, plant seedlings) are randomly assigned to treatments, and that the individuals themselves were randomly drawn from the population prior to randomizing to experimental treatments. If your study is observational, then it is key that the individuals upon which measurements were made were randomly drawn from the population.
 
-For the first three assumptions, we start by looking at the original scatterplot \@ref(fig:lsrfigone).  
+For the first three assumptions, we start by looking at the original scatterplot \@ref(fig:lsrfigone), but this time we add what's called a "locally weighted smoother" line, using the `ggplot2` function `geom_smooth`:
 
 ```{r lsrfigtwo, fig.cap = "Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots.", fig.width = 4.2, fig.height = 4} 
 
 plantbiomass %>%
 ggplot(aes(x = nSpecies, y = biomassStability)) +
   geom_point(shape = 1) +
-  geom_smooth(method = "loess", se = FALSE) +
+  geom_smooth(method = "loess", se = FALSE, formula = y ~ x) +
   xlab("Species richness") +
   ylab("Biomass stability") +
   theme_bw()
 ```
 
-Sometimes it is obvious from the scatterplot that the association is non-linear (curved) (violating the first assumption), and sometimes it is obvious that the spread of the $Y$ values appears to change systematically (e.g. get bigger) with increasing values of $X$ (violating the third assumption). 
+Note the arguments provided for the `geom_smooth` function.  
+
+The smoothing line will make it easier to assess whether the relationship is linear or not. Sometimes it is obvious from the scatterplot that the association is non-linear (curved) (violating the first assumption), and sometimes it is obvious that the spread of the $Y$ values appears to change systematically (e.g. get bigger) with increasing values of $X$ (violating the third assumption). 
 
 The second assumption is better assessed using the residuals (see below).  
 
