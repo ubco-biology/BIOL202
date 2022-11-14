@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-11-12" />
+<meta name="date" content="2022-11-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -508,36 +508,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="making-predictions" class="section level2 hasAnchor" number="18.3">
 <h2><span class="header-section-number">18.3</span> Making predictions<a href="making-predictions.html#making-predictions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Even though the <span class="math inline">\(R^2\)</span> value from our regression was rather low, we’ll proceed with using the model to make predictions.</p>
-<p>It is not advisable to make predictions beyond the range of X-values upon which the regression was built. So in our case (see Figure <a href="LSR.html#fig:lsrfigseven">18.7</a>), we would not wish to make predictions using species richness values beyond 16. Such “extrapolations” are inadvisable.</p>
+<p>It is not advisable to make predictions beyond the range of X-values upon which the regression was built. So in our case (see Figure <a href="LSR.html#fig:lsrfigseven">18.8</a>), we would not wish to make predictions using species richness values beyond 16. Such “extrapolations” are inadvisable.</p>
 <p>To make a prediction using our regression model, use the <code>predict.lm</code> function from the base stats package:</p>
 <pre><code>?predict.lm</code></pre>
 <p>If you do not provide new values of <code>nSpecies</code> (note that the variable name must be the same as was used when building the model), then it will simply use the old values that were supplied when building the regression model.</p>
 <p>Here, let’s create a new tibble called “new.data” that includes new values of <code>nSpecies</code> (we’ll use 7 and 13 as example values) with which to make predictions:</p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="making-predictions.html#cb486-1" aria-hidden="true" tabindex="-1"></a>new.data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">nSpecies =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">13</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="making-predictions.html#cb488-1" aria-hidden="true" tabindex="-1"></a>new.data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">nSpecies =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">13</span>))</span></code></pre></div>
 <p>Now let’s make the predictions, and <strong>remember</strong> that these predicted values of biomass stability will be in the log scale:</p>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="making-predictions.html#cb487-1" aria-hidden="true" tabindex="-1"></a>predicted.values <span class="ot">&lt;-</span> <span class="fu">predict.lm</span>(log.biomass.lm, <span class="at">newdata =</span> new.data)</span>
-<span id="cb487-2"><a href="making-predictions.html#cb487-2" aria-hidden="true" tabindex="-1"></a>predicted.values</span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="making-predictions.html#cb489-1" aria-hidden="true" tabindex="-1"></a>predicted.values <span class="ot">&lt;-</span> <span class="fu">predict.lm</span>(log.biomass.lm, <span class="at">newdata =</span> new.data)</span>
+<span id="cb489-2"><a href="making-predictions.html#cb489-2" aria-hidden="true" tabindex="-1"></a>predicted.values</span></code></pre></div>
 <pre><code>##        1        2 
 ## 1.428776 1.626331</code></pre>
 <p>Let’s superimpose these predicted values over the original scatterplot, using the <code>annotate</code> function from the <code>ggplot2</code> package.</p>
 <p>We re-use the code from our original <code>geom_smooth</code> plot above, and simply add the <code>annotate</code> line of code:</p>
-<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="making-predictions.html#cb489-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
-<span id="cb489-2"><a href="making-predictions.html#cb489-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> log.biomass)) <span class="sc">+</span></span>
-<span id="cb489-3"><a href="making-predictions.html#cb489-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb489-4"><a href="making-predictions.html#cb489-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, </span>
-<span id="cb489-5"><a href="making-predictions.html#cb489-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">level =</span> <span class="fl">0.95</span>) <span class="sc">+</span></span>
-<span id="cb489-6"><a href="making-predictions.html#cb489-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;point&quot;</span>, <span class="at">x =</span> new.data<span class="sc">$</span>nSpecies, <span class="at">y =</span> predicted.values, <span class="at">shape =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb489-7"><a href="making-predictions.html#cb489-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
-<span id="cb489-8"><a href="making-predictions.html#cb489-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability&quot;</span>) <span class="sc">+</span></span>
-<span id="cb489-9"><a href="making-predictions.html#cb489-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="making-predictions.html#cb491-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
+<span id="cb491-2"><a href="making-predictions.html#cb491-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> log.biomass)) <span class="sc">+</span></span>
+<span id="cb491-3"><a href="making-predictions.html#cb491-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb491-4"><a href="making-predictions.html#cb491-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb491-5"><a href="making-predictions.html#cb491-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">level =</span> <span class="fl">0.95</span>) <span class="sc">+</span></span>
+<span id="cb491-6"><a href="making-predictions.html#cb491-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;point&quot;</span>, <span class="at">x =</span> new.data<span class="sc">$</span>nSpecies, <span class="at">y =</span> predicted.values, <span class="at">shape =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb491-7"><a href="making-predictions.html#cb491-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb491-8"><a href="making-predictions.html#cb491-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability&quot;</span>) <span class="sc">+</span></span>
+<span id="cb491-9"><a href="making-predictions.html#cb491-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <div class="figure"><span style="display:block;" id="fig:lsrfigeight"></span>
 <img src="BIOL202_files/figure-html/lsrfigeight-1.png" alt="Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown are predicted values of stability across values of species richness." width="403.2" />
 <p class="caption">
-Figure 18.8: Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown are predicted values of stability across values of species richness.
+Figure 18.9: Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown are predicted values of stability across values of species richness.
 </p>
 </div>
-<p>As expected, Figure <a href="making-predictions.html#fig:lsrfigeight">18.8</a> shows the predicted values exactly where the regression line would be! We generally don’t present such a figure… here we’re just doing it for illustration.</p>
+<p>As expected, Figure <a href="making-predictions.html#fig:lsrfigeight">18.9</a> shows the predicted values exactly where the regression line would be! We generally don’t present such a figure… here we’re just doing it for illustration.</p>
 <div id="back-transforming-regression-predictions" class="section level3 hasAnchor" number="18.3.1">
 <h3><span class="header-section-number">18.3.1</span> Back-transforming regression predictions<a href="making-predictions.html#back-transforming-regression-predictions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The regression model we have calculated above is as follows:</p>

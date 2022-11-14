@@ -34,6 +34,18 @@ plantbiomass <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202
 
 The `plantbiomass` dataset (Example 17.3 in the text book) includes data describing plant biomass measured after 10 years within each of 5 experimental "species richness" treatments, wherein plants were grown in groups of 1, 2, 4, 8, or 16 species. The treatment variable is called `nSpecies`, and the response variable `biomassStability` is a measure of ecosystem stability. The research hypothesis was that increasing diversity (species richness) would lead to increased ecosystem stability.  
 
+Below is a visualization of the data.
+
+```{r lsrfigzero, echo = FALSE, fig.cap = "Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots.", fig.width = 4.2, fig.height = 4} 
+
+plantbiomass %>%
+ggplot(aes(x = nSpecies, y = biomassStability)) +
+  geom_point(shape = 1) +
+  xlab("Species richness") +
+  ylab("Biomass stability") +
+  theme_bw()
+```
+
 <div class="note">
 When one [visualizes the data](#LSR_vis), one might ask why an [ANOVA](#do_anova1) isn't the analysis method of choice. If we were simply interested in testing the null hypothesis that "there is no difference in mean ecosystem stability among the species richness treatment groups", then an ANOVA could be used, and we would simply treat the "species richness" variable as a categorical variable. However, here we are interested not simply in testing for differences among treatment groups, but more specifically in quantifying if and how ecosystem stability varies with variation in species richness, AND if so, whether we can reliably predict ecosystem stability based on species richness. For this, we need to construct a regression model.
 </div>

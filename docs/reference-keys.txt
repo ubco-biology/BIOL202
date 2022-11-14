@@ -62,6 +62,7 @@ fig:pupscatter
 fig:pupscatter2
 fig:trickplot
 fig:trickplot2
+fig:lsrfigzero
 fig:lsrfigone
 fig:lsrfigtwo
 fig:lsrfigthree
