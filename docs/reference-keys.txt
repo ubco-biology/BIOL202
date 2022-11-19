@@ -73,7 +73,7 @@ fig:lsrfigseven
 fig:lsrfigeight
 tab:showskimtable
 tab:nicetablepeng
-tab:unnamed-chunk-125
+tab:unnamed-chunk-126
 tab:givenicepdftable
 what_is_R
 install_R_Rstudio

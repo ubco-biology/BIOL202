@@ -490,7 +490,7 @@ Here's an example of a concluding statement:
 
 If the **normal distribution assumption** is violated, and you are unable to find a transformation that works (see the [Checking assumptions and data transformations](#assumptions_packages_data) tutorial), then you can try a non-parametric test.
 
-A tutorial on non-parametric tests is under development, but will not be deployed until 2022. Consult chapter 13 in the Whitlock & Schluter text, and this [website](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page) for some R examples. 
+A tutorial on non-parametric tests is under development, but will not be deployed until 2023. Consult chapter 13 in the Whitlock & Schluter text, and this [website](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page) for some R examples. 
 
 If the **equal-variance assumption** is violated for the 2-sample *t*-test, then you can set the "var.equal" argument to "FALSE" in the `t.test` function, in which case the function implements a "Welch's *t*-test".
 

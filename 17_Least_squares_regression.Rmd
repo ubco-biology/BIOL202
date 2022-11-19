@@ -148,9 +148,6 @@ The `plantbiomass` dataset (Example 17.3 in the text book) includes data describ
 
 We will use the conventional $\alpha$ level of 0.05.  
 
-In practice, if you are concerned about lack of <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Study-power-(aka-statistical-power)">Study power (aka statistical power)</a>
-you may wish to increase $\alpha$, e.g. to 0.1.   
-
 * * *
 
 ### Visualize the data {#LSR_vis}     

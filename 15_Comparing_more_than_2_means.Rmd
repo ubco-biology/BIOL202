@@ -34,12 +34,6 @@ library(broom)
 library(car)
 ```
 
-And a new package `forcats` that helps manage categorical variables.  Install this if you don't already have it.
-
-```{r load_forcats}
-library(forcats)
-```
-
 For this tutorial we'll use the "circadian.csv" dataset.  These data are associated with Example 15.1 in the text. 
 
 The `circadian` data describe melatonin production in 22 people randomly assigned to one of three light treatments.  
@@ -85,17 +79,13 @@ circadian %>%
 * The categorical variable "treatment" is recognized as a "character" variable ("chr") instead of a "factor" variable, 
 * The category names are not capitalized
 
-Let's convert the "treatment" variable into a "factor" type variable using the `as_factor` function from the `forcats` package:
+Let's recode this using the method we previously learned in the [2-sample _t_-test tutorial](#twosamp_ttest), using the `recode_factor` function from the `dplyr` package (loaded as part of the `tidyverse`).
+
+Be sure to provide the variables in the order that you want them to appear in any tables, figures, and analyses.
 
 ```{r covert_var}
-circadian$treatment <- as_factor(circadian$treatment)  # first change variable to type "factor"
-```
-
-Now let's capitalize the category names (or "levels"):
-
-```{r rename_treat}
-circadian$treatment <- fct_recode(circadian$treatment,
-                Control = "control", Knee = "knee", Eyes = "eyes")
+circadian <- circadian %>%
+  mutate(treatment = recode_factor(treatment, control = "Control", eyes = "Eyes", knee = "Knee"))
 ```
 
 Have a look:
@@ -107,11 +97,6 @@ circadian$treatment
 OK, so not only have we successfully changed the type of variable to factor, and capitalized the category names, but it turns out that the ordering of the factor "levels" is in the correct order, i.e. consistent with how it's displayed in the text figure in example 15.1.   
 
 Now we're ready to proceed with ANOVA!
-
-<div class="note">
-**TIP:**
-This procedure (ensuring the explanatory categorical variable is coded as a factor variable, and the ordering of the categories is correct) should also be done for 2-sample *t*-tests, **if** there is an optimal ordering to the two groups.
-</div>
 
 ## Analysis of variance {#do_the_anova}
 

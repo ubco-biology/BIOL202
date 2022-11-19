@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-11-14" />
+<meta name="date" content="2022-11-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -107,7 +107,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -120,7 +120,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -538,11 +538,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">12.2.2</span> Display a contingency table<a href="fishertest.html#show_cont_table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We’ll use the approach we learned in an earlier <a href="vis2_2cat.html#vis2_cont_table">tutorial</a> to construct a contingency table.</p>
 <p>We’ll store the table in an object called “cancer.aspirin.table”, and we’ll make sure to include margin (row and column) totals:</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="fishertest.html#cb231-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table <span class="ot">&lt;-</span> cancer <span class="sc">%&gt;%</span></span>
-<span id="cb231-2"><a href="fishertest.html#cb231-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(response, aspirinTreatment) <span class="sc">%&gt;%</span></span>
-<span id="cb231-3"><a href="fishertest.html#cb231-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="fishertest.html#cb233-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table <span class="ot">&lt;-</span> cancer <span class="sc">%&gt;%</span></span>
+<span id="cb233-2"><a href="fishertest.html#cb233-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(response, aspirinTreatment) <span class="sc">%&gt;%</span></span>
+<span id="cb233-3"><a href="fishertest.html#cb233-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</span></code></pre></div>
 <p>Let’s have a look at the result:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="fishertest.html#cb232-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="fishertest.html#cb234-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table</span></code></pre></div>
 <pre><code>##   response Aspirin Placebo Total
 ##     Cancer    1438    1427  2865
 ##  No cancer   18496   18515 37011
@@ -551,8 +551,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>When dealing with data from studies on human health (e.g. evaluating healthy versus sick subjects), it is convention to organize the contingency table as shown above, with (i) the outcome of interest (here, cancer) in the top row and the alternative outcome on the bottom row, and (ii) the treatment in the first column and placebo (control group) in the second column. When the data are not related to health outcomes, you do not need to worry about the ordering of the rows of data.</p>
 </div>
 <p>Let’s use the <code>kable</code> function to display a nice looking contingency table:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="fishertest.html#cb234-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table <span class="sc">%&gt;%</span></span>
-<span id="cb234-2"><a href="fishertest.html#cb234-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Contingency table showing the incidence of cancer in relation to experimental treatments&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="fishertest.html#cb236-1" aria-hidden="true" tabindex="-1"></a>cancer.aspirin.table <span class="sc">%&gt;%</span></span>
+<span id="cb236-2"><a href="fishertest.html#cb236-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Contingency table showing the incidence of cancer in relation to experimental treatments&quot;</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table>
 <caption>
 (#tab:cont_cancer_aspirin_table)Contingency table showing the incidence of cancer in relation to experimental treatments
@@ -624,13 +624,13 @@ Total
 <p>Let’s visualize the data using a mosaic plot, taking note of the frequency of observations falling in each category (from the contingency table produced previously).</p>
 <p>Here we’ll add a bit of new code to make the mosaic plot more ideally formatted. When we first learned how to create a mosaic plot, we saw that the y-axis was lacking tick-marks and numbers. We’ll remedy that here, using the <code>scale_y_continuous</code>, which allows us to specify what breaks (ticks) we want on the y-axis.</p>
 <p>Here we’re showing “relative frequency” on the y-axis, so this should range from 0 to 1. And we’ll add breaks at intervals of 0.2. Specifically, we use the base <code>seq</code> function to generate a sequence of numbers from 0 to 1, in intervals of 0.2:</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="fishertest.html#cb235-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="sc">%&gt;%</span></span>
-<span id="cb235-2"><a href="fishertest.html#cb235-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb235-3"><a href="fishertest.html#cb235-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(aspirinTreatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
-<span id="cb235-4"><a href="fishertest.html#cb235-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.2</span>)) <span class="sc">+</span></span>
-<span id="cb235-5"><a href="fishertest.html#cb235-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
-<span id="cb235-6"><a href="fishertest.html#cb235-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb235-7"><a href="fishertest.html#cb235-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="fishertest.html#cb237-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="sc">%&gt;%</span></span>
+<span id="cb237-2"><a href="fishertest.html#cb237-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb237-3"><a href="fishertest.html#cb237-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(aspirinTreatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
+<span id="cb237-4"><a href="fishertest.html#cb237-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.2</span>)) <span class="sc">+</span></span>
+<span id="cb237-5"><a href="fishertest.html#cb237-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
+<span id="cb237-6"><a href="fishertest.html#cb237-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb237-7"><a href="fishertest.html#cb237-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-66"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-66-1.png" alt="Relative frequency of cancer among women randomly assigned to control (n = 19942) and aspririn (n = 19934) treatment groups." width="384" />
 <p class="caption">
@@ -653,11 +653,11 @@ It is best practice to display the response variable as the “fill” variable 
 <pre><code>?janitor::fisher.test</code></pre>
 <p>This function requires a two-way “tabyl” as the input, and we already know how to construct such a table.</p>
 <p>We’ll put the results in an object called “cancer.fishertest”:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="fishertest.html#cb237-1" aria-hidden="true" tabindex="-1"></a>cancer.fishertest <span class="ot">&lt;-</span> cancer <span class="sc">%&gt;%</span></span>
-<span id="cb237-2"><a href="fishertest.html#cb237-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabyl</span>(aspirinTreatment, response) <span class="sc">%&gt;%</span></span>
-<span id="cb237-3"><a href="fishertest.html#cb237-3" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">fisher.test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="fishertest.html#cb239-1" aria-hidden="true" tabindex="-1"></a>cancer.fishertest <span class="ot">&lt;-</span> cancer <span class="sc">%&gt;%</span></span>
+<span id="cb239-2"><a href="fishertest.html#cb239-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabyl</span>(aspirinTreatment, response) <span class="sc">%&gt;%</span></span>
+<span id="cb239-3"><a href="fishertest.html#cb239-3" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">fisher.test</span>()</span></code></pre></div>
 <p>Let’s look at the results:</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="fishertest.html#cb238-1" aria-hidden="true" tabindex="-1"></a>cancer.fishertest</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="fishertest.html#cb240-1" aria-hidden="true" tabindex="-1"></a>cancer.fishertest</span></code></pre></div>
 <pre><code>## 
 ##  Fisher&#39;s Exact Test for Count Data
 ## 

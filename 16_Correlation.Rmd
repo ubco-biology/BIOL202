@@ -63,7 +63,7 @@ The sample-based correlation coefficient, which we use to estimate $\rho$, is re
 $$r = \frac{\sum{(X_{i}-\bar{X})(Y_{i}-\bar{Y})}}{\sqrt{\sum{(X_{i}-\bar{X})^2}} {\sqrt{\sum(Y_{i}-\bar{Y})^2}}}$$
 
 <div class="note">
-In the calculation of $r$ it does not matter which variable is treated as the "X" and which as the "Y". However, in many instances there may good reason to choose which serves as the "X" (explanatory) and which as the "Y" (response).  
+In the calculation of $r$ it does not matter which variable is treated as the $X$ and which as the $Y$. However, in many instances there may good reason to choose which serves as the $X$ (explanatory) and which as the $Y$ (response).  
 </div>
 
 ### Hypothesis statements {#pearson_hyp}
@@ -123,9 +123,9 @@ Correlation analysis assumes that:
 
 * the sample of individuals is a random sample from the population   
 * the measurements have a **bivariate normal distribution**, which includes the following properties:  
-    + the relationship between the two variables (X and Y) is linear  
-    + the cloud of points in a scatterplot of X and Y has a circular or elliptical shape  
-    + the frequency distributions of X and Y separately are normal  
+    + the relationship between the two variables ($X$ and $Y$) is linear  
+    + the cloud of points in a scatterplot of $X$ and $Y$ has a circular or elliptical shape  
+    + the frequency distributions of $X$ and $Y$ separately are normal  
 
 * * *
 
@@ -145,7 +145,7 @@ If any of these patterns are evident, then one should opt for a non-parametric a
 
 >Based on Figure \@ref(fig:pupscatter), there doesn't seem to be any indications that the assumptions are not met, so we'll proceed with testing the null hypothesis.  
 
-<div class="note">
+<div class="flag">
 Be careful with "count" type variables such as "number of pups", as these may not adhere to the "bivariate normality" assumption. If the variable is restricted to a limited range of possible counts, say zero to 5 or 6, then the association should probably be analyzed using a non-parametric test (see below). The variable "number of pups" in this example is borderline OK...
 </div>
 
@@ -178,6 +178,10 @@ Now let's tidy it up and have a look at the resulting tidy output:
 ```{r createtidycor}
 wolf.cor.tidy <- wolf.cor %>%
   broom::tidy()
+```
+
+Show the output:
+```{r}
 wolf.cor.tidy
 ```
 
@@ -245,7 +249,7 @@ Unlike in the Pearson correlation case (above), which uses *t* as a test statist
 
 ### Visualize the data {#spearman_hyp}
 
-Let's visualize the association, again using the `geom_jitter`1 function to help see overlapping values:  
+Let's visualize the association, again using the `geom_jitter` function to help see overlapping values:  
 
 ```{r trickplot, fig.cap = "Scatterplot of the impressiveness of written accounts of the Indian rope trick by firsthand observers and the number of years elapsed between witnessing the event and writing the account (_n_ = 21). Values have jittered slightly to improve legibility.", fig.width = 4.2, fig.height = 4}
 
@@ -299,7 +303,7 @@ trick.cor.tidy
 * The "alternative" indicates whether the alternative hypothesis was one- or two-sided (the latter is the default)
 
 <div class="note">
- There is no confidence interval reported with Spearman correlation analysis, so there is no need to report one in the concluding statement for a rank correlation. Nor is the degrees of freedom reported, so be sure to have figured out the appropriate degrees of freedom (or sample size "n") to report in your concluding statement.
+There is no confidence interval reported with Spearman correlation analysis, so there is no need to report one in the concluding statement for a rank correlation. Nor is the degrees of freedom reported, so be sure to have figured out the appropriate degrees of freedom (or sample size "n") to report in your concluding statement.
 </div>
 
 ### Concluding statement {#spear_conclude}

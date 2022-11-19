@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-11-14" />
+<meta name="date" content="2022-11-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -107,7 +107,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -120,7 +120,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -521,13 +521,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="spearman_hyp" class="section level3 hasAnchor" number="17.3.2">
 <h3><span class="header-section-number">17.3.2</span> Visualize the data<a href="rankcorr.html#spearman_hyp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let’s visualize the association, again using the <code>geom_jitter</code>1 function to help see overlapping values:</p>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="rankcorr.html#cb450-1" aria-hidden="true" tabindex="-1"></a>trick <span class="sc">%&gt;%</span></span>
-<span id="cb450-2"><a href="rankcorr.html#cb450-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> years, <span class="at">y =</span> impressivenessScore)) <span class="sc">+</span></span>
-<span id="cb450-3"><a href="rankcorr.html#cb450-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb450-4"><a href="rankcorr.html#cb450-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Years elapsed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb450-5"><a href="rankcorr.html#cb450-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Impressiveness score&quot;</span>) <span class="sc">+</span></span>
-<span id="cb450-6"><a href="rankcorr.html#cb450-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<p>Let’s visualize the association, again using the <code>geom_jitter</code> function to help see overlapping values:</p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="rankcorr.html#cb451-1" aria-hidden="true" tabindex="-1"></a>trick <span class="sc">%&gt;%</span></span>
+<span id="cb451-2"><a href="rankcorr.html#cb451-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> years, <span class="at">y =</span> impressivenessScore)) <span class="sc">+</span></span>
+<span id="cb451-3"><a href="rankcorr.html#cb451-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb451-4"><a href="rankcorr.html#cb451-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Years elapsed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb451-5"><a href="rankcorr.html#cb451-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Impressiveness score&quot;</span>) <span class="sc">+</span></span>
+<span id="cb451-6"><a href="rankcorr.html#cb451-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:trickplot"></span>
 <img src="BIOL202_files/figure-html/trickplot-1.png" alt="Scatterplot of the impressiveness of written accounts of the Indian rope trick by firsthand observers and the number of years elapsed between witnessing the event and writing the account (_n_ = 21). Values have jittered slightly to improve legibility." width="403.2" />
 <p class="caption">
@@ -555,15 +555,15 @@ Figure 17.4: Scatterplot of the impressiveness of written accounts of the Indian
 <div id="conduct_spearman" class="section level3 hasAnchor" number="17.3.4">
 <h3><span class="header-section-number">17.3.4</span> Conduct the test<a href="rankcorr.html#conduct_spearman" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We use the same <code>cor.test</code> function to conduct the test, but change the “method” argument accordingly:</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="rankcorr.html#cb451-1" aria-hidden="true" tabindex="-1"></a>trick.cor <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> trick<span class="sc">$</span>years, <span class="at">y =</span> trick<span class="sc">$</span>impressivenessScore, </span>
-<span id="cb451-2"><a href="rankcorr.html#cb451-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb451-3"><a href="rankcorr.html#cb451-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="rankcorr.html#cb452-1" aria-hidden="true" tabindex="-1"></a>trick.cor <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> trick<span class="sc">$</span>years, <span class="at">y =</span> trick<span class="sc">$</span>impressivenessScore, </span>
+<span id="cb452-2"><a href="rankcorr.html#cb452-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb452-3"><a href="rankcorr.html#cb452-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
 <div class="note">
 <p>You may get a warning message, simply saying that it can’t compute exact <em>P</em>-values when there are ties in the ranked data. Don’t worry about this.</p>
 </div>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="rankcorr.html#cb452-1" aria-hidden="true" tabindex="-1"></a>trick.cor.tidy <span class="ot">&lt;-</span> trick.cor <span class="sc">%&gt;%</span></span>
-<span id="cb452-2"><a href="rankcorr.html#cb452-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span>
-<span id="cb452-3"><a href="rankcorr.html#cb452-3" aria-hidden="true" tabindex="-1"></a>trick.cor.tidy</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="rankcorr.html#cb453-1" aria-hidden="true" tabindex="-1"></a>trick.cor.tidy <span class="ot">&lt;-</span> trick.cor <span class="sc">%&gt;%</span></span>
+<span id="cb453-2"><a href="rankcorr.html#cb453-2" aria-hidden="true" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span>
+<span id="cb453-3"><a href="rankcorr.html#cb453-3" aria-hidden="true" tabindex="-1"></a>trick.cor.tidy</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
 ##   estimate statistic    p.value method                          alternative
 ##      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
@@ -582,12 +582,12 @@ Figure 17.4: Scatterplot of the impressiveness of written accounts of the Indian
 <div id="spear_conclude" class="section level3 hasAnchor" number="17.3.5">
 <h3><span class="header-section-number">17.3.5</span> Concluding statement<a href="rankcorr.html#spear_conclude" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As in the preceding Pearson correlation example, we can refer to the Figure in the parentheses of our concluding statement. Note also that we report <em>n</em> rather than degrees of freedom.</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="rankcorr.html#cb454-1" aria-hidden="true" tabindex="-1"></a>trick <span class="sc">%&gt;%</span></span>
-<span id="cb454-2"><a href="rankcorr.html#cb454-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> years, <span class="at">y =</span> impressivenessScore)) <span class="sc">+</span></span>
-<span id="cb454-3"><a href="rankcorr.html#cb454-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb454-4"><a href="rankcorr.html#cb454-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Years elapsed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb454-5"><a href="rankcorr.html#cb454-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Impressiveness score&quot;</span>) <span class="sc">+</span></span>
-<span id="cb454-6"><a href="rankcorr.html#cb454-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="rankcorr.html#cb455-1" aria-hidden="true" tabindex="-1"></a>trick <span class="sc">%&gt;%</span></span>
+<span id="cb455-2"><a href="rankcorr.html#cb455-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> years, <span class="at">y =</span> impressivenessScore)) <span class="sc">+</span></span>
+<span id="cb455-3"><a href="rankcorr.html#cb455-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb455-4"><a href="rankcorr.html#cb455-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Years elapsed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb455-5"><a href="rankcorr.html#cb455-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Impressiveness score&quot;</span>) <span class="sc">+</span></span>
+<span id="cb455-6"><a href="rankcorr.html#cb455-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:trickplot2"></span>
 <img src="BIOL202_files/figure-html/trickplot2-1.png" alt="Scatterplot of the impressiveness of written accounts of the Indian rope trick by firsthand observers and the number of years elapsed between witnessing the event and writing the account (_n_ = 21). Values have jittered slightly to improve legibility." width="403.2" />
 <p class="caption">
