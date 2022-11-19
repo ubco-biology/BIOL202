@@ -85,7 +85,7 @@ Be sure to provide the variables in the order that you want them to appear in an
 
 ```{r covert_var}
 circadian <- circadian %>%
-  mutate(treatment = recode_factor(treatment, control = "Control", eyes = "Eyes", knee = "Knee"))
+  mutate(treatment = recode_factor(treatment, control = "Control", knee = "Knee", eyes = "Eyes", ))
 ```
 
 Have a look:
