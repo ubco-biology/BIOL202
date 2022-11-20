@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-11-19" />
+<meta name="date" content="2022-11-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -509,6 +509,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">13.2</span> One-sample <em>t</em>-test<a href="onesamp_t_test.html#onesamp_t_test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We previously learned statistical tests for testing hypotheses about categorical response variables. For instance, we learned how to conduct a <span class="math inline">\(\chi^2\)</span> <a href="chisquare.html#chisquare">contingency test</a> to test the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null hypothesis</a> that there is no association between two categorical variables.</p>
 <p>Here we are going to learn our first statistical test for testing hypotheses about a numeric response variable, specifically one whose <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> distribution in the population is normally distributed.</p>
+<hr />
 <div id="onesamp_hyp" class="section level3 hasAnchor" number="13.2.1">
 <h3><span class="header-section-number">13.2.1</span> Hypothesis statement<a href="onesamp_t_test.html#onesamp_hyp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Review the earlier tutorial that lists the <a href="hyp_steps.html#hyp_steps">steps to hypothesis testing</a>.</p>
@@ -530,6 +531,7 @@ You can add a degree symbol using this syntax in markdown: <code>$^\circ$</code>
 </li>
 <li>It is a two-tailed <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a></li>
 </ul>
+<hr />
 </div>
 <div id="onesamp_assumptions" class="section level3 hasAnchor" number="13.2.2">
 <h3><span class="header-section-number">13.2.2</span> Assumptions of one-sample <em>t</em>-test<a href="onesamp_t_test.html#onesamp_assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -542,6 +544,7 @@ You can add a degree symbol using this syntax in markdown: <code>$^\circ$</code>
 <div class="note">
 <p>If the normal distribution assumption is not met, and no <a href="https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html">data transformation</a> helps, then one can conduct a “non-parametric” test in lieu of the one-sample <em>t</em>-test, including a “Sign test” or a “Wilcoxon signed-rank test”. A tutorial on non-parametric tests is under development, but will not be deployed until 2023. Consult chapter 13 in the Whitlock &amp; Schluter text, and this <a href="https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page">website</a> for some R examples.</p>
 </div>
+<hr />
 </div>
 <div id="onesamp_graph" class="section level3 hasAnchor" number="13.2.3">
 <h3><span class="header-section-number">13.2.3</span> A graph to accompany a one-sample <em>t</em>-test<a href="onesamp_t_test.html#onesamp_graph" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -554,13 +557,13 @@ You can add a degree symbol using this syntax in markdown: <code>$^\circ$</code>
 <p>The first step is to figure out the minimum and maximum values of your numeric variable, and you should have already done this when using the <code>skim_without_charts</code> function to get an overview of the dataset (when you first imported the data).</p>
 <p>For the <code>temperature</code> variable, our minimum and maximum values were 97.4 and 100, respectively.</p>
 <p>We’ll use this information to ensure that the histogram spans the appropriate range along the x-axis, and to decide on the appropriate “bin widths”:</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="onesamp_t_test.html#cb274-1" aria-hidden="true" tabindex="-1"></a>bodytemp <span class="sc">%&gt;%</span> </span>
-<span id="cb274-2"><a href="onesamp_t_test.html#cb274-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temperature)) <span class="sc">+</span></span>
-<span id="cb274-3"><a href="onesamp_t_test.html#cb274-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">boundary =</span> <span class="dv">97</span>, </span>
-<span id="cb274-4"><a href="onesamp_t_test.html#cb274-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>,) <span class="sc">+</span></span>
-<span id="cb274-5"><a href="onesamp_t_test.html#cb274-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body temperature (degrees F)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb274-6"><a href="onesamp_t_test.html#cb274-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb274-7"><a href="onesamp_t_test.html#cb274-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="onesamp_t_test.html#cb276-1" aria-hidden="true" tabindex="-1"></a>bodytemp <span class="sc">%&gt;%</span> </span>
+<span id="cb276-2"><a href="onesamp_t_test.html#cb276-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temperature)) <span class="sc">+</span></span>
+<span id="cb276-3"><a href="onesamp_t_test.html#cb276-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">boundary =</span> <span class="dv">97</span>, </span>
+<span id="cb276-4"><a href="onesamp_t_test.html#cb276-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>,) <span class="sc">+</span></span>
+<span id="cb276-5"><a href="onesamp_t_test.html#cb276-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body temperature (degrees F)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb276-6"><a href="onesamp_t_test.html#cb276-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb276-7"><a href="onesamp_t_test.html#cb276-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-74"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-74-1.png" alt="Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people." width="384" />
 <p class="caption">
@@ -575,6 +578,7 @@ Figure 13.1: Frequency distribution of body temperature (degrees Farenheit) for 
 <blockquote>
 <p>We can see in the histogram above that most of the individuals had temperatures between 98 and 99<span class="math inline">\(^\circ\)</span>F, which is consistent with conventional wisdom, but there are 7 people with temperature below 98<span class="math inline">\(^\circ\)</span>F, and 5 with temperatures above 99<span class="math inline">\(^\circ\)</span>F. The frequency distribution is unimodal but not especially symmetrical.</p>
 </blockquote>
+<hr />
 </div>
 <div id="onesamp_test" class="section level3 hasAnchor" number="13.2.4">
 <h3><span class="header-section-number">13.2.4</span> Conduct the one-sample <em>t</em>-test<a href="onesamp_t_test.html#onesamp_test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -583,9 +587,9 @@ Figure 13.1: Frequency distribution of body temperature (degrees Farenheit) for 
 <p>This function is used for both one-sample and two-sample <em>t</em>-tests (covered later), and for calculating 95% confidence intervals for a mean (later in this tutorial).</p>
 <p>Because this function has multiple purposes, be sure to pay attention to the arguments.</p>
 <p>Here’s the code, which we’ll explain after:</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="onesamp_t_test.html#cb276-1" aria-hidden="true" tabindex="-1"></a>body.ttest <span class="ot">&lt;-</span> bodytemp <span class="sc">%&gt;%</span></span>
-<span id="cb276-2"><a href="onesamp_t_test.html#cb276-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(temperature) <span class="sc">%&gt;%</span></span>
-<span id="cb276-3"><a href="onesamp_t_test.html#cb276-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">mu =</span> <span class="fl">98.6</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="onesamp_t_test.html#cb278-1" aria-hidden="true" tabindex="-1"></a>body.ttest <span class="ot">&lt;-</span> bodytemp <span class="sc">%&gt;%</span></span>
+<span id="cb278-2"><a href="onesamp_t_test.html#cb278-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(temperature) <span class="sc">%&gt;%</span></span>
+<span id="cb278-3"><a href="onesamp_t_test.html#cb278-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">mu =</span> <span class="fl">98.6</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
 <ul>
 <li>We first assign our results to a new object called “body.ttest”</li>
 <li>We then <code>select</code> the variable “temperature”, as this is the one being analyzed</li>
@@ -594,7 +598,7 @@ Figure 13.1: Frequency distribution of body temperature (degrees Farenheit) for 
 <li>We provide the “conf.level” of 0.95, which is equal to <span class="math inline">\(1-\alpha\)</span></li>
 </ul>
 <p>Let’s look at the results:</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="onesamp_t_test.html#cb277-1" aria-hidden="true" tabindex="-1"></a>body.ttest</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="onesamp_t_test.html#cb279-1" aria-hidden="true" tabindex="-1"></a>body.ttest</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -615,6 +619,7 @@ Figure 13.1: Frequency distribution of body temperature (degrees Farenheit) for 
 <li>The sample-based estimate, denoted “mean of x”, but is our (<span class="math inline">\(\bar{Y}\)</span>)</li>
 </ul>
 <p>The observed <em>P</em>-value for our test is larger than our <span class="math inline">\(\alpha\)</span> level of 0.05. We therefore fail to reject the null hypothesis.</p>
+<hr />
 </div>
 <div id="onesamp_conclude" class="section level3 hasAnchor" number="13.2.5">
 <h3><span class="header-section-number">13.2.5</span> Concluding statement for the one-sample <em>t</em>-test<a href="onesamp_t_test.html#onesamp_conclude" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -626,6 +631,7 @@ Figure 13.1: Frequency distribution of body temperature (degrees Farenheit) for 
 <p><strong>TIP </strong>
 The confidence interval provided by the <code>t.test</code> function is accurate and good to report with your concluding statement for a one-sample <em>t</em>-test. However, below we learn a different way to calculate the confidence interval.</p>
 </div>
+<hr />
 </div>
 </div>
             </section>

@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-11-19" />
+<meta name="date" content="2022-11-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -508,12 +508,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="LSR_packages_data" class="section level2 hasAnchor" number="18.1">
 <h2><span class="header-section-number">18.1</span> Load packages and import data<a href="LSR_packages_data.html#LSR_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>broom</code>, and <code>knitr</code>.</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="LSR_packages_data.html#cb454-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb454-2"><a href="LSR_packages_data.html#cb454-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb454-3"><a href="LSR_packages_data.html#cb454-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb454-4"><a href="LSR_packages_data.html#cb454-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="LSR_packages_data.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb456-2"><a href="LSR_packages_data.html#cb456-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb456-3"><a href="LSR_packages_data.html#cb456-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb456-4"><a href="LSR_packages_data.html#cb456-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <p>We’ll use the “plantbiomass” dataset:</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="LSR_packages_data.html#cb455-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/plantbiomass.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="LSR_packages_data.html#cb457-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/plantbiomass.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 161 Columns: 2
 ## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -533,7 +533,7 @@ Figure 18.1: Stability of biomass production over 10 years in 161 plots and the 
 <p>When one <a href="LSR.html#LSR_vis">visualizes the data</a>, one might ask why an <a href="do_the_anova.html#do_anova1">ANOVA</a> isn’t the analysis method of choice. If we were simply interested in testing the null hypothesis that “there is no difference in mean ecosystem stability among the species richness treatment groups”, then an ANOVA could be used, and we would simply treat the “species richness” variable as a categorical variable. However, here we are interested not simply in testing for differences among treatment groups, but more specifically in quantifying if and how ecosystem stability varies with variation in species richness, AND if so, whether we can reliably predict ecosystem stability based on species richness. For this, we need to construct a regression model.</p>
 </div>
 <p>Let’s have a look at the data:</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="LSR_packages_data.html#cb457-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="LSR_packages_data.html#cb459-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:view_data_lsr)Data summary

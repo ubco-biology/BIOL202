@@ -12,6 +12,8 @@ options(knitr.table.format = "html")
 * Learn how to calculate an exact confidence interval for a population mean ($\mu$)
 * Learn the confidence interval approach for testing the plausibility of a hypothesized value for $\mu$
 
+***
+
 ## Load packages and import data {#singlenum_packages_data}
 
 Load the `tidyverse`, `knitr`, `naniar`, and `janitor` packages: 
@@ -38,11 +40,15 @@ stalkies <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/mai
 Before proceeding further, remember to get an overview of each of these datasets. 
 </div>
 
+***
+
 ## One-sample _t_-test {#onesamp_t_test}      
 
 We previously learned statistical tests for testing hypotheses about categorical response variables. For instance, we learned how to conduct a $\chi^2$ [contingency test](#chisquare) to test the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Null-hypothesis">null hypothesis</a> that there is no association between two categorical variables.  
 
 Here we are going to learn our first statistical test for testing hypotheses about a numeric response variable, specifically one whose <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Probability">probability</a> distribution in the population is normally distributed.  
+
+***
 
 ### Hypothesis statement {#onesamp_hyp}
 
@@ -69,6 +75,8 @@ You can add a degree symbol using this syntax in markdown: `$^\circ$`, so degree
 * We'll use an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Significance-level-($\alpha$)">$\alpha$ level</a> of 0.05.  
 * It is a two-tailed <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Alternative-hypothesis">alternative hypothesis</a>
 
+***
+
 ### Assumptions of one-sample *t*-test {#onesamp_assumptions}
 
 The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">**assumptions**</a> of the one-sample *t*-test are as follows:  
@@ -81,6 +89,8 @@ Consult the ["checking assumptions" tutorial](https://ubco-biology.github.io/BIO
 <div class="note">
 If the normal distribution assumption is not met, and no [data transformation](https://ubco-biology.github.io/BIOL202/checking-assumptions-and-data-transformations.html) helps, then one can conduct a "non-parametric" test in lieu of the one-sample *t*-test, including a "Sign test" or a "Wilcoxon signed-rank test".  A tutorial on non-parametric tests is under development, but will not be deployed until 2023. Consult chapter 13 in the Whitlock & Schluter text, and this [website](https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page) for some R examples. 
 </div>
+
+***
 
 ### A graph to accompany a one-sample *t*-test {#onesamp_graph}
 
@@ -120,6 +130,8 @@ Recall that it can take a few times playing with different values of "binwidth" 
 **Interpreting the histogram**:
 
 >We can see in the histogram above that most of the individuals had temperatures between 98 and 99$^\circ$F, which is consistent with conventional wisdom, but there are 7 people with temperature below 98$^\circ$F, and 5 with temperatures above 99$^\circ$F. The frequency distribution is unimodal but not especially symmetrical.
+
+***
 
 ### Conduct the one-sample *t*-test {#onesamp_test}
 
@@ -163,6 +175,8 @@ The output includes:
 
 The observed *P*-value for our test is larger than our $\alpha$ level of 0.05.  We therefore fail to reject the null hypothesis.
 
+***
+
 ### Concluding statement for the one-sample *t*-test {#onesamp_conclude}
 
 Here's an example of an appropriately worded concluding statement, including all the relevant information:
@@ -173,6 +187,8 @@ Here's an example of an appropriately worded concluding statement, including all
 **TIP **
 The confidence interval provided by the `t.test` function is accurate and good to report with your concluding statement for a one-sample *t*-test.  However, below we learn a different way to calculate the confidence interval.  
 </div>
+
+***
 
 ## Confidence intervals for $\mu$ {#t_confidence}
 
@@ -187,11 +203,13 @@ There are two typical uses of confidence intervals:
 
 We'll explore the latter use of confidence intervals later in this tutorial. For now, let's demonstrate the first use of confidence intervals: as a measure of precision for an estimate.
 
+***
+
+### Confidence interval as a measure of precision for an estimate {#conf_precision}
+
 <div class="note">
 A straightforward way to calculate the confidence interval for the mean of a numeric variable is using the `t.test` function. For an example, see this [tutorial section](#onesamp_test). 
 </div>
-
-### Confidence interval as a measure of precision for an estimate {#conf_precision}
 
 The formula for a 95% confidence interval for $\mu$ is:  
 
