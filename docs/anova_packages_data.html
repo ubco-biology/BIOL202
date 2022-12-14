@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-11-21" />
+<meta name="date" content="2022-12-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -518,7 +518,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>circadian</code> data describe melatonin production in 22 people randomly assigned to one of three light treatments.</p>
 <div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="anova_packages_data.html#cb392-1" aria-hidden="true" tabindex="-1"></a>circadian <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/circadian.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 22 Columns: 2
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (1): treatment
 ## dbl (1): shift
@@ -778,8 +778,8 @@ shift
 <span id="cb399-2"><a href="anova_packages_data.html#cb399-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treatment =</span> <span class="fu">recode_factor</span>(treatment, <span class="at">control =</span> <span class="st">&quot;Control&quot;</span>, <span class="at">knee =</span> <span class="st">&quot;Knee&quot;</span>, <span class="at">eyes =</span> <span class="st">&quot;Eyes&quot;</span>, ))</span></code></pre></div>
 <p>Have a look:</p>
 <div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="anova_packages_data.html#cb400-1" aria-hidden="true" tabindex="-1"></a>circadian<span class="sc">$</span>treatment</span></code></pre></div>
-<pre><code>##  [1] Control Control Control Control Control Control Control Control Knee    Knee    Knee    Knee    Knee    Knee    Knee    Eyes    Eyes    Eyes    Eyes    Eyes    Eyes   
-## [22] Eyes   
+<pre><code>##  [1] Control Control Control Control Control Control Control Control Knee    Knee    Knee    Knee    Knee    Knee    Knee    Eyes    Eyes    Eyes    Eyes    Eyes   
+## [21] Eyes    Eyes   
 ## Levels: Control Knee Eyes</code></pre>
 <p>OK, so not only have we successfully changed the type of variable to factor, and capitalized the category names, but it turns out that the ordering of the factor “levels” is in the correct order, i.e. consistent with how it’s displayed in the text figure in example 15.1.</p>
 <p>Now we’re ready to proceed with ANOVA!</p>
