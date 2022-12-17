@@ -23,11 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<<<<<<< HEAD
 <meta name="date" content="2022-12-17" />
-=======
-<meta name="date" content="2022-12-13" />
->>>>>>> a8f608c2d37e5fcb06cf79eb4d99997cb0d9a36a
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -111,7 +107,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -124,7 +120,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -520,43 +516,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb223-6"><a href="twocat_packages_data.html#cb223-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We’ll also need a new package called <code>epitools</code>, so install that now if you haven’t done so.</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="twocat_packages_data.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(epitools)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;epitools&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:binom&#39;:
-## 
-##     binom.exact, binom.wilson</code></pre>
 <p>We’ll use two datasets described in the Whitlock &amp; Schluter text:</p>
 <ul>
 <li>the “cancer.csv” dataset (described in Example 9.2 in the text, page 238)</li>
 <li>the “worm.csv” dataset (described in Example 9.4 in the text, page 246)</li>
 </ul>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="twocat_packages_data.html#cb227-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/cancer.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="twocat_packages_data.html#cb225-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/cancer.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 39876 Columns: 2
-<<<<<<< HEAD
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-=======
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
->>>>>>> a8f608c2d37e5fcb06cf79eb4d99997cb0d9a36a
 ## Delimiter: &quot;,&quot;
 ## chr (2): aspirinTreatment, response
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="twocat_packages_data.html#cb229-1" aria-hidden="true" tabindex="-1"></a>worm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/worm.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="twocat_packages_data.html#cb227-1" aria-hidden="true" tabindex="-1"></a>worm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/worm.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 141 Columns: 2
-<<<<<<< HEAD
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-=======
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
->>>>>>> a8f608c2d37e5fcb06cf79eb4d99997cb0d9a36a
 ## Delimiter: &quot;,&quot;
 ## chr (2): infection, fate
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <p>Take a look at the cancer dataset:</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="twocat_packages_data.html#cb231-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="sc">%&gt;%</span></span>
-<span id="cb231-2"><a href="twocat_packages_data.html#cb231-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="twocat_packages_data.html#cb229-1" aria-hidden="true" tabindex="-1"></a>cancer <span class="sc">%&gt;%</span></span>
+<span id="cb229-2"><a href="twocat_packages_data.html#cb229-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:cont_datalook_cancer)Data summary
@@ -711,8 +694,8 @@ response
 </tbody>
 </table>
 <p>And the worm dataset:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="twocat_packages_data.html#cb232-1" aria-hidden="true" tabindex="-1"></a>worm <span class="sc">%&gt;%</span></span>
-<span id="cb232-2"><a href="twocat_packages_data.html#cb232-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="twocat_packages_data.html#cb230-1" aria-hidden="true" tabindex="-1"></a>worm <span class="sc">%&gt;%</span></span>
+<span id="cb230-2"><a href="twocat_packages_data.html#cb230-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:cont_datalook_worm)Data summary

@@ -23,11 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<<<<<<< HEAD
 <meta name="date" content="2022-12-17" />
-=======
-<meta name="date" content="2022-12-13" />
->>>>>>> a8f608c2d37e5fcb06cf79eb4d99997cb0d9a36a
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -111,7 +107,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -124,7 +120,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -512,39 +508,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="twomean_packages_data" class="section level2 hasAnchor" number="14.1">
 <h2><span class="header-section-number">14.1</span> Load packages and import data<a href="twomean_packages_data.html#twomean_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>knitr</code>, <code>naniar</code>, <code>car</code>, <code>skimr</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="twomean_packages_data.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb289-2"><a href="twomean_packages_data.html#cb289-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb289-3"><a href="twomean_packages_data.html#cb289-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb289-4"><a href="twomean_packages_data.html#cb289-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb289-5"><a href="twomean_packages_data.html#cb289-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb289-6"><a href="twomean_packages_data.html#cb289-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="twomean_packages_data.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb287-2"><a href="twomean_packages_data.html#cb287-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb287-3"><a href="twomean_packages_data.html#cb287-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb287-4"><a href="twomean_packages_data.html#cb287-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb287-5"><a href="twomean_packages_data.html#cb287-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb287-6"><a href="twomean_packages_data.html#cb287-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
 <p>And we also need the <code>broom</code> package, which may be new to you.</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="twomean_packages_data.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="twomean_packages_data.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
 <p>The following datasets are required:</p>
 <ul>
 <li>the “blackbird” dataset. These are the data associated with Example 12.2 in the text (page 330)</li>
 <li>the “students” dataset, describing characteristics of students from BIOL202 from several years back</li>
 </ul>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="twomean_packages_data.html#cb291-1" aria-hidden="true" tabindex="-1"></a>blackbird <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/blackbird.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="twomean_packages_data.html#cb289-1" aria-hidden="true" tabindex="-1"></a>blackbird <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/blackbird.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 26 Columns: 3
-<<<<<<< HEAD
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-=======
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
->>>>>>> a8f608c2d37e5fcb06cf79eb4d99997cb0d9a36a
 ## Delimiter: &quot;,&quot;
 ## chr (1): time
 ## dbl (2): blackbird, Antibody
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="twomean_packages_data.html#cb293-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="twomean_packages_data.html#cb291-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 154 Columns: 6
-<<<<<<< HEAD
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-=======
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
->>>>>>> a8f608c2d37e5fcb06cf79eb4d99997cb0d9a36a
 ## Delimiter: &quot;,&quot;
 ## chr (3): Dominant_hand, Dominant_foot, Dominant_eye
 ## dbl (3): height_cm, head_circum_cm, Number_of_siblings
