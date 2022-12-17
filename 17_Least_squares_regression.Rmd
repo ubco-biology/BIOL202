@@ -105,7 +105,7 @@ In general, there are two common scenarios in which least-squares regression ana
 
 * We wish to know whether some numeric variable $Y$ can be reliably predicted using a regression model of $Y$ on some predictor $X$.  For example, "Can vehicle mileage be reliably predicted by the weight of the vehicle?"  
 
-* We wish to test a specific hypothesis about the slope of the regression model of $Y$ on $X$.  For example, across species, basal metabolic rate (BMR) relates to body mass (BM) according to $BMR = \alpha M^\beta$.  Here, $\alpha$ is a constant.  If we log-transform both sides of the equation, we get the following relationship, for which the parameters can be estimated via linear regression analysis:   
+* We wish to test a specific hypothesis about the slope of the regression model of $Y$ on $X$.  For example, across species, basal metabolic rate (BMR) relates to body mass (M) according to $BMR = \alpha M^\beta$.  Here, $\alpha$ is a constant.  If we log-transform both sides of the equation, we get the following relationship, for which the parameters can be estimated via linear regression analysis:   
 
 $log(BMR) = log(\alpha) + \beta\cdot log(M)$ 
 

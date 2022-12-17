@@ -20,9 +20,9 @@ options(pillar.sigfig = 4)
 
 # Welcome {-}
 
-This is an open source online book that includes all tutorials and other resources for the "lab" portion of the course BIOL202: Introduction to Biostatistics, at the University of British Columbia, Okanagan campus. 
+This is an open source online book that, in one capacity, provides tutorials and other resources for the lab portion of the course BIOL202: Introduction to Biostatistics, at the University of British Columbia, Okanagan campus. Its other role is to serve as a general resource for those wishing to learn how to manage and analyze data using R and R Markdown within the RStudio IDE. 
 
-This book is **currently under development, with sections being added weekly**.
+This book is **a living document that is updated intermittently.**  If you find errors or wish to provide feedback, please feel free to [contact me](https://jasonpither.weebly.com/people.html). 
 
 ## Author {-}
 
@@ -49,7 +49,7 @@ This work is licensed under the Creative Commons [Attribution-NonCommercial-Shar
 
 Please use the following for citing this document
 
-Pither, J. (2021). *Tutorials for BIOL202: Introduction to Biostatistics*. [https://ubco-biology.github.io/BIOL202/index.html](https://ubco-biology.github.io/BIOL202/index.html)
+Pither, J. (2022). *Tutorials for BIOL202: Introduction to Biostatistics*. [https://ubco-biology.github.io/BIOL202/index.html](https://ubco-biology.github.io/BIOL202/index.html)
 
 All source files are available on [github](https://github.com/ubco-biology/BIOL202).
 
