@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.2 Visualizing association between two categorical variables | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.2 Visualizing association between two categorical variables | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2022-12-17" />
+<meta name="date" content="2023-08-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,6 +134,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -701,7 +705,7 @@ Egg removal
 ##  8     8 Egg removal Malaria 
 ##  9     9 Egg removal Malaria 
 ## 10    10 Egg removal Malaria 
-## # … with 55 more rows</code></pre>
+## # ℹ 55 more rows</code></pre>
 <p>To wrangle this into the appropriate format, here’s the appropriate code:</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="vis2_2cat.html#cb87-1" aria-hidden="true" tabindex="-1"></a>bird.malaria.tidy <span class="ot">&lt;-</span> bird.malaria <span class="sc">%&gt;%</span></span>
 <span id="cb87-2"><a href="vis2_2cat.html#cb87-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(treatment) <span class="sc">%&gt;%</span></span>
@@ -740,7 +744,7 @@ The <code>group_by</code> function from the <code>dplyr</code> package enables o
 </div>
 <p>If we wished to provide an appropriate figure heading, this would be the code:</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-37"></span>
-<img src="more/grouped_bar_graph.png" alt="Example code chunk for producing a good grouped bar graph" width="1053" />
+<img src="more/grouped_bar_graph.png" alt="Example code chunk for producing a good grouped bar graph"  />
 <p class="caption">
 Figure 8.1: Example code chunk for producing a good grouped bar graph
 </p>
@@ -797,7 +801,7 @@ Figure 8.3: Relative frequency of the incidence of malaria in female great tits 
 </div>
 <p>Here’s the code:</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-40"></span>
-<img src="more/mosaic_graph.png" alt="Example code chunk for producing a good mosaic plot" width="1064" />
+<img src="more/mosaic_graph.png" alt="Example code chunk for producing a good mosaic plot"  />
 <p class="caption">
 Figure 8.4: Example code chunk for producing a good mosaic plot
 </p>
