@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-08-25" />
+<meta name="date" content="2023-09-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -513,8 +513,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.2</span> Get an overview of the data<a href="vis_data_overview.html#vis_data_overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>penguins</code> object is a <em>tibble</em>, with each row representing a <em>case</em> and each column representing a <em>variable</em>. Tibbles can store a mixture of data types: numeric variables, categorical variables, logical variables etc… all in the same object (as separate columns). This isn’t the case with other object types (e.g. matrices).</p>
 <p>We’ll get an overview of the data using the <code>skim_without_charts</code> function, as we learned in the <a href="data_overview.html#data_overview">Preparing and Importing Tidy Data</a> tutorial:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="vis_data_overview.html#cb32-1" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="vis_data_overview.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="vis_data_overview.html#cb32-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="vis_data_overview.html#cb32-2" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:vis1_skim)Data summary
@@ -878,7 +878,7 @@ year
 </tbody>
 </table>
 <p>Optionally, we can also get a view of the first handful of rows of a tibble by simply typing the name of the object on its own, and hitting return:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="vis_data_overview.html#cb33-1" aria-hidden="true" tabindex="-1"></a>penguins </span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="vis_data_overview.html#cb33-1" tabindex="-1"></a>penguins </span></code></pre></div>
 <pre><code>## # A tibble: 344 × 8
 ##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
 ##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
