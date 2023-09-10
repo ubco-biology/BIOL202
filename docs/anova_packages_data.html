@@ -512,15 +512,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="anova_packages_data" class="section level2 hasAnchor" number="16.1">
 <h2><span class="header-section-number">16.1</span> Load packages and import data<a href="anova_packages_data.html#anova_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>knitr</code>, <code>naniar</code>, <code>car</code>, <code>skimr</code>, and <code>broom</code> packages:</p>
-<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="anova_packages_data.html#cb391-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb391-2"><a href="anova_packages_data.html#cb391-2" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb391-3"><a href="anova_packages_data.html#cb391-3" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb391-4"><a href="anova_packages_data.html#cb391-4" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb391-5"><a href="anova_packages_data.html#cb391-5" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb391-6"><a href="anova_packages_data.html#cb391-6" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="anova_packages_data.html#cb389-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb389-2"><a href="anova_packages_data.html#cb389-2" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb389-3"><a href="anova_packages_data.html#cb389-3" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb389-4"><a href="anova_packages_data.html#cb389-4" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb389-5"><a href="anova_packages_data.html#cb389-5" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb389-6"><a href="anova_packages_data.html#cb389-6" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
 <p>For this tutorial we’ll use the “circadian.csv” dataset. These data are associated with Example 15.1 in the text.</p>
 <p>The <code>circadian</code> data describe melatonin production in 22 people randomly assigned to one of three light treatments.</p>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="anova_packages_data.html#cb392-1" tabindex="-1"></a>circadian <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/circadian.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="anova_packages_data.html#cb390-1" tabindex="-1"></a>circadian <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/circadian.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 22 Columns: 2
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -536,8 +536,8 @@ When analyzing a numeric response variable in relation to a categorical variable
 <p>Let’s follow this practice for the “circadian” dataset.</p>
 <p>If we look at example 15.1 in the text, and the corresponding figure (Fig. 15.1), we see that there should be three treatment groups “Control”, “Knees”, and “Eyes”, in that order.</p>
 <p>Let’s have a look at the data.</p>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="anova_packages_data.html#cb394-1" tabindex="-1"></a>circadian <span class="sc">%&gt;%</span></span>
-<span id="cb394-2"><a href="anova_packages_data.html#cb394-2" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="anova_packages_data.html#cb392-1" tabindex="-1"></a>circadian <span class="sc">%&gt;%</span></span>
+<span id="cb392-2"><a href="anova_packages_data.html#cb392-2" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:anova_lookdata)Data summary
@@ -745,7 +745,7 @@ shift
 </tbody>
 </table>
 <p>And also have a look at the tibble itself:</p>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="anova_packages_data.html#cb395-1" tabindex="-1"></a>circadian</span></code></pre></div>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="anova_packages_data.html#cb393-1" tabindex="-1"></a>circadian</span></code></pre></div>
 <pre><code>## # A tibble: 22 × 2
 ##    treatment shift
 ##    &lt;chr&gt;     &lt;dbl&gt;
@@ -762,9 +762,9 @@ shift
 ## # ℹ 12 more rows</code></pre>
 <p>The data are stored in tidy <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Long-format-data">(long) format</a> - good!</p>
 <p>We can see the unique values of the categorical variable as follows:</p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="anova_packages_data.html#cb397-1" tabindex="-1"></a>circadian <span class="sc">%&gt;%</span></span>
-<span id="cb397-2"><a href="anova_packages_data.html#cb397-2" tabindex="-1"></a>  <span class="fu">select</span>(treatment) <span class="sc">%&gt;%</span></span>
-<span id="cb397-3"><a href="anova_packages_data.html#cb397-3" tabindex="-1"></a>  <span class="fu">unique</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="anova_packages_data.html#cb395-1" tabindex="-1"></a>circadian <span class="sc">%&gt;%</span></span>
+<span id="cb395-2"><a href="anova_packages_data.html#cb395-2" tabindex="-1"></a>  <span class="fu">select</span>(treatment) <span class="sc">%&gt;%</span></span>
+<span id="cb395-3"><a href="anova_packages_data.html#cb395-3" tabindex="-1"></a>  <span class="fu">unique</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 1
 ##   treatment
 ##   &lt;chr&gt;    
@@ -778,10 +778,10 @@ shift
 </ul>
 <p>Let’s recode this using the method we previously learned in the <a href="twosamp_ttest.html#twosamp_ttest">2-sample <em>t</em>-test tutorial</a>, using the <code>recode_factor</code> function from the <code>dplyr</code> package (loaded as part of the <code>tidyverse</code>).</p>
 <p>Be sure to provide the variables in the order that you want them to appear in any tables, figures, and analyses.</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="anova_packages_data.html#cb399-1" tabindex="-1"></a>circadian <span class="ot">&lt;-</span> circadian <span class="sc">%&gt;%</span></span>
-<span id="cb399-2"><a href="anova_packages_data.html#cb399-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treatment =</span> <span class="fu">recode_factor</span>(treatment, <span class="at">control =</span> <span class="st">&quot;Control&quot;</span>, <span class="at">knee =</span> <span class="st">&quot;Knee&quot;</span>, <span class="at">eyes =</span> <span class="st">&quot;Eyes&quot;</span>, ))</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="anova_packages_data.html#cb397-1" tabindex="-1"></a>circadian <span class="ot">&lt;-</span> circadian <span class="sc">%&gt;%</span></span>
+<span id="cb397-2"><a href="anova_packages_data.html#cb397-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treatment =</span> <span class="fu">recode_factor</span>(treatment, <span class="at">control =</span> <span class="st">&quot;Control&quot;</span>, <span class="at">knee =</span> <span class="st">&quot;Knee&quot;</span>, <span class="at">eyes =</span> <span class="st">&quot;Eyes&quot;</span>, ))</span></code></pre></div>
 <p>Have a look:</p>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="anova_packages_data.html#cb400-1" tabindex="-1"></a>circadian<span class="sc">$</span>treatment</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="anova_packages_data.html#cb398-1" tabindex="-1"></a>circadian<span class="sc">$</span>treatment</span></code></pre></div>
 <pre><code>##  [1] Control Control Control Control Control Control Control Control Knee    Knee    Knee    Knee    Knee   
 ## [14] Knee    Knee    Eyes    Eyes    Eyes    Eyes    Eyes    Eyes    Eyes   
 ## Levels: Control Knee Eyes</code></pre>
