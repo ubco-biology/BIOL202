@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-02" />
+<meta name="date" content="2023-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -657,8 +657,8 @@ Total
 <span id="cb265-6"><a href="chisquare.html#cb265-6" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Level of infection&quot;</span>) <span class="sc">+</span></span>
 <span id="cb265-7"><a href="chisquare.html#cb265-7" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb265-8"><a href="chisquare.html#cb265-8" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-71"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-71-1.png" alt="Mosaic plot of bird predation on killifish having different levels of trematode parasitism. A total of 50, 45, and 46 fish were in the uninfected, lightly infected, and highly infected groups." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-72"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-72-1.png" alt="Mosaic plot of bird predation on killifish having different levels of trematode parasitism. A total of 50, 45, and 46 fish were in the uninfected, lightly infected, and highly infected groups." width="384" />
 <p class="caption">
 Figure 12.2: Mosaic plot of bird predation on killifish having different levels of trematode parasitism. A total of 50, 45, and 46 fish were in the uninfected, lightly infected, and highly infected groups.
 </p>
@@ -690,7 +690,8 @@ Figure 12.2: Mosaic plot of bird predation on killifish having different levels 
 <p>Don’t try getting an overview of the object using our usual <code>skim_without_charts</code> approach.. that won’t work.</p>
 <p>Instead, simply use this code:</p>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="chisquare.html#cb269-1" tabindex="-1"></a><span class="fu">names</span>(worm.chisq.results)</span></code></pre></div>
-<pre><code>## [1] &quot;statistic&quot; &quot;parameter&quot; &quot;p.value&quot;   &quot;method&quot;    &quot;data.name&quot; &quot;observed&quot;  &quot;expected&quot;  &quot;residuals&quot; &quot;stdres&quot;</code></pre>
+<pre><code>## [1] &quot;statistic&quot; &quot;parameter&quot; &quot;p.value&quot;   &quot;method&quot;    &quot;data.name&quot; &quot;observed&quot;  &quot;expected&quot;  &quot;residuals&quot;
+## [9] &quot;stdres&quot;</code></pre>
 <p>As you can see, one of the names is <code>expected</code>. This is what holds our expected frequencies (and note that these values do not need to be whole numbers, unlike the observed frequencies):</p>
 <div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="chisquare.html#cb271-1" tabindex="-1"></a><span class="fu">kable</span>(worm.chisq.results<span class="sc">$</span>expected)</span></code></pre></div>
 <table>

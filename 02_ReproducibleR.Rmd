@@ -77,7 +77,13 @@ You can create and edit your "_README.txt" file in RStudio! Just click on the "+
   - "BIOL202_lecture"
   - "BIOL202_tutorials"
   - "BIOL202_assignments"
-* Create a "_README.txt" file in each of the three sub-directories (again, you can use RStudio to create these!)
+* Create a "_README.txt" file in each of the three sub-directories (again, you can use RStudio to create these!). 
+
+An example setup is illustrated below.
+
+```{r, fig.cap = "Example directory structure", echo = FALSE, fig.width = 3}
+knitr::include_graphics("./more/BIOL202_directory_structure.png")
+```
 
 The BIOL202 directory, and all its contents, will now sync regularly to your online OneDrive account, so that you can access your up-to-date files from any device upon which OneDrive is installed.
 
