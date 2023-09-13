@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>13.1 Load packages and import data | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="13.1 Load packages and import data | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-10" />
+<meta name="date" content="2023-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,10 +134,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -474,6 +470,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="rosetta-error.html"><a href="rosetta-error.html"><i class="fa fa-check"></i>Rosetta error</a></li>
 <li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
 <li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
 <li class="chapter" data-level="" data-path="there-is-no-package.html"><a href="there-is-no-package.html"><i class="fa fa-check"></i>There is no package</a></li>
@@ -512,17 +509,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="singlenum_packages_data" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> Load packages and import data<a href="singlenum_packages_data.html#singlenum_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>knitr</code>, <code>naniar</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="singlenum_packages_data.html#cb272-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb272-2"><a href="singlenum_packages_data.html#cb272-2" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb272-3"><a href="singlenum_packages_data.html#cb272-3" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb272-4"><a href="singlenum_packages_data.html#cb272-4" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="singlenum_packages_data.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb274-2"><a href="singlenum_packages_data.html#cb274-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb274-3"><a href="singlenum_packages_data.html#cb274-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb274-4"><a href="singlenum_packages_data.html#cb274-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We’ll use the following datasets:</p>
 <ul>
 <li>the “bodytemp” dataset. These are the data associated with Example 11.3 in the text (page 310)</li>
 <li>the “stalkies” dataset. These are the data associated with Example 11.2 in the text (page 307)</li>
 </ul>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="singlenum_packages_data.html#cb273-1" tabindex="-1"></a>bodytemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bodytemp.csv&quot;</span>)</span>
-<span id="cb273-2"><a href="singlenum_packages_data.html#cb273-2" tabindex="-1"></a>stalkies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/stalkies.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="singlenum_packages_data.html#cb275-1" aria-hidden="true" tabindex="-1"></a>bodytemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bodytemp.csv&quot;</span>)</span>
+<span id="cb275-2"><a href="singlenum_packages_data.html#cb275-2" aria-hidden="true" tabindex="-1"></a>stalkies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/stalkies.csv&quot;</span>)</span></code></pre></div>
 <div class="note">
 <p><strong>Reminder: </strong>
 Before proceeding further, remember to get an overview of each of these datasets.</p>

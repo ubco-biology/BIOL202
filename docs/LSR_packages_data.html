@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>18.1 Load packages and import data | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="18.1 Load packages and import data | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-10" />
+<meta name="date" content="2023-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,10 +134,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -474,6 +470,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="rosetta-error.html"><a href="rosetta-error.html"><i class="fa fa-check"></i>Rosetta error</a></li>
 <li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
 <li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
 <li class="chapter" data-level="" data-path="there-is-no-package.html"><a href="there-is-no-package.html"><i class="fa fa-check"></i>There is no package</a></li>
@@ -512,14 +509,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="LSR_packages_data" class="section level2 hasAnchor" number="18.1">
 <h2><span class="header-section-number">18.1</span> Load packages and import data<a href="LSR_packages_data.html#LSR_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>skimr</code>, <code>broom</code>, and <code>knitr</code>.</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="LSR_packages_data.html#cb454-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb454-2"><a href="LSR_packages_data.html#cb454-2" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb454-3"><a href="LSR_packages_data.html#cb454-3" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb454-4"><a href="LSR_packages_data.html#cb454-4" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="LSR_packages_data.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb456-2"><a href="LSR_packages_data.html#cb456-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb456-3"><a href="LSR_packages_data.html#cb456-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb456-4"><a href="LSR_packages_data.html#cb456-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <p>We’ll use the “plantbiomass” dataset:</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="LSR_packages_data.html#cb455-1" tabindex="-1"></a>plantbiomass <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/plantbiomass.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="LSR_packages_data.html#cb457-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/plantbiomass.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 161 Columns: 2
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## dbl (2): nSpecies, biomassStability
 ## 
@@ -537,7 +534,7 @@ Figure 18.1: Stability of biomass production over 10 years in 161 plots and the 
 <p>When one <a href="LSR.html#LSR_vis">visualizes the data</a>, one might ask why an <a href="do_the_anova.html#do_anova1">ANOVA</a> isn’t the analysis method of choice. If we were simply interested in testing the null hypothesis that “there is no difference in mean ecosystem stability among the species richness treatment groups”, then an ANOVA could be used, and we would simply treat the “species richness” variable as a categorical variable. However, here we are interested not simply in testing for differences among treatment groups, but more specifically in quantifying if and how ecosystem stability varies with variation in species richness, AND if so, whether we can reliably predict ecosystem stability based on species richness. For this, we need to construct a regression model.</p>
 </div>
 <p>Let’s have a look at the data:</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="LSR_packages_data.html#cb457-1" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="LSR_packages_data.html#cb459-1" aria-hidden="true" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span> <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 (#tab:view_data_lsr)Data summary

@@ -5,6 +5,40 @@
 * R will tell you specifically which line in your code (e.g. in your R Markdown document) the error is coming from. Make sure you read the error and take a look at the line where the error is if indicated
 * Try googling the specific error to see if you can find a solution online; use the search phrase "R-help error statement" (where "error statement" is what R told you)
 
+***
+
+## Rosetta error {-}
+
+![](./more/rosetta_error.png)
+
+This error seems to arise for those using MacOS Ventura.  
+
+**Solution:** This solution is derived from this [webpage](https://github.com/rstudio/rstudio/issues/12512), and is also described in this [Piazza post](https://piazza.com/class/llsbjgmektu6ld/post/7).  
+
+* Close RStudio. 
+* Open a "terminal" window on your Mac (you can use the search tool to do this). 
+* Install "brew" by copying and pasting this in your terminal window:  
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+``` 
+
+* then install "pandoc" by typing this in your terminal window:  
+
+```
+brew install pandoc
+```
+
+* if that's successful, then open RStudio and type this in the command console:  
+
+```
+Sys.setenv(RSTUDIO\_PANDOC="/opt/homebrew/bin")
+```
+
+Now you should be able to knit an RMD file to PDF!  
+
+***
+
 ## Rtools required during install {-}
 
 ![](./more/rtools.png)

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.4 Describing a numerical variable grouped by a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.4 Describing a numerical variable grouped by a categorical variable | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-10" />
+<meta name="date" content="2023-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,10 +134,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -474,6 +470,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="rosetta-error.html"><a href="rosetta-error.html"><i class="fa fa-check"></i>Rosetta error</a></li>
 <li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
 <li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
 <li class="chapter" data-level="" data-path="there-is-no-package.html"><a href="there-is-no-package.html"><i class="fa fa-check"></i>There is no package</a></li>
@@ -517,18 +514,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Specifically, we use the <code>group_by</code> function from the <code>dplyr</code> package to tell R to do the calculations on the observations within each category of the grouping variable.</p>
 <p>For example, let’s describe penguin body mass grouped by “species”.</p>
 <p>We’ll create a new tibble object called “penguins.descriptors.byspecies”, and we insert one line of code using the <code>group_by</code> function, and telling R which categorical variable to use for the grouping (here, “species”):</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="desc_numeric_var_cat.html#cb67-1" tabindex="-1"></a>penguins.descriptors.byspecies <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb67-2"><a href="desc_numeric_var_cat.html#cb67-2" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
-<span id="cb67-3"><a href="desc_numeric_var_cat.html#cb67-3" tabindex="-1"></a><span class="fu">summarise</span>(</span>
-<span id="cb67-4"><a href="desc_numeric_var_cat.html#cb67-4" tabindex="-1"></a>  <span class="at">Mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
-<span id="cb67-5"><a href="desc_numeric_var_cat.html#cb67-5" tabindex="-1"></a>  <span class="at">SD =</span> <span class="fu">sd</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
-<span id="cb67-6"><a href="desc_numeric_var_cat.html#cb67-6" tabindex="-1"></a>  <span class="at">Median =</span> <span class="fu">median</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
-<span id="cb67-7"><a href="desc_numeric_var_cat.html#cb67-7" tabindex="-1"></a>  <span class="at">InterQR =</span> <span class="fu">IQR</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
-<span id="cb67-8"><a href="desc_numeric_var_cat.html#cb67-8" tabindex="-1"></a>  <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g),</span>
-<span id="cb67-9"><a href="desc_numeric_var_cat.html#cb67-9" tabindex="-1"></a>  <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g))</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="desc_numeric_var_cat.html#cb67-1" aria-hidden="true" tabindex="-1"></a>penguins.descriptors.byspecies <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb67-2"><a href="desc_numeric_var_cat.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb67-3"><a href="desc_numeric_var_cat.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb67-4"><a href="desc_numeric_var_cat.html#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb67-5"><a href="desc_numeric_var_cat.html#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">SD =</span> <span class="fu">sd</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb67-6"><a href="desc_numeric_var_cat.html#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Median =</span> <span class="fu">median</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb67-7"><a href="desc_numeric_var_cat.html#cb67-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">InterQR =</span> <span class="fu">IQR</span>(body_mass_g, <span class="at">na.rm =</span> T),</span>
+<span id="cb67-8"><a href="desc_numeric_var_cat.html#cb67-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g),</span>
+<span id="cb67-9"><a href="desc_numeric_var_cat.html#cb67-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(body_mass_g))</span></code></pre></div>
 <p>It’s that simple!</p>
 <p>Let’s have a look at the output:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="desc_numeric_var_cat.html#cb68-1" tabindex="-1"></a>penguins.descriptors.byspecies</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="desc_numeric_var_cat.html#cb68-1" aria-hidden="true" tabindex="-1"></a>penguins.descriptors.byspecies</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 7
 ##   species    Mean    SD Median InterQR Count Count_NA
 ##   &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;

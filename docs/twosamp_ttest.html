@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.3 Two sample t-test | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.3 Two sample t-test | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-10" />
+<meta name="date" content="2023-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,10 +134,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -474,6 +470,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="rosetta-error.html"><a href="rosetta-error.html"><i class="fa fa-check"></i>Rosetta error</a></li>
 <li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
 <li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
 <li class="chapter" data-level="" data-path="there-is-no-package.html"><a href="there-is-no-package.html"><i class="fa fa-check"></i>There is no package</a></li>
@@ -512,8 +509,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="twosamp_ttest" class="section level2 hasAnchor" number="14.3">
 <h2><span class="header-section-number">14.3</span> Two sample <em>t</em>-test<a href="twosamp_ttest.html#twosamp_ttest" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Have a look at the <code>students</code> dataset:</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="twosamp_ttest.html#cb312-1" tabindex="-1"></a>students <span class="sc">%&gt;%</span></span>
-<span id="cb312-2"><a href="twosamp_ttest.html#cb312-2" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="twosamp_ttest.html#cb314-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span></span>
+<span id="cb314-2"><a href="twosamp_ttest.html#cb314-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 <span id="tab:unnamed-chunk-86">Table 14.1: </span>Data summary
@@ -841,9 +838,9 @@ Number_of_siblings
 <p><strong>OPTIONAL</strong></p>
 <p>Note that the categories in the <code>Dominant_eye</code> variable are “l” and “r”, denoting “left” and “right”.</p>
 <p>We can use the <code>unique</code> function to tell us all unique values of a categorical variable:</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="twosamp_ttest.html#cb313-1" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
-<span id="cb313-2"><a href="twosamp_ttest.html#cb313-2" tabindex="-1"></a>  <span class="fu">select</span>(Dominant_eye) <span class="sc">%&gt;%</span></span>
-<span id="cb313-3"><a href="twosamp_ttest.html#cb313-3" tabindex="-1"></a>  <span class="fu">unique</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="twosamp_ttest.html#cb315-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb315-2"><a href="twosamp_ttest.html#cb315-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Dominant_eye) <span class="sc">%&gt;%</span></span>
+<span id="cb315-3"><a href="twosamp_ttest.html#cb315-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 1
 ##   Dominant_eye
 ##   &lt;chr&gt;       
@@ -851,8 +848,8 @@ Number_of_siblings
 ## 2 l</code></pre>
 <p>Let’s change these to be more informative, “Left” and “Right”.</p>
 <p>We can do this with the <code>recode_factor</code> function from the <code>dplyr</code> package (part of the <code>tidyverse</code>), in conjunction with the familiar <code>mutate</code> function used to create a new variable (though here we’re just over-writing an existing variable):</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="twosamp_ttest.html#cb315-1" tabindex="-1"></a>students <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb315-2"><a href="twosamp_ttest.html#cb315-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Dominant_eye =</span> <span class="fu">recode_factor</span>(Dominant_eye, <span class="at">r =</span> <span class="st">&quot;Right&quot;</span>, <span class="at">l =</span> <span class="st">&quot;Left&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="twosamp_ttest.html#cb317-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb317-2"><a href="twosamp_ttest.html#cb317-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Dominant_eye =</span> <span class="fu">recode_factor</span>(Dominant_eye, <span class="at">r =</span> <span class="st">&quot;Right&quot;</span>, <span class="at">l =</span> <span class="st">&quot;Left&quot;</span>))</span></code></pre></div>
 <div id="twosamp_hyp" class="section level3 hasAnchor" number="14.3.1">
 <h3><span class="header-section-number">14.3.1</span> Hypothesis statement<a href="twosamp_ttest.html#twosamp_hyp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>H<sub>0</sub>: Mean height is the same among students with left dominant eyes and right dominant eyes (<span class="math inline">\(\mu_L = \mu_R\)</span>).<br />
@@ -879,17 +876,17 @@ H<sub>A</sub>: Mean height is not the same among students with left dominant eye
 <p>In a previous <a href="desc_numeric_var_cat.html#desc_numeric_var_cat">tutorial</a> we learned how to calculate descriptive statistics for a numeric variable grouped by a categorical variable. In another <a href="t_confidence.html#conf_precision">tutorial</a> we also learned how to calculate confidence intervals for a numeric variable.</p>
 <p>We’ve also learned that the <code>t.test</code> function returns a confidence interval for us.</p>
 <p>Let’s use all these skills to generate a table of summary statistics for the “height_cm” variable, grouped by “Dominant_eye”:</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="twosamp_ttest.html#cb316-1" tabindex="-1"></a>height.stats <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb316-2"><a href="twosamp_ttest.html#cb316-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Dominant_eye) <span class="sc">%&gt;%</span></span>
-<span id="cb316-3"><a href="twosamp_ttest.html#cb316-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb316-4"><a href="twosamp_ttest.html#cb316-4" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(height_cm),</span>
-<span id="cb316-5"><a href="twosamp_ttest.html#cb316-5" tabindex="-1"></a>    <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(height_cm), </span>
-<span id="cb316-6"><a href="twosamp_ttest.html#cb316-6" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(height_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb316-7"><a href="twosamp_ttest.html#cb316-7" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(height_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb316-8"><a href="twosamp_ttest.html#cb316-8" tabindex="-1"></a>    <span class="at">SEM =</span> SD<span class="sc">/</span><span class="fu">sqrt</span>(Count),</span>
-<span id="cb316-9"><a href="twosamp_ttest.html#cb316-9" tabindex="-1"></a>    <span class="at">Low_95_CL =</span> <span class="fu">t.test</span>(height_cm, <span class="at">conf.level =</span> <span class="fl">0.95</span>)<span class="sc">$</span>conf.int[<span class="dv">1</span>],</span>
-<span id="cb316-10"><a href="twosamp_ttest.html#cb316-10" tabindex="-1"></a>    <span class="at">Up_95_CL =</span> <span class="fu">t.test</span>(height_cm, <span class="at">conf.level =</span> <span class="fl">0.95</span>)<span class="sc">$</span>conf.int[<span class="dv">2</span>]</span>
-<span id="cb316-11"><a href="twosamp_ttest.html#cb316-11" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="twosamp_ttest.html#cb318-1" aria-hidden="true" tabindex="-1"></a>height.stats <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb318-2"><a href="twosamp_ttest.html#cb318-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Dominant_eye) <span class="sc">%&gt;%</span></span>
+<span id="cb318-3"><a href="twosamp_ttest.html#cb318-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb318-4"><a href="twosamp_ttest.html#cb318-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count =</span> <span class="fu">n</span>() <span class="sc">-</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(height_cm),</span>
+<span id="cb318-5"><a href="twosamp_ttest.html#cb318-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Count_NA =</span> naniar<span class="sc">::</span><span class="fu">n_miss</span>(height_cm), </span>
+<span id="cb318-6"><a href="twosamp_ttest.html#cb318-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(height_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb318-7"><a href="twosamp_ttest.html#cb318-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(height_cm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb318-8"><a href="twosamp_ttest.html#cb318-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">SEM =</span> SD<span class="sc">/</span><span class="fu">sqrt</span>(Count),</span>
+<span id="cb318-9"><a href="twosamp_ttest.html#cb318-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Low_95_CL =</span> <span class="fu">t.test</span>(height_cm, <span class="at">conf.level =</span> <span class="fl">0.95</span>)<span class="sc">$</span>conf.int[<span class="dv">1</span>],</span>
+<span id="cb318-10"><a href="twosamp_ttest.html#cb318-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Up_95_CL =</span> <span class="fu">t.test</span>(height_cm, <span class="at">conf.level =</span> <span class="fl">0.95</span>)<span class="sc">$</span>conf.int[<span class="dv">2</span>]</span>
+<span id="cb318-11"><a href="twosamp_ttest.html#cb318-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>The only unfamiliar code in the preceding chunk is the last two lines:</p>
 <ul>
 <li>we use the <code>t.test</code> function to calculate the lower and upper confidence limits. Specifically:
@@ -900,7 +897,7 @@ H<sub>A</sub>: Mean height is not the same among students with left dominant eye
 </ul>
 <p>Now let’s have a look at the table, using the <code>kable</code> function to produce a nice table.</p>
 <p><strong>NOTE</strong> here I am rotating the table so that it fits on the page. To do this, use the <code>t</code> function as follows:</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="twosamp_ttest.html#cb317-1" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">t</span>(height.stats), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="twosamp_ttest.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">t</span>(height.stats), <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <table>
 <tbody>
 <tr>
@@ -1000,14 +997,14 @@ Up_95_CL
 <h3><span class="header-section-number">14.3.3</span> A graph to accompany a 2-sample <em>t</em>-test<a href="twosamp_ttest.html#graph_2samp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We learned in an earlier <a href="numeric_vs_cat.html#numeric_vs_cat">tutorial</a> that we can use a stripchart, violin plot, or boxplot to visualize the association between a numerical response variable and a categorical explanatory variable. Better yet, we can do the <a href="numeric_vs_cat.html#bestplot">combined violin &amp; boxplot</a>.</p>
 <p>Here we want to visualize height in relation to dominant eye (Left or Right). We can use the information provided in our descriptive stats table to get the sample sizes for the groups (which we need to report in the figure heading).</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="twosamp_ttest.html#cb318-1" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
-<span id="cb318-2"><a href="twosamp_ttest.html#cb318-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Dominant_eye, <span class="at">y =</span> height_cm)) <span class="sc">+</span></span>
-<span id="cb318-3"><a href="twosamp_ttest.html#cb318-3" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb318-4"><a href="twosamp_ttest.html#cb318-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
-<span id="cb318-5"><a href="twosamp_ttest.html#cb318-5" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">colour =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.15</span>) <span class="sc">+</span></span>
-<span id="cb318-6"><a href="twosamp_ttest.html#cb318-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Dominant eye&quot;</span>) <span class="sc">+</span></span>
-<span id="cb318-7"><a href="twosamp_ttest.html#cb318-7" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Height (cm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb318-8"><a href="twosamp_ttest.html#cb318-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="twosamp_ttest.html#cb320-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span> </span>
+<span id="cb320-2"><a href="twosamp_ttest.html#cb320-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Dominant_eye, <span class="at">y =</span> height_cm)) <span class="sc">+</span></span>
+<span id="cb320-3"><a href="twosamp_ttest.html#cb320-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb320-4"><a href="twosamp_ttest.html#cb320-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb320-5"><a href="twosamp_ttest.html#cb320-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">colour =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.15</span>) <span class="sc">+</span></span>
+<span id="cb320-6"><a href="twosamp_ttest.html#cb320-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Dominant eye&quot;</span>) <span class="sc">+</span></span>
+<span id="cb320-7"><a href="twosamp_ttest.html#cb320-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Height (cm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb320-8"><a href="twosamp_ttest.html#cb320-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-89"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-89-1.png" alt="Violin and boxplot of the heights of students with right (n = 106) and left (n = 48) dominant eyes.  Boxes delimit the first to third quartiles, bold lines represent the group medians, and whiskers extend to 1.5 times the IQR. Points beyond whiskers are extreme observations." width="288" />
 <p class="caption">
@@ -1030,14 +1027,14 @@ Figure 14.4: Violin and boxplot of the heights of students with right (n = 106) 
 <p><strong>Test for normality</strong></p>
 <p>Now let’s check the normality assumption by plotting a normal quantile plot for each group.</p>
 <p>We’ll introduce the <code>facet_grid</code> function that enables plotting of side-by-side panels according to a grouping variable.</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="twosamp_ttest.html#cb319-1" tabindex="-1"></a>students <span class="sc">%&gt;%</span></span>
-<span id="cb319-2"><a href="twosamp_ttest.html#cb319-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> height_cm)) <span class="sc">+</span></span>
-<span id="cb319-3"><a href="twosamp_ttest.html#cb319-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb319-4"><a href="twosamp_ttest.html#cb319-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb319-5"><a href="twosamp_ttest.html#cb319-5" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span> Dominant_eye) <span class="sc">+</span></span>
-<span id="cb319-6"><a href="twosamp_ttest.html#cb319-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
-<span id="cb319-7"><a href="twosamp_ttest.html#cb319-7" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Height (cm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb319-8"><a href="twosamp_ttest.html#cb319-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="twosamp_ttest.html#cb321-1" aria-hidden="true" tabindex="-1"></a>students <span class="sc">%&gt;%</span></span>
+<span id="cb321-2"><a href="twosamp_ttest.html#cb321-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> height_cm)) <span class="sc">+</span></span>
+<span id="cb321-3"><a href="twosamp_ttest.html#cb321-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb321-4"><a href="twosamp_ttest.html#cb321-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb321-5"><a href="twosamp_ttest.html#cb321-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span> Dominant_eye) <span class="sc">+</span></span>
+<span id="cb321-6"><a href="twosamp_ttest.html#cb321-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
+<span id="cb321-7"><a href="twosamp_ttest.html#cb321-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Height (cm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb321-8"><a href="twosamp_ttest.html#cb321-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-90"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-90-1.png" alt="Normal quantile plots of height for students with right (n = 106) or left (n = 48) dominant eyes." width="480" />
 <p class="caption">
@@ -1050,8 +1047,8 @@ Figure 14.5: Normal quantile plots of height for students with right (n = 106) o
 </blockquote>
 <p><strong>Test for equal variances</strong></p>
 <p>Now we need to test the assumption of equal variance among the groups, using Levene’s Test as we learned in the <a href="levenetest.html#levenetest">checking assumptions</a> tutorial.</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="twosamp_ttest.html#cb320-1" tabindex="-1"></a>height.vartest <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(height_cm <span class="sc">~</span> Dominant_eye, <span class="at">data =</span> students)</span>
-<span id="cb320-2"><a href="twosamp_ttest.html#cb320-2" tabindex="-1"></a>height.vartest</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="twosamp_ttest.html#cb322-1" aria-hidden="true" tabindex="-1"></a>height.vartest <span class="ot">&lt;-</span> <span class="fu">leveneTest</span>(height_cm <span class="sc">~</span> Dominant_eye, <span class="at">data =</span> students)</span>
+<span id="cb322-2"><a href="twosamp_ttest.html#cb322-2" aria-hidden="true" tabindex="-1"></a>height.vartest</span></code></pre></div>
 <pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
 ##        Df F value Pr(&gt;F)
 ## group   1   0.907 0.3424
@@ -1063,10 +1060,10 @@ Figure 14.5: Normal quantile plots of height for students with right (n = 106) o
 <div id="conduct_2samptest" class="section level3 hasAnchor" number="14.3.5">
 <h3><span class="header-section-number">14.3.5</span> Conduct the 2-sample <em>t</em>-test<a href="twosamp_ttest.html#conduct_2samptest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We use the <code>t.test</code> function again for this test.</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="twosamp_ttest.html#cb322-1" tabindex="-1"></a>height.ttest <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb322-2"><a href="twosamp_ttest.html#cb322-2" tabindex="-1"></a>  <span class="fu">t.test</span>(height_cm <span class="sc">~</span> Dominant_eye, </span>
-<span id="cb322-3"><a href="twosamp_ttest.html#cb322-3" tabindex="-1"></a>         <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb322-4"><a href="twosamp_ttest.html#cb322-4" tabindex="-1"></a>         <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="twosamp_ttest.html#cb324-1" aria-hidden="true" tabindex="-1"></a>height.ttest <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb324-2"><a href="twosamp_ttest.html#cb324-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(height_cm <span class="sc">~</span> Dominant_eye, </span>
+<span id="cb324-3"><a href="twosamp_ttest.html#cb324-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb324-4"><a href="twosamp_ttest.html#cb324-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>The only differences from the implementation used in the paired <em>t</em>-test are:</p>
 <ul>
 <li>we used “paired = FALSE”</li>
@@ -1075,7 +1072,7 @@ Figure 14.5: Normal quantile plots of height for students with right (n = 106) o
 <p>We again include the argument “data = .”, which tells the <code>t.test</code> function that whatever data was passed to it from the preceding line is what will be used</p>
 <p>We’ll learn a bit later what to due when the equal variance assumption is not met.</p>
 <p>Let’s look at the result:</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="twosamp_ttest.html#cb323-1" tabindex="-1"></a>height.ttest</span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="twosamp_ttest.html#cb325-1" aria-hidden="true" tabindex="-1"></a>height.ttest</span></code></pre></div>
 <pre><code>## 
 ##  Two Sample t-test
 ## 

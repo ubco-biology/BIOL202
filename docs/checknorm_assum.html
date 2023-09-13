@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>15.2 Checking the normality assumption | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
 
   <meta property="og:title" content="15.2 Checking the normality assumption | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-10" />
+<meta name="date" content="2023-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -134,10 +134,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-  
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -474,6 +470,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="rosetta-error.html"><a href="rosetta-error.html"><i class="fa fa-check"></i>Rosetta error</a></li>
 <li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
 <li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
 <li class="chapter" data-level="" data-path="there-is-no-package.html"><a href="there-is-no-package.html"><i class="fa fa-check"></i>There is no package</a></li>
@@ -533,13 +530,13 @@ Figure 15.1: Example of a normal quantile plot for a variable that is normally d
 </div>
 <p>Now we’ll use the <code>marine</code> dataset and its variable called <code>biomassRatio</code> to illustrate.</p>
 <p>We’ll first construct a histogram as you’ve <a href="vis_histogram.html#vis_histogram">learned previously</a>, just to see how the shape of the frequency distribution relates to the pattern seen in the normal quantile plot.</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="checknorm_assum.html#cb338-1" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
-<span id="cb338-2"><a href="checknorm_assum.html#cb338-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> biomassRatio)) <span class="sc">+</span></span>
-<span id="cb338-3"><a href="checknorm_assum.html#cb338-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, </span>
-<span id="cb338-4"><a href="checknorm_assum.html#cb338-4" tabindex="-1"></a>                 <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">closed =</span> <span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
-<span id="cb338-5"><a href="checknorm_assum.html#cb338-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Biomass ratio&quot;</span>) <span class="sc">+</span></span>
-<span id="cb338-6"><a href="checknorm_assum.html#cb338-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb338-7"><a href="checknorm_assum.html#cb338-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="checknorm_assum.html#cb340-1" aria-hidden="true" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
+<span id="cb340-2"><a href="checknorm_assum.html#cb340-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> biomassRatio)) <span class="sc">+</span></span>
+<span id="cb340-3"><a href="checknorm_assum.html#cb340-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, </span>
+<span id="cb340-4"><a href="checknorm_assum.html#cb340-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">closed =</span> <span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
+<span id="cb340-5"><a href="checknorm_assum.html#cb340-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Biomass ratio&quot;</span>) <span class="sc">+</span></span>
+<span id="cb340-6"><a href="checknorm_assum.html#cb340-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb340-7"><a href="checknorm_assum.html#cb340-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-98"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-98-1.png" alt="The frequency distribution of the 'biomass ratio' of 32 marine reserves." width="384" />
 <p class="caption">
@@ -548,13 +545,13 @@ Figure 15.2: The frequency distribution of the ‘biomass ratio’ of 32 marine 
 </div>
 <p>Notice that the distribution is quite right-skewed (or “postively skewed”).</p>
 <p>Now the quantile plot:</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="checknorm_assum.html#cb339-1" tabindex="-1"></a>marine <span class="sc">%&gt;%</span> </span>
-<span id="cb339-2"><a href="checknorm_assum.html#cb339-2" tabindex="-1"></a> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> biomassRatio)) <span class="sc">+</span></span>
-<span id="cb339-3"><a href="checknorm_assum.html#cb339-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb339-4"><a href="checknorm_assum.html#cb339-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb339-5"><a href="checknorm_assum.html#cb339-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass ratio&quot;</span>) <span class="sc">+</span></span>
-<span id="cb339-6"><a href="checknorm_assum.html#cb339-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
-<span id="cb339-7"><a href="checknorm_assum.html#cb339-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="checknorm_assum.html#cb341-1" aria-hidden="true" tabindex="-1"></a>marine <span class="sc">%&gt;%</span> </span>
+<span id="cb341-2"><a href="checknorm_assum.html#cb341-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> biomassRatio)) <span class="sc">+</span></span>
+<span id="cb341-3"><a href="checknorm_assum.html#cb341-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb341-4"><a href="checknorm_assum.html#cb341-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb341-5"><a href="checknorm_assum.html#cb341-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass ratio&quot;</span>) <span class="sc">+</span></span>
+<span id="cb341-6"><a href="checknorm_assum.html#cb341-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
+<span id="cb341-7"><a href="checknorm_assum.html#cb341-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-99"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-99-1.png" alt="Normal quantile plot of the 'biomass ratio' of 32 marine reserves." width="384" />
 <p class="caption">
@@ -587,11 +584,11 @@ Egregious deviations from the normality assumption will be clearly evident in no
 <p>The output from the <code>shapiro.test</code> function is not “tidy”, so we will use the <code>tidy</code> function from the <code>broom</code> package to make it tidy.</p>
 </div>
 <p>Here we go: we provide the function with the tibble name (“marine”) and the variable of interest after a “$”:</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="checknorm_assum.html#cb341-1" tabindex="-1"></a>shapiro.result <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(marine<span class="sc">$</span>biomassRatio)</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="checknorm_assum.html#cb343-1" aria-hidden="true" tabindex="-1"></a>shapiro.result <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(marine<span class="sc">$</span>biomassRatio)</span></code></pre></div>
 <p>Now tidy the output:</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="checknorm_assum.html#cb342-1" tabindex="-1"></a>shapiro.result.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(shapiro.result)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="checknorm_assum.html#cb344-1" aria-hidden="true" tabindex="-1"></a>shapiro.result.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(shapiro.result)</span></code></pre></div>
 <p>Now look at the results:</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="checknorm_assum.html#cb343-1" tabindex="-1"></a>shapiro.result.tidy</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="checknorm_assum.html#cb345-1" aria-hidden="true" tabindex="-1"></a>shapiro.result.tidy</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##   statistic    p.value method                     
 ##       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                      
