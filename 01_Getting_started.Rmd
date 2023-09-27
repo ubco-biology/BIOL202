@@ -2,18 +2,18 @@
 
 # What are R and RStudio? {#what_is_R}
 
-```{r kilppy, echo = FALSE, include = TRUE}
-klippy::klippy()
-```
-
 It is assumed that you are using <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#R">R</a> via RStudio. First time users often confuse the two. At its simplest:
 
 * R is like a car's engine
-* RStudio is like a car's dashboard
+* RStudio is like a car's dashboard. 
 
-R: Engine            |  RStudio: Dashboard 
-:-------------------------:|:-------------------------:
-<img src="./more/engine.jpg" alt="Drawing" style="height: 200px;"/>  |  <img src="./more/dashboard.jpg" alt="Drawing" style="height: 200px;"/>
+```{r, fig.cap = "R: Engine", echo = FALSE, out.width = "30%"}
+knitr::include_graphics("./more/engine.png")
+```
+
+```{r, fig.cap = "RStudio: Dashboard", echo = FALSE, out.width = "20%"}
+knitr::include_graphics("./more/dashboard.png")
+```
 
 More precisely, R is a programming language that runs computations while RStudio is an *integrated development environment (IDE)* that provides an interface by adding many convenient features and tools. So the way of having access to a speedometer, rearview mirrors, and a navigation system makes driving much easier, using RStudio's interface makes using R much easier as well. 
 
@@ -42,11 +42,15 @@ R needs to be installed successfully >prior< to installing RStudio (because the 
 
 # Start using R & RStudio {#start_r}
 
-Recall our car analogy from a [previous tutorial](#what_is_R). Much as we don't drive a car by interacting directly with the engine but rather by using elements on the car's dashboard, we won't be using R directly but rather we will use RStudio's interface. After you install R and RStudio on your computer, you'll have two new programs AKA applications you can open. We will always work in RStudio and not R. In other words:
+Recall our car analogy from a [previous tutorial](#what_is_R). Much as we don't drive a car by interacting directly with the engine but rather by using elements on the car's dashboard, we won't be using R directly but rather we will use RStudio's interface. After you install R and RStudio on your computer, you'll have two new programs AKA applications you can open. We will always work in RStudio and not R. In other words:  
 
-R: Do not open this          |  RStudio: Open this
-:-------------------------:|:-------------------------:
-<img src="https://cran.r-project.org/Rlogo.svg" alt="Drawing" style="height: 100px;"/>  |  <img src="https://www.rstudio.com/wp-content/uploads/2014/06/RStudio-Ball.png" alt="Drawing" style="height: 100px;"/>
+```{r, fig.cap = "R: DO NOT OPEN THIS", echo = FALSE, out.width = "30%"}
+knitr::include_graphics("./more/Rlogo.png")
+```
+
+```{r, fig.cap = "RStudio: OPEN THIS", echo = FALSE, out.width = "30%"}
+knitr::include_graphics("./more/RStudio-Ball.png")
+```
 
 Launch RStudio on your computer to make sure it's working (it loads R for you in the background).  
 

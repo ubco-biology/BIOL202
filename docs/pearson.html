@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>17.2 Pearson correlation analysis | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="17.2 Pearson correlation analysis | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-13" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,10 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
-<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
-<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
-<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -134,6 +130,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -455,6 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.4.2" data-path="model-i-versus-model-ii-regression.html"><a href="model-i-versus-model-ii-regression.html#which-one-do-i-use"><i class="fa fa-check"></i><b>18.4.2</b> Which one do I use?</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="data-summaries-with-gtsummary-package.html"><a href="data-summaries-with-gtsummary-package.html"><i class="fa fa-check"></i>Data summaries with “gtsummary” package</a></li>
 <li class="chapter" data-level="" data-path="creating-tables-in-r-markdown.html"><a href="creating-tables-in-r-markdown.html"><i class="fa fa-check"></i>Creating tables in R Markdown</a>
 <ul>
 <li class="chapter" data-level="18.5" data-path="tables_packages.html"><a href="tables_packages.html"><i class="fa fa-check"></i><b>18.5</b> Load packages and import data</a>
@@ -535,8 +536,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb442-4"><a href="pearson.html#cb442-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Number of pups&quot;</span>) <span class="sc">+</span></span>
 <span id="cb442-5"><a href="pearson.html#cb442-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Inbreeding coefficient&quot;</span>) <span class="sc">+</span></span>
 <span id="cb442-6"><a href="pearson.html#cb442-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-117"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-117-1.png" alt="The association between inbreeding coefficient and number of surviving wolf pups (n = 24)." width="403.2" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-120"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-120-1.png" alt="The association between inbreeding coefficient and number of surviving wolf pups (n = 24)." width="403.2" />
 <p class="caption">
 Figure 17.1: The association between inbreeding coefficient and number of surviving wolf pups (n = 24).
 </p>
@@ -626,9 +627,9 @@ Figure 17.2: The association between inbreeding coefficient and number of surviv
 <p>Show the output:</p>
 <div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="pearson.html#cb448-1" aria-hidden="true" tabindex="-1"></a>wolf.cor.tidy</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 8
-##   estimate statistic  p.value parameter conf.low conf.high method                               alternative
-##      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                                &lt;chr&gt;      
-## 1  -0.6077    -3.589 0.001633        22  -0.8120   -0.2707 Pearson&#39;s product-moment correlation two.sided</code></pre>
+##   estimate statistic  p.value parameter conf.low conf.high method    alternative
+##      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;      
+## 1  -0.6077    -3.589 0.001633        22  -0.8120   -0.2707 Pearson&#39;… two.sided</code></pre>
 <ul>
 <li>The “estimate” value represents the value of Pearson’s correlation coefficient <span class="math inline">\(r\)</span></li>
 <li>The “statistic” value is actually the value for <span class="math inline">\(t\)</span>, which is used to test the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Statistical-significance">significance</a> of <em>r</em></li>

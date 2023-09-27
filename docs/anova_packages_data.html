@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>16.1 Load packages and import data | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="16.1 Load packages and import data | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-13" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,10 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
-<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
-<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
-<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -134,6 +130,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -455,6 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.4.2" data-path="model-i-versus-model-ii-regression.html"><a href="model-i-versus-model-ii-regression.html#which-one-do-i-use"><i class="fa fa-check"></i><b>18.4.2</b> Which one do I use?</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="data-summaries-with-gtsummary-package.html"><a href="data-summaries-with-gtsummary-package.html"><i class="fa fa-check"></i>Data summaries with “gtsummary” package</a></li>
 <li class="chapter" data-level="" data-path="creating-tables-in-r-markdown.html"><a href="creating-tables-in-r-markdown.html"><i class="fa fa-check"></i>Creating tables in R Markdown</a>
 <ul>
 <li class="chapter" data-level="18.5" data-path="tables_packages.html"><a href="tables_packages.html"><i class="fa fa-check"></i><b>18.5</b> Load packages and import data</a>
@@ -519,7 +520,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>circadian</code> data describe melatonin production in 22 people randomly assigned to one of three light treatments.</p>
 <div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="anova_packages_data.html#cb392-1" aria-hidden="true" tabindex="-1"></a>circadian <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/circadian.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 22 Columns: 2
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (1): treatment
 ## dbl (1): shift
@@ -756,7 +757,7 @@ shift
 ##  8 control   -1.27
 ##  9 knee       0.73
 ## 10 knee       0.31
-## # … with 12 more rows</code></pre>
+## # ℹ 12 more rows</code></pre>
 <p>The data are stored in tidy <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Long-format-data">(long) format</a> - good!</p>
 <p>We can see the unique values of the categorical variable as follows:</p>
 <div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="anova_packages_data.html#cb397-1" aria-hidden="true" tabindex="-1"></a>circadian <span class="sc">%&gt;%</span></span>
@@ -779,8 +780,9 @@ shift
 <span id="cb399-2"><a href="anova_packages_data.html#cb399-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treatment =</span> <span class="fu">recode_factor</span>(treatment, <span class="at">control =</span> <span class="st">&quot;Control&quot;</span>, <span class="at">knee =</span> <span class="st">&quot;Knee&quot;</span>, <span class="at">eyes =</span> <span class="st">&quot;Eyes&quot;</span>, ))</span></code></pre></div>
 <p>Have a look:</p>
 <div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="anova_packages_data.html#cb400-1" aria-hidden="true" tabindex="-1"></a>circadian<span class="sc">$</span>treatment</span></code></pre></div>
-<pre><code>##  [1] Control Control Control Control Control Control Control Control Knee    Knee    Knee    Knee    Knee    Knee    Knee    Eyes    Eyes    Eyes    Eyes    Eyes   
-## [21] Eyes    Eyes   
+<pre><code>##  [1] Control Control Control Control Control Control Control Control Knee   
+## [10] Knee    Knee    Knee    Knee    Knee    Knee    Eyes    Eyes    Eyes   
+## [19] Eyes    Eyes    Eyes    Eyes   
 ## Levels: Control Knee Eyes</code></pre>
 <p>OK, so not only have we successfully changed the type of variable to factor, and capitalized the category names, but it turns out that the ordering of the factor “levels” is in the correct order, i.e. consistent with how it’s displayed in the text figure in example 15.1.</p>
 <p>Now we’re ready to proceed with ANOVA!</p>

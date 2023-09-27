@@ -1,6 +1,4 @@
-# (PART\*) Data summaries with "gtsummary" package {-}
-
-# Data summaries with "gtsummary" package {#gtsummary}
+# Data summaries with "gtsummary" package {-}
 
 This tutorial introduces an alternative to the `skimr` package for getting overviews of datasets.  
 
@@ -43,7 +41,7 @@ penguins %>%
 
 We could select just some numeric variables, and ask for the mean and standard deviation.  Note the syntax for the "statistic" argument... we have to provide a "list", as follows:
 
-```{r gtsum1_sum}
+```{r gtsum1_sum2}
 penguins %>%
   select(bill_length_mm, bill_depth_mm) %>%
   tbl_summary(statistic = list(all_continuous() ~ "{mean} ({sd})"))

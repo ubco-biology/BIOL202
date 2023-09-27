@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.2 Paired t-test | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.2 Paired t-test | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-13" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,10 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
-<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
-<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
-<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -134,6 +130,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -455,6 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.4.2" data-path="model-i-versus-model-ii-regression.html"><a href="model-i-versus-model-ii-regression.html#which-one-do-i-use"><i class="fa fa-check"></i><b>18.4.2</b> Which one do I use?</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="data-summaries-with-gtsummary-package.html"><a href="data-summaries-with-gtsummary-package.html"><i class="fa fa-check"></i>Data summaries with “gtsummary” package</a></li>
 <li class="chapter" data-level="" data-path="creating-tables-in-r-markdown.html"><a href="creating-tables-in-r-markdown.html"><i class="fa fa-check"></i>Creating tables in R Markdown</a>
 <ul>
 <li class="chapter" data-level="18.5" data-path="tables_packages.html"><a href="tables_packages.html"><i class="fa fa-check"></i><b>18.5</b> Load packages and import data</a>
@@ -525,7 +526,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8         8 Before    4.779
 ##  9         9 Before    4.977
 ## 10        10 Before    4.868
-## # … with 16 more rows</code></pre>
+## # ℹ 16 more rows</code></pre>
 <p>The data frame has 26 rows, and includes 3 variables, the first of which “blackbird” simply keeps track of the individual ID of blackbirds.</p>
 <p>The response variable of interest, “Antibody” represents antibody production rate measured in units of natural logarithm (ln) 10^{-3} optical density per minute (ln[mOD/min]).</p>
 <p>The factor variable <code>time</code> that has two levels: “After” and “Before”.</p>
@@ -551,7 +552,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8         8 Before    4.779
 ##  9         9 Before    4.977
 ## 10        10 Before    4.868
-## # … with 16 more rows</code></pre>
+## # ℹ 16 more rows</code></pre>
 <p>We’ll use, for the first time, the <code>pivot_wider</code> function from the <code>dplyr</code> package (which is loaded as part of the <code>tidyverse</code>).</p>
 <p>The <code>pivot_wider</code> function essentially takes data stored in long format and converts it to wide format.</p>
 <div class="note">
@@ -627,8 +628,8 @@ H<sub>A</sub>: The mean change in antibody production after testosterone implant
 <span id="cb302-5"><a href="paired-t-test.html#cb302-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Difference in antibody production rate (after - before) (ln[mOD/min]) 10^-3&quot;</span>) <span class="sc">+</span></span>
 <span id="cb302-6"><a href="paired-t-test.html#cb302-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb302-7"><a href="paired-t-test.html#cb302-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-82"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-82-1.png" alt="Histogram of the differences in antibody production rate before and after the testosterone treatment" width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-85"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-85-1.png" alt="Histogram of the differences in antibody production rate before and after the testosterone treatment" width="384" />
 <p class="caption">
 Figure 14.1: Histogram of the differences in antibody production rate before and after the testosterone treatment
 </p>
@@ -641,8 +642,8 @@ Figure 14.1: Histogram of the differences in antibody production rate before and
 <span id="cb303-3"><a href="paired-t-test.html#cb303-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
 <span id="cb303-4"><a href="paired-t-test.html#cb303-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> blackbird), <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
 <span id="cb303-5"><a href="paired-t-test.html#cb303-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-83"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-83-1.png" alt="Paired plot of antibody production rate before and after the testosterone treatment" width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-86"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-86-1.png" alt="Paired plot of antibody production rate before and after the testosterone treatment" width="384" />
 <p class="caption">
 Figure 14.2: Paired plot of antibody production rate before and after the testosterone treatment
 </p>
@@ -667,8 +668,8 @@ Figure 14.2: Paired plot of antibody production rate before and after the testos
 <span id="cb305-5"><a href="paired-t-test.html#cb305-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
 <span id="cb305-6"><a href="paired-t-test.html#cb305-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Antibody production (ln[mOD/min]) 10^-3&quot;</span>) <span class="sc">+</span></span>
 <span id="cb305-7"><a href="paired-t-test.html#cb305-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-85"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-85-1.png" alt="Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-88"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-88-1.png" alt="Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3." width="384" />
 <p class="caption">
 Figure 14.3: Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3.
 </p>

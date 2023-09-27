@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.5 Create a histogram | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.5 Create a histogram | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-13" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,10 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
-<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
-<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
-<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -134,6 +130,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -455,6 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.4.2" data-path="model-i-versus-model-ii-regression.html"><a href="model-i-versus-model-ii-regression.html#which-one-do-i-use"><i class="fa fa-check"></i><b>18.4.2</b> Which one do I use?</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="data-summaries-with-gtsummary-package.html"><a href="data-summaries-with-gtsummary-package.html"><i class="fa fa-check"></i>Data summaries with “gtsummary” package</a></li>
 <li class="chapter" data-level="" data-path="creating-tables-in-r-markdown.html"><a href="creating-tables-in-r-markdown.html"><i class="fa fa-check"></i>Creating tables in R Markdown</a>
 <ul>
 <li class="chapter" data-level="18.5" data-path="tables_packages.html"><a href="tables_packages.html"><i class="fa fa-check"></i><b>18.5</b> Load packages and import data</a>
@@ -517,8 +518,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb42-4"><a href="vis_histogram.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb42-5"><a href="vis_histogram.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-26"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-26-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-30"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-30-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
 <p class="caption">
 Figure 6.3: Histogram of body mass (g) for 342 penguins
 </p>
@@ -554,7 +555,8 @@ Figure 6.3: Histogram of body mass (g) for 342 penguins
 ## [1] 11 67 92 57 54 33 26  2
 ## 
 ## $density
-## [1] 6.432749e-05 3.918129e-04 5.380117e-04 3.333333e-04 3.157895e-04 1.929825e-04 1.520468e-04 1.169591e-05
+## [1] 6.432749e-05 3.918129e-04 5.380117e-04 3.333333e-04 3.157895e-04
+## [6] 1.929825e-04 1.520468e-04 1.169591e-05
 ## 
 ## $mids
 ## [1] 2750 3250 3750 4250 4750 5250 5750 6250
@@ -580,8 +582,8 @@ Figure 6.3: Histogram of body mass (g) for 342 penguins
 <span id="cb50-3"><a href="vis_histogram.html#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb50-4"><a href="vis_histogram.html#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
 <span id="cb50-5"><a href="vis_histogram.html#cb50-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-27"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-27-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-31"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-31-1.png" alt="Histogram of body mass (g) for 342 penguins" width="576" />
 <p class="caption">
 Figure 6.4: Histogram of body mass (g) for 342 penguins
 </p>

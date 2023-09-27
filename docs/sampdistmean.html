@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9.4 Sampling distribution of the mean | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9.4 Sampling distribution of the mean | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-13" />
+<meta name="date" content="2023-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,10 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
-<link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
-<link href="libs/klippy-0.0.0.9500/css/klippy.min.css" rel="stylesheet" />
-<script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -134,6 +130,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
@@ -455,6 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.4.2" data-path="model-i-versus-model-ii-regression.html"><a href="model-i-versus-model-ii-regression.html#which-one-do-i-use"><i class="fa fa-check"></i><b>18.4.2</b> Which one do I use?</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="data-summaries-with-gtsummary-package.html"><a href="data-summaries-with-gtsummary-package.html"><i class="fa fa-check"></i>Data summaries with “gtsummary” package</a></li>
 <li class="chapter" data-level="" data-path="creating-tables-in-r-markdown.html"><a href="creating-tables-in-r-markdown.html"><i class="fa fa-check"></i>Creating tables in R Markdown</a>
 <ul>
 <li class="chapter" data-level="18.5" data-path="tables_packages.html"><a href="tables_packages.html"><i class="fa fa-check"></i><b>18.5</b> Load packages and import data</a>
@@ -541,7 +542,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8         8       4258. 20      
 ##  9         9       3242. 20      
 ## 10        10       3134. 20      
-## # … with 9,990 more rows</code></pre>
+## # ℹ 9,990 more rows</code></pre>
 <p>We see that it is a tibble with 10000 rows and three columns: a variable called “replicate”, which holds the numbers one through the number of replicates run (here, 10000), a variable “mean_length” that we created, which holds the sample mean gene length for each of the replicate samples we took, and a variable “sampsize” that tells us the sample size used for each sample (here, 20).</p>
 <div class="note">
 <p><strong>Pause:</strong>
@@ -725,8 +726,8 @@ Pop_mean
 <span id="cb136-6"><a href="sampdistmean.html#cb136-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Gene length (nucleotides)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb136-7"><a href="sampdistmean.html#cb136-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Number of genes&quot;</span>) <span class="sc">+</span></span>
 <span id="cb136-8"><a href="sampdistmean.html#cb136-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-50"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-50-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20)." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-54"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-54-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20)." width="384" />
 <p class="caption">
 Figure 9.1: Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20).
 </p>
@@ -778,8 +779,8 @@ Sample_mean
 <span id="cb140-5"><a href="sampdistmean.html#cb140-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Gene length (nucleotides)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb140-6"><a href="sampdistmean.html#cb140-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Number of genes&quot;</span>) <span class="sc">+</span></span>
 <span id="cb140-7"><a href="sampdistmean.html#cb140-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-52"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-52-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50)." width="384" />
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-56"></span>
+<img src="BIOL202_files/figure-html/unnamed-chunk-56-1.png" alt="Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50)." width="384" />
 <p class="caption">
 Figure 9.2: Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50).
 </p>
@@ -806,10 +807,10 @@ We can merge two tibbles (or data frames) together by rows using the <code>bind_
 <span id="cb142-7"><a href="sampdistmean.html#cb142-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb142-8"><a href="sampdistmean.html#cb142-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;top&quot;</span>) <span class="sc">+</span></span>
 <span id="cb142-9"><a href="sampdistmean.html#cb142-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">&quot;Sample size&quot;</span>))</span></code></pre></div>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-53"></span>
-<img src="BIOL202_files/figure-html/unnamed-chunk-53-1.png" alt="Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution)." width="384" />
+<div class="figure"><span style="display:block;" id="fig:newsampfig"></span>
+<img src="BIOL202_files/figure-html/newsampfig-1.png" alt="Approximate sampling distributions of mean gene lengths from the human genome, fig.height=, message=FALSE, warning=FALSE, using sample sizes of 20 and 50 (10000 replicate samples in each distribution)." width="384" />
 <p class="caption">
-Figure 9.3: Approximate sampling distributions of mean gene lengths from the human genome, using sample sizes of 20 and 50 (10000 replicate samples in each distribution).
+Figure 9.3: Approximate sampling distributions of mean gene lengths from the human genome, fig.height=, message=FALSE, warning=FALSE, using sample sizes of 20 and 50 (10000 replicate samples in each distribution).
 </p>
 </div>
 <p>We can see that the smaller sample size (20) yields a broader sampling distribution, and though it’s a difficult to see, it also exhibits a longer tail towards larger gene lengths.</p>
