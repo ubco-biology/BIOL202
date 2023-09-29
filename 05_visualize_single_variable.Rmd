@@ -89,7 +89,13 @@ Here, we'll use this functionality to create a *frequency table* for a categoric
 
 We'll demonstrate this  using the `tigerdeaths.csv` dataset that you should have imported as part of a suggested activity in the previous section, using code like this:
 
+<div class="note">
+**TIP**
+Some datasets that we use for tutorials need to be imported into an object in your workspace.  This is the case with the `tigerdeaths` dataset, and the code for importing the data into a tibble is below. Other datasets, like the `penguins` dataset, exist within packages (palmerpenguins), and their objects are already created for you. Most of the time, and particularly for your lab assignments, you need to import a dataset and create an object, as we do below.  
+</div>
+
 ```{r vis1_read_tiger, message = FALSE}
+# here we import the data from a CSV file and put it into a "tibble" object called "tigerdeaths"
 tigerdeaths <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv")
 ```
 

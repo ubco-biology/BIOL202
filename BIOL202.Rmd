@@ -1189,7 +1189,13 @@ Here, we'll use this functionality to create a *frequency table* for a categoric
 
 We'll demonstrate this  using the `tigerdeaths.csv` dataset that you should have imported as part of a suggested activity in the previous section, using code like this:
 
+<div class="note">
+**TIP**
+Some datasets that we use for tutorials need to be imported into an object in your workspace.  This is the case with the `tigerdeaths` dataset, and the code for importing the data into a tibble is below. Other datasets, like the `penguins` dataset, exist within packages (palmerpenguins), and their objects are already created for you. Most of the time, and particularly for your lab assignments, you need to import a dataset and create an object, as we do below.  
+</div>
+
 ```{r vis1_read_tiger, message = FALSE}
+# here we import the data from a CSV file and put it into a "tibble" object called "tigerdeaths"
 tigerdeaths <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv")
 ```
 
@@ -7491,20 +7497,15 @@ This error happens because in your RMarkdown document you refer to a file/folder
 
 ![](./more/fig-cap-error1.png)
 
-**Solution:** This error happens when you knit to PDF and your figure caption doesn’t show up despite having the correct code within your Rchunk. One potential cause for this error, is that you have text immediately below your Rchunk. To fix this error, make sure there is a blank line between the end of your Rchunk with the code for the figure and any subsequent text. See the screenshot below for the corrected error. 
+**Solution:** This error happens when you knit to PDF and your figure caption doesn’t show up despite having the correct code within your Rchunk. One potential cause for this error, is that you have text immediately below your R chunk. To fix this error, make sure there is a blank line between the end of your R chunk with the code for the figure and any subsequent text. See the screenshot below for an example with the blank line inserted.  
 
 ![](./more/fig-cap-error2.png)
+
+
 ## Figures are placed in weird spots in knitted PDF {-}
 
 This has to do with out the conversion process works, and can't easily be helped. And nor does it really matter - you won't lose marks for this. If you're curious as to why this happens, consult this [webpage](https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html).
 
-## Filename, directory name, or volume label syntax is incorrect {-}
-
-![im](/images/fig-cap-no-space1.png)
-
-**Solution:** This error occurs because there is a mistake in the code for the figure caption. Specifically, there needs to be a space between the "r" and "fig." in the RChunk header. See the screenshot below for the correct figure caption code. 
-
-![](./more/fig-cap-no-space2.png)
 
 ## Installing packages: there is a binary version available {-}
 

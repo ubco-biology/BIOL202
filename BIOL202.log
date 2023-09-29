@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.22)  27 SEP 2023 16:06
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.22)  29 SEP 2023 13:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1063,142 +1063,132 @@ Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
  []
 
 [66] [67]
-Underfull \hbox (badness 10000) in paragraph at lines 2258--2260
+Underfull \hbox (badness 10000) in paragraph at lines 2262--2264
 
  []
 
-
-Overfull \hbox (647.25pt too wide) in paragraph at lines 2274--2274
+[68]
+Overfull \hbox (647.25pt too wide) in paragraph at lines 2278--2278
 []  \TU/lmtt/m/n/10 kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)[] 
  []
 
-[68] [69]
+[69]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2367.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2371.
 [70]
 File: BIOL202_files/figure-latex/unnamed-chunk-28-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-28-1.pdf>
 [71] [72]
 File: ./more/bar_graph_chunk.png Graphic file (type bmp)
 <./more/bar_graph_chunk.png>
-
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2486--2486
+[73]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2490--2490
 []\TU/lmtt/m/n/10 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.[] 
  []
 
 File: BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf>
-[73] [74]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2516--2516
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2520--2520
 []\TU/lmtt/m/n/10 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.[] 
  []
 
-[75]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 2574--2574
+[74]
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2578--2578
 []\TU/lmtt/m/n/10 ## [1] 6.432749e-05 3.918129e-04 5.380117e-04 3.333333e-04 3.157895e-04[] 
  []
 
-[76]
+[75]
 File: BIOL202_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-31-1.pdf>
-[77]
+[76] [77]
 File: BIOL202_files/figure-latex/unnamed-chunk-32-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-32-1.pdf>
-[78]
-Chapter 7.
-[79
+[78] [79] [80
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2726--2726
+Chapter 7.
+[81]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2730--2730
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 2726--2726
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2730--2730
 []\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 2726--2726
+Overfull \hbox (96.0pt too wide) in paragraph at lines 2730--2730
 []\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
  []
 
-[80] [81]
-Underfull \hbox (badness 2368) in paragraph at lines 2852--2853
+[82] [83]
+Underfull \hbox (badness 2368) in paragraph at lines 2856--2857
 \TU/lmtt/m/n/10 summarise \TU/lmr/m/n/10 (equivalently \TU/lmtt/m/n/10 summarize\TU/lmr/m/n/10 ) function for calculating descriptive
  []
 
-[82]
+[84]
 File: BIOL202_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-34-1.pdf>
-[83]
+[85]
 File: ./more/na_error.png Graphic file (type bmp)
 <./more/na_error.png>
-[84]
-Overfull \hbox (1.92201pt too wide) in paragraph at lines 2944--2946
+[86]
+Overfull \hbox (1.92201pt too wide) in paragraph at lines 2948--2950
 []\TU/lmr/m/n/10 We feed the variable of interest from the \TU/lmtt/m/n/10 penguins \TU/lmr/m/n/10 tibble, “body_mass_g”,
  []
 
-[85]
-Overfull \hbox (70.85501pt too wide) in paragraph at lines 2987--2988
+[87]
+Overfull \hbox (70.85501pt too wide) in paragraph at lines 2991--2992
 []\TU/lmr/m/n/10 The same coding approach is used in the last line: \TU/lmtt/m/n/10 Count_NA = naniar::n_miss(body_mass_g)\TU/lmr/m/n/10 . 
  []
 
-[86]
+[88]
 Overfull \hbox (93.30124pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 7.4.  DESCRIBING A NUMERICAL VARIABLE GROUPED BY A CATEGORICAL VARIABLE \TU/lmr/m/n/10 87
+\TU/lmr/m/sl/10 7.4.  DESCRIBING A NUMERICAL VARIABLE GROUPED BY A CATEGORICAL VARIABLE \TU/lmr/m/n/10 89
  []
 
-[87] [88]
+[89] [90]
 Chapter 8.
-[89
+[91
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3176--3176
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3180--3180
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3176--3176
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3180--3180
 []\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 3176--3176
+Overfull \hbox (96.0pt too wide) in paragraph at lines 3180--3180
 []\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
  []
 
 
-Overfull \hbox (18.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 90 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
- []
-
-[90]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3195--3195
-[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
- []
-
-
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3195--3195
-[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
- []
-
-
-Overfull \hbox (96.0pt too wide) in paragraph at lines 3195--3195
-[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
- []
-
-
-Overfull \hbox (45.61453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 91
- []
-
-[91]
 Overfull \hbox (18.32562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 92 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
 [92]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3199--3199
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3199--3199
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 3199--3199
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
 Overfull \hbox (45.61453pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 93
  []
@@ -1214,19 +1204,29 @@ Overfull \hbox (45.61453pt too wide) has occurred while \output is active
  []
 
 [95]
-File: BIOL202_files/figure-latex/malaria_barchart1-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/malaria_barchart1-1.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 3496--3498
-
- []
-
-
 Overfull \hbox (18.32562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 96 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
 [96]
+Overfull \hbox (45.61453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 97
+ []
+
+[97]
+File: BIOL202_files/figure-latex/malaria_barchart1-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/malaria_barchart1-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 3500--3502
+
+ []
+
+
+Overfull \hbox (18.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 98 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[98]
 File: ./more/grouped_bar_graph.png Graphic file (type bmp)
 <./more/grouped_bar_graph.png>
 File: BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type pdf)
@@ -1235,51 +1235,38 @@ File: BIOL202_files/figure-latex/mosaic_malaria1-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/mosaic_malaria1-1.pdf>
 
 Overfull \hbox (45.61453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 97
- []
-
-[97]
-Overfull \hbox (18.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 98 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
- []
-
-[98]
-Overfull \hbox (45.61453pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 99
  []
 
 [99]
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 100 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[100]
+Overfull \hbox (50.61453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 101
+ []
+
+[101]
 File: BIOL202_files/figure-latex/unnamed-chunk-44-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-44-1.pdf>
 File: ./more/mosaic_graph.png Graphic file (type bmp)
 <./more/mosaic_graph.png>
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 100 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
- []
-
-[100]
-File: BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf>
-
-Overfull \hbox (24.29453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.3.  VISUALIZING ASSOCIATION BETWEEN TWO NUMERIC VARIABLES \TU/lmr/m/n/10 101
- []
-
-[101]
-Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 102 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
 [102]
-Overfull \hbox (113.52124pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 103
+File: BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf>
+
+Overfull \hbox (24.29453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.3.  VISUALIZING ASSOCIATION BETWEEN TWO NUMERIC VARIABLES \TU/lmr/m/n/10 103
  []
 
 [103]
-File: BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf>
-
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 104 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
@@ -1290,17 +1277,14 @@ Overfull \hbox (113.52124pt too wide) has occurred while \output is active
  []
 
 [105]
+File: BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf>
+
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 106 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
 [106]
-File: BIOL202_files/figure-latex/body_violin-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/body_violin-1.pdf>
-
-Underfull \vbox (badness 7133) has occurred while \output is active []
-
-
 Overfull \hbox (113.52124pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 107
  []
@@ -1311,31 +1295,32 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
  []
 
 [108]
-File: BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf>
+File: BIOL202_files/figure-latex/body_violin-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/body_violin-1.pdf>
+
+Underfull \vbox (badness 7133) has occurred while \output is active []
+
 
 Overfull \hbox (113.52124pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 109
  []
 
 [109]
-File: BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf>
-
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 110 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
 [110]
+File: BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf>
+
 Overfull \hbox (113.52124pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 111
  []
 
 [111]
-File: BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf>
-File: BIOL202_files/figure-latex/unnamed-chunk-51-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-51-1.pdf>
+File: BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf>
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 112 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
@@ -1347,16 +1332,16 @@ Overfull \hbox (113.52124pt too wide) has occurred while \output is active
  []
 
 [113]
+File: BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf>
+File: BIOL202_files/figure-latex/unnamed-chunk-51-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-51-1.pdf>
+
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 114 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
 [114]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3996--3996
-[]  \TU/lmtt/m/n/10 geom_jitter(colour = "grey", size = 1, shape = 1, width = 0.15) +[] 
- []
-
-
 Overfull \hbox (113.52124pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 115
  []
@@ -1366,40 +1351,55 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 116 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
-[116
+[116]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 4000--4000
+[]  \TU/lmtt/m/n/10 geom_jitter(colour = "grey", size = 1, shape = 1, width = 0.15) +[] 
+ []
 
-] [117] [118]
+
+Overfull \hbox (113.52124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 117
+ []
+
+[117]
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 118 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[118
+
+] [119] [120]
 Chapter 9.
-[119
+[121
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4082--4082
+Overfull \hbox (90.75pt too wide) in paragraph at lines 4086--4086
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4082--4082
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4086--4086
 []\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 4082--4082
+Overfull \hbox (96.0pt too wide) in paragraph at lines 4086--4086
 []\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
  []
 
-[120] [121] [122] [123] [124] [125] [126] [127] [128] [129] [130]
+[122] [123] [124] [125] [126] [127] [128] [129] [130] [131] [132]
 File: BIOL202_files/figure-latex/unnamed-chunk-54-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-54-1.pdf>
-[131]
+[133]
 File: BIOL202_files/figure-latex/unnamed-chunk-56-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-56-1.pdf>
-[132] [133]
+[134] [135]
 File: BIOL202_files/figure-latex/newsampfig-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/newsampfig-1.pdf>
 ! Missing { inserted.
 <to be read again> 
                    \Umathaccent 
-l.4784 \[SE_\bar
+l.4788 \[SE_\bar
                 {Y} = \frac{s}{\sqrt{n}}\] 
 Here is how much of TeX's memory you used:
  19223 strings out of 477747
@@ -1410,4 +1410,4 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  86i,8n,121p,1035b,535s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on BIOL202.pdf (133 pages).
+Output written on BIOL202.pdf (135 pages).

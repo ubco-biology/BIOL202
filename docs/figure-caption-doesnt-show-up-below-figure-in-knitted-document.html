@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-09-27" />
+<meta name="date" content="2023-09-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="object-not-found.html"/>
-<link rel="next" href="filename-directory-name-or-volume-label-syntax-is-incorrect.html"/>
+<link rel="next" href="figures-are-placed-in-weird-spots-in-knitted-pdf.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -483,7 +483,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="unused-argument.html"><a href="unused-argument.html"><i class="fa fa-check"></i>Unused argument</a></li>
 <li class="chapter" data-level="" data-path="object-not-found.html"><a href="object-not-found.html"><i class="fa fa-check"></i>Object not found</a></li>
 <li class="chapter" data-level="" data-path="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><a href="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html"><i class="fa fa-check"></i>Figure caption doesn’t show up below figure in knitted document</a></li>
-<li class="chapter" data-level="" data-path="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><a href="filename-directory-name-or-volume-label-syntax-is-incorrect.html"><i class="fa fa-check"></i>Filename, directory name, or volume label syntax is incorrect</a></li>
+<li class="chapter" data-level="" data-path="figures-are-placed-in-weird-spots-in-knitted-pdf.html"><a href="figures-are-placed-in-weird-spots-in-knitted-pdf.html"><i class="fa fa-check"></i>Figures are placed in weird spots in knitted PDF</a></li>
 <li class="chapter" data-level="" data-path="installing-packages-there-is-a-binary-version-available.html"><a href="installing-packages-there-is-a-binary-version-available.html"><i class="fa fa-check"></i>Installing packages: there is a binary version available</a></li>
 <li class="chapter" data-level="" data-path="unicode-knitting-error.html"><a href="unicode-knitting-error.html"><i class="fa fa-check"></i>Unicode knitting error</a></li>
 </ul></li>
@@ -510,10 +510,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="figure-caption-doesnt-show-up-below-figure-in-knitted-document" class="section level2 unnumbered hasAnchor">
 <h2>Figure caption doesn’t show up below figure in knitted document<a href="figure-caption-doesnt-show-up-below-figure-in-knitted-document.html#figure-caption-doesnt-show-up-below-figure-in-knitted-document" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="more/fig-cap-error1.png" /></p>
-<p><strong>Solution:</strong> This error happens when you knit to PDF and your figure caption doesn’t show up despite having the correct code within your Rchunk. One potential cause for this error, is that you have text immediately below your Rchunk. To fix this error, make sure there is a blank line between the end of your Rchunk with the code for the figure and any subsequent text. See the screenshot below for the corrected error.</p>
-<p><img src="more/fig-cap-error2.png" />
-## Figures are placed in weird spots in knitted PDF {-}</p>
-<p>This has to do with out the conversion process works, and can’t easily be helped. And nor does it really matter - you won’t lose marks for this. If you’re curious as to why this happens, consult this <a href="https://bookdown.org/yihui/rmarkdown-cookbook/figure-placement.html">webpage</a>.</p>
+<p><strong>Solution:</strong> This error happens when you knit to PDF and your figure caption doesn’t show up despite having the correct code within your Rchunk. One potential cause for this error, is that you have text immediately below your R chunk. To fix this error, make sure there is a blank line between the end of your R chunk with the code for the figure and any subsequent text. See the screenshot below for an example with the blank line inserted.</p>
+<p><img src="more/fig-cap-error2.png" /></p>
 </div>
             </section>
 
@@ -521,7 +519,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="object-not-found.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="filename-directory-name-or-volume-label-syntax-is-incorrect.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="figures-are-placed-in-weird-spots-in-knitted-pdf.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
