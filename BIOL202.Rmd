@@ -7043,6 +7043,37 @@ For this course, you can assume Model-I regression is appropriate for quiz/exam 
 
 <!--chapter:end:17_Least_squares_regression.Rmd-->
 
+# Load all the necessary packages {-}
+
+This shows you how to load all the packages required for all the tutorials.
+
+If the package is not yet installed, the function will install it for you.
+
+This list of packages avoids the use of the `tidyverse` package, which has been problematic for some.
+
+Each time you start an R session, can copy and paste this code into your console and run it.
+
+Alternatively, if you're working on an assignment, you can copy and past this code into a code chunk at the beginning of your markdown document, and run it.  
+
+```{r all_package_names, message = FALSE}
+
+all.package.names <- c("dplyr", "readr","ggplot2", "tinytex", "skimr", "palmerpenguins", "knitr", "naniar", "janitor", "ggmosaic", "ggExtra", "infer", "binom", "epitools", "car", "broom", "kableExtra", "boot", "here", "gtsummary")
+
+# Now let's load all the packages, first checking if the given package needs installing
+
+# Load the packages using lapply
+
+lapply(all.package.names, function(package) {
+  if (!requireNamespace(package, quietly = TRUE)) {
+    install.packages(package, dependencies = TRUE)
+  }
+  library(package, character.only = TRUE)
+})
+```
+
+
+<!--chapter:end:94_load_all_packages.Rmd-->
+
 # Data summaries with "gtsummary" package {-}
 
 This tutorial introduces an alternative to the `skimr` package for getting overviews of datasets.  

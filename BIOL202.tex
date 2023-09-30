@@ -12682,6 +12682,256 @@ There is some debate about which method should be used in what contexts. If you'
 
 For this course, you can assume Model-I regression is appropriate for quiz/exam questions, unless otherwise indicated.
 
+\hypertarget{load-all-the-necessary-packages}{%
+\chapter*{Load all the necessary packages}\label{load-all-the-necessary-packages}}
+\addcontentsline{toc}{chapter}{Load all the necessary packages}
+
+This shows you how to load all the packages required for all the tutorials.
+
+If the package is not yet installed, the function will install it for you.
+
+This list of packages avoids the use of the \texttt{tidyverse} package, which has been problematic for some.
+
+Each time you start an R session, can copy and paste this code into your console and run it.
+
+Alternatively, if you're working on an assignment, you can copy and past this code into a code chunk at the beginning of your markdown document, and run it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{all.package.names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{, }\StringTok{"readr"}\NormalTok{,}\StringTok{"ggplot2"}\NormalTok{, }\StringTok{"tinytex"}\NormalTok{, }\StringTok{"skimr"}\NormalTok{, }\StringTok{"palmerpenguins"}\NormalTok{, }\StringTok{"knitr"}\NormalTok{, }\StringTok{"naniar"}\NormalTok{, }\StringTok{"janitor"}\NormalTok{, }\StringTok{"ggmosaic"}\NormalTok{, }\StringTok{"ggExtra"}\NormalTok{, }\StringTok{"infer"}\NormalTok{, }\StringTok{"binom"}\NormalTok{, }\StringTok{"epitools"}\NormalTok{, }\StringTok{"car"}\NormalTok{, }\StringTok{"broom"}\NormalTok{, }\StringTok{"kableExtra"}\NormalTok{, }\StringTok{"boot"}\NormalTok{, }\StringTok{"here"}\NormalTok{, }\StringTok{"gtsummary"}\NormalTok{)}
+
+\CommentTok{\# Now let\textquotesingle{}s load all the packages, first checking if the given package needs installing}
+
+\CommentTok{\# Load the packages using lapply}
+
+\FunctionTok{lapply}\NormalTok{(all.package.names, }\ControlFlowTok{function}\NormalTok{(package) \{}
+  \ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{requireNamespace}\NormalTok{(package, }\AttributeTok{quietly =} \ConstantTok{TRUE}\NormalTok{)) \{}
+    \FunctionTok{install.packages}\NormalTok{(package, }\AttributeTok{dependencies =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{  \}}
+  \FunctionTok{library}\NormalTok{(package, }\AttributeTok{character.only =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+##  [1] "boot"           "broom"          "car"            "carData"       
+##  [5] "epitools"       "binom"          "infer"          "ggExtra"       
+##  [9] "ggmosaic"       "naniar"         "janitor"        "knitr"         
+## [13] "palmerpenguins" "here"           "skimr"          "lubridate"     
+## [17] "forcats"        "stringr"        "dplyr"          "purrr"         
+## [21] "readr"          "tidyr"          "tibble"         "ggplot2"       
+## [25] "tidyverse"      "stats"          "graphics"       "grDevices"     
+## [29] "utils"          "datasets"       "methods"        "base"          
+## 
+## [[2]]
+##  [1] "boot"           "broom"          "car"            "carData"       
+##  [5] "epitools"       "binom"          "infer"          "ggExtra"       
+##  [9] "ggmosaic"       "naniar"         "janitor"        "knitr"         
+## [13] "palmerpenguins" "here"           "skimr"          "lubridate"     
+## [17] "forcats"        "stringr"        "dplyr"          "purrr"         
+## [21] "readr"          "tidyr"          "tibble"         "ggplot2"       
+## [25] "tidyverse"      "stats"          "graphics"       "grDevices"     
+## [29] "utils"          "datasets"       "methods"        "base"          
+## 
+## [[3]]
+##  [1] "boot"           "broom"          "car"            "carData"       
+##  [5] "epitools"       "binom"          "infer"          "ggExtra"       
+##  [9] "ggmosaic"       "naniar"         "janitor"        "knitr"         
+## [13] "palmerpenguins" "here"           "skimr"          "lubridate"     
+## [17] "forcats"        "stringr"        "dplyr"          "purrr"         
+## [21] "readr"          "tidyr"          "tibble"         "ggplot2"       
+## [25] "tidyverse"      "stats"          "graphics"       "grDevices"     
+## [29] "utils"          "datasets"       "methods"        "base"          
+## 
+## [[4]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[5]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[6]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[7]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[8]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[9]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[10]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[11]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[12]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[13]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[14]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[15]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[16]]
+##  [1] "tinytex"        "boot"           "broom"          "car"           
+##  [5] "carData"        "epitools"       "binom"          "infer"         
+##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"       
+## [13] "knitr"          "palmerpenguins" "here"           "skimr"         
+## [17] "lubridate"      "forcats"        "stringr"        "dplyr"         
+## [21] "purrr"          "readr"          "tidyr"          "tibble"        
+## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"      
+## [29] "grDevices"      "utils"          "datasets"       "methods"       
+## [33] "base"          
+## 
+## [[17]]
+##  [1] "kableExtra"     "tinytex"        "boot"           "broom"         
+##  [5] "car"            "carData"        "epitools"       "binom"         
+##  [9] "infer"          "ggExtra"        "ggmosaic"       "naniar"        
+## [13] "janitor"        "knitr"          "palmerpenguins" "here"          
+## [17] "skimr"          "lubridate"      "forcats"        "stringr"       
+## [21] "dplyr"          "purrr"          "readr"          "tidyr"         
+## [25] "tibble"         "ggplot2"        "tidyverse"      "stats"         
+## [29] "graphics"       "grDevices"      "utils"          "datasets"      
+## [33] "methods"        "base"          
+## 
+## [[18]]
+##  [1] "kableExtra"     "tinytex"        "boot"           "broom"         
+##  [5] "car"            "carData"        "epitools"       "binom"         
+##  [9] "infer"          "ggExtra"        "ggmosaic"       "naniar"        
+## [13] "janitor"        "knitr"          "palmerpenguins" "here"          
+## [17] "skimr"          "lubridate"      "forcats"        "stringr"       
+## [21] "dplyr"          "purrr"          "readr"          "tidyr"         
+## [25] "tibble"         "ggplot2"        "tidyverse"      "stats"         
+## [29] "graphics"       "grDevices"      "utils"          "datasets"      
+## [33] "methods"        "base"          
+## 
+## [[19]]
+##  [1] "kableExtra"     "tinytex"        "boot"           "broom"         
+##  [5] "car"            "carData"        "epitools"       "binom"         
+##  [9] "infer"          "ggExtra"        "ggmosaic"       "naniar"        
+## [13] "janitor"        "knitr"          "palmerpenguins" "here"          
+## [17] "skimr"          "lubridate"      "forcats"        "stringr"       
+## [21] "dplyr"          "purrr"          "readr"          "tidyr"         
+## [25] "tibble"         "ggplot2"        "tidyverse"      "stats"         
+## [29] "graphics"       "grDevices"      "utils"          "datasets"      
+## [33] "methods"        "base"          
+## 
+## [[20]]
+##  [1] "gtsummary"      "kableExtra"     "tinytex"        "boot"          
+##  [5] "broom"          "car"            "carData"        "epitools"      
+##  [9] "binom"          "infer"          "ggExtra"        "ggmosaic"      
+## [13] "naniar"         "janitor"        "knitr"          "palmerpenguins"
+## [17] "here"           "skimr"          "lubridate"      "forcats"       
+## [21] "stringr"        "dplyr"          "purrr"          "readr"         
+## [25] "tidyr"          "tibble"         "ggplot2"        "tidyverse"     
+## [29] "stats"          "graphics"       "grDevices"      "utils"         
+## [33] "datasets"       "methods"        "base"
+\end{verbatim}
+
 \hypertarget{data-summaries-with-gtsummary-package}{%
 \chapter*{Data summaries with ``gtsummary'' package}\label{data-summaries-with-gtsummary-package}}
 \addcontentsline{toc}{chapter}{Data summaries with ``gtsummary'' package}
@@ -12734,97 +12984,59 @@ We'll get an overview of the data using the \texttt{tbl\_summary} function.
 ## To suppress this message, include `message = FALSE` in code chunk header.
 \end{verbatim}
 
-\textbf{Characteristic}
-
-\textbf{N = 344}
-
-species
-
-Adelie
-
-152 (44\%)
-
-Chinstrap
-
-68 (20\%)
-
-Gentoo
-
-124 (36\%)
-
-island
-
-Biscoe
-
-168 (49\%)
-
-Dream
-
-124 (36\%)
-
-Torgersen
-
-52 (15\%)
-
-bill\_length\_mm
-
-44.5 (39.2, 48.5)
-
-Unknown
-
-2
-
-bill\_depth\_mm
-
-17.30 (15.60, 18.70)
-
-Unknown
-
-2
-
-flipper\_length\_mm
-
-197 (190, 213)
-
-Unknown
-
-2
-
-body\_mass\_g
-
-4,050 (3,550, 4,750)
-
-Unknown
-
-2
-
-sex
-
-female
-
-165 (50\%)
-
-male
-
-168 (50\%)
-
-Unknown
-
-11
-
-year
-
-2007
-
-110 (32\%)
-
-2008
-
-114 (33\%)
-
-2009
-
-120 (35\%)
+\begin{tabular}{l|c}
+\hline
+**Characteristic** & **N = 344**\\
+\hline
+species & \\
+\hline
+Adelie & 152 (44\%)\\
+\hline
+Chinstrap & 68 (20\%)\\
+\hline
+Gentoo & 124 (36\%)\\
+\hline
+island & \\
+\hline
+Biscoe & 168 (49\%)\\
+\hline
+Dream & 124 (36\%)\\
+\hline
+Torgersen & 52 (15\%)\\
+\hline
+bill\_length\_mm & 44.5 (39.2, 48.5)\\
+\hline
+Unknown & 2\\
+\hline
+bill\_depth\_mm & 17.30 (15.60, 18.70)\\
+\hline
+Unknown & 2\\
+\hline
+flipper\_length\_mm & 197 (190, 213)\\
+\hline
+Unknown & 2\\
+\hline
+body\_mass\_g & 4,050 (3,550, 4,750)\\
+\hline
+Unknown & 2\\
+\hline
+sex & \\
+\hline
+female & 165 (50\%)\\
+\hline
+male & 168 (50\%)\\
+\hline
+Unknown & 11\\
+\hline
+year & \\
+\hline
+2007 & 110 (32\%)\\
+\hline
+2008 & 114 (33\%)\\
+\hline
+2009 & 120 (35\%)\\
+\hline
+\end{tabular}
 
 We could select just some numeric variables, and ask for the mean and standard deviation. Note the syntax for the ``statistic'' argument\ldots{} we have to provide a ``list'', as follows:
 
@@ -12842,25 +13054,19 @@ We could select just some numeric variables, and ask for the mean and standard d
 ## To suppress this message, include `message = FALSE` in code chunk header.
 \end{verbatim}
 
-\textbf{Characteristic}
-
-\textbf{N = 344}
-
-bill\_length\_mm
-
-43.9 (5.5)
-
-Unknown
-
-2
-
-bill\_depth\_mm
-
-17.15 (1.97)
-
-Unknown
-
-2
+\begin{tabular}{l|c}
+\hline
+**Characteristic** & **N = 344**\\
+\hline
+bill\_length\_mm & 43.9 (5.5)\\
+\hline
+Unknown & 2\\
+\hline
+bill\_depth\_mm & 17.15 (1.97)\\
+\hline
+Unknown & 2\\
+\hline
+\end{tabular}
 
 So, if you find youself running into issues with the \texttt{skimr} package, feel free to use the \texttt{gtsummary} package instead!
 
