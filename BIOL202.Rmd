@@ -7528,10 +7528,12 @@ This error happens because in your RMarkdown document you refer to a file/folder
 
 ![](./more/fig-cap-error1.png)
 
-**Solution:** This error happens when you knit to PDF and your figure caption doesn’t show up despite having the correct code within your Rchunk. One potential cause for this error, is that you have text immediately below your R chunk. To fix this error, make sure there is a blank line between the end of your R chunk with the code for the figure and any subsequent text. See the screenshot below for an example with the blank line inserted.  
+This error happens when you knit to PDF and your figure caption doesn’t show up despite having the correct code within your Rchunk. 
 
-![](./more/fig-cap-error2.png)
+**Solution:** One potential cause for this error is that you have text immediately below your R chunk. To fix this error, make sure there is a blank line between the end of your R chunk with the code for the figure and any subsequent text. See the screenshot below for an example with the blank line inserted.  
 
+![](./more/space_after_chunk.png)
+Notice the blank line at line 208 in the above screenshot.  
 
 ## Figures are placed in weird spots in knitted PDF {-}
 

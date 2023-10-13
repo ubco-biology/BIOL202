@@ -130,7 +130,7 @@
 
 \title{Tutorials for BIOL202: Introduction to Biostatistics}
 \author{Jason Pither}
-\date{2023-09-29}
+\date{2023-10-13}
 
 \begin{document}
 \maketitle
@@ -13684,9 +13684,12 @@ This error happens because in your RMarkdown document you refer to a file/folder
 
 \includegraphics{./more/fig-cap-error1.png}
 
-\textbf{Solution:} This error happens when you knit to PDF and your figure caption doesn't show up despite having the correct code within your Rchunk. One potential cause for this error, is that you have text immediately below your R chunk. To fix this error, make sure there is a blank line between the end of your R chunk with the code for the figure and any subsequent text. See the screenshot below for an example with the blank line inserted.
+This error happens when you knit to PDF and your figure caption doesn't show up despite having the correct code within your Rchunk.
 
-\includegraphics{./more/fig-cap-error2.png}
+\textbf{Solution:} One potential cause for this error is that you have text immediately below your R chunk. To fix this error, make sure there is a blank line between the end of your R chunk with the code for the figure and any subsequent text. See the screenshot below for an example with the blank line inserted.
+
+\includegraphics{./more/space_after_chunk.png}
+Notice the blank line at line 208 in the above screenshot.
 
 \hypertarget{figures-are-placed-in-weird-spots-in-knitted-pdf}{%
 \section*{Figures are placed in weird spots in knitted PDF}\label{figures-are-placed-in-weird-spots-in-knitted-pdf}}
