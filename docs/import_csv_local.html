@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.4 Import a local CSV file | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.4 Import a local CSV file | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-10-13" />
+<meta name="date" content="2024-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -515,14 +515,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We’ll use the “trout.csv” file that we created previously.</p>
 <p>And we’ll make use of the <code>here</code> package that we were introduced to in an <a href="create_subdirs.html#here_package">earlier tutorial</a>.</p>
 <p>Let’s load the package:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="import_csv_local.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="import_csv_local.html#cb25-1" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
 <div class="note">
 <p><strong>New tool</strong>: Pipes or “%&gt;%” are implemented as part of the <code>magrittr</code> package, which is loaded with the <code>tidyverse</code>. In brief, pipes allow us to string together a series of functions, and we’ll use them frequently in tutorials.</p>
 </div>
 <p>Here we’ll use a pipe to help import the data file.</p>
 <p>Let’s see the code first, then explain after:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="import_csv_local.html#cb26-1" aria-hidden="true" tabindex="-1"></a>trout <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">&quot;rawdata&quot;</span>, <span class="st">&quot;trout.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="import_csv_local.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="import_csv_local.html#cb26-1" tabindex="-1"></a>trout <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">&quot;rawdata&quot;</span>, <span class="st">&quot;trout.csv&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="import_csv_local.html#cb26-2" tabindex="-1"></a>  <span class="fu">read_csv</span>()</span></code></pre></div>
 <ul>
 <li>First we have the name of the object (a “tibble”) that we wish to create, “trout”.</li>
 <li>Then you see the assignment operator “&lt;-”, which tells R to assign whatever we’re doing to the right of the operator to the object “trout”.</li>

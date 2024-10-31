@@ -39,8 +39,8 @@ The following datasets are required:
 * the "students" dataset, describing characteristics of students from BIOL202 from several years back
 
 ```{r}
-blackbird <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/blackbird.csv")
-students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv")
+blackbird <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/blackbird.csv", show_col_types = FALSE)
+students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv", show_col_types = FALSE)
 ```
 
 ## Paired *t*-test
@@ -180,12 +180,14 @@ Then repeat the code above to create the paired plot.
 
 ### Assumptions of the paired *t*-test {#assump_paried}
 
-The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> of the paired *t*-test are the same as the assumptions for the one-sample *t*-test, except they pertain to the *differences*:  
+(Updated October 31, 2024)
+
+The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Assumptions">assumptions</a> of the paired *t*-test are the same as the assumptions for the one-sample *t*-test, except they pertain to the *difference*:  
 
 * the sampling units are randomly sampled from the population
-* the _differences_ have a normal distribution in the population (each group of measurements need not be normally distributed) 
+* the _mean difference_ has a normal distribution in the population (each group of measurements need not be normally distributed) 
 
-As instructed in the [checking assumptions](#checknorm_assum) tutorial, we should use a normal quantile plot to visually check the normal distribution assumption.
+As instructed in the [checking assumptions](#checknorm_assum) tutorial, we should use a normal quantile plot to visually check the normal distribution assumption, using the calculated differences.
 
 ```{r fig.width = 4, fig.height = 3, fig.cap = "Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln[mOD/min]) 10^-3."}
 
@@ -254,22 +256,22 @@ The values of *t* and of the lower and upper confidence limits may be reversed i
 
 **(2) Paired *t*-test**
 
-Here we use a method that relies on the data being stored in tidy (long) format, and assuming the order of the observations for each pair is correct.  For instance, this is the case for our "blackbird" tibble. Specifically, birds 1 through 13 are ordered the same within each of the "After" and "Before" groups.  This is crucial for this implementation of the paired *t*-test.
+(Updated October 31, 2024)
 
-Here's the code for running a paired *t*-test on tidy (long) format data:
+Here again we'll use the wide-format tibble `blackbird.diffs`, using this approach:
 
 ```{r paired_t_tidy}
-blackbird.paired.ttest <- blackbird %>% 
-  t.test(Antibody ~ time, data = ., paired = TRUE, conf.level = 0.95)
+blackbird.paired.ttest <- t.test(x = blackbird.diffs$Before, y = blackbird.diffs$After,
+       paired = TRUE, alternative = 'two.sided', conf.level = 0.95)
 ```
 
 Here's an explanation: 
 
 * we create a new object "blackbird.paried.ttest" to store our results in
 * we run the `t.test` function with the arguments as follows: 
-  + we use a formula syntax to specify Y ~ X, like we did when learning the [Levene's Test of equal variance](#levenetest); In this case, we have our numerical response variable (Y) "Antibody", then the "~" symbol, then the explanatory categorical variable (X) "time".
-  + **NEW**: we have an argument "data = .", which tells the `t.test` function that whatever data was passed to it from the preceding line is what will be used
+  + we specify x equal to the "Before" variable, and y equal to the "After" variable
   + we have the "paired = TRUE" argument, telling the function that this is a paired design
+  + we specify that this is a two-sided test with "alternative = 'two.sided'
   + finally we use "conf.level = 0.95" which corresponds to an $\alpha = 0.05$
   
 Let's look at the result:

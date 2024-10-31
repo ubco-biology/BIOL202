@@ -5,16 +5,19 @@
 \documentclass[
 ]{book}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -44,13 +47,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -58,7 +61,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -67,7 +70,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -114,6 +117,8 @@
 \usepackage[normalem]{ulem}
 \usepackage{makecell}
 \usepackage{xcolor}
+\usepackage{caption}
+\usepackage{anyfontsize}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -121,7 +126,7 @@
 \bibliographystyle{apalike}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={Tutorials for BIOL202: Introduction to Biostatistics},
   pdfauthor={Jason Pither},
@@ -130,7 +135,7 @@
 
 \title{Tutorials for BIOL202: Introduction to Biostatistics}
 \author{Jason Pither}
-\date{2023-10-13}
+\date{2024-10-31}
 
 \begin{document}
 \maketitle
@@ -486,29 +491,30 @@ The book titled ``Getting used to R, RStudio, and R Markdown'' by Chester Ismay,
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6667}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3333}}@{}}
 \caption{Learning R - Tutorials and workshop materials}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \url{https://whitlockschluter3e.zoology.ubc.ca}. & R resources to accompany Whitlock \& Schluter text \\
 \url{https://datacarpentry.org/R-genomics/01-intro-to-R.htm} & l Data Carpentry Intro R tutorials \\
 \url{https://r-dir.com/learn/tutorials.html} & List of useful tutorials including videos \\
 \url{https://www.rstudio.com/resources/webinars/} & Various online learning materials at RStudio \\
 \url{https://rmd4sci.njtierney.com} & R Markdown for Scientists \\
 \url{http://r4ds.had.co.nz/index.html} & Hadley Wickham's online book \\
-\bottomrule()
 \end{longtable}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -517,26 +523,27 @@ Purpose
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6667}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3333}}@{}}
 \caption{So many packages - how to find useful ones?}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \url{http://blog.revolutionanalytics.com/beginner-tips/} & Beginner tips \\
 & \\
 \url{https://mran.microsoft.com/packages/} & Tool for exploring packages \\
-\bottomrule()
 \end{longtable}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -545,25 +552,26 @@ Purpose
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6806}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3194}}@{}}
 \caption{Data analysis in R}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \url{https://www.zoology.ubc.ca/~schluter/R/} & UBC zoology site handy stats reference \\
 \url{http://statmethods.net/} & Good general reference \\
-\bottomrule()
 \end{longtable}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -572,44 +580,46 @@ Purpose
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6806}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3194}}@{}}
 \caption{Data visualization in R}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \url{http://statmethods.net/} & Good general reference for graphing \\
 \url{http://ggplot2.org/book/} & Hadley Wickhams's ggplot2 book online \\
 \url{http://stats.idre.ucla.edu/r/seminars/ggplot2_intro/} & Great tutorial on ggplot2 \\
 \url{http://www.cookbook-r.com/Graphs/} & Graphing with ggplot2 \\
-\bottomrule()
 \end{longtable}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{BLOGs and general resources}\tabularnewline
-\toprule()
+\toprule\noalign{}
 URL & Purpose \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 URL & Purpose \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \url{https://www.r-bloggers.com/} & Popular blog site, lots of info \\
 \url{http://rseek.org/} & Search engine for R help \\
-\bottomrule()
 \end{longtable}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -618,27 +628,28 @@ URL & Purpose \\
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7778}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2222}}@{}}
 \caption{Resources for reproducible research / open science}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \url{https://cos.io/} & Center for Open Science \\
 \url{https://ropensci.org/} & Open science R resources \\
 \url{http://geoscripting-wur.github.io/RProjectManagement/} & Lessons about version control \\
 \url{https://nicercode.github.io/} & Helping to improve your code \\
-\bottomrule()
 \end{longtable}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
@@ -647,28 +658,29 @@ Purpose
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7808}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2192}}@{}}
 \caption{Geospatial work in R}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 URL
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Purpose
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \url{http://spatial.ly/r/} & Example maps with R \\
 \url{https://rstudio.github.io/leaflet/} & Online mapping with R \\
 \url{https://www.earthdatascience.org/courses/earth-analytics/} & Excellent course \\
 & \\
 \url{https://geoscripting-wur.github.io/} & Amazing ``geoscripting'' tutorial \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{part-reproducible-workflows}{%
@@ -779,9 +791,7 @@ You can create and edit your ``\_README.txt'' file in RStudio! Just click on the
 An example setup is illustrated below.
 
 \begin{figure}
-\centering
-\includegraphics{./more/BIOL202_directory_structure.png}
-\caption{\label{fig:unnamed-chunk-9}Example directory structure}
+\includegraphics[width=41.99in]{./more/BIOL202_directory_structure} \caption{Example directory structure}\label{fig:unnamed-chunk-9}
 \end{figure}
 
 The BIOL202 directory, and all its contents, will now sync regularly to your online OneDrive account, so that you can access your up-to-date files from any device upon which OneDrive is installed.
@@ -950,9 +960,7 @@ This Markdown document includes the assignment questions, and serves as a starte
 Once you have opened the document, you'll see the following text at the top:
 
 \begin{figure}
-\centering
-\includegraphics{./more/assign_header.png}
-\caption{\label{fig:unnamed-chunk-11}Assignment markdown file header}
+\includegraphics[width=11.67in]{./more/assign_header} \caption{Assignment markdown file header}\label{fig:unnamed-chunk-11}
 \end{figure}
 
 Complete the following steps:
@@ -994,9 +1002,7 @@ The general approach is to enter your text answers and associated R chunks with 
 Here's an example code chunk in which the \texttt{tidyverse} package is being loaded. You'll notice some extra text in the header of the chunk.
 
 \begin{figure}
-\centering
-\includegraphics{./more/install_package_header2.png}
-\caption{\label{fig:unnamed-chunk-12}Code chunk header with message suppression}
+\includegraphics[width=10.56in]{./more/install_package_header2} \caption{Code chunk header with message suppression}\label{fig:unnamed-chunk-12}
 \end{figure}
 
 The ``load\_packages'' text is simply giving a name or ``tag'' to this R chunk. It is good practice to provide a \emph{unique} name to each R chunk.
@@ -1080,9 +1086,9 @@ There are some special code chunk header arguments that need to be set in your M
 
 In each code chunk that includes code to construct a graph, your chunk header options should look like this in the top of the chunk, and there should be one blank line underneath before the main code starts. The following chunk produced the figure below. And recall that in the example below, the ``bill\_fig'' text is simply the name I've given to this code chunk.
 
-\includegraphics{./more/figure_chunk_header.png}
+\includegraphics[width=33.92in]{./more/figure_chunk_header}
 
-\includegraphics{./more/example_histogram_practice.png}
+\includegraphics[width=19.58in]{./more/example_histogram_practice}
 
 \textbf{Figure 1:} Histogram of bill depth among 151 Adelie penguins
 
@@ -1095,9 +1101,7 @@ When you knit the document to PDF, you'll see the ``Figure X:'' (with a number i
 This feature - automatic figure numbering - was set within the header of the assignment markdown document:
 
 \begin{figure}
-\centering
-\includegraphics{./more/assign_header.png}
-\caption{\label{fig:unnamed-chunk-15}Assignment markdown file header with figure caption option}
+\includegraphics[width=11.67in]{./more/assign_header} \caption{Assignment markdown file header with figure caption option}\label{fig:unnamed-chunk-15}
 \end{figure}
 
 The line ``fig\_caption = true'' tells R Markdown and the knitting process to automatically include this part of a figure caption, ``Figure X'', underneath each figure you produce. Where ``X'' will automatically be replaced with the appropriate number. For example, it will use ``Figure 1:'' for your first figure, ``Figure 2'' for your second, and so on.
@@ -1419,9 +1423,7 @@ Review the \href{https://ubco-biology.github.io/Procedures-and-Guidelines/tidy-d
 There you'll learn how to arrange and format your data within a spreadsheet. The ``Tidy'' example provided would look like this in Excel:
 
 \begin{figure}
-\centering
-\includegraphics{./more/excel_tidy.png}
-\caption{\label{fig:unnamed-chunk-16}Tidy data in Excel}
+\includegraphics[width=10.75in]{./more/excel_tidy} \caption{Tidy data in Excel}\label{fig:unnamed-chunk-16}
 \end{figure}
 
 If you'd like a longer, more in-depth read about ``tidy data'', see Hadley Wickham's ``R for Datascience'' online book, linked \href{http://r4ds.had.co.nz/tidy-data.html}{here}.
@@ -1518,9 +1520,7 @@ Let's create the new directory in our ``BIOL202\_tutorials'' working directory. 
 Once you run this code, you'll see the new directory appear in the Files pane in the bottom-right of RStudio. It might look something like this:
 
 \begin{figure}
-\centering
-\includegraphics{./more/files_pane_rawdata.png}
-\caption{\label{fig:unnamed-chunk-20}View of files with rawdata folder}
+\includegraphics[width=19.67in]{./more/files_pane_rawdata} \caption{View of files with rawdata folder}\label{fig:unnamed-chunk-20}
 \end{figure}
 
 The folder is called ``rawdata'' because the data stored there will be the unedited, raw version of the data, and any files therein should \textbf{NOT} be altered. Any changes or edits one makes to the datasets should be saved in new data files that are saved in a different folder called ``output'', which we'll create later.
@@ -2453,9 +2453,7 @@ There you have it: a nicely formatted bar graph!
 \textbf{REMINDER} Don't forget to include a good figure caption! Here's a snapshot of the full code chunk that produced the bar graph above:
 
 \begin{figure}
-\centering
-\includegraphics{./more/bar_graph_chunk.png}
-\caption{\label{fig:unnamed-chunk-29}Example code chunk for producing a good bar graph}
+\includegraphics[width=32.69in]{./more/bar_graph_chunk} \caption{Example code chunk for producing a good bar graph}\label{fig:unnamed-chunk-29}
 \end{figure}
 
 \begin{enumerate}
@@ -2901,9 +2899,7 @@ penguins %>%
 Uh oh! If you tried to run this code, it would have given you an error:
 
 \begin{figure}
-\centering
-\includegraphics{./more/na_error.png}
-\caption{\label{fig:unnamed-chunk-35}Error when functions encounter `NA' values}
+\includegraphics[width=18in]{./more/na_error} \caption{Error when functions encounter 'NA' values}\label{fig:unnamed-chunk-35}
 \end{figure}
 
 We forgot that when we \protect\hyperlink{vis_data_overview}{previously} got an overview of the \texttt{penguins} dataset we discovered there were missing values (``NA'' values)!
@@ -3507,9 +3503,7 @@ It is best practice to use the \textbf{response variable} as the ``fill'' variab
 If we wished to provide an appropriate figure heading, this would be the code:
 
 \begin{figure}
-\centering
-\includegraphics{./more/grouped_bar_graph.png}
-\caption{\label{fig:unnamed-chunk-42}Example code chunk for producing a good grouped bar graph}
+\includegraphics[width=29.25in]{./more/grouped_bar_graph} \caption{Example code chunk for producing a good grouped bar graph}\label{fig:unnamed-chunk-42}
 \end{figure}
 
 And the result:
@@ -3596,9 +3590,7 @@ Let's provide the mosaic plot again, and this time we'll provide an appropriate 
 Here's the code:
 
 \begin{figure}
-\centering
-\includegraphics{./more/mosaic_graph.png}
-\caption{\label{fig:unnamed-chunk-45}Example code chunk for producing a good mosaic plot}
+\includegraphics[width=29.56in]{./more/mosaic_graph} \caption{Example code chunk for producing a good mosaic plot}\label{fig:unnamed-chunk-45}
 \end{figure}
 
 When interpreting a mosaic plot, the key is to look how the relative frequency of the categories of the response variable - denoted by the ``fill'' colours - varies across the explanatory variable, which is arranged on the x-axis.
@@ -6013,7 +6005,7 @@ The binomial distribution provides the probability distribution for the number o
 
 Here's the formula:
 
-\includegraphics{./more/binomial_equation.png}
+\includegraphics[width=12.5in]{./more/binomial_equation}
 
 It turns out there's a handy function \texttt{dbinom} (available in the base R package) that will calculate the exact probability associated with any particular outcome for a random trial with a given sample space (set of outcomes) and probability of success. It uses the equation shown above.
 
@@ -7872,9 +7864,7 @@ Upper\_95\_CL
 If we wanted to report the confidence interval on its own, we can get the necessary information from our newly created tibble ``bodytemp.stats'', and type the following inline code in our markdown text (NOT in a code chunk):
 
 \begin{figure}
-\centering
-\includegraphics{./more/confint_inline_code.png}
-\caption{\label{fig:unnamed-chunk-81}Example of inline markdown and R code for a confidence interval}
+\includegraphics[width=27.81in]{./more/confint_inline_code} \caption{Example of inline markdown and R code for a confidence interval}\label{fig:unnamed-chunk-81}
 \end{figure}
 
 Which will provide:
@@ -7989,37 +7979,10 @@ The following datasets are required:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{blackbird }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/ubco{-}biology/BIOL202/main/data/blackbird.csv"}\NormalTok{)}
+\NormalTok{blackbird }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/ubco{-}biology/BIOL202/main/data/blackbird.csv"}\NormalTok{, }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{)}
+\NormalTok{students }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/ubco{-}biology/BIOL202/main/data/students.csv"}\NormalTok{, }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## Rows: 26 Columns: 3
-## -- Column specification --------------------------------------------------------
-## Delimiter: ","
-## chr (1): time
-## dbl (2): blackbird, Antibody
-## 
-## i Use `spec()` to retrieve the full column specification for this data.
-## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{students }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/ubco{-}biology/BIOL202/main/data/students.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Rows: 154 Columns: 6
-## -- Column specification --------------------------------------------------------
-## Delimiter: ","
-## chr (3): Dominant_hand, Dominant_foot, Dominant_eye
-## dbl (3): height_cm, head_circum_cm, Number_of_siblings
-## 
-## i Use `spec()` to retrieve the full column specification for this data.
-## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
-\end{verbatim}
 
 \hypertarget{paired-t-test}{%
 \section{\texorpdfstring{Paired \emph{t}-test}{Paired t-test}}\label{paired-t-test}}
@@ -8261,17 +8224,19 @@ Then repeat the code above to create the paired plot.
 \hypertarget{assump_paried}{%
 \subsection{\texorpdfstring{Assumptions of the paired \emph{t}-test}{Assumptions of the paired t-test}}\label{assump_paried}}
 
-The assumptions of the paired \emph{t}-test are the same as the assumptions for the one-sample \emph{t}-test, except they pertain to the \emph{differences}:
+(Updated October 31, 2024)
+
+The assumptions of the paired \emph{t}-test are the same as the assumptions for the one-sample \emph{t}-test, except they pertain to the \emph{difference}:
 
 \begin{itemize}
 \tightlist
 \item
   the sampling units are randomly sampled from the population
 \item
-  the \emph{differences} have a normal distribution in the population (each group of measurements need not be normally distributed)
+  the \emph{mean difference} has a normal distribution in the population (each group of measurements need not be normally distributed)
 \end{itemize}
 
-As instructed in the \protect\hyperlink{checknorm_assum}{checking assumptions} tutorial, we should use a normal quantile plot to visually check the normal distribution assumption.
+As instructed in the \protect\hyperlink{checknorm_assum}{checking assumptions} tutorial, we should use a normal quantile plot to visually check the normal distribution assumption, using the calculated differences.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8380,14 +8345,14 @@ The values of \emph{t} and of the lower and upper confidence limits may be rever
 
 \textbf{(2) Paired \emph{t}-test}
 
-Here we use a method that relies on the data being stored in tidy (long) format, and assuming the order of the observations for each pair is correct. For instance, this is the case for our ``blackbird'' tibble. Specifically, birds 1 through 13 are ordered the same within each of the ``After'' and ``Before'' groups. This is crucial for this implementation of the paired \emph{t}-test.
+(Updated October 31, 2024)
 
-Here's the code for running a paired \emph{t}-test on tidy (long) format data:
+Here again we'll use the wide-format tibble \texttt{blackbird.diffs}, using this approach:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{blackbird.paired.ttest }\OtherTok{\textless{}{-}}\NormalTok{ blackbird }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{t.test}\NormalTok{(Antibody }\SpecialCharTok{\textasciitilde{}}\NormalTok{ time, }\AttributeTok{data =}\NormalTok{ ., }\AttributeTok{paired =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
+\NormalTok{blackbird.paired.ttest }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(}\AttributeTok{x =}\NormalTok{ blackbird.diffs}\SpecialCharTok{$}\NormalTok{Before, }\AttributeTok{y =}\NormalTok{ blackbird.diffs}\SpecialCharTok{$}\NormalTok{After,}
+       \AttributeTok{paired =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{alternative =} \StringTok{\textquotesingle{}two.sided\textquotesingle{}}\NormalTok{, }\AttributeTok{conf.level =} \FloatTok{0.95}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8403,11 +8368,11 @@ Here's an explanation:
   \begin{itemize}
   \tightlist
   \item
-    we use a formula syntax to specify Y \textasciitilde{} X, like we did when learning the \protect\hyperlink{levenetest}{Levene's Test of equal variance}; In this case, we have our numerical response variable (Y) ``Antibody'', then the ``\textasciitilde{}'' symbol, then the explanatory categorical variable (X) ``time''.
-  \item
-    \textbf{NEW}: we have an argument ``data = .'', which tells the \texttt{t.test} function that whatever data was passed to it from the preceding line is what will be used
+    we specify x equal to the ``Before'' variable, and y equal to the ``After'' variable
   \item
     we have the ``paired = TRUE'' argument, telling the function that this is a paired design
+  \item
+    we specify that this is a two-sided test with ``alternative = `two.sided'
   \item
     finally we use ``conf.level = 0.95'' which corresponds to an \(\alpha = 0.05\)
   \end{itemize}
@@ -8425,14 +8390,14 @@ Let's look at the result:
 ## 
 ##  Paired t-test
 ## 
-## data:  Antibody by time
-## t = 1.2435, df = 12, p-value = 0.2374
+## data:  blackbird.diffs$Before and blackbird.diffs$After
+## t = -1.2435, df = 12, p-value = 0.2374
 ## alternative hypothesis: true mean difference is not equal to 0
 ## 95 percent confidence interval:
-##  -0.04134676  0.15128638
+##  -0.15128638  0.04134676
 ## sample estimates:
 ## mean difference 
-##      0.05496981
+##     -0.05496981
 \end{verbatim}
 
 The output is identical to what we got when we applied a 1-sample \emph{t}-test on the differences!
@@ -8445,7 +8410,7 @@ The values of \emph{t} and of the lower and upper confidence limits may be rever
 Here's an example of a reasonable concluding statement, and this can apply for either of the two methods used above (note that in either case we call the test a ``paired \emph{t}-test, even if we used the one-sample \emph{t}-test on the differences):
 
 \begin{quote}
-We have no reason to reject the null hypothesis that the mean change in antibody production after testosterone implants was zero (paired \emph{t}-test; \emph{t} = 1.24; df = 12; \emph{P} = 0.237; 95\% confidence interval for the difference: -0.041 \(< \mu_d <\) 0.151).
+We have no reason to reject the null hypothesis that the mean change in antibody production after testosterone implants was zero (paired \emph{t}-test; \emph{t} = -1.24; df = 12; \emph{P} = 0.237; 95\% confidence interval for the difference: -0.151 \(< \mu_d <\) 0.041).
 \end{quote}
 
 \hypertarget{twosamp_ttest}{%
@@ -12978,65 +12943,42 @@ We'll get an overview of the data using the \texttt{tbl\_summary} function.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## Table printed with `knitr::kable()`, not {gt}. Learn why at
-## https://www.danieldsjoberg.com/gtsummary/articles/rmarkdown.html
-## To suppress this message, include `message = FALSE` in code chunk header.
-\end{verbatim}
-
-\begin{tabular}{l|c}
-\hline
-**Characteristic** & **N = 344**\\
-\hline
-species & \\
-\hline
-Adelie & 152 (44\%)\\
-\hline
-Chinstrap & 68 (20\%)\\
-\hline
-Gentoo & 124 (36\%)\\
-\hline
-island & \\
-\hline
-Biscoe & 168 (49\%)\\
-\hline
-Dream & 124 (36\%)\\
-\hline
-Torgersen & 52 (15\%)\\
-\hline
-bill\_length\_mm & 44.5 (39.2, 48.5)\\
-\hline
-Unknown & 2\\
-\hline
-bill\_depth\_mm & 17.30 (15.60, 18.70)\\
-\hline
-Unknown & 2\\
-\hline
-flipper\_length\_mm & 197 (190, 213)\\
-\hline
-Unknown & 2\\
-\hline
-body\_mass\_g & 4,050 (3,550, 4,750)\\
-\hline
-Unknown & 2\\
-\hline
-sex & \\
-\hline
-female & 165 (50\%)\\
-\hline
-male & 168 (50\%)\\
-\hline
-Unknown & 11\\
-\hline
-year & \\
-\hline
-2007 & 110 (32\%)\\
-\hline
-2008 & 114 (33\%)\\
-\hline
-2009 & 120 (35\%)\\
-\hline
-\end{tabular}
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lc}
+\toprule
+\textbf{Characteristic} & \textbf{N = 344}\textsuperscript{\textit{1}} \\ 
+\midrule\addlinespace[2.5pt]
+species &  \\ 
+    Adelie & 152 (44\%) \\ 
+    Chinstrap & 68 (20\%) \\ 
+    Gentoo & 124 (36\%) \\ 
+island &  \\ 
+    Biscoe & 168 (49\%) \\ 
+    Dream & 124 (36\%) \\ 
+    Torgersen & 52 (15\%) \\ 
+bill\_length\_mm & 44.5 (39.2, 48.5) \\ 
+    Unknown & 2 \\ 
+bill\_depth\_mm & 17.30 (15.60, 18.70) \\ 
+    Unknown & 2 \\ 
+flipper\_length\_mm & 197 (190, 213) \\ 
+    Unknown & 2 \\ 
+body\_mass\_g & 4,050 (3,550, 4,750) \\ 
+    Unknown & 2 \\ 
+sex &  \\ 
+    female & 165 (50\%) \\ 
+    male & 168 (50\%) \\ 
+    Unknown & 11 \\ 
+year &  \\ 
+    2007 & 110 (32\%) \\ 
+    2008 & 114 (33\%) \\ 
+    2009 & 120 (35\%) \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}n (\%); Median (Q1, Q3)\\
+\end{minipage}
+\end{table}
 
 We could select just some numeric variables, and ask for the mean and standard deviation. Note the syntax for the ``statistic'' argument\ldots{} we have to provide a ``list'', as follows:
 
@@ -13048,25 +12990,22 @@ We could select just some numeric variables, and ask for the mean and standard d
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## Table printed with `knitr::kable()`, not {gt}. Learn why at
-## https://www.danieldsjoberg.com/gtsummary/articles/rmarkdown.html
-## To suppress this message, include `message = FALSE` in code chunk header.
-\end{verbatim}
-
-\begin{tabular}{l|c}
-\hline
-**Characteristic** & **N = 344**\\
-\hline
-bill\_length\_mm & 43.9 (5.5)\\
-\hline
-Unknown & 2\\
-\hline
-bill\_depth\_mm & 17.15 (1.97)\\
-\hline
-Unknown & 2\\
-\hline
-\end{tabular}
+\begin{table}[!t]
+\fontsize{12.0pt}{14.4pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lc}
+\toprule
+\textbf{Characteristic} & \textbf{N = 344}\textsuperscript{\textit{1}} \\ 
+\midrule\addlinespace[2.5pt]
+bill\_length\_mm & 43.9 (5.5) \\ 
+    Unknown & 2 \\ 
+bill\_depth\_mm & 17.15 (1.97) \\ 
+    Unknown & 2 \\ 
+\bottomrule
+\end{tabular*}
+\begin{minipage}{\linewidth}
+\textsuperscript{\textit{1}}Mean (SD)\\
+\end{minipage}
+\end{table}
 
 So, if you find youself running into issues with the \texttt{skimr} package, feel free to use the \texttt{gtsummary} package instead!
 
@@ -13346,7 +13285,7 @@ On this HTML page the table above still goes off the page, but the PDF version w
 
 Here's an image of the PDF output:
 
-\includegraphics{./more/second_kable.png}
+\includegraphics[width=26.06in]{./more/second_kable}
 
 For very large datasets you may find this approach causes the font to be too small.
 
@@ -13446,7 +13385,7 @@ This is an optional tutorial describing a new feature included in the latest ver
 
 Markdown documents can be edited either in \textbf{source} mode (what we're looking at right now) or in \textbf{visual} mode. To switch between these modes, click on the button at the top right of the toolbar on the Source panel in RStudio (when viewing a .Rmd file), or use the shortcut {[}\texttt{Command}/\texttt{Control}{]}+\texttt{Shift}+\texttt{F4}.
 
-\includegraphics{./more/toolbar.png}
+\includegraphics[width=10.31in]{./more/toolbar}
 
 \textbf{Toolbar above the editing pane in RStudio.}
 

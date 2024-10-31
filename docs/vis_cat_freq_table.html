@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.3 Create a frequency table | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.3 Create a frequency table | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-10-13" />
+<meta name="date" content="2024-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -518,16 +518,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>TIP</strong>
 Some datasets that we use for tutorials need to be imported into an object in your workspace. This is the case with the <code>tigerdeaths</code> dataset, and the code for importing the data into a tibble is below. Other datasets, like the <code>penguins</code> dataset, exist within packages (palmerpenguins), and their objects are already created for you. Most of the time, and particularly for your lab assignments, you need to import a dataset and create an object, as we do below.</p>
 </div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="vis_cat_freq_table.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># here we import the data from a CSV file and put it into a &quot;tibble&quot; object called &quot;tigerdeaths&quot;</span></span>
-<span id="cb35-2"><a href="vis_cat_freq_table.html#cb35-2" aria-hidden="true" tabindex="-1"></a>tigerdeaths <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="vis_cat_freq_table.html#cb35-1" tabindex="-1"></a><span class="co"># here we import the data from a CSV file and put it into a &quot;tibble&quot; object called &quot;tigerdeaths&quot;</span></span>
+<span id="cb35-2"><a href="vis_cat_freq_table.html#cb35-2" tabindex="-1"></a>tigerdeaths <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/tigerdeaths.csv&quot;</span>)</span></code></pre></div>
 <p>You would also have gotten <a href="vis_data_overview.html#vis_data_overview">overview of the data</a> as part of the activity, using the <code>skim_without_charts</code> function. This would have shown that the <code>activity</code> variable is of type “character”, which tells us it is a <strong>categorical</strong> variable, and that it includes 9 unique categories. We also would have seen that there are 88 cases (rows) in the dataset.</p>
 <p>Let’s provide the code to generate the frequency table, using the pipes “%&gt;%” approach we learned about in an <a href="import_csv_local.html#import_csv_local">earlier tutorial</a>. We’ll assign the output to a new object that will hold the frequency table. We’ll name the object “tiger.table”. Note that we won’t yet view the table here… we’ll do that next.</p>
 <p>We’ll provide the code first, then explain it step-by-step after.</p>
 <p>Here’s the code for creating the frequency table and assigning it to a new object named “tiger.table”:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="vis_cat_freq_table.html#cb36-1" aria-hidden="true" tabindex="-1"></a>tiger.table <span class="ot">&lt;-</span> tigerdeaths <span class="sc">%&gt;%</span></span>
-<span id="cb36-2"><a href="vis_cat_freq_table.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(activity, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb36-3"><a href="vis_cat_freq_table.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
-<span id="cb36-4"><a href="vis_cat_freq_table.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="vis_cat_freq_table.html#cb36-1" tabindex="-1"></a>tiger.table <span class="ot">&lt;-</span> tigerdeaths <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="vis_cat_freq_table.html#cb36-2" tabindex="-1"></a>  <span class="fu">count</span>(activity, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-3"><a href="vis_cat_freq_table.html#cb36-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_frequency =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb36-4"><a href="vis_cat_freq_table.html#cb36-4" tabindex="-1"></a>  <span class="fu">adorn_totals</span>()</span></code></pre></div>
 <ul>
 <li>The first line provides the name of the object (tibble) that we’re going to create (here, “tiger.table”), and use the assignment operator (“&lt;-”) tell R to put whatever the output of our operation is into that object. The next part of the first line provides the name of the object that we’re going to do something with, here “tigerdeaths”. The “%&gt;%” tells R that we’re not done yet, and there’s more lines of code to come.</li>
 <li>The second line uses the <code>count</code> function from the <code>dplyr</code> package to tally the unique values of a variable, in this case the “activity” variable. It also takes an argument “sort = TRUE”, telling it to sort the counts in descending order (the default sort direction). Then another “%&gt;%” to continue the code..</li>

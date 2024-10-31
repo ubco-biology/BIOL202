@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.5 Get an overview of a dataset | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.5 Get an overview of a dataset | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2023-10-13" />
+<meta name="date" content="2024-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -522,10 +522,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>As we learned in the “Preparing and formatting assignments” <a href="example_answer.html#example_answer">tutorial</a>, the <code>skimr</code> package has a handy function called <code>skim_without_charts</code> that provides a good overview of a data object. This is a rather long function name, and in fact the main function is called <code>skim</code>. However, by default, <code>skim</code> includes small charts in its output, and we don’t want that presently, hence the use of <code>skim_without_charts</code>.</p>
 <p>Let’s load that package now:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data_overview.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data_overview.html#cb27-1" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div>
 <p>And get an overview of the <code>trout</code> dataset, again using the pipe approach:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data_overview.html#cb28-1" aria-hidden="true" tabindex="-1"></a>trout <span class="sc">%&gt;%</span></span>
-<span id="cb28-2"><a href="data_overview.html#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data_overview.html#cb28-1" tabindex="-1"></a>trout <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="data_overview.html#cb28-2" tabindex="-1"></a>  <span class="fu">skim_without_charts</span>()</span></code></pre></div>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 <span id="tab:unnamed-chunk-25">Table 5.1: </span>Data summary
@@ -777,9 +777,9 @@ Trout_Caught
 </ul>
 <p>Now you have what you need to answer each of the questions listed above!</p>
 <p>One additional function that is useful during the overview stage is <code>head</code>. This function just gives you a view of the first 6 rows of the dataset:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data_overview.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we can use head(trout), or the pipe approach: </span></span>
-<span id="cb29-2"><a href="data_overview.html#cb29-2" aria-hidden="true" tabindex="-1"></a>trout <span class="sc">%&gt;%</span></span>
-<span id="cb29-3"><a href="data_overview.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data_overview.html#cb29-1" tabindex="-1"></a><span class="co"># we can use head(trout), or the pipe approach: </span></span>
+<span id="cb29-2"><a href="data_overview.html#cb29-2" tabindex="-1"></a>trout <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="data_overview.html#cb29-3" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 3
 ##   Site           Day Trout_Caught
 ##   &lt;chr&gt;        &lt;dbl&gt;        &lt;dbl&gt;
