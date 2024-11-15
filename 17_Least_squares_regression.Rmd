@@ -98,9 +98,10 @@ The $\alpha$ in the regression equation has no relation to the $\alpha$ that set
 </div>
 
 <div class="note">
-The equation for the true least-squares line shown above uses the equation shown in the course text book.  However, a more complete and conventional way to write the equation is as follows:  
+The equation for the true least-squares line shown above uses the equation shown in the course text book.  However, an alternative way to write the equation is as follows, and includes an error term "$\epsilon$":  
 
 $Y$ = $\beta_0$ + $\beta_1$$x$ + $\epsilon$
+
 
 </div>
 * * *
