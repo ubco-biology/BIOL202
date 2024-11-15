@@ -97,6 +97,12 @@ In practice, we estimate the "parameters" $\alpha$ and $\beta$ using a random sa
 The $\alpha$ in the regression equation has no relation to the $\alpha$ that sets the significance level for a test!
 </div>
 
+<div class="note">
+The equation for the true least-squares line shown above uses the equation shown in the course text book.  However, a more complete and conventional way to write the equation is as follows:  
+
+$Y$ = $\beta_0$ + $\beta_1$$x$ + $\epsilon$
+
+</div>
 * * *
 
 ### Hypothesis testing or prediction? {#LSR_hyp}
