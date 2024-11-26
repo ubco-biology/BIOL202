@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.15)  15 NOV 2024 14:01
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.15)  26 NOV 2024 09:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -832,21 +832,21 @@ No file BIOL202.toc.
 
 [6]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 169.
+(Font)              scaled to size 7.0pt on input line 165.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 169.
+(Font)              scaled to size 5.0pt on input line 165.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 169.
+(Font)              scaled to size 10.00092pt on input line 165.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 169.
+(Font)              scaled to size 7.00064pt on input line 165.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 169.
+(Font)              scaled to size 5.00046pt on input line 165.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 169.
+(Font)              scaled to size 9.99893pt on input line 165.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 169.
+(Font)              scaled to size 6.99925pt on input line 165.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 169.
+(Font)              scaled to size 4.99947pt on input line 165.
 
 
 [7
@@ -873,12 +873,12 @@ File: ./more/dashboard.png Graphic file (type bmp)
 [11
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 254--256
+Underfull \hbox (badness 10000) in paragraph at lines 245--247
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--263
+Underfull \hbox (badness 10000) in paragraph at lines 252--254
 
  []
 
@@ -886,6 +886,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 261--263
 
 [12]
 Chapter 2.
+
+LaTeX Warning: Hyper reference `what_is_R' on page 13 undefined on input line 262.
+
 File: ./more/Rlogo.png Graphic file (type bmp)
 <./more/Rlogo.png>
 File: ./more/RStudio-Ball.png Graphic file (type bmp)
@@ -901,14 +904,14 @@ File: ./more/RStudio_Window.png Graphic file (type bmp)
 
 [14]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 355.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 341.
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 367--367
+Overfull \hbox (12.0pt too wide) in paragraph at lines 353--353
 []\TU/lmtt/m/n/10 There is a binary version available but the source version is later:[] 
  []
 
 
-Overfull \hbox (117.0pt too wide) in paragraph at lines 367--367
+Overfull \hbox (117.0pt too wide) in paragraph at lines 353--353
 []\TU/lmtt/m/n/10 Do you want to install from sources the package which needs compilation? (Yes/no/cancel)[] 
  []
 
@@ -920,6 +923,10 @@ Overfull \hbox (117.0pt too wide) in paragraph at lines 367--367
 
 [17]
 
+LaTeX Warning: Hyper reference `repro_research' on page 18 undefined on input line 452.
+
+
+
 [18]
 File: ./more/cheatsheets.png Graphic file (type bmp)
 <./more/cheatsheets.png>
@@ -928,7 +935,7 @@ File: ./more/cheatsheets.png Graphic file (type bmp)
 [20]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in table 2.5 on input line 623.
+(longtable)                in table 2.5 on input line 603.
 
 
 
@@ -947,7 +954,7 @@ Chapter 3.
 [25
 
 ]
-Underfull \hbox (badness 1199) in paragraph at lines 727--728
+Underfull \hbox (badness 1199) in paragraph at lines 702--703
 \TU/lmr/m/n/10 own computer, which automatically syncs (when you’re online) selected
  []
 
@@ -959,12 +966,12 @@ Underfull \hbox (badness 1199) in paragraph at lines 727--728
 File: ./more/BIOL202_directory_structure.png Graphic file (type bmp)
 <./more/BIOL202_directory_structure.png>
 
-Overfull \hbox (500.25613pt too wide) in paragraph at lines 794--794
+Overfull \hbox (500.25613pt too wide) in paragraph at lines 767--767
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 21.98969pt on input line 795.
+LaTeX Warning: Float too large for page by 21.98969pt on input line 768.
 
 
 
@@ -972,15 +979,26 @@ LaTeX Warning: Float too large for page by 21.98969pt on input line 795.
 
 [29]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 843.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 811.
 
 
 [30]
 
+LaTeX Warning: Hyper reference `intro_markdown' on page 31 undefined on input line 833.
+
+
+
 [31]
+
+LaTeX Warning: Hyper reference `create_project' on page 32 undefined on input line 888.
+
+
 
 [32]
 Chapter 4.
+
+LaTeX Warning: Hyper reference `assign_workflow' on page 33 undefined on input line 904.
+
 
 
 [33
@@ -989,48 +1007,58 @@ Chapter 4.
 File: ./more/assign_header.png Graphic file (type bmp)
 <./more/assign_header.png>
 
-Overfull \hbox (76.60207pt too wide) in paragraph at lines 963--963
+Overfull \hbox (76.60207pt too wide) in paragraph at lines 923--923
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 971--973
+Underfull \hbox (badness 10000) in paragraph at lines 931--933
 
  []
 
 
 
 [34]
+
+LaTeX Warning: Hyper reference `onedrive' on page 35 undefined on input line 943.
+
 File: ./more/install_package_header2.png Graphic file (type bmp)
 <./more/install_package_header2.png>
 
-Overfull \hbox (36.4553pt too wide) in paragraph at lines 1005--1005
+Overfull \hbox (36.4553pt too wide) in paragraph at lines 963--963
 [][] 
  []
 
 
 
 [35]
-Overfull \hbox (227.25pt too wide) in paragraph at lines 1027--1027
+Overfull \hbox (227.25pt too wide) in paragraph at lines 984--984
 []\TU/lmtt/m/n/10 example_data <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv")[] 
  []
+
+
+LaTeX Warning: Hyper reference `packages' on page 36 undefined on input line 992.
 
 
 
 [36]
 
+LaTeX Warning: Hyper reference `rmd_graphing' on page 37 undefined on input line 1020.
+
+
+
 [37]
 File: ./more/figure_chunk_header.png Graphic file (type bmp)
 <./more/figure_chunk_header.png>
 
-Overfull \hbox (880.73224pt too wide) in paragraph at lines 1089--1090
+Overfull \hbox (880.73224pt too wide) in paragraph at lines 1043--1044
 [][] 
  []
 
 File: ./more/example_histogram_practice.png Graphic file (type bmp)
 <./more/example_histogram_practice.png>
 
-Overfull \hbox (238.09822pt too wide) in paragraph at lines 1091--1092
+Overfull \hbox (238.09822pt too wide) in paragraph at lines 1045--1046
 [][] 
  []
 
@@ -1045,14 +1073,14 @@ Underfull \vbox (badness 3158) has occurred while \output is active []
 File: ./more/assign_header.png Graphic file (type bmp)
 <./more/assign_header.png>
 
-Overfull \hbox (76.60207pt too wide) in paragraph at lines 1104--1104
+Overfull \hbox (76.60207pt too wide) in paragraph at lines 1058--1058
 [][] 
  []
 
 
 
 [40]
-Overfull \hbox (64.5pt too wide) in paragraph at lines 1122--1122
+Overfull \hbox (64.5pt too wide) in paragraph at lines 1075--1075
 []\TU/lmtt/m/n/10 https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv[] 
  []
 
@@ -1066,6 +1094,10 @@ Overfull \hbox (64.5pt too wide) in paragraph at lines 1122--1122
 
 [44]
 
+LaTeX Warning: Hyper reference `veryify_knit' on page 45 undefined on input line 1316.
+
+
+
 [45]
 
 [46
@@ -1073,17 +1105,17 @@ Overfull \hbox (64.5pt too wide) in paragraph at lines 1122--1122
 ]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1399--1401
+Underfull \hbox (badness 10000) in paragraph at lines 1349--1351
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1401--1403
+Underfull \hbox (badness 10000) in paragraph at lines 1351--1353
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1403--1405
+Underfull \hbox (badness 10000) in paragraph at lines 1353--1355
 
  []
 
@@ -1093,48 +1125,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 1403--1405
 File: ./more/excel_tidy.png Graphic file (type bmp)
 <./more/excel_tidy.png>
 
-Overfull \hbox (43.48804pt too wide) in paragraph at lines 1426--1426
+Overfull \hbox (43.48804pt too wide) in paragraph at lines 1375--1375
 [][] 
  []
 
 
 
 [48]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 1474--1474
+
+LaTeX Warning: Hyper reference `example_answer' on page 49 undefined on input line 1405.
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 1422--1422
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 1474--1474
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1422--1422
 []\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 1474--1474
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1422--1422
 []\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1478--1480
+Underfull \hbox (badness 10000) in paragraph at lines 1426--1428
 []\TU/lmr/bx/n/10 Error in read_csv(“[]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][] [] [][][][] [][]
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 1478--1480
+Underfull \hbox (badness 2057) in paragraph at lines 1426--1428
 [][][][][][][] [] [][][][][][][] [] [][][][] [] [][][][] [] [][][][][][][][] [] [][][]$[]\TU/lmr/bx/n/10 ”) :  could not find
  []
 
 
 
 [49]
-Underfull \hbox (badness 1189) in paragraph at lines 1503--1504
+Underfull \hbox (badness 1189) in paragraph at lines 1451--1452
 \TU/lmr/m/n/10 called \TU/lmtt/m/n/10 birds.csv \TU/lmr/m/n/10 file would be “[]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][] [] [][][][] [][]
  []
+
+
+LaTeX Warning: Hyper reference `import_csv_local' on page 50 undefined on input line 1453.
 
 File: ./more/files_pane_rawdata.png Graphic file (type bmp)
 <./more/files_pane_rawdata.png>
 
-Overfull \hbox (365.73315pt too wide) in paragraph at lines 1523--1523
+Overfull \hbox (365.73315pt too wide) in paragraph at lines 1470--1470
 [][] 
  []
 
@@ -1142,12 +1181,23 @@ Overfull \hbox (365.73315pt too wide) in paragraph at lines 1523--1523
 
 [50]
 
+LaTeX Warning: Hyper reference `tidy_data' on page 51 undefined on input line 1482.
+
+
+
 [51]
 
+LaTeX Warning: Hyper reference `here_package' on page 52 undefined on input line 1501.
+
+
+
 [52]
-Underfull \hbox (badness 10000) in paragraph at lines 1608--1610
+Underfull \hbox (badness 10000) in paragraph at lines 1553--1555
 
  []
+
+
+LaTeX Warning: Hyper reference `example_answer' on page 53 undefined on input line 1562.
 
 
 
@@ -1158,6 +1208,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 1608--1610
 [55]
 
 [56]
+
+LaTeX Warning: Hyper reference `setup_dirs' on page 57 undefined on input line 1801.
+
+
 
 [57]
 
@@ -1170,23 +1224,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 1608--1610
 [60]
 Chapter 6.
 
+LaTeX Warning: Hyper reference `package_install' on page 61 undefined on input line 1872.
+
+
 
 [61
 
 ]
-Underfull \hbox (badness 4341) in paragraph at lines 1955--1956
+
+LaTeX Warning: Hyper reference `import_csv_url' on page 62 undefined on input line 1896.
+
+
+Underfull \hbox (badness 4341) in paragraph at lines 1896--1897
 [][][] [] [][][][] [][] [][][][][][][] [] [][][][][][][] [] [][][][] [] [][][][][]$[]\TU/lmr/m/n/10 ”. Thus, to import any CSV
  []
 
 
-Underfull \hbox (badness 1173) in paragraph at lines 1955--1956
+Underfull \hbox (badness 1173) in paragraph at lines 1896--1897
 \TU/lmr/m/n/10 name to the end of the path. For example, the full path to access
  []
 
 
-Underfull \hbox (badness 4726) in paragraph at lines 1955--1956
+Underfull \hbox (badness 4726) in paragraph at lines 1896--1897
 \TU/lmr/m/n/10 the \TU/lmtt/m/n/10 birds.csv \TU/lmr/m/n/10 file would be “[]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][] [] [][][][] [][]
  []
+
+
+LaTeX Warning: Hyper reference `data_overview' on page 62 undefined on input line 1902.
 
 
 
@@ -1197,78 +1261,88 @@ Underfull \hbox (badness 4726) in paragraph at lines 1955--1956
 [64]
 
 [65]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##    <fct>   <fct>              <dbl>         <dbl>             <int>       <int>[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##  1 Adelie  Torgersen           39.1          18.7               181        3750[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##  2 Adelie  Torgersen           39.5          17.4               186        3800[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##  3 Adelie  Torgersen           40.3          18                 195        3250[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##  4 Adelie  Torgersen           NA            NA                  NA          NA[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##  5 Adelie  Torgersen           36.7          19.3               193        3450[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##  6 Adelie  Torgersen           39.3          20.6               190        3650[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##  7 Adelie  Torgersen           38.9          17.8               181        3625[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##  8 Adelie  Torgersen           39.2          19.6               195        4675[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ##  9 Adelie  Torgersen           34.1          18.1               193        3475[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 2199--2199
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2139--2139
 []\TU/lmtt/m/n/10 ## 10 Adelie  Torgersen           42            20.2               190        4250[] 
  []
+
+
+LaTeX Warning: Hyper reference `data_overview' on page 66 undefined on input line 2141.
 
 
 
 [66]
 
+LaTeX Warning: Hyper reference `vis_data_overview' on page 67 undefined on input line 2175.
+
+
+LaTeX Warning: Hyper reference `import_csv_local' on page 67 undefined on input line 2177.
+
+
+
 [67]
-Underfull \hbox (badness 10000) in paragraph at lines 2262--2264
+Underfull \hbox (badness 10000) in paragraph at lines 2201--2203
 
  []
 
 
 
 [68]
-Overfull \hbox (647.25pt too wide) in paragraph at lines 2278--2278
+Overfull \hbox (647.25pt too wide) in paragraph at lines 2217--2217
 []  \TU/lmtt/m/n/10 kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)[] 
  []
 
@@ -1287,14 +1361,14 @@ File: BIOL202_files/figure-latex/unnamed-chunk-28-1.pdf Graphic file (type pdf)
 File: ./more/bar_graph_chunk.png Graphic file (type bmp)
 <./more/bar_graph_chunk.png>
 
-Overfull \hbox (836.50764pt too wide) in paragraph at lines 2456--2456
+Overfull \hbox (836.50764pt too wide) in paragraph at lines 2394--2394
 [][] 
  []
 
 
 
 [73]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2488--2488
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2425--2425
 []\TU/lmtt/m/n/10 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.[] 
  []
 
@@ -1303,14 +1377,14 @@ File: BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
 
 
 [74]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2518--2518
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2455--2455
 []\TU/lmtt/m/n/10 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.[] 
  []
 
 
 
 [75]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 2576--2576
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2513--2513
 []\TU/lmtt/m/n/10 ## [1] 6.432749e-05 3.918129e-04 5.380117e-04 3.333333e-04 3.157895e-04[] 
  []
 
@@ -1329,21 +1403,24 @@ File: BIOL202_files/figure-latex/unnamed-chunk-32-1.pdf Graphic file (type pdf)
 [78]
 Chapter 7.
 
+LaTeX Warning: Hyper reference `package_install' on page 79 undefined on input line 2628.
+
+
 
 [79
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 2728--2728
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2662--2662
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 2728--2728
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2662--2662
 []\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 2728--2728
+Overfull \hbox (96.0pt too wide) in paragraph at lines 2662--2662
 []\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
  []
 
@@ -1351,14 +1428,21 @@ Overfull \hbox (96.0pt too wide) in paragraph at lines 2728--2728
 
 [80]
 
+LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 81 undefined on input line 2695.
+
+
+
 [81]
-Underfull \hbox (badness 2368) in paragraph at lines 2854--2855
+Underfull \hbox (badness 2368) in paragraph at lines 2786--2787
 \TU/lmtt/m/n/10 summarise \TU/lmr/m/n/10 (equivalently \TU/lmtt/m/n/10 summarize\TU/lmr/m/n/10 ) function for calculating descriptive
  []
 
 
 
 [82]
+
+LaTeX Warning: Hyper reference `vis_histogram' on page 83 undefined on input line 2796.
+
 File: BIOL202_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-34-1.pdf>
 
@@ -1367,21 +1451,27 @@ File: BIOL202_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (type pdf)
 File: ./more/na_error.png Graphic file (type bmp)
 <./more/na_error.png>
 
-Overfull \hbox (305.51147pt too wide) in paragraph at lines 2902--2902
+Overfull \hbox (305.51147pt too wide) in paragraph at lines 2833--2833
 [][] 
  []
 
 
+LaTeX Warning: Hyper reference `vis_data_overview' on page 84 undefined on input line 2836.
+
+
 
 [84]
-Overfull \hbox (1.92201pt too wide) in paragraph at lines 2944--2946
+Overfull \hbox (1.92201pt too wide) in paragraph at lines 2875--2877
 []\TU/lmr/m/n/10 We feed the variable of interest from the \TU/lmtt/m/n/10 penguins \TU/lmr/m/n/10 tibble, “body_mass_g”,
  []
 
 
+LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 85 undefined on input line 2890.
+
+
 
 [85]
-Overfull \hbox (70.85501pt too wide) in paragraph at lines 2987--2988
+Overfull \hbox (70.85501pt too wide) in paragraph at lines 2917--2918
 []\TU/lmr/m/n/10 The same coding approach is used in the last line: \TU/lmtt/m/n/10 Count_NA = naniar::n_miss(body_mass_g)\TU/lmr/m/n/10 . 
  []
 
@@ -1403,17 +1493,21 @@ Chapter 8.
 [89
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3176--3176
+
+LaTeX Warning: Hyper reference `package_install' on page 90 undefined on input line 3071.
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3103--3103
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3176--3176
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3103--3103
 []\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 3176--3176
+Overfull \hbox (96.0pt too wide) in paragraph at lines 3103--3103
 []\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
  []
 
@@ -1425,17 +1519,17 @@ Overfull \hbox (18.32562pt too wide) has occurred while \output is active
  []
 
 [90]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3195--3195
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3122--3122
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3195--3195
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3122--3122
 []\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 3195--3195
+Overfull \hbox (96.0pt too wide) in paragraph at lines 3122--3122
 []\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
  []
 
@@ -1462,12 +1556,20 @@ Overfull \hbox (45.61453pt too wide) has occurred while \output is active
 
 [93]
 
+LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 94 undefined on input line 3338.
+
+
+
 
 Overfull \hbox (18.32562pt too wide) has occurred while \output is active
 \TU/lmr/m/n/10 94 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
 [94]
+
+LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 95 undefined on input line 3375.
+
+
 
 
 Overfull \hbox (45.61453pt too wide) has occurred while \output is active
@@ -1478,7 +1580,10 @@ Overfull \hbox (45.61453pt too wide) has occurred while \output is active
 File: BIOL202_files/figure-latex/malaria_barchart1-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/malaria_barchart1-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 3496--3498
+LaTeX Warning: Hyper reference `vis_cat_barchart' on page 96 undefined on input line 3415.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3420--3422
 
  []
 
@@ -1493,7 +1598,7 @@ Overfull \hbox (18.32562pt too wide) has occurred while \output is active
 File: ./more/grouped_bar_graph.png Graphic file (type bmp)
 <./more/grouped_bar_graph.png>
 
-Overfull \hbox (712.08112pt too wide) in paragraph at lines 3506--3506
+Overfull \hbox (712.08112pt too wide) in paragraph at lines 3430--3430
 [][] 
  []
 
@@ -1517,6 +1622,9 @@ Overfull \hbox (18.32562pt too wide) has occurred while \output is active
 File: BIOL202_files/figure-latex/mosaic_malaria1-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/mosaic_malaria1-1.pdf>
 
+LaTeX Warning: Hyper reference `rmd_graphing' on page 99 undefined on input line 3493.
+
+
 
 
 Overfull \hbox (45.61453pt too wide) has occurred while \output is active
@@ -1529,7 +1637,7 @@ File: BIOL202_files/figure-latex/unnamed-chunk-44-1.pdf Graphic file (type pdf)
 File: ./more/mosaic_graph.png Graphic file (type bmp)
 <./more/mosaic_graph.png>
 
-Overfull \hbox (723.0912pt too wide) in paragraph at lines 3593--3593
+Overfull \hbox (723.0912pt too wide) in paragraph at lines 3515--3515
 [][] 
  []
 
@@ -1541,6 +1649,9 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
  []
 
 [100]
+
+LaTeX Warning: Hyper reference `rmd_graphing' on page 101 undefined on input line 3532.
+
 File: BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf>
 
@@ -1559,12 +1670,23 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 
 [102]
 
+LaTeX Warning: Hyper reference `vis_describe' on page 103 undefined on input line 3568.
+
+
+LaTeX Warning: Hyper reference `mean_sd' on page 103 undefined on input line 3570.
+
+
+
 
 Overfull \hbox (24.29453pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.3.  VISUALIZING ASSOCIATION BETWEEN TWO NUMERIC VARIABLES \TU/lmr/m/n/10 103
  []
 
 [103]
+
+LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 104 undefined on input line 3631.
+
+
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
@@ -1574,6 +1696,9 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 [104]
 File: BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf>
+
+LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 105 undefined on input line 3680.
+
 
 
 
@@ -1590,6 +1715,10 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 
 [106]
 
+LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 107 undefined on input line 3702.
+
+
+
 
 Overfull \hbox (113.52124pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 107
@@ -1598,6 +1727,9 @@ Overfull \hbox (113.52124pt too wide) has occurred while \output is active
 [107]
 File: BIOL202_files/figure-latex/body_violin-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/body_violin-1.pdf>
+
+LaTeX Warning: Hyper reference `stripchart' on page 108 undefined on input line 3750.
+
 
 
 
@@ -1653,7 +1785,7 @@ Overfull \hbox (113.52124pt too wide) has occurred while \output is active
 File: BIOL202_files/figure-latex/unnamed-chunk-51-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-51-1.pdf>
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3992--3992
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3907--3907
 []  \TU/lmtt/m/n/10 geom_jitter(colour = "grey", size = 1, shape = 1, width = 0.15) +[] 
  []
 
@@ -1687,21 +1819,24 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 [118]
 Chapter 9.
 
+LaTeX Warning: Hyper reference `package_install' on page 119 undefined on input line 3958.
+
+
 
 [119
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4078--4078
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3989--3989
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4078--4078
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3989--3989
 []\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 4078--4078
+Overfull \hbox (96.0pt too wide) in paragraph at lines 3989--3989
 []\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
  []
 
@@ -1720,6 +1855,10 @@ Overfull \hbox (96.0pt too wide) in paragraph at lines 4078--4078
 [125]
 
 [126]
+
+LaTeX Warning: Hyper reference `sampling_error' on page 127 undefined on input line 4363.
+
+
 
 [127]
 
@@ -1745,13 +1884,13 @@ File: BIOL202_files/figure-latex/newsampfig-1.pdf Graphic file (type pdf)
 ! Missing { inserted.
 <to be read again> 
                    \Umathaccent 
-l.4780 \[SE_\bar
+l.4685 \[SE_\bar
                 {Y} = \frac{s}{\sqrt{n}}\] 
 Here is how much of TeX's memory you used:
- 20811 strings out of 475994
- 387057 string characters out of 5778007
+ 20837 strings out of 475994
+ 387445 string characters out of 5778007
  914189 words of memory out of 5000000
- 43273 multiletter control sequences out of 15000+600000
+ 43299 multiletter control sequences out of 15000+600000
  564658 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,10n,123p,1035b,558s stack positions out of 10000i,1000n,20000p,200000b,200000s

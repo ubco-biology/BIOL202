@@ -4927,13 +4927,11 @@ We use the `t.test` function again for this test.
 ```{r go_2samp}
 height.ttest <- students %>%
   t.test(height_cm ~ Dominant_eye, 
-         data = ., paired = FALSE, 
-         var.equal = TRUE, conf.level = 0.95)
+         data = ., var.equal = TRUE, conf.level = 0.95)
 ```
 
-The only differences from the implementation used in the paired *t*-test are:
+The only difference from the implementation used in the paired *t*-test is:
 
-* we used "paired = FALSE"
 * we include the "var.equal = TRUE" argument
 
 We again include the argument "data = .", which tells the `t.test` function that whatever data was passed to it from the preceding line is what will be used
@@ -4969,8 +4967,7 @@ For instance, let's pretend that the height data did not exhibit equal variance 
 ```{r go_2samp2}
 height.ttest.unequal.var <- students %>%
   t.test(height_cm ~ Dominant_eye, 
-         data = ., paired = FALSE, 
-         var.equal = FALSE, conf.level = 0.95)
+         data = ., var.equal = FALSE, conf.level = 0.95)
 height.ttest.unequal.var
 ```
 

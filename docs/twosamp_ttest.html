@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2024-11-15" />
+<meta name="date" content="2024-11-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -67,7 +67,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -77,7 +77,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -1064,11 +1064,9 @@ Figure 14.5: Normal quantile plots of height for students with right (n = 106) o
 <p>We use the <code>t.test</code> function again for this test.</p>
 <div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="twosamp_ttest.html#cb321-1" tabindex="-1"></a>height.ttest <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
 <span id="cb321-2"><a href="twosamp_ttest.html#cb321-2" tabindex="-1"></a>  <span class="fu">t.test</span>(height_cm <span class="sc">~</span> Dominant_eye, </span>
-<span id="cb321-3"><a href="twosamp_ttest.html#cb321-3" tabindex="-1"></a>         <span class="at">data =</span> ., <span class="at">paired =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb321-4"><a href="twosamp_ttest.html#cb321-4" tabindex="-1"></a>         <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
-<p>The only differences from the implementation used in the paired <em>t</em>-test are:</p>
+<span id="cb321-3"><a href="twosamp_ttest.html#cb321-3" tabindex="-1"></a>         <span class="at">data =</span> ., <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<p>The only difference from the implementation used in the paired <em>t</em>-test is:</p>
 <ul>
-<li>we used “paired = FALSE”</li>
 <li>we include the “var.equal = TRUE” argument</li>
 </ul>
 <p>We again include the argument “data = .”, which tells the <code>t.test</code> function that whatever data was passed to it from the preceding line is what will be used</p>
