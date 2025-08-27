@@ -170,7 +170,7 @@ For an example of a PDF document that illustrates literate programming, see [her
 
 
 <div class="advanced">
-If you'd like additional introductory tutorials on R Markdown,  see this [one from RStudio](https://rmarkdown.rstudio.com/lesson-1.html), or this [one](https://rbasics.netlify.app/4-rmarkdown.html). 
+If you'd like additional introductory tutorials on R Markdown,  see this [resource](https://rbasics.netlify.app/4-rmarkdown.html). 
 </div>
 
 ## Making sure R Markdown knits to PDF {#veryify_knit}

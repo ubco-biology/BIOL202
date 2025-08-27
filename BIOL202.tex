@@ -407,7 +407,7 @@ For an example of a PDF document that illustrates literate programming, see \hre
   View the following \href{https://www.youtube.com/watch?v=asHhuHRxhvo}{youtube video} on creating an R Markdown document.
 \end{enumerate}
 
-If you'd like additional introductory tutorials on R Markdown, see this \href{https://rmarkdown.rstudio.com/lesson-1.html}{one from RStudio}, or this \href{https://rbasics.netlify.app/4-rmarkdown.html}{one}.
+If you'd like additional introductory tutorials on R Markdown, see this \href{https://rbasics.netlify.app/4-rmarkdown.html}{resource}.
 
 \section{Making sure R Markdown knits to PDF}\label{veryify_knit}
 
@@ -668,7 +668,7 @@ Purpose
 
 A key goal of our Biology program at UBC's Okanagan campus is to foster appreciation for reproducible research, and to equip students (and professors) with skills that will help them undertake reproducible research themselves.
 
-In first year you learned from the Biology program's \href{https://ubco-biology.github.io/OS-Introduction/}{introductory Open Science learning modules} that reproducible research studies are not as common as one might assume. One key reason for this is insufficient documentation of all the steps taken along the research workflow. Moreover, conducting reproducible research is extremely challenging - more than most scientists appreciate. See, for example, an incredible, recent case concerning ageing experiments with \emph{C. elegans} \href{https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478}{here}.
+In first year you may have learned from the Biology program's \href{https://ubco-biology.github.io/OS-Introduction/}{introductory Open Science learning modules} that reproducible research studies are not as common as one might assume. (If you did not cover that material, do so now). One key reason for this is insufficient documentation of all the steps taken along the research workflow. Moreover, conducting reproducible research is extremely challenging - more than most scientists appreciate. See, for example, an incredible, recent case concerning ageing experiments with \emph{C. elegans} \href{https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478}{here}.
 
 In the BIOL202 lectures you'll learn more about the various causes of irreproducible research, and about the practices that can help promote reproducibility. In this lab component of the course, you'll learn the basics of how to achieve an acceptable level of \emph{computational reproducibility} (complete computational reproducibility is actually pretty tricky, but we'll get close).
 
@@ -824,7 +824,7 @@ Now we'll install and load an R package called \texttt{here} that will help with
 install.packages("here")
 \end{verbatim}
 
-This is a helpful \href{http://jenrichmond.rbind.io/post/how-to-use-the-here-package/}{blog post} about the utility of the \texttt{here} package.
+This is a helpful \href{https://here.r-lib.org/index.html}{vignette} about the \texttt{here} package.
 
 Then we load the package:
 
@@ -864,7 +864,7 @@ This is the R Markdown file that you'll edit/add to throughout the term. It has 
   Save your file by clicking the save icon in the top left, and be sure to give it an appropriate name as per previous file-naming instructions
 \end{itemize}
 
-For the basics on formatting in R Markdown, consult the R Markdown \href{https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf}{reference guide}
+For the basics on formatting in R Markdown, consult the R Markdown \href{https://utstat.utoronto.ca/reid/sta2201s/rmarkdown-reference.pdf}{reference guide}
 
 \section{Components of an R Markdown file}\label{md_components}
 
@@ -876,10 +876,8 @@ At this point, you should familiarize yourself with the components of a markdown
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  R basics
+  \textbf{R Markdown basics}: Read through section 4.2 of this online \href{https://rbasics.netlify.app/4-rmarkdown.html\#the-components-of-an-r-markdown-file}{tutorial} and watch the videos there too
 \end{enumerate}
-
-Read through section 4.2 of this online \href{https://rbasics.netlify.app/4-rmarkdown.html\#the-components-of-an-r-markdown-file}{tutorial} and watch the videos there too
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -942,7 +940,7 @@ Complete the following steps:
 \item
   keeping the quotation marks, replace the ``Firstname Lastname, Section YY'' with your own Firstname Lastname and section number (e.g.~'' Jason Pither, Section 04'')
 \item
-  keeping the quotation marks, replace the ``Due date'' with the due date of the current assignment, e.g.~``September 21, 2022''
+  keeping the quotation marks, replace the ``Due date'' with the due date of the current assignment, e.g.~``September 21, 2025''
 \end{itemize}
 
 Don't alter anything else at the top of the document, including the R Chunk that you see below the header.
@@ -1388,15 +1386,14 @@ There you'll learn how to arrange and format your data within a spreadsheet. The
 \begin{figure}
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{./more/excel_tidy.png}}
-\caption{\label{fig:unnamed-chunk-16}Tidy data in Excel}
+\caption{\label{fig:exceltidy}Tidy data in Excel}
 \end{figure}
 
 If you'd like a longer, more in-depth read about ``tidy data'', see Hadley Wickham's ``R for Datascience'' online book, linked \href{http://r4ds.had.co.nz/tidy-data.html}{here}.
-And this \href{https://towardsdatascience.com/tidy-data-with-r-f3d078853fc6}{article} describes why making your data ``tidy'' saves a lot of time and effort in the long run. Oh, and it uses Covid-19 data to demonstrate!
 
 If you wish to import and analyze data that have not been formatted according to \textbf{tidy} principles, then the most transparent and computationally reproducible way to reformat the data is to do so by coding \emph{within R}, rather than using software like Excel. The process of reformatting / rearranging data is called \textbf{data wrangling}, and is mostly beyond the scope of this course.
 
-If you're curious about data wrangling, the \texttt{dplyr} package, which is loaded with the \texttt{tidyverse} package, provides all the tools for data wrangling. Its associated cheatsheet is available \href{https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiDxcv5zI_6AhWBFzQIHaFDCuMQFnoECBoQAQ&url=https\%3A\%2F\%2Fwww.rstudio.com\%2Fwp-content\%2Fuploads\%2F2015\%2F02\%2Fdata-wrangling-cheatsheet.pdf&usg=AOvVaw3YtyAQzCrVUXwp7frfnZC5}{here}.
+If you're curious about data wrangling, the \texttt{dplyr} package, which is loaded with the \texttt{tidyverse} package, provides all the tools for data wrangling. Its associated cheatsheet is available at the package's \href{https://dplyr.tidyverse.org/index.html}{vignette website}.
 
 \section{Import a CSV file from a website}\label{import_csv_url}
 
@@ -1485,7 +1482,7 @@ Once you run this code, you'll see the new directory appear in the Files pane in
 \begin{figure}
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{./more/files_pane_rawdata.png}}
-\caption{\label{fig:unnamed-chunk-20}View of files with rawdata folder}
+\caption{\label{fig:unnamed-chunk-19}View of files with rawdata folder}
 \end{figure}
 
 The folder is called ``rawdata'' because the data stored there will be the unedited, raw version of the data, and any files therein should \textbf{NOT} be altered. Any changes or edits one makes to the datasets should be saved in new data files that are saved in a different folder called ``output'', which we'll create later.
@@ -1497,7 +1494,7 @@ Let's create a data file to work with.
 \begin{itemize}
 \tightlist
 \item
-  Open up Excel or any other spreadsheet software and enter values in the spreadsheet cells exactly as shown in the Excel example in Figure 10.1 from the \hyperref[tidy_data]{Tidy Data section above}
+  Open up Excel or any other spreadsheet software and enter values in the spreadsheet cells exactly as shown in the Excel example in Figure 5.1 from the \hyperref[tidy_data]{Tidy Data section above}
 \item
   You should have one row with the 3 variable names (``Site'', ``Day'', ``Trout\_Caught''), one in each column, then nine rows of data
 \item
@@ -1510,7 +1507,7 @@ Now we're ready to try importing the data into a ``tibble''.
 
 \section{Import a local CSV file}\label{import_csv_local}
 
-You can find additional help on importing different types of files at the \href{https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf}{Data Import Cheat Sheet}.
+You can find additional help on importing different types of files at the \href{https://rstudio.github.io/cheatsheets/html/data-import.html}{Data Import Vignette}, which includes a cheatsheet.
 
 \textbf{Steps to import a local CSV file}
 
@@ -1596,7 +1593,7 @@ And get an overview of the \texttt{trout} dataset, again using the pipe approach
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-25}Data summary
+\label{tab:unnamed-chunk-24}Data summary
 
 Name
 
@@ -2376,8 +2373,8 @@ Let's provide the code first, and explain after.
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-28-1.pdf}}
-\caption{\label{fig:unnamed-chunk-28}Bar graph showing the activities of 88 people at the time they were attached and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-27-1.pdf}}
+\caption{\label{fig:unnamed-chunk-27}Bar graph showing the activities of 88 people at the time they were attached and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006}
 \end{figure}
 
 All figures produced using the \texttt{ggplot2} package start with the \texttt{ggplot} function. Then the following arguments:
@@ -2411,7 +2408,7 @@ There you have it: a nicely formatted bar graph!
 \begin{figure}
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{./more/bar_graph_chunk.png}}
-\caption{\label{fig:unnamed-chunk-29}Example code chunk for producing a good bar graph}
+\caption{\label{fig:unnamed-chunk-28}Example code chunk for producing a good bar graph}
 \end{figure}
 
 \begin{enumerate}
@@ -2446,8 +2443,8 @@ We'll give the code first, then explain below:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf}}
-\caption{\label{fig:unnamed-chunk-30}Histogram of body mass (g) for 342 penguins}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-29-1.pdf}}
+\caption{\label{fig:unnamed-chunk-29}Histogram of body mass (g) for 342 penguins}
 \end{figure}
 
 The syntax follows what was seen above when creating a bar graph, but:
@@ -2566,8 +2563,8 @@ So let's edit the original histogram code to include the ``binwidth'' argument i
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-31-1.pdf}}
-\caption{\label{fig:unnamed-chunk-31}Histogram of body mass (g) for 342 penguins}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf}}
+\caption{\label{fig:unnamed-chunk-30}Histogram of body mass (g) for 342 penguins}
 \end{figure}
 
 There we go! Now we need to learn how to describe and interpret a histogram\ldots{}
@@ -2602,8 +2599,8 @@ So, let's look again at the penguin body mass histogram, and provide a descripti
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-32-1.pdf}}
-\caption{\label{fig:unnamed-chunk-32}Histogram of body mass (g) for 342 penguins}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-31-1.pdf}}
+\caption{\label{fig:unnamed-chunk-31}Histogram of body mass (g) for 342 penguins}
 \end{figure}
 
 The histogram is moderately positively skewed and thus asymmetric, with a single mode near 3500g. There are no obvious outliers in the distribution.
@@ -2827,8 +2824,8 @@ The first step is to visualize the frequency distribution. Given that this is a 
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-34-1.pdf}}
-\caption{\label{fig:unnamed-chunk-34}Histogram of body mass (g) for 342 penguins}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-33-1.pdf}}
+\caption{\label{fig:unnamed-chunk-33}Histogram of body mass (g) for 342 penguins}
 \end{figure}
 
 We are reminded that the distribution of body mass is moderately positively skewed and thus asymmetric, with a single mode near 3500g. There are no obvious outliers in the distribution.
@@ -2852,7 +2849,7 @@ Uh oh! If you tried to run this code, it would have given you an error:
 \begin{figure}
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{./more/na_error.png}}
-\caption{\label{fig:unnamed-chunk-35}Error when functions encounter `NA' values}
+\caption{\label{fig:unnamed-chunk-34}Error when functions encounter `NA' values}
 \end{figure}
 
 We forgot that when we \hyperref[vis_data_overview]{previously} got an overview of the \texttt{penguins} dataset we discovered there were missing values (``NA'' values)!
@@ -3451,7 +3448,7 @@ If we wished to provide an appropriate figure heading, this would be the code:
 \begin{figure}
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{./more/grouped_bar_graph.png}}
-\caption{\label{fig:unnamed-chunk-42}Example code chunk for producing a good grouped bar graph}
+\caption{\label{fig:unnamed-chunk-41}Example code chunk for producing a good grouped bar graph}
 \end{figure}
 
 And the result:
@@ -3468,8 +3465,8 @@ And the result:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf}}
-\caption{\label{fig:unnamed-chunk-43}Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-42-1.pdf}}
+\caption{\label{fig:unnamed-chunk-42}Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.}
 \end{figure}
 
 \subsection{Constructing a mosaic plot}\label{mosaic_plot}
@@ -3529,8 +3526,8 @@ Let's provide the mosaic plot again, and this time we'll provide an appropriate 
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-44-1.pdf}}
-\caption{\label{fig:unnamed-chunk-44}Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf}}
+\caption{\label{fig:unnamed-chunk-43}Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.}
 \end{figure}
 
 Here's the code:
@@ -3538,7 +3535,7 @@ Here's the code:
 \begin{figure}
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{./more/mosaic_graph.png}}
-\caption{\label{fig:unnamed-chunk-45}Example code chunk for producing a good mosaic plot}
+\caption{\label{fig:unnamed-chunk-44}Example code chunk for producing a good mosaic plot}
 \end{figure}
 
 When interpreting a mosaic plot, the key is to look how the relative frequency of the categories of the response variable - denoted by the ``fill'' colours - varies across the explanatory variable, which is arranged on the x-axis.
@@ -3571,8 +3568,8 @@ As shown in the tutorial on \hyperref[rmd_graphing]{preparing and formatting ass
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf}}
-\caption{\label{fig:unnamed-chunk-46}Scatterplot of the association between bill length and depth among 151 Adelie penguins}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-45-1.pdf}}
+\caption{\label{fig:unnamed-chunk-45}Scatterplot of the association between bill length and depth among 151 Adelie penguins}
 \end{figure}
 
 In the code chunk above, we have:
@@ -3679,8 +3676,8 @@ We'll provide the code, then explain after:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf}}
-\caption{\label{fig:unnamed-chunk-47}Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf}}
+\caption{\label{fig:unnamed-chunk-46}Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group.}
 \end{figure}
 
 \begin{itemize}
@@ -3795,8 +3792,8 @@ And now show the plot:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf}}
-\caption{\label{fig:unnamed-chunk-48}Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf}}
+\caption{\label{fig:unnamed-chunk-47}Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins.}
 \end{figure}
 
 \textbf{TIP}: If you wish to run all the code at once in a single chunk to create a figure, rather than adding new code to an existing object, here's what you'd include in your chunk (but here we don't show the chunk header that would include the caption):
@@ -3844,8 +3841,8 @@ Now we add density plots in the margins using the \texttt{ggMarginal} function f
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf}}
-\caption{\label{fig:unnamed-chunk-49}Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf}}
+\caption{\label{fig:unnamed-chunk-48}Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.}
 \end{figure}
 
 The violin plot is designed to give an idea of the frequency distribution of response variable values within each group. Specifically, the width of the violin reflects the frequency of observations in that range of values. This is evident in the above figure within the ``density plots'' that are provided in the right-hand margin. Consider these density plots as a smoothed out version of a histogram.
@@ -3874,8 +3871,8 @@ Here is the code for creating boxplots, again using the penguins body mass data,
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf}}
-\caption{\label{fig:unnamed-chunk-50}Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf}}
+\caption{\label{fig:unnamed-chunk-49}Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.}
 \end{figure}
 
 For more information about the features of the boxplot, look at the help file for the \texttt{geom\_boxplot} function:
@@ -3904,8 +3901,8 @@ We already have a basic violin plot object created, called ``bodymass.violin'', 
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-51-1.pdf}}
-\caption{\label{fig:unnamed-chunk-51}Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf}}
+\caption{\label{fig:unnamed-chunk-50}Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.}
 \end{figure}
 
 \begin{itemize}
@@ -4574,8 +4571,8 @@ Now let's plot the histogram of 10000 sample means:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-54-1.pdf}}
-\caption{\label{fig:unnamed-chunk-54}Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20).}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-53-1.pdf}}
+\caption{\label{fig:unnamed-chunk-53}Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20).}
 \end{figure}
 
 This histogram is an approximation of the \textbf{sampling distribution of the mean} for a sample size of 20 (to construct a real sampling distribution we'd need to take an infinite number of replicate samples).
@@ -4648,8 +4645,8 @@ Now plot a histogram, making sure to keep the x- and y-axis limits the same as w
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-56-1.pdf}}
-\caption{\label{fig:unnamed-chunk-56}Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50).}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-55-1.pdf}}
+\caption{\label{fig:unnamed-chunk-55}Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50).}
 \end{figure}
 
 Notice that there is much less positive skew to this frequency distribution.
@@ -5295,8 +5292,8 @@ The only difference here, compared to previous times we've created histograms, i
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-60-1.pdf}}
-\caption{\label{fig:unnamed-chunk-60}Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-59-1.pdf}}
+\caption{\label{fig:unnamed-chunk-59}Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions.}
 \end{figure}
 
 The null distribution above shows us that if the null hypothesis was true, the most probable outcome would be 10 counter-clockwise battles out of 20. But other outcomes are of course possible, with decreasing probability towards zero and twenty.
@@ -5999,8 +5996,8 @@ Now let's use these exact probabilities to create a barplot showing an exact, di
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-66-1.pdf}}
-\caption{\label{fig:unnamed-chunk-66}Probability of obtaining X successes out of 6 random trials, with probability of success = 1/6.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-65-1.pdf}}
+\caption{\label{fig:unnamed-chunk-65}Probability of obtaining X successes out of 6 random trials, with probability of success = 1/6.}
 \end{figure}
 
 What if we wished to calculate the probability of getting \emph{at least} two fours in our 6 rolls of the dice?
@@ -6077,8 +6074,8 @@ Now plot the binomial probability distribution:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-67-1.pdf}}
-\caption{\label{fig:unnamed-chunk-67}Probability of obtaining X successes out of 15 random trials, with probability of success = 1/6.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-66-1.pdf}}
+\caption{\label{fig:unnamed-chunk-66}Probability of obtaining X successes out of 15 random trials, with probability of success = 1/6.}
 \end{figure}
 
 \begin{enumerate}
@@ -6718,8 +6715,8 @@ Here we're showing ``relative frequency'' on the y-axis, so this should range fr
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-70-1.pdf}}
-\caption{\label{fig:unnamed-chunk-70}Relative frequency of cancer among women randomly assigned to control (n = 19942) and aspririn (n = 19934) treatment groups.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-69-1.pdf}}
+\caption{\label{fig:unnamed-chunk-69}Relative frequency of cancer among women randomly assigned to control (n = 19942) and aspririn (n = 19934) treatment groups.}
 \end{figure}
 
 The mosaic plot shows that the incidence (or relative frequency) of cancer is almost identical in the treatment and control groups.
@@ -7196,8 +7193,8 @@ Here's a mosaic plot with an ideal figure caption included:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-75-1.pdf}}
-\caption{\label{fig:unnamed-chunk-75}Mosaic plot of bird predation on killifish having different levels of trematode parasitism. A total of 50, 45, and 46 fish were in the uninfected, lightly infected, and highly infected groups.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-74-1.pdf}}
+\caption{\label{fig:unnamed-chunk-74}Mosaic plot of bird predation on killifish having different levels of trematode parasitism. A total of 50, 45, and 46 fish were in the uninfected, lightly infected, and highly infected groups.}
 \end{figure}
 
 In the code above we manually specified the two fill colours using the \texttt{scale\_fill\_manual} function.
@@ -7470,8 +7467,8 @@ We'll use this information to ensure that the histogram spans the appropriate ra
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-78-1.pdf}}
-\caption{\label{fig:unnamed-chunk-78}Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-77-1.pdf}}
+\caption{\label{fig:unnamed-chunk-77}Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people.}
 \end{figure}
 
 Notice the new argument to the \texttt{geom\_histogram} function: ``boundary''. Why include this? The minimum value in our dataset is 97.4. Based on our overview of the data, we decided to use a ``binwidth'' of 0.5. Therefore, it made most sense to have our bins (bars) start at 97, the first whole number preceding our minimum value, then have breaks every 0.5 units thereafter. Constructing the histogram this way makes it easier to interpret.
@@ -7639,8 +7636,8 @@ The following graph illustrates this for the \emph{t} distribution associated wi
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-80-1.pdf}}
-\caption{\label{fig:unnamed-chunk-80}The \emph{t} distribution for df = 24.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-79-1.pdf}}
+\caption{\label{fig:unnamed-chunk-79}The \emph{t} distribution for df = 24.}
 \end{figure}
 
 Here's the code to calculate the critical value of \emph{t}, and recall that we've defined \texttt{alpha} and \texttt{d\_f} above:
@@ -7754,7 +7751,7 @@ If we wanted to report the confidence interval on its own, we can get the necess
 \begin{figure}
 \centering
 \pandocbounded{\includegraphics[keepaspectratio]{./more/confint_inline_code.png}}
-\caption{\label{fig:unnamed-chunk-81}Example of inline markdown and R code for a confidence interval}
+\caption{\label{fig:unnamed-chunk-80}Example of inline markdown and R code for a confidence interval}
 \end{figure}
 
 Which will provide:
@@ -8066,8 +8063,8 @@ The best way to visualize the data for a paired \emph{t}-test is to create a \te
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-85-1.pdf}}
-\caption{\label{fig:unnamed-chunk-85}Histogram of the differences in antibody production rate before and after the testosterone treatment}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-84-1.pdf}}
+\caption{\label{fig:unnamed-chunk-84}Histogram of the differences in antibody production rate before and after the testosterone treatment}
 \end{figure}
 
 With such a small sample size (13), the histogram is not particularly informative. But we do see most observations are just above zero.
@@ -8088,8 +8085,8 @@ Another optional but nice way to visualize paired data is using a paired plot.
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-86-1.pdf}}
-\caption{\label{fig:unnamed-chunk-86}Paired plot of antibody production rate before and after the testosterone treatment}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-85-1.pdf}}
+\caption{\label{fig:unnamed-chunk-85}Paired plot of antibody production rate before and after the testosterone treatment}
 \end{figure}
 
 \textbf{OPTIONAL}
@@ -8134,8 +8131,8 @@ As instructed in the \hyperref[checknorm_assum]{checking assumptions} tutorial, 
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-88-1.pdf}}
-\caption{\label{fig:unnamed-chunk-88}Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln{[}mOD/min{]}) 10\^{}-3.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-87-1.pdf}}
+\caption{\label{fig:unnamed-chunk-87}Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln{[}mOD/min{]}) 10\^{}-3.}
 \end{figure}
 
 We see that most of the lines are close to the line, with one point near the top right that is a bit off\ldots{}
@@ -8304,7 +8301,7 @@ Have a look at the \texttt{students} dataset:
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-89}Data summary
+\label{tab:unnamed-chunk-88}Data summary
 
 Name
 
@@ -8677,8 +8674,8 @@ Here we want to visualize height in relation to dominant eye (Left or Right). We
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-92-1.pdf}}
-\caption{\label{fig:unnamed-chunk-92}Violin and boxplot of the heights of students with right (n = 106) and left (n = 48) dominant eyes. Boxes delimit the first to third quartiles, bold lines represent the group medians, and whiskers extend to 1.5 times the IQR. Points beyond whiskers are extreme observations.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-91-1.pdf}}
+\caption{\label{fig:unnamed-chunk-91}Violin and boxplot of the heights of students with right (n = 106) and left (n = 48) dominant eyes. Boxes delimit the first to third quartiles, bold lines represent the group medians, and whiskers extend to 1.5 times the IQR. Points beyond whiskers are extreme observations.}
 \end{figure}
 
 \textbf{Interpretation}
@@ -8722,8 +8719,8 @@ We'll introduce the \texttt{facet\_grid} function that enables plotting of side-
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-93-1.pdf}}
-\caption{\label{fig:unnamed-chunk-93}Normal quantile plots of height for students with right (n = 106) or left (n = 48) dominant eyes.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-92-1.pdf}}
+\caption{\label{fig:unnamed-chunk-92}Normal quantile plots of height for students with right (n = 106) or left (n = 48) dominant eyes.}
 \end{figure}
 
 A reasonable statement would be:
@@ -9154,8 +9151,8 @@ Check out this example showing simulated data drawn from a normal distribution:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-100-1.pdf}}
-\caption{\label{fig:unnamed-chunk-100}Example of a normal quantile plot for a variable that is normally distributed.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-99-1.pdf}}
+\caption{\label{fig:unnamed-chunk-99}Example of a normal quantile plot for a variable that is normally distributed.}
 \end{figure}
 
 Now we'll use the \texttt{marine} dataset and its variable called \texttt{biomassRatio} to illustrate.
@@ -9176,8 +9173,8 @@ We'll first construct a histogram as you've \hyperref[vis_histogram]{learned pre
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-101-1.pdf}}
-\caption{\label{fig:unnamed-chunk-101}The frequency distribution of the `biomass ratio' of 32 marine reserves.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-100-1.pdf}}
+\caption{\label{fig:unnamed-chunk-100}The frequency distribution of the `biomass ratio' of 32 marine reserves.}
 \end{figure}
 
 Notice that the distribution is quite right-skewed (or ``postively skewed'').
@@ -9198,8 +9195,8 @@ Now the quantile plot:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-102-1.pdf}}
-\caption{\label{fig:unnamed-chunk-102}Normal quantile plot of the `biomass ratio' of 32 marine reserves.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-101-1.pdf}}
+\caption{\label{fig:unnamed-chunk-101}Normal quantile plot of the `biomass ratio' of 32 marine reserves.}
 \end{figure}
 
 Notice that in the ``aes'' argument we use ``sample = biomassRatio''. This is new, and is only required for the normal quantile plot, specifically the subsequent \texttt{stat\_qq} and \texttt{stat\_qq\_line} functions.
@@ -9412,8 +9409,8 @@ When one observes a right-skewed frequency distribution, as seen here in the mar
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-103-1.pdf}}
-\caption{\label{fig:unnamed-chunk-103}The frequency distribution of the `biomass ratio' of 32 marine reserves.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-102-1.pdf}}
+\caption{\label{fig:unnamed-chunk-102}The frequency distribution of the `biomass ratio' of 32 marine reserves.}
 \end{figure}
 
 To log-transform the data, simply create a new variable in the dataset using the \texttt{mutate} function (from the \texttt{dplyr} package) that we've seen before. Here we'll call our new variable \texttt{logbiomass}, and use the \texttt{log} function to take the \textbf{natural log} of the ``biomassRatio'' variable.
@@ -9476,8 +9473,8 @@ Now let's look at the histogram of the log-transformed data:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-104-1.pdf}}
-\caption{\label{fig:unnamed-chunk-104}The frequency distribution of the `biomass ratio' of 32 marine reserves (log-transformed).}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-103-1.pdf}}
+\caption{\label{fig:unnamed-chunk-103}The frequency distribution of the `biomass ratio' of 32 marine reserves (log-transformed).}
 \end{figure}
 
 Now the quantile plot:
@@ -9496,8 +9493,8 @@ Now the quantile plot:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-105-1.pdf}}
-\caption{\label{fig:unnamed-chunk-105}Figure: Normal quantile plot of the `biomass ratio' of 32 marine reserves (log-transformed).}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-104-1.pdf}}
+\caption{\label{fig:unnamed-chunk-104}Figure: Normal quantile plot of the `biomass ratio' of 32 marine reserves (log-transformed).}
 \end{figure}
 
 The log-transform definitely helped, but the distribution still looks a bit wonky: several of the points are quite far from the line.
@@ -9585,8 +9582,8 @@ Here's a quantile plot of the biomass variable:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-107-1.pdf}}
-\caption{\label{fig:unnamed-chunk-107}Normal quantile plot of made-up biomass data.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-106-1.pdf}}
+\caption{\label{fig:unnamed-chunk-106}Normal quantile plot of made-up biomass data.}
 \end{figure}
 
 Let's first see what happens when we try to log-transform the ``biomass'' variable:
@@ -9664,8 +9661,8 @@ Notice that we still have a zero in the newly created variable, \textbf{AFTER} h
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-112-1.pdf}}
-\caption{\label{fig:unnamed-chunk-112}Normal quantile plot of made-up biomass data, log-transformed.}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-111-1.pdf}}
+\caption{\label{fig:unnamed-chunk-111}Normal quantile plot of made-up biomass data, log-transformed.}
 \end{figure}
 
 That's a bit better. We would now use this new variable in our analyses (assuming it meets the normality assumption).
@@ -9815,8 +9812,8 @@ Let's visualize the data with a normal quantile plot:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-113-1.pdf}}
-\caption{\label{fig:unnamed-chunk-113}Normal quantile plot of the proportion of seeds fertilized on 30 plants (left) and the corresponding normal quantile plot (right)}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-112-1.pdf}}
+\caption{\label{fig:unnamed-chunk-112}Normal quantile plot of the proportion of seeds fertilized on 30 plants (left) and the corresponding normal quantile plot (right)}
 \end{figure}
 
 Clearly not normal!
@@ -9854,8 +9851,8 @@ Now let's visualize the transformed data:
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-114-1.pdf}}
-\caption{\label{fig:unnamed-chunk-114}Normal quantile plot of the proportion of seeds fertilized (logit transformed) on 30 plants}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-113-1.pdf}}
+\caption{\label{fig:unnamed-chunk-113}Normal quantile plot of the proportion of seeds fertilized (logit transformed) on 30 plants}
 \end{figure}
 
 That's much better!
@@ -11228,8 +11225,8 @@ We learned in an \hyperref[two_numeric]{earlier tutorial} that the best way to v
 
 \begin{figure}
 \centering
-\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-120-1.pdf}}
-\caption{\label{fig:unnamed-chunk-120}The association between inbreeding coefficient and number of surviving wolf pups (n = 24).}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-119-1.pdf}}
+\caption{\label{fig:unnamed-chunk-119}The association between inbreeding coefficient and number of surviving wolf pups (n = 24).}
 \end{figure}
 
 We notice that there doesn't appear to be the correct number of points (24) in the scatterplot, so there must be some overlapping.
@@ -13046,7 +13043,7 @@ kbl(skim.penguins.transposed, caption = "Overview of the 'penguins' dataset",
 
 \begin{table}
 \centering
-\caption{\label{tab:unnamed-chunk-130}Overview of the 'penguins' dataset}
+\caption{\label{tab:unnamed-chunk-129}Overview of the 'penguins' dataset}
 \centering
 \begin{tabular}[t]{l|l|l|l|l|l|l|l|l}
 \hline

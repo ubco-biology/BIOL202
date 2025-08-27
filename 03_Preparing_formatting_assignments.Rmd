@@ -30,7 +30,7 @@ Complete the following steps:
 
 * keeping the quotation marks, replace the "Practice assignment" text with the current assignment name   
 * keeping the quotation marks, replace the "Firstname Lastname, Section YY" with your own Firstname Lastname and section number (e.g. " Jason Pither, Section 04") 
-* keeping the quotation marks, replace the "Due date" with the due date of the current assignment, e.g. "September 21, 2022"  
+* keeping the quotation marks, replace the "Due date" with the due date of the current assignment, e.g. "September 21, 2025"  
 
 <div class="flag">
 Don't alter anything else at the top of the document, including the R Chunk that you see below the header.  

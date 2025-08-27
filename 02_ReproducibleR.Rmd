@@ -9,7 +9,7 @@ options(knitr.table.format = "html")
 
 A key goal of our Biology program at UBC's Okanagan campus is to foster appreciation for reproducible research, and to equip students (and professors) with skills that will help them undertake reproducible research themselves.     
 
-In first year you learned from the Biology program's [introductory Open Science learning modules](https://ubco-biology.github.io/OS-Introduction/) that reproducible research studies are not as common as one might assume.  One key reason for this is insufficient documentation of all the steps taken along the research workflow.  Moreover, conducting reproducible research is extremely challenging - more than most scientists appreciate. See, for example, an incredible, recent case concerning ageing experiments with *C. elegans* [here](https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478).
+In first year you may have learned from the Biology program's [introductory Open Science learning modules](https://ubco-biology.github.io/OS-Introduction/) that reproducible research studies are not as common as one might assume. (If you did not cover that material, do so now). One key reason for this is insufficient documentation of all the steps taken along the research workflow.  Moreover, conducting reproducible research is extremely challenging - more than most scientists appreciate. See, for example, an incredible, recent case concerning ageing experiments with *C. elegans* [here](https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478).
 
 In the BIOL202 lectures you'll learn more about the various causes of irreproducible research, and about the practices that can help promote reproducibility. In this lab component of the course, you'll learn the basics of how to achieve an acceptable level of *computational reproducibility* (complete computational reproducibility is actually pretty tricky, but we'll get close).
 
@@ -142,7 +142,7 @@ Now we'll install and load an R package called `here` that will help with file a
 install.packages("here")
 ```
 
-This is a helpful [blog post](http://jenrichmond.rbind.io/post/how-to-use-the-here-package/) about the utility of the `here` package.
+This is a helpful [vignette](https://here.r-lib.org/index.html) about the `here` package.
 
 Then we load the package:
 
@@ -173,7 +173,7 @@ This is the R Markdown file that you'll edit/add to throughout the term.  It has
 * Change the "author" information at the top of the document (in the header) to your name.
 * Save your file by clicking the save icon in the top left, and be sure to give it an appropriate name as per previous file-naming instructions
 
-For the basics on formatting in R Markdown, consult the R Markdown [reference guide ](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+For the basics on formatting in R Markdown, consult the R Markdown [reference guide ](https://utstat.utoronto.ca/reid/sta2201s/rmarkdown-reference.pdf)
 
 ## Components of an R Markdown file {#md_components}
 
@@ -181,9 +181,7 @@ At this point, you should familiarize yourself with the components of a markdown
 
 * * *
 
-1. R basics
-
-Read through section 4.2 of this online [tutorial](https://rbasics.netlify.app/4-rmarkdown.html#the-components-of-an-r-markdown-file) and watch the videos there too
+1. **R Markdown basics**: Read through section 4.2 of this online [tutorial](https://rbasics.netlify.app/4-rmarkdown.html#the-components-of-an-r-markdown-file) and watch the videos there too
 
 * * *
 

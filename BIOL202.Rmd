@@ -233,7 +233,7 @@ For an example of a PDF document that illustrates literate programming, see [her
 
 
 <div class="advanced">
-If you'd like additional introductory tutorials on R Markdown,  see this [one from RStudio](https://rmarkdown.rstudio.com/lesson-1.html), or this [one](https://rbasics.netlify.app/4-rmarkdown.html). 
+If you'd like additional introductory tutorials on R Markdown,  see this [resource](https://rbasics.netlify.app/4-rmarkdown.html). 
 </div>
 
 ## Making sure R Markdown knits to PDF {#veryify_knit}
@@ -382,7 +382,7 @@ options(knitr.table.format = "html")
 
 A key goal of our Biology program at UBC's Okanagan campus is to foster appreciation for reproducible research, and to equip students (and professors) with skills that will help them undertake reproducible research themselves.     
 
-In first year you learned from the Biology program's [introductory Open Science learning modules](https://ubco-biology.github.io/OS-Introduction/) that reproducible research studies are not as common as one might assume.  One key reason for this is insufficient documentation of all the steps taken along the research workflow.  Moreover, conducting reproducible research is extremely challenging - more than most scientists appreciate. See, for example, an incredible, recent case concerning ageing experiments with *C. elegans* [here](https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478).
+In first year you may have learned from the Biology program's [introductory Open Science learning modules](https://ubco-biology.github.io/OS-Introduction/) that reproducible research studies are not as common as one might assume. (If you did not cover that material, do so now). One key reason for this is insufficient documentation of all the steps taken along the research workflow.  Moreover, conducting reproducible research is extremely challenging - more than most scientists appreciate. See, for example, an incredible, recent case concerning ageing experiments with *C. elegans* [here](https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478).
 
 In the BIOL202 lectures you'll learn more about the various causes of irreproducible research, and about the practices that can help promote reproducibility. In this lab component of the course, you'll learn the basics of how to achieve an acceptable level of *computational reproducibility* (complete computational reproducibility is actually pretty tricky, but we'll get close).
 
@@ -515,7 +515,7 @@ Now we'll install and load an R package called `here` that will help with file a
 install.packages("here")
 ```
 
-This is a helpful [blog post](http://jenrichmond.rbind.io/post/how-to-use-the-here-package/) about the utility of the `here` package.
+This is a helpful [vignette](https://here.r-lib.org/index.html) about the `here` package.
 
 Then we load the package:
 
@@ -546,7 +546,7 @@ This is the R Markdown file that you'll edit/add to throughout the term.  It has
 * Change the "author" information at the top of the document (in the header) to your name.
 * Save your file by clicking the save icon in the top left, and be sure to give it an appropriate name as per previous file-naming instructions
 
-For the basics on formatting in R Markdown, consult the R Markdown [reference guide ](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+For the basics on formatting in R Markdown, consult the R Markdown [reference guide ](https://utstat.utoronto.ca/reid/sta2201s/rmarkdown-reference.pdf)
 
 ## Components of an R Markdown file {#md_components}
 
@@ -554,9 +554,7 @@ At this point, you should familiarize yourself with the components of a markdown
 
 * * *
 
-1. R basics
-
-Read through section 4.2 of this online [tutorial](https://rbasics.netlify.app/4-rmarkdown.html#the-components-of-an-r-markdown-file) and watch the videos there too
+1. **R Markdown basics**: Read through section 4.2 of this online [tutorial](https://rbasics.netlify.app/4-rmarkdown.html#the-components-of-an-r-markdown-file) and watch the videos there too
 
 * * *
 
@@ -616,7 +614,7 @@ Complete the following steps:
 
 * keeping the quotation marks, replace the "Practice assignment" text with the current assignment name   
 * keeping the quotation marks, replace the "Firstname Lastname, Section YY" with your own Firstname Lastname and section number (e.g. " Jason Pither, Section 04") 
-* keeping the quotation marks, replace the "Due date" with the due date of the current assignment, e.g. "September 21, 2022"  
+* keeping the quotation marks, replace the "Due date" with the due date of the current assignment, e.g. "September 21, 2025"  
 
 <div class="flag">
 Don't alter anything else at the top of the document, including the R Chunk that you see below the header.  
@@ -866,19 +864,18 @@ Review the [Biology Procedures and Guidelines document](https://ubco-biology.git
 
 There you'll learn how to arrange and format your data within a spreadsheet. The "Tidy" example provided would look like this in Excel: 
 
-```{r, fig.cap = "Tidy data in Excel", echo = FALSE, fig.width = 3}
+```{r exceltidy, fig.cap = "Tidy data in Excel", echo = FALSE, fig.width = 3}
 knitr::include_graphics("./more/excel_tidy.png")
 ```
 
 
 <div class="advanced">
 If you'd like a longer, more in-depth read about "tidy data", see Hadley Wickham's "R for Datascience" online book, linked [here](http://r4ds.had.co.nz/tidy-data.html). 
-And this [article](https://towardsdatascience.com/tidy-data-with-r-f3d078853fc6) describes why making your data "tidy" saves a lot of time and effort in the long run.  Oh, and it uses Covid-19 data to demonstrate!  
 </div>
 
 If you wish to import and analyze data that have not been formatted according to **tidy** principles, then the most transparent and computationally reproducible way to reformat the data is to do so by coding _within R_, rather than using software like Excel.  The process of reformatting / rearranging data is called **data wrangling**, and is mostly beyond the scope of this course. 
 
-If you're curious about data wrangling, the `dplyr` package, which is loaded with the `tidyverse` package, provides all the tools for data wrangling. Its associated cheatsheet is available [here](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiDxcv5zI_6AhWBFzQIHaFDCuMQFnoECBoQAQ&url=https%3A%2F%2Fwww.rstudio.com%2Fwp-content%2Fuploads%2F2015%2F02%2Fdata-wrangling-cheatsheet.pdf&usg=AOvVaw3YtyAQzCrVUXwp7frfnZC5). 
+If you're curious about data wrangling, the `dplyr` package, which is loaded with the `tidyverse` package, provides all the tools for data wrangling. Its associated cheatsheet is available at the package's [vignette website](https://dplyr.tidyverse.org/index.html). 
 
 ## Import a CSV file from a website {#import_csv_url}
 
@@ -956,7 +953,7 @@ Let's create a data file to work with.
 
 **Steps to create and save a CSV file**
 
-* Open up Excel or any other spreadsheet software and enter values in the spreadsheet cells exactly as shown in the Excel example in Figure 10.1 from the [Tidy Data section above](#tidy_data)
+* Open up Excel or any other spreadsheet software and enter values in the spreadsheet cells exactly as shown in the Excel example in Figure 5.1 from the [Tidy Data section above](#tidy_data)
 * You should have one row with the 3 variable names ("Site", "Day", "Trout_Caught"), one in each column, then nine rows of data
 * Save the file as a CSV file by selecting (MAC) File > Save As > and in the drop down list: CSV UTF-8 (Comma separated), and Windows File > Save as type > CSV UTF-8 (comma separated)
 * Name it "trout.csv", and save it within the newly created "rawdata" folder
@@ -965,7 +962,7 @@ Now we're ready to try importing the data into a "tibble".
 
 ## Import a local CSV file {#import_csv_local}
 
-You can find additional help on importing different types of files at the [Data Import Cheat Sheet](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf).
+You can find additional help on importing different types of files at the [Data Import Vignette](https://rstudio.github.io/cheatsheets/html/data-import.html), which includes a cheatsheet.
 
 **Steps to import a local CSV file**
 

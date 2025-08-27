@@ -522,7 +522,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">3.9.1</span> The <code>here</code> package<a href="create_subdirs.html#here_package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now we’ll install and load an R package called <code>here</code> that will help with file and directory management and navigation.</p>
 <pre><code>install.packages(&quot;here&quot;)</code></pre>
-<p>This is a helpful <a href="http://jenrichmond.rbind.io/post/how-to-use-the-here-package/">blog post</a> about the utility of the <code>here</code> package.</p>
+<p>This is a helpful <a href="https://here.r-lib.org/index.html">vignette</a> about the <code>here</code> package.</p>
 <p>Then we load the package:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="create_subdirs.html#cb9-1" tabindex="-1"></a><span class="fu">library</span>(here)</span></code></pre></div>
 <p>When you load the package, the <code>here</code> function takes stock of where your RStudio project file is located, and establishes that directory as the “working directory”. It should return a file path for you. In future tutorials we’ll make use of the <code>here</code> package when saving files.</p>
