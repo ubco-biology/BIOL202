@@ -1,10 +1,11 @@
 % Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
-%
 \documentclass[
 ]{book}
+\usepackage{xcolor}
 \usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -35,7 +36,6 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{xcolor}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -88,21 +88,24 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -119,11 +122,6 @@
 \usepackage{xcolor}
 \usepackage{caption}
 \usepackage{anyfontsize}
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\usepackage[]{natbib}
-\bibliographystyle{apalike}
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -135,7 +133,7 @@
 
 \title{Tutorials for BIOL202: Introduction to Biostatistics}
 \author{Jason Pither}
-\date{2024-11-26}
+\date{2025-08-27}
 
 \begin{document}
 \maketitle
@@ -183,7 +181,7 @@ Clerissa Copeland, Jordan Katchen, and Mathew Vis-Dunbar helped with some of the
 
 This work is licensed under the Creative Commons \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)}
 
-\includegraphics{./more/creative-commons-783531_1280.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/creative-commons-783531_1280.png}}
 
 Please use the following for citing this document
 
@@ -275,7 +273,7 @@ Launch RStudio on your computer to make sure it's working (it loads R for you in
 
 When you open RStudio, you should see something similar to the following:
 
-\includegraphics{./more/RStudio_Window.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/RStudio_Window.png}}
 
 Note the four panes which are four panels dividing the screen: the source pane (top left), console pane (bottom left), the files pane (bottom right), and the environment pane (top right). Over the course of this chapter, you'll come to learn what purpose each of these panes serves.
 
@@ -461,15 +459,15 @@ Rstudio provides links to several \textbf{cheatsheets} that will come in handy t
 
 You can get nice PDF versions of the files by going to \textbf{Help -\textgreater{} Cheatsheets} inside RStudio:
 
-\includegraphics{./more/cheatsheets.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/cheatsheets.png}}
 
 The book titled ``Getting used to R, RStudio, and R Markdown'' by Chester Ismay, which can be freely accessed \href{https://ismayc.github.io/rbasics-book/}{here}, is also a wonderful resource for for new users of R, RStudio, and R Markdown. It includes examples showing working with R Markdown files in RStudio recorded as GIFs.
 
 \section{R Resources Online}\label{online_resources}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6667}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3333}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3333}}@{}}
 \caption{Learning R - Tutorials and workshop materials}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -500,8 +498,8 @@ Purpose
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6667}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3333}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3333}}@{}}
 \caption{So many packages - how to find useful ones?}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -529,8 +527,8 @@ Purpose
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6806}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3194}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6806}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3194}}@{}}
 \caption{Data analysis in R}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -557,8 +555,8 @@ Purpose
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.6806}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.3194}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6806}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3194}}@{}}
 \caption{Data visualization in R}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -605,8 +603,8 @@ URL & Purpose \\
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7778}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2222}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7778}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2222}}@{}}
 \caption{Resources for reproducible research / open science}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -635,8 +633,8 @@ Purpose
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.7808}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.2192}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7808}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2192}}@{}}
 \caption{Geospatial work in R}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
@@ -673,6 +671,14 @@ A key goal of our Biology program at UBC's Okanagan campus is to foster apprecia
 In first year you learned from the Biology program's \href{https://ubco-biology.github.io/OS-Introduction/}{introductory Open Science learning modules} that reproducible research studies are not as common as one might assume. One key reason for this is insufficient documentation of all the steps taken along the research workflow. Moreover, conducting reproducible research is extremely challenging - more than most scientists appreciate. See, for example, an incredible, recent case concerning ageing experiments with \emph{C. elegans} \href{https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478}{here}.
 
 In the BIOL202 lectures you'll learn more about the various causes of irreproducible research, and about the practices that can help promote reproducibility. In this lab component of the course, you'll learn the basics of how to achieve an acceptable level of \emph{computational reproducibility} (complete computational reproducibility is actually pretty tricky, but we'll get close).
+
+\textbf{Learning Outcomes}
+
+Upon successful completion, students will be able to:\\
+1. Implement a computationally reproducible workflow using R, RStudio, and R Markdown\\
+2. Organize and manage data and project files using versioned, structured formats\\
+3. Create clean, analysis-ready datasets in .csv or .rds formats\\
+4. Use R Markdown to document and explain all analysis steps and results
 
 \section{Computational reproducibility}\label{comp_repro}
 
@@ -764,7 +770,9 @@ You can create and edit your ``\_README.txt'' file in RStudio! Just click on the
 An example setup is illustrated below.
 
 \begin{figure}
-\includegraphics[width=41.99in]{./more/BIOL202_directory_structure} \caption{Example directory structure}\label{fig:unnamed-chunk-9}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/BIOL202_directory_structure.png}}
+\caption{\label{fig:unnamed-chunk-9}Example directory structure}
 \end{figure}
 
 The BIOL202 directory, and all its contents, will now sync regularly to your online OneDrive account, so that you can access your up-to-date files from any device upon which OneDrive is installed.
@@ -920,7 +928,9 @@ This Markdown document includes the assignment questions, and serves as a starte
 Once you have opened the document, you'll see the following text at the top:
 
 \begin{figure}
-\includegraphics[width=11.67in]{./more/assign_header} \caption{Assignment markdown file header}\label{fig:unnamed-chunk-11}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/assign_header.png}}
+\caption{\label{fig:unnamed-chunk-11}Assignment markdown file header}
 \end{figure}
 
 Complete the following steps:
@@ -960,7 +970,9 @@ The general approach is to enter your text answers and associated R chunks with 
 Here's an example code chunk in which the \texttt{tidyverse} package is being loaded. You'll notice some extra text in the header of the chunk.
 
 \begin{figure}
-\includegraphics[width=10.56in]{./more/install_package_header2} \caption{Code chunk header with message suppression}\label{fig:unnamed-chunk-12}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/install_package_header2.png}}
+\caption{\label{fig:unnamed-chunk-12}Code chunk header with message suppression}
 \end{figure}
 
 The ``load\_packages'' text is simply giving a name or ``tag'' to this R chunk. It is good practice to provide a \emph{unique} name to each R chunk.
@@ -1040,9 +1052,9 @@ There are some special code chunk header arguments that need to be set in your M
 
 In each code chunk that includes code to construct a graph, your chunk header options should look like this in the top of the chunk, and there should be one blank line underneath before the main code starts. The following chunk produced the figure below. And recall that in the example below, the ``bill\_fig'' text is simply the name I've given to this code chunk.
 
-\includegraphics[width=33.92in]{./more/figure_chunk_header}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/figure_chunk_header.png}}
 
-\includegraphics[width=19.58in]{./more/example_histogram_practice}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/example_histogram_practice.png}}
 
 \textbf{Figure 1:} Histogram of bill depth among 151 Adelie penguins
 
@@ -1055,7 +1067,9 @@ When you knit the document to PDF, you'll see the ``Figure X:'' (with a number i
 This feature - automatic figure numbering - was set within the header of the assignment markdown document:
 
 \begin{figure}
-\includegraphics[width=11.67in]{./more/assign_header} \caption{Assignment markdown file header with figure caption option}\label{fig:unnamed-chunk-15}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/assign_header.png}}
+\caption{\label{fig:unnamed-chunk-15}Assignment markdown file header with figure caption option}
 \end{figure}
 
 The line ``fig\_caption = true'' tells R Markdown and the knitting process to automatically include this part of a figure caption, ``Figure X'', underneath each figure you produce. Where ``X'' will automatically be replaced with the appropriate number. For example, it will use ``Figure 1:'' for your first figure, ``Figure 2'' for your second, and so on.
@@ -1372,7 +1386,9 @@ Review the \href{https://ubco-biology.github.io/Procedures-and-Guidelines/tidy-d
 There you'll learn how to arrange and format your data within a spreadsheet. The ``Tidy'' example provided would look like this in Excel:
 
 \begin{figure}
-\includegraphics[width=10.75in]{./more/excel_tidy} \caption{Tidy data in Excel}\label{fig:unnamed-chunk-16}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/excel_tidy.png}}
+\caption{\label{fig:unnamed-chunk-16}Tidy data in Excel}
 \end{figure}
 
 If you'd like a longer, more in-depth read about ``tidy data'', see Hadley Wickham's ``R for Datascience'' online book, linked \href{http://r4ds.had.co.nz/tidy-data.html}{here}.
@@ -1467,7 +1483,9 @@ Let's create the new directory in our ``BIOL202\_tutorials'' working directory. 
 Once you run this code, you'll see the new directory appear in the Files pane in the bottom-right of RStudio. It might look something like this:
 
 \begin{figure}
-\includegraphics[width=19.67in]{./more/files_pane_rawdata} \caption{View of files with rawdata folder}\label{fig:unnamed-chunk-20}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/files_pane_rawdata.png}}
+\caption{\label{fig:unnamed-chunk-20}View of files with rawdata folder}
 \end{figure}
 
 The folder is called ``rawdata'' because the data stored there will be the unedited, raw version of the data, and any files therein should \textbf{NOT} be altered. Any changes or edits one makes to the datasets should be saved in new data files that are saved in a different folder called ``output'', which we'll create later.
@@ -2358,7 +2376,7 @@ Let's provide the code first, and explain after.
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-28-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-28-1.pdf}}
 \caption{\label{fig:unnamed-chunk-28}Bar graph showing the activities of 88 people at the time they were attached and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006}
 \end{figure}
 
@@ -2391,7 +2409,9 @@ There you have it: a nicely formatted bar graph!
 \textbf{REMINDER} Don't forget to include a good figure caption! Here's a snapshot of the full code chunk that produced the bar graph above:
 
 \begin{figure}
-\includegraphics[width=32.69in]{./more/bar_graph_chunk} \caption{Example code chunk for producing a good bar graph}\label{fig:unnamed-chunk-29}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/bar_graph_chunk.png}}
+\caption{\label{fig:unnamed-chunk-29}Example code chunk for producing a good bar graph}
 \end{figure}
 
 \begin{enumerate}
@@ -2426,7 +2446,7 @@ We'll give the code first, then explain below:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf}}
 \caption{\label{fig:unnamed-chunk-30}Histogram of body mass (g) for 342 penguins}
 \end{figure}
 
@@ -2546,7 +2566,7 @@ So let's edit the original histogram code to include the ``binwidth'' argument i
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-31-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-31-1.pdf}}
 \caption{\label{fig:unnamed-chunk-31}Histogram of body mass (g) for 342 penguins}
 \end{figure}
 
@@ -2582,7 +2602,7 @@ So, let's look again at the penguin body mass histogram, and provide a descripti
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-32-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-32-1.pdf}}
 \caption{\label{fig:unnamed-chunk-32}Histogram of body mass (g) for 342 penguins}
 \end{figure}
 
@@ -2807,7 +2827,7 @@ The first step is to visualize the frequency distribution. Given that this is a 
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-34-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-34-1.pdf}}
 \caption{\label{fig:unnamed-chunk-34}Histogram of body mass (g) for 342 penguins}
 \end{figure}
 
@@ -2830,7 +2850,9 @@ penguins %>%
 Uh oh! If you tried to run this code, it would have given you an error:
 
 \begin{figure}
-\includegraphics[width=18in]{./more/na_error} \caption{Error when functions encounter 'NA' values}\label{fig:unnamed-chunk-35}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/na_error.png}}
+\caption{\label{fig:unnamed-chunk-35}Error when functions encounter `NA' values}
 \end{figure}
 
 We forgot that when we \hyperref[vis_data_overview]{previously} got an overview of the \texttt{penguins} dataset we discovered there were missing values (``NA'' values)!
@@ -3410,7 +3432,7 @@ We now have what we need for a grouped bar chart, using the \texttt{ggplot} func
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{BIOL202_files/figure-latex/malaria_barchart1-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/malaria_barchart1-1.pdf}}
 
 This code is similar to what we used \hyperref[vis_cat_barchart]{previously to create a bar graph}, but there are two key differences:
 
@@ -3427,7 +3449,9 @@ It is best practice to use the \textbf{response variable} as the ``fill'' variab
 If we wished to provide an appropriate figure heading, this would be the code:
 
 \begin{figure}
-\includegraphics[width=29.25in]{./more/grouped_bar_graph} \caption{Example code chunk for producing a good grouped bar graph}\label{fig:unnamed-chunk-42}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/grouped_bar_graph.png}}
+\caption{\label{fig:unnamed-chunk-42}Example code chunk for producing a good grouped bar graph}
 \end{figure}
 
 And the result:
@@ -3444,7 +3468,7 @@ And the result:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf}}
 \caption{\label{fig:unnamed-chunk-43}Grouped bar graph showing the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.}
 \end{figure}
 
@@ -3471,7 +3495,7 @@ Here's the code, and we'll explain after:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{BIOL202_files/figure-latex/mosaic_malaria1-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/mosaic_malaria1-1.pdf}}
 
 In the code chunk above we see one key difference from previous uses of the \texttt{ggplot} function is that the \texttt{aes} function is not provided in the arguments to \texttt{ggplot} in the first line, but is instead provided to the arguments of the \texttt{geom\_mosaic} function on the second line.
 
@@ -3505,14 +3529,16 @@ Let's provide the mosaic plot again, and this time we'll provide an appropriate 
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-44-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-44-1.pdf}}
 \caption{\label{fig:unnamed-chunk-44}Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups.}
 \end{figure}
 
 Here's the code:
 
 \begin{figure}
-\includegraphics[width=29.56in]{./more/mosaic_graph} \caption{Example code chunk for producing a good mosaic plot}\label{fig:unnamed-chunk-45}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/mosaic_graph.png}}
+\caption{\label{fig:unnamed-chunk-45}Example code chunk for producing a good mosaic plot}
 \end{figure}
 
 When interpreting a mosaic plot, the key is to look how the relative frequency of the categories of the response variable - denoted by the ``fill'' colours - varies across the explanatory variable, which is arranged on the x-axis.
@@ -3545,7 +3571,7 @@ As shown in the tutorial on \hyperref[rmd_graphing]{preparing and formatting ass
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf}}
 \caption{\label{fig:unnamed-chunk-46}Scatterplot of the association between bill length and depth among 151 Adelie penguins}
 \end{figure}
 
@@ -3653,7 +3679,7 @@ We'll provide the code, then explain after:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf}}
 \caption{\label{fig:unnamed-chunk-47}Serotonin levels in the central nervous system of desert locusts that were experimentally crowded for 0 (control), 1, and 2 hours. N = 10 per treatment group.}
 \end{figure}
 
@@ -3743,7 +3769,7 @@ Let's now have a look at the graph, and to do so, we simply type the name of the
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{BIOL202_files/figure-latex/body_violin-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/body_violin-1.pdf}}
 
 One problem with the above graph is that we don't see the individual data points.
 
@@ -3769,7 +3795,7 @@ And now show the plot:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf}}
 \caption{\label{fig:unnamed-chunk-48}Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins.}
 \end{figure}
 
@@ -3818,7 +3844,7 @@ Now we add density plots in the margins using the \texttt{ggMarginal} function f
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf}}
 \caption{\label{fig:unnamed-chunk-49}Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin.}
 \end{figure}
 
@@ -3848,7 +3874,7 @@ Here is the code for creating boxplots, again using the penguins body mass data,
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf}}
 \caption{\label{fig:unnamed-chunk-50}Boxplot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Density plots are provided in the margin. Boxes delimit the first and third quartiles, and the middle line depicts the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.}
 \end{figure}
 
@@ -3878,7 +3904,7 @@ We already have a basic violin plot object created, called ``bodymass.violin'', 
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-51-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-51-1.pdf}}
 \caption{\label{fig:unnamed-chunk-51}Violin plot showing the body mass (g) of male Adelie (N = 73), Chinstrap (N = 34), and Gentoo (N = 61) penguins. Boxplots are superimposed, with boxes delimiting the first and third quartiles, and middle line depicting the median. Whiskers extend to values beyond the 1st (lower) and 3rd (upper) quartiles, up to a maximum of 1.5 x IQR, and individual black points are outlying values.}
 \end{figure}
 
@@ -4548,7 +4574,7 @@ Now let's plot the histogram of 10000 sample means:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-54-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-54-1.pdf}}
 \caption{\label{fig:unnamed-chunk-54}Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 20).}
 \end{figure}
 
@@ -4622,7 +4648,7 @@ Now plot a histogram, making sure to keep the x- and y-axis limits the same as w
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-56-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-56-1.pdf}}
 \caption{\label{fig:unnamed-chunk-56}Approximate sampling distribution of mean gene lengths from the human genome (10000 replicate samples of size 50).}
 \end{figure}
 
@@ -4663,7 +4689,7 @@ This type of graph is not something you'll need to be able to do for assignments
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/newsampfig-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/newsampfig-1.pdf}}
 \caption{\label{fig:newsampfig}Approximate sampling distributions of mean gene lengths from the human genome, fig.height=, message=FALSE, warning=FALSE, using sample sizes of 20 and 50 (10000 replicate samples in each distribution).}
 \end{figure}
 
@@ -5269,7 +5295,7 @@ The only difference here, compared to previous times we've created histograms, i
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-60-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-60-1.pdf}}
 \caption{\label{fig:unnamed-chunk-60}Approximate null distribution for the damselfly study, with n = 20 trials, and probability of success = 0.5 in each trial. Data are from 100000 repetitions.}
 \end{figure}
 
@@ -5895,7 +5921,7 @@ The binomial distribution provides the probability distribution for the number o
 
 Here's the formula:
 
-\includegraphics[width=12.5in]{./more/binomial_equation}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/binomial_equation.png}}
 
 It turns out there's a handy function \texttt{dbinom} (available in the base R package) that will calculate the exact probability associated with any particular outcome for a random trial with a given sample space (set of outcomes) and probability of success. It uses the equation shown above.
 
@@ -5973,7 +5999,7 @@ Now let's use these exact probabilities to create a barplot showing an exact, di
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-66-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-66-1.pdf}}
 \caption{\label{fig:unnamed-chunk-66}Probability of obtaining X successes out of 6 random trials, with probability of success = 1/6.}
 \end{figure}
 
@@ -6051,7 +6077,7 @@ Now plot the binomial probability distribution:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-67-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-67-1.pdf}}
 \caption{\label{fig:unnamed-chunk-67}Probability of obtaining X successes out of 15 random trials, with probability of success = 1/6.}
 \end{figure}
 
@@ -6692,7 +6718,7 @@ Here we're showing ``relative frequency'' on the y-axis, so this should range fr
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-70-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-70-1.pdf}}
 \caption{\label{fig:unnamed-chunk-70}Relative frequency of cancer among women randomly assigned to control (n = 19942) and aspririn (n = 19934) treatment groups.}
 \end{figure}
 
@@ -7170,7 +7196,7 @@ Here's a mosaic plot with an ideal figure caption included:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-75-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-75-1.pdf}}
 \caption{\label{fig:unnamed-chunk-75}Mosaic plot of bird predation on killifish having different levels of trematode parasitism. A total of 50, 45, and 46 fish were in the uninfected, lightly infected, and highly infected groups.}
 \end{figure}
 
@@ -7444,7 +7470,7 @@ We'll use this information to ensure that the histogram spans the appropriate ra
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-78-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-78-1.pdf}}
 \caption{\label{fig:unnamed-chunk-78}Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people.}
 \end{figure}
 
@@ -7613,7 +7639,7 @@ The following graph illustrates this for the \emph{t} distribution associated wi
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-80-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-80-1.pdf}}
 \caption{\label{fig:unnamed-chunk-80}The \emph{t} distribution for df = 24.}
 \end{figure}
 
@@ -7726,7 +7752,9 @@ Upper\_95\_CL
 If we wanted to report the confidence interval on its own, we can get the necessary information from our newly created tibble ``bodytemp.stats'', and type the following inline code in our markdown text (NOT in a code chunk):
 
 \begin{figure}
-\includegraphics[width=27.81in]{./more/confint_inline_code} \caption{Example of inline markdown and R code for a confidence interval}\label{fig:unnamed-chunk-81}
+\centering
+\pandocbounded{\includegraphics[keepaspectratio]{./more/confint_inline_code.png}}
+\caption{\label{fig:unnamed-chunk-81}Example of inline markdown and R code for a confidence interval}
 \end{figure}
 
 Which will provide:
@@ -8038,7 +8066,7 @@ The best way to visualize the data for a paired \emph{t}-test is to create a \te
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-85-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-85-1.pdf}}
 \caption{\label{fig:unnamed-chunk-85}Histogram of the differences in antibody production rate before and after the testosterone treatment}
 \end{figure}
 
@@ -8060,7 +8088,7 @@ Another optional but nice way to visualize paired data is using a paired plot.
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-86-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-86-1.pdf}}
 \caption{\label{fig:unnamed-chunk-86}Paired plot of antibody production rate before and after the testosterone treatment}
 \end{figure}
 
@@ -8106,7 +8134,7 @@ As instructed in the \hyperref[checknorm_assum]{checking assumptions} tutorial, 
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-88-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-88-1.pdf}}
 \caption{\label{fig:unnamed-chunk-88}Normal quantile plot of the differences in antibody production rate before and after the testosterone treatment (ln{[}mOD/min{]}) 10\^{}-3.}
 \end{figure}
 
@@ -8649,7 +8677,7 @@ Here we want to visualize height in relation to dominant eye (Left or Right). We
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-92-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-92-1.pdf}}
 \caption{\label{fig:unnamed-chunk-92}Violin and boxplot of the heights of students with right (n = 106) and left (n = 48) dominant eyes. Boxes delimit the first to third quartiles, bold lines represent the group medians, and whiskers extend to 1.5 times the IQR. Points beyond whiskers are extreme observations.}
 \end{figure}
 
@@ -8694,7 +8722,7 @@ We'll introduce the \texttt{facet\_grid} function that enables plotting of side-
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-93-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-93-1.pdf}}
 \caption{\label{fig:unnamed-chunk-93}Normal quantile plots of height for students with right (n = 106) or left (n = 48) dominant eyes.}
 \end{figure}
 
@@ -9126,7 +9154,7 @@ Check out this example showing simulated data drawn from a normal distribution:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-100-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-100-1.pdf}}
 \caption{\label{fig:unnamed-chunk-100}Example of a normal quantile plot for a variable that is normally distributed.}
 \end{figure}
 
@@ -9148,7 +9176,7 @@ We'll first construct a histogram as you've \hyperref[vis_histogram]{learned pre
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-101-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-101-1.pdf}}
 \caption{\label{fig:unnamed-chunk-101}The frequency distribution of the `biomass ratio' of 32 marine reserves.}
 \end{figure}
 
@@ -9170,7 +9198,7 @@ Now the quantile plot:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-102-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-102-1.pdf}}
 \caption{\label{fig:unnamed-chunk-102}Normal quantile plot of the `biomass ratio' of 32 marine reserves.}
 \end{figure}
 
@@ -9384,7 +9412,7 @@ When one observes a right-skewed frequency distribution, as seen here in the mar
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-103-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-103-1.pdf}}
 \caption{\label{fig:unnamed-chunk-103}The frequency distribution of the `biomass ratio' of 32 marine reserves.}
 \end{figure}
 
@@ -9448,7 +9476,7 @@ Now let's look at the histogram of the log-transformed data:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-104-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-104-1.pdf}}
 \caption{\label{fig:unnamed-chunk-104}The frequency distribution of the `biomass ratio' of 32 marine reserves (log-transformed).}
 \end{figure}
 
@@ -9468,7 +9496,7 @@ Now the quantile plot:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-105-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-105-1.pdf}}
 \caption{\label{fig:unnamed-chunk-105}Figure: Normal quantile plot of the `biomass ratio' of 32 marine reserves (log-transformed).}
 \end{figure}
 
@@ -9557,7 +9585,7 @@ Here's a quantile plot of the biomass variable:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-107-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-107-1.pdf}}
 \caption{\label{fig:unnamed-chunk-107}Normal quantile plot of made-up biomass data.}
 \end{figure}
 
@@ -9636,7 +9664,7 @@ Notice that we still have a zero in the newly created variable, \textbf{AFTER} h
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-112-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-112-1.pdf}}
 \caption{\label{fig:unnamed-chunk-112}Normal quantile plot of made-up biomass data, log-transformed.}
 \end{figure}
 
@@ -9787,7 +9815,7 @@ Let's visualize the data with a normal quantile plot:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-113-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-113-1.pdf}}
 \caption{\label{fig:unnamed-chunk-113}Normal quantile plot of the proportion of seeds fertilized on 30 plants (left) and the corresponding normal quantile plot (right)}
 \end{figure}
 
@@ -9826,7 +9854,7 @@ Now let's visualize the transformed data:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-114-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-114-1.pdf}}
 \caption{\label{fig:unnamed-chunk-114}Normal quantile plot of the proportion of seeds fertilized (logit transformed) on 30 plants}
 \end{figure}
 
@@ -10388,7 +10416,7 @@ Here's the code:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/stripanova-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/stripanova-1.pdf}}
 \caption{\label{fig:stripanova}Stripchart of phase shifts in the circadian rhythm of melatonin production in 22 participants of an experiment. Solid circles denote group means, and bars +/- one standard error}
 \end{figure}
 
@@ -10807,7 +10835,7 @@ Here is our original figure, to which we'll add the results of the post-hoc test
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/stripanova2-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/stripanova2-1.pdf}}
 \caption{\label{fig:stripanova2}Stripchart of phase shifts in the circadian rhythm of melatonin production in 22 participants of an experiment. Solid circles denote group means, and bars +/- one standard error}
 \end{figure}
 
@@ -10838,7 +10866,7 @@ Here's the code, with the \texttt{annotate} function added:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/stripanovatukey-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/stripanovatukey-1.pdf}}
 \caption{\label{fig:stripanovatukey}Stripchart showing the phase shift in the circadian rhythm of melatonin production in 22 experimental participants given alternative light treatments. Solid circles represent group means, and bars represent +/- one SE. Group means sharing the same letter are not significantly different according to the Tukey-Kramer post-hoc test (family-wise \(\alpha\) = 0.05).}
 \end{figure}
 
@@ -11200,7 +11228,7 @@ We learned in an \hyperref[two_numeric]{earlier tutorial} that the best way to v
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/unnamed-chunk-120-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/unnamed-chunk-120-1.pdf}}
 \caption{\label{fig:unnamed-chunk-120}The association between inbreeding coefficient and number of surviving wolf pups (n = 24).}
 \end{figure}
 
@@ -11221,7 +11249,7 @@ To remedy this, we use the \texttt{geom\_jitter} function instead of the \texttt
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/pupscatter-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/pupscatter-1.pdf}}
 \caption{\label{fig:pupscatter}The association between inbreeding coefficient and number of surviving wolf pups (n = 24). Values have been jittered slightly to improve legibility.}
 \end{figure}
 
@@ -11390,7 +11418,7 @@ Let's re-do the scatterplot here.
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/pupscatter2-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/pupscatter2-1.pdf}}
 \caption{\label{fig:pupscatter2}The association between inbreeding coefficient and number of surviving wolf pups (n = 24). Values have been jittered slightly to improve legibility.}
 \end{figure}
 
@@ -11450,7 +11478,7 @@ Let's visualize the association, again using the \texttt{geom\_jitter} function 
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/trickplot-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/trickplot-1.pdf}}
 \caption{\label{fig:trickplot}Scatterplot of the impressiveness of written accounts of the Indian rope trick by firsthand observers and the number of years elapsed between witnessing the event and writing the account (\emph{n} = 21). Values have jittered slightly to improve legibility.}
 \end{figure}
 
@@ -11540,7 +11568,7 @@ As in the preceding Pearson correlation example, we can refer to the Figure in t
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/trickplot2-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/trickplot2-1.pdf}}
 \caption{\label{fig:trickplot2}Scatterplot of the impressiveness of written accounts of the Indian rope trick by firsthand observers and the number of years elapsed between witnessing the event and writing the account (\emph{n} = 21). Values have jittered slightly to improve legibility.}
 \end{figure}
 
@@ -11611,7 +11639,7 @@ Below is a visualization of the data.
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/lsrfigzero-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/lsrfigzero-1.pdf}}
 \caption{\label{fig:lsrfigzero}Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots.}
 \end{figure}
 
@@ -11854,7 +11882,7 @@ We learned in an earlier \hyperref[two_numeric]{tutorial} that the best way to v
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/lsrfigone-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/lsrfigone-1.pdf}}
 \caption{\label{fig:lsrfigone}Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots.}
 \end{figure}
 
@@ -11998,7 +12026,7 @@ For the first three assumptions, we start by looking at the original scatterplot
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/lsrfigtwo-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/lsrfigtwo-1.pdf}}
 \caption{\label{fig:lsrfigtwo}Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is a locally weighted smoothing line.}
 \end{figure}
 
@@ -12034,7 +12062,7 @@ For this, we use the ``augmented'' output we created above.
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/lsrfigthree-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/lsrfigthree-1.pdf}}
 \caption{\label{fig:lsrfigthree}Normal quantile plot of the residuals from a regression of biomass stability on Species richness for 161 plots}
 \end{figure}
 
@@ -12058,7 +12086,7 @@ Before trying a transformation, let's also check the assumptions that (i) the va
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/lsrfigfour-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/lsrfigfour-1.pdf}}
 \caption{\label{fig:lsrfigfour}Residual plot from a regression of biomass stability on Species richness for 161 plots.}
 \end{figure}
 
@@ -12139,7 +12167,7 @@ And re-plot the residual diagnostic plots:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/lsrfigfive-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/lsrfigfive-1.pdf}}
 \caption{\label{fig:lsrfigfive}Normal quantile plot of the residuals from a regression of biomass stability (log transformed) on Species richness for 161 plots}
 \end{figure}
 
@@ -12157,7 +12185,7 @@ And re-plot the residual diagnostic plots:
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/lsrfigsix-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/lsrfigsix-1.pdf}}
 \caption{\label{fig:lsrfigsix}Residual plot from a regression of biomass stability (log transformed) on Species richness for 161 plots.}
 \end{figure}
 
@@ -12289,7 +12317,7 @@ fig.cap = "Stability of biomass production (log transformed) over 10 years in 16
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/lsrfigseven-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/lsrfigseven-1.pdf}}
 \caption{\label{fig:lsrfigseven}Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is the significant least-square regression line (black solid line; see text for details) and the 95\% confidence bands (grey shading).}
 \end{figure}
 
@@ -12389,7 +12417,7 @@ We re-use the code from our original \texttt{geom\_smooth} plot above, and simpl
 
 \begin{figure}
 \centering
-\includegraphics{BIOL202_files/figure-latex/lsrfigeight-1.pdf}
+\pandocbounded{\includegraphics[keepaspectratio]{BIOL202_files/figure-latex/lsrfigeight-1.pdf}}
 \caption{\label{fig:lsrfigeight}Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown are predicted values of stability across values of species richness.}
 \end{figure}
 
@@ -12721,7 +12749,7 @@ We'll get an overview of the data using the \texttt{tbl\_summary} function.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}[!t]
+\begin{table}[t]
 \fontsize{12.0pt}{14.4pt}\selectfont
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lc}
 \toprule
@@ -12768,7 +12796,7 @@ We could select just some numeric variables, and ask for the mean and standard d
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}[!t]
+\begin{table}[t]
 \fontsize{12.0pt}{14.4pt}\selectfont
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lc}
 \toprule
@@ -12916,7 +12944,7 @@ For lots of great examples of how the \texttt{kableExtra} package can be used, s
 If you attempt to use the \texttt{skim\_without\_charts} function without wrapping the about in a \texttt{kbl} function, you will likely get an error when you attempt to knit to PDF.
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:showskimtable}Overview of the 'circadian' dataset}
 \centering
 \begin{tabular}[t]{lll}
@@ -12979,7 +13007,7 @@ This table will look different when knitted to PDF (rather than HTML). Specifica
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:nicetablepeng}Overview of the 'penguins' dataset}
 \centering
 \begin{tabular}[t]{lllllllll}
@@ -13017,7 +13045,7 @@ kbl(skim.penguins.transposed, caption = "Overview of the 'penguins' dataset",
 \end{verbatim}
 
 \begin{table}
-
+\centering
 \caption{\label{tab:unnamed-chunk-130}Overview of the 'penguins' dataset}
 \centering
 \begin{tabular}[t]{l|l|l|l|l|l|l|l|l}
@@ -13060,7 +13088,7 @@ On this HTML page the table above still goes off the page, but the PDF version w
 
 Here's an image of the PDF output:
 
-\includegraphics[width=26.06in]{./more/second_kable}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/second_kable.png}}
 
 For very large datasets you may find this approach causes the font to be too small.
 
@@ -13115,10 +13143,10 @@ Now let's format it for PDF output:
 \end{Shaded}
 
 \begin{table}[!h]
-
+\centering
 \caption{\label{tab:givenicepdftable}Descriptive statistics for bill length among male penguins.}
 \centering
-\resizebox{\linewidth}{!}{
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
 \begin{tabular}[t]{lrrrrrrr}
 \toprule
 species & Count & Count\_NA & Mean & SD & SEM & Low\_95\_CL & Up\_95\_CL\\
@@ -13157,7 +13185,7 @@ This is an optional tutorial describing a new feature included in the latest ver
 
 Markdown documents can be edited either in \textbf{source} mode (what we're looking at right now) or in \textbf{visual} mode. To switch between these modes, click on the button at the top right of the toolbar on the Source panel in RStudio (when viewing a .Rmd file), or use the shortcut {[}\texttt{Command}/\texttt{Control}{]}+\texttt{Shift}+\texttt{F4}.
 
-\includegraphics[width=10.31in]{./more/toolbar}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/toolbar.png}}
 
 \textbf{Toolbar above the editing pane in RStudio.}
 
@@ -13204,7 +13232,7 @@ If you opt to use the Visual Markdown Editor for assignments, be sure that all r
 \section*{Rosetta error}\label{rosetta-error}
 \addcontentsline{toc}{section}{Rosetta error}
 
-\includegraphics{./more/rosetta_error.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/rosetta_error.png}}
 
 This error seems to arise for those using MacOS Ventura.
 
@@ -13251,30 +13279,30 @@ Now you should be able to knit an RMD file to PDF!
 \section*{Rtools required during install}\label{rtools-required-during-install}
 \addcontentsline{toc}{section}{Rtools required during install}
 
-\includegraphics{./more/rtools.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/rtools.png}}
 
 \textbf{Solution:} Head to \href{https://cran.rstudio.com/bin/windows/Rtools/}{this website} and follow the instructions to download \texttt{Rtools} onto your computer. Then try re-installing the package again.
 
 \section*{Could not find function}\label{could-not-find-function}
 \addcontentsline{toc}{section}{Could not find function}
 
-\includegraphics{./more/no-function1.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/no-function1.png}}
 
 \textbf{Solution:} This error arises when you are trying to run a package, but you haven't loaded the package yet. Therefore, R can't find the function you are trying to use. To fix this error, load the package in an R chunk near the top of your RMarkdown document and then re-run your code. Do not load packages in the console! See a screenshot below.
 
-\includegraphics{./more/no-function2.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/no-function2.png}}
 
 \section*{There is no package}\label{there-is-no-package}
 \addcontentsline{toc}{section}{There is no package}
 
-\includegraphics{./more/no-pckg.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/no-pckg.png}}
 
 \textbf{Solution:} This error happens because the package has not yet been installed. To fix this error run the \texttt{install.packages()} function in the R console (NOT in the RMarkdown document!!). Then re-load the package using the \texttt{library()} function in the RMarkdown document (NOT in the console!!).
 
 \section*{Trying to use CRAN without setting a mirror}\label{trying-to-use-cran-without-setting-a-mirror}
 \addcontentsline{toc}{section}{Trying to use CRAN without setting a mirror}
 
-\includegraphics{./more/CRAN-without-mirror1.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/CRAN-without-mirror1.png}}
 
 \textbf{Solution:} When we install packages in R, we need to do it in the console and not in the RMarkdown document because it causes this error when knitting. To fix this problem:
 
@@ -13285,7 +13313,7 @@ Now you should be able to knit an RMD file to PDF!
   Install the package in the console
 \end{itemize}
 
-\includegraphics{./more/CRAN-without-mirror2.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/CRAN-without-mirror2.png}}
 
 \begin{itemize}
 \tightlist
@@ -13336,14 +13364,14 @@ Now you should be able to knit an RMD file to PDF!
 \section*{Error in parse}\label{error-in-parse}
 \addcontentsline{toc}{section}{Error in parse}
 
-\includegraphics{./more/parse.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/parse.png}}
 
 \textbf{Solution:} This type of error usually occurs when there is an unexpected symbol or character (ie. comma, semicolon, colon, bracket, etc.) in your code. In this case, I erroneously included a greater than sign (\textgreater) at the end of line. To fix this error, simply remove the unexpected symbol.
 
 \section*{No such file or directory exists}\label{no-such-file-or-directory-exists}
 \addcontentsline{toc}{section}{No such file or directory exists}
 
-\includegraphics{./more/no-file1.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/no-file1.png}}
 
 This error happens because in your RMarkdown document you refer to a file/folder, but that file/folder but R can't find the file.
 
@@ -13352,40 +13380,40 @@ This error happens because in your RMarkdown document you refer to a file/folder
 \section*{Messy output when loading packages}\label{messy-output-when-loading-packages}
 \addcontentsline{toc}{section}{Messy output when loading packages}
 
-\includegraphics{./more/messy-output1.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/messy-output1.png}}
 
 \textbf{Solution:} When you load packages in R, the knitted document will automatically show associated messages as output in your knitted document. This can make your assignment look messy when you are loading a bunch of packages. To hide these messages, add \texttt{message\ =\ FALSE} into the R chunk where you load packages. See the example below.
 
-\includegraphics{./more/messy-output2.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/messy-output2.png}}
 
 \section*{Unused argument}\label{unused-argument}
 \addcontentsline{toc}{section}{Unused argument}
 
-\includegraphics{./more/unused-arg1.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/unused-arg1.png}}
 
 \textbf{Solution:} This error sometimes happens because the \texttt{library()\ function} is located below the line of code where a function is called on from that package. To fix this error, the \texttt{library()} function needs to be moved above the chunk where you use functions from that package. Best practice is to put it an R chunk at the top of your assignment (below the header) where you load all of the required packages for your assignment. See below for an example screenshot.
 
-\includegraphics{./more/unused-arg2.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/unused-arg2.png}}
 
 \section*{Object not found}\label{object-not-found}
 \addcontentsline{toc}{section}{Object not found}
 
-\includegraphics{./more/object-error1.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/object-error1.png}}
 
 \textbf{Solution:} This error occurs when you're `calling' on an object in your code, but you haven't actually created that object yet. As such, your computer can't find the object. To fix this error, you should insert a line of code creating your object. Make sure the object is created BEFORE (on an earlier line of code) you try to use the function. See screenshot below.
 
-\includegraphics{./more/object-error2.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/object-error2.png}}
 
 \section*{Figure caption doesn't show up below figure in knitted document}\label{figure-caption-doesnt-show-up-below-figure-in-knitted-document}
 \addcontentsline{toc}{section}{Figure caption doesn't show up below figure in knitted document}
 
-\includegraphics{./more/fig-cap-error1.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/fig-cap-error1.png}}
 
 This error happens when you knit to PDF and your figure caption doesn't show up despite having the correct code within your Rchunk.
 
 \textbf{Solution:} One potential cause for this error is that you have text immediately below your R chunk. To fix this error, make sure there is a blank line between the end of your R chunk with the code for the figure and any subsequent text. See the screenshot below for an example with the blank line inserted.
 
-\includegraphics{./more/space_after_chunk.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/space_after_chunk.png}}
 Notice the blank line at line 208 in the above screenshot.
 
 \section*{Figures are placed in weird spots in knitted PDF}\label{figures-are-placed-in-weird-spots-in-knitted-pdf}
@@ -13413,7 +13441,7 @@ Respond with ``no'' (without quotes). Do NOT respond ``Yes''.
 
 When you try to knit your markdown file, and you get an error that refers to a ``Unicode character'' like this:
 
-\includegraphics{./more/unicode_error.png}
+\pandocbounded{\includegraphics[keepaspectratio]{./more/unicode_error.png}}
 
 This means there's a strange, non-simple text character somewhere in your RMD script. Mostly likely it is the result of copying and pasting text directly from the web into your RMD document. Common examples of troublesome characters include curly quotation marks and special symbols.
 
@@ -13423,6 +13451,6 @@ If that doesn't reveal anything, you'll need to trysystematically knitting one s
 
 Open a blank text document alongside your current RMD file, and cut out one question/answer at a time, pasting into blank text document temporarily. Then try knitting your reduced RMD document, and if it works, paste the cut code back in to your RMD document. Then go to the next question and do the same thing. This will help isolate problem.
 
-  \bibliography{biol202.bib,packages.bib}
+\bibliography{biol202.bib,packages.bib}
 
 \end{document}

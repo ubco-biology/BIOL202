@@ -13,6 +13,14 @@ In first year you learned from the Biology program's [introductory Open Science 
 
 In the BIOL202 lectures you'll learn more about the various causes of irreproducible research, and about the practices that can help promote reproducibility. In this lab component of the course, you'll learn the basics of how to achieve an acceptable level of *computational reproducibility* (complete computational reproducibility is actually pretty tricky, but we'll get close).
 
+**Learning Outcomes** 
+
+Upon successful completion, students will be able to:  
+1.	Implement a computationally reproducible workflow using R, RStudio, and R Markdown  
+2.	Organize and manage data and project files using versioned, structured formats  
+3.	Create clean, analysis-ready datasets in .csv or .rds formats  
+4.	Use R Markdown to document and explain all analysis steps and results  
+
 ## Computational reproducibility {#comp_repro}
 
 Almost all research, whether it's conducted in the field or in a lab, includes a substantial amount of work that's done on the computer. This includes data processing, <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Statistical-analysis">statistical analyses</a>, data visualization and presentation, and production of research outputs (e.g. publications).  Some research is of course exclusively conducted on computers.  The bottom line is that computer-based work forms a key and substantive part of all research workflows.  
