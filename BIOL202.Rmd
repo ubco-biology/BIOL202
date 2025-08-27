@@ -49,7 +49,7 @@ This work is licensed under the Creative Commons [Attribution-NonCommercial-Shar
 
 Please use the following for citing this document
 
-Pither, J. (2022). *Tutorials for BIOL202: Introduction to Biostatistics*. [https://ubco-biology.github.io/BIOL202/index.html](https://ubco-biology.github.io/BIOL202/index.html)
+Pither, J. (2025). *Tutorials for BIOL202: Introduction to Biostatistics*. [https://ubco-biology.github.io/BIOL202/index.html](https://ubco-biology.github.io/BIOL202/index.html)
 
 All source files are available on [github](https://github.com/ubco-biology/BIOL202).
 
@@ -83,7 +83,7 @@ More precisely, R is a programming language that runs computations while RStudio
 ## Installing R and RStudio {#install_R_Rstudio}
 
 <div class="note">
-At the time of writing this module, the latest version of R was 4.3.1 ("Beagle Scouts") (2023-06-16).  At the beginning of term, it is recommended that you update to the latest version of R, but once you've started into the tutorials, it is recommended that you NOT update again until after term is complete. This is to avoid any unforeseen problems introduced by the update.  **However** If you have an older operating system on your computer, you'll want to check compatibility of both R and RStudio.  
+At the time of writing this module, the latest version of R was 4.5.1 ("Great Square Root") (2025-06-13).  At the beginning of term, it is recommended that you update to the latest version of R, but once you've started into the tutorials, it is recommended that you NOT update again until after term is complete. This is to avoid any unforeseen problems introduced by the update.  **However** If you have an older operating system on your computer, you'll want to check compatibility of both R and RStudio.  
 
 RStudio is now owned by "posit", and its website (posit.co) should detect your operating system and provide the appropriate download option automatically.  The website with older versions of R is [here](https://cran.r-project.org/bin/macosx/), and older versions of RStudio is [here](https://docs.posit.co/previous-versions/rstudio/).  
 </div>
@@ -385,6 +385,14 @@ A key goal of our Biology program at UBC's Okanagan campus is to foster apprecia
 In first year you learned from the Biology program's [introductory Open Science learning modules](https://ubco-biology.github.io/OS-Introduction/) that reproducible research studies are not as common as one might assume.  One key reason for this is insufficient documentation of all the steps taken along the research workflow.  Moreover, conducting reproducible research is extremely challenging - more than most scientists appreciate. See, for example, an incredible, recent case concerning ageing experiments with *C. elegans* [here](https://www.nature.com/news/a-long-journey-to-reproducible-results-1.22478).
 
 In the BIOL202 lectures you'll learn more about the various causes of irreproducible research, and about the practices that can help promote reproducibility. In this lab component of the course, you'll learn the basics of how to achieve an acceptable level of *computational reproducibility* (complete computational reproducibility is actually pretty tricky, but we'll get close).
+
+## Learning Objectives {#repro_LOs}
+
+Upon successful completion, students will be able to:
+1.	Implement a computationally reproducible workflow using R, RStudio, and R Markdown
+2.	Organize and manage data and project files using versioned, structured formats
+3.	Create clean, analysis-ready datasets in .csv or .rds formats
+4.	Use R Markdown to document and explain all analysis steps and results
 
 ## Computational reproducibility {#comp_repro}
 
