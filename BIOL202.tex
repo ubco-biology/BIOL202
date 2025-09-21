@@ -133,7 +133,7 @@
 
 \title{Tutorials for BIOL202: Introduction to Biostatistics}
 \author{Jason Pither}
-\date{2025-09-07}
+\date{2025-09-21}
 
 \begin{document}
 \maketitle
@@ -770,9 +770,7 @@ You can create and edit your ``\_README.txt'' file in RStudio! Just click on the
 An example setup is illustrated below.
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/BIOL202_directory_structure.png}}
-\caption{\label{fig:unnamed-chunk-9}Example directory structure}
+\includegraphics[width=41.99in]{./more/BIOL202_directory_structure} \caption{Example directory structure}\label{fig:unnamed-chunk-9}
 \end{figure}
 
 The BIOL202 directory, and all its contents, will now sync regularly to your online OneDrive account, so that you can access your up-to-date files from any device upon which OneDrive is installed.
@@ -926,9 +924,7 @@ This Markdown document includes the assignment questions, and serves as a starte
 Once you have opened the document, you'll see the following text at the top:
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/assign_header.png}}
-\caption{\label{fig:unnamed-chunk-11}Assignment markdown file header}
+\includegraphics[width=11.67in]{./more/assign_header} \caption{Assignment markdown file header}\label{fig:unnamed-chunk-11}
 \end{figure}
 
 Complete the following steps:
@@ -968,9 +964,7 @@ The general approach is to enter your text answers and associated R chunks with 
 Here's an example code chunk in which the \texttt{tidyverse} package is being loaded. You'll notice some extra text in the header of the chunk.
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/install_package_header2.png}}
-\caption{\label{fig:unnamed-chunk-12}Code chunk header with message suppression}
+\includegraphics[width=10.56in]{./more/install_package_header2} \caption{Code chunk header with message suppression}\label{fig:unnamed-chunk-12}
 \end{figure}
 
 The ``load\_packages'' text is simply giving a name or ``tag'' to this R chunk. It is good practice to provide a \emph{unique} name to each R chunk.
@@ -1050,9 +1044,9 @@ There are some special code chunk header arguments that need to be set in your M
 
 In each code chunk that includes code to construct a graph, your chunk header options should look like this in the top of the chunk, and there should be one blank line underneath before the main code starts. The following chunk produced the figure below. And recall that in the example below, the ``bill\_fig'' text is simply the name I've given to this code chunk.
 
-\pandocbounded{\includegraphics[keepaspectratio]{./more/figure_chunk_header.png}}
+\includegraphics[width=33.92in]{./more/figure_chunk_header}
 
-\pandocbounded{\includegraphics[keepaspectratio]{./more/example_histogram_practice.png}}
+\includegraphics[width=19.58in]{./more/example_histogram_practice}
 
 \textbf{Figure 1:} Histogram of bill depth among 151 Adelie penguins
 
@@ -1065,9 +1059,7 @@ When you knit the document to PDF, you'll see the ``Figure X:'' (with a number i
 This feature - automatic figure numbering - was set within the header of the assignment markdown document:
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/assign_header.png}}
-\caption{\label{fig:unnamed-chunk-15}Assignment markdown file header with figure caption option}
+\includegraphics[width=11.67in]{./more/assign_header} \caption{Assignment markdown file header with figure caption option}\label{fig:unnamed-chunk-15}
 \end{figure}
 
 The line ``fig\_caption = true'' tells R Markdown and the knitting process to automatically include this part of a figure caption, ``Figure X'', underneath each figure you produce. Where ``X'' will automatically be replaced with the appropriate number. For example, it will use ``Figure 1:'' for your first figure, ``Figure 2'' for your second, and so on.
@@ -1384,9 +1376,7 @@ Review the \href{https://ubco-biology.github.io/Procedures-and-Guidelines/tidy-d
 There you'll learn how to arrange and format your data within a spreadsheet. The ``Tidy'' example provided would look like this in Excel:
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/excel_tidy.png}}
-\caption{\label{fig:exceltidy}Tidy data in Excel}
+\includegraphics[width=10.75in]{./more/excel_tidy} \caption{Tidy data in Excel}\label{fig:exceltidy}
 \end{figure}
 
 If you'd like a longer, more in-depth read about ``tidy data'', see Hadley Wickham's ``R for Datascience'' online book, linked \href{http://r4ds.had.co.nz/tidy-data.html}{here}.
@@ -1480,9 +1470,7 @@ Let's create the new directory in our ``BIOL202\_tutorials'' working directory. 
 Once you run this code, you'll see the new directory appear in the Files pane in the bottom-right of RStudio. It might look something like this:
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/files_pane_rawdata.png}}
-\caption{\label{fig:unnamed-chunk-19}View of files with rawdata folder}
+\includegraphics[width=24.39in]{./more/files_pane_rawdata} \caption{View of files with rawdata folder}\label{fig:unnamed-chunk-19}
 \end{figure}
 
 The folder is called ``rawdata'' because the data stored there will be the unedited, raw version of the data, and any files therein should \textbf{NOT} be altered. Any changes or edits one makes to the datasets should be saved in new data files that are saved in a different folder called ``output'', which we'll create later.
@@ -2406,9 +2394,7 @@ There you have it: a nicely formatted bar graph!
 \textbf{REMINDER} Don't forget to include a good figure caption! Here's a snapshot of the full code chunk that produced the bar graph above:
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/bar_graph_chunk.png}}
-\caption{\label{fig:unnamed-chunk-28}Example code chunk for producing a good bar graph}
+\includegraphics[width=32.69in]{./more/bar_graph_chunk} \caption{Example code chunk for producing a good bar graph}\label{fig:unnamed-chunk-28}
 \end{figure}
 
 \begin{enumerate}
@@ -2847,9 +2833,7 @@ penguins %>%
 Uh oh! If you tried to run this code, it would have given you an error:
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/na_error.png}}
-\caption{\label{fig:unnamed-chunk-34}Error when functions encounter `NA' values}
+\includegraphics[width=18in]{./more/na_error} \caption{Error when functions encounter 'NA' values}\label{fig:unnamed-chunk-34}
 \end{figure}
 
 We forgot that when we \hyperref[vis_data_overview]{previously} got an overview of the \texttt{penguins} dataset we discovered there were missing values (``NA'' values)!
@@ -3446,9 +3430,7 @@ It is best practice to use the \textbf{response variable} as the ``fill'' variab
 If we wished to provide an appropriate figure heading, this would be the code:
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/grouped_bar_graph.png}}
-\caption{\label{fig:unnamed-chunk-41}Example code chunk for producing a good grouped bar graph}
+\includegraphics[width=29.25in]{./more/grouped_bar_graph} \caption{Example code chunk for producing a good grouped bar graph}\label{fig:unnamed-chunk-41}
 \end{figure}
 
 And the result:
@@ -3533,9 +3515,7 @@ Let's provide the mosaic plot again, and this time we'll provide an appropriate 
 Here's the code:
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/mosaic_graph.png}}
-\caption{\label{fig:unnamed-chunk-44}Example code chunk for producing a good mosaic plot}
+\includegraphics[width=29.56in]{./more/mosaic_graph} \caption{Example code chunk for producing a good mosaic plot}\label{fig:unnamed-chunk-44}
 \end{figure}
 
 When interpreting a mosaic plot, the key is to look how the relative frequency of the categories of the response variable - denoted by the ``fill'' colours - varies across the explanatory variable, which is arranged on the x-axis.
@@ -5918,7 +5898,7 @@ The binomial distribution provides the probability distribution for the number o
 
 Here's the formula:
 
-\pandocbounded{\includegraphics[keepaspectratio]{./more/binomial_equation.png}}
+\includegraphics[width=12.5in]{./more/binomial_equation}
 
 It turns out there's a handy function \texttt{dbinom} (available in the base R package) that will calculate the exact probability associated with any particular outcome for a random trial with a given sample space (set of outcomes) and probability of success. It uses the equation shown above.
 
@@ -7749,9 +7729,7 @@ Upper\_95\_CL
 If we wanted to report the confidence interval on its own, we can get the necessary information from our newly created tibble ``bodytemp.stats'', and type the following inline code in our markdown text (NOT in a code chunk):
 
 \begin{figure}
-\centering
-\pandocbounded{\includegraphics[keepaspectratio]{./more/confint_inline_code.png}}
-\caption{\label{fig:unnamed-chunk-80}Example of inline markdown and R code for a confidence interval}
+\includegraphics[width=27.81in]{./more/confint_inline_code} \caption{Example of inline markdown and R code for a confidence interval}\label{fig:unnamed-chunk-80}
 \end{figure}
 
 Which will provide:
@@ -13085,7 +13063,7 @@ On this HTML page the table above still goes off the page, but the PDF version w
 
 Here's an image of the PDF output:
 
-\pandocbounded{\includegraphics[keepaspectratio]{./more/second_kable.png}}
+\includegraphics[width=26.06in]{./more/second_kable}
 
 For very large datasets you may find this approach causes the font to be too small.
 
@@ -13182,7 +13160,7 @@ This is an optional tutorial describing a new feature included in the latest ver
 
 Markdown documents can be edited either in \textbf{source} mode (what we're looking at right now) or in \textbf{visual} mode. To switch between these modes, click on the button at the top right of the toolbar on the Source panel in RStudio (when viewing a .Rmd file), or use the shortcut {[}\texttt{Command}/\texttt{Control}{]}+\texttt{Shift}+\texttt{F4}.
 
-\pandocbounded{\includegraphics[keepaspectratio]{./more/toolbar.png}}
+\includegraphics[width=10.31in]{./more/toolbar}
 
 \textbf{Toolbar above the editing pane in RStudio.}
 
