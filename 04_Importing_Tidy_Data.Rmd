@@ -91,7 +91,7 @@ students <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/mai
 We have now imported the data and stored it in a local object called "students". The object is called a "tibble", which you can think of as a special kind of spreadsheet. More information on "tibbles" can be found [here](https://r4ds.had.co.nz/tibbles.html).
 
 <div class="note">
-Unless otherwise indicated, all CSV data files that we use in this course are stored at the same URL location, specifically: "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/". Thus, to import any CSV file you just need to copy that path, then append the appropriate file name to the end of the path. For example, the full path to access a CSV file called `birds.csv` file would be "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv". 
+Unless otherwise indicated, all CSV data files that we use in this course are stored at the same URL location, specifically: "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/". (**note** that clicking on this URL will not load a website). Thus, to import any CSV file you just need to copy that path, then append the appropriate file name to the end of the path. For example, the full path to access a CSV file called `birds.csv` file would be "https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/birds.csv". 
 </div>
 
 Often you'll need to import data from a locally stored CSV file, rather than from the web. You'll learn how to do this [shortly](#import_csv_local).  First: how does one create a CSV file?

@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.7)  21 SEP 2025 11:05
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.21)  26 SEP 2025 09:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **BIOL202.tex
 (./BIOL202.tex
 LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-08-13>
+L3 programming layer <2025-09-02>
 (/Users/jpither/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
 (/Users/jpither/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
@@ -115,7 +115,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )) (/Users/jpither/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ) (/Users/jpither/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/Users/jpither/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-08-13 L3 programming layer (loader) 
+Package: expl3 2025-09-02 L3 programming layer (loader) 
 (/Users/jpither/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2025-06-09 L3 backend support: XeTeX
 \g__graphics_track_int=\count292
@@ -1310,11 +1310,6 @@ Underfull \hbox (badness 2057) in paragraph at lines 1429--1431
  []
 
 
-Underfull \hbox (badness 1189) in paragraph at lines 1454--1455
-\TU/lmr/m/n/10 called \TU/lmtt/m/n/10 birds.csv \TU/lmr/m/n/10 file would be “[]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][] [] [][][][] [][]
- []
-
-
 LaTeX Warning: Hyper reference `import_csv_local' on page 54 undefined on input line 1456.
 
 
@@ -2047,10 +2042,10 @@ so that I will find a matching right brace soon.
 
  
 Here is how much of TeX's memory you used:
- 20778 strings out of 470457
- 385743 string characters out of 5490246
+ 20778 strings out of 470454
+ 385743 string characters out of 5490166
  922194 words of memory out of 5000000
- 48777 multiletter control sequences out of 15000+600000
+ 48780 multiletter control sequences out of 15000+600000
  633414 words of font info for 98 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,10n,114p,1035b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
