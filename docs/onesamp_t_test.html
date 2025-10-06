@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-09-26" />
+<meta name="date" content="2025-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -561,13 +561,13 @@ You can add a degree symbol using this syntax in markdown: <code>$^\circ$</code>
 <p>The first step is to figure out the minimum and maximum values of your numeric variable, and you should have already done this when using the <code>skim_without_charts</code> function to get an overview of the dataset (when you first imported the data).</p>
 <p>For the <code>temperature</code> variable, our minimum and maximum values were 97.4 and 100, respectively.</p>
 <p>We’ll use this information to ensure that the histogram spans the appropriate range along the x-axis, and to decide on the appropriate “bin widths”:</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="onesamp_t_test.html#cb276-1" tabindex="-1"></a>bodytemp <span class="sc">%&gt;%</span> </span>
-<span id="cb276-2"><a href="onesamp_t_test.html#cb276-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temperature)) <span class="sc">+</span></span>
-<span id="cb276-3"><a href="onesamp_t_test.html#cb276-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">boundary =</span> <span class="dv">97</span>, </span>
-<span id="cb276-4"><a href="onesamp_t_test.html#cb276-4" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>,) <span class="sc">+</span></span>
-<span id="cb276-5"><a href="onesamp_t_test.html#cb276-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body temperature (degrees F)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb276-6"><a href="onesamp_t_test.html#cb276-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb276-7"><a href="onesamp_t_test.html#cb276-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="onesamp_t_test.html#cb277-1" tabindex="-1"></a>bodytemp <span class="sc">%&gt;%</span> </span>
+<span id="cb277-2"><a href="onesamp_t_test.html#cb277-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> temperature)) <span class="sc">+</span></span>
+<span id="cb277-3"><a href="onesamp_t_test.html#cb277-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">boundary =</span> <span class="dv">97</span>, </span>
+<span id="cb277-4"><a href="onesamp_t_test.html#cb277-4" tabindex="-1"></a>                 <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>,) <span class="sc">+</span></span>
+<span id="cb277-5"><a href="onesamp_t_test.html#cb277-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Body temperature (degrees F)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb277-6"><a href="onesamp_t_test.html#cb277-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb277-7"><a href="onesamp_t_test.html#cb277-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-77"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-77-1.png" alt="Frequency distribution of body temperature (degrees Farenheit) for 25 randomly chosen healthy people." width="384" />
 <p class="caption">
@@ -591,9 +591,9 @@ Figure 13.1: Frequency distribution of body temperature (degrees Farenheit) for 
 <p>This function is used for both one-sample and two-sample <em>t</em>-tests (covered later), and for calculating 95% confidence intervals for a mean (later in this tutorial).</p>
 <p>Because this function has multiple purposes, be sure to pay attention to the arguments.</p>
 <p>Here’s the code, which we’ll explain after:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="onesamp_t_test.html#cb278-1" tabindex="-1"></a>body.ttest <span class="ot">&lt;-</span> bodytemp <span class="sc">%&gt;%</span></span>
-<span id="cb278-2"><a href="onesamp_t_test.html#cb278-2" tabindex="-1"></a>  <span class="fu">select</span>(temperature) <span class="sc">%&gt;%</span></span>
-<span id="cb278-3"><a href="onesamp_t_test.html#cb278-3" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">mu =</span> <span class="fl">98.6</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="onesamp_t_test.html#cb279-1" tabindex="-1"></a>body.ttest <span class="ot">&lt;-</span> bodytemp <span class="sc">%&gt;%</span></span>
+<span id="cb279-2"><a href="onesamp_t_test.html#cb279-2" tabindex="-1"></a>  <span class="fu">select</span>(temperature) <span class="sc">%&gt;%</span></span>
+<span id="cb279-3"><a href="onesamp_t_test.html#cb279-3" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">mu =</span> <span class="fl">98.6</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
 <ul>
 <li>We first assign our results to a new object called “body.ttest”</li>
 <li>We then <code>select</code> the variable “temperature”, as this is the one being analyzed</li>
@@ -602,7 +602,7 @@ Figure 13.1: Frequency distribution of body temperature (degrees Farenheit) for 
 <li>We provide the “conf.level” of 0.95, which is equal to <span class="math inline">\(1-\alpha\)</span></li>
 </ul>
 <p>Let’s look at the results:</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="onesamp_t_test.html#cb279-1" tabindex="-1"></a>body.ttest</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="onesamp_t_test.html#cb280-1" tabindex="-1"></a>body.ttest</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 

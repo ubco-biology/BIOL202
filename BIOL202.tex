@@ -133,7 +133,7 @@
 
 \title{Tutorials for BIOL202: Introduction to Biostatistics}
 \author{Jason Pither}
-\date{2025-09-26}
+\date{2025-10-06}
 
 \begin{document}
 \maketitle
@@ -3461,7 +3461,7 @@ For more information about the \texttt{ggmosaic} package, see this \href{https:/
 
 For the \texttt{geom\_mosaic} function, we actually use the original (raw) \texttt{bird.malaria} tibble, which has a row for every observation (i.e.~it isn't summarized first into a frequency table).
 
-Here's the code, and we'll explain after:
+Here's the code, and we'll explain after (\textbf{NOTE}: some users might get an error and/or warning messages; if this happens, use the alternative code provided further down):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3490,6 +3490,27 @@ We'll learn about interpreting mosaic plots next.
 \item
   Using the \texttt{penguins} dataset, try creating a mosaic plot for comparing the relative frequency of penguins belonging to the three different ``species'' across the three different islands (variable ``island'').
 \end{enumerate}
+
+\textbf{ALTERNATIVE MOSAIC PLOT CODE}
+
+The following code should help avoid any errors and/or warnings. It uses the strategy of specifying the package associated with each function, using the syntax:
+
+\texttt{packagename::function}
+
+for example:
+
+\texttt{ggmosaic::geom\_mosaic}
+
+This code also avoids a conflict with the \texttt{xlab} and \texttt{ylab} functions.
+
+\begin{verbatim}
+ggplot(bird.malaria) +
+  ggmosaic::geom_mosaic(aes(x = ggmosaic::product(treatment), fill = response)) +
+  ggplot2::scale_y_continuous() +
+  ggmosaic::scale_x_productlist(name = "Treatment group") +  
+  ggplot2::labs(y = "Relative frequency") +
+  ggplot2::theme_bw()
+\end{verbatim}
 
 \subsection{Interpreting mosaic plots}\label{interpret_mosaic}
 

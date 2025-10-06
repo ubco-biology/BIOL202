@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-09-26" />
+<meta name="date" content="2025-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -768,7 +768,7 @@ Figure 8.2: Grouped bar graph showing the incidence of malaria in female great t
 <p>For this we use the <code>geom_mosaic</code> function, from the <code>ggmosaic</code> package, in conjunction with the <code>ggplot</code> function.</p>
 <p>For more information about the <code>ggmosaic</code> package, see this <a href="https://cran.r-project.org/web/packages/ggmosaic/vignettes/ggmosaic.html">vignette</a>.</p>
 <p>For the <code>geom_mosaic</code> function, we actually use the original (raw) <code>bird.malaria</code> tibble, which has a row for every observation (i.e. it isn’t summarized first into a frequency table).</p>
-<p>Here’s the code, and we’ll explain after:</p>
+<p>Here’s the code, and we’ll explain after (<strong>NOTE</strong>: some users might get an error and/or warning messages; if this happens, use the alternative code provided further down):</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="vis2_2cat.html#cb92-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bird.malaria) <span class="sc">+</span></span>
 <span id="cb92-2"><a href="vis2_2cat.html#cb92-2" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
 <span id="cb92-3"><a href="vis2_2cat.html#cb92-3" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
@@ -783,16 +783,29 @@ Figure 8.2: Grouped bar graph showing the incidence of malaria in female great t
 <ol style="list-style-type: decimal">
 <li>Using the <code>penguins</code> dataset, try creating a mosaic plot for comparing the relative frequency of penguins belonging to the three different “species” across the three different islands (variable “island”).</li>
 </ol>
+<p><strong>ALTERNATIVE MOSAIC PLOT CODE</strong></p>
+<p>The following code should help avoid any errors and/or warnings. It uses the strategy of specifying the package associated with each function, using the syntax:</p>
+<p><code>packagename::function</code></p>
+<p>for example:</p>
+<p><code>ggmosaic::geom_mosaic</code></p>
+<p>This code also avoids a conflict with the <code>xlab</code> and <code>ylab</code> functions.</p>
+<pre><code>ggplot(bird.malaria) +
+  ggmosaic::geom_mosaic(aes(x = ggmosaic::product(treatment), fill = response)) +
+  ggplot2::scale_y_continuous() +
+  ggmosaic::scale_x_productlist(name = &quot;Treatment group&quot;) +  
+  ggplot2::labs(y = &quot;Relative frequency&quot;) +
+  ggplot2::theme_bw()
+</code></pre>
 </div>
 <div id="interpret_mosaic" class="section level3 hasAnchor" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> Interpreting mosaic plots<a href="vis2_2cat.html#interpret_mosaic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s provide the mosaic plot again, and this time we’ll provide an appropriate figure heading in the chunk header, as we <a href="rmd_graphing.html#rmd_graphing">learned previously</a>:</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="vis2_2cat.html#cb93-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bird.malaria) <span class="sc">+</span></span>
-<span id="cb93-2"><a href="vis2_2cat.html#cb93-2" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
-<span id="cb93-3"><a href="vis2_2cat.html#cb93-3" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
-<span id="cb93-4"><a href="vis2_2cat.html#cb93-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
-<span id="cb93-5"><a href="vis2_2cat.html#cb93-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb93-6"><a href="vis2_2cat.html#cb93-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="vis2_2cat.html#cb94-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> bird.malaria) <span class="sc">+</span></span>
+<span id="cb94-2"><a href="vis2_2cat.html#cb94-2" tabindex="-1"></a>  <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
+<span id="cb94-3"><a href="vis2_2cat.html#cb94-3" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>() <span class="sc">+</span></span>
+<span id="cb94-4"><a href="vis2_2cat.html#cb94-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Treatment group&quot;</span>) <span class="sc">+</span></span>
+<span id="cb94-5"><a href="vis2_2cat.html#cb94-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb94-6"><a href="vis2_2cat.html#cb94-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-43"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-43-1.png" alt="Relative frequency of the incidence of malaria in female great tits in relation to control (N = 35) and Egg-removal (N = 30) treatment groups." width="384" />
 <p class="caption">

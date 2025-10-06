@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-09-26" />
+<meta name="date" content="2025-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -537,9 +537,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="showwormcont" class="section level3 hasAnchor" number="12.5.2">
 <h3><span class="header-section-number">12.5.2</span> Display the contingency table<a href="chisquare.html#showwormcont" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s generate a contingency table:</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="chisquare.html#cb255-1" tabindex="-1"></a>worm <span class="sc">%&gt;%</span></span>
-<span id="cb255-2"><a href="chisquare.html#cb255-2" tabindex="-1"></a>  <span class="fu">tabyl</span>(fate, infection) <span class="sc">%&gt;%</span></span>
-<span id="cb255-3"><a href="chisquare.html#cb255-3" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="chisquare.html#cb256-1" tabindex="-1"></a>worm <span class="sc">%&gt;%</span></span>
+<span id="cb256-2"><a href="chisquare.html#cb256-2" tabindex="-1"></a>  <span class="fu">tabyl</span>(fate, infection) <span class="sc">%&gt;%</span></span>
+<span id="cb256-3"><a href="chisquare.html#cb256-3" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</span></code></pre></div>
 <pre><code>##       fate highly lightly uninfected Total
 ##      eaten     37      10          1    48
 ##  not eaten      9      35         49    93
@@ -551,26 +551,26 @@ The ordering of the categories is not actually crucial to this type of analysis,
 </div>
 <p>In order to change the order of categories in a character variable, here’s what you do (consult this <a href="http://www.cookbook-r.com/Manipulating_data/Changing_the_order_of_levels_of_a_factor/">resource</a> for additional info).</p>
 <p>First, convert the character variable to a “factor” variable as follows:</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="chisquare.html#cb257-1" tabindex="-1"></a>worm<span class="sc">$</span>infection <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(worm<span class="sc">$</span>infection)</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="chisquare.html#cb258-1" tabindex="-1"></a>worm<span class="sc">$</span>infection <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(worm<span class="sc">$</span>infection)</span></code></pre></div>
 <p>Now check the default ordering of the levels using the <code>levels</code> function (it should be alphabetical):</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="chisquare.html#cb258-1" tabindex="-1"></a><span class="fu">levels</span>(worm<span class="sc">$</span>infection)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="chisquare.html#cb259-1" tabindex="-1"></a><span class="fu">levels</span>(worm<span class="sc">$</span>infection)</span></code></pre></div>
 <pre><code>## [1] &quot;highly&quot;     &quot;lightly&quot;    &quot;uninfected&quot;</code></pre>
 <p>Now change the ordering as follows:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="chisquare.html#cb260-1" tabindex="-1"></a>worm<span class="sc">$</span>infection <span class="ot">&lt;-</span> <span class="fu">factor</span>(worm<span class="sc">$</span>infection, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;uninfected&quot;</span>, <span class="st">&quot;lightly&quot;</span>, <span class="st">&quot;highly&quot;</span>))</span>
-<span id="cb260-2"><a href="chisquare.html#cb260-2" tabindex="-1"></a><span class="fu">levels</span>(worm<span class="sc">$</span>infection)</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="chisquare.html#cb261-1" tabindex="-1"></a>worm<span class="sc">$</span>infection <span class="ot">&lt;-</span> <span class="fu">factor</span>(worm<span class="sc">$</span>infection, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;uninfected&quot;</span>, <span class="st">&quot;lightly&quot;</span>, <span class="st">&quot;highly&quot;</span>))</span>
+<span id="cb261-2"><a href="chisquare.html#cb261-2" tabindex="-1"></a><span class="fu">levels</span>(worm<span class="sc">$</span>infection)</span></code></pre></div>
 <pre><code>## [1] &quot;uninfected&quot; &quot;lightly&quot;    &quot;highly&quot;</code></pre>
 <p>Now re-display the contingency table, first storing it in an object “worm.table”:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="chisquare.html#cb262-1" tabindex="-1"></a>worm.table <span class="ot">&lt;-</span> worm <span class="sc">%&gt;%</span></span>
-<span id="cb262-2"><a href="chisquare.html#cb262-2" tabindex="-1"></a>  <span class="fu">tabyl</span>(fate, infection) <span class="sc">%&gt;%</span></span>
-<span id="cb262-3"><a href="chisquare.html#cb262-3" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</span>
-<span id="cb262-4"><a href="chisquare.html#cb262-4" tabindex="-1"></a>worm.table</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="chisquare.html#cb263-1" tabindex="-1"></a>worm.table <span class="ot">&lt;-</span> worm <span class="sc">%&gt;%</span></span>
+<span id="cb263-2"><a href="chisquare.html#cb263-2" tabindex="-1"></a>  <span class="fu">tabyl</span>(fate, infection) <span class="sc">%&gt;%</span></span>
+<span id="cb263-3"><a href="chisquare.html#cb263-3" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="fu">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</span>
+<span id="cb263-4"><a href="chisquare.html#cb263-4" tabindex="-1"></a>worm.table</span></code></pre></div>
 <pre><code>##       fate uninfected lightly highly Total
 ##      eaten          1      10     37    48
 ##  not eaten         49      35      9    93
 ##      Total         50      45     46   141</code></pre>
 <p>That’s better!</p>
 <p>Visualize it nicely with <code>kable</code>:</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="chisquare.html#cb264-1" tabindex="-1"></a><span class="fu">kable</span>(worm.table)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="chisquare.html#cb265-1" tabindex="-1"></a><span class="fu">kable</span>(worm.table)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -649,14 +649,14 @@ Total
 <div id="mosaicworm" class="section level3 hasAnchor" number="12.5.3">
 <h3><span class="header-section-number">12.5.3</span> Visualize a mosaic plot<a href="chisquare.html#mosaicworm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here’s a mosaic plot with an ideal figure caption included:</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="chisquare.html#cb265-1" tabindex="-1"></a>worm <span class="sc">%&gt;%</span></span>
-<span id="cb265-2"><a href="chisquare.html#cb265-2" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb265-3"><a href="chisquare.html#cb265-3" tabindex="-1"></a>    <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(infection), <span class="at">fill =</span> fate)) <span class="sc">+</span></span>
-<span id="cb265-4"><a href="chisquare.html#cb265-4" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;gold&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb265-5"><a href="chisquare.html#cb265-5" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.2</span>)) <span class="sc">+</span></span>
-<span id="cb265-6"><a href="chisquare.html#cb265-6" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Level of infection&quot;</span>) <span class="sc">+</span></span>
-<span id="cb265-7"><a href="chisquare.html#cb265-7" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb265-8"><a href="chisquare.html#cb265-8" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="chisquare.html#cb266-1" tabindex="-1"></a>worm <span class="sc">%&gt;%</span></span>
+<span id="cb266-2"><a href="chisquare.html#cb266-2" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb266-3"><a href="chisquare.html#cb266-3" tabindex="-1"></a>    <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(infection), <span class="at">fill =</span> fate)) <span class="sc">+</span></span>
+<span id="cb266-4"><a href="chisquare.html#cb266-4" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;gold&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb266-5"><a href="chisquare.html#cb266-5" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.2</span>)) <span class="sc">+</span></span>
+<span id="cb266-6"><a href="chisquare.html#cb266-6" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">&quot;Level of infection&quot;</span>) <span class="sc">+</span></span>
+<span id="cb266-7"><a href="chisquare.html#cb266-7" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="st">&quot;Relative frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb266-8"><a href="chisquare.html#cb266-8" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-74"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-74-1.png" alt="Mosaic plot of bird predation on killifish having different levels of trematode parasitism. A total of 50, 45, and 46 fish were in the uninfected, lightly infected, and highly infected groups." width="384" />
 <p class="caption">
@@ -676,11 +676,11 @@ Figure 12.2: Mosaic plot of bird predation on killifish having different levels 
 <p>Conduct the test using the <code>chisq.test</code> function from <code>janitor</code> package. <strong>NOTE</strong> this again overlaps with a function name from the base R package, so we’ll need to specify that we want the “janitor” version of the function.</p>
 <p>We need our contingency table as input to the function, but this time without margin totals.</p>
 <p>We’ll assign the results to an object “worm.chisq.results”:</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="chisquare.html#cb266-1" tabindex="-1"></a>worm.chisq.results <span class="ot">&lt;-</span> worm <span class="sc">%&gt;%</span></span>
-<span id="cb266-2"><a href="chisquare.html#cb266-2" tabindex="-1"></a>    <span class="fu">tabyl</span>(fate, infection) <span class="sc">%&gt;%</span></span>
-<span id="cb266-3"><a href="chisquare.html#cb266-3" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">chisq.test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="chisquare.html#cb267-1" tabindex="-1"></a>worm.chisq.results <span class="ot">&lt;-</span> worm <span class="sc">%&gt;%</span></span>
+<span id="cb267-2"><a href="chisquare.html#cb267-2" tabindex="-1"></a>    <span class="fu">tabyl</span>(fate, infection) <span class="sc">%&gt;%</span></span>
+<span id="cb267-3"><a href="chisquare.html#cb267-3" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">chisq.test</span>()</span></code></pre></div>
 <p>Have a look at the output:</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="chisquare.html#cb267-1" tabindex="-1"></a>worm.chisq.results</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="chisquare.html#cb268-1" tabindex="-1"></a>worm.chisq.results</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -689,11 +689,11 @@ Figure 12.2: Mosaic plot of bird predation on killifish having different levels 
 <p>Although only a few bits of information are provided here, the object actually contains a lot more information.</p>
 <p>Don’t try getting an overview of the object using our usual <code>skim_without_charts</code> approach.. that won’t work.</p>
 <p>Instead, simply use this code:</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="chisquare.html#cb269-1" tabindex="-1"></a><span class="fu">names</span>(worm.chisq.results)</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="chisquare.html#cb270-1" tabindex="-1"></a><span class="fu">names</span>(worm.chisq.results)</span></code></pre></div>
 <pre><code>## [1] &quot;statistic&quot; &quot;parameter&quot; &quot;p.value&quot;   &quot;method&quot;    &quot;data.name&quot; &quot;observed&quot; 
 ## [7] &quot;expected&quot;  &quot;residuals&quot; &quot;stdres&quot;</code></pre>
 <p>As you can see, one of the names is <code>expected</code>. This is what holds our expected frequencies (and note that these values do not need to be whole numbers, unlike the observed frequencies):</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="chisquare.html#cb271-1" tabindex="-1"></a><span class="fu">kable</span>(worm.chisq.results<span class="sc">$</span>expected)</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="chisquare.html#cb272-1" tabindex="-1"></a><span class="fu">kable</span>(worm.chisq.results<span class="sc">$</span>expected)</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -755,7 +755,7 @@ not eaten
 <div id="chiresults" class="section level3 hasAnchor" number="12.5.5">
 <h3><span class="header-section-number">12.5.5</span> Get the results of the test<a href="chisquare.html#chiresults" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We can see the results of the <span class="math inline">\(\chi\)</span><sup>2</sup> test by simply typing the name of the results object:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="chisquare.html#cb272-1" tabindex="-1"></a>worm.chisq.results</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="chisquare.html#cb273-1" tabindex="-1"></a>worm.chisq.results</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 

@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-09-26" />
+<meta name="date" content="2025-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -517,17 +517,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you haven’t already, install the <code>gtsummary</code> package by typing this in your console (do this only once):</p>
 <pre><code>install.packages(&quot;gtsummary&quot;)</code></pre>
 <p>Let’s load packages …</p>
-<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="data-summaries-with-gtsummary-package.html#cb491-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb491-2"><a href="data-summaries-with-gtsummary-package.html#cb491-2" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb491-3"><a href="data-summaries-with-gtsummary-package.html#cb491-3" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb491-4"><a href="data-summaries-with-gtsummary-package.html#cb491-4" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="data-summaries-with-gtsummary-package.html#cb492-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb492-2"><a href="data-summaries-with-gtsummary-package.html#cb492-2" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb492-3"><a href="data-summaries-with-gtsummary-package.html#cb492-3" tabindex="-1"></a><span class="fu">library</span>(gtsummary)</span>
+<span id="cb492-4"><a href="data-summaries-with-gtsummary-package.html#cb492-4" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <p>The key function in the <code>gtsummary</code> package is the <code>tbl_summary</code> function:</p>
 <pre><code>?tbl_summary</code></pre>
 <p>Take note of the default settings for the “statistic” argument… by default, the function will return the median and IQR for numeric variables, and the sample size and relative frequency (expressed as percentage) for categorical variables.</p>
 <p>For details on this function, along with a tutorial, see this <a href="https://cran.r-project.org/web/packages/gtsummary/vignettes/tbl_summary.html">webpage</a>.</p>
 <p>We’ll get an overview of the data using the <code>tbl_summary</code> function.</p>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="data-summaries-with-gtsummary-package.html#cb493-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb493-2"><a href="data-summaries-with-gtsummary-package.html#cb493-2" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="data-summaries-with-gtsummary-package.html#cb494-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb494-2"><a href="data-summaries-with-gtsummary-package.html#cb494-2" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
 <div id="gbzwbrksae" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#gbzwbrksae table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1043,9 +1043,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 <p>We could select just some numeric variables, and ask for the mean and standard deviation. Note the syntax for the “statistic” argument… we have to provide a “list”, as follows:</p>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="data-summaries-with-gtsummary-package.html#cb494-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb494-2"><a href="data-summaries-with-gtsummary-package.html#cb494-2" tabindex="-1"></a>  <span class="fu">select</span>(bill_length_mm, bill_depth_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb494-3"><a href="data-summaries-with-gtsummary-package.html#cb494-3" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="st">&quot;{mean} ({sd})&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="data-summaries-with-gtsummary-package.html#cb495-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb495-2"><a href="data-summaries-with-gtsummary-package.html#cb495-2" tabindex="-1"></a>  <span class="fu">select</span>(bill_length_mm, bill_depth_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb495-3"><a href="data-summaries-with-gtsummary-package.html#cb495-3" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(<span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="st">&quot;{mean} ({sd})&quot;</span>))</span></code></pre></div>
 <div id="ozocsmxgru" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#ozocsmxgru table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';

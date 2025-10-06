@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-09-26" />
+<meta name="date" content="2025-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -593,12 +593,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">18.2.5</span> Visualize the data<a href="LSR.html#LSR_vis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using the plant biomass data, let’s evaluate whether ecosystem stability can be reliably predicted from plant species richness.</p>
 <p>We learned in an earlier <a href="two_numeric.html#two_numeric">tutorial</a> that the best way to visualize an association between two numeric variables is with a scatterplot, and that we can create a scatterplot using the <code>ggplot</code> and <code>geom_point</code> functions:</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="LSR.html#cb457-1" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
-<span id="cb457-2"><a href="LSR.html#cb457-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> biomassStability)) <span class="sc">+</span></span>
-<span id="cb457-3"><a href="LSR.html#cb457-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb457-4"><a href="LSR.html#cb457-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
-<span id="cb457-5"><a href="LSR.html#cb457-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability&quot;</span>) <span class="sc">+</span></span>
-<span id="cb457-6"><a href="LSR.html#cb457-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="LSR.html#cb458-1" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
+<span id="cb458-2"><a href="LSR.html#cb458-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> biomassStability)) <span class="sc">+</span></span>
+<span id="cb458-3"><a href="LSR.html#cb458-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb458-4"><a href="LSR.html#cb458-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb458-5"><a href="LSR.html#cb458-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability&quot;</span>) <span class="sc">+</span></span>
+<span id="cb458-6"><a href="LSR.html#cb458-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:lsrfigone"></span>
 <img src="BIOL202_files/figure-html/lsrfigone-1.png" alt="Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots." width="403.2" />
 <p class="caption">
@@ -634,9 +634,9 @@ Figure 18.2: Stability of biomass production over 10 years in 161 plots and the 
 <p>Let’s implement the regression analysis and be sure to store the output for future use.</p>
 <p>The function to use is the <code>lm</code> function, which we saw in a previous <a href="do_the_anova.html#do_anova1">tutorial</a>, but here our predictor (independent) variable is a numeric variable rather than a categorical variable.</p>
 <p>Let’s run the regression analysis and assign the output to an object as follows:</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="LSR.html#cb458-1" tabindex="-1"></a>biomass.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(biomassStability <span class="sc">~</span> nSpecies, <span class="at">data =</span> plantbiomass)</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="LSR.html#cb459-1" tabindex="-1"></a>biomass.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(biomassStability <span class="sc">~</span> nSpecies, <span class="at">data =</span> plantbiomass)</span></code></pre></div>
 <p>Let’s have a look at the untidy output:</p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="LSR.html#cb459-1" tabindex="-1"></a>biomass.lm</span></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="LSR.html#cb460-1" tabindex="-1"></a>biomass.lm</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = biomassStability ~ nSpecies, data = plantbiomass)
@@ -647,11 +647,11 @@ Figure 18.2: Stability of biomass production over 10 years in 161 plots and the 
 <p>We’ll learn a bit later how to tidy up this output…</p>
 <p>Before we do anything else (e.g. explore the results of the regression), we need to first check the assumptions!</p>
 <p>To get the residuals, which are required to check the assumptions, you first need to run the <code>augment</code> function from the <code>broom</code> package on the untidy regression object, as this will allow us to easily access the residuals.</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="LSR.html#cb461-1" tabindex="-1"></a>biomass.lm.augment <span class="ot">&lt;-</span> biomass.lm <span class="sc">%&gt;%</span></span>
-<span id="cb461-2"><a href="LSR.html#cb461-2" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">augment</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="LSR.html#cb462-1" tabindex="-1"></a>biomass.lm.augment <span class="ot">&lt;-</span> biomass.lm <span class="sc">%&gt;%</span></span>
+<span id="cb462-2"><a href="LSR.html#cb462-2" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">augment</span>()</span></code></pre></div>
 <p>This produces a tibble, in which one of the variables, called “.resid”, houses the residuals that we’re after.</p>
 <p>Let’s have a look:</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="LSR.html#cb462-1" tabindex="-1"></a>biomass.lm.augment</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="LSR.html#cb463-1" tabindex="-1"></a>biomass.lm.augment</span></code></pre></div>
 <pre><code>## # A tibble: 161 × 8
 ##    biomassStability nSpecies .fitted .resid    .hat .sigma   .cooksd .std.resid
 ##               &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
@@ -679,13 +679,13 @@ Figure 18.2: Stability of biomass production over 10 years in 161 plots and the 
 </ul>
 <p>With respect to the last assumption regarding random sampling, we can assume that it is met for the plant experiment example. In experiments, the key experimental design feature is that individuals (here, plant seedlings) are randomly assigned to treatments, and that the individuals themselves were randomly drawn from the population prior to randomizing to experimental treatments. If your study is observational, then it is key that the individuals upon which measurements were made were randomly drawn from the population.</p>
 <p>For the first three assumptions, we start by looking at the original scatterplot <a href="LSR.html#fig:lsrfigone">18.2</a>, but this time we add what’s called a “locally weighted smoother” line, using the <code>ggplot2</code> function <code>geom_smooth</code>:</p>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="LSR.html#cb464-1" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
-<span id="cb464-2"><a href="LSR.html#cb464-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> biomassStability)) <span class="sc">+</span></span>
-<span id="cb464-3"><a href="LSR.html#cb464-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb464-4"><a href="LSR.html#cb464-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span></span>
-<span id="cb464-5"><a href="LSR.html#cb464-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
-<span id="cb464-6"><a href="LSR.html#cb464-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability&quot;</span>) <span class="sc">+</span></span>
-<span id="cb464-7"><a href="LSR.html#cb464-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="LSR.html#cb465-1" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
+<span id="cb465-2"><a href="LSR.html#cb465-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> biomassStability)) <span class="sc">+</span></span>
+<span id="cb465-3"><a href="LSR.html#cb465-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb465-4"><a href="LSR.html#cb465-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span></span>
+<span id="cb465-5"><a href="LSR.html#cb465-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb465-6"><a href="LSR.html#cb465-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability&quot;</span>) <span class="sc">+</span></span>
+<span id="cb465-7"><a href="LSR.html#cb465-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:lsrfigtwo"></span>
 <img src="BIOL202_files/figure-html/lsrfigtwo-1.png" alt="Stability of biomass production over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is a locally weighted smoothing line." width="403.2" />
 <p class="caption">
@@ -703,11 +703,11 @@ Figure 18.3: Stability of biomass production over 10 years in 161 plots and the 
 <p>Two other types of graphs are used to help evaluate assumptions.</p>
 <p>We can check the normality of residuals assumption with a normal quantile plot, which you’ve seen <a href="checknorm_assum.html#quantile_plots">previously</a>.</p>
 <p>For this, we use the “augmented” output we created above.</p>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="LSR.html#cb465-1" tabindex="-1"></a>biomass.lm.augment <span class="sc">%&gt;%</span></span>
-<span id="cb465-2"><a href="LSR.html#cb465-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb465-3"><a href="LSR.html#cb465-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb465-4"><a href="LSR.html#cb465-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb465-5"><a href="LSR.html#cb465-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="LSR.html#cb466-1" tabindex="-1"></a>biomass.lm.augment <span class="sc">%&gt;%</span></span>
+<span id="cb466-2"><a href="LSR.html#cb466-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb466-3"><a href="LSR.html#cb466-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb466-4"><a href="LSR.html#cb466-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb466-5"><a href="LSR.html#cb466-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:lsrfigthree"></span>
 <img src="BIOL202_files/figure-html/lsrfigthree-1.png" alt="Normal quantile plot of the residuals from a regression of biomass stability on Species richness for 161 plots" width="403.2" />
 <p class="caption">
@@ -718,13 +718,13 @@ Figure 18.4: Normal quantile plot of the residuals from a regression of biomass 
 <p>Figure <a href="LSR.html#fig:lsrfigthree">18.4</a> shows that the residuals don’t really fall consistently near the line in the normal quantile plot; there is curviture, and increasing values tend to fall further from the line. This suggests the need to <strong>log-transform the data</strong>.</p>
 </blockquote>
 <p>Before trying a transformation, let’s also check the assumptions that (i) the variance of <span class="math inline">\(Y\)</span> is the same at all values of <span class="math inline">\(X\)</span>, and (ii) the assumption that the association is linear. To do this, we plot the residuals against the original “<span class="math inline">\(X\)</span>” variable, which here is the number of species initially used in the treatment. Note that we’ll add a horizontal line (“segement”) at zero for reference:</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="LSR.html#cb466-1" tabindex="-1"></a>biomass.lm.augment <span class="sc">%&gt;%</span></span>
-<span id="cb466-2"><a href="LSR.html#cb466-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb466-3"><a href="LSR.html#cb466-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb466-4"><a href="LSR.html#cb466-4" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb466-5"><a href="LSR.html#cb466-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
-<span id="cb466-6"><a href="LSR.html#cb466-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Residual&quot;</span>) <span class="sc">+</span></span>
-<span id="cb466-7"><a href="LSR.html#cb466-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="LSR.html#cb467-1" tabindex="-1"></a>biomass.lm.augment <span class="sc">%&gt;%</span></span>
+<span id="cb467-2"><a href="LSR.html#cb467-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb467-3"><a href="LSR.html#cb467-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb467-4"><a href="LSR.html#cb467-4" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb467-5"><a href="LSR.html#cb467-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb467-6"><a href="LSR.html#cb467-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Residual&quot;</span>) <span class="sc">+</span></span>
+<span id="cb467-7"><a href="LSR.html#cb467-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:lsrfigfour"></span>
 <img src="BIOL202_files/figure-html/lsrfigfour-1.png" alt="Residual plot from a regression of biomass stability on Species richness for 161 plots." width="403.2" />
 <p class="caption">
@@ -762,32 +762,32 @@ Figure 18.5: Residual plot from a regression of biomass stability on Species ric
 <div id="transform-the-data" class="section level3 hasAnchor" number="18.2.9">
 <h3><span class="header-section-number">18.2.9</span> Transform the data<a href="LSR.html#transform-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s log-transform the response variable, creating a new variable <code>log.biomass</code> using the <code>mutate</code> function from the <code>dplyr</code> package:</p>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="LSR.html#cb468-1" tabindex="-1"></a>plantbiomass <span class="ot">&lt;-</span> plantbiomass <span class="sc">%&gt;%</span></span>
-<span id="cb468-2"><a href="LSR.html#cb468-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log.biomass =</span> <span class="fu">log</span>(biomassStability))</span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="LSR.html#cb469-1" tabindex="-1"></a>plantbiomass <span class="ot">&lt;-</span> plantbiomass <span class="sc">%&gt;%</span></span>
+<span id="cb469-2"><a href="LSR.html#cb469-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log.biomass =</span> <span class="fu">log</span>(biomassStability))</span></code></pre></div>
 <p>Now let’s re-run the regression analysis:</p>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="LSR.html#cb469-1" tabindex="-1"></a>log.biomass.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(log.biomass <span class="sc">~</span> nSpecies, <span class="at">data =</span> plantbiomass)</span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="LSR.html#cb470-1" tabindex="-1"></a>log.biomass.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(log.biomass <span class="sc">~</span> nSpecies, <span class="at">data =</span> plantbiomass)</span></code></pre></div>
 <p>And <code>augment</code> the output:</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="LSR.html#cb470-1" tabindex="-1"></a>log.biomass.lm.augment <span class="ot">&lt;-</span> log.biomass.lm <span class="sc">%&gt;%</span></span>
-<span id="cb470-2"><a href="LSR.html#cb470-2" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">augment</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="LSR.html#cb471-1" tabindex="-1"></a>log.biomass.lm.augment <span class="ot">&lt;-</span> log.biomass.lm <span class="sc">%&gt;%</span></span>
+<span id="cb471-2"><a href="LSR.html#cb471-2" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">augment</span>()</span></code></pre></div>
 <p>And re-plot the residual diagnostic plots:</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="LSR.html#cb471-1" tabindex="-1"></a>log.biomass.lm.augment <span class="sc">%&gt;%</span></span>
-<span id="cb471-2"><a href="LSR.html#cb471-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb471-3"><a href="LSR.html#cb471-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb471-4"><a href="LSR.html#cb471-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb471-5"><a href="LSR.html#cb471-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="LSR.html#cb472-1" tabindex="-1"></a>log.biomass.lm.augment <span class="sc">%&gt;%</span></span>
+<span id="cb472-2"><a href="LSR.html#cb472-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb472-3"><a href="LSR.html#cb472-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb472-4"><a href="LSR.html#cb472-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb472-5"><a href="LSR.html#cb472-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:lsrfigfive"></span>
 <img src="BIOL202_files/figure-html/lsrfigfive-1.png" alt="Normal quantile plot of the residuals from a regression of biomass stability (log transformed) on Species richness for 161 plots" width="403.2" />
 <p class="caption">
 Figure 18.6: Normal quantile plot of the residuals from a regression of biomass stability (log transformed) on Species richness for 161 plots
 </p>
 </div>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="LSR.html#cb472-1" tabindex="-1"></a>log.biomass.lm.augment <span class="sc">%&gt;%</span></span>
-<span id="cb472-2"><a href="LSR.html#cb472-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
-<span id="cb472-3"><a href="LSR.html#cb472-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb472-4"><a href="LSR.html#cb472-4" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb472-5"><a href="LSR.html#cb472-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
-<span id="cb472-6"><a href="LSR.html#cb472-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Residual&quot;</span>) <span class="sc">+</span></span>
-<span id="cb472-7"><a href="LSR.html#cb472-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="LSR.html#cb473-1" tabindex="-1"></a>log.biomass.lm.augment <span class="sc">%&gt;%</span></span>
+<span id="cb473-2"><a href="LSR.html#cb473-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> .resid)) <span class="sc">+</span></span>
+<span id="cb473-3"><a href="LSR.html#cb473-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb473-4"><a href="LSR.html#cb473-4" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb473-5"><a href="LSR.html#cb473-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb473-6"><a href="LSR.html#cb473-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Residual&quot;</span>) <span class="sc">+</span></span>
+<span id="cb473-7"><a href="LSR.html#cb473-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:lsrfigsix"></span>
 <img src="BIOL202_files/figure-html/lsrfigsix-1.png" alt="Residual plot from a regression of biomass stability (log transformed) on Species richness for 161 plots." width="403.2" />
 <p class="caption">
@@ -802,7 +802,7 @@ Figure 18.7: Residual plot from a regression of biomass stability (log transform
 <div id="conduct-the-regression-analysis" class="section level3 hasAnchor" number="18.2.10">
 <h3><span class="header-section-number">18.2.10</span> Conduct the regression analysis<a href="LSR.html#conduct-the-regression-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have already conducted the main regression analysis above, using the <code>lm</code> function. We stored the output in the <code>log.biomass.lm</code> object. Now, we use the <code>summary</code> function to view the entire output from the regression analysis:</p>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="LSR.html#cb473-1" tabindex="-1"></a><span class="fu">summary</span>(log.biomass.lm)</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="LSR.html#cb474-1" tabindex="-1"></a><span class="fu">summary</span>(log.biomass.lm)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log.biomass ~ nSpecies, data = plantbiomass)
@@ -839,7 +839,7 @@ Figure 18.7: Residual plot from a regression of biomass stability (log transform
 <p>To calculate the confidence interval for the true slope, <span class="math inline">\(\beta\)</span>, we use the <code>confint</code> function from the base stats package:</p>
 <pre><code>?confint</code></pre>
 <p>We run this function on the <code>lm</code> model output:</p>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="LSR.html#cb476-1" tabindex="-1"></a><span class="fu">confint</span>(log.biomass.lm)</span></code></pre></div>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="LSR.html#cb477-1" tabindex="-1"></a><span class="fu">confint</span>(log.biomass.lm)</span></code></pre></div>
 <pre><code>##                  2.5 %     97.5 %
 ## (Intercept) 1.11673087 1.27985782
 ## nSpecies    0.02328063 0.04257117</code></pre>
@@ -863,14 +863,14 @@ Figure 18.7: Residual plot from a regression of biomass stability (log transform
 <pre><code>?geom_smooth</code></pre>
 <p>Let’s give it a try, making sure to spruce it up a bit with some additional options, and including a good figure caption, shown here for your reference (this is the code you’d put after the “r” in the header of the R chunk:</p>
 <pre><code>fig.cap = &quot;Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is the significant least-square regression line (black solid line; see text for details) and the 95% confidence bands (grey shading).&quot;</code></pre>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="LSR.html#cb480-1" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
-<span id="cb480-2"><a href="LSR.html#cb480-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> log.biomass)) <span class="sc">+</span></span>
-<span id="cb480-3"><a href="LSR.html#cb480-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb480-4"><a href="LSR.html#cb480-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, </span>
-<span id="cb480-5"><a href="LSR.html#cb480-5" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">level =</span> <span class="fl">0.95</span>) <span class="sc">+</span></span>
-<span id="cb480-6"><a href="LSR.html#cb480-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
-<span id="cb480-7"><a href="LSR.html#cb480-7" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability (log-transformed)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb480-8"><a href="LSR.html#cb480-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="LSR.html#cb481-1" tabindex="-1"></a>plantbiomass <span class="sc">%&gt;%</span></span>
+<span id="cb481-2"><a href="LSR.html#cb481-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nSpecies, <span class="at">y =</span> log.biomass)) <span class="sc">+</span></span>
+<span id="cb481-3"><a href="LSR.html#cb481-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb481-4"><a href="LSR.html#cb481-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>, </span>
+<span id="cb481-5"><a href="LSR.html#cb481-5" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">level =</span> <span class="fl">0.95</span>) <span class="sc">+</span></span>
+<span id="cb481-6"><a href="LSR.html#cb481-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Species richness&quot;</span>) <span class="sc">+</span></span>
+<span id="cb481-7"><a href="LSR.html#cb481-7" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass stability (log-transformed)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb481-8"><a href="LSR.html#cb481-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <div class="figure"><span style="display:block;" id="fig:lsrfigseven"></span>
 <img src="BIOL202_files/figure-html/lsrfigseven-1.png" alt="Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is the significant least-square regression line (black solid line; see text for details) and the 95% confidence bands (grey shading)." width="403.2" />

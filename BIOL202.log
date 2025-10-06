@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.21)  26 SEP 2025 09:26
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.21)  6 OCT 2025 08:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1776,15 +1776,19 @@ Overfull \hbox (50.61453pt too wide) has occurred while \output is active
  []
 
 [105]
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3513--3513
+[]  \TU/lmtt/m/n/10 ggmosaic::geom_mosaic(aes(x = ggmosaic::product(treatment), fill = response)) +[] 
+ []
 
-LaTeX Warning: Hyper reference `rmd_graphing' on page 106 undefined on input line 3496.
+
+LaTeX Warning: Hyper reference `rmd_graphing' on page 106 undefined on input line 3517.
 
 File: BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf>
 File: ./more/mosaic_graph.png Graphic file (type bmp)
 <./more/mosaic_graph.png>
 
-Overfull \hbox (1791.30101pt too wide) in paragraph at lines 3518--3518
+Overfull \hbox (1791.30101pt too wide) in paragraph at lines 3539--3539
 [][] 
  []
 
@@ -1797,21 +1801,16 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 
 [106]
 
+LaTeX Warning: Hyper reference `rmd_graphing' on page 107 undefined on input line 3556.
 
-Overfull \hbox (50.61453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 107
+
+
+
+Overfull \hbox (24.29453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.3.  VISUALIZING ASSOCIATION BETWEEN TWO NUMERIC VARIABLES \TU/lmr/m/n/10 107
  []
 
 [107]
-
-LaTeX Warning: Hyper reference `rmd_graphing' on page 108 undefined on input line 3535.
-
-File: BIOL202_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-45-1.pdf>
-
-LaTeX Warning: Hyper reference `vis_describe' on page 108 undefined on input line 3571.
-
-
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
@@ -1819,6 +1818,9 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
  []
 
 [108]
+File: BIOL202_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-45-1.pdf>
+
 
 
 Overfull \hbox (24.29453pt too wide) has occurred while \output is active
@@ -1827,7 +1829,10 @@ Overfull \hbox (24.29453pt too wide) has occurred while \output is active
 
 [109]
 
-LaTeX Warning: Hyper reference `mean_sd' on page 110 undefined on input line 3573.
+LaTeX Warning: Hyper reference `vis_describe' on page 110 undefined on input line 3592.
+
+
+LaTeX Warning: Hyper reference `mean_sd' on page 110 undefined on input line 3594.
 
 
 
@@ -1838,10 +1843,8 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 
 [110]
 
-LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 111 undefined on input line 3634.
+LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 111 undefined on input line 3655.
 
-File: BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf>
 
 
 
@@ -1850,6 +1853,12 @@ Overfull \hbox (113.52124pt too wide) has occurred while \output is active
  []
 
 [111]
+File: BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf>
+
+LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 112 undefined on input line 3704.
+
+
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
@@ -1858,24 +1867,17 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 
 [112]
 
-LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 113 undefined on input line 3683.
-
-
-LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 113 undefined on input line 3705.
-
-
-
 
 Overfull \hbox (113.52124pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 113
  []
 
 [113]
+
+LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 114 undefined on input line 3726.
+
 File: BIOL202_files/figure-latex/body_violin-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/body_violin-1.pdf>
-
-Underfull \vbox (badness 7168) has occurred while \output is active []
-
 
 
 
@@ -1885,8 +1887,10 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 
 [114]
 
-LaTeX Warning: Hyper reference `stripchart' on page 115 undefined on input line 3753.
+LaTeX Warning: Hyper reference `stripchart' on page 115 undefined on input line 3774.
 
+File: BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf>
 
 
 
@@ -1895,9 +1899,6 @@ Overfull \hbox (113.52124pt too wide) has occurred while \output is active
  []
 
 [115]
-File: BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf>
-
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
@@ -1924,8 +1925,6 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 [118]
 File: BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf>
-File: BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf>
 
 
 
@@ -1941,6 +1940,14 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
  []
 
 [120]
+File: BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf>
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3931--3931
+[]  \TU/lmtt/m/n/10 geom_jitter(colour = "grey", size = 1, shape = 1, width = 0.15) +[] 
+ []
+
+
 
 
 Overfull \hbox (113.52124pt too wide) has occurred while \output is active
@@ -1948,11 +1955,6 @@ Overfull \hbox (113.52124pt too wide) has occurred while \output is active
  []
 
 [121]
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3910--3910
-[]  \TU/lmtt/m/n/10 geom_jitter(colour = "grey", size = 1, shape = 1, width = 0.15) +[] 
- []
-
-
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
@@ -1968,24 +1970,24 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 [124]
 Chapter 9.
 
-LaTeX Warning: Hyper reference `package_install' on page 125 undefined on input line 3961.
+LaTeX Warning: Hyper reference `package_install' on page 125 undefined on input line 3982.
 
 
 
 [125
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 3992--3992
+Overfull \hbox (90.75pt too wide) in paragraph at lines 4013--4013
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 3992--3992
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4013--4013
 []\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
  []
 
 
-Overfull \hbox (96.0pt too wide) in paragraph at lines 3992--3992
+Overfull \hbox (96.0pt too wide) in paragraph at lines 4013--4013
 []\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
  []
 
@@ -2005,7 +2007,7 @@ Overfull \hbox (96.0pt too wide) in paragraph at lines 3992--3992
 
 [132]
 
-LaTeX Warning: Hyper reference `sampling_error' on page 133 undefined on input line 4366.
+LaTeX Warning: Hyper reference `sampling_error' on page 133 undefined on input line 4387.
 
 
 
@@ -2033,7 +2035,7 @@ File: BIOL202_files/figure-latex/newsampfig-1.pdf Graphic file (type pdf)
 ! Missing { inserted.
 <to be read again> 
                    \Umathaccent 
-l.4688 \[SE_\bar
+l.4709 \[SE_\bar
                 {Y} = \frac{s}{\sqrt{n}}\]
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections

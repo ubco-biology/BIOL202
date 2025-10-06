@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-09-26" />
+<meta name="date" content="2025-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -526,12 +526,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="spearman_hyp" class="section level3 hasAnchor" number="17.3.2">
 <h3><span class="header-section-number">17.3.2</span> Visualize the data<a href="rankcorr.html#spearman_hyp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s visualize the association, again using the <code>geom_jitter</code> function to help see overlapping values:</p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="rankcorr.html#cb448-1" tabindex="-1"></a>trick <span class="sc">%&gt;%</span></span>
-<span id="cb448-2"><a href="rankcorr.html#cb448-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> years, <span class="at">y =</span> impressivenessScore)) <span class="sc">+</span></span>
-<span id="cb448-3"><a href="rankcorr.html#cb448-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb448-4"><a href="rankcorr.html#cb448-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Years elapsed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb448-5"><a href="rankcorr.html#cb448-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Impressiveness score&quot;</span>) <span class="sc">+</span></span>
-<span id="cb448-6"><a href="rankcorr.html#cb448-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="rankcorr.html#cb449-1" tabindex="-1"></a>trick <span class="sc">%&gt;%</span></span>
+<span id="cb449-2"><a href="rankcorr.html#cb449-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> years, <span class="at">y =</span> impressivenessScore)) <span class="sc">+</span></span>
+<span id="cb449-3"><a href="rankcorr.html#cb449-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb449-4"><a href="rankcorr.html#cb449-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Years elapsed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb449-5"><a href="rankcorr.html#cb449-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Impressiveness score&quot;</span>) <span class="sc">+</span></span>
+<span id="cb449-6"><a href="rankcorr.html#cb449-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:trickplot"></span>
 <img src="BIOL202_files/figure-html/trickplot-1.png" alt="Scatterplot of the impressiveness of written accounts of the Indian rope trick by firsthand observers and the number of years elapsed between witnessing the event and writing the account (_n_ = 21). Values have jittered slightly to improve legibility." width="403.2" />
 <p class="caption">
@@ -559,15 +559,15 @@ Figure 17.4: Scatterplot of the impressiveness of written accounts of the Indian
 <div id="conduct_spearman" class="section level3 hasAnchor" number="17.3.4">
 <h3><span class="header-section-number">17.3.4</span> Conduct the test<a href="rankcorr.html#conduct_spearman" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We use the same <code>cor.test</code> function to conduct the test, but change the “method” argument accordingly:</p>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="rankcorr.html#cb449-1" tabindex="-1"></a>trick.cor <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> trick<span class="sc">$</span>years, <span class="at">y =</span> trick<span class="sc">$</span>impressivenessScore, </span>
-<span id="cb449-2"><a href="rankcorr.html#cb449-2" tabindex="-1"></a>                     <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb449-3"><a href="rankcorr.html#cb449-3" tabindex="-1"></a>                     <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="rankcorr.html#cb450-1" tabindex="-1"></a>trick.cor <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(<span class="at">x =</span> trick<span class="sc">$</span>years, <span class="at">y =</span> trick<span class="sc">$</span>impressivenessScore, </span>
+<span id="cb450-2"><a href="rankcorr.html#cb450-2" tabindex="-1"></a>                     <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb450-3"><a href="rankcorr.html#cb450-3" tabindex="-1"></a>                     <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
 <div class="note">
 <p>You may get a warning message, simply saying that it can’t compute exact <em>P</em>-values when there are ties in the ranked data. Don’t worry about this.</p>
 </div>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="rankcorr.html#cb450-1" tabindex="-1"></a>trick.cor.tidy <span class="ot">&lt;-</span> trick.cor <span class="sc">%&gt;%</span></span>
-<span id="cb450-2"><a href="rankcorr.html#cb450-2" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span>
-<span id="cb450-3"><a href="rankcorr.html#cb450-3" tabindex="-1"></a>trick.cor.tidy</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="rankcorr.html#cb451-1" tabindex="-1"></a>trick.cor.tidy <span class="ot">&lt;-</span> trick.cor <span class="sc">%&gt;%</span></span>
+<span id="cb451-2"><a href="rankcorr.html#cb451-2" tabindex="-1"></a>  broom<span class="sc">::</span><span class="fu">tidy</span>()</span>
+<span id="cb451-3"><a href="rankcorr.html#cb451-3" tabindex="-1"></a>trick.cor.tidy</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
 ##   estimate statistic    p.value method                          alternative
 ##      &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                           &lt;chr&gt;      
@@ -586,12 +586,12 @@ Figure 17.4: Scatterplot of the impressiveness of written accounts of the Indian
 <div id="spear_conclude" class="section level3 hasAnchor" number="17.3.5">
 <h3><span class="header-section-number">17.3.5</span> Concluding statement<a href="rankcorr.html#spear_conclude" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As in the preceding Pearson correlation example, we can refer to the Figure in the parentheses of our concluding statement. Note also that we report <em>n</em> rather than degrees of freedom.</p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="rankcorr.html#cb452-1" tabindex="-1"></a>trick <span class="sc">%&gt;%</span></span>
-<span id="cb452-2"><a href="rankcorr.html#cb452-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> years, <span class="at">y =</span> impressivenessScore)) <span class="sc">+</span></span>
-<span id="cb452-3"><a href="rankcorr.html#cb452-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb452-4"><a href="rankcorr.html#cb452-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Years elapsed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb452-5"><a href="rankcorr.html#cb452-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Impressiveness score&quot;</span>) <span class="sc">+</span></span>
-<span id="cb452-6"><a href="rankcorr.html#cb452-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="rankcorr.html#cb453-1" tabindex="-1"></a>trick <span class="sc">%&gt;%</span></span>
+<span id="cb453-2"><a href="rankcorr.html#cb453-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> years, <span class="at">y =</span> impressivenessScore)) <span class="sc">+</span></span>
+<span id="cb453-3"><a href="rankcorr.html#cb453-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb453-4"><a href="rankcorr.html#cb453-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Years elapsed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb453-5"><a href="rankcorr.html#cb453-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Impressiveness score&quot;</span>) <span class="sc">+</span></span>
+<span id="cb453-6"><a href="rankcorr.html#cb453-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:trickplot2"></span>
 <img src="BIOL202_files/figure-html/trickplot2-1.png" alt="Scatterplot of the impressiveness of written accounts of the Indian rope trick by firsthand observers and the number of years elapsed between witnessing the event and writing the account (_n_ = 21). Values have jittered slightly to improve legibility." width="403.2" />
 <p class="caption">

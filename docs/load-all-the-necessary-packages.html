@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-09-26" />
+<meta name="date" content="2025-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -516,18 +516,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This list of packages avoids the use of the <code>tidyverse</code> package, which has been problematic for some.</p>
 <p>Each time you start an R session, can copy and paste this code into your console and run it.</p>
 <p>Alternatively, if you’re working on an assignment, you can copy and past this code into a code chunk at the beginning of your markdown document, and run it.</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="load-all-the-necessary-packages.html#cb488-1" tabindex="-1"></a>all.package.names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;readr&quot;</span>,<span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;tinytex&quot;</span>, <span class="st">&quot;skimr&quot;</span>, <span class="st">&quot;palmerpenguins&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;naniar&quot;</span>, <span class="st">&quot;janitor&quot;</span>, <span class="st">&quot;ggmosaic&quot;</span>, <span class="st">&quot;ggExtra&quot;</span>, <span class="st">&quot;infer&quot;</span>, <span class="st">&quot;binom&quot;</span>, <span class="st">&quot;epitools&quot;</span>, <span class="st">&quot;car&quot;</span>, <span class="st">&quot;broom&quot;</span>, <span class="st">&quot;kableExtra&quot;</span>, <span class="st">&quot;boot&quot;</span>, <span class="st">&quot;here&quot;</span>, <span class="st">&quot;gtsummary&quot;</span>)</span>
-<span id="cb488-2"><a href="load-all-the-necessary-packages.html#cb488-2" tabindex="-1"></a></span>
-<span id="cb488-3"><a href="load-all-the-necessary-packages.html#cb488-3" tabindex="-1"></a><span class="co"># Now let&#39;s load all the packages, first checking if the given package needs installing</span></span>
-<span id="cb488-4"><a href="load-all-the-necessary-packages.html#cb488-4" tabindex="-1"></a></span>
-<span id="cb488-5"><a href="load-all-the-necessary-packages.html#cb488-5" tabindex="-1"></a><span class="co"># Load the packages using lapply</span></span>
-<span id="cb488-6"><a href="load-all-the-necessary-packages.html#cb488-6" tabindex="-1"></a></span>
-<span id="cb488-7"><a href="load-all-the-necessary-packages.html#cb488-7" tabindex="-1"></a><span class="fu">lapply</span>(all.package.names, <span class="cf">function</span>(package) {</span>
-<span id="cb488-8"><a href="load-all-the-necessary-packages.html#cb488-8" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(package, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb488-9"><a href="load-all-the-necessary-packages.html#cb488-9" tabindex="-1"></a>    <span class="fu">install.packages</span>(package, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb488-10"><a href="load-all-the-necessary-packages.html#cb488-10" tabindex="-1"></a>  }</span>
-<span id="cb488-11"><a href="load-all-the-necessary-packages.html#cb488-11" tabindex="-1"></a>  <span class="fu">library</span>(package, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb488-12"><a href="load-all-the-necessary-packages.html#cb488-12" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="load-all-the-necessary-packages.html#cb489-1" tabindex="-1"></a>all.package.names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;readr&quot;</span>,<span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;tinytex&quot;</span>, <span class="st">&quot;skimr&quot;</span>, <span class="st">&quot;palmerpenguins&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;naniar&quot;</span>, <span class="st">&quot;janitor&quot;</span>, <span class="st">&quot;ggmosaic&quot;</span>, <span class="st">&quot;ggExtra&quot;</span>, <span class="st">&quot;infer&quot;</span>, <span class="st">&quot;binom&quot;</span>, <span class="st">&quot;epitools&quot;</span>, <span class="st">&quot;car&quot;</span>, <span class="st">&quot;broom&quot;</span>, <span class="st">&quot;kableExtra&quot;</span>, <span class="st">&quot;boot&quot;</span>, <span class="st">&quot;here&quot;</span>, <span class="st">&quot;gtsummary&quot;</span>)</span>
+<span id="cb489-2"><a href="load-all-the-necessary-packages.html#cb489-2" tabindex="-1"></a></span>
+<span id="cb489-3"><a href="load-all-the-necessary-packages.html#cb489-3" tabindex="-1"></a><span class="co"># Now let&#39;s load all the packages, first checking if the given package needs installing</span></span>
+<span id="cb489-4"><a href="load-all-the-necessary-packages.html#cb489-4" tabindex="-1"></a></span>
+<span id="cb489-5"><a href="load-all-the-necessary-packages.html#cb489-5" tabindex="-1"></a><span class="co"># Load the packages using lapply</span></span>
+<span id="cb489-6"><a href="load-all-the-necessary-packages.html#cb489-6" tabindex="-1"></a></span>
+<span id="cb489-7"><a href="load-all-the-necessary-packages.html#cb489-7" tabindex="-1"></a><span class="fu">lapply</span>(all.package.names, <span class="cf">function</span>(package) {</span>
+<span id="cb489-8"><a href="load-all-the-necessary-packages.html#cb489-8" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(package, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb489-9"><a href="load-all-the-necessary-packages.html#cb489-9" tabindex="-1"></a>    <span class="fu">install.packages</span>(package, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb489-10"><a href="load-all-the-necessary-packages.html#cb489-10" tabindex="-1"></a>  }</span>
+<span id="cb489-11"><a href="load-all-the-necessary-packages.html#cb489-11" tabindex="-1"></a>  <span class="fu">library</span>(package, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb489-12"><a href="load-all-the-necessary-packages.html#cb489-12" tabindex="-1"></a>})</span></code></pre></div>
 <pre><code>## [[1]]
 ##  [1] &quot;boot&quot;           &quot;broom&quot;          &quot;car&quot;            &quot;carData&quot;       
 ##  [5] &quot;epitools&quot;       &quot;binom&quot;          &quot;infer&quot;          &quot;ggExtra&quot;       
