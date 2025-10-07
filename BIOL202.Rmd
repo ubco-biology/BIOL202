@@ -1951,7 +1951,7 @@ For the `geom_mosaic` function, we actually use the original (raw) `bird.malaria
 
 Here's the code, and we'll explain after.
 
-**NOTE**: Some users might get an error when attempting this; if this happens, consult the [Common errors and their solutions](https://ubco-biology.github.io/BIOL202/common-errors-and-their-solutions.html) tutorial webpage, which includes an entry on this mosaic plot issue).  If you get some "warnings", don't worry about those, as they won't interfere with getting a proper plot.  
+**NOTE**: Some users might get an error when attempting this; if this happens, consult the relevant section of the [Common errors and their solutions page](https://ubco-biology.github.io/BIOL202/error-creating-mosaic-plot.html) tutorial webpage, which includes an entry on this mosaic plot issue).  If you get some "warnings", don't worry about those, as they won't interfere with getting a proper plot.  
 
 ```{r mosaic_malaria1}
 ggplot(data = bird.malaria) +
@@ -7402,7 +7402,7 @@ If you opt to use the Visual Markdown Editor for assignments, be sure that all r
 
 ## Error creating mosaic plot {-}
 
-When attempting to create a mosaic plot (e.g. section xx) using `ggplot2` and `ggmosaic` packages, this error arises:
+When attempting to create a mosaic plot (e.g. [Tutorial 8.2.3](https://ubco-biology.github.io/BIOL202/vis2_2cat.html#mosaic_plot)) using `ggplot2` and `ggmosaic` packages, this error arises:
 
 ```
 "Error in make_title(..., self = self) :

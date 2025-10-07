@@ -9,7 +9,7 @@
 
 ## Error creating mosaic plot {-}
 
-When attempting to create a mosaic plot (e.g. section xx) using `ggplot2` and `ggmosaic` packages, this error arises:
+When attempting to create a mosaic plot (e.g. [Tutorial 8.2.3](https://ubco-biology.github.io/BIOL202/vis2_2cat.html#mosaic_plot)) using `ggplot2` and `ggmosaic` packages, this error arises:
 
 ```
 "Error in make_title(..., self = self) :
