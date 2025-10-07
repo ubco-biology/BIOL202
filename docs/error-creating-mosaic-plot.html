@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.5 Setting up R Markdown for graphing | Tutorials for BIOL202: Introduction to Biostatistics</title>
+  <title>Error creating mosaic plot | Tutorials for BIOL202: Introduction to Biostatistics</title>
   <meta name="description" content="All tutorials associated with BIOL202" />
   <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.5 Setting up R Markdown for graphing | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta property="og:title" content="Error creating mosaic plot | Tutorials for BIOL202: Introduction to Biostatistics" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="All tutorials associated with BIOL202" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.5 Setting up R Markdown for graphing | Tutorials for BIOL202: Introduction to Biostatistics" />
+  <meta name="twitter:title" content="Error creating mosaic plot | Tutorials for BIOL202: Introduction to Biostatistics" />
   
   <meta name="twitter:description" content="All tutorials associated with BIOL202" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="what_include_answer.html"/>
-<link rel="next" href="example_answer.html"/>
+<link rel="prev" href="google-can-help.html"/>
+<link rel="next" href="rosetta-error.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -510,39 +510,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rmd_graphing" class="section level2 hasAnchor" number="4.5">
-<h2><span class="header-section-number">4.5</span> Setting up R Markdown for graphing<a href="rmd_graphing.html#rmd_graphing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are some special code chunk header arguments that need to be set in your Markdown document in order to:</p>
-<ul>
-<li>include proper <strong>Figure captions</strong> with your figures (a necessity!)</li>
-<li>set the dimensions of your figures</li>
-</ul>
-<p>In each code chunk that includes code to construct a graph, your chunk header options should look like this in the top of the chunk, and there should be one blank line underneath before the main code starts. The following chunk produced the figure below. And recall that in the example below, the “bill_fig” text is simply the name I’ve given to this code chunk.</p>
-<p><img src="more/figure_chunk_header.png" width="1221" /></p>
-<p><img src="more/example_histogram_practice.png" width="705" /></p>
-<p><strong>Figure 1:</strong> Histogram of bill depth among 151 Adelie penguins</p>
-<p>The key parts are the “fig.cap =” argument, to which you provide the text you want to use as the figure caption. Then there’s the “fig.width =” and “fig.height =” arguments, which indicate the size of the figure when knitted. This will likely require some trial-and-error to get a good size, but start with the values in this example (4 for each).</p>
-<p><strong>Automated figure numbering</strong></p>
-<p>When you knit the document to PDF, you’ll see the “Figure X:” (with a number in place of the “X”) text was appended at the beginning of the caption phrase that was included in the chunk header, “Histogram of bill depth among 151 Adelie penguins”.</p>
-<p>This feature - automatic figure numbering - was set within the header of the assignment markdown document:</p>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-15"></span>
-<img src="more/assign_header.png" alt="Assignment markdown file header with figure caption option" width="420" />
-<p class="caption">
-Figure 4.3: Assignment markdown file header with figure caption option
-</p>
-</div>
-<p>The line “fig_caption = true” tells R Markdown and the knitting process to automatically include this part of a figure caption, “Figure X”, underneath each figure you produce. Where “X” will automatically be replaced with the appropriate number. For example, it will use “Figure 1:” for your first figure, “Figure 2” for your second, and so on.</p>
-<div class="note">
-<p>The figure captions will only appear correctly once you knit to PDF; captions do not appear in the preview provided within the editor pane.</p>
-</div>
+<div id="error-creating-mosaic-plot" class="section level2 unnumbered hasAnchor">
+<h2>Error creating mosaic plot<a href="error-creating-mosaic-plot.html#error-creating-mosaic-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When attempting to create a mosaic plot (e.g. section xx) using <code>ggplot2</code> and <code>ggmosaic</code> packages, this error arises:</p>
+<pre><code>&quot;Error in make_title(..., self = self) :
+unused arguments (list(), &quot;Treatment group&quot;)&quot;</code></pre>
+<p>This arises due to a conflict introduced by the update to the <code>ggplot2</code> package from version 3.5.2 to version 4.0.0, which occured on September 11, 2025.</p>
+<p>First check the version of <code>ggplot2</code> that you have installed by typing this in the console:</p>
+<pre><code>packageVersion(&quot;ggplot2&quot;)</code></pre>
+<p>If it says anything <em>older</em> than version 4.0, then <strong>you are fine</strong> and you do NOT need to follow the instructions below (just make sure NOT to update your version of <code>ggplot2</code>).</p>
+<p>If it tells you that version 4.0 is installed, then follow these instructions:</p>
+<p>Copy and paste each of the following lines of code (one chunk at a time) into your console and run them. Note that the hashtag lines are annotations that explain each of the separate code chunks.</p>
+<pre><code># remove current install of `ggplot2`
+remove.packages(&quot;ggplot2&quot;)
+
+
+# install the package `remotes` if not already installed:
+if (!requireNamespace(&quot;remotes&quot;, quietly = TRUE)) {
+  install.packages(&quot;remotes&quot;, dependencies = TRUE)
+}
+
+
+# load the `remotes` package:
+library(&quot;remotes&quot;, character.only = TRUE)
+
+
+# install the older, correct version of `ggplot2`:
+install_version(&quot;ggplot2&quot;, version = &quot;3.5.2&quot;, repos = &quot;http://cran.us.r-project.org&quot;)
+# if, in response, it asks to install newer versions of other packages, select &quot;None&quot; (probably option 3)
+
+
+# then restart R:
+.rs.restartR()
+
+
+# then load ggplot2
+library(ggplot2)
+
+# then check version:
+packageVersion(&quot;ggplot2&quot;)</code></pre>
+<p>Hopefully at the last command it should say “‘3.5.2’”</p>
+<p>You should not encounter the mosaic plot error now.</p>
+<hr />
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="what_include_answer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="example_answer.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="google-can-help.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rosetta-error.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

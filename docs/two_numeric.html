@@ -473,6 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="error-creating-mosaic-plot.html"><a href="error-creating-mosaic-plot.html"><i class="fa fa-check"></i>Error creating mosaic plot</a></li>
 <li class="chapter" data-level="" data-path="rosetta-error.html"><a href="rosetta-error.html"><i class="fa fa-check"></i>Rosetta error</a></li>
 <li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
 <li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
@@ -517,13 +518,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="note">
 <p>As shown in the tutorial on <a href="rmd_graphing.html#rmd_graphing">preparing and formatting assignments</a>, we can use the <code>filter</code> function from the <code>dplyr</code> package to easily subset datasets according to some criterion, such as belonging to a specific category.</p>
 </div>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="two_numeric.html#cb95-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb95-2"><a href="two_numeric.html#cb95-2" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb95-3"><a href="two_numeric.html#cb95-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
-<span id="cb95-4"><a href="two_numeric.html#cb95-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb95-5"><a href="two_numeric.html#cb95-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb95-6"><a href="two_numeric.html#cb95-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb95-7"><a href="two_numeric.html#cb95-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="two_numeric.html#cb94-1" tabindex="-1"></a>penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb94-2"><a href="two_numeric.html#cb94-2" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Adelie&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb94-3"><a href="two_numeric.html#cb94-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm)) <span class="sc">+</span></span>
+<span id="cb94-4"><a href="two_numeric.html#cb94-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb94-5"><a href="two_numeric.html#cb94-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Bill length (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb94-6"><a href="two_numeric.html#cb94-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Bill depth (mm)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb94-7"><a href="two_numeric.html#cb94-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-45"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-45-1.png" alt="Scatterplot of the association between bill length and depth among 151 Adelie penguins" width="480" />
 <p class="caption">

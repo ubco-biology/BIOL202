@@ -1949,7 +1949,9 @@ For more information about the `ggmosaic` package, see this [vignette](https://c
 
 For the `geom_mosaic` function, we actually use the original (raw) `bird.malaria` tibble, which has a row for every observation (i.e. it isn't summarized first into a frequency table).
 
-Here's the code, and we'll explain after (**NOTE**: some users might get an error and/or warning messages; if this happens, use the alternative code provided further down):
+Here's the code, and we'll explain after.
+
+**NOTE**: Some users might get an error when attempting this; if this happens, consult the [Common errors and their solutions](https://ubco-biology.github.io/BIOL202/common-errors-and-their-solutions.html) tutorial webpage, which includes an entry on this mosaic plot issue).  If you get some "warnings", don't worry about those, as they won't interfere with getting a proper plot.  
 
 ```{r mosaic_malaria1}
 ggplot(data = bird.malaria) +
@@ -1970,28 +1972,6 @@ We'll learn about interpreting mosaic plots next.
 
 
 1. Using the `penguins` dataset, try creating a mosaic plot for comparing the relative frequency of penguins belonging to the three different "species" across the three different islands (variable "island").  
-
-**ALTERNATIVE MOSAIC PLOT CODE**
-
-The following code should help avoid any errors and/or warnings.  It uses the strategy of specifying the package associated with each function, using the syntax:  
-
-`packagename::function` 
-
-for example:
-
-`ggmosaic::geom_mosaic`
-
-This code also avoids a conflict with the `xlab` and `ylab` functions.
-
-```
-ggplot(bird.malaria) +
-  ggmosaic::geom_mosaic(aes(x = ggmosaic::product(treatment), fill = response)) +
-  ggplot2::scale_y_continuous() +
-  ggmosaic::scale_x_productlist(name = "Treatment group") +  
-  ggplot2::labs(y = "Relative frequency") +
-  ggplot2::theme_bw()
-
-```
 
 ### Interpreting mosaic plots {#interpret_mosaic}
 
@@ -7417,6 +7397,66 @@ If you opt to use the Visual Markdown Editor for assignments, be sure that all r
 
 * R will tell you specifically which line in your code (e.g. in your R Markdown document) the error is coming from. Make sure you read the error and take a look at the line where the error is if indicated
 * Try googling the specific error to see if you can find a solution online; use the search phrase "R-help error statement" (where "error statement" is what R told you)
+
+***
+
+## Error creating mosaic plot {-}
+
+When attempting to create a mosaic plot (e.g. section xx) using `ggplot2` and `ggmosaic` packages, this error arises:
+
+```
+"Error in make_title(..., self = self) :
+unused arguments (list(), "Treatment group")"
+```
+
+This arises due to a conflict introduced by the update to the `ggplot2` package from version 3.5.2 to version 4.0.0, which occured on September 11, 2025.  
+
+First check the version of `ggplot2` that you have installed by typing this in the console:
+
+```
+packageVersion("ggplot2")
+```
+
+If it says anything *older* than version 4.0, then **you are fine** and you do NOT need to follow the instructions below (just make sure NOT to update your version of `ggplot2`).
+
+If it tells you that version 4.0 is installed, then follow these instructions:
+
+Copy and paste each of the following lines of code (one chunk at a time) into your console and run them.  Note that the hashtag lines are annotations that explain each of the separate code chunks.
+
+```
+# remove current install of `ggplot2`
+remove.packages("ggplot2")
+
+
+# install the package `remotes` if not already installed:
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes", dependencies = TRUE)
+}
+
+
+# load the `remotes` package:
+library("remotes", character.only = TRUE)
+
+
+# install the older, correct version of `ggplot2`:
+install_version("ggplot2", version = "3.5.2", repos = "http://cran.us.r-project.org")
+# if, in response, it asks to install newer versions of other packages, select "None" (probably option 3)
+
+
+# then restart R:
+.rs.restartR()
+
+
+# then load ggplot2
+library(ggplot2)
+
+# then check version:
+packageVersion("ggplot2")
+```
+
+Hopefully at the last command it should say "‘3.5.2’"
+
+You should not encounter the mosaic plot error now.
 
 ***
 

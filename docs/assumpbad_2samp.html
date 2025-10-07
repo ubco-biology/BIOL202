@@ -473,6 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="error-creating-mosaic-plot.html"><a href="error-creating-mosaic-plot.html"><i class="fa fa-check"></i>Error creating mosaic plot</a></li>
 <li class="chapter" data-level="" data-path="rosetta-error.html"><a href="rosetta-error.html"><i class="fa fa-check"></i>Rosetta error</a></li>
 <li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
 <li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
@@ -515,10 +516,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A tutorial on non-parametric tests is under development, but will not be deployed until 2023. Consult chapter 13 in the Whitlock &amp; Schluter text, and this <a href="https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page">website</a> for some R examples.</p>
 <p>If the <strong>equal-variance assumption</strong> is violated for the 2-sample <em>t</em>-test, then you can set the “var.equal” argument to “FALSE” in the <code>t.test</code> function, in which case the function implements a “Welch’s <em>t</em>-test”.</p>
 <p>For instance, let’s pretend that the height data did not exhibit equal variance among left- and right- dominant eye students, here’s the appropriate code:</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="assumpbad_2samp.html#cb325-1" tabindex="-1"></a>height.ttest.unequal.var <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb325-2"><a href="assumpbad_2samp.html#cb325-2" tabindex="-1"></a>  <span class="fu">t.test</span>(height_cm <span class="sc">~</span> Dominant_eye, </span>
-<span id="cb325-3"><a href="assumpbad_2samp.html#cb325-3" tabindex="-1"></a>         <span class="at">data =</span> ., <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb325-4"><a href="assumpbad_2samp.html#cb325-4" tabindex="-1"></a>height.ttest.unequal.var</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="assumpbad_2samp.html#cb324-1" tabindex="-1"></a>height.ttest.unequal.var <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb324-2"><a href="assumpbad_2samp.html#cb324-2" tabindex="-1"></a>  <span class="fu">t.test</span>(height_cm <span class="sc">~</span> Dominant_eye, </span>
+<span id="cb324-3"><a href="assumpbad_2samp.html#cb324-3" tabindex="-1"></a>         <span class="at">data =</span> ., <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb324-4"><a href="assumpbad_2samp.html#cb324-4" tabindex="-1"></a>height.ttest.unequal.var</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 

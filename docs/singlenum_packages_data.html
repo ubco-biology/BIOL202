@@ -473,6 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="error-creating-mosaic-plot.html"><a href="error-creating-mosaic-plot.html"><i class="fa fa-check"></i>Error creating mosaic plot</a></li>
 <li class="chapter" data-level="" data-path="rosetta-error.html"><a href="rosetta-error.html"><i class="fa fa-check"></i>Rosetta error</a></li>
 <li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
 <li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
@@ -512,17 +513,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="singlenum_packages_data" class="section level2 hasAnchor" number="13.1">
 <h2><span class="header-section-number">13.1</span> Load packages and import data<a href="singlenum_packages_data.html#singlenum_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>knitr</code>, <code>naniar</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="singlenum_packages_data.html#cb275-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb275-2"><a href="singlenum_packages_data.html#cb275-2" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb275-3"><a href="singlenum_packages_data.html#cb275-3" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb275-4"><a href="singlenum_packages_data.html#cb275-4" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="singlenum_packages_data.html#cb274-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb274-2"><a href="singlenum_packages_data.html#cb274-2" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb274-3"><a href="singlenum_packages_data.html#cb274-3" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb274-4"><a href="singlenum_packages_data.html#cb274-4" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
 <p>We’ll use the following datasets:</p>
 <ul>
 <li>the “bodytemp” dataset. These are the data associated with Example 11.3 in the text (page 310)</li>
 <li>the “stalkies” dataset. These are the data associated with Example 11.2 in the text (page 307)</li>
 </ul>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="singlenum_packages_data.html#cb276-1" tabindex="-1"></a>bodytemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bodytemp.csv&quot;</span>)</span>
-<span id="cb276-2"><a href="singlenum_packages_data.html#cb276-2" tabindex="-1"></a>stalkies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/stalkies.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="singlenum_packages_data.html#cb275-1" tabindex="-1"></a>bodytemp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/bodytemp.csv&quot;</span>)</span>
+<span id="cb275-2"><a href="singlenum_packages_data.html#cb275-2" tabindex="-1"></a>stalkies <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/stalkies.csv&quot;</span>)</span></code></pre></div>
 <div class="note">
 <p><strong>Reminder: </strong>
 Before proceeding further, remember to get an overview of each of these datasets.</p>

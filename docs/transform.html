@@ -473,6 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="error-creating-mosaic-plot.html"><a href="error-creating-mosaic-plot.html"><i class="fa fa-check"></i>Error creating mosaic plot</a></li>
 <li class="chapter" data-level="" data-path="rosetta-error.html"><a href="rosetta-error.html"><i class="fa fa-check"></i>Rosetta error</a></li>
 <li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
 <li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
@@ -523,13 +524,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="log_transform" class="section level3 hasAnchor" number="15.4.1">
 <h3><span class="header-section-number">15.4.1</span> Log-transform<a href="transform.html#log_transform" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When one observes a right-skewed frequency distribution, as seen here in the marine biomass ratio data, a log-transformation often helps.</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="transform.html#cb349-1" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
-<span id="cb349-2"><a href="transform.html#cb349-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> biomassRatio)) <span class="sc">+</span></span>
-<span id="cb349-3"><a href="transform.html#cb349-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, </span>
-<span id="cb349-4"><a href="transform.html#cb349-4" tabindex="-1"></a>                 <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">closed =</span> <span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
-<span id="cb349-5"><a href="transform.html#cb349-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Biomass ratio&quot;</span>) <span class="sc">+</span></span>
-<span id="cb349-6"><a href="transform.html#cb349-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb349-7"><a href="transform.html#cb349-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="transform.html#cb348-1" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
+<span id="cb348-2"><a href="transform.html#cb348-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> biomassRatio)) <span class="sc">+</span></span>
+<span id="cb348-3"><a href="transform.html#cb348-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, </span>
+<span id="cb348-4"><a href="transform.html#cb348-4" tabindex="-1"></a>                 <span class="at">boundary =</span> <span class="dv">0</span>, <span class="at">closed =</span> <span class="st">&quot;left&quot;</span>) <span class="sc">+</span></span>
+<span id="cb348-5"><a href="transform.html#cb348-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Biomass ratio&quot;</span>) <span class="sc">+</span></span>
+<span id="cb348-6"><a href="transform.html#cb348-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb348-7"><a href="transform.html#cb348-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-102"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-102-1.png" alt="The frequency distribution of the 'biomass ratio' of 32 marine reserves." width="384" />
 <p class="caption">
@@ -538,15 +539,15 @@ Figure 15.4: The frequency distribution of the ‘biomass ratio’ of 32 marine 
 </div>
 <p>To log-transform the data, simply create a new variable in the dataset using the <code>mutate</code> function (from the <code>dplyr</code> package) that we’ve seen before. Here we’ll call our new variable <code>logbiomass</code>, and use the <code>log</code> function to take the <strong>natural log</strong> of the “biomassRatio” variable.</p>
 <p>We’ll assign the output to the same, original “tibble” called “marine”:</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="transform.html#cb350-1" tabindex="-1"></a>marine <span class="ot">&lt;-</span> marine <span class="sc">%&gt;%</span></span>
-<span id="cb350-2"><a href="transform.html#cb350-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">logbiomass =</span> <span class="fu">log</span>(biomassRatio))</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="transform.html#cb349-1" tabindex="-1"></a>marine <span class="ot">&lt;-</span> marine <span class="sc">%&gt;%</span></span>
+<span id="cb349-2"><a href="transform.html#cb349-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">logbiomass =</span> <span class="fu">log</span>(biomassRatio))</span></code></pre></div>
 <p>Alternatively, you could use this (less tidy) code to get the same result:</p>
 <pre><code>marine$logbiomass &lt;- log(marine$biomassRatio)</code></pre>
 <div class="note">
 <p>If your variable includes zeros, then you’ll need to take extra steps, as described in the next <a href="transform.html#zeroes">section</a>.</p>
 </div>
 <p>Let’s look at the tibble now:</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="transform.html#cb352-1" tabindex="-1"></a>marine</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="transform.html#cb351-1" tabindex="-1"></a>marine</span></code></pre></div>
 <pre><code>## # A tibble: 32 × 2
 ##    biomassRatio logbiomass
 ##           &lt;dbl&gt;      &lt;dbl&gt;
@@ -562,13 +563,13 @@ Figure 15.4: The frequency distribution of the ‘biomass ratio’ of 32 marine 
 ## 10         1.21    0.1906 
 ## # ℹ 22 more rows</code></pre>
 <p>Now let’s look at the histogram of the log-transformed data:</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="transform.html#cb354-1" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
-<span id="cb354-2"><a href="transform.html#cb354-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> logbiomass)) <span class="sc">+</span></span>
-<span id="cb354-3"><a href="transform.html#cb354-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, </span>
-<span id="cb354-4"><a href="transform.html#cb354-4" tabindex="-1"></a>                 <span class="at">boundary =</span> <span class="sc">-</span><span class="fl">0.25</span>) <span class="sc">+</span></span>
-<span id="cb354-5"><a href="transform.html#cb354-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Biomass ratio (log-transformed)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb354-6"><a href="transform.html#cb354-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb354-7"><a href="transform.html#cb354-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="transform.html#cb353-1" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
+<span id="cb353-2"><a href="transform.html#cb353-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> logbiomass)) <span class="sc">+</span></span>
+<span id="cb353-3"><a href="transform.html#cb353-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, </span>
+<span id="cb353-4"><a href="transform.html#cb353-4" tabindex="-1"></a>                 <span class="at">boundary =</span> <span class="sc">-</span><span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb353-5"><a href="transform.html#cb353-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Biomass ratio (log-transformed)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb353-6"><a href="transform.html#cb353-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb353-7"><a href="transform.html#cb353-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-103"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-103-1.png" alt="The frequency distribution of the 'biomass ratio' of 32 marine reserves (log-transformed)." width="480" />
 <p class="caption">
@@ -576,13 +577,13 @@ Figure 15.5: The frequency distribution of the ‘biomass ratio’ of 32 marine 
 </p>
 </div>
 <p>Now the quantile plot:</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="transform.html#cb355-1" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
-<span id="cb355-2"><a href="transform.html#cb355-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> logbiomass)) <span class="sc">+</span></span>
-<span id="cb355-3"><a href="transform.html#cb355-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb355-4"><a href="transform.html#cb355-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb355-5"><a href="transform.html#cb355-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass ratio (log)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb355-6"><a href="transform.html#cb355-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
-<span id="cb355-7"><a href="transform.html#cb355-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="transform.html#cb354-1" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
+<span id="cb354-2"><a href="transform.html#cb354-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> logbiomass)) <span class="sc">+</span></span>
+<span id="cb354-3"><a href="transform.html#cb354-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb354-4"><a href="transform.html#cb354-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb354-5"><a href="transform.html#cb354-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Biomass ratio (log)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb354-6"><a href="transform.html#cb354-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
+<span id="cb354-7"><a href="transform.html#cb354-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-104"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-104-1.png" alt="Figure: Normal quantile plot of the 'biomass ratio' of 32 marine reserves (log-transformed)." width="384" />
 <p class="caption">
@@ -591,9 +592,9 @@ Figure 15.6: Figure: Normal quantile plot of the ‘biomass ratio’ of 32 marin
 </div>
 <p>The log-transform definitely helped, but the distribution still looks a bit wonky: several of the points are quite far from the line.</p>
 <p>Just to be sure, let’s conduct a Shapiro-Wilk test, using an <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Significance-level-($\alpha$)"><span class="math inline">\(\alpha\)</span> level</a> of 0.05, and remembering to tidy the output:</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="transform.html#cb356-1" tabindex="-1"></a>shapiro.log.result <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(marine<span class="sc">$</span>logbiomass)</span>
-<span id="cb356-2"><a href="transform.html#cb356-2" tabindex="-1"></a>shapiro.log.result.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(shapiro.log.result)</span>
-<span id="cb356-3"><a href="transform.html#cb356-3" tabindex="-1"></a>shapiro.log.result.tidy</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="transform.html#cb355-1" tabindex="-1"></a>shapiro.log.result <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(marine<span class="sc">$</span>logbiomass)</span>
+<span id="cb355-2"><a href="transform.html#cb355-2" tabindex="-1"></a>shapiro.log.result.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(shapiro.log.result)</span>
+<span id="cb355-3"><a href="transform.html#cb355-3" tabindex="-1"></a>shapiro.log.result.tidy</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##   statistic p.value method                     
 ##       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                      
@@ -614,11 +615,11 @@ Figure 15.6: Figure: Normal quantile plot of the ‘biomass ratio’ of 32 marin
 <p><strong>Example code showing how to check for zeroes</strong></p>
 <p>We’ll create a dataset to work with called “apples”.</p>
 <p>Don’t worry about learning this code…</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="transform.html#cb358-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">345</span>)</span>
-<span id="cb358-2"><a href="transform.html#cb358-2" tabindex="-1"></a>apples <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">data.frame</span>(<span class="at">biomass =</span> <span class="fu">rlnorm</span>(<span class="at">n =</span> <span class="dv">14</span>, <span class="at">meanlog =</span> <span class="dv">1</span>, <span class="at">sdlog =</span> <span class="fl">0.7</span>)))</span>
-<span id="cb358-3"><a href="transform.html#cb358-3" tabindex="-1"></a>apples<span class="sc">$</span>biomass[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="transform.html#cb357-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">345</span>)</span>
+<span id="cb357-2"><a href="transform.html#cb357-2" tabindex="-1"></a>apples <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">data.frame</span>(<span class="at">biomass =</span> <span class="fu">rlnorm</span>(<span class="at">n =</span> <span class="dv">14</span>, <span class="at">meanlog =</span> <span class="dv">1</span>, <span class="at">sdlog =</span> <span class="fl">0.7</span>)))</span>
+<span id="cb357-3"><a href="transform.html#cb357-3" tabindex="-1"></a>apples<span class="sc">$</span>biomass[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code></pre></div>
 <p>Here’s the resulting dataset, which includes a variable “biomass” that would benefit from log-transform:</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="transform.html#cb359-1" tabindex="-1"></a>apples</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="transform.html#cb358-1" tabindex="-1"></a>apples</span></code></pre></div>
 <pre><code>## # A tibble: 14 × 1
 ##    biomass
 ##      &lt;dbl&gt;
@@ -644,22 +645,22 @@ Figure 15.7: Normal quantile plot of made-up biomass data.
 </p>
 </div>
 <p>Let’s first see what happens when we try to log-transform the “biomass” variable:</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="transform.html#cb361-1" tabindex="-1"></a><span class="fu">log</span>(apples<span class="sc">$</span>biomass)</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="transform.html#cb360-1" tabindex="-1"></a><span class="fu">log</span>(apples<span class="sc">$</span>biomass)</span></code></pre></div>
 <pre><code>##  [1] 0.45056428 0.80433995 0.88697947       -Inf 0.95272789 0.55653572
 ##  [7] 0.35059322 2.19753971 2.15833805 2.26733776 2.30674058 0.02011719
 ## [13] 0.40525957 1.22291473</code></pre>
 <p>Notice we get a “-Inf” value.</p>
 <p>The following code tallies the number of observations in the “biomass” variable that equal zero.</p>
 <p><strong>If this sum is greater than zero</strong>, then you’ll need to add a constant to all observations when transforming.</p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="transform.html#cb363-1" tabindex="-1"></a><span class="fu">sum</span>(apples<span class="sc">$</span>biomass <span class="sc">==</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="transform.html#cb362-1" tabindex="-1"></a><span class="fu">sum</span>(apples<span class="sc">$</span>biomass <span class="sc">==</span> <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>So we have one value that equals zero.</p>
 <p>So let’s add a 1 to each observation during the process of log-transforming:</p>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="transform.html#cb365-1" tabindex="-1"></a>apples <span class="ot">&lt;-</span> apples <span class="sc">%&gt;%</span></span>
-<span id="cb365-2"><a href="transform.html#cb365-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">logbiomass_plus1 =</span> <span class="fu">log</span>(biomass <span class="sc">+</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="transform.html#cb364-1" tabindex="-1"></a>apples <span class="ot">&lt;-</span> apples <span class="sc">%&gt;%</span></span>
+<span id="cb364-2"><a href="transform.html#cb364-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">logbiomass_plus1 =</span> <span class="fu">log</span>(biomass <span class="sc">+</span> <span class="dv">1</span>))</span></code></pre></div>
 <p>Notice that we name the new variable “logbiomass_plus1” in a way that indicates we’ve added 1 prior to log-transforming, and that in the <code>log</code> calculation we’ve used “biomass + 1”.</p>
 <p>Let’s see the result:</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="transform.html#cb366-1" tabindex="-1"></a>apples</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="transform.html#cb365-1" tabindex="-1"></a>apples</span></code></pre></div>
 <pre><code>## # A tibble: 14 × 2
 ##    biomass logbiomass_plus1
 ##      &lt;dbl&gt;            &lt;dbl&gt;
@@ -691,9 +692,9 @@ Figure 15.8: Normal quantile plot of made-up biomass data, log-transformed.
 <p>The <code>log</code> function calculates the natural logarithm (base <em>e</em>), but related functions permit any base:</p>
 <pre><code>?log</code></pre>
 <p>For instance, <code>log10</code> uses log base 10:</p>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="transform.html#cb369-1" tabindex="-1"></a>marine <span class="ot">&lt;-</span> marine <span class="sc">%&gt;%</span></span>
-<span id="cb369-2"><a href="transform.html#cb369-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log10biomass =</span> <span class="fu">log10</span>(biomassRatio))</span>
-<span id="cb369-3"><a href="transform.html#cb369-3" tabindex="-1"></a>marine</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="transform.html#cb368-1" tabindex="-1"></a>marine <span class="ot">&lt;-</span> marine <span class="sc">%&gt;%</span></span>
+<span id="cb368-2"><a href="transform.html#cb368-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log10biomass =</span> <span class="fu">log10</span>(biomassRatio))</span>
+<span id="cb368-3"><a href="transform.html#cb368-3" tabindex="-1"></a>marine</span></code></pre></div>
 <pre><code>## # A tibble: 32 × 3
 ##    biomassRatio logbiomass log10biomass
 ##           &lt;dbl&gt;      &lt;dbl&gt;        &lt;dbl&gt;
@@ -717,11 +718,11 @@ Figure 15.8: Normal quantile plot of made-up biomass data, log-transformed.
 <pre><code>?exp</code></pre>
 <p>Let’s try it, creating a new variable in the “marine” dataset so we can compare to the original “biomassRatio” variable:</p>
 <p>First, back-transform the data and store the results in a new variable within the data frame:</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="transform.html#cb373-1" tabindex="-1"></a>marine <span class="ot">&lt;-</span> marine <span class="sc">%&gt;%</span></span>
-<span id="cb373-2"><a href="transform.html#cb373-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">back_biomass =</span> <span class="fu">exp</span>(logbiomass))</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="transform.html#cb372-1" tabindex="-1"></a>marine <span class="ot">&lt;-</span> marine <span class="sc">%&gt;%</span></span>
+<span id="cb372-2"><a href="transform.html#cb372-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">back_biomass =</span> <span class="fu">exp</span>(logbiomass))</span></code></pre></div>
 <p>Now have a look at the first few lines of the tibble (selecting the original “biomassRatio” and new “back_biomass” variables) to see if the data values are identical, as they should be:</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="transform.html#cb374-1" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
-<span id="cb374-2"><a href="transform.html#cb374-2" tabindex="-1"></a>  <span class="fu">select</span>(biomassRatio, back_biomass)</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="transform.html#cb373-1" tabindex="-1"></a>marine <span class="sc">%&gt;%</span></span>
+<span id="cb373-2"><a href="transform.html#cb373-2" tabindex="-1"></a>  <span class="fu">select</span>(biomassRatio, back_biomass)</span></code></pre></div>
 <pre><code>## # A tibble: 32 × 2
 ##    biomassRatio back_biomass
 ##           &lt;dbl&gt;        &lt;dbl&gt;
@@ -742,7 +743,7 @@ Figure 15.8: Normal quantile plot of made-up biomass data, log-transformed.
   mutate(back_biomass = exp(logbiomass) - 1)</code></pre>
 <p>Notice the minus 1 comes after the <code>exp</code> function is executed.</p>
 <p>If you had used the log base 10 transformation, then the code to back-transform is as follows:</p>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="transform.html#cb377-1" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span>(marine<span class="sc">$</span>log10biomass)</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="transform.html#cb376-1" tabindex="-1"></a><span class="dv">10</span><span class="sc">^</span>(marine<span class="sc">$</span>log10biomass)</span></code></pre></div>
 <pre><code>##  [1] 1.34 1.96 2.49 1.27 1.19 1.15 1.29 1.05 1.10 1.21 1.31 1.26 1.38 1.49 1.84
 ## [16] 1.84 3.06 2.65 4.25 3.35 2.55 1.72 1.52 1.49 1.67 1.78 1.71 1.88 0.83 1.16
 ## [31] 1.31 1.40</code></pre>
@@ -758,13 +759,13 @@ Figure 15.8: Normal quantile plot of made-up biomass data, log-transformed.
 <p>This is why we’ll <strong>use the <code>logit</code> function from the <code>car</code> package, and the <code>inv.logit</code> function from the <code>boot</code> package!</strong></p>
 <p>Let’s see how it works with the <code>flowers</code> dataset, which includes a variable <code>propFertile</code> that describes the proportion of seeds produced by individual plants that were fertilized.</p>
 <p>Let’s visualize the data with a normal quantile plot:</p>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="transform.html#cb379-1" tabindex="-1"></a>flowers <span class="sc">%&gt;%</span></span>
-<span id="cb379-2"><a href="transform.html#cb379-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> propFertile)) <span class="sc">+</span></span>
-<span id="cb379-3"><a href="transform.html#cb379-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb379-4"><a href="transform.html#cb379-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb379-5"><a href="transform.html#cb379-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion of seeds fertilized&quot;</span>) <span class="sc">+</span></span>
-<span id="cb379-6"><a href="transform.html#cb379-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
-<span id="cb379-7"><a href="transform.html#cb379-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="transform.html#cb378-1" tabindex="-1"></a>flowers <span class="sc">%&gt;%</span></span>
+<span id="cb378-2"><a href="transform.html#cb378-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> propFertile)) <span class="sc">+</span></span>
+<span id="cb378-3"><a href="transform.html#cb378-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb378-4"><a href="transform.html#cb378-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb378-5"><a href="transform.html#cb378-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion of seeds fertilized&quot;</span>) <span class="sc">+</span></span>
+<span id="cb378-6"><a href="transform.html#cb378-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
+<span id="cb378-7"><a href="transform.html#cb378-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-112"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-112-1.png" alt="Normal quantile plot of the proportion of seeds fertilized on 30 plants (left) and the corresponding normal quantile plot (right)" width="384" />
 <p class="caption">
@@ -774,18 +775,18 @@ Figure 15.9: Normal quantile plot of the proportion of seeds fertilized on 30 pl
 <p>Clearly not normal!</p>
 <p>Now let’s logit-transform the data.</p>
 <p>To ensure that we’re using the correct <code>logit</code> function, i.e. the one from the <code>car</code> package and NOT from the <code>boot</code> package, we can use the <code>::</code> syntax, with the package name preceding the double-colons, which tells R the correct package to use.</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="transform.html#cb380-1" tabindex="-1"></a>flowers <span class="ot">&lt;-</span> flowers <span class="sc">%&gt;%</span></span>
-<span id="cb380-2"><a href="transform.html#cb380-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">logitfertile =</span> car<span class="sc">::</span><span class="fu">logit</span>(propFertile))</span></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="transform.html#cb379-1" tabindex="-1"></a>flowers <span class="ot">&lt;-</span> flowers <span class="sc">%&gt;%</span></span>
+<span id="cb379-2"><a href="transform.html#cb379-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">logitfertile =</span> car<span class="sc">::</span><span class="fu">logit</span>(propFertile))</span></code></pre></div>
 <p>Or the alternative code:</p>
 <pre><code>flowers$logitfertile &lt;- car::logit(flowers$propFertile)</code></pre>
 <p>Now let’s visualize the transformed data:</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="transform.html#cb382-1" tabindex="-1"></a>flowers <span class="sc">%&gt;%</span></span>
-<span id="cb382-2"><a href="transform.html#cb382-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> logitfertile)) <span class="sc">+</span></span>
-<span id="cb382-3"><a href="transform.html#cb382-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb382-4"><a href="transform.html#cb382-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
-<span id="cb382-5"><a href="transform.html#cb382-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion of seeds fertilized (logit-transformed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb382-6"><a href="transform.html#cb382-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
-<span id="cb382-7"><a href="transform.html#cb382-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="transform.html#cb381-1" tabindex="-1"></a>flowers <span class="sc">%&gt;%</span></span>
+<span id="cb381-2"><a href="transform.html#cb381-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> logitfertile)) <span class="sc">+</span></span>
+<span id="cb381-3"><a href="transform.html#cb381-3" tabindex="-1"></a>  <span class="fu">stat_qq</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb381-4"><a href="transform.html#cb381-4" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb381-5"><a href="transform.html#cb381-5" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Proportion of seeds fertilized (logit-transformed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb381-6"><a href="transform.html#cb381-6" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Normal quantile&quot;</span>) <span class="sc">+</span></span>
+<span id="cb381-7"><a href="transform.html#cb381-7" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-113"></span>
 <img src="BIOL202_files/figure-html/unnamed-chunk-113-1.png" alt="Normal quantile plot of the proportion of seeds fertilized (logit transformed) on 30 plants" width="480" />
 <p class="caption">
@@ -800,13 +801,13 @@ Figure 15.10: Normal quantile plot of the proportion of seeds fertilized (logit 
 <p>We’ll use the <code>inv.logit</code> function from the <code>boot</code> package:</p>
 <pre><code>?boot::inv.logit</code></pre>
 <p>First do the back-transform:</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="transform.html#cb384-1" tabindex="-1"></a>flowers <span class="ot">&lt;-</span> flowers <span class="sc">%&gt;%</span></span>
-<span id="cb384-2"><a href="transform.html#cb384-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">flower_backtransformed =</span> boot<span class="sc">::</span><span class="fu">inv.logit</span>(logitfertile))</span></code></pre></div>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="transform.html#cb383-1" tabindex="-1"></a>flowers <span class="ot">&lt;-</span> flowers <span class="sc">%&gt;%</span></span>
+<span id="cb383-2"><a href="transform.html#cb383-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">flower_backtransformed =</span> boot<span class="sc">::</span><span class="fu">inv.logit</span>(logitfertile))</span></code></pre></div>
 <p>Or alternative code:</p>
 <pre><code>flowers$flower_backtransformed &lt;- boot::inv.logit(flowers$logitfertile)</code></pre>
 <p>Let’s have a look at the original “propFertile” variable and the “flower_backtransformed” variable to check that they’re identical:</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="transform.html#cb386-1" tabindex="-1"></a>flowers <span class="sc">%&gt;%</span></span>
-<span id="cb386-2"><a href="transform.html#cb386-2" tabindex="-1"></a>  <span class="fu">select</span>(propFertile, flower_backtransformed)</span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="transform.html#cb385-1" tabindex="-1"></a>flowers <span class="sc">%&gt;%</span></span>
+<span id="cb385-2"><a href="transform.html#cb385-2" tabindex="-1"></a>  <span class="fu">select</span>(propFertile, flower_backtransformed)</span></code></pre></div>
 <pre><code>## # A tibble: 30 × 2
 ##    propFertile flower_backtransformed
 ##          &lt;dbl&gt;                  &lt;dbl&gt;
@@ -830,8 +831,8 @@ Figure 15.10: Normal quantile plot of the proportion of seeds fertilized (logit 
 <p>For example, imagine you had calculated a confidence interval for the log-transformed marine biomass ratio data, and your limits were as follows:</p>
 <p>0.347 &lt; <span class="math inline">\(ln(\mu)\)</span> &lt; 0.611</p>
 <p>These are the log-transformed limits! So we need to back-transform them to get them in the original scale:</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="transform.html#cb388-1" tabindex="-1"></a>lower.limit <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fl">0.347</span>)</span>
-<span id="cb388-2"><a href="transform.html#cb388-2" tabindex="-1"></a>upper.limit <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fl">0.611</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="transform.html#cb387-1" tabindex="-1"></a>lower.limit <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fl">0.347</span>)</span>
+<span id="cb387-2"><a href="transform.html#cb387-2" tabindex="-1"></a>upper.limit <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fl">0.611</span>)</span></code></pre></div>
 <p>So now the back-transformed interval is:</p>
 <p>1.415 &lt; <span class="math inline">\(\mu\)</span> &lt; 1.842</p>
 <p>Voila!</p>

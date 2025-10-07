@@ -473,6 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="common-errors-and-their-solutions.html"><a href="common-errors-and-their-solutions.html"><i class="fa fa-check"></i>Common errors and their solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="google-can-help.html"><a href="google-can-help.html"><i class="fa fa-check"></i>Google can help</a></li>
+<li class="chapter" data-level="" data-path="error-creating-mosaic-plot.html"><a href="error-creating-mosaic-plot.html"><i class="fa fa-check"></i>Error creating mosaic plot</a></li>
 <li class="chapter" data-level="" data-path="rosetta-error.html"><a href="rosetta-error.html"><i class="fa fa-check"></i>Rosetta error</a></li>
 <li class="chapter" data-level="" data-path="rtools-required-during-install.html"><a href="rtools-required-during-install.html"><i class="fa fa-check"></i>Rtools required during install</a></li>
 <li class="chapter" data-level="" data-path="could-not-find-function.html"><a href="could-not-find-function.html"><i class="fa fa-check"></i>Could not find function</a></li>
@@ -512,21 +513,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="twomean_packages_data" class="section level2 hasAnchor" number="14.1">
 <h2><span class="header-section-number">14.1</span> Load packages and import data<a href="twomean_packages_data.html#twomean_packages_data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the <code>tidyverse</code>, <code>knitr</code>, <code>naniar</code>, <code>car</code>, <code>skimr</code>, and <code>janitor</code> packages:</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="twomean_packages_data.html#cb290-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb290-2"><a href="twomean_packages_data.html#cb290-2" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb290-3"><a href="twomean_packages_data.html#cb290-3" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
-<span id="cb290-4"><a href="twomean_packages_data.html#cb290-4" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb290-5"><a href="twomean_packages_data.html#cb290-5" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb290-6"><a href="twomean_packages_data.html#cb290-6" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="twomean_packages_data.html#cb289-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb289-2"><a href="twomean_packages_data.html#cb289-2" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb289-3"><a href="twomean_packages_data.html#cb289-3" tabindex="-1"></a><span class="fu">library</span>(naniar)</span>
+<span id="cb289-4"><a href="twomean_packages_data.html#cb289-4" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb289-5"><a href="twomean_packages_data.html#cb289-5" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb289-6"><a href="twomean_packages_data.html#cb289-6" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
 <p>And we also need the <code>broom</code> package, which may be new to you.</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="twomean_packages_data.html#cb291-1" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="twomean_packages_data.html#cb290-1" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
 <p>The following datasets are required:</p>
 <ul>
 <li>the “blackbird” dataset. These are the data associated with Example 12.2 in the text (page 330)</li>
 <li>the “students” dataset, describing characteristics of students from BIOL202 from several years back</li>
 </ul>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="twomean_packages_data.html#cb292-1" tabindex="-1"></a>blackbird <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/blackbird.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb292-2"><a href="twomean_packages_data.html#cb292-2" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="twomean_packages_data.html#cb291-1" tabindex="-1"></a>blackbird <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/blackbird.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb291-2"><a href="twomean_packages_data.html#cb291-2" tabindex="-1"></a>students <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
             </section>
 
