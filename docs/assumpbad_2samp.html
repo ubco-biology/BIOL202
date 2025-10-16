@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-10-06" />
+<meta name="date" content="2025-10-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -513,7 +513,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="assumpbad_2samp" class="section level2 hasAnchor" number="14.4">
 <h2><span class="header-section-number">14.4</span> When assumptions aren’t met<a href="assumpbad_2samp.html#assumpbad_2samp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If the <strong>normal distribution assumption</strong> is violated, and you are unable to find a transformation that works (see the <a href="assumptions_packages_data.html#assumptions_packages_data">Checking assumptions and data transformations</a> tutorial), then you can try a non-parametric test.</p>
-<p>A tutorial on non-parametric tests is under development, but will not be deployed until 2023. Consult chapter 13 in the Whitlock &amp; Schluter text, and this <a href="https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page">website</a> for some R examples.</p>
+<p>A tutorial on non-parametric tests is forthcoming, but not available yet. Consult chapter 13 in the Whitlock &amp; Schluter text, and this <a href="https://whitlockschluter3e.zoology.ubc.ca/RExamples/Rcode_Chapter_13.html#new_methods_on_this_page">website</a> for some R examples.</p>
 <p>If the <strong>equal-variance assumption</strong> is violated for the 2-sample <em>t</em>-test, then you can set the “var.equal” argument to “FALSE” in the <code>t.test</code> function, in which case the function implements a “Welch’s <em>t</em>-test”.</p>
 <p>For instance, let’s pretend that the height data did not exhibit equal variance among left- and right- dominant eye students, here’s the appropriate code:</p>
 <div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="assumpbad_2samp.html#cb324-1" tabindex="-1"></a>height.ttest.unequal.var <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
