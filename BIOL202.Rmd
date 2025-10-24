@@ -3339,7 +3339,7 @@ The one catch in the code below is that we can't simply provide the name of our 
 
 Then, we use "ac" to specify the "Agresti-Coull" methods. 
 
-We'll assing our output to a new object called "confint.results":
+We'll assign our output to a new object called "confint.results":
 
 ```{r agresti}
 confint.results <- binom.confint(x = bird.X$n, n = birds.sampsize, conf.level = 0.95, methods = "ac")

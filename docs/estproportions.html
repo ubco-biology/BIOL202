@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-10-16" />
+<meta name="date" content="2025-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -758,7 +758,7 @@ Songbird
 <p>Let’s try it out using our bird data.</p>
 <p>The one catch in the code below is that we can’t simply provide the name of our “bird.X” object to provide the value of <em>X</em> for the <code>binom.confint</code> function; instead we need to specify that the value we want to use is stored in the variable called “n” within the “bird.X” object. Thus, we use <code>bird.X$n</code>. The dollar sign allows us to specify a specific variable within the tibble.</p>
 <p>Then, we use “ac” to specify the “Agresti-Coull” methods.</p>
-<p>We’ll assing our output to a new object called “confint.results”:</p>
+<p>We’ll assign our output to a new object called “confint.results”:</p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="estproportions.html#cb204-1" tabindex="-1"></a>confint.results <span class="ot">&lt;-</span> <span class="fu">binom.confint</span>(<span class="at">x =</span> bird.X<span class="sc">$</span>n, <span class="at">n =</span> birds.sampsize, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">methods =</span> <span class="st">&quot;ac&quot;</span>)</span></code></pre></div>
 <p>Have a look at the output using the <code>kable</code> function to make it nicer looking:</p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="estproportions.html#cb205-1" tabindex="-1"></a><span class="fu">kable</span>(confint.results, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
