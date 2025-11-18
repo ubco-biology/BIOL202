@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.21)  24 OCT 2025 08:58
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.21)  18 NOV 2025 08:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -644,26 +644,1406 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 ) (/Users/jpither/Library/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
 \BKM@id=\count354
-)) (./BIOL202.aux)
-Runaway argument?
-{\contentslin 
-! File ended while scanning use of \@writefile.
-<inserted text> 
-                \par 
-l.138 \begin{document}
-                      
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
+))
+No file BIOL202.aux.
+\openout1 = `BIOL202.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 138.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 138.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 138.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 138.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 138.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 138.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 138.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 138.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999964596882403]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 138.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 138.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 138.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 138.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 138.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 1.000096459334209.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\fontdimen
+(fontspec)             8\font =6.77pt\relax \fontdimen 9\font =3.94pt\relax
+(fontspec)             \fontdimen 10\font =4.44pt\relax \fontdimen 11\font
+(fontspec)             =6.86pt\relax \fontdimen 12\font =3.45pt\relax
+(fontspec)             \fontdimen 13\font =3.63pt\relax \fontdimen 14\font
+(fontspec)             =3.63pt\relax \fontdimen 15\font =2.89pt\relax
+(fontspec)             \fontdimen 16\font =2.47pt\relax \fontdimen 17\font
+(fontspec)             =2.47pt\relax \fontdimen 18\font =2.5pt\relax
+(fontspec)             \fontdimen 19\font =2.0pt\relax \fontdimen 22\font
+(fontspec)             =2.5pt\relax \fontdimen 20\font =0pt\relax \fontdimen
+(fontspec)             21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.000096459334209]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 138.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 138.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 138.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 138.
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9999964596882403.
+
+
+Package fontspec Info: 
+(fontspec)             latinmodern-math scale = 0.9998964600422715.
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\fontdimen
+(fontspec)             8\font =0.4pt\relax \fontdimen 9\font =2.0pt\relax
+(fontspec)             \fontdimen 10\font =1.67pt\relax \fontdimen 11\font
+(fontspec)             =1.11pt\relax \fontdimen 12\font =6.0pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <8.5->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9998964600422715]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 138.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 138.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 138.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 138.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring OFF on input line 138.
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 12.0pt on input line 140.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 140.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 140.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 140.
+(/Users/jpither/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.0011pt on input line 140.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00073pt on input line 140.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 140.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 140.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 140.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 140.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 140.
+(/Users/jpither/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 140.
+(/Users/jpither/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+[1
+
+
+]
+
+[2
+
+]
+No file BIOL202.toc.
+\tf@toc=\write4
+\openout4 = `BIOL202.toc'.
+
+
+
+[3]
+
+[4
+
+]
+
+[5]
+
+[6]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 163.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 163.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 163.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 163.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 163.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 163.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 163.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 163.
+
+
+[7
+
+]
+File: ./more/creative-commons-783531_1280.png Graphic file (type bmp)
+<./more/creative-commons-783531_1280.png>
+
+
+[8]
+
+[9
+
+]
+
+[10]
+Chapter 1.
+File: ./more/engine.png Graphic file (type bmp)
+<./more/engine.png>
+File: ./more/dashboard.png Graphic file (type bmp)
+<./more/dashboard.png>
+
+
+[11
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 243--245
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
+
+ []
+
+
+
+[12]
+Chapter 2.
+
+LaTeX Warning: Hyper reference `what_is_R' on page 13 undefined on input line 260.
+
+File: ./more/Rlogo.png Graphic file (type bmp)
+<./more/Rlogo.png>
+File: ./more/RStudio-Ball.png Graphic file (type bmp)
+<./more/RStudio-Ball.png>
+File: ./more/RStudio_Window.png Graphic file (type bmp)
+<./more/RStudio_Window.png>
+
+
+[13
+
+]
+
+[14]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 339.
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 351--351
+[]\TU/lmtt/m/n/10 There is a binary version available but the source version is later:[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 351--351
+[]\TU/lmtt/m/n/10 Do you want to install from sources the package which needs compilation? (Yes/no/cancel)[] 
+ []
+
+
+
+[15]
+
+[16]
+
+[17]
+
+LaTeX Warning: Hyper reference `repro_research' on page 18 undefined on input line 450.
+
+
+
+[18]
+File: ./more/cheatsheets.png Graphic file (type bmp)
+<./more/cheatsheets.png>
+
+
+[19]
+
+[20]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 2.5 on input line 601.
+
+
+
+[21]
+
+[22
+
+]
+
+[23]
+
+[24]
+Chapter 3.
+
+Underfull \vbox (badness 6741) has occurred while \output is active []
+
+
+
+[25
+
+]
+Underfull \hbox (badness 1199) in paragraph at lines 708--709
+\TU/lmr/m/n/10 own computer, which automatically syncs (when you’re online) selected
+ []
+
+
+Underfull \vbox (badness 1178) has occurred while \output is active []
+
+
+
+[26]
+
+[27]
+File: ./more/BIOL202_directory_structure.png Graphic file (type bmp)
+<./more/BIOL202_directory_structure.png>
+
+Overfull \hbox (2689.61769pt too wide) in paragraph at lines 773--773
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 1446.58229pt on input line 774.
+
+
+
+[28]
+
+[29]
+
+[30]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 817.
+
+LaTeX Warning: Hyper reference `intro_markdown' on page 31 undefined on input line 839.
+
+
+
+[31]
+
+LaTeX Warning: Hyper reference `create_project' on page 32 undefined on input line 892.
+
+
+
+[32]
+
+[33]
+
+[34
+
+]
+Chapter 4.
+
+LaTeX Warning: Hyper reference `assign_workflow' on page 35 undefined on input line 908.
+
+
+
+[35]
+File: ./more/assign_header.png Graphic file (type bmp)
+<./more/assign_header.png>
+
+Overfull \hbox (498.39076pt too wide) in paragraph at lines 927--927
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 4.17993pt on input line 928.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 935--937
+
+ []
+
+
+LaTeX Warning: Hyper reference `onedrive' on page 36 undefined on input line 947.
+
+
+
+[36]
+
+[37]
+File: ./more/install_package_header2.png Graphic file (type bmp)
+<./more/install_package_header2.png>
+
+Overfull \hbox (418.17102pt too wide) in paragraph at lines 967--967
+[][] 
+ []
+
+
+
+[38]
+Overfull \hbox (227.25pt too wide) in paragraph at lines 988--988
+[]\TU/lmtt/m/n/10 example_data <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv")[] 
+ []
+
+
+LaTeX Warning: Hyper reference `packages' on page 39 undefined on input line 996.
+
+
+
+[39]
+
+LaTeX Warning: Hyper reference `rmd_graphing' on page 40 undefined on input line 1024.
+
+
+
+[40]
+File: ./more/figure_chunk_header.png Graphic file (type bmp)
+<./more/figure_chunk_header.png>
+
+Overfull \hbox (2106.39825pt too wide) in paragraph at lines 1047--1048
+[][] 
+ []
+
+File: ./more/example_histogram_practice.png Graphic file (type bmp)
+<./more/example_histogram_practice.png>
+
+Overfull \hbox (1070.04672pt too wide) in paragraph at lines 1049--1050
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[41]
+Overfull \vbox (784.85934pt too high) has occurred while \output is active []
+
+
+
+[42]
+File: ./more/assign_header.png Graphic file (type bmp)
+<./more/assign_header.png>
+
+Overfull \hbox (498.39076pt too wide) in paragraph at lines 1062--1062
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 4.17993pt on input line 1063.
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 1079--1079
+[]\TU/lmtt/m/n/10 https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/students2.csv[] 
+ []
+
+
+
+[43]
+
+[44]
+
+[45]
+
+[46]
+
+[47]
+
+LaTeX Warning: Hyper reference `veryify_knit' on page 48 undefined on input line 1320.
+
+
+
+[48]
+
+[49]
+
+[50
+
+]
+Chapter 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1353--1355
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1355--1357
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1357--1359
+
+ []
+
+
+
+[51]
+File: ./more/excel_tidy.png Graphic file (type bmp)
+<./more/excel_tidy.png>
+
+Overfull \hbox (431.9025pt too wide) in paragraph at lines 1379--1379
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 58.2366pt on input line 1380.
+
+
+LaTeX Warning: Hyper reference `example_answer' on page 52 undefined on input line 1408.
+
+
+
+[52]
+
+[53]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 1425--1425
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 1425--1425
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 1425--1425
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1429--1431
+[]\TU/lmr/bx/n/10 Error in read_csv(“[]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][] [] [][][][] [][]
+ []
+
+
+Underfull \hbox (badness 2057) in paragraph at lines 1429--1431
+[][][][][][][] [] [][][][][][][] [] [][][][] [] [][][][] [] [][][][][][][][] [] [][][]$[]\TU/lmr/bx/n/10 ”) :  could not find
+ []
+
+
+LaTeX Warning: Hyper reference `import_csv_local' on page 54 undefined on input line 1456.
+
+
+
+[54]
+File: ./more/files_pane_rawdata.png Graphic file (type bmp)
+<./more/files_pane_rawdata.png>
+
+Overfull \hbox (1417.66525pt too wide) in paragraph at lines 1473--1473
+[][] 
+ []
+
+
+LaTeX Warning: Hyper reference `tidy_data' on page 55 undefined on input line 1485.
+
+
+LaTeX Warning: Hyper reference `here_package' on page 55 undefined on input line 1504.
+
+
+
+[55]
+
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 1556--1558
+
+ []
+
+
+
+[57]
+
+LaTeX Warning: Hyper reference `example_answer' on page 58 undefined on input line 1565.
+
+
+
+[58]
+
+[59]
+
+[60]
+
+[61]
+
+LaTeX Warning: Hyper reference `setup_dirs' on page 62 undefined on input line 1804.
+
+
+
+[62]
+
+[63
+
+]
+
+[64]
+Chapter 6.
+
+LaTeX Warning: Hyper reference `package_install' on page 65 undefined on input line 1875.
+
+
+
+[65
+
+]
+
+LaTeX Warning: Hyper reference `import_csv_url' on page 66 undefined on input line 1899.
+
+
+Underfull \hbox (badness 4341) in paragraph at lines 1899--1900
+[][][] [] [][][][] [][] [][][][][][][] [] [][][][][][][] [] [][][][] [] [][][][][]$[]\TU/lmr/m/n/10 ”. Thus, to import any CSV
+ []
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 1899--1900
+\TU/lmr/m/n/10 name to the end of the path. For example, the full path to access
+ []
+
+
+Underfull \hbox (badness 4726) in paragraph at lines 1899--1900
+\TU/lmr/m/n/10 the \TU/lmtt/m/n/10 birds.csv \TU/lmr/m/n/10 file would be “[]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][][] [] [][][] [] [][][][] [][]
+ []
+
+
+LaTeX Warning: Hyper reference `data_overview' on page 66 undefined on input line 1905.
+
+
+
+[66]
+
+[67]
+
+[68]
+
+[69]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##    <fct>   <fct>              <dbl>         <dbl>             <int>       <int>[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##  1 Adelie  Torgersen           39.1          18.7               181        3750[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##  2 Adelie  Torgersen           39.5          17.4               186        3800[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##  3 Adelie  Torgersen           40.3          18                 195        3250[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##  4 Adelie  Torgersen           NA            NA                  NA          NA[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##  5 Adelie  Torgersen           36.7          19.3               193        3450[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##  6 Adelie  Torgersen           39.3          20.6               190        3650[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##  7 Adelie  Torgersen           38.9          17.8               181        3625[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##  8 Adelie  Torgersen           39.2          19.6               195        4675[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ##  9 Adelie  Torgersen           34.1          18.1               193        3475[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
+[]\TU/lmtt/m/n/10 ## 10 Adelie  Torgersen           42            20.2               190        4250[] 
+ []
+
+
+LaTeX Warning: Hyper reference `data_overview' on page 70 undefined on input line 2144.
+
+
+
+[70]
+
+LaTeX Warning: Hyper reference `vis_data_overview' on page 71 undefined on input line 2178.
+
+
+LaTeX Warning: Hyper reference `import_csv_local' on page 71 undefined on input line 2180.
+
+
+
+[71]
+Underfull \hbox (badness 10000) in paragraph at lines 2204--2206
+
+ []
+
+
+
+[72]
+Overfull \hbox (647.25pt too wide) in paragraph at lines 2220--2220
+[]  \TU/lmtt/m/n/10 kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)[] 
+ []
+
+
+
+[73]
+
+[74]
+File: BIOL202_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-27-1.pdf>
+
+
+[75]
+
+[76]
+File: ./more/bar_graph_chunk.png Graphic file (type bmp)
+<./more/bar_graph_chunk.png>
+
+Overfull \hbox (2017.50647pt too wide) in paragraph at lines 2397--2397
+[][] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2428--2428
+[]\TU/lmtt/m/n/10 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.[] 
+ []
+
+File: BIOL202_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-29-1.pdf>
+
+
+[77]
+
+[78]
+
+[79]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2458--2458
+[]\TU/lmtt/m/n/10 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.[] 
+ []
+
+
+
+[80]
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2516--2516
+[]\TU/lmtt/m/n/10 ## [1] 6.432749e-05 3.918129e-04 5.380117e-04 3.333333e-04 3.157895e-04[] 
+ []
+
+
+
+[81]
+File: BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf>
+
+
+[82]
+File: BIOL202_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-31-1.pdf>
+
+
+[83]
+
+[84
+
+]
+Chapter 7.
+
+LaTeX Warning: Hyper reference `package_install' on page 85 undefined on input line 2631.
+
+
+
+[85]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 2665--2665
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2665--2665
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 2665--2665
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+[86]
+
+LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 87 undefined on input line 2698.
+
+
+
+[87]
+Underfull \hbox (badness 2368) in paragraph at lines 2789--2790
+\TU/lmtt/m/n/10 summarise \TU/lmr/m/n/10 (equivalently \TU/lmtt/m/n/10 summarize\TU/lmr/m/n/10 ) function for calculating descriptive
+ []
+
+
+
+[88]
+
+LaTeX Warning: Hyper reference `vis_histogram' on page 89 undefined on input line 2799.
+
+File: BIOL202_files/figure-latex/unnamed-chunk-33-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-33-1.pdf>
+
+
+[89]
+File: ./more/na_error.png Graphic file (type bmp)
+<./more/na_error.png>
+
+Overfull \hbox (955.85999pt too wide) in paragraph at lines 2836--2836
+[][] 
+ []
+
+
+LaTeX Warning: Hyper reference `vis_data_overview' on page 90 undefined on input line 2839.
+
+
+
+[90]
+Overfull \hbox (1.92201pt too wide) in paragraph at lines 2878--2880
+[]\TU/lmr/m/n/10 We feed the variable of interest from the \TU/lmtt/m/n/10 penguins \TU/lmr/m/n/10 tibble, “body_mass_g”,
+ []
+
+
+LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 91 undefined on input line 2893.
+
+
+
+[91]
+Overfull \hbox (70.85501pt too wide) in paragraph at lines 2920--2921
+[]\TU/lmr/m/n/10 The same coding approach is used in the last line: \TU/lmtt/m/n/10 Count_NA = naniar::n_miss(body_mass_g)\TU/lmr/m/n/10 . 
+ []
+
+
+
+[92]
+
+
+Overfull \hbox (93.30124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 7.4.  DESCRIBING A NUMERICAL VARIABLE GROUPED BY A CATEGORICAL VARIABLE \TU/lmr/m/n/10 93
+ []
+
+[93]
+
+[94]
+Chapter 8.
+
+
+[95
+
+]
+
+LaTeX Warning: Hyper reference `package_install' on page 96 undefined on input line 3074.
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3106--3106
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3106--3106
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 3106--3106
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+
+Overfull \hbox (18.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 96 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[96]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3125--3125
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3125--3125
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 3125--3125
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+
+Overfull \hbox (45.61453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 97
+ []
+
+[97]
+
+
+Overfull \hbox (18.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 98 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[98]
+
+
+Overfull \hbox (45.61453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 99
+ []
+
+[99]
+
+LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 100 undefined on input line 3341.
+
+
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 100 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[100]
+
+LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 101 undefined on input line 3378.
+
+
+
+
+Overfull \hbox (50.61453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 101
+ []
+
+[101]
+File: BIOL202_files/figure-latex/malaria_barchart1-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/malaria_barchart1-1.pdf>
+
+LaTeX Warning: Hyper reference `vis_cat_barchart' on page 102 undefined on input line 3418.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3423--3425
+
+ []
+
+
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 102 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[102]
+File: ./more/grouped_bar_graph.png Graphic file (type bmp)
+<./more/grouped_bar_graph.png>
+
+Overfull \hbox (1768.89749pt too wide) in paragraph at lines 3433--3433
+[][] 
+ []
+
+
+
+
+Overfull \hbox (50.61453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 103
+ []
+
+[103]
+File: BIOL202_files/figure-latex/unnamed-chunk-42-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-42-1.pdf>
+
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 104 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[104]
+File: BIOL202_files/figure-latex/mosaic_malaria1-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/mosaic_malaria1-1.pdf>
+
+
+
+Overfull \hbox (50.61453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 105
+ []
+
+[105]
+
+LaTeX Warning: Hyper reference `rmd_graphing' on page 106 undefined on input line 3498.
+
+File: BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf>
+File: ./more/mosaic_graph.png Graphic file (type bmp)
+<./more/mosaic_graph.png>
+
+Overfull \hbox (1791.30101pt too wide) in paragraph at lines 3520--3520
+[][] 
+ []
+
+
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 106 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[106]
+
+LaTeX Warning: Hyper reference `rmd_graphing' on page 107 undefined on input line 3537.
+
+File: BIOL202_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-45-1.pdf>
+
+
+
+Overfull \hbox (24.29453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.3.  VISUALIZING ASSOCIATION BETWEEN TWO NUMERIC VARIABLES \TU/lmr/m/n/10 107
+ []
+
+[107]
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 108 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[108]
+
+
+Overfull \hbox (24.29453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.3.  VISUALIZING ASSOCIATION BETWEEN TWO NUMERIC VARIABLES \TU/lmr/m/n/10 109
+ []
+
+[109]
+
+LaTeX Warning: Hyper reference `vis_describe' on page 110 undefined on input line 3573.
+
+
+LaTeX Warning: Hyper reference `mean_sd' on page 110 undefined on input line 3575.
+
+
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 110 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[110]
+
+LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 111 undefined on input line 3636.
+
+
+
+
+Overfull \hbox (113.52124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 111
+ []
+
+[111]
+File: BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf>
+
+LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 112 undefined on input line 3685.
+
+
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 112 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[112]
+
+
+Overfull \hbox (113.52124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 113
+ []
+
+[113]
+
+LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 114 undefined on input line 3707.
+
+File: BIOL202_files/figure-latex/body_violin-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/body_violin-1.pdf>
+
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 114 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[114]
+
+LaTeX Warning: Hyper reference `stripchart' on page 115 undefined on input line 3755.
+
+File: BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf>
+
+
+
+Overfull \hbox (113.52124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 115
+ []
+
+[115]
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 116 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[116]
+File: BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf>
+
+
+
+Overfull \hbox (113.52124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 117
+ []
+
+[117]
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 118 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[118]
+File: BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf>
+
+
+
+Overfull \hbox (113.52124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 119
+ []
+
+[119]
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 120 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[120]
+File: BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf>
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3912--3912
+[]  \TU/lmtt/m/n/10 geom_jitter(colour = "grey", size = 1, shape = 1, width = 0.15) +[] 
+ []
+
+
+
+
+Overfull \hbox (113.52124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 121
+ []
+
+[121]
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 122 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[122]
+
+[123
+
+]
+
+[124]
+Chapter 9.
+
+LaTeX Warning: Hyper reference `package_install' on page 125 undefined on input line 3963.
+
+
+
+[125
+
+]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3994--3994
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3994--3994
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 3994--3994
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+[126]
+
+[127]
+
+[128]
+
+[129]
+
+[130]
+
+[131]
+
+[132]
+
+LaTeX Warning: Hyper reference `sampling_error' on page 133 undefined on input line 4368.
+
+
+
+[133]
+
+[134]
+
+[135]
+
+[136]
+File: BIOL202_files/figure-latex/unnamed-chunk-53-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-53-1.pdf>
+
+
+[137]
+File: BIOL202_files/figure-latex/unnamed-chunk-55-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-55-1.pdf>
+
+
+[138]
+
+[139]
+File: BIOL202_files/figure-latex/newsampfig-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/newsampfig-1.pdf>
+! Missing { inserted.
+<to be read again> 
+                   \Umathaccent 
+l.4690 \[SE_\bar
+                {Y} = \frac{s}{\sqrt{n}}\]
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
 
  
 Here is how much of TeX's memory you used:
- 19668 strings out of 470454
- 355480 string characters out of 5490166
- 821950 words of memory out of 5000000
- 47780 multiletter control sequences out of 15000+600000
- 627307 words of font info for 44 fonts, out of 8000000 for 9000
+ 20778 strings out of 470454
+ 385743 string characters out of 5490166
+ 922194 words of memory out of 5000000
+ 48780 multiletter control sequences out of 15000+600000
+ 633414 words of font info for 98 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,0n,93p,406b,274s stack positions out of 10000i,1000n,20000p,200000b,200000s
-No pages of output.
+ 90i,10n,114p,1035b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
+Output written on BIOL202.pdf (139 pages).
