@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.21)  18 NOV 2025 08:19
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.9.21)  19 NOV 2025 21:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -644,8 +644,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 ) (/Users/jpither/Library/TinyTeX/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
 \BKM@id=\count354
-))
-No file BIOL202.aux.
+)) (./BIOL202.aux)
 \openout1 = `BIOL202.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
@@ -896,9 +895,6 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 138.
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 140.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
@@ -937,45 +933,37 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [2
 
-]
-No file BIOL202.toc.
-\tf@toc=\write4
-\openout4 = `BIOL202.toc'.
-
+] (./BIOL202.toc
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 3.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 3.
 
 
 [3]
 
-[4
-
-]
+[4]
 
 [5]
 
 [6]
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 163.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 163.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 163.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 163.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 163.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 163.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 163.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 163.
 
+[7])
+\tf@toc=\write4
+\openout4 = `BIOL202.toc'.
 
-[7
-
-]
-File: ./more/creative-commons-783531_1280.png Graphic file (type bmp)
-<./more/creative-commons-783531_1280.png>
 
 
 [8]
@@ -985,6 +973,21 @@ File: ./more/creative-commons-783531_1280.png Graphic file (type bmp)
 ]
 
 [10]
+
+[11
+
+]
+File: ./more/creative-commons-783531_1280.png Graphic file (type bmp)
+<./more/creative-commons-783531_1280.png>
+
+
+[12]
+
+[13
+
+]
+
+[14]
 Chapter 1.
 File: ./more/engine.png Graphic file (type bmp)
 <./more/engine.png>
@@ -992,7 +995,7 @@ File: ./more/dashboard.png Graphic file (type bmp)
 <./more/dashboard.png>
 
 
-[11
+[15
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 243--245
@@ -1006,11 +1009,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 250--252
 
 
 
-[12]
+[16]
 Chapter 2.
-
-LaTeX Warning: Hyper reference `what_is_R' on page 13 undefined on input line 260.
-
 File: ./more/Rlogo.png Graphic file (type bmp)
 <./more/Rlogo.png>
 File: ./more/RStudio-Ball.png Graphic file (type bmp)
@@ -1019,11 +1019,11 @@ File: ./more/RStudio_Window.png Graphic file (type bmp)
 <./more/RStudio_Window.png>
 
 
-[13
+[17
 
 ]
 
-[14]
+[18]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 339.
 
@@ -1038,46 +1038,37 @@ Overfull \hbox (117.0pt too wide) in paragraph at lines 351--351
 
 
 
-[15]
-
-[16]
-
-[17]
-
-LaTeX Warning: Hyper reference `repro_research' on page 18 undefined on input line 450.
-
-
-
-[18]
-File: ./more/cheatsheets.png Graphic file (type bmp)
-<./more/cheatsheets.png>
-
-
 [19]
 
 [20]
 
-Package longtable Warning: Column widths have changed
-(longtable)                in table 2.5 on input line 601.
-
-
-
 [21]
 
-[22
+[22]
+File: ./more/cheatsheets.png Graphic file (type bmp)
+<./more/cheatsheets.png>
 
-]
 
 [23]
 
 [24]
+
+[25]
+
+[26
+
+]
+
+[27]
+
+[28]
 Chapter 3.
 
 Underfull \vbox (badness 6741) has occurred while \output is active []
 
 
 
-[25
+[29
 
 ]
 Underfull \hbox (badness 1199) in paragraph at lines 708--709
@@ -1089,9 +1080,9 @@ Underfull \vbox (badness 1178) has occurred while \output is active []
 
 
 
-[26]
+[30]
 
-[27]
+[31]
 File: ./more/BIOL202_directory_structure.png Graphic file (type bmp)
 <./more/BIOL202_directory_structure.png>
 
@@ -1104,38 +1095,28 @@ LaTeX Warning: Float too large for page by 1446.58229pt on input line 774.
 
 
 
-[28]
-
-[29]
-
-[30]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 817.
-
-LaTeX Warning: Hyper reference `intro_markdown' on page 31 undefined on input line 839.
-
-
-
-[31]
-
-LaTeX Warning: Hyper reference `create_project' on page 32 undefined on input line 892.
-
-
-
 [32]
 
 [33]
 
-[34
+[34]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 817.
+
+
+[35]
+
+[36]
+
+[37]
+
+[38
 
 ]
 Chapter 4.
 
-LaTeX Warning: Hyper reference `assign_workflow' on page 35 undefined on input line 908.
 
-
-
-[35]
+[39]
 File: ./more/assign_header.png Graphic file (type bmp)
 <./more/assign_header.png>
 
@@ -1152,13 +1133,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 935--937
  []
 
 
-LaTeX Warning: Hyper reference `onedrive' on page 36 undefined on input line 947.
 
+[40]
 
-
-[36]
-
-[37]
+[41]
 File: ./more/install_package_header2.png Graphic file (type bmp)
 <./more/install_package_header2.png>
 
@@ -1168,23 +1146,16 @@ Overfull \hbox (418.17102pt too wide) in paragraph at lines 967--967
 
 
 
-[38]
+[42]
 Overfull \hbox (227.25pt too wide) in paragraph at lines 988--988
 []\TU/lmtt/m/n/10 example_data <- read_csv("https://raw.githubusercontent.com/ubco-biology/BIOL202/main/data/example_data.csv")[] 
  []
 
 
-LaTeX Warning: Hyper reference `packages' on page 39 undefined on input line 996.
 
+[43]
 
-
-[39]
-
-LaTeX Warning: Hyper reference `rmd_graphing' on page 40 undefined on input line 1024.
-
-
-
-[40]
+[44]
 File: ./more/figure_chunk_header.png Graphic file (type bmp)
 <./more/figure_chunk_header.png>
 
@@ -1204,12 +1175,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[41]
+[45]
 Overfull \vbox (784.85934pt too high) has occurred while \output is active []
 
 
 
-[42]
+[46]
 File: ./more/assign_header.png Graphic file (type bmp)
 <./more/assign_header.png>
 
@@ -1227,25 +1198,21 @@ Overfull \hbox (64.5pt too wide) in paragraph at lines 1079--1079
 
 
 
-[43]
-
-[44]
-
-[45]
-
-[46]
-
 [47]
-
-LaTeX Warning: Hyper reference `veryify_knit' on page 48 undefined on input line 1320.
-
-
 
 [48]
 
 [49]
 
-[50
+[50]
+
+[51]
+
+[52]
+
+[53]
+
+[54
 
 ]
 Chapter 5.
@@ -1266,7 +1233,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1357--1359
 
 
 
-[51]
+[55]
 File: ./more/excel_tidy.png Graphic file (type bmp)
 <./more/excel_tidy.png>
 
@@ -1278,13 +1245,10 @@ Overfull \hbox (431.9025pt too wide) in paragraph at lines 1379--1379
 LaTeX Warning: Float too large for page by 58.2366pt on input line 1380.
 
 
-LaTeX Warning: Hyper reference `example_answer' on page 52 undefined on input line 1408.
 
+[56]
 
-
-[52]
-
-[53]
+[57]
 Overfull \hbox (90.75pt too wide) in paragraph at lines 1425--1425
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
@@ -1310,11 +1274,8 @@ Underfull \hbox (badness 2057) in paragraph at lines 1429--1431
  []
 
 
-LaTeX Warning: Hyper reference `import_csv_local' on page 54 undefined on input line 1456.
 
-
-
-[54]
+[58]
 File: ./more/files_pane_rawdata.png Graphic file (type bmp)
 <./more/files_pane_rawdata.png>
 
@@ -1323,60 +1284,39 @@ Overfull \hbox (1417.66525pt too wide) in paragraph at lines 1473--1473
  []
 
 
-LaTeX Warning: Hyper reference `tidy_data' on page 55 undefined on input line 1485.
 
+[59]
 
-LaTeX Warning: Hyper reference `here_package' on page 55 undefined on input line 1504.
-
-
-
-[55]
-
-[56]
+[60]
 Underfull \hbox (badness 10000) in paragraph at lines 1556--1558
 
  []
 
 
 
-[57]
-
-LaTeX Warning: Hyper reference `example_answer' on page 58 undefined on input line 1565.
-
-
-
-[58]
-
-[59]
-
-[60]
-
 [61]
-
-LaTeX Warning: Hyper reference `setup_dirs' on page 62 undefined on input line 1804.
-
-
 
 [62]
 
-[63
-
-]
+[63]
 
 [64]
-Chapter 6.
 
-LaTeX Warning: Hyper reference `package_install' on page 65 undefined on input line 1875.
+[65]
 
+[66]
 
-
-[65
+[67
 
 ]
 
-LaTeX Warning: Hyper reference `import_csv_url' on page 66 undefined on input line 1899.
+[68]
+Chapter 6.
 
 
+[69
+
+]
 Underfull \hbox (badness 4341) in paragraph at lines 1899--1900
 [][][] [] [][][][] [][] [][][][][][][] [] [][][][][][][] [] [][][][] [] [][][][][]$[]\TU/lmr/m/n/10 ”. Thus, to import any CSV
  []
@@ -1392,17 +1332,14 @@ Underfull \hbox (badness 4726) in paragraph at lines 1899--1900
  []
 
 
-LaTeX Warning: Hyper reference `data_overview' on page 66 undefined on input line 1905.
 
+[70]
 
+[71]
 
-[66]
+[72]
 
-[67]
-
-[68]
-
-[69]
+[73]
 Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
 []\TU/lmtt/m/n/10 ##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g[] 
  []
@@ -1463,43 +1400,33 @@ Overfull \hbox (85.5pt too wide) in paragraph at lines 2142--2142
  []
 
 
-LaTeX Warning: Hyper reference `data_overview' on page 70 undefined on input line 2144.
 
+[74]
 
-
-[70]
-
-LaTeX Warning: Hyper reference `vis_data_overview' on page 71 undefined on input line 2178.
-
-
-LaTeX Warning: Hyper reference `import_csv_local' on page 71 undefined on input line 2180.
-
-
-
-[71]
+[75]
 Underfull \hbox (badness 10000) in paragraph at lines 2204--2206
 
  []
 
 
 
-[72]
+[76]
 Overfull \hbox (647.25pt too wide) in paragraph at lines 2220--2220
 []  \TU/lmtt/m/n/10 kable(caption = "Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan national Park, Nepal, from 1979 to 2006", digits = 3)[] 
  []
 
 
 
-[73]
+[77]
 
-[74]
+[78]
 File: BIOL202_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-27-1.pdf>
 
 
-[75]
+[79]
 
-[76]
+[80]
 File: ./more/bar_graph_chunk.png Graphic file (type bmp)
 <./more/bar_graph_chunk.png>
 
@@ -1516,46 +1443,43 @@ File: BIOL202_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-29-1.pdf>
 
 
-[77]
+[81]
 
-[78]
+[82]
 
-[79]
+[83]
 Overfull \hbox (17.25pt too wide) in paragraph at lines 2458--2458
 []\TU/lmtt/m/n/10 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.[] 
  []
 
 
 
-[80]
+[84]
 Overfull \hbox (27.75pt too wide) in paragraph at lines 2516--2516
 []\TU/lmtt/m/n/10 ## [1] 6.432749e-05 3.918129e-04 5.380117e-04 3.333333e-04 3.157895e-04[] 
  []
 
 
 
-[81]
+[85]
 File: BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-30-1.pdf>
 
 
-[82]
+[86]
 File: BIOL202_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-31-1.pdf>
 
 
-[83]
+[87]
 
-[84
+[88
 
 ]
 Chapter 7.
 
-LaTeX Warning: Hyper reference `package_install' on page 85 undefined on input line 2631.
 
-
-
-[85]
+[89]
 Overfull \hbox (90.75pt too wide) in paragraph at lines 2665--2665
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
@@ -1572,28 +1496,21 @@ Overfull \hbox (96.0pt too wide) in paragraph at lines 2665--2665
 
 
 
-[86]
+[90]
 
-LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 87 undefined on input line 2698.
-
-
-
-[87]
+[91]
 Underfull \hbox (badness 2368) in paragraph at lines 2789--2790
 \TU/lmtt/m/n/10 summarise \TU/lmr/m/n/10 (equivalently \TU/lmtt/m/n/10 summarize\TU/lmr/m/n/10 ) function for calculating descriptive
  []
 
 
 
-[88]
-
-LaTeX Warning: Hyper reference `vis_histogram' on page 89 undefined on input line 2799.
-
+[92]
 File: BIOL202_files/figure-latex/unnamed-chunk-33-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-33-1.pdf>
 
 
-[89]
+[93]
 File: ./more/na_error.png Graphic file (type bmp)
 <./more/na_error.png>
 
@@ -1602,47 +1519,37 @@ Overfull \hbox (955.85999pt too wide) in paragraph at lines 2836--2836
  []
 
 
-LaTeX Warning: Hyper reference `vis_data_overview' on page 90 undefined on input line 2839.
 
-
-
-[90]
+[94]
 Overfull \hbox (1.92201pt too wide) in paragraph at lines 2878--2880
 []\TU/lmr/m/n/10 We feed the variable of interest from the \TU/lmtt/m/n/10 penguins \TU/lmr/m/n/10 tibble, “body_mass_g”,
  []
 
 
-LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 91 undefined on input line 2893.
 
-
-
-[91]
+[95]
 Overfull \hbox (70.85501pt too wide) in paragraph at lines 2920--2921
 []\TU/lmr/m/n/10 The same coding approach is used in the last line: \TU/lmtt/m/n/10 Count_NA = naniar::n_miss(body_mass_g)\TU/lmr/m/n/10 . 
  []
 
 
 
-[92]
+[96]
 
 
 Overfull \hbox (93.30124pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 7.4.  DESCRIBING A NUMERICAL VARIABLE GROUPED BY A CATEGORICAL VARIABLE \TU/lmr/m/n/10 93
+\TU/lmr/m/sl/10 7.4.  DESCRIBING A NUMERICAL VARIABLE GROUPED BY A CATEGORICAL VARIABLE \TU/lmr/m/n/10 97
  []
 
-[93]
+[97]
 
-[94]
+[98]
 Chapter 8.
 
 
-[95
+[99
 
 ]
-
-LaTeX Warning: Hyper reference `package_install' on page 96 undefined on input line 3074.
-
-
 Overfull \hbox (90.75pt too wide) in paragraph at lines 3106--3106
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
@@ -1660,11 +1567,11 @@ Overfull \hbox (96.0pt too wide) in paragraph at lines 3106--3106
 
 
 
-Overfull \hbox (18.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 96 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 100 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
-[96]
+[100]
 Overfull \hbox (90.75pt too wide) in paragraph at lines 3125--3125
 []\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
  []
@@ -1682,52 +1589,41 @@ Overfull \hbox (96.0pt too wide) in paragraph at lines 3125--3125
 
 
 
-Overfull \hbox (45.61453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 97
- []
-
-[97]
-
-
-Overfull \hbox (18.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 98 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
- []
-
-[98]
-
-
-Overfull \hbox (45.61453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 99
- []
-
-[99]
-
-LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 100 undefined on input line 3341.
-
-
-
-
-Overfull \hbox (23.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 100 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
- []
-
-[100]
-
-LaTeX Warning: Hyper reference `vis_cat_freq_table' on page 101 undefined on input line 3378.
-
-
-
-
 Overfull \hbox (50.61453pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 101
  []
 
 [101]
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 102 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[102]
+
+
+Overfull \hbox (50.61453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 103
+ []
+
+[103]
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 104 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[104]
+
+
+Overfull \hbox (50.61453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 105
+ []
+
+[105]
 File: BIOL202_files/figure-latex/malaria_barchart1-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/malaria_barchart1-1.pdf>
-
-LaTeX Warning: Hyper reference `vis_cat_barchart' on page 102 undefined on input line 3418.
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 3423--3425
 
@@ -1737,10 +1633,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 3423--3425
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 102 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+\TU/lmr/m/n/10 106 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
-[102]
+[106]
 File: ./more/grouped_bar_graph.png Graphic file (type bmp)
 <./more/grouped_bar_graph.png>
 
@@ -1752,33 +1648,30 @@ Overfull \hbox (1768.89749pt too wide) in paragraph at lines 3433--3433
 
 
 Overfull \hbox (50.61453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 103
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 107
  []
 
-[103]
+[107]
 File: BIOL202_files/figure-latex/unnamed-chunk-42-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-42-1.pdf>
 
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 104 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+\TU/lmr/m/n/10 108 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
-[104]
+[108]
 File: BIOL202_files/figure-latex/mosaic_malaria1-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/mosaic_malaria1-1.pdf>
 
 
 
 Overfull \hbox (50.61453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 105
+\TU/lmr/m/sl/10 8.2.  VISUALIZING ASSOCIATION BETWEEN TWO CATEGORICAL VARIABLES \TU/lmr/m/n/10 109
  []
 
-[105]
-
-LaTeX Warning: Hyper reference `rmd_graphing' on page 106 undefined on input line 3498.
-
+[109]
 File: BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-43-1.pdf>
 File: ./more/mosaic_graph.png Graphic file (type bmp)
@@ -1792,68 +1685,20 @@ Overfull \hbox (1791.30101pt too wide) in paragraph at lines 3520--3520
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 106 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+\TU/lmr/m/n/10 110 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
  []
 
-[106]
-
-LaTeX Warning: Hyper reference `rmd_graphing' on page 107 undefined on input line 3537.
-
+[110]
 File: BIOL202_files/figure-latex/unnamed-chunk-45-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/unnamed-chunk-45-1.pdf>
 
 
 
 Overfull \hbox (24.29453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.3.  VISUALIZING ASSOCIATION BETWEEN TWO NUMERIC VARIABLES \TU/lmr/m/n/10 107
- []
-
-[107]
-
-
-Overfull \hbox (23.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 108 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
- []
-
-[108]
-
-
-Overfull \hbox (24.29453pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.3.  VISUALIZING ASSOCIATION BETWEEN TWO NUMERIC VARIABLES \TU/lmr/m/n/10 109
- []
-
-[109]
-
-LaTeX Warning: Hyper reference `vis_describe' on page 110 undefined on input line 3573.
-
-
-LaTeX Warning: Hyper reference `mean_sd' on page 110 undefined on input line 3575.
-
-
-
-
-Overfull \hbox (23.32562pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10 110 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
- []
-
-[110]
-
-LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 111 undefined on input line 3636.
-
-
-
-
-Overfull \hbox (113.52124pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 111
+\TU/lmr/m/sl/10 8.3.  VISUALIZING ASSOCIATION BETWEEN TWO NUMERIC VARIABLES \TU/lmr/m/n/10 111
  []
 
 [111]
-File: BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf>
-
-LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 112 undefined on input line 3685.
-
-
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
@@ -1863,17 +1708,11 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 [112]
 
 
-Overfull \hbox (113.52124pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 113
+Overfull \hbox (24.29453pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.3.  VISUALIZING ASSOCIATION BETWEEN TWO NUMERIC VARIABLES \TU/lmr/m/n/10 113
  []
 
 [113]
-
-LaTeX Warning: Hyper reference `desc_numeric_var_cat' on page 114 undefined on input line 3707.
-
-File: BIOL202_files/figure-latex/body_violin-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/body_violin-1.pdf>
-
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
@@ -1882,18 +1721,15 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
 
 [114]
 
-LaTeX Warning: Hyper reference `stripchart' on page 115 undefined on input line 3755.
-
-File: BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf>
-
-
 
 Overfull \hbox (113.52124pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 115
  []
 
 [115]
+File: BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-46-1.pdf>
+
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
@@ -1901,9 +1737,6 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
  []
 
 [116]
-File: BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf>
-
 
 
 Overfull \hbox (113.52124pt too wide) has occurred while \output is active
@@ -1911,6 +1744,9 @@ Overfull \hbox (113.52124pt too wide) has occurred while \output is active
  []
 
 [117]
+File: BIOL202_files/figure-latex/body_violin-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/body_violin-1.pdf>
+
 
 
 Overfull \hbox (23.32562pt too wide) has occurred while \output is active
@@ -1918,8 +1754,8 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
  []
 
 [118]
-File: BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf>
+File: BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-47-1.pdf>
 
 
 
@@ -1935,13 +1771,8 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
  []
 
 [120]
-File: BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf>
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 3912--3912
-[]  \TU/lmtt/m/n/10 geom_jitter(colour = "grey", size = 1, shape = 1, width = 0.15) +[] 
- []
-
+File: BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-48-1.pdf>
 
 
 
@@ -1957,19 +1788,55 @@ Overfull \hbox (23.32562pt too wide) has occurred while \output is active
  []
 
 [122]
+File: BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-49-1.pdf>
 
-[123
+
+
+Overfull \hbox (113.52124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 123
+ []
+
+[123]
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 124 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[124]
+File: BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-50-1.pdf>
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 3912--3912
+[]  \TU/lmtt/m/n/10 geom_jitter(colour = "grey", size = 1, shape = 1, width = 0.15) +[] 
+ []
+
+
+
+
+Overfull \hbox (113.52124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 8.4.  VISUALIZING ASSOCIATION BETWEEN A NUMERIC AND A CATEGORICAL VARIABLE \TU/lmr/m/n/10 125
+ []
+
+[125]
+
+
+Overfull \hbox (23.32562pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 126 \TU/lmr/m/sl/10 CHAPTER 8.  VISUALIZING ASSOCIATIONS BETWEEN TWO VARIABLES
+ []
+
+[126]
+
+[127
 
 ]
 
-[124]
+[128]
 Chapter 9.
 
-LaTeX Warning: Hyper reference `package_install' on page 125 undefined on input line 3963.
 
-
-
-[125
+[129
 
 ]
 Overfull \hbox (90.75pt too wide) in paragraph at lines 3994--3994
@@ -1988,23 +1855,11 @@ Overfull \hbox (96.0pt too wide) in paragraph at lines 3994--3994
 
 
 
-[126]
-
-[127]
-
-[128]
-
-[129]
-
 [130]
 
 [131]
 
 [132]
-
-LaTeX Warning: Hyper reference `sampling_error' on page 133 undefined on input line 4368.
-
-
 
 [133]
 
@@ -2013,37 +1868,2529 @@ LaTeX Warning: Hyper reference `sampling_error' on page 133 undefined on input l
 [135]
 
 [136]
-File: BIOL202_files/figure-latex/unnamed-chunk-53-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-53-1.pdf>
-
 
 [137]
-File: BIOL202_files/figure-latex/unnamed-chunk-55-1.pdf Graphic file (type pdf)
-<use BIOL202_files/figure-latex/unnamed-chunk-55-1.pdf>
-
 
 [138]
 
 [139]
+
+[140]
+File: BIOL202_files/figure-latex/unnamed-chunk-53-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-53-1.pdf>
+
+
+[141]
+File: BIOL202_files/figure-latex/unnamed-chunk-55-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-55-1.pdf>
+
+
+[142]
+
+[143]
 File: BIOL202_files/figure-latex/newsampfig-1.pdf Graphic file (type pdf)
 <use BIOL202_files/figure-latex/newsampfig-1.pdf>
-! Missing { inserted.
-<to be read again> 
-                   \Umathaccent 
-l.4690 \[SE_\bar
-                {Y} = \frac{s}{\sqrt{n}}\]
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
 
- 
+
+[144]
+
+[145]
+
+[146]
+
+[147]
+
+[148]
+
+[149]
+
+[150
+
+]
+Chapter 10.
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 4899--4899
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 4899--4899
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 4899--4899
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+[151]
+
+[152]
+Underfull \hbox (badness 10000) in paragraph at lines 5017--5019
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5019--5021
+
+ []
+
+
+
+[153]
+Underfull \hbox (badness 10000) in paragraph at lines 5028--5030
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5037--5039
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5039--5041
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5041--5043
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5043--5045
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5045--5047
+
+ []
+
+
+
+[154]
+
+[155]
+
+[156]
+
+[157]
+Underfull \hbox (badness 1389) in paragraph at lines 5191--5193
+[]\TU/lmr/m/n/10 The last argument to the \TU/lmtt/m/n/10 rep_slice_sample \TU/lmr/m/n/10 function is “reps =
+ []
+
+
+
+[158]
+File: BIOL202_files/figure-latex/unnamed-chunk-59-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-59-1.pdf>
+
+
+[159]
+
+[160]
+
+[161]
+
+[162]
+Chapter 11.
+
+
+[163
+
+]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 5414--5414
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5414--5414
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 5414--5414
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 5430--5430
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 5430--5430
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 5430--5430
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+[164]
+
+[165]
+
+[166]
+
+[167]
+Underfull \hbox (badness 2027) in paragraph at lines 5634--5636
+[]\TU/lmr/m/n/10 We first ensure the output will be put in a new object called
+ []
+
+
+
+[168]
+
+[169]
+
+[170]
+
+[171]
+
+[172]
+File: ./more/binomial_equation.png Graphic file (type bmp)
+<./more/binomial_equation.png>
+
+Overfull \hbox (558.375pt too wide) in paragraph at lines 5903--5904
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[173]
+
+[174]
+
+[175]
+File: BIOL202_files/figure-latex/unnamed-chunk-65-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-65-1.pdf>
+
+
+[176]
+
+[177]
+File: BIOL202_files/figure-latex/unnamed-chunk-66-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-66-1.pdf>
+
+
+[178]
+Underfull \hbox (badness 10000) in paragraph at lines 6115--6117
+
+ []
+
+
+
+[179]
+Overfull \hbox (22.5pt too wide) in paragraph at lines 6172--6172
+[]\TU/lmtt/m/n/10 ## number of successes = 17, number of trials = 20, p-value = 0.002577[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6172--6172
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true probability of success is not equal to 0.5[] 
+ []
+
+
+
+[180]
+
+[181]
+
+[182]
+Chapter 12.
+
+Underfull \hbox (badness 10000) in paragraph at lines 6269--6271
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6279--6281
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6285--6287
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6295--6297
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6301--6303
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6303--6305
+
+ []
+
+
+
+[183
+
+]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6367--6367
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6367--6367
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 6367--6367
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 184 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[184]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6383--6383
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6383--6383
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 6383--6383
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+[185]
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 186 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[186]
+
+[187]
+Underfull \hbox (badness 10000) in paragraph at lines 6583--6585
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6587--6589
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6599--6601
+
+ []
+
+
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 188 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[188]
+
+[189]
+File: BIOL202_files/figure-latex/unnamed-chunk-69-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-69-1.pdf>
+
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 190 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[190]
+
+[191]
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 192 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[192]
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6828--6828
+[]\TU/lmtt/m/n/10 ##  Cancer Total propCancer_aspirin propHealthy_aspirin oddsCancer_aspirin[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 6828--6828
+[]\TU/lmtt/m/n/10 ##    1438 19934         0.07213806           0.9278619         0.07774654[] 
+ []
+
+
+
+[193]
+Underfull \hbox (badness 3068) in paragraph at lines 6844--6846
+[]\TU/lmr/m/n/10 “propHealth_aspirin” is calculated simply as 1 minus prop-
+ []
+
+
+Overfull \hbox (79.01pt too wide) in paragraph at lines 6846--6847
+[]\TU/lmr/m/n/10 “oddsCancer_aspirin” is calculated last as “propCancer_aspirin/propHealthy_aspirin” 
+ []
+
+
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 194 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[194]
+
+[195]
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 196 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[196]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 6997.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 14.4013pt on input line 6997.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 14.39845pt on input line 6997.
+
+Underfull \hbox (badness 10000) in paragraph at lines 7017--7019
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7019--7021
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7021--7023
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7023--7025
+
+ []
+
+
+
+[197]
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 198 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[198]
+
+[199]
+File: BIOL202_files/figure-latex/unnamed-chunk-74-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-74-1.pdf>
+
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 200 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[200]
+Overfull \hbox (4.82999pt too wide) in paragraph at lines 7230--7231
+[]\TU/lmr/m/n/10 Don’t try getting an overview of the object using our usual \TU/lmtt/m/n/10 skim_without_charts
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 7243--7243
+[]\TU/lmtt/m/n/10 ## [1] "statistic" "parameter" "p.value"   "method"    "data.name" "observed"[] 
+ []
+
+
+
+[201]
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 202 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[202]
+
+[203]
+
+
+Overfull \hbox (99.92453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 204 \TU/lmr/m/sl/10 CHAPTER 12.  ANALYZING ASSOCIATIONS BETWEEN TWO CATEGORICAL VARIABLES
+ []
+
+[204
+
+]
+Chapter 13.
+
+
+[205]
+
+[206]
+Underfull \hbox (badness 10000) in paragraph at lines 7397--7399
+
+ []
+
+
+
+[207]
+File: BIOL202_files/figure-latex/unnamed-chunk-77-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-77-1.pdf>
+
+
+[208]
+
+[209]
+
+[210]
+
+[211]
+File: BIOL202_files/figure-latex/unnamed-chunk-79-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-79-1.pdf>
+
+
+[212]
+
+[213]
+File: ./more/confint_inline_code.png Graphic file (type bmp)
+<./more/confint_inline_code.png>
+
+Overfull \hbox (1664.82852pt too wide) in paragraph at lines 7734--7734
+[][] 
+ []
+
+
+
+[214]
+Underfull \hbox (badness 10000) in paragraph at lines 7784--7786
+
+ []
+
+
+
+[215]
+
+[216]
+Chapter 14.
+
+
+[217
+
+]
+Underfull \hbox (badness 1755) in paragraph at lines 7841--7842
+[]\TU/lmr/m/n/10 the “students” dataset, describing characteristics of students from
+ []
+
+
+
+[218]
+
+[219]
+
+[220]
+Underfull \hbox (badness 10000) in paragraph at lines 8009--8011
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8015--8017
+
+ []
+
+
+
+[221]
+File: BIOL202_files/figure-latex/unnamed-chunk-84-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-84-1.pdf>
+
+
+[222]
+File: BIOL202_files/figure-latex/unnamed-chunk-85-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-85-1.pdf>
+
+
+[223]
+File: BIOL202_files/figure-latex/unnamed-chunk-87-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-87-1.pdf>
+
+
+[224]
+
+[225]
+
+[226]
+
+[227]
+
+[228]
+
+[229]
+
+[230]
+Underfull \hbox (badness 10000) in paragraph at lines 8511--8513
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8519--8521
+
+ []
+
+
+
+[231]
+
+[232]
+
+[233]
+File: BIOL202_files/figure-latex/unnamed-chunk-91-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-91-1.pdf>
+
+
+[234]
+
+[235]
+File: BIOL202_files/figure-latex/unnamed-chunk-92-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-92-1.pdf>
+
+
+[236]
+Overfull \hbox (201.0pt too wide) in paragraph at lines 8780--8780
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true difference in means between group Right and group Left is not equal to 0[] 
+ []
+
+
+
+[237]
+Overfull \hbox (201.0pt too wide) in paragraph at lines 8825--8825
+[]\TU/lmtt/m/n/10 ## alternative hypothesis: true difference in means between group Right and group Left is not equal to 0[] 
+ []
+
+
+
+[238]
+
+[239]
+
+[240
+
+]
+Chapter 15.
+
+Underfull \hbox (badness 10000) in paragraph at lines 8859--8861
+
+ []
+
+
+
+[241]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 8916--8916
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 8916--8916
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 8916--8916
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 8932--8932
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 8932--8932
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 8932--8932
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 242 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[242]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 8949--8949
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 8949--8949
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 8949--8949
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+[243]
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 244 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[244]
+
+[245]
+File: BIOL202_files/figure-latex/unnamed-chunk-99-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-99-1.pdf>
+File: BIOL202_files/figure-latex/unnamed-chunk-100-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-100-1.pdf>
+
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 246 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[246]
+
+[247]
+File: BIOL202_files/figure-latex/unnamed-chunk-101-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-101-1.pdf>
+
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 248 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[248]
+
+[249]
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 250 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[250]
+
+[251]
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 252 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[252]
+File: BIOL202_files/figure-latex/unnamed-chunk-102-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-102-1.pdf>
+
+
+[253]
+File: BIOL202_files/figure-latex/unnamed-chunk-103-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-103-1.pdf>
+File: BIOL202_files/figure-latex/unnamed-chunk-104-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-104-1.pdf>
+
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 254 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[254]
+
+[255]
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 256 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[256]
+
+[257]
+File: BIOL202_files/figure-latex/unnamed-chunk-106-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-106-1.pdf>
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9581--9581
+[]\TU/lmtt/m/n/10 ##  [1] 0.45056428 0.80433995 0.88697947       -Inf 0.95272789 0.55653572[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 9581--9581
+[]\TU/lmtt/m/n/10 ##  [7] 0.35059322 2.19753971 2.15833805 2.26733776 2.30674058 0.02011719[] 
+ []
+
+
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 258 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[258]
+File: BIOL202_files/figure-latex/unnamed-chunk-111-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-111-1.pdf>
+
+
+[259]
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 260 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[260]
+
+[261]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 9759--9759
+[]\TU/lmtt/m/n/10 ##  [1] 1.34 1.96 2.49 1.27 1.19 1.15 1.29 1.05 1.10 1.21 1.31 1.26 1.38 1.49 1.84[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 9759--9759
+[]\TU/lmtt/m/n/10 ## [16] 1.84 3.06 2.65 4.25 3.35 2.55 1.72 1.52 1.49 1.67 1.78 1.71 1.88 0.83 1.16[] 
+ []
+
+
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 262 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[262]
+File: BIOL202_files/figure-latex/unnamed-chunk-112-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-112-1.pdf>
+
+
+[263]
+File: BIOL202_files/figure-latex/unnamed-chunk-113-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-113-1.pdf>
+
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 264 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[264]
+
+[265]
+Overfull \hbox (27.75pt too wide) in paragraph at lines 9863--9863
+[]\TU/lmtt/m/n/10 flowers$flower_backtransformed <- boot::inv.logit(flowers$logitfertile)[] 
+ []
+
+
+Overfull \hbox (36.16002pt too wide) in paragraph at lines 9865--9866
+[]\TU/lmr/m/n/10 Let’s have a look at the original “propFertile” variable and the “flower_backtransformed”
+ []
+
+
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 266 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[266]
+
+[267]
+
+
+Overfull \hbox (34.44563pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 268 \TU/lmr/m/sl/10 CHAPTER 15.  CHECKING ASSUMPTIONS AND DATA TRANSFORMATIONS
+ []
+
+[268
+
+]
+Chapter 16.
+
+Underfull \hbox (badness 10000) in paragraph at lines 9925--9927
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9935--9937
+
+ []
+
+
+
+[269]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 9982--9982
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 9982--9982
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 9982--9982
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 270 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[270]
+
+[271]
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 272 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[272]
+
+[273]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 10188--10188
+[]\TU/lmtt/m/n/10 ##  [1] Control Control Control Control Control Control Control Control Knee[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 10188--10188
+[]\TU/lmtt/m/n/10 ## [10] Knee    Knee    Knee    Knee    Knee    Knee    Eyes    Eyes    Eyes[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10201--10203
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10207--10209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10216--10218
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10225--10227
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10227--10229
+
+ []
+
+
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 274 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[274]
+Underfull \hbox (badness 10000) in paragraph at lines 10231--10233
+
+ []
+
+
+
+[275]
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 276 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[276]
+
+[277]
+File: BIOL202_files/figure-latex/stripanova-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/stripanova-1.pdf>
+
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 278 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[278]
+Underfull \hbox (badness 10000) in paragraph at lines 10423--10425
+
+ []
+
+
+
+[279]
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 280 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[280]
+
+[281]
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 282 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[282]
+
+[283]
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 284 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[284]
+Overfull \hbox (64.5pt too wide) in paragraph at lines 10755--10755
+[]\TU/lmtt/m/n/10 ##   term      contrast     null.value estimate conf.low conf.high adj.p.value[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 10755--10755
+[]\TU/lmtt/m/n/10 ##   <chr>     <chr>             <dbl>    <dbl>    <dbl>     <dbl>       <dbl>[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 10755--10755
+[]\TU/lmtt/m/n/10 ## 1 treatment Knee-Control          0 -0.02696  -0.9525    0.8986    0.9970[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 10755--10755
+[]\TU/lmtt/m/n/10 ## 2 treatment Eyes-Control          0 -1.243    -2.168    -0.3171    0.007866[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 10755--10755
+[]\TU/lmtt/m/n/10 ## 3 treatment Eyes-Knee             0 -1.216    -2.172    -0.2598    0.01168[] 
+ []
+
+
+
+[285]
+File: BIOL202_files/figure-latex/stripanova2-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/stripanova2-1.pdf>
+
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 286 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[286]
+
+[287]
+File: BIOL202_files/figure-latex/stripanovatukey-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/stripanovatukey-1.pdf>
+
+Overfull \hbox (1812.75pt too wide) in paragraph at lines 10856--10856
+[]\TU/lmtt/m/n/10 {r fig.cap = "Stripchart showing the phase shift in the circadian rhythm of melatonin production in 22 experimental participants given alternative light treatments. Solid circles represent group means, and bars represent +/- one SE. Group means sharing the same letter are not significantly different according to the Tukey-Kramer post-hoc test (family-wise $\\alpha$ = 0.05).", fig.width = 4, fig.height = 4.5}[] 
+ []
+
+
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 288 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[288]
+
+[289]
+
+
+Overfull \hbox (23.75343pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 290 \TU/lmr/m/sl/10 CHAPTER 16.  COMPARING MEANS AMONG MORE THAN TWO GROUPS
+ []
+
+[290]
+Chapter 17.
+
+Underfull \hbox (badness 10000) in paragraph at lines 10903--10905
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 10907--10909
+
+ []
+
+
+
+[291
+
+]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 10942--10942
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 10942--10942
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 10942--10942
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+Overfull \hbox (90.75pt too wide) in paragraph at lines 10958--10958
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 10958--10958
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 10958--10958
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+
+
+Overfull \hbox (87.35452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 292 \TU/lmr/m/sl/10 CHAPTER 17.  ANALYZING ASSOCIATIONS BETWEEN TWO NUMERICAL VARIABLES
+ []
+
+[292]
+
+[293]
+
+
+Overfull \hbox (87.35452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 294 \TU/lmr/m/sl/10 CHAPTER 17.  ANALYZING ASSOCIATIONS BETWEEN TWO NUMERICAL VARIABLES
+ []
+
+[294]
+
+[295]
+
+
+Overfull \hbox (87.35452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 296 \TU/lmr/m/sl/10 CHAPTER 17.  ANALYZING ASSOCIATIONS BETWEEN TWO NUMERICAL VARIABLES
+ []
+
+[296]
+File: BIOL202_files/figure-latex/unnamed-chunk-119-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/unnamed-chunk-119-1.pdf>
+
+
+[297]
+File: BIOL202_files/figure-latex/pupscatter-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/pupscatter-1.pdf>
+
+
+
+Overfull \hbox (87.35452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 298 \TU/lmr/m/sl/10 CHAPTER 17.  ANALYZING ASSOCIATIONS BETWEEN TWO NUMERICAL VARIABLES
+ []
+
+[298]
+Underfull \hbox (badness 10000) in paragraph at lines 11250--11252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11257--11259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11259--11261
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11276--11278
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11278--11280
+
+ []
+
+
+
+[299]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 11357--11357
+[]\TU/lmtt/m/n/10 ##   estimate statistic  p.value parameter conf.low conf.high method    alternative[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 11357--11357
+[]\TU/lmtt/m/n/10 ##      <dbl>     <dbl>    <dbl>     <int>    <dbl>     <dbl> <chr>     <chr>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11357--11357
+[]\TU/lmtt/m/n/10 ## 1  -0.6077    -3.589 0.001633        22  -0.8120   -0.2707 Pearson'~ two.sided[] 
+ []
+
+
+
+
+Overfull \hbox (87.35452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 300 \TU/lmr/m/sl/10 CHAPTER 17.  ANALYZING ASSOCIATIONS BETWEEN TWO NUMERICAL VARIABLES
+ []
+
+[300]
+File: BIOL202_files/figure-latex/pupscatter2-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/pupscatter2-1.pdf>
+
+
+[301]
+
+
+Overfull \hbox (87.35452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 302 \TU/lmr/m/sl/10 CHAPTER 17.  ANALYZING ASSOCIATIONS BETWEEN TWO NUMERICAL VARIABLES
+ []
+
+[302]
+
+[303]
+File: BIOL202_files/figure-latex/trickplot-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/trickplot-1.pdf>
+
+
+
+Overfull \hbox (87.35452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 304 \TU/lmr/m/sl/10 CHAPTER 17.  ANALYZING ASSOCIATIONS BETWEEN TWO NUMERICAL VARIABLES
+ []
+
+[304]
+Underfull \hbox (badness 10000) in paragraph at lines 11473--11475
+
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 11513--11513
+[]\TU/lmtt/m/n/10 ##   estimate statistic    p.value method                          alternative[] 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 11513--11513
+[]\TU/lmtt/m/n/10 ##      <dbl>     <dbl>      <dbl> <chr>                           <chr>[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 11513--11513
+[]\TU/lmtt/m/n/10 ## 1   0.7843     332.1 0.00002571 Spearman's rank correlation rho two.sided[] 
+ []
+
+
+
+[305]
+File: BIOL202_files/figure-latex/trickplot2-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/trickplot2-1.pdf>
+
+
+
+Overfull \hbox (87.35452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 306 \TU/lmr/m/sl/10 CHAPTER 17.  ANALYZING ASSOCIATIONS BETWEEN TWO NUMERICAL VARIABLES
+ []
+
+[306]
+
+[307]
+
+
+Overfull \hbox (87.35452pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 308 \TU/lmr/m/sl/10 CHAPTER 17.  ANALYZING ASSOCIATIONS BETWEEN TWO NUMERICAL VARIABLES
+ []
+
+[308
+
+]
+Chapter 18.
+
+Underfull \hbox (badness 10000) in paragraph at lines 11567--11569
+
+ []
+
+
+
+[309]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 11611--11611
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 11611--11611
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 11611--11611
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+File: BIOL202_files/figure-latex/lsrfigzero-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/lsrfigzero-1.pdf>
+
+
+[310]
+
+[311]
+
+[312]
+
+[313]
+
+[314]
+Underfull \hbox (badness 10000) in paragraph at lines 11802--11804
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11806--11808
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11808--11810
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11815--11817
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11823--11824
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11826--11828
+
+ []
+
+
+
+[315]
+Underfull \hbox (badness 10000) in paragraph at lines 11828--11830
+
+ []
+
+File: BIOL202_files/figure-latex/lsrfigone-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/lsrfigone-1.pdf>
+
+
+[316]
+
+[317]
+Underfull \hbox (badness 10000) in paragraph at lines 11889--11891
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11891--11893
+
+ []
+
+
+
+[318]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##    biomassStability nSpecies .fitted .resid    .hat .sigma   .cooksd .std.resid[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##               <dbl>    <dbl>   <dbl>  <dbl>   <dbl>  <dbl>     <dbl>      <dbl>[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##  1             7.47        1   3.569 3.901  0.01177  1.707 0.03063       2.268[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##  2             6.74        1   3.569 3.171  0.01177  1.717 0.02024       1.844[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##  3             6.61        1   3.569 3.041  0.01177  1.718 0.01862       1.768[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##  4             6.4         1   3.569 2.831  0.01177  1.721 0.01613       1.646[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##  5             5.67        1   3.569 2.101  0.01177  1.727 0.008887      1.222[] 
+ []
+
+
+
+[319]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##  6             5.26        1   3.569 1.691  0.01177  1.730 0.005758      0.9835[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##  7             4.8         1   3.569 1.231  0.01177  1.733 0.003052      0.7160[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##  8             4.4         1   3.569 0.8314 0.01177  1.734 0.001391      0.4834[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ##  9             4.4         1   3.569 0.8314 0.01177  1.734 0.001391      0.4834[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 11968--11968
+[]\TU/lmtt/m/n/10 ## 10             4.26        1   3.569 0.6914 0.01177  1.735 0.0009622     0.4020[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11979--11981
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11981--11983
+
+ []
+
+File: BIOL202_files/figure-latex/lsrfigtwo-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/lsrfigtwo-1.pdf>
+
+
+[320]
+
+[321]
+File: BIOL202_files/figure-latex/lsrfigthree-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/lsrfigthree-1.pdf>
+
+
+[322]
+
+[323]
+File: BIOL202_files/figure-latex/lsrfigfour-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/lsrfigfour-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 12077--12079
+
+ []
+
+
+
+[324]
+
+[325]
+File: BIOL202_files/figure-latex/lsrfigfive-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/lsrfigfive-1.pdf>
+
+
+[326]
+File: BIOL202_files/figure-latex/lsrfigsix-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/lsrfigsix-1.pdf>
+
+
+[327]
+
+[328]
+Underfull \hbox (badness 10000) in paragraph at lines 12259--12261
+
+ []
+
+
+
+[329]
+Overfull \hbox (1188.0pt too wide) in paragraph at lines 12276--12276
+[]\TU/lmtt/m/n/10 fig.cap = "Stability of biomass production (log transformed) over 10 years in 161 plots and the initial number of plant species assigned to plots. Also shown is the significant least-square regression line (black solid line; see text for details) and the 95% confidence bands (grey shading)."[] 
+ []
+
+File: BIOL202_files/figure-latex/lsrfigseven-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/lsrfigseven-1.pdf>
+
+
+[330]
+
+[331]
+
+[332]
+File: BIOL202_files/figure-latex/lsrfigeight-1.pdf Graphic file (type pdf)
+<use BIOL202_files/figure-latex/lsrfigeight-1.pdf>
+
+
+[333]
+
+[334]
+
+[335]
+
+[336
+
+]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [1] "boot"           "broom"          "car"            "carData"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "epitools"       "binom"          "infer"          "ggExtra"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggmosaic"       "naniar"         "janitor"        "knitr"[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "palmerpenguins" "here"           "skimr"          "lubridate"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "forcats"        "stringr"        "dplyr"          "purrr"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "readr"          "tidyr"          "tibble"         "ggplot2"[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "tidyverse"      "stats"          "graphics"       "grDevices"[] 
+ []
+
+
+
+[337]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [1] "boot"           "broom"          "car"            "carData"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "epitools"       "binom"          "infer"          "ggExtra"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggmosaic"       "naniar"         "janitor"        "knitr"[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "palmerpenguins" "here"           "skimr"          "lubridate"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "forcats"        "stringr"        "dplyr"          "purrr"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "readr"          "tidyr"          "tibble"         "ggplot2"[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "tidyverse"      "stats"          "graphics"       "grDevices"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [1] "boot"           "broom"          "car"            "carData"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "epitools"       "binom"          "infer"          "ggExtra"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggmosaic"       "naniar"         "janitor"        "knitr"[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "palmerpenguins" "here"           "skimr"          "lubridate"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "forcats"        "stringr"        "dplyr"          "purrr"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "readr"          "tidyr"          "tibble"         "ggplot2"[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "tidyverse"      "stats"          "graphics"       "grDevices"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+
+[338]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+
+[339]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+
+[340]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "carData"        "epitools"       "binom"          "infer"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "ggExtra"        "ggmosaic"       "naniar"         "janitor"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "knitr"          "palmerpenguins" "here"           "skimr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "lubridate"      "forcats"        "stringr"        "dplyr"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "purrr"          "readr"          "tidyr"          "tibble"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "ggplot2"        "tidyverse"      "stats"          "graphics"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "grDevices"      "utils"          "datasets"       "methods"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [1] "kableExtra"     "tinytex"        "boot"           "broom"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "car"            "carData"        "epitools"       "binom"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "infer"          "ggExtra"        "ggmosaic"       "naniar"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "skimr"          "lubridate"      "forcats"        "stringr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "dplyr"          "purrr"          "readr"          "tidyr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "tibble"         "ggplot2"        "tidyverse"      "stats"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "graphics"       "grDevices"      "utils"          "datasets"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [1] "kableExtra"     "tinytex"        "boot"           "broom"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "car"            "carData"        "epitools"       "binom"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "infer"          "ggExtra"        "ggmosaic"       "naniar"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "skimr"          "lubridate"      "forcats"        "stringr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "dplyr"          "purrr"          "readr"          "tidyr"[] 
+ []
+
+
+
+[341]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "tibble"         "ggplot2"        "tidyverse"      "stats"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "graphics"       "grDevices"      "utils"          "datasets"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [1] "kableExtra"     "tinytex"        "boot"           "broom"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "car"            "carData"        "epitools"       "binom"[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "infer"          "ggExtra"        "ggmosaic"       "naniar"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "skimr"          "lubridate"      "forcats"        "stringr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "dplyr"          "purrr"          "readr"          "tidyr"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "tibble"         "ggplot2"        "tidyverse"      "stats"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "graphics"       "grDevices"      "utils"          "datasets"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [5] "broom"          "car"            "carData"        "epitools"[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ##  [9] "binom"          "infer"          "ggExtra"        "ggmosaic"[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [13] "naniar"         "janitor"        "knitr"          "palmerpenguins"[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [17] "here"           "skimr"          "lubridate"      "forcats"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [21] "stringr"        "dplyr"          "purrr"          "readr"[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [25] "tidyr"          "tibble"         "ggplot2"        "tidyverse"[] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 12682--12682
+[]\TU/lmtt/m/n/10 ## [29] "stats"          "graphics"       "grDevices"      "utils"[] 
+ []
+
+
+
+[342]
+
+[343
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 12762--12763
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12789--12790
+
+ []
+
+
+
+[344]
+
+[345]
+
+[346
+
+]
+
+[347]
+Overfull \hbox (90.75pt too wide) in paragraph at lines 12845--12845
+[]\TU/lmtt/m/n/10 ## -- Column specification --------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 12845--12845
+[]\TU/lmtt/m/n/10 ## i Use `spec()` to retrieve the full column specification for this data.[] 
+ []
+
+
+Overfull \hbox (96.0pt too wide) in paragraph at lines 12845--12845
+[]\TU/lmtt/m/n/10 ## i Specify the column types or set `show_col_types = FALSE` to quiet this message.[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 12884--12884
+[]\TU/lmtt/m/n/10 kbl(skim.out.transposed, caption = "Overview of the 'circadian' dataset",[] 
+ []
+
+
+
+[348]
+
+[349]
+Overfull \hbox (508.44005pt too wide) in paragraph at lines 12990--13012
+ [][] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 13022--13022
+[]\TU/lmtt/m/n/10 kbl(skim.penguins.transposed, caption = "Overview of the 'penguins' dataset",[] 
+ []
+
+
+Overfull \hbox (511.64pt too wide) in paragraph at lines 13028--13061
+ [][] 
+ []
+
+
+
+[350]
+File: ./more/second_kable.png Graphic file (type bmp)
+<./more/second_kable.png>
+
+Overfull \hbox (1538.35602pt too wide) in paragraph at lines 13068--13069
+[][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[351]
+Overfull \vbox (58.41362pt too high) has occurred while \output is active []
+
+
+
+[352]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 13110--13110
+[]\TU/lmtt/m/n/10 ##   species   Count Count_NA  Mean    SD    SEM Low_95_CL Up_95_CL[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 13110--13110
+[]\TU/lmtt/m/n/10 ##   <fct>     <int>    <int> <dbl> <dbl>  <dbl>     <dbl>    <dbl>[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 13110--13110
+[]\TU/lmtt/m/n/10 ## 1 Adelie       73        0 40.39 2.277 0.2665     39.86    40.92[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 13110--13110
+[]\TU/lmtt/m/n/10 ## 2 Chinstrap    34        0 51.09 1.565 0.2683     50.55    51.64[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 13110--13110
+[]\TU/lmtt/m/n/10 ## 3 Gentoo       61        0 49.47 2.721 0.3483     48.78    50.17[] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (20.34334pt too wide) in paragraph at lines 13138--13139
+[]\TU/lmr/m/n/10 The \TU/lmr/bx/n/10 key difference \TU/lmr/m/n/10 from the previous example done with the \TU/lmtt/m/n/10 skim_without_charts
+ []
+
+
+
+[353]
+
+[354]
+File: ./more/toolbar.png Graphic file (type bmp)
+<./more/toolbar.png>
+
+Overfull \hbox (400.10352pt too wide) in paragraph at lines 13165--13166
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13181--13183
+
+ []
+
+Missing character: There is no ⌘ (U+2318) in font [lmroman10-regular]:mapping=tex-text;!
+
+Underfull \hbox (badness 10000) in paragraph at lines 13183--13185
+
+ []
+
+
+
+[355
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 13185--13187
+
+ []
+
+
+
+[356]
+
+[357
+
+]
+Overfull \hbox (101.25pt too wide) in paragraph at lines 13262--13262
+[]\TU/lmtt/m/n/10 install_version("ggplot2", version = "3.5.2", repos = "http://cran.us.r-project.org")[] 
+ []
+
+
+Overfull \hbox (206.25pt too wide) in paragraph at lines 13262--13262
+[]\TU/lmtt/m/n/10 # if, in response, it asks to install newer versions of other packages, select "None" (probably option 3)[] 
+ []
+
+File: ./more/rosetta_error.png Graphic file (type bmp)
+<./more/rosetta_error.png>
+
+
+[358]
+Overfull \hbox (153.75pt too wide) in paragraph at lines 13291--13291
+[]\TU/lmtt/m/n/10 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"[] 
+ []
+
+File: ./more/rtools.png Graphic file (type bmp)
+<./more/rtools.png>
+File: ./more/no-function1.png Graphic file (type bmp)
+<./more/no-function1.png>
+
+
+[359]
+File: ./more/no-function2.png Graphic file (type bmp)
+<./more/no-function2.png>
+File: ./more/no-pckg.png Graphic file (type bmp)
+<./more/no-pckg.png>
+File: ./more/CRAN-without-mirror1.png Graphic file (type bmp)
+<./more/CRAN-without-mirror1.png>
+
+
+[360]
+File: ./more/CRAN-without-mirror2.png Graphic file (type bmp)
+<./more/CRAN-without-mirror2.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 13365--13370
+\TU/lmtt/m/n/10 Error: LaTeX failed to compile Practice_assignment.tex. See
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13365--13370
+\TU/lmtt/m/n/10 https://yihui.org/tinytex/r/#debugging for debugging tips. In
+ []
+
+
+Overfull \hbox (42.13501pt too wide) in paragraph at lines 13365--13370
+\TU/lmtt/m/n/10 addition: Warning message: In system2(..., stdout = if (use_file_stdout())
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13365--13370
+\TU/lmtt/m/n/10 f1 else FALSE, stderr = f2) : []"pdflatex"[] not found Execution
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13371--13372
+[]\TU/lmtt/m/n/10 No LaTeX installation detected (LaTeX is required to create
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13371--13372
+\TU/lmtt/m/n/10 PDF output). You should install a LaTeX distribution for your
+ []
+
+
+
+[361]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 13373--13374
+[]\TU/lmtt/m/n/10 If you are not sure, you may install TinyTeX in R: tinytex::install_tinytex() 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13377--13379
+[]\TU/lmtt/m/n/10 MacTeX on macOS - https://tug.org/mactex/ (NOTE: Download with
+ []
+
+File: ./more/parse.png Graphic file (type bmp)
+<./more/parse.png>
+File: ./more/no-file1.png Graphic file (type bmp)
+<./more/no-file1.png>
+
+
+[362]
+File: ./more/messy-output1.png Graphic file (type bmp)
+<./more/messy-output1.png>
+File: ./more/messy-output2.png Graphic file (type bmp)
+<./more/messy-output2.png>
+File: ./more/unused-arg1.png Graphic file (type bmp)
+<./more/unused-arg1.png>
+
+
+[363]
+File: ./more/unused-arg2.png Graphic file (type bmp)
+<./more/unused-arg2.png>
+File: ./more/object-error1.png Graphic file (type bmp)
+<./more/object-error1.png>
+File: ./more/object-error2.png Graphic file (type bmp)
+<./more/object-error2.png>
+File: ./more/fig-cap-error1.png Graphic file (type bmp)
+<./more/fig-cap-error1.png>
+
+
+[364]
+File: ./more/space_after_chunk.png Graphic file (type bmp)
+<./more/space_after_chunk.png>
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 13473--13473
+[]\TU/lmtt/m/n/10 There is a binary version available but the source version is later:[] 
+ []
+
+
+Overfull \hbox (117.0pt too wide) in paragraph at lines 13473--13473
+[]\TU/lmtt/m/n/10 Do you want to install from sources the package which needs compilation? (Yes/no/cancel)[] 
+ []
+
+File: ./more/unicode_error.png Graphic file (type bmp)
+<./more/unicode_error.png>
+
+
+[365]
+No file BIOL202.bbl.
+
+
+[366] (./BIOL202.aux)
+ ***********
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-09-02>
+ ***********
+ ) 
 Here is how much of TeX's memory you used:
- 20778 strings out of 470454
- 385743 string characters out of 5490166
- 922194 words of memory out of 5000000
- 48780 multiletter control sequences out of 15000+600000
- 633414 words of font info for 98 fonts, out of 8000000 for 9000
+ 21786 strings out of 470454
+ 417768 string characters out of 5490166
+ 959333 words of memory out of 5000000
+ 49704 multiletter control sequences out of 15000+600000
+ 634439 words of font info for 112 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,10n,114p,1035b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
-Output written on BIOL202.pdf (139 pages).
+ 90i,13n,114p,1035b,561s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on BIOL202.pdf (366 pages).

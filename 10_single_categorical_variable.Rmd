@@ -90,7 +90,7 @@ Here we'll learn how to calculate these measures of uncertainty for a **proporti
 
 Here's the equation for the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-error">standard error</a> for the proportion: 
 
-$$SE_\hat{p} = \sqrt\frac{\hat{p}(1-\hat{p})}{n}$$
+$$SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$$
 
 Let's use the "birds" dataset to demonstrate the calculation.
 
@@ -170,7 +170,7 @@ pred.phat <- birds %>%
 
 That demonstrates the power of the pipe approach!
 
-OK, now we're ready to calculate $SE_\hat{p} = \sqrt\frac{\hat{p}(1-\hat{p})}{n}$
+OK, now we're ready to calculate $SE_{\hat{p}} = \sqrt\frac{\hat{p}(1-\hat{p})}{n}$
 
 Here's how we do this using basic R syntax, recalling that our "n" (`r birds.sampsize` birds total) is stored in the object "birds.sampsize".
 
@@ -198,7 +198,7 @@ $\pm$
 
 The `$\pm$` is the syntax for a plus-minus symbol.  More symbols can be found at this [website](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html). 
 
-And so you insert that text in between your estimate $\hat{p}$ and the $SE_\hat{p}$, as such: `r round(pred.phat, 2)` $\pm$ `r round(SE_phat, 3)`. 
+And so you insert that text in between your estimate $\hat{p}$ and the $SE_{\hat{p}}$, as such: `r round(pred.phat, 2)` $\pm$ `r round(SE_phat, 3)`. 
 
 ### Confidence interval for a proportion {#confint_prop}
 

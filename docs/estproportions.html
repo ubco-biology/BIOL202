@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-11-18" />
+<meta name="date" content="2025-11-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -589,7 +589,7 @@ Songbird
 <div id="sterr_prop" class="section level3 hasAnchor" number="11.2.1">
 <h3><span class="header-section-number">11.2.1</span> Standard error for a proportion<a href="estproportions.html#sterr_prop" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Here’s the equation for the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-error">standard error</a> for the proportion:</p>
-<p><span class="math display">\[SE_\hat{p} = \sqrt\frac{\hat{p}(1-\hat{p})}{n}\]</span></p>
+<p><span class="math display">\[SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\]</span></p>
 <p>Let’s use the “birds” dataset to demonstrate the calculation.</p>
 <p>Let’s re-create the table again:</p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="estproportions.html#cb183-1" tabindex="-1"></a>bird.freq.table <span class="ot">&lt;-</span> birds <span class="sc">%&gt;%</span></span>
@@ -701,7 +701,7 @@ Songbird
 <span id="cb191-4"><a href="estproportions.html#cb191-4" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">&quot;Predatory&quot;</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb191-5"><a href="estproportions.html#cb191-5" tabindex="-1"></a>  <span class="fu">select</span>(p_hat)</span></code></pre></div>
 <p>That demonstrates the power of the pipe approach!</p>
-<p>OK, now we’re ready to calculate <span class="math inline">\(SE_\hat{p} = \sqrt\frac{\hat{p}(1-\hat{p})}{n}\)</span></p>
+<p>OK, now we’re ready to calculate <span class="math inline">\(SE_{\hat{p}} = \sqrt\frac{\hat{p}(1-\hat{p})}{n}\)</span></p>
 <p>Here’s how we do this using basic R syntax, recalling that our “n” (86 birds total) is stored in the object “birds.sampsize”.</p>
 <p>We’ll store the value in a new object called “SE_phat”:</p>
 <div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="estproportions.html#cb192-1" tabindex="-1"></a>SE_phat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(pred.phat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> pred.phat) <span class="sc">/</span> birds.sampsize)</span></code></pre></div>
@@ -714,7 +714,7 @@ Songbird
 <p>Here’s what you type in the regular text area of your markdown document (not in a code chunk).</p>
 <pre><code>$\pm$</code></pre>
 <p>The <code>$\pm$</code> is the syntax for a plus-minus symbol. More symbols can be found at this <a href="https://rpruim.github.io/s341/S19/from-class/MathinRmd.html">website</a>.</p>
-<p>And so you insert that text in between your estimate <span class="math inline">\(\hat{p}\)</span> and the <span class="math inline">\(SE_\hat{p}\)</span>, as such: 0.34 <span class="math inline">\(\pm\)</span> 0.051.</p>
+<p>And so you insert that text in between your estimate <span class="math inline">\(\hat{p}\)</span> and the <span class="math inline">\(SE_{\hat{p}}\)</span>, as such: 0.34 <span class="math inline">\(\pm\)</span> 0.051.</p>
 </div>
 <div id="confint_prop" class="section level3 hasAnchor" number="11.2.2">
 <h3><span class="header-section-number">11.2.2</span> Confidence interval for a proportion<a href="estproportions.html#confint_prop" class="anchor-section" aria-label="Anchor link to header"></a></h3>

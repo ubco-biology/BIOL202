@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-11-18" />
+<meta name="date" content="2025-11-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -767,7 +767,7 @@ Sample_mean
 <li>The frequency distribution unimodal, but is right (positively) skewed; it has a handful of sample means that are very large</li>
 </ul>
 <p>The latter characteristic reflects the fact that the population of genes includes more than 100 genes that are extremely large. When we take a random sample of 20 genes, it is possible that - just by chance - our sample could include one or more of the extremely large genes in the population, and this would of course inflate the magnitude of our mean gene length in the sample.</p>
-<p>Let’s repeat this sampling exersize using a larger sample size, say 50.</p>
+<p>Let’s repeat this sampling exercize using a larger sample size, say 50.</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="sampdistmean.html#cb139-1" tabindex="-1"></a>gene.means.n50 <span class="ot">&lt;-</span> genelengths <span class="sc">%&gt;%</span></span>
 <span id="cb139-2"><a href="sampdistmean.html#cb139-2" tabindex="-1"></a>  <span class="fu">rep_slice_sample</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">reps =</span> <span class="dv">10000</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb139-3"><a href="sampdistmean.html#cb139-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>

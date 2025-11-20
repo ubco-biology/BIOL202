@@ -23,7 +23,7 @@
 <meta name="author" content="Jason Pither" />
 
 
-<meta name="date" content="2025-11-18" />
+<meta name="date" content="2025-11-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -527,10 +527,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>A straightforward way to calculate the confidence interval for the mean of a numeric variable is using the <code>t.test</code> function. For an example, see this <a href="onesamp_t_test.html#onesamp_test">tutorial section</a>.</p>
 </div>
 <p>The formula for a 95% confidence interval for <span class="math inline">\(\mu\)</span> is:</p>
-<p><span class="math display">\[\bar{Y} - t_{0.05(2),df}SE_{\bar{Y}} &lt; \mu &lt;  \bar{Y} + t_{0.05(2),df}SE_{\bar{Y}}\]</span></p>
+<p><span class="math display">\[{\bar{Y}} - t_{0.05(2),df}SE_{\bar{Y}} &lt; \mu &lt;  {\bar{Y}} + t_{0.05(2),df}SE_{\bar{Y}}\]</span></p>
 <p>The <span class="math inline">\(t_{0.05(2),df}\)</span> represents the critical value of <em>t</em> for a two-tailed test with <span class="math inline">\(\alpha = 0.05\)</span>, and <em>degrees of freedom</em> (df), which is calculated from our sample size as <span class="math inline">\(df = n - 1\)</span>.</p>
 <p><span class="math inline">\(SE_{\bar{Y}}\)</span> is the familiar <a href="sem_page.html#sem_page">standard error of the mean</a>, calculated as:</p>
-<p><span class="math display">\[SE_\bar{Y} = \frac{s}{\sqrt{n}}\]</span></p>
+<p><span class="math display">\[SE_{\bar{Y}} = \frac{s}{\sqrt{n}}\]</span></p>
 <p>The lower 95 confidence limit is the value to the left of the <span class="math inline">\(\mu\)</span> in the equation above, and the upper 95% confidence limit is the value to the right of of the <span class="math inline">\(\mu\)</span> in the equation.</p>
 <p>So now we need to figure out the critical value <span class="math inline">\(t_{0.05(2),df}\)</span>.</p>
 <p>For the body temperature example, we have <span class="math inline">\(n = 25\)</span> and thus <span class="math inline">\(df = 25-1 = 24\)</span>.</p>

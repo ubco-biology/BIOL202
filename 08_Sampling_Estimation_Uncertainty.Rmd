@@ -325,7 +325,7 @@ Now, let's interpret the histogram:
 
 The latter characteristic reflects the fact that the population of genes includes more than 100 genes that are extremely large. When we take a random sample of 20 genes, it is possible that - just by chance - our sample could include one or more of the extremely large genes in the population, and this would of course inflate the magnitude of our mean gene length in the sample. 
 
-Let's repeat this sampling exersize using a larger sample size, say 50.
+Let's repeat this sampling exercize using a larger sample size, say 50.
 
 ```{r sample_means_50}
 gene.means.n50 <- genelengths %>%
@@ -395,7 +395,7 @@ With larger sample sizes, we'll get more precise estimates of the true populatio
 
 This is the formula for calculating the <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#Standard-error">__standard error__</a> __of the mean__ when the population parameter <sigma> is unknown (which is usually the case):
 
-$$SE_\bar{Y} = \frac{s}{\sqrt{n}}$$
+$$SE_{\bar{Y}} = \frac{s}{\sqrt{n}}$$
 
 This is one measure of uncertainty that we report alongside our sample-based estimate of the population mean.
 

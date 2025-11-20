@@ -171,7 +171,7 @@ The output includes:
 * The degrees of freedom
 * The <a href="https://ubco-biology.github.io/Procedures-and-Guidelines/glossary#P-value">*P*-value</a> for the test
 * A 95% confidence interval for $\mu$
-* The sample-based estimate, denoted "mean of x", but is our ($\bar{Y}$)
+* The sample-based estimate, denoted "mean of x", but is our (${\bar{Y}}$)
 
 The observed *P*-value for our test is larger than our $\alpha$ level of 0.05.  We therefore fail to reject the null hypothesis.
 
@@ -213,14 +213,14 @@ A straightforward way to calculate the confidence interval for the mean of a num
 
 The formula for a 95% confidence interval for $\mu$ is:  
 
-$$\bar{Y} - t_{0.05(2),df}SE_{\bar{Y}} < \mu <  \bar{Y} + t_{0.05(2),df}SE_{\bar{Y}}$$
+$${\bar{Y}} - t_{0.05(2),df}SE_{\bar{Y}} < \mu <  {\bar{Y}} + t_{0.05(2),df}SE_{\bar{Y}}$$
 
 
 The $t_{0.05(2),df}$ represents the critical value of *t* for a two-tailed test with $\alpha = 0.05$, and *degrees of freedom* (df), which is calculated from our sample size as $df = n - 1$.
 
 $SE_{\bar{Y}}$ is the familiar [standard error of the mean](#sem_page), calculated as: 
 
-$$SE_\bar{Y} = \frac{s}{\sqrt{n}}$$
+$$SE_{\bar{Y}} = \frac{s}{\sqrt{n}}$$
 
 The lower 95 confidence limit is the value to the left of the $\mu$ in the equation above, and the upper 95% confidence limit is the value to the right of of the $\mu$ in the equation. 
 
